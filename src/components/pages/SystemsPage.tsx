@@ -1,19 +1,21 @@
 import {
-  ArchitectureStack,
+  ArchitectureMap,
+  ConceptGrid,
   DefinitionPanel,
   DocumentMetadata,
-  EngineeringCardGrid,
+  EngineeringAnnotation,
   FutureExpansionBlock,
   KeyPrinciples,
+  KnowledgeHero,
   ReferenceLinks,
-  RelationshipChain,
+  RelationshipFlow,
+  ScopePanel,
+  SignalDiagram,
 } from "@/components/engineering";
-import { PageContextNav } from "@/components/pages/PageContextNav";
-import { PageMasthead } from "@/components/pages/PageMasthead";
+import { KnowledgePageNavigation } from "@/components/pages/KnowledgePageNavigation";
 import { PageSectionNav } from "@/components/pages/PageSectionNav";
 import type { Locale } from "@/config/locales";
 import { getEntityById } from "@/content/knowledge/entity-registry";
-import { getEntityStatusLabel } from "@/content/knowledge/status-labels";
 import type { SystemsPageContent } from "@/content/pages/en/systems";
 import { systemsNavChildren } from "@/navigation/site-navigation";
 
@@ -27,13 +29,51 @@ const SYSTEM_ENTITY_IDS = [
   "drone-systems",
 ] as const;
 
+const SYSTEM_ROLES = {
+  "knowledge-engine": {
+    role: "system" as const,
+    relationship: "Provides context to other systems",
+    classification: "SYS-01",
+  },
+  "ai-decision-support": {
+    role: "system" as const,
+    relationship: "Supports human review with analysis",
+    classification: "SYS-02",
+  },
+  "safety-layer": {
+    role: "control" as const,
+    relationship: "Governs limits across multiple systems",
+    classification: "CTL-01",
+  },
+  "communication-layer": {
+    role: "interface" as const,
+    relationship: "Connects components under controlled exchange",
+    classification: "IFC-01",
+  },
+  "clinical-interfaces": {
+    role: "interface" as const,
+    relationship: "Connects controlled workflows to people",
+    classification: "IFC-02",
+  },
+  "robotics-layer": {
+    role: "endpoint" as const,
+    relationship: "Connects digital systems to physical action",
+    classification: "ACT-01",
+  },
+  "drone-systems": {
+    role: "endpoint" as const,
+    relationship: "Specialized aerial operating system",
+    classification: "ACT-02",
+  },
+};
+
 type SystemsPageProps = {
   locale: Locale;
   content: SystemsPageContent;
 };
 
 /**
- * Systems domain landing — architecture map first, then detail.
+ * Systems domain landing — architecture visualization first.
  */
 export function SystemsPage({ locale, content }: SystemsPageProps) {
   const titleId = "page-title";
@@ -55,6 +95,7 @@ export function SystemsPage({ locale, content }: SystemsPageProps) {
     const href = systemsNavChildren.find(
       (item) => item.id === `systems-${entityId}`,
     )?.href;
+    const roleMeta = SYSTEM_ROLES[entityId];
     if (!entity || !href) {
       return [];
     }
@@ -62,98 +103,50 @@ export function SystemsPage({ locale, content }: SystemsPageProps) {
       {
         id: entity.id,
         title: entity.title,
-        summary: entity.summary,
+        responsibility: entity.summary,
+        relationship: roleMeta.relationship,
         href,
-        meta: getEntityStatusLabel(entity.status),
+        role: roleMeta.role,
+        classification: roleMeta.classification,
       },
     ];
   });
 
   return (
     <article className="page page--systems" aria-labelledby={titleId}>
-      <div className="page-shell__inner page-systems-metadata">
-        <DocumentMetadata metadata={content.metadata} />
-      </div>
-
-      <PageMasthead
+      <KnowledgeHero
+        locale={locale}
         domain="systems"
         label={content.label}
         title={content.title}
         titleId={titleId}
-        introduction={content.introduction}
+        explanation={content.introduction}
         {...(content.metadata.status
           ? { status: content.metadata.status }
           : {})}
+        visualization={<SignalDiagram variant="systems-overview" />}
       />
-
-      <div className="page-dev-note">
-        <div className="page-shell__inner">
-          <p className="page-dev-note__text">{content.developmentNote}</p>
-        </div>
-      </div>
-
-      <PageContextNav
-        locale={locale}
-        domain="systems"
-        currentHref="/systems/"
-      />
-
-      <PageSectionNav items={content.sectionNav} />
 
       <div className="page-body">
         <div className="page-shell__inner">
-          <div className="engineering-hero engineering-hero--architecture">
-            <div className="engineering-hero__primary">
-              <DefinitionPanel
-                term="System"
-                definition="A coordinated engineering component that performs a specific role inside SAVEN Core."
-              />
-            </div>
-            <div className="engineering-hero__diagram">
-              <ArchitectureStack
-                id="systems-platform-overview"
-                title="Architecture overview"
-                description="Technology foundations feed Systems. Systems connect to Applications."
-                identity="architecture"
-                nodes={[
-                  { id: "technology", label: "Technology" },
-                  { id: "systems", label: "Systems", current: true },
-                  { id: "applications", label: "Applications" },
-                ]}
-              />
-            </div>
+          <DefinitionPanel
+            term="System"
+            definition="A coordinated engineering component that performs a specific role inside SAVEN Core."
+            coordinate="SYS"
+          />
+
+          <EngineeringAnnotation
+            coordinate="ARC"
+            label="Reading order"
+            text="HUMAN SIGNALS → STRUCTURED KNOWLEDGE → CONTROLLED ACTION"
+          />
+
+          <div id="systems-overview">
+            <ArchitectureMap locale={locale} />
           </div>
 
-          <section
-            id="systems-overview"
-            className="eng-block"
-            aria-labelledby="systems-map-heading"
-          >
-            <h2 id="systems-map-heading" className="eng-block__heading">
-              System map
-            </h2>
-            <p className="eng-block__body">
-              How SAVEN Core systems relate as architecture.
-            </p>
-            <ArchitectureStack
-              id="systems-architecture-map"
-              title="Systems architecture"
-              description="Knowledge Engine through Drone Systems in architecture order."
-              identity="architecture"
-              nodes={[
-                { id: "ke", label: "Knowledge Engine" },
-                { id: "ads", label: "AI Decision Support" },
-                { id: "safety", label: "Safety Layer" },
-                { id: "comms", label: "Communication Layer" },
-                { id: "clinical", label: "Clinical Interfaces" },
-                { id: "robotics", label: "Robotics Layer" },
-                { id: "drones", label: "Drone Systems" },
-              ]}
-            />
-          </section>
-
           <div id="systems-categories">
-            <EngineeringCardGrid
+            <ConceptGrid
               locale={locale}
               heading="Published systems"
               identity="architecture"
@@ -161,7 +154,7 @@ export function SystemsPage({ locale, content }: SystemsPageProps) {
             />
           </div>
 
-          <RelationshipChain
+          <RelationshipFlow
             locale={locale}
             heading="Working relationships"
             description="Shared context feeds assistance under safety and communication limits."
@@ -235,23 +228,22 @@ export function SystemsPage({ locale, content }: SystemsPageProps) {
             />
           </div>
 
-          <section
+          <ScopePanel
             id="current-development-scope"
-            className="eng-block eng-block--scope"
-            aria-labelledby="current-development-scope-heading"
+            variant="current-scope"
+            title={content.scopeHeading}
           >
-            <h2
-              id="current-development-scope-heading"
-              className="eng-block__heading"
-            >
-              {content.scopeHeading}
-            </h2>
             {content.scope.map((paragraph) => (
-              <p key={paragraph} className="eng-block__body">
-                {paragraph}
-              </p>
+              <p key={paragraph}>{paragraph}</p>
             ))}
-          </section>
+          </ScopePanel>
+
+          <ScopePanel
+            variant="engineering-note"
+            title="Development status"
+          >
+            <p>{content.developmentNote}</p>
+          </ScopePanel>
 
           {futureItems.length > 0 ? (
             <div id="future-expansion">
@@ -270,6 +262,19 @@ export function SystemsPage({ locale, content }: SystemsPageProps) {
               links={content.referenceLinks}
             />
           </div>
+        </div>
+      </div>
+
+      <KnowledgePageNavigation
+        locale={locale}
+        domain="systems"
+        currentHref="/systems/"
+      />
+
+      <div className="page-supporting">
+        <div className="page-shell__inner">
+          <DocumentMetadata metadata={content.metadata} />
+          <PageSectionNav items={content.sectionNav} />
         </div>
       </div>
     </article>

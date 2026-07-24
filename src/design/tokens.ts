@@ -26,6 +26,18 @@ export const color = {
   error: "#b91c1c",
 } as const;
 
+/**
+ * Functional signal accents for architecture markers (borders/dots).
+ * Not a marketing palette. Do not use as large fills or neon treatments.
+ */
+export const signal = {
+  human: "#0f4c5c",
+  knowledge: "#1e3a5f",
+  control: "#3f3f46",
+  safety: "#7f1d1d",
+  action: "#14532d",
+} as const;
+
 export type ColorToken = keyof typeof color;
 
 /**
@@ -43,6 +55,7 @@ export const colorDarkSection = {
 
 export const tokens = {
   color,
+  signal,
   colorDarkSection,
   spacing,
   spacingPx,

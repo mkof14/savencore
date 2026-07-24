@@ -8,7 +8,9 @@ If you are a coding agent (Cursor or otherwise), read this file before making an
 
 ## Current Phase
 
-**Systems core architecture domain complete**
+**Design Sprint 1 — SAVEN Core visual system complete**
+
+Knowledge pages use the visual concept HUMAN SIGNALS → STRUCTURED KNOWLEDGE → CONTROLLED ACTION. See `docs/DESIGN_SPRINT_1_SAVEN_VISUAL_SYSTEM.md`.
 
 Systems Overview and seven system pages explain how SAVEN Core works (Technology → Systems → Applications). See `docs/CONTENT_SPRINT_SYSTEMS_CORE.md`.
 
@@ -21,7 +23,8 @@ Systems Overview and seven system pages explain how SAVEN Core works (Technology
 - CMS, database, working search, forms, analytics, cookie consent;
 - authentication or investor portal;
 - leaf marketing pages across the sitemap;
-- graph visualization or knowledge CMS.
+- graph visualization or knowledge CMS;
+- animation or decorative visual effects beyond the approved visual grammar.
 
 ---
 

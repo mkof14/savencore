@@ -1,19 +1,20 @@
 import {
   ArchitectureOverview,
-  ArchitectureStack,
+  ConceptGrid,
   DefinitionPanel,
   DocumentMetadata,
-  EngineeringCardGrid,
   EngineeringDiagram,
   EngineeringSummary,
   FutureExpansionBlock,
   KeyPrinciples,
+  KnowledgeHero,
   ReferenceLinks,
-  RelationshipChain,
+  RelationshipFlow,
+  ScopePanel,
+  SignalDiagram,
 } from "@/components/engineering";
 import { EntityRelationshipIndex } from "@/components/knowledge/EntityRelationshipIndex";
-import { PageContextNav } from "@/components/pages/PageContextNav";
-import { PageMasthead } from "@/components/pages/PageMasthead";
+import { KnowledgePageNavigation } from "@/components/pages/KnowledgePageNavigation";
 import { PageSectionNav } from "@/components/pages/PageSectionNav";
 import type { Locale } from "@/config/locales";
 import { getEntityById } from "@/content/knowledge/entity-registry";
@@ -56,65 +57,28 @@ export function HumanDataModelPage({
 
   return (
     <article className="page page--human-data-model" aria-labelledby={titleId}>
-      <div className="page-shell__inner page-hdm-metadata">
-        <DocumentMetadata metadata={content.metadata} />
-      </div>
-
-      <PageMasthead
+      <KnowledgeHero
+        locale={locale}
         domain="technology"
         label={content.label}
         title={content.title}
         titleId={titleId}
-        introduction={content.introduction}
+        explanation={content.introduction}
         {...(content.metadata.status
           ? { status: content.metadata.status }
           : {})}
+        visualization={<SignalDiagram variant="human-data-model" />}
       />
-
-      <div className="page-dev-note">
-        <div className="page-shell__inner">
-          <p className="page-dev-note__text">{content.developmentNote}</p>
-        </div>
-      </div>
-
-      <PageContextNav
-        locale={locale}
-        domain="technology"
-        currentHref="/technology/human-data-model/"
-      />
-
-      <PageSectionNav items={content.sectionNav} />
 
       <div className="page-body">
         <div className="page-shell__inner">
-          <div className="engineering-hero">
-            <div className="engineering-hero__primary">
-              <DefinitionPanel
-                term="Human Data Model"
-                definition="The structured representation that organizes Human Data and preserves context and relationships."
-              />
-            </div>
-            <div className="engineering-hero__diagram">
-              <ArchitectureStack
-                id="hdm-position"
-                title="Where this fits"
-                description="Human Data Model sits between Human Data and later systems."
-                identity="blueprint"
-                nodes={[
-                  { id: "human-data", label: "Human Data" },
-                  {
-                    id: "hdm",
-                    label: "Human Data Model",
-                    current: true,
-                  },
-                  { id: "ke", label: "Knowledge Engine" },
-                  { id: "ads", label: "AI Decision Support" },
-                ]}
-              />
-            </div>
-          </div>
+          <DefinitionPanel
+            term="Human Data Model"
+            definition="The structured representation that organizes Human Data and preserves context and relationships."
+            coordinate="HDM"
+          />
 
-          <EngineeringCardGrid
+          <ConceptGrid
             locale={locale}
             heading="Connected foundations"
             identity="blueprint"
@@ -122,27 +86,36 @@ export function HumanDataModelPage({
               {
                 id: "human-data",
                 title: "Human Data",
-                summary: "Information about a person from different sources.",
+                responsibility: "Information about a person from different sources.",
+                relationship: "Source signals for the model",
                 href: "/technology/human-data/",
+                role: "foundation",
+                classification: "TEC-01",
               },
               {
                 id: "data-infra",
                 title: "Data Infrastructure",
-                summary:
+                responsibility:
                   "How authorized information is organized and made available.",
+                relationship: "Supports model availability",
                 href: "/technology/data-infrastructure/",
+                role: "foundation",
+                classification: "TEC-03",
               },
               {
                 id: "ke",
                 title: "Knowledge Engine",
-                summary:
+                responsibility:
                   "Organizes knowledge and preserves context for other components.",
+                relationship: "Uses structured relationships",
                 href: "/systems/knowledge-engine/",
+                role: "system",
+                classification: "SYS-01",
               },
             ]}
           />
 
-          <RelationshipChain
+          <RelationshipFlow
             locale={locale}
             heading="Architecture relationships"
             steps={[
@@ -273,20 +246,19 @@ export function HumanDataModelPage({
             </ul>
           </section>
 
-          <section
+          <ScopePanel
             id="current-development-scope"
-            className="eng-block"
-            aria-labelledby="hdm-scope-heading"
+            variant="current-scope"
+            title={content.scopeHeading}
           >
-            <h2 id="hdm-scope-heading" className="eng-block__heading">
-              {content.scopeHeading}
-            </h2>
             {content.scope.map((paragraph) => (
-              <p key={paragraph} className="eng-block__body">
-                {paragraph}
-              </p>
+              <p key={paragraph}>{paragraph}</p>
             ))}
-          </section>
+          </ScopePanel>
+
+          <ScopePanel variant="engineering-note" title="Development status">
+            <p>{content.developmentNote}</p>
+          </ScopePanel>
 
           <div id="future-topics">
             <FutureExpansionBlock
@@ -330,6 +302,19 @@ export function HumanDataModelPage({
               links={content.referenceLinks}
             />
           </div>
+        </div>
+      </div>
+
+      <KnowledgePageNavigation
+        locale={locale}
+        domain="technology"
+        currentHref="/technology/human-data-model/"
+      />
+
+      <div className="page-supporting">
+        <div className="page-shell__inner">
+          <DocumentMetadata metadata={content.metadata} />
+          <PageSectionNav items={content.sectionNav} />
         </div>
       </div>
     </article>

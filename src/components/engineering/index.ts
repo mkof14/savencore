@@ -1,10 +1,14 @@
 import "@/components/engineering/engineering.css";
 
+export { ArchitectureMap } from "@/components/engineering/ArchitectureMap";
 export { ArchitectureOverview } from "@/components/engineering/ArchitectureOverview";
 export { ArchitectureStack } from "@/components/engineering/ArchitectureStack";
+export { ConceptGrid } from "@/components/engineering/ConceptGrid";
 export { DefinitionPanel } from "@/components/engineering/DefinitionPanel";
 export { Dependencies } from "@/components/engineering/Dependencies";
 export { DocumentMetadata } from "@/components/engineering/DocumentMetadata";
+export { DomainPositionMap } from "@/components/engineering/DomainPositionMap";
+export { EngineeringAnnotation } from "@/components/engineering/EngineeringAnnotation";
 export { EngineeringCallout } from "@/components/engineering/EngineeringCallout";
 export { EngineeringCardGrid } from "@/components/engineering/EngineeringCardGrid";
 export { EngineeringDiagram } from "@/components/engineering/EngineeringDiagram";
@@ -14,9 +18,16 @@ export { EngineeringTable } from "@/components/engineering/EngineeringTable";
 export { FutureExpansionBlock } from "@/components/engineering/FutureExpansionBlock";
 export { ImplementationStatus } from "@/components/engineering/ImplementationStatus";
 export { KeyPrinciples } from "@/components/engineering/KeyPrinciples";
+export { KnowledgeHero } from "@/components/engineering/KnowledgeHero";
 export { ReferenceLinks } from "@/components/engineering/ReferenceLinks";
 export { RelatedTopicsBlock } from "@/components/engineering/RelatedTopicsBlock";
 export { RelationshipChain } from "@/components/engineering/RelationshipChain";
+export { RelationshipFlow } from "@/components/engineering/RelationshipFlow";
+export { ScopePanel } from "@/components/engineering/ScopePanel";
+export { SignalDiagram } from "@/components/engineering/SignalDiagram";
 export { SystemLayers } from "@/components/engineering/SystemLayers";
 
 export type * from "@/components/engineering/engineering-types";
+export type { ConceptGridItem, ConceptRole } from "@/components/engineering/ConceptGrid";
+export type { SignalDiagramVariant } from "@/components/engineering/SignalDiagram";
+export type { ScopePanelVariant } from "@/components/engineering/ScopePanel";

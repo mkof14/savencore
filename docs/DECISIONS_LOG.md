@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-24 (Systems Core Architecture Sprint append)
+**Last updated:** 2026-07-24 (Design Sprint 1 — SAVEN Core Visual System append)
 
 ## Rules
 
@@ -136,6 +136,8 @@
 | D-0116 | 2026-07-24 | Relation links use published routes only | Active |
 | D-0117 | 2026-07-24 | Systems core architecture sprint completed | Active |
 | D-0118 | 2026-07-24 | Systems core page template and domain chain | Active |
+| D-0119 | 2026-07-24 | Design Sprint 1 SAVEN Core visual system authorized and completed | Active |
+| D-0120 | 2026-07-24 | KnowledgeHero-first rhythm and page-specific signal diagrams | Active |
 
 ---
 
@@ -997,6 +999,22 @@
 - **Status:** Active
 - **Decision:** Systems leaf pages use the core section set (metadata, summary, why it matters, purpose, architecture role, inputs, outputs, relationships, principles, human oversight, scope, future topics, related technology/systems/applications, references). Empty sections are hidden. Domain reading order is Technology → Systems → Applications.
 - **Implications:** Later Systems edits must preserve this chain and must not restore Systems or Labs inside the Technology dropdown.
+
+### D-0119 — Design Sprint 1 SAVEN Core visual system authorized and completed
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Establish a distinctive SAVEN Core visual system for the knowledge experience under the concept HUMAN SIGNALS → STRUCTURED KNOWLEDGE → CONTROLLED ACTION. Reusable components include KnowledgeHero, DomainPositionMap, ArchitectureMap, SignalDiagram, ScopePanel, ConceptGrid, RelationshipFlow, KnowledgePageNavigation, and EngineeringAnnotation. Geometry remains straight-corner; functional signal accents may mark meaning on borders and nodes only. See `docs/DESIGN_SPRINT_1_SAVEN_VISUAL_SYSTEM.md`.
+- **In scope:** Systems Overview, Technology Overview, Human Data, Human Data Model, Data Infrastructure, Knowledge Engine, AI Decision Support, Safety Layer; shared engineering CSS/tokens; documentation.
+- **Out of scope:** New routes, long-form content invention, IA changes, brand/logo changes, Applications/Research full redesign, animation.
+- **Implications:** Later knowledge pages should extend these components rather than invent parallel visual languages.
+
+### D-0120 — KnowledgeHero-first rhythm and page-specific signal diagrams
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Target knowledge pages open with KnowledgeHero (one H1 + page-specific SignalDiagram). Metadata, section navigation, and previous/next move to supporting positions after primary content. Systems Overview uses ArchitectureMap for multi-role relationships rather than a single vertical list.
+- **Implications:** Do not restore metadata / location / TOC bands as consecutive full-width blocks before the first subject visualization.
 
 ---
 

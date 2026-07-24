@@ -1042,6 +1042,13 @@
 - **Decision:** Technology Privacy/Security remain engineering foundations. Systems Safety Layer remains system-wide safeguards. Trust Privacy/Security/Safety document organizational commitments, governance and reader-facing limits.
 - **Implications:** Do not merge these page types or duplicate their roles.
 
+### D-0124 — Home Knowledge Explorer entrance authorized and completed
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Replace the corporate gateway Home with a Knowledge Explorer entrance: engineering hero with architecture chain, domain explorer cards, dependency map, honest platform status, featured concepts, and structured domain entrances. No new domains or long-form Home prose.
+- **Implications:** Home explains what SAVEN Core is, how domains connect, and where to begin. Research remains In Progress; Company remains Planned. Do not link unpublished Company/Investors/Roadmap destinations from Home.
+
 ---
 
 ## Pending Owner Decisions

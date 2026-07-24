@@ -1,12 +1,11 @@
 import { notFound } from "next/navigation";
 
-import { ApplicationDirectory } from "@/components/home/ApplicationDirectory";
-import { CorporateClosing } from "@/components/home/CorporateClosing";
-import { DevelopmentStatus } from "@/components/home/DevelopmentStatus";
+import { ContinueExploring } from "@/components/home/ContinueExploring";
+import { DomainMap } from "@/components/home/DomainMap";
+import { FeaturedConcepts } from "@/components/home/FeaturedConcepts";
 import { HomeHero } from "@/components/home/HomeHero";
-import { PurposeFoundationOverview } from "@/components/home/PurposeFoundationOverview";
-import { ResearchTrustOverview } from "@/components/home/ResearchTrustOverview";
-import { TechnologySystemsDirectory } from "@/components/home/TechnologySystemsDirectory";
+import { KnowledgeExplorer } from "@/components/home/KnowledgeExplorer";
+import { PlatformStatus } from "@/components/home/PlatformStatus";
 import "@/components/home/home.css";
 import { isLocale } from "@/config/locales";
 
@@ -15,8 +14,7 @@ type LocalePageProps = {
 };
 
 /**
- * Home route — Phase 1E.1 corporate gateway (seven regions).
- * English content is the controlled fallback for all locales in this phase.
+ * Home — Knowledge Explorer entrance to SAVEN Core.
  */
 export default async function LocaleHomePage({ params }: LocalePageProps) {
   const { locale: localeParam } = await params;
@@ -30,12 +28,11 @@ export default async function LocaleHomePage({ params }: LocalePageProps) {
   return (
     <div className="home">
       <HomeHero locale={locale} />
-      <PurposeFoundationOverview locale={locale} />
-      <ApplicationDirectory locale={locale} />
-      <TechnologySystemsDirectory locale={locale} />
-      <ResearchTrustOverview locale={locale} />
-      <DevelopmentStatus />
-      <CorporateClosing locale={locale} />
+      <KnowledgeExplorer locale={locale} />
+      <DomainMap locale={locale} />
+      <PlatformStatus />
+      <FeaturedConcepts locale={locale} />
+      <ContinueExploring locale={locale} />
     </div>
   );
 }

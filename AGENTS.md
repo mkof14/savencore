@@ -8,15 +8,13 @@ If you are a coding agent (Cursor or otherwise), read this file before making an
 
 ## Current Phase
 
-**Content + Design Sprint 2 — Applications and Trust complete**
+**Home Knowledge Explorer complete**
 
-Applications and Trust domains are published with Visual System v1. See `docs/CONTENT_DESIGN_SPRINT_2_APPLICATIONS_TRUST.md` and `docs/DESIGN_SPRINT_1_SAVEN_VISUAL_SYSTEM.md`.
-
-Systems Overview and seven system pages explain how SAVEN Core works (Technology → Systems → Applications). See `docs/CONTENT_SPRINT_SYSTEMS_CORE.md`.
+Home is the entrance to SAVEN Core (engineering hero, Knowledge Explorer, domain map, platform status, featured concepts, continue exploring). Technology, Systems, Applications and Trust knowledge domains are published; Research remains In Progress. See D-0124, `docs/CONTENT_DESIGN_SPRINT_2_APPLICATIONS_TRUST.md`, and `docs/DESIGN_SPRINT_1_SAVEN_VISUAL_SYSTEM.md`.
 
 **Do not begin without explicit owner approval:**
 
-- Home redesign beyond navigation data corrections;
+- Further Home redesign beyond authorized Knowledge Explorer work;
 - `/legal/*` policy page publication;
 - Entity Registry entity invention unless explicitly authorized;
 - custom brand fonts / final brand colors / logo asset / imagery;

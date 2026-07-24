@@ -11,63 +11,38 @@ export const communicationLayerPageContent: SystemDisciplinePageContent = {
     category: "Systems",
     documentType: "Knowledge",
     status: "Architecture",
-    version: "0.1",
+    version: "0.2",
     lastUpdated: "2026-07-24",
-    readingTime: "8 min",
-    relatedDomain: "Technology, Applications, Research",
+    readingTime: "7 min",
+    relatedDomain: "Technology, Applications",
   },
   label: "Communication Layer",
-  title: "Structured exchange between components and approved interfaces.",
-  introduction: "The Communication Layer coordinates structured information exchange between SAVEN Core components and approved external interfaces.",
+  title: "Coordinated exchange inside SAVEN Core and approved external systems.",
+  introduction: "The Communication Layer coordinates information exchange between internal SAVEN Core components and approved external systems.",
   developmentNote: SYSTEMS_DEVELOPMENT_NOTE,
   executiveSummaryHeading: "Executive Summary",
   executiveSummary: [
-    "The Communication Layer coordinates structured information exchange between SAVEN Core components and approved external interfaces. Pathways stay permissioned and subordinate to safety constraints.",
-    "It exists so systems can send signals and commands without opening uncontrolled channels. It depends on Interoperability, Security and Data Infrastructure as Technology foundations."
+    "The Communication Layer coordinates information exchange between internal SAVEN Core components and approved external systems.",
+    "It exists so systems can send signals and commands without opening uncontrolled channels.",
+    "It uses Technology foundations such as Interoperability, Security and Data Infrastructure. Systems such as Clinical Interfaces and the Robotics Layer depend on it. Applications describe where exchange may be needed."
   ],
   whyItMattersHeading: "Why It Matters",
   whyItMatters: [
     "Systems must exchange information to work together.",
     "Uncontrolled exchange creates privacy and safety risk.",
-    "The Communication Layer keeps exchange structured and limited.",
-    "It supports people, devices and approved environments under the same rules."
+    "Structured pathways keep authority and purpose visible."
   ],
   purposeHeading: "Purpose",
   purpose: [
-    "Define how systems, people and authorized environments exchange signals and commands.",
-    "Keep pathways permissioned and reviewable where required.",
-    "Support Interoperability without inventing vendors or protocols on this page."
-  ],
-  responsibilitiesHeading: "Core Responsibilities",
-  responsibilitiesIntro:
-    "These responsibilities describe architecture roles. They do not claim production operation.",
-  responsibilities: [
-    {
-      id: "coordinate",
-      title: "Coordinate exchange",
-      text: "Provide structured pathways for approved messages and commands.",
-    },
-    {
-      id: "limit",
-      title: "Limit access",
-      text: "Allow only authorized participants to use a pathway.",
-    },
-    {
-      id: "subordinate",
-      title: "Stay under safety",
-      text: "Communication remains subordinate to the Safety Layer.",
-    },
-    {
-      id: "connect",
-      title: "Connect components",
-      text: "Help Robotics Layer, Drone Systems and Clinical Interfaces exchange what they are allowed to exchange.",
-    }
+    "Coordinate approved internal exchange.",
+    "Connect only to approved external systems.",
+    "Remain subordinate to safety and permission limits."
   ],
   architectureRoleHeading: "Architecture Role",
   architectureRole: [
     "The Communication Layer sits between system components and approved external interfaces.",
-    "It does not replace Interoperability policy. It carries exchange under those limits.",
-    "Security protects pathways; Privacy still limits what human context may move."
+    "It carries exchange. It does not grant its own authority.",
+    "The Safety Layer can forbid an action even if a channel exists."
   ],
   inputsHeading: "Inputs",
   inputs: [
@@ -78,12 +53,12 @@ export const communicationLayerPageContent: SystemDisciplinePageContent = {
   outputsHeading: "Outputs",
   outputs: [
     "Structured exchange between approved components.",
-    "Controlled interface pathways to authorized environments.",
-    "Auditability where the architecture requires it."
+    "Controlled pathways to authorized external systems.",
+    "Auditability where architecture requires it."
   ],
-  relationshipsHeading: "Relationships to Other Systems",
+  relationshipsHeading: "Relationships",
   relationshipsIntro:
-    "Links below come from the shared entity registry. They describe architecture, not live integrations.",
+    "These links come from the shared entity registry. They describe architecture dependencies, not live integrations.",
   principlesHeading: "Engineering Principles",
   principles: [
     {
@@ -92,42 +67,37 @@ export const communicationLayerPageContent: SystemDisciplinePageContent = {
       text: "Messages follow defined roles and limits.",
     },
     {
-      id: "permissioned",
-      title: "Permissioned pathways",
-      text: "Exchange is not open by default.",
+      id: "approved",
+      title: "Approved only",
+      text: "External connections are not open by default.",
     },
     {
-      id: "safety-first",
+      id: "safety",
       title: "Safety first",
-      text: "If safety forbids an action, communication must not enable it.",
+      text: "Communication must not enable a forbidden action.",
     },
     {
-      id: "no-vendors",
-      title: "No vendor claims",
-      text: "This page does not name networks, clouds or products.",
-    },
-    {
-      id: "human-oversight",
-      title: "Human oversight",
-      text: "Important communication authorizations remain under human authority.",
+      id: "no-impl",
+      title: "No implementation detail",
+      text: "This page names no vendors, protocols or APIs.",
     }
   ],
   humanOversightHeading: "Human Oversight",
   humanOversight: [
     "People approve consequential external connections.",
-    "The Communication Layer may carry messages. It does not grant its own authority."
+    "The Communication Layer carries messages. It does not invent authority."
   ],
   scopeHeading: "Current Development Scope",
   scope: [
-    "This page defines the Communication Layer as architecture.",
-    "It does not claim production messaging platforms or protocol selections.",
+    "This page defines architecture only.",
+    "It does not claim production messaging platforms.",
     "Status remains conceptual."
   ],
   futureHeading: "Future Topics",
   futureIntro:
     "Topics below come from the shared registry. They mark later documentation needs. They are not delivery promises.",
   relatedTechnologyHeading: "Related Technology",
-  relatedResearchHeading: "Related Research",
+  relatedSystemsHeading: "Related Systems",
   relatedApplicationsHeading: "Related Applications",
   referenceHeading: "Reference Links",
   referenceLinks: systemsDisciplineReferenceLinks("/systems/communication-layer/"),

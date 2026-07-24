@@ -11,115 +11,85 @@ export const aiDecisionSupportPageContent: SystemDisciplinePageContent = {
     category: "Systems",
     documentType: "Knowledge",
     status: "Architecture",
-    version: "0.1",
+    version: "0.2",
     lastUpdated: "2026-07-24",
-    readingTime: "8 min",
-    relatedDomain: "Technology, Applications, Research",
+    readingTime: "7 min",
+    relatedDomain: "Technology, Applications",
   },
   label: "AI Decision Support",
-  title: "Support for human review and decision-making.",
-  introduction: "AI Decision Support uses available information to support human review and decision-making. It does not replace human judgment.",
+  title: "Analysis that supports people without replacing them.",
+  introduction: "AI Decision Support analyzes available information to support people. It does not replace people.",
   developmentNote: SYSTEMS_DEVELOPMENT_NOTE,
   executiveSummaryHeading: "Executive Summary",
   executiveSummary: [
-    "AI Decision Support uses available information to support human review and decision-making. It does not replace human judgment.",
-    "It exists so people can see options and context more clearly under permissions and safety limits. It depends on the Human Data Model and Knowledge Engine, and on Artificial Intelligence as a Technology foundation."
+    "AI Decision Support analyzes available information to support human review. It does not replace people.",
+    "It exists so people can see options, uncertainty and limits more clearly before they decide.",
+    "It uses Technology foundations such as Artificial Intelligence, plus context from the Knowledge Engine and Human Data Model. Applications name where that support may later appear."
   ],
   whyItMattersHeading: "Why It Matters",
   whyItMatters: [
-    "Complex situations are hard to review without structured assistance.",
-    "People still need to remain responsible for important outcomes.",
-    "AI Decision Support helps present options and context within limits.",
-    "It prevents the false claim that machines decide for people."
+    "People need structured help in complex situations.",
+    "Help without limits becomes unsafe authority.",
+    "Clear support keeps judgment with humans."
   ],
   purposeHeading: "Purpose",
   purpose: [
-    "Assist interpretation and option evaluation under explicit limits.",
-    "Keep uncertainty and escalation visible to human reviewers.",
-    "Support clinical and care interfaces without claiming medical authority."
-  ],
-  responsibilitiesHeading: "Core Responsibilities",
-  responsibilitiesIntro:
-    "These responsibilities describe architecture roles. They do not claim production operation.",
-  responsibilities: [
-    {
-      id: "interpret",
-      title: "Support interpretation",
-      text: "Help people understand authorized context without inventing unrestricted facts.",
-    },
-    {
-      id: "options",
-      title: "Present options",
-      text: "Surface possible next steps for human review when the architecture allows.",
-    },
-    {
-      id: "bounds",
-      title: "Stay inside bounds",
-      text: "Remain connected to rules, uncertainty handling and stop conditions.",
-    },
-    {
-      id: "no-replace",
-      title: "Do not replace judgment",
-      text: "Assistance ends where human decision authority begins.",
-    }
+    "Analyze authorized information for human review.",
+    "Present options and uncertainty within safety limits.",
+    "Support care and other workflows without claiming medical authority."
   ],
   architectureRoleHeading: "Architecture Role",
   architectureRole: [
-    "AI Decision Support sits after organized human context and knowledge context.",
-    "It may inform Clinical Interfaces and other approved pathways.",
-    "The Safety Layer constrains what assistance may do when risk rises."
+    "AI Decision Support sits after shared context and before Clinical Interfaces.",
+    "The Safety Layer can stop, defer or escalate its pathways.",
+    "It consumes Artificial Intelligence as a Technology foundation. It is not that foundation by itself."
   ],
   inputsHeading: "Inputs",
   inputs: [
     "Authorized context from the Human Data Model.",
-    "Consistent references from the Knowledge Engine.",
-    "Rules and limits from safety and privacy constraints."
+    "Shared references from the Knowledge Engine.",
+    "Safety and permission limits."
   ],
   outputsHeading: "Outputs",
   outputs: [
-    "Assistance for human review.",
-    "Option and uncertainty presentation within limits.",
-    "Escalation signals when conditions require human attention."
+    "Support for human review.",
+    "Option and uncertainty presentation within bounds.",
+    "Escalation signals when people must take over."
   ],
-  relationshipsHeading: "Relationships to Other Systems",
+  relationshipsHeading: "Relationships",
   relationshipsIntro:
-    "Links below come from the shared entity registry. They describe architecture, not live integrations.",
+    "These links come from the shared entity registry. They describe architecture dependencies, not live integrations.",
   principlesHeading: "Engineering Principles",
   principles: [
     {
-      id: "human-authority",
-      title: "Human authority",
-      text: "Important outcomes remain under human judgment.",
+      id: "support",
+      title: "Support people",
+      text: "The system assists. People decide.",
     },
     {
-      id: "permissioned",
-      title: "Permissioned use",
-      text: "Only authorized information may inform assistance.",
+      id: "bounded",
+      title: "Bounded analysis",
+      text: "Only authorized information may be used.",
     },
     {
       id: "uncertainty",
-      title: "Uncertainty handling",
-      text: "Low confidence should favor caution and review.",
+      title: "Show uncertainty",
+      text: "Low confidence increases caution.",
     },
     {
-      id: "no-autonomy",
-      title: "No autonomous claims",
-      text: "This system does not claim independent decision power over people.",
-    },
-    {
-      id: "safety-linked",
-      title: "Safety-linked",
-      text: "Assistance remains subordinate to the Safety Layer.",
+      id: "safety",
+      title: "Safety first",
+      text: "The Safety Layer can interrupt assistance.",
     }
   ],
   humanOversightHeading: "Human Oversight",
   humanOversight: [
     "Human reviewers remain responsible for consequential choices.",
-    "AI Decision Support may inform. It may not close the decision."
+    "Assistance may inform. It may not close the decision."
   ],
   scopeHeading: "Current Development Scope",
   scope: [
-    "This page defines AI Decision Support as architecture.",
+    "This page defines architecture only.",
     "It does not claim clinical deployment or autonomous medical action.",
     "Status remains conceptual."
   ],
@@ -127,7 +97,7 @@ export const aiDecisionSupportPageContent: SystemDisciplinePageContent = {
   futureIntro:
     "Topics below come from the shared registry. They mark later documentation needs. They are not delivery promises.",
   relatedTechnologyHeading: "Related Technology",
-  relatedResearchHeading: "Related Research",
+  relatedSystemsHeading: "Related Systems",
   relatedApplicationsHeading: "Related Applications",
   referenceHeading: "Reference Links",
   referenceLinks: systemsDisciplineReferenceLinks("/systems/ai-decision-support/"),

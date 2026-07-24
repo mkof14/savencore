@@ -19,7 +19,6 @@ import type { SystemDisciplinePageContent } from "@/content/pages/en/system-disc
 const SYSTEM_RELATION_GROUPS: readonly EntityRelationGroupId[] = [
   "depends-on",
   "used-by",
-  "related-systems",
   "trust-and-safety",
 ];
 
@@ -67,8 +66,8 @@ function ProseSection({
 }
 
 /**
- * Shared Systems leaf-page template.
- * Empty optional prose sections are not rendered.
+ * Shared Systems leaf-page template — Core Architecture Sprint.
+ * Empty optional prose and empty relation groups are not rendered.
  */
 export function SystemDisciplinePage({
   locale,
@@ -83,6 +82,20 @@ export function SystemDisciplinePage({
       label: entity.title,
       note: topic,
     })) ?? [];
+
+  const showRelationships = hasRelationGroups(
+    content.entityId,
+    SYSTEM_RELATION_GROUPS,
+  );
+  const showRelatedTechnology = hasRelationGroups(content.entityId, [
+    "related-technologies",
+  ]);
+  const showRelatedSystems = hasRelationGroups(content.entityId, [
+    "related-systems",
+  ]);
+  const showRelatedApplications = hasRelationGroups(content.entityId, [
+    "related-applications",
+  ]);
 
   return (
     <article className="page page--system-discipline" aria-labelledby={titleId}>
@@ -129,30 +142,6 @@ export function SystemDisciplinePage({
             paragraphs={content.purpose}
           />
 
-          {content.responsibilities.length > 0 ? (
-            <section
-              id="core-responsibilities"
-              className="eng-block"
-              aria-labelledby="system-responsibilities-heading"
-            >
-              <h2
-                id="system-responsibilities-heading"
-                className="eng-block__heading"
-              >
-                {content.responsibilitiesHeading}
-              </h2>
-              <p className="eng-block__body">{content.responsibilitiesIntro}</p>
-              <ul className="eng-principles">
-                {content.responsibilities.map((item) => (
-                  <li key={item.id} className="eng-principles__item">
-                    <h3 className="eng-principles__title">{item.title}</h3>
-                    <p className="eng-principles__text">{item.text}</p>
-                  </li>
-                ))}
-              </ul>
-            </section>
-          ) : null}
-
           <ProseSection
             id="architecture-role"
             heading={content.architectureRoleHeading}
@@ -197,7 +186,7 @@ export function SystemDisciplinePage({
             </section>
           ) : null}
 
-          {hasRelationGroups(content.entityId, SYSTEM_RELATION_GROUPS) ? (
+          {showRelationships ? (
             <section
               id="relationships"
               className="eng-block"
@@ -250,32 +239,38 @@ export function SystemDisciplinePage({
             </div>
           ) : null}
 
-          <div id="related-technology">
-            <EntityRelationshipIndex
-              locale={locale}
-              entityId={content.entityId}
-              heading={content.relatedTechnologyHeading}
-              includeGroups={["related-technologies"]}
-            />
-          </div>
+          {showRelatedTechnology ? (
+            <div id="related-technology">
+              <EntityRelationshipIndex
+                locale={locale}
+                entityId={content.entityId}
+                heading={content.relatedTechnologyHeading}
+                includeGroups={["related-technologies"]}
+              />
+            </div>
+          ) : null}
 
-          <div id="related-research">
-            <EntityRelationshipIndex
-              locale={locale}
-              entityId={content.entityId}
-              heading={content.relatedResearchHeading}
-              includeGroups={["related-research"]}
-            />
-          </div>
+          {showRelatedSystems ? (
+            <div id="related-systems">
+              <EntityRelationshipIndex
+                locale={locale}
+                entityId={content.entityId}
+                heading={content.relatedSystemsHeading}
+                includeGroups={["related-systems"]}
+              />
+            </div>
+          ) : null}
 
-          <div id="related-applications">
-            <EntityRelationshipIndex
-              locale={locale}
-              entityId={content.entityId}
-              heading={content.relatedApplicationsHeading}
-              includeGroups={["related-applications"]}
-            />
-          </div>
+          {showRelatedApplications ? (
+            <div id="related-applications">
+              <EntityRelationshipIndex
+                locale={locale}
+                entityId={content.entityId}
+                heading={content.relatedApplicationsHeading}
+                includeGroups={["related-applications"]}
+              />
+            </div>
+          ) : null}
 
           <div id="reference-links">
             <ReferenceLinks

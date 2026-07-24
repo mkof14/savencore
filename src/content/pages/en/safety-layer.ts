@@ -11,115 +11,85 @@ export const safetyLayerPageContent: SystemDisciplinePageContent = {
     category: "Systems",
     documentType: "Knowledge",
     status: "Architecture",
-    version: "0.1",
+    version: "0.2",
     lastUpdated: "2026-07-24",
-    readingTime: "8 min",
-    relatedDomain: "Technology, Applications, Research",
+    readingTime: "7 min",
+    relatedDomain: "Technology, Applications",
   },
   label: "Safety Layer",
-  title: "Safeguards, limits, checks and escalation across systems.",
-  introduction: "The Safety Layer applies safeguards, limits, checks and escalation rules across systems. Safety is structural, not a certification badge.",
+  title: "Validation, limits, review and escalation across systems.",
+  introduction: "The Safety Layer applies validation, limits, human review, risk reduction and escalation across SAVEN Core systems.",
   developmentNote: SYSTEMS_DEVELOPMENT_NOTE,
   executiveSummaryHeading: "Executive Summary",
   executiveSummary: [
-    "The Safety Layer applies safeguards, limits, checks and escalation rules across SAVEN Core systems. It encodes when to stop, defer or escalate.",
-    "It exists because assistance pathways can affect people. Privacy and Security protect information and access; the Safety Layer constrains operational behavior under human oversight."
+    "The Safety Layer applies validation, limits, human review, risk reduction and escalation across systems.",
+    "It exists because assistance and physical pathways can affect people. Shared stop rules protect the whole architecture.",
+    "Technology foundations such as Privacy and Security protect information and access. The Safety Layer constrains what systems may do next. Applications inherit those limits in each context of use."
   ],
   whyItMattersHeading: "Why It Matters",
   whyItMatters: [
     "Helpful systems can still cause harm without stop conditions.",
-    "Safety must be shared across systems, not reinvented in each one.",
-    "Escalation keeps people in control when risk rises.",
-    "SAVEN Core treats safety as architecture, not marketing language."
+    "Each system must not invent its own unsafe rules.",
+    "Escalation keeps people in control when risk rises."
   ],
   purposeHeading: "Purpose",
   purpose: [
-    "Encode operational boundaries across systems.",
-    "Define escalation, fallback and conditions to stop or defer.",
-    "Support trust constraints without claiming completed certifications."
-  ],
-  responsibilitiesHeading: "Core Responsibilities",
-  responsibilitiesIntro:
-    "These responsibilities describe architecture roles. They do not claim production operation.",
-  responsibilities: [
-    {
-      id: "boundaries",
-      title: "Set boundaries",
-      text: "Define what systems may do and what they must not do.",
-    },
-    {
-      id: "escalate",
-      title: "Escalate risk",
-      text: "Move attention to human authority when conditions require it.",
-    },
-    {
-      id: "fallback",
-      title: "Provide fallback",
-      text: "Prefer stop or defer behavior when uncertainty or risk is too high.",
-    },
-    {
-      id: "cross-cutting",
-      title: "Apply across systems",
-      text: "Keep the same safety expectations visible to multiple components.",
-    }
+    "Validate that action stays inside approved bounds.",
+    "Apply limits, risk reduction and human review points.",
+    "Escalate or stop when conditions require it."
   ],
   architectureRoleHeading: "Architecture Role",
   architectureRole: [
     "The Safety Layer is cross-cutting. It is not a child of one subsystem alone.",
-    "It works with Privacy and Security as Technology foundations.",
-    "Robotics Layer, Drone Systems and AI Decision Support inherit its limits."
+    "It constrains AI Decision Support, Clinical Interfaces, the Robotics Layer and Drone Systems.",
+    "It works with Privacy and Security. It does not replace them."
   ],
   inputsHeading: "Inputs",
   inputs: [
-    "Risk and boundary definitions.",
+    "Boundary and risk definitions.",
     "Signals that conditions have changed.",
     "Human authority requirements for consequential action."
   ],
   outputsHeading: "Outputs",
   outputs: [
     "Stop, defer and escalation rules.",
-    "Shared safety constraints for other systems.",
+    "Shared limits for other systems.",
     "Clear points where people must intervene."
   ],
-  relationshipsHeading: "Relationships to Other Systems",
+  relationshipsHeading: "Relationships",
   relationshipsIntro:
-    "Links below come from the shared entity registry. They describe architecture, not live integrations.",
+    "These links come from the shared entity registry. They describe architecture dependencies, not live integrations.",
   principlesHeading: "Engineering Principles",
   principles: [
     {
-      id: "structural",
-      title: "Structural safety",
-      text: "Safety belongs in architecture, not only in statements of intent.",
+      id: "validate",
+      title: "Validate first",
+      text: "Action proceeds only inside approved bounds.",
     },
     {
-      id: "stoppable",
-      title: "Stoppable systems",
+      id: "stop",
+      title: "Stoppable",
       text: "If a pathway cannot stop or defer, it is not ready.",
     },
     {
-      id: "human-first",
-      title: "Human-first escalation",
-      text: "Rising risk increases human control, not machine autonomy.",
+      id: "escalate",
+      title: "Escalate risk",
+      text: "Rising risk increases human control.",
     },
     {
       id: "no-badge",
       title: "No certification claim",
-      text: "This page does not claim completed safety audits or approvals.",
-    },
-    {
-      id: "paired-trust",
-      title: "Paired with trust",
-      text: "Safety works with Privacy and Security, not instead of them.",
+      text: "This page does not claim completed safety audits.",
     }
   ],
   humanOversightHeading: "Human Oversight",
   humanOversight: [
     "People define and review safety boundaries.",
-    "Systems may enforce limits. People remain responsible for important overrides and approvals."
+    "Systems may enforce limits. People remain responsible for important overrides."
   ],
   scopeHeading: "Current Development Scope",
   scope: [
-    "This page defines the Safety Layer as architecture.",
+    "This page defines architecture only.",
     "It does not claim certified safety products or production control rooms.",
     "Status is active development as architecture only."
   ],
@@ -127,7 +97,7 @@ export const safetyLayerPageContent: SystemDisciplinePageContent = {
   futureIntro:
     "Topics below come from the shared registry. They mark later documentation needs. They are not delivery promises.",
   relatedTechnologyHeading: "Related Technology",
-  relatedResearchHeading: "Related Research",
+  relatedSystemsHeading: "Related Systems",
   relatedApplicationsHeading: "Related Applications",
   referenceHeading: "Reference Links",
   referenceLinks: systemsDisciplineReferenceLinks("/systems/safety-layer/"),

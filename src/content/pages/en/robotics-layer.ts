@@ -11,63 +11,38 @@ export const roboticsLayerPageContent: SystemDisciplinePageContent = {
     category: "Systems",
     documentType: "Knowledge",
     status: "Architecture",
-    version: "0.1",
+    version: "0.2",
     lastUpdated: "2026-07-24",
-    readingTime: "8 min",
-    relatedDomain: "Technology, Applications, Research",
+    readingTime: "7 min",
+    relatedDomain: "Technology, Applications",
   },
   label: "Robotics Layer",
-  title: "Connection between approved instructions and physical robotic systems.",
-  introduction: "The Robotics Layer connects digital decisions, approved instructions and physical robotic systems. It does not imply autonomous deployment without oversight.",
+  title: "Approved interaction between digital systems and robotic systems.",
+  introduction: "The Robotics Layer coordinates approved interaction between digital systems and robotic systems. It does not imply autonomous deployment without oversight.",
   developmentNote: SYSTEMS_DEVELOPMENT_NOTE,
   executiveSummaryHeading: "Executive Summary",
   executiveSummary: [
-    "The Robotics Layer connects digital decisions, approved instructions and physical robotic systems. It does not imply autonomous deployment without oversight.",
-    "It exists so physical assistance can follow the same permission and safety rules as other SAVEN Core systems. It depends on Robotics and Automation as Technology foundations."
+    "The Robotics Layer coordinates approved interaction between digital systems and robotic systems.",
+    "It exists so physical assistance follows the same permission and safety rules as the rest of SAVEN Core.",
+    "It builds on Technology foundations such as Robotics and Automation. Drone Systems apply this layer to aerial use. Applications describe where physical assistance may later matter."
   ],
   whyItMattersHeading: "Why It Matters",
   whyItMatters: [
     "Some assistance happens in physical space, not only on screens.",
-    "Physical action needs stronger stop conditions and human control.",
-    "The Robotics Layer translates approved intent into governed physical pathways.",
-    "It prevents the claim that robots act without oversight."
+    "Physical action needs stronger stop conditions.",
+    "Approved interaction keeps people able to pause or reclaim control."
   ],
   purposeHeading: "Purpose",
   purpose: [
-    "Connect intelligence and interfaces to physical assistance capabilities.",
+    "Coordinate approved digital-to-robotic interaction.",
     "Keep mobility and interaction inside operational boundaries.",
-    "Support later application contexts without claiming deployed robot fleets."
-  ],
-  responsibilitiesHeading: "Core Responsibilities",
-  responsibilitiesIntro:
-    "These responsibilities describe architecture roles. They do not claim production operation.",
-  responsibilities: [
-    {
-      id: "connect",
-      title: "Connect digital to physical",
-      text: "Carry approved instructions toward physical assistance pathways.",
-    },
-    {
-      id: "bound",
-      title: "Keep action bounded",
-      text: "Physical behavior stays inside purpose, permission and stop conditions.",
-    },
-    {
-      id: "handoff",
-      title: "Support human handoff",
-      text: "People must be able to pause, redirect or reclaim control.",
-    },
-    {
-      id: "coordinate",
-      title: "Coordinate with related systems",
-      text: "Work with Communication Layer, Safety Layer and Drone Systems where relevant.",
-    }
+    "Support later application contexts without claiming deployed fleets."
   ],
   architectureRoleHeading: "Architecture Role",
   architectureRole: [
-    "The Robotics Layer sits between assistance decisions and physical devices or interfaces.",
-    "Automation may define bounded behavior. Robotics Technology names the physical discipline.",
-    "The Safety Layer can stop or defer physical pathways."
+    "The Robotics Layer sits between assistance decisions and physical devices.",
+    "Drone Systems specialize this layer for aerial pathways.",
+    "The Safety Layer and Communication Layer constrain what may proceed."
   ],
   inputsHeading: "Inputs",
   inputs: [
@@ -81,35 +56,30 @@ export const roboticsLayerPageContent: SystemDisciplinePageContent = {
     "Stop and handoff points for people.",
     "Coordination signals with related systems."
   ],
-  relationshipsHeading: "Relationships to Other Systems",
+  relationshipsHeading: "Relationships",
   relationshipsIntro:
-    "Links below come from the shared entity registry. They describe architecture, not live integrations.",
+    "These links come from the shared entity registry. They describe architecture dependencies, not live integrations.",
   principlesHeading: "Engineering Principles",
   principles: [
     {
-      id: "oversight",
-      title: "Oversight required",
-      text: "Physical action without oversight is outside this architecture.",
+      id: "approved",
+      title: "Approved interaction only",
+      text: "Physical pathways need authorization.",
     },
     {
-      id: "stoppable",
+      id: "stop",
       title: "Stoppable action",
       text: "Physical pathways must be able to stop.",
     },
     {
-      id: "permissioned",
-      title: "Permissioned presence",
-      text: "Devices should not act in a person’s environment without approval.",
+      id: "handoff",
+      title: "Human handoff",
+      text: "People must be able to reclaim control.",
     },
     {
-      id: "no-fleet-claim",
+      id: "no-fleet",
       title: "No deployment claim",
       text: "This page does not claim operating robot fleets.",
-    },
-    {
-      id: "safety-linked",
-      title: "Safety-linked",
-      text: "The Safety Layer constrains physical assistance.",
     }
   ],
   humanOversightHeading: "Human Oversight",
@@ -119,7 +89,7 @@ export const roboticsLayerPageContent: SystemDisciplinePageContent = {
   ],
   scopeHeading: "Current Development Scope",
   scope: [
-    "This page defines the Robotics Layer as architecture.",
+    "This page defines architecture only.",
     "It does not name robot vendors or claim production deployment.",
     "Status remains conceptual."
   ],
@@ -127,7 +97,7 @@ export const roboticsLayerPageContent: SystemDisciplinePageContent = {
   futureIntro:
     "Topics below come from the shared registry. They mark later documentation needs. They are not delivery promises.",
   relatedTechnologyHeading: "Related Technology",
-  relatedResearchHeading: "Related Research",
+  relatedSystemsHeading: "Related Systems",
   relatedApplicationsHeading: "Related Applications",
   referenceHeading: "Reference Links",
   referenceLinks: systemsDisciplineReferenceLinks("/systems/robotics-layer/"),

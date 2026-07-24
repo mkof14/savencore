@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-24 (Systems Content Sprint append)
+**Last updated:** 2026-07-24 (Systems Core Architecture Sprint append)
 
 ## Rules
 
@@ -134,6 +134,8 @@
 | D-0114 | 2026-07-24 | Systems knowledge domain content sprint completed | Active |
 | D-0115 | 2026-07-24 | Approved Systems page boundaries and definitions | Active |
 | D-0116 | 2026-07-24 | Relation links use published routes only | Active |
+| D-0117 | 2026-07-24 | Systems core architecture sprint completed | Active |
+| D-0118 | 2026-07-24 | Systems core page template and domain chain | Active |
 
 ---
 
@@ -980,6 +982,21 @@
 - **Status:** Active
 - **Decision:** Entity relation and related-page links resolve through published leaf paths when available (`ENTITY_PAGE_HREFS`) and omit destinations that are not in `PUBLISHED_ROUTES`. Unpublished Applications and Research leaves link to their domain overviews only.
 - **Implications:** Navigation and knowledge relation indexes must not expose unpublished leaf URLs.
+
+### D-0117 — Systems core architecture sprint completed
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Authorize and record completion of the Systems core architecture sprint: Systems Overview plus seven system pages under `/[locale]/systems/`, focused on explaining how SAVEN Core works. See `docs/CONTENT_SPRINT_SYSTEMS_CORE.md`.
+- **Out of scope:** Applications leaf pages, Trust page, Labs, Company, Home redesign, Entity Registry entity invention.
+- **Implications:** Systems remains published in primary, mobile and footer navigation. Content prioritizes architecture chain clarity over page inventory alone.
+
+### D-0118 — Systems core page template and domain chain
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Systems leaf pages use the core section set (metadata, summary, why it matters, purpose, architecture role, inputs, outputs, relationships, principles, human oversight, scope, future topics, related technology/systems/applications, references). Empty sections are hidden. Domain reading order is Technology → Systems → Applications.
+- **Implications:** Later Systems edits must preserve this chain and must not restore Systems or Labs inside the Technology dropdown.
 
 ---
 

@@ -8,9 +8,9 @@ If you are a coding agent (Cursor or otherwise), read this file before making an
 
 ## Current Phase
 
-**Systems knowledge domain complete**
+**Systems core architecture domain complete**
 
-Systems Overview and seven system pages are published. Navigation includes Systems from the shared published-route source. See `docs/CONTENT_SPRINT_SYSTEMS_COMPLETE.md`.
+Systems Overview and seven system pages explain how SAVEN Core works (Technology → Systems → Applications). See `docs/CONTENT_SPRINT_SYSTEMS_CORE.md`.
 
 **Do not begin without explicit owner approval:**
 

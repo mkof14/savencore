@@ -6,9 +6,8 @@ import type {
 import { systemsNavChildren } from "@/navigation/site-navigation";
 
 /**
- * Systems domain index — Content Sprint Systems.
- * Entity titles, summaries, statuses and relations come from the registry
- * via SystemsCategoryList. This file holds editorial index prose only.
+ * Systems domain index — Core Architecture Sprint.
+ * Published system list is registry-driven via SystemsCategoryList.
  */
 
 export type SystemsPageContent = {
@@ -48,84 +47,85 @@ export const systemsPageContent: SystemsPageContent = {
     category: "Systems",
     documentType: "Knowledge",
     status: "Architecture",
-    version: "0.1",
+    version: "0.2",
     lastUpdated: "2026-07-24",
     readingTime: "8 min",
-    relatedDomain: "Technology, Applications, Research",
+    relatedDomain: "Technology, Applications",
   },
   label: "Systems",
-  title: "Engineering systems built on Technology foundations.",
+  title: "How SAVEN Core systems work together.",
   introduction:
-    "Systems are the engineering components that use Technology foundations to support people under clear limits. This index explains what a system means in SAVEN Core, how systems connect to Applications and where to continue reading.",
+    "Systems explain how SAVEN Core works. Technology provides foundations. Systems combine those foundations under clear limits. Applications describe where that work may later be used.",
   overviewHeading: "Executive Summary",
   overview: [
-    "In SAVEN Core, a system is an engineering component with a defined role, inputs, outputs and limits. Systems use Technology foundations. They do not invent new disciplines. They organize how those disciplines work together under human oversight.",
-    "This index lists published system pages. Continue from Technology into Systems, then to the Applications overview for context of use.",
+    "Systems are the engineering components that show how SAVEN Core works. Each system has a role, inputs, outputs and limits.",
+    "Technology comes first. Systems use those foundations. Applications come after, as contexts of use—not as product claims.",
+    "This index is the landing page for the Systems domain. It lists every published system and where to continue.",
   ],
   meaningHeading: "What a System Means",
   meaning: [
-    "A system has a clear boundary. It explains what it does and what it does not do.",
-    "Systems stay at architecture level on this site. Status labels describe documentation maturity, not production operation.",
-    "Systems do not replace human judgment. They support review, exchange, safeguards and controlled interfaces.",
+    "A system has a clear boundary.",
+    "It states what it does and what it does not do.",
+    "On this site, systems are architecture. Status labels describe documentation maturity, not production operation.",
   ],
-  technologyHeading: "How Systems Use Technology",
+  technologyHeading: "Technology → Systems",
   technology: [
     "Technology defines shared disciplines such as Human Data, Privacy, Security, Artificial Intelligence, Automation and Robotics.",
-    "Systems consume those foundations. For example, AI Decision Support depends on Artificial Intelligence. The Robotics Layer depends on Robotics and Automation.",
+    "Systems do not redefine those disciplines. They use them.",
     "The Human Data Model is documented under Technology. Systems that need organized human context depend on it.",
   ],
-  applicationsHeading: "How Systems Connect to Applications",
+  applicationsHeading: "Systems → Applications",
   applications: [
-    "Applications describe where systems may be used. They are contexts of use, not product claims.",
-    "Published system pages may name related application contexts from the registry. Leaf Application pages are not published yet.",
-    "Continue to the Applications overview for the current public description of those contexts.",
+    "Applications describe where systems may be used.",
+    "They are contexts of use, not claims of deployment.",
+    "Leaf Application pages are not published yet. Use the Applications overview for the current public description.",
   ],
-  togetherHeading: "How Systems Work Together",
+  togetherHeading: "How the Systems Work Together",
   together: [
-    "The Knowledge Engine provides consistent context. AI Decision Support uses that context for human review.",
-    "The Safety Layer constrains assistance and physical pathways. The Communication Layer carries approved exchange.",
-    "Clinical Interfaces connect care workflows under limits. The Robotics Layer and Drone Systems connect approved instructions to physical or aerial pathways when authorized.",
+    "The Knowledge Engine preserves shared context. AI Decision Support analyzes that context to support people.",
+    "The Safety Layer applies validation, limits, review and escalation. The Communication Layer coordinates approved exchange.",
+    "Clinical Interfaces connect care workflows under strict medical boundaries. The Robotics Layer coordinates approved physical interaction. Drone Systems apply that layer to aerial pathways.",
   ],
   continueHeading: "Where to Continue",
   continue: [
-    "Start with Knowledge Engine if you need shared context. Read AI Decision Support next for assistance under human judgment.",
-    "Read Safety Layer and Communication Layer before physical or clinical pathways.",
-    "Use Technology pages for the foundations each system depends on. Use Applications for contexts of use.",
+    "Start with Knowledge Engine for shared context.",
+    "Read AI Decision Support, then Safety Layer and Communication Layer.",
+    "Continue to Clinical Interfaces, Robotics Layer and Drone Systems as needed. Use Technology for foundations and Applications for contexts of use.",
   ],
   categoriesHeading: "Published Systems",
   principlesHeading: "Engineering Principles",
   principles: [
     {
-      id: "clear-boundaries",
+      id: "chain",
+      title: "Keep the chain clear",
+      text: "Technology feeds Systems. Systems feed Applications. Do not collapse these layers.",
+    },
+    {
+      id: "boundaries",
       title: "Clear boundaries",
-      text: "Each system states what it does and what it does not claim.",
+      text: "Each system states what it does and what it refuses to claim.",
     },
     {
-      id: "technology-first",
-      title: "Technology foundations first",
-      text: "Systems build on published Technology disciplines. They do not redefine them.",
-    },
-    {
-      id: "human-oversight",
+      id: "oversight",
       title: "Human oversight",
       text: "Important outcomes stay under human authority.",
     },
     {
-      id: "safety-limits",
-      title: "Safety limits",
-      text: "Stop, defer and escalation rules apply across systems.",
+      id: "safety",
+      title: "Shared safety",
+      text: "Validation, limits and escalation apply across systems.",
     },
     {
       id: "no-overclaim",
       title: "No overclaim",
-      text: "Architecture pages do not claim deployment, diagnosis, treatment or autonomous medical action.",
+      text: "Architecture pages do not claim deployment, diagnosis, treatment or autonomous medicine.",
     },
   ],
   scopeHeading: "Current Development Scope",
   scope: [
-    "This page is a knowledge index. It describes Systems architecture and published system pages.",
-    "Status labels describe maturity of the architecture only. They do not mean systems are operating in production.",
-    "This page makes no customer, partnership, certification or validation claims.",
+    "This page is the Systems domain landing page.",
+    "It describes architecture and published system pages only.",
+    "It makes no customer, partnership, certification or validation claims.",
   ],
   futureHeading: "Future Topics",
   futureIntro:

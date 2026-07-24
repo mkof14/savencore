@@ -11,123 +11,93 @@ export const knowledgeEnginePageContent: SystemDisciplinePageContent = {
     category: "Systems",
     documentType: "Knowledge",
     status: "Architecture",
-    version: "0.1",
+    version: "0.2",
     lastUpdated: "2026-07-24",
-    readingTime: "8 min",
-    relatedDomain: "Technology, Applications, Research",
+    readingTime: "7 min",
+    relatedDomain: "Technology, Applications",
   },
   label: "Knowledge Engine",
-  title: "Organized knowledge and consistent context for other components.",
-  introduction: "The Knowledge Engine organizes knowledge and provides consistent context to other components. It does not make independent decisions.",
+  title: "Organized knowledge that preserves context for other systems.",
+  introduction: "The Knowledge Engine organizes knowledge and preserves context for other SAVEN Core components. It does not make decisions.",
   developmentNote: SYSTEMS_DEVELOPMENT_NOTE,
   executiveSummaryHeading: "Executive Summary",
   executiveSummary: [
-    "The Knowledge Engine organizes knowledge and provides consistent context to other SAVEN Core components. It does not make independent decisions.",
-    "It exists so systems can share the same governed references instead of inventing informal views. It connects Technology foundations, research structure and system definitions under clear limits."
+    "The Knowledge Engine organizes knowledge and preserves context for other SAVEN Core components. It does not make decisions.",
+    "It exists so every system can use the same governed meaning instead of inventing its own informal view.",
+    "In the SAVEN Core chain, Technology provides foundations such as Data Infrastructure. The Knowledge Engine turns that into shared context. Applications later describe where that context may be used."
   ],
   whyItMattersHeading: "Why It Matters",
   whyItMatters: [
-    "Systems need shared context to stay consistent.",
-    "Without a knowledge layer, each system can invent its own informal view.",
-    "The Knowledge Engine keeps references organized and reusable.",
-    "It supports later assistance without becoming a decision-maker."
+    "Without shared context, systems drift apart.",
+    "Assistance needs a stable base before it can support people.",
+    "Preserved context keeps later review honest and reviewable."
   ],
   purposeHeading: "Purpose",
   purpose: [
-    "Organize engineering knowledge, models and governed references used across systems.",
-    "Provide consistent context to components that are allowed to use it.",
-    "Connect research, technology and system definitions without inventing publications."
-  ],
-  responsibilitiesHeading: "Core Responsibilities",
-  responsibilitiesIntro:
-    "These responsibilities describe architecture roles. They do not claim production operation.",
-  responsibilities: [
-    {
-      id: "organize",
-      title: "Organize knowledge",
-      text: "Keep approved knowledge structures ordered so systems can find the same context.",
-    },
-    {
-      id: "context",
-      title: "Provide consistent context",
-      text: "Offer the same authorized meaning of a topic across systems that may use it.",
-    },
-    {
-      id: "govern",
-      title: "Keep references governed",
-      text: "Limit what counts as shared knowledge to approved, reviewable material.",
-    },
-    {
-      id: "no-decisions",
-      title: "Do not decide for people",
-      text: "Support other components with context. Do not replace human judgment.",
-    }
+    "Organize approved knowledge used across systems.",
+    "Preserve context so meaning does not collapse when information moves.",
+    "Serve other systems without becoming a decision-maker."
   ],
   architectureRoleHeading: "Architecture Role",
   architectureRole: [
-    "The Knowledge Engine sits between organized information foundations and assistance systems.",
-    "It uses Data Infrastructure and Artificial Intelligence as Technology foundations where relevant.",
-    "AI Decision Support may use its context. The Knowledge Engine itself does not choose outcomes for people."
+    "The Knowledge Engine sits after Technology foundations and before assistance systems.",
+    "It feeds AI Decision Support with consistent references.",
+    "It does not replace Privacy, Security or the Safety Layer."
   ],
   inputsHeading: "Inputs",
   inputs: [
-    "Authorized knowledge structures and references.",
-    "Context organized through Human Data Model pathways where relevant.",
-    "Research and engineering definitions approved for shared use."
+    "Authorized knowledge structures.",
+    "Governed references from Technology and Research definitions.",
+    "Human context pathways only when the Human Data Model allows them."
   ],
   outputsHeading: "Outputs",
   outputs: [
-    "Consistent context for approved systems.",
-    "Governed references that other components can reuse.",
-    "Structured links between technology, systems and research definitions."
+    "Shared context for approved systems.",
+    "Stable references other systems can reuse.",
+    "Clear limits on what counts as authorized knowledge."
   ],
-  relationshipsHeading: "Relationships to Other Systems",
+  relationshipsHeading: "Relationships",
   relationshipsIntro:
-    "Links below come from the shared entity registry. They describe architecture, not live integrations.",
+    "These links come from the shared entity registry. They describe architecture dependencies, not live integrations.",
   principlesHeading: "Engineering Principles",
   principles: [
     {
-      id: "consistency",
-      title: "Consistency",
-      text: "The same approved knowledge should mean the same thing across systems.",
+      id: "preserve",
+      title: "Preserve context",
+      text: "Meaning travels with the information.",
     },
     {
-      id: "no-autonomy",
-      title: "No independent decisions",
+      id: "no-decide",
+      title: "No decisions",
       text: "Context support is not decision authority.",
     },
     {
-      id: "governed-sources",
+      id: "governed",
       title: "Governed sources",
-      text: "Only approved material enters the shared knowledge layer.",
-    },
-    {
-      id: "privacy-aware",
-      title: "Privacy-aware",
-      text: "Human context remains limited by Privacy and related trust constraints.",
+      text: "Only approved material enters the shared layer.",
     },
     {
       id: "reviewable",
       title: "Reviewable",
-      text: "Shared knowledge should remain understandable to authorized reviewers.",
+      text: "Authorized people must be able to understand what was shared.",
     }
   ],
   humanOversightHeading: "Human Oversight",
   humanOversight: [
-    "People remain responsible for important outcomes.",
-    "The Knowledge Engine may inform assistance. It does not close decisions for humans."
+    "People approve what becomes shared knowledge.",
+    "The Knowledge Engine informs. It does not close human decisions."
   ],
   scopeHeading: "Current Development Scope",
   scope: [
-    "This page defines the Knowledge Engine as architecture.",
-    "It does not claim a production knowledge platform or invented publications.",
-    "Status is active development as architecture only."
+    "This page defines architecture only.",
+    "It does not claim a production knowledge platform.",
+    "No publications or product features are invented here."
   ],
   futureHeading: "Future Topics",
   futureIntro:
     "Topics below come from the shared registry. They mark later documentation needs. They are not delivery promises.",
   relatedTechnologyHeading: "Related Technology",
-  relatedResearchHeading: "Related Research",
+  relatedSystemsHeading: "Related Systems",
   relatedApplicationsHeading: "Related Applications",
   referenceHeading: "Reference Links",
   referenceLinks: systemsDisciplineReferenceLinks("/systems/knowledge-engine/"),

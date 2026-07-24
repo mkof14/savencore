@@ -11,105 +11,75 @@ export const clinicalInterfacesPageContent: SystemDisciplinePageContent = {
     category: "Systems",
     documentType: "Knowledge",
     status: "Architecture",
-    version: "0.1",
+    version: "0.2",
     lastUpdated: "2026-07-24",
-    readingTime: "8 min",
-    relatedDomain: "Technology, Applications, Research",
+    readingTime: "7 min",
+    relatedDomain: "Technology, Applications",
   },
   label: "Clinical Interfaces",
-  title: "Controlled interaction points for clinical workflows.",
-  introduction: "Clinical Interfaces provide controlled interaction points between SAVEN Core systems and clinical workflows. They do not claim diagnosis, treatment or autonomous medical action.",
+  title: "Controlled connection points for clinical workflows.",
+  introduction: "Clinical Interfaces are controlled connection points between SAVEN Core and clinical workflows. They do not diagnose, treat or practice autonomous medicine.",
   developmentNote: SYSTEMS_DEVELOPMENT_NOTE,
   executiveSummaryHeading: "Executive Summary",
   executiveSummary: [
-    "Clinical Interfaces provide controlled interaction points between SAVEN Core systems and clinical workflows. They do not claim diagnosis, treatment or autonomous medical action.",
-    "They exist so care environments can use organized human context and decision support under permissions. They depend on the Human Data Model, Interoperability, Privacy and the Safety Layer."
+    "Clinical Interfaces are controlled connection points between SAVEN Core and clinical workflows. They do not diagnose, treat or practice autonomous medicine.",
+    "They exist so care environments can use organized context and decision support under permissions.",
+    "They depend on Technology foundations such as Human Data, Interoperability and Privacy, and on systems such as the Human Data Model, AI Decision Support and the Safety Layer. Applications such as hospitals and healthcare name the contexts of use."
   ],
   whyItMattersHeading: "Why It Matters",
   whyItMatters: [
-    "Clinical work needs clear interaction points with digital systems.",
-    "Unclear interfaces can confuse roles and overclaim medical authority.",
-    "Clinical Interfaces keep interaction controlled and reviewable.",
-    "They support hospitals and care contexts without claiming device approval."
+    "Clinical work needs clear touchpoints with digital systems.",
+    "Unclear interfaces invite overclaim and role confusion.",
+    "Controlled connections keep people responsible for care."
   ],
   purposeHeading: "Purpose",
   purpose: [
-    "Define structured interfaces for clinical and care-environment workflows.",
-    "Connect authorized context and assistance to human clinical roles.",
-    "Avoid any claim of diagnosis, treatment or autonomous medical action."
-  ],
-  responsibilitiesHeading: "Core Responsibilities",
-  responsibilitiesIntro:
-    "These responsibilities describe architecture roles. They do not claim production operation.",
-  responsibilities: [
-    {
-      id: "touchpoints",
-      title: "Define touchpoints",
-      text: "Describe where people in care settings may interact with SAVEN Core systems.",
-    },
-    {
-      id: "roles",
-      title: "Respect roles",
-      text: "Keep access aligned to approved roles and permissions.",
-    },
-    {
-      id: "assist-only",
-      title: "Assist only",
-      text: "Support human clinical judgment. Do not replace it.",
-    },
-    {
-      id: "safety",
-      title: "Stay under safety",
-      text: "Escalate or stop when safety constraints require it.",
-    }
+    "Define controlled connection points for clinical workflows.",
+    "Present authorized context and support to approved roles.",
+    "Refuse diagnosis, treatment and autonomous medical action."
   ],
   architectureRoleHeading: "Architecture Role",
   architectureRole: [
     "Clinical Interfaces sit at the edge between SAVEN Core systems and care workflows.",
-    "They may use Human Data Model context and AI Decision Support under limits.",
-    "The Communication Layer carries approved exchange; Privacy and Safety constrain use."
+    "They may use AI Decision Support under the Safety Layer.",
+    "The Communication Layer carries only approved exchange."
   ],
   inputsHeading: "Inputs",
   inputs: [
     "Authorized human context.",
-    "Assistance outputs intended for human review.",
+    "Assistance intended for human review.",
     "Role and permission rules for care settings."
   ],
   outputsHeading: "Outputs",
   outputs: [
-    "Controlled interaction points for clinical workflows.",
-    "Role-aware views of allowed information and assistance.",
+    "Controlled workflow connection points.",
+    "Role-aware views of allowed information.",
     "Escalation paths to human authority."
   ],
-  relationshipsHeading: "Relationships to Other Systems",
+  relationshipsHeading: "Relationships",
   relationshipsIntro:
-    "Links below come from the shared entity registry. They describe architecture, not live integrations.",
+    "These links come from the shared entity registry. They describe architecture dependencies, not live integrations.",
   principlesHeading: "Engineering Principles",
   principles: [
     {
-      id: "no-diagnosis",
-      title: "No diagnosis claim",
+      id: "no-dx",
+      title: "No diagnosis",
       text: "This system does not diagnose.",
     },
     {
-      id: "no-treatment",
-      title: "No treatment claim",
+      id: "no-tx",
+      title: "No treatment",
       text: "This system does not treat or prescribe.",
     },
     {
-      id: "no-autonomy",
-      title: "No autonomous medical action",
+      id: "no-auto",
+      title: "No autonomous medicine",
       text: "People remain responsible for clinical decisions.",
     },
     {
-      id: "permissioned",
-      title: "Permissioned access",
-      text: "Only authorized roles may see sensitive context.",
-    },
-    {
-      id: "planned-status",
-      title: "Planned architecture",
-      text: "Public status remains planned. No deployment is claimed.",
+      id: "roles",
+      title: "Role-limited",
+      text: "Only approved roles may see sensitive context.",
     }
   ],
   humanOversightHeading: "Human Oversight",
@@ -119,15 +89,15 @@ export const clinicalInterfacesPageContent: SystemDisciplinePageContent = {
   ],
   scopeHeading: "Current Development Scope",
   scope: [
-    "This page defines Clinical Interfaces as architecture.",
-    "It does not claim medical-device approval, clinical deployment or patient services.",
+    "This page defines architecture only.",
+    "It does not claim medical-device approval or clinical deployment.",
     "Status remains planned."
   ],
   futureHeading: "Future Topics",
   futureIntro:
     "Topics below come from the shared registry. They mark later documentation needs. They are not delivery promises.",
   relatedTechnologyHeading: "Related Technology",
-  relatedResearchHeading: "Related Research",
+  relatedSystemsHeading: "Related Systems",
   relatedApplicationsHeading: "Related Applications",
   referenceHeading: "Reference Links",
   referenceLinks: systemsDisciplineReferenceLinks("/systems/clinical-interfaces/"),

@@ -168,11 +168,14 @@ export const knowledgeDomains: readonly KnowledgeDomain[] = [
       "Safety architecture, privacy architecture, human oversight, permissions and accountability.",
     parent: null,
     children: [
-      "safety-architecture",
-      "privacy-architecture",
+      "trust-architecture",
+      "trust-privacy",
+      "trust-security",
+      "trust-safety",
       "human-oversight",
-      "permissions",
-      "accountability",
+      "transparency",
+      "ethics-responsible-use",
+      "limitations",
     ],
     relatedDomains: ["purpose", "systems", "technology", "research"],
     futureExpansion: [

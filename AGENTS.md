@@ -8,16 +8,16 @@ If you are a coding agent (Cursor or otherwise), read this file before making an
 
 ## Current Phase
 
-**Design Sprint 1 — SAVEN Core visual system complete**
+**Content + Design Sprint 2 — Applications and Trust complete**
 
-Knowledge pages use the visual concept HUMAN SIGNALS → STRUCTURED KNOWLEDGE → CONTROLLED ACTION. See `docs/DESIGN_SPRINT_1_SAVEN_VISUAL_SYSTEM.md`.
+Applications and Trust domains are published with Visual System v1. See `docs/CONTENT_DESIGN_SPRINT_2_APPLICATIONS_TRUST.md` and `docs/DESIGN_SPRINT_1_SAVEN_VISUAL_SYSTEM.md`.
 
 Systems Overview and seven system pages explain how SAVEN Core works (Technology → Systems → Applications). See `docs/CONTENT_SPRINT_SYSTEMS_CORE.md`.
 
 **Do not begin without explicit owner approval:**
 
-- Applications leaf pages or further domain destination-page build-out;
 - Home redesign beyond navigation data corrections;
+- `/legal/*` policy page publication;
 - Entity Registry entity invention unless explicitly authorized;
 - custom brand fonts / final brand colors / logo asset / imagery;
 - CMS, database, working search, forms, analytics, cookie consent;

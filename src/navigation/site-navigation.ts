@@ -113,6 +113,102 @@ export const systemsNavChildren: readonly NavLinkItem[] = [
   },
 ] as const;
 
+/** Applications domain children — shared by primary nav and reference lists. */
+export const applicationsNavChildren: readonly NavLinkItem[] = [
+  {
+    id: "applications-overview",
+    label: "Applications Overview",
+    href: "/applications/",
+  },
+  {
+    id: "applications-healthcare",
+    label: "Healthcare",
+    href: "/applications/healthcare/",
+  },
+  {
+    id: "applications-home",
+    label: "Home",
+    href: "/applications/home/",
+  },
+  {
+    id: "applications-hospitals",
+    label: "Hospitals",
+    href: "/applications/hospitals/",
+  },
+  {
+    id: "applications-emergency",
+    label: "Emergency",
+    href: "/applications/emergency/",
+  },
+  {
+    id: "applications-industrial",
+    label: "Industrial",
+    href: "/applications/industrial/",
+  },
+  {
+    id: "applications-government",
+    label: "Government",
+    href: "/applications/government/",
+  },
+  {
+    id: "applications-agriculture",
+    label: "Agriculture",
+    href: "/applications/agriculture/",
+  },
+  {
+    id: "applications-research-applications",
+    label: "Research Applications",
+    href: "/applications/research-applications/",
+  },
+] as const;
+
+/**
+ * Trust domain children — knowledge Trust domain (governance), not /legal policies.
+ * Published because Trust is a primary knowledge domain in the architecture model.
+ */
+export const trustNavChildren: readonly NavLinkItem[] = [
+  {
+    id: "trust-overview",
+    label: "Trust Overview",
+    href: "/trust/",
+  },
+  {
+    id: "trust-privacy",
+    label: "Privacy",
+    href: "/trust/privacy/",
+  },
+  {
+    id: "trust-security",
+    label: "Security",
+    href: "/trust/security/",
+  },
+  {
+    id: "trust-safety",
+    label: "Safety",
+    href: "/trust/safety/",
+  },
+  {
+    id: "trust-human-oversight",
+    label: "Human Oversight",
+    href: "/trust/human-oversight/",
+  },
+  {
+    id: "trust-transparency",
+    label: "Transparency",
+    href: "/trust/transparency/",
+  },
+  {
+    id: "trust-ethics",
+    label: "Ethics and Responsible Use",
+    href: "/trust/ethics-and-responsible-use/",
+  },
+  {
+    id: "trust-limitations",
+    label: "Limitations",
+    href: "/trust/limitations/",
+  },
+] as const;
+
 /**
  * Primary header navigation.
  * Groups only appear when they have published children beyond the overview,
@@ -147,6 +243,7 @@ export const primaryNavigation: readonly PrimaryNavItem[] = [
     id: "applications",
     label: "Applications",
     href: "/applications/",
+    children: applicationsNavChildren,
   },
   {
     id: "research",
@@ -159,6 +256,12 @@ export const primaryNavigation: readonly PrimaryNavItem[] = [
         href: "/research/",
       },
     ],
+  },
+  {
+    id: "trust",
+    label: "Trust",
+    href: "/trust/",
+    children: trustNavChildren,
   },
 ] as const;
 
@@ -206,13 +309,11 @@ export const footerNavigation: readonly FooterGroup[] = [
   {
     id: "applications",
     title: "Applications",
-    links: [
-      {
-        id: "footer-applications",
-        label: "Applications",
-        href: "/applications/",
-      },
-    ],
+    links: applicationsNavChildren.map((item) => ({
+      id: `footer-${item.id}`,
+      label: item.label,
+      href: item.href,
+    })),
   },
   {
     id: "research",
@@ -224,6 +325,15 @@ export const footerNavigation: readonly FooterGroup[] = [
         href: "/research/",
       },
     ],
+  },
+  {
+    id: "trust",
+    title: "Trust",
+    links: trustNavChildren.map((item) => ({
+      id: `footer-${item.id}`,
+      label: item.label,
+      href: item.href,
+    })),
   },
 ] as const;
 

@@ -56,10 +56,6 @@ function entityHref(entity: KnowledgeEntity): string {
   if (mapped) {
     return mapped;
   }
-  // Leaf destination pages are unpublished — link domain overviews only.
-  if (entity.domain === "applications") {
-    return "/applications/";
-  }
   if (entity.domain === "research") {
     return "/research/";
   }

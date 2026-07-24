@@ -1154,6 +1154,35 @@
   background: var(--color-surface);
 }
 
+.knowledge-hero--applications {
+  border-block-end-width: 2px;
+  border-block-end-style: solid;
+  background: var(--color-background);
+}
+
+.knowledge-hero--applications .knowledge-hero__visual {
+  border-block-end: 3px solid var(--signal-action);
+}
+
+.knowledge-hero--trust {
+  background: var(--color-surface);
+  border-block-end: 2px solid var(--signal-safety);
+}
+
+.knowledge-hero--trust .knowledge-hero__visual {
+  border-color: var(--signal-safety);
+}
+
+.page--applications .knowledge-hero,
+.page--application-discipline .knowledge-hero {
+  border-block-end-color: var(--signal-action);
+}
+
+.page--trust .knowledge-hero,
+.page--trust-discipline .knowledge-hero {
+  border-block-end-color: var(--signal-safety);
+}
+
 .knowledge-hero__frame {
   display: grid;
   gap: var(--space-32);

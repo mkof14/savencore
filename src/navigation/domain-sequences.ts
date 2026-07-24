@@ -1,10 +1,16 @@
 import type { NavLinkItem } from "@/navigation/navigation-types";
 import {
+  applicationsNavChildren,
   systemsNavChildren,
   technologyNavChildren,
+  trustNavChildren,
 } from "@/navigation/site-navigation";
 
-export type KnowledgeDomainId = "technology" | "systems";
+export type KnowledgeDomainId =
+  | "technology"
+  | "systems"
+  | "applications"
+  | "trust";
 
 export type DomainSequenceContext = {
   domain: KnowledgeDomainId;
@@ -29,6 +35,16 @@ const DOMAIN_META: Record<
     label: "Systems",
     href: "/systems/",
     children: systemsNavChildren,
+  },
+  applications: {
+    label: "Applications",
+    href: "/applications/",
+    children: applicationsNavChildren,
+  },
+  trust: {
+    label: "Trust",
+    href: "/trust/",
+    children: trustNavChildren,
   },
 };
 

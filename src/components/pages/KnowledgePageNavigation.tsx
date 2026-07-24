@@ -34,8 +34,7 @@ export function KnowledgePageNavigation({
     .filter((item) => item.href !== currentHref)
     .slice(0, 4);
 
-  const domainPosition =
-    domain === "technology" || domain === "systems" ? domain : "technology";
+  const domainPosition = domain;
 
   return (
     <nav

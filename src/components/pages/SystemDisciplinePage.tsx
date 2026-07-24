@@ -62,6 +62,34 @@ const HERO_BY_ENTITY: Partial<
       "Applies validation, limits, human review, and escalation across systems.",
     coordinate: "SAFE",
   },
+  "communication-layer": {
+    variant: "communication-layer",
+    term: "Communication Layer",
+    definition:
+      "Connects components through controlled exchange. It does not invent content or decide outcomes.",
+    coordinate: "COM",
+  },
+  "clinical-interfaces": {
+    variant: "clinical-interfaces",
+    term: "Clinical Interfaces",
+    definition:
+      "Connects authorized clinical workflows to governed system pathways under human authority.",
+    coordinate: "CLI",
+  },
+  "robotics-layer": {
+    variant: "robotics-layer",
+    term: "Robotics Layer",
+    definition:
+      "Connects digital systems to physical action only inside approved limits.",
+    coordinate: "ROB",
+  },
+  "drone-systems": {
+    variant: "drone-systems",
+    term: "Drone Systems",
+    definition:
+      "Specialized aerial operating pathway under communication and safety limits.",
+    coordinate: "DRN",
+  },
 };
 
 function hasRelationGroups(

@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-24 (Design Sprint 1 — SAVEN Core Visual System append)
+**Last updated:** 2026-07-24 (Content + Design Sprint 2 — Applications and Trust append)
 
 ## Rules
 
@@ -138,6 +138,9 @@
 | D-0118 | 2026-07-24 | Systems core page template and domain chain | Active |
 | D-0119 | 2026-07-24 | Design Sprint 1 SAVEN Core visual system authorized and completed | Active |
 | D-0120 | 2026-07-24 | KnowledgeHero-first rhythm and page-specific signal diagrams | Active |
+| D-0121 | 2026-07-24 | Content + Design Sprint 2 Applications and Trust authorized and completed | Active |
+| D-0122 | 2026-07-24 | Trust published as primary knowledge domain distinct from /legal | Active |
+| D-0123 | 2026-07-24 | Trust vs Technology Privacy/Security vs Systems Safety Layer boundaries | Active |
 
 ---
 
@@ -1015,6 +1018,29 @@
 - **Status:** Active
 - **Decision:** Target knowledge pages open with KnowledgeHero (one H1 + page-specific SignalDiagram). Metadata, section navigation, and previous/next move to supporting positions after primary content. Systems Overview uses ArchitectureMap for multi-role relationships rather than a single vertical list.
 - **Implications:** Do not restore metadata / location / TOC bands as consecutive full-width blocks before the first subject visualization.
+
+### D-0121 — Content + Design Sprint 2 Applications and Trust authorized and completed
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Complete Applications Overview plus eight application contexts and Trust Overview plus seven Trust topics using Visual System v1. See `docs/CONTENT_DESIGN_SPRINT_2_APPLICATIONS_TRUST.md`.
+- **In scope:** Application and Trust routes, registry entities, navigation/footer publication, visual completion of remaining Technology/Systems leaves, documentation.
+- **Out of scope:** Legal policy pages, brand redesign, unsupported product/regulatory claims, animation.
+- **Implications:** Later Applications/Trust edits must preserve development-safe language and page-boundary separations.
+
+### D-0122 — Trust published as primary knowledge domain distinct from /legal
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Publish the knowledge Trust domain at `/trust/` in primary and footer navigation because Trust is a top-level knowledge domain in the architecture model. This does not publish `/legal/*` policy documents.
+- **Implications:** Trust pages are governance/architecture pages, not privacy policies, terms, or certifications.
+
+### D-0123 — Trust vs Technology Privacy/Security vs Systems Safety Layer boundaries
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Technology Privacy/Security remain engineering foundations. Systems Safety Layer remains system-wide safeguards. Trust Privacy/Security/Safety document organizational commitments, governance and reader-facing limits.
+- **Implications:** Do not merge these page types or duplicate their roles.
 
 ---
 

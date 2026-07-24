@@ -3,35 +3,70 @@ import Link from "next/link";
 import type { Locale } from "@/config/locales";
 import { localizePath } from "@/navigation/locale-path";
 
-export type DomainPosition = "technology" | "systems" | "applications";
+export type DomainPosition =
+  | "technology"
+  | "systems"
+  | "applications"
+  | "trust"
+  | "research";
 
 type DomainPositionMapProps = {
-  current: DomainPosition | "research";
+  current: DomainPosition;
   locale?: Locale;
   className?: string;
 };
 
-const STEPS: readonly {
-  id: DomainPosition;
-  label: string;
-  href: string;
-}[] = [
-  { id: "technology", label: "Technology", href: "/technology/" },
-  { id: "systems", label: "Systems", href: "/systems/" },
-  { id: "applications", label: "Applications", href: "/applications/" },
+const ARCHITECTURE_STEPS = [
+  { id: "technology" as const, label: "Technology", href: "/technology/" },
+  { id: "systems" as const, label: "Systems", href: "/systems/" },
+  { id: "applications" as const, label: "Applications", href: "/applications/" },
+];
+
+const TRUST_STEPS = [
+  { id: "principles", label: "Principles", href: "/trust/" },
+  { id: "controls", label: "Controls", href: "/trust/privacy/" },
+  { id: "accountability", label: "Accountability", href: "/trust/limitations/" },
 ];
 
 /**
- * Compact domain rail: Technology → Systems → Applications.
- * Shows the reader’s current architecture position.
+ * Compact domain rail for architecture or trust position.
  */
 export function DomainPositionMap({
   current,
   locale = "en",
   className,
 }: DomainPositionMapProps) {
-  const active: DomainPosition | null =
-    current === "research" ? null : current;
+  if (current === "research") {
+    return null;
+  }
+
+  if (current === "trust") {
+    return (
+      <nav
+        className={["domain-position-map", className].filter(Boolean).join(" ")}
+        aria-label="Trust position"
+      >
+        <ol className="domain-position-map__list">
+          {TRUST_STEPS.map((step, index) => (
+            <li key={step.id} className="domain-position-map__item">
+              {index > 0 ? (
+                <span className="domain-position-map__connector" aria-hidden="true">
+                  →
+                </span>
+              ) : null}
+              <Link
+                href={localizePath(locale, step.href)}
+                className="domain-position-map__link"
+              >
+                <span className="domain-position-map__dot" aria-hidden="true" />
+                {step.label}
+              </Link>
+            </li>
+          ))}
+        </ol>
+      </nav>
+    );
+  }
 
   return (
     <nav
@@ -39,8 +74,8 @@ export function DomainPositionMap({
       aria-label="Architecture domain position"
     >
       <ol className="domain-position-map__list">
-        {STEPS.map((step, index) => {
-          const isCurrent = step.id === active;
+        {ARCHITECTURE_STEPS.map((step, index) => {
+          const isCurrent = step.id === current;
           return (
             <li
               key={step.id}
@@ -57,10 +92,7 @@ export function DomainPositionMap({
                 </span>
               ) : null}
               {isCurrent ? (
-                <span
-                  className="domain-position-map__label"
-                  aria-current="true"
-                >
+                <span className="domain-position-map__label" aria-current="true">
                   <span className="domain-position-map__dot" aria-hidden="true" />
                   {step.label}
                 </span>

@@ -1,17 +1,17 @@
 import { notFound } from "next/navigation";
 
-import { DirectoryPage } from "@/components/pages/DirectoryPage";
+import { ApplicationsPage } from "@/components/pages/ApplicationsPage";
 import "@/components/pages/pages.css";
 import { isLocale } from "@/config/locales";
 import { applicationsPageContent } from "@/content/pages/en/applications";
 
-type ApplicationsPageProps = {
+type ApplicationsRouteProps = {
   params: Promise<{ locale: string }>;
 };
 
-export default async function ApplicationsPage({
+export default async function ApplicationsRoute({
   params,
-}: ApplicationsPageProps) {
+}: ApplicationsRouteProps) {
   const { locale: localeParam } = await params;
 
   if (!isLocale(localeParam)) {
@@ -19,6 +19,6 @@ export default async function ApplicationsPage({
   }
 
   return (
-    <DirectoryPage locale={localeParam} content={applicationsPageContent} />
+    <ApplicationsPage locale={localeParam} content={applicationsPageContent} />
   );
 }

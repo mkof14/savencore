@@ -1,13 +1,17 @@
 import {
+  DefinitionPanel,
   DocumentMetadata,
   EngineeringSummary,
   FutureExpansionBlock,
   KeyPrinciples,
+  KnowledgeHero,
   ReferenceLinks,
+  ScopePanel,
+  SignalDiagram,
+  type SignalDiagramVariant,
 } from "@/components/engineering";
 import { EntityRelationshipIndex } from "@/components/knowledge/EntityRelationshipIndex";
-import { PageContextNav } from "@/components/pages/PageContextNav";
-import { PageMasthead } from "@/components/pages/PageMasthead";
+import { KnowledgePageNavigation } from "@/components/pages/KnowledgePageNavigation";
 import { PageSectionNav } from "@/components/pages/PageSectionNav";
 import type { Locale } from "@/config/locales";
 import type { EntityRelationGroupId } from "@/content/knowledge/entity-types";
@@ -22,14 +26,64 @@ const RELATIONSHIP_GROUPS: readonly EntityRelationGroupId[] = [
   "trust-and-safety",
 ];
 
+const DIAGRAM_BY_ENTITY: Record<string, SignalDiagramVariant> = {
+  interoperability: "interoperability",
+  privacy: "privacy",
+  security: "security",
+  "artificial-intelligence": "artificial-intelligence",
+  automation: "automation",
+  robotics: "robotics",
+};
+
+const DEFINITION_BY_ENTITY: Record<
+  string,
+  { term: string; definition: string; coordinate: string }
+> = {
+  interoperability: {
+    term: "Interoperability",
+    definition:
+      "How SAVEN Core systems exchange information with authorized external environments under permission and safety limits.",
+    coordinate: "IOP",
+  },
+  privacy: {
+    term: "Privacy",
+    definition:
+      "Engineering foundations that limit what information may be used, why it may be used and who may access it.",
+    coordinate: "PRV",
+  },
+  security: {
+    term: "Security",
+    definition:
+      "Engineering foundations that protect systems, interfaces and authorized data pathways from misuse.",
+    coordinate: "SEC",
+  },
+  "artificial-intelligence": {
+    term: "Artificial Intelligence",
+    definition:
+      "Models and rules intended to assist judgment under permissions, uncertainty handling and human oversight.",
+    coordinate: "AI",
+  },
+  automation: {
+    term: "Automation",
+    definition:
+      "Controlled system behavior for tasks that can be delegated safely inside reviewable limits.",
+    coordinate: "AUT",
+  },
+  robotics: {
+    term: "Robotics",
+    definition:
+      "Engineering discipline for devices and interfaces that act in the physical world under governance.",
+    coordinate: "ROB",
+  },
+};
+
 type TechnologyDisciplinePageProps = {
   locale: Locale;
   content: TechnologyDisciplinePageContent;
 };
 
 /**
- * Shared Technology discipline leaf-page template.
- * Content Sprint — remaining Technology domain pages.
+ * Shared Technology discipline leaf-page template — Visual System v1.
  */
 export function TechnologyDisciplinePage({
   locale,
@@ -45,45 +99,41 @@ export function TechnologyDisciplinePage({
       note: topic,
     })) ?? [];
 
-  const currentHref =
-    ENTITY_PAGE_HREFS[content.entityId] ?? "/technology/";
+  const currentHref = ENTITY_PAGE_HREFS[content.entityId] ?? "/technology/";
+  const diagram =
+    DIAGRAM_BY_ENTITY[content.entityId] ?? "technology-overview";
+  const definition = DEFINITION_BY_ENTITY[content.entityId] ?? {
+    term: content.label,
+    definition: content.introduction,
+    coordinate: "TEC",
+  };
 
   return (
     <article
       className="page page--technology-discipline"
       aria-labelledby={titleId}
     >
-      <div className="page-shell__inner page-technology-discipline-metadata">
-        <DocumentMetadata metadata={content.metadata} />
-      </div>
-
-      <PageMasthead
+      <KnowledgeHero
+        locale={locale}
         domain="technology"
         label={content.label}
         title={content.title}
         titleId={titleId}
-        introduction={content.introduction}
+        explanation={content.introduction}
         {...(content.metadata.status
           ? { status: content.metadata.status }
           : {})}
+        visualization={<SignalDiagram variant={diagram} />}
       />
-
-      <div className="page-dev-note">
-        <div className="page-shell__inner">
-          <p className="page-dev-note__text">{content.developmentNote}</p>
-        </div>
-      </div>
-
-      <PageContextNav
-        locale={locale}
-        domain="technology"
-        currentHref={currentHref}
-      />
-
-      <PageSectionNav items={content.sectionNav} />
 
       <div className="page-body">
         <div className="page-shell__inner">
+          <DefinitionPanel
+            term={definition.term}
+            definition={definition.definition}
+            coordinate={definition.coordinate}
+          />
+
           <div id="executive-summary" className="eng-block--lede">
             <EngineeringSummary
               heading={content.executiveSummaryHeading}
@@ -178,23 +228,19 @@ export function TechnologyDisciplinePage({
             />
           </div>
 
-          <section
+          <ScopePanel
             id="current-development-scope"
-            className="eng-block"
-            aria-labelledby="tech-discipline-scope-heading"
+            variant="current-scope"
+            title={content.scopeHeading}
           >
-            <h2
-              id="tech-discipline-scope-heading"
-              className="eng-block__heading"
-            >
-              {content.scopeHeading}
-            </h2>
             {content.scope.map((paragraph) => (
-              <p key={paragraph} className="eng-block__body">
-                {paragraph}
-              </p>
+              <p key={paragraph}>{paragraph}</p>
             ))}
-          </section>
+          </ScopePanel>
+
+          <ScopePanel variant="engineering-note" title="Development status">
+            <p>{content.developmentNote}</p>
+          </ScopePanel>
 
           {futureItems.length > 0 ? (
             <div id="future-topics">
@@ -240,6 +286,19 @@ export function TechnologyDisciplinePage({
               links={content.referenceLinks}
             />
           </div>
+        </div>
+      </div>
+
+      <KnowledgePageNavigation
+        locale={locale}
+        domain="technology"
+        currentHref={currentHref}
+      />
+
+      <div className="page-supporting">
+        <div className="page-shell__inner">
+          <DocumentMetadata metadata={content.metadata} />
+          <PageSectionNav items={content.sectionNav} />
         </div>
       </div>
     </article>

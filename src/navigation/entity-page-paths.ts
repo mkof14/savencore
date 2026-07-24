@@ -20,6 +20,22 @@ export const ENTITY_PAGE_HREFS: Readonly<Record<string, string>> = {
   "knowledge-engine": "/systems/knowledge-engine/",
   "safety-layer": "/systems/safety-layer/",
   "communication-layer": "/systems/communication-layer/",
+  healthcare: "/applications/healthcare/",
+  home: "/applications/home/",
+  hospitals: "/applications/hospitals/",
+  emergency: "/applications/emergency/",
+  industrial: "/applications/industrial/",
+  government: "/applications/government/",
+  agriculture: "/applications/agriculture/",
+  research: "/applications/research-applications/",
+  "trust-architecture": "/trust/",
+  "trust-privacy": "/trust/privacy/",
+  "trust-security": "/trust/security/",
+  "trust-safety": "/trust/safety/",
+  "human-oversight": "/trust/human-oversight/",
+  transparency: "/trust/transparency/",
+  "ethics-responsible-use": "/trust/ethics-and-responsible-use/",
+  limitations: "/trust/limitations/",
 };
 
 export function getEntityPageHref(

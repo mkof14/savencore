@@ -7,6 +7,7 @@ export type KnowledgeHeroDomain =
   | "technology"
   | "systems"
   | "applications"
+  | "trust"
   | "research";
 
 type KnowledgeHeroProps = {
@@ -56,7 +57,9 @@ export function KnowledgeHero({
                 ? "Systems"
                 : domain === "applications"
                   ? "Applications"
-                  : "Research"}
+                  : domain === "trust"
+                    ? "Trust"
+                    : "Research"}
           </p>
           <p className="knowledge-hero__label">{label}</p>
           <h1 id={titleId} className="knowledge-hero__title">

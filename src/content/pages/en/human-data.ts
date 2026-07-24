@@ -6,7 +6,7 @@ import type {
 } from "@/components/engineering/engineering-types";
 
 /**
- * Human Data knowledge page — Content Wave 1.1.
+ * Human Data knowledge page — Content Wave 1.1 / Content Review 1.
  * Long-form page content only. Relations and futureTopics come from
  * the canonical registry (entity id: human-data). Registry is not modified.
  */
@@ -67,63 +67,58 @@ export const humanDataPageContent: HumanDataPageContent = {
     version: "0.1",
     lastUpdated: "2026-07-24",
     readingTime: "10 min",
-    relatedDomain: "Human Data Model, Privacy, Trust",
+    relatedDomain: "Technology, Human Data Model",
   },
   label: "Human Data",
-  title: "Information about people that systems may use with care.",
+  title: "Information about a person from different sources.",
   introduction:
-    "Human Data is the information SAVEN Core may consider about a person when help is needed and permission is clear.",
+    "Human Data is information about a person from different sources. SAVEN Core may use it only when there is a clear reason and clear permission.",
   developmentNote:
-    "Human Data information describes intended architecture. It does not imply commercial deployment, clinical use or unrestricted collection of personal information.",
+    "Human Data pages describe intended architecture. They do not imply commercial deployment, clinical use or unrestricted collection of personal information.",
   executiveSummaryHeading: "Executive Summary",
-  // Target: ≤120 words. Covers what it is, why it matters, link to Human Data Model.
   executiveSummary: [
-    "Human Data is information about a person that SAVEN Core may use to understand context and offer careful help.",
-    "It matters because useful systems need some human context, and that context must stay limited, permissioned and respectful.",
-    "Human Data is the information itself. The Human Data Model is the structure that organizes that information before other systems use it.",
+    "Human Data is information about a person from different sources. SAVEN Core may use it to understand a situation and offer careful help when permission is clear.",
+    "It matters because useful assistance needs some human context, and that context must stay limited. The Human Data Model organizes this information and preserves context and relationships before other systems use it.",
   ],
   purposeHeading: "Purpose",
   purpose: [
-    "SAVEN Core exists to support people in real settings. That support needs some understanding of the person and their situation.",
+    "SAVEN Core aims to support people in real settings. That support needs some understanding of the person and their situation.",
     "Human Data names the kinds of information that understanding may draw from.",
-    "The purpose is not to collect everything possible. The purpose is to define what information may matter, and under what limits it may be used.",
-    "Clear limits protect privacy. They also keep later systems honest about what they are allowed to know.",
+    "The goal is not to collect everything possible. The goal is to say what information may matter, and under what limits it may be used.",
   ],
   meaningHeading: "What Human Data Means",
   meaning: [
-    "In everyday terms, Human Data is information that describes a person or their situation.",
-    "That can include who someone is, how they are doing, what has happened before, and what surrounds them day to day.",
-    "In SAVEN Core, Human Data is never treated as an open pool of facts. It is treated as authorized context.",
-    "Authorized context means information may be used only when there is a clear reason, a clear permission and a clear boundary.",
-    "This page explains the idea. It does not describe software storage, databases or product features.",
+    "Human Data is information about a person from different sources. It can describe who someone is, how they are doing, what has happened before and what surrounds them day to day.",
+    "In SAVEN Core, Human Data is not an open pool of facts. It is authorized context: information used only with a clear reason, a clear permission and a clear boundary.",
+    "This page explains the information itself—its categories, quality, privacy and use. How that information is organized is explained on the Human Data Model page.",
   ],
   categoriesHeading: "Human Data Categories",
   categoriesIntro:
-    "Each category below describes a role for information. None of these categories claim that SAVEN Core currently collects or processes that information in production.",
+    "Each category describes a purpose for information. None of these categories claim that SAVEN Core currently collects or processes that information in production.",
   categories: [
     {
       id: "identity",
       title: "Identity",
       purpose:
-        "Recognize the correct person in a governed setting so assistance is not applied to the wrong individual.",
+        "Identify the correct person in a governed setting so help is not applied to the wrong individual.",
     },
     {
       id: "health",
       title: "Health",
       purpose:
-        "Describe general health context that may help systems offer careful support when permission allows.",
+        "Describe general health context that may support careful help when permission allows.",
     },
     {
       id: "medical-history",
       title: "Medical History",
       purpose:
-        "Provide longer-term medical background when it is authorized and needed for responsible assistance.",
+        "Provide longer-term medical background when it is authorized and needed.",
     },
     {
       id: "laboratory-information",
       title: "Laboratory Information",
       purpose:
-        "Represent laboratory-related facts as a distinct kind of sensitive context, not as a laboratory service.",
+        "Treat laboratory-related facts as a distinct, sensitive kind of information—not as a laboratory service.",
     },
     {
       id: "medication",
@@ -135,13 +130,13 @@ export const humanDataPageContent: HumanDataPageContent = {
       id: "genetics",
       title: "Genetics",
       purpose:
-        "Mark hereditary information as highly sensitive and usable only under the strictest purpose and oversight rules.",
+        "Treat hereditary information as highly sensitive and usable only under the strictest purpose and oversight rules.",
     },
     {
       id: "lifestyle",
       title: "Lifestyle",
       purpose:
-        "Capture ordinary life patterns that may affect daily support without turning life into open profiling.",
+        "Describe ordinary life patterns that may affect daily support, without open profiling.",
     },
     {
       id: "behavior",
@@ -153,13 +148,13 @@ export const humanDataPageContent: HumanDataPageContent = {
       id: "nutrition",
       title: "Nutrition",
       purpose:
-        "Represent eating and nutrition context when it supports safer or more useful daily assistance.",
+        "Represent eating and nutrition context when it supports safer or more useful daily help.",
     },
     {
       id: "activity",
       title: "Activity",
       purpose:
-        "Describe movement and physical activity that may inform continuity of care or daily support.",
+        "Describe movement and physical activity that may inform daily support.",
     },
     {
       id: "sleep",
@@ -177,7 +172,7 @@ export const humanDataPageContent: HumanDataPageContent = {
       id: "wearables",
       title: "Wearables",
       purpose:
-        "Describe signals from personal devices only when those signals are authorized and purpose-limited.",
+        "Describe signals from personal devices only when those signals are authorized and limited to a clear purpose.",
     },
     {
       id: "preferences",
@@ -194,7 +189,7 @@ export const humanDataPageContent: HumanDataPageContent = {
     kind: "flow",
     title: "From information to organization",
     description:
-      "Human Data is information. The Human Data Model organizes that information.",
+      "Human Data is information about a person. The Human Data Model organizes that information and preserves context and relationships.",
     nodes: [
       {
         id: "human-data",
@@ -209,14 +204,13 @@ export const humanDataPageContent: HumanDataPageContent = {
     ],
   },
   modelRelation: [
-    "Human Data is the information itself: the facts and signals that may describe a person.",
-    "The Human Data Model is the organizing layer. It defines how that information is grouped, limited and shared with later systems.",
-    "Think of Human Data as the content, and the Human Data Model as the careful filing system around that content.",
-    "Systems should not invent their own informal view of a person. They should rely on the model when they need authorized human context.",
+    "Human Data is the information itself.",
+    "The Human Data Model is the structured representation that organizes Human Data and preserves context and relationships.",
+    "Human Data must be organized so later systems do not invent informal, conflicting views of a person. Continue on the Human Data Model page for that structure.",
   ],
   technologyRelationsHeading: "Relationship to Other Technologies",
   technologyRelationsIntro:
-    "Human Data does not stand alone. Other technology disciplines define how it may be protected, moved and used.",
+    "Human Data depends on other Technology disciplines for protection, movement and careful use.",
   technologyRelations: [
     {
       id: "privacy",
@@ -226,17 +220,17 @@ export const humanDataPageContent: HumanDataPageContent = {
     {
       id: "security",
       title: "Security",
-      text: "Security protects pathways and access so authorized human context is not exposed to misuse or unauthorized entry.",
+      text: "Security protects access pathways so authorized information is not exposed to misuse.",
     },
     {
       id: "data-infrastructure",
       title: "Data Infrastructure",
-      text: "Data Infrastructure is the engineering substrate for storing and moving authorized information under defined controls.",
+      text: "Data Infrastructure supports storing and moving authorized information under defined controls.",
     },
     {
       id: "artificial-intelligence",
       title: "Artificial Intelligence",
-      text: "Artificial Intelligence may help interpret context, but only within permission limits and with human oversight for important outcomes.",
+      text: "Artificial intelligence may help interpret context within permission limits. Important outcomes stay under human oversight.",
     },
     {
       id: "interoperability",
@@ -249,12 +243,12 @@ export const humanDataPageContent: HumanDataPageContent = {
     {
       id: "accuracy",
       title: "Accuracy",
-      text: "Human context should be correct enough for the decision or assistance at hand. Wrong context can lead to wrong help.",
+      text: "Information should be correct enough for the help at hand. Wrong context can lead to wrong help.",
     },
     {
       id: "consistency",
       title: "Consistency",
-      text: "The same kind of information should mean the same thing across systems, so people are not described in conflicting ways.",
+      text: "The same kind of information should mean the same thing across systems.",
     },
     {
       id: "quality",
@@ -269,31 +263,30 @@ export const humanDataPageContent: HumanDataPageContent = {
     {
       id: "interoperability",
       title: "Interoperability",
-      text: "When information moves between environments, the move must stay scoped, permissioned and reviewable.",
+      text: "When information moves between environments, the move must stay limited, permissioned and reviewable.",
     },
     {
       id: "human-oversight",
       title: "Human Oversight",
-      text: "People remain responsible for consequential outcomes. Human Data supports assistance; it does not replace human judgment.",
+      text: "People remain responsible for important outcomes. Human Data supports assistance; it does not replace human judgment.",
     },
   ],
   scopeHeading: "Current Development Scope",
   scope: [
-    "This page defines Human Data as a technology discipline inside SAVEN Core architecture.",
+    "This page defines Human Data as a Technology discipline in SAVEN Core architecture.",
     "Current public scope covers meaning, categories, relationships and principles. It does not claim that collection systems are operating in production.",
-    "No customer deployments, clinical products or completed data platforms are asserted here.",
-    "Later work may expand documentation for schemas, consent models and minimization rules listed as future topics.",
+    "No customer deployments or clinical products are asserted here.",
   ],
   futureHeading: "Future Topics",
   futureIntro:
-    "The topics below come from the Human Data entity in the shared registry. They are placeholders for later documentation, not delivery promises.",
+    "Topics below come from the Human Data entity in the shared registry. They mark later documentation needs. They are not delivery promises.",
   relatedSystemsHeading: "Related Systems",
   relatedResearchHeading: "Related Research",
   relatedApplicationsHeading: "Related Applications",
   referenceHeading: "Reference Links",
   referenceLinks: [
-    { label: "Human Data Model", href: "/technology/human-data-model/" },
     { label: "Technology", href: "/technology/" },
+    { label: "Human Data Model", href: "/technology/human-data-model/" },
     { label: "Foundation", href: "/foundation/" },
     { label: "Research", href: "/research/" },
     { label: "Applications", href: "/applications/" },

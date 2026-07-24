@@ -8,9 +8,9 @@ If you are a coding agent (Cursor or otherwise), read this file before making an
 
 ## Current Phase
 
-**Content Wave 1.1 — Human Data (authorized; Human Data knowledge page established)**
+**Content Review 1 — Technology Foundation (authorized; clarity pass complete)**
 
-Human Data page at `/[locale]/technology/human-data/`. See `docs/CONTENT_WAVE_1_1_HUMAN_DATA.md` and Decision D-0109. Architecture, registry, navigation and existing page templates were not changed in this wave.
+Technology, Human Data and Human Data Model pages refined for plain language and a connected reading path. See `docs/CONTENT_REVIEW_1_TECHNOLOGY_FOUNDATION.md` and Decisions D-0110–D-0111. Home, navigation, Entity Registry and page templates were not redesigned.
 
 **Do not begin without explicit owner approval:**
 

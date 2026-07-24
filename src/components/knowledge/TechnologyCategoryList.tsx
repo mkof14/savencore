@@ -1,7 +1,10 @@
 import { EntityRelationshipIndex } from "@/components/knowledge/EntityRelationshipIndex";
 import type { Locale } from "@/config/locales";
 import type { EntityRelationGroupId } from "@/content/knowledge/entity-types";
-import { getEntitiesByDomain } from "@/content/knowledge/entity-registry";
+import {
+  getEntitiesByDomain,
+  getEntityRelationsSummary,
+} from "@/content/knowledge/entity-registry";
 import { getEntityStatusLabel } from "@/content/knowledge/status-labels";
 
 const CATEGORY_RELATION_GROUPS: readonly EntityRelationGroupId[] = [
@@ -16,9 +19,20 @@ type TechnologyCategoryListProps = {
   heading?: string;
 };
 
+function hasVisibleRelationGroups(entityId: string): boolean {
+  const summary = getEntityRelationsSummary(entityId);
+  if (!summary) {
+    return false;
+  }
+  return summary.groups.some((group) =>
+    CATEGORY_RELATION_GROUPS.includes(group.id),
+  );
+}
+
 /**
  * Registry-driven Technology category blocks.
  * Uses getEntitiesByDomain("technology") — no hard-coded entity list.
+ * Empty relation groups and empty Future Topics are not rendered.
  */
 export function TechnologyCategoryList({
   locale,
@@ -39,6 +53,9 @@ export function TechnologyCategoryList({
       <ul className="technology-category-list__list">
         {entities.map((entity) => {
           const titleId = `technology-category-${entity.id}-title`;
+          const showRelations = hasVisibleRelationGroups(entity.id);
+          const showFutureTopics = entity.futureTopics.length > 0;
+
           return (
             <li key={entity.id} className="technology-category-list__item">
               <article
@@ -59,16 +76,18 @@ export function TechnologyCategoryList({
                 </header>
                 <p className="technology-category__summary">{entity.summary}</p>
 
-                <EntityRelationshipIndex
-                  locale={locale}
-                  entityId={entity.id}
-                  heading={null}
-                  groupHeadingLevel={4}
-                  includeGroups={CATEGORY_RELATION_GROUPS}
-                  className="technology-category__relations"
-                />
+                {showRelations ? (
+                  <EntityRelationshipIndex
+                    locale={locale}
+                    entityId={entity.id}
+                    heading={null}
+                    groupHeadingLevel={4}
+                    includeGroups={CATEGORY_RELATION_GROUPS}
+                    className="technology-category__relations"
+                  />
+                ) : null}
 
-                {entity.futureTopics.length > 0 ? (
+                {showFutureTopics ? (
                   <div className="technology-category__future">
                     <h4 className="eng-type-h3">Future Topics</h4>
                     <ul className="eng-future technology-category__future-list">

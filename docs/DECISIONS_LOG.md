@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-24 (Content Wave 1.1 append)
+**Last updated:** 2026-07-24 (Content Review 1 append)
 
 ## Rules
 
@@ -127,6 +127,8 @@
 | D-0107 | 2026-07-24 | Human Data Model is the flagship engineering reference page | Active |
 | D-0108 | 2026-07-24 | Phase 3.3 remains unauthorized | Active |
 | D-0109 | 2026-07-24 | Content Wave 1.1 Human Data page authorized | Active |
+| D-0110 | 2026-07-24 | Plain-language editorial standard for knowledge pages | Active |
+| D-0111 | 2026-07-24 | Approved definitions: Human Data and Human Data Model | Active |
 
 ---
 
@@ -921,6 +923,20 @@
 - **Decision:** Authorize Content Wave 1.1 to create the Human Data knowledge page at `/[locale]/technology/human-data/` for readability-focused documentation. See `docs/CONTENT_WAVE_1_1_HUMAN_DATA.md`.
 - **Out of scope:** Site redesign, navigation changes, Entity Registry edits, changes to existing page templates.
 - **Implications:** New page content and a dedicated page composition may be added; architecture systems remain unchanged.
+
+### D-0110 — Plain-language editorial standard for knowledge pages
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Knowledge documentation uses plain, direct English: one main idea per short paragraph; important terms introduced at first use; no marketing claims; no unexplained jargon; current scope separated from future topics. See `docs/CONTENT_REVIEW_1_TECHNOLOGY_FOUNDATION.md`.
+- **Implications:** Later knowledge pages should meet this editorial standard unless a superseding decision is logged.
+
+### D-0111 — Approved definitions: Human Data and Human Data Model
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Adopt permanent definitions — **Human Data:** information about a person from different sources. **Human Data Model:** the structured representation that organizes Human Data and preserves context and relationships. Related approved terms: Technology (technical capabilities and engineering foundations used to build SAVEN Core systems); Knowledge Engine (organizes knowledge and provides consistent context; does not make independent decisions); AI Decision Support (supports human review and decision-making; does not replace human judgment).
+- **Implications:** These three Technology foundation pages, and future pages that reuse the terms, must not redefine them differently.
 
 ---
 

@@ -6,7 +6,7 @@ import type {
 } from "@/components/engineering/engineering-types";
 
 /**
- * Human Data Model flagship knowledge page — Phase 3.2.
+ * Human Data Model flagship knowledge page — Phase 3.2 / Content Review 1.
  * Long-form page content only. Entity relations and futureTopics come from
  * the canonical registry (entity id: human-data-model).
  */
@@ -63,67 +63,66 @@ export const humanDataModelPageContent: HumanDataModelPageContent = {
     version: "0.1",
     lastUpdated: "2026-07-24",
     readingTime: "12 min",
-    relatedDomain: "Systems, Trust, Foundation, Research",
+    relatedDomain: "Technology, Human Data, Research",
   },
   label: "Human Data Model",
-  title: "Controlled representation of authorized human context.",
+  title: "The structure that organizes Human Data for SAVEN Core.",
   introduction:
-    "The Human Data Model is the engineering reference for how SAVEN Core structures permissioned human context before systems interpret or assist.",
+    "The Human Data Model is the structured representation that organizes Human Data and preserves context and relationships before other systems use that information.",
   developmentNote:
-    "Human Data Model information describes intended architecture and development relationships. It does not imply commercial deployment, clinical use, medical-device status or regulatory approval.",
+    "Human Data Model pages describe intended architecture. They do not imply commercial deployment, clinical use, medical-device status or regulatory approval.",
   executiveSummaryHeading: "Executive Summary",
   executiveSummary: [
-    "The Human Data Model defines a controlled interface between people and systems that may use authorized information. It organizes human context so assistance can remain permissioned, minimized and accountable.",
-    "The model is architectural. It does not claim that SAVEN Core currently operates clinical data platforms, genetic analysis services or unrestricted personal data collection.",
-    "Downstream systems—including the Knowledge Engine and AI Decision Support—consume only what the model and its trust constraints allow. Human oversight remains required for consequential action.",
+    "The Human Data Model is the structured representation that organizes Human Data and preserves context and relationships. It sits between people and later systems so assistance can stay permissioned and accountable.",
+    "It matters in SAVEN Core because later layers—such as the Knowledge Engine and AI Decision Support—should use organized context, not informal views of a person. Those layers support human review. They do not replace human judgment.",
   ],
   purposeHeading: "Purpose",
   purpose: [
-    "Provide a structured representation of human context that foundation layers and systems can reference without treating people as unstructured data sources.",
-    "Separate what may be known, who may access it and for what purpose, so privacy and safety constraints remain structural rather than optional.",
-    "Support careful assistance pathways in application contexts such as healthcare, home, hospitals and research settings—without asserting that those pathways are deployed.",
+    "Organize Human Data so foundation layers and systems can use a shared, limited view of a person.",
+    "Keep what may be known, who may access it and why it may be used as structural rules—not optional extras.",
+    "Prepare careful assistance pathways for later application contexts, without claiming those pathways are deployed today.",
   ],
   principlesHeading: "Core Principles",
   principles: [
     {
       id: "consistency",
       title: "Consistency",
-      text: "Human context uses shared definitions and status language across systems so the same authorized information is not reinterpreted under conflicting rules.",
+      text: "Shared definitions keep the same authorized information from being reinterpreted under conflicting rules.",
     },
     {
       id: "data-separation",
       title: "Data Separation",
-      text: "Categories of human context remain distinct. Combining categories requires an explicit purpose, permission boundary and review path.",
+      text: "Categories stay distinct. Combining categories requires an explicit purpose, permission and review path.",
     },
     {
       id: "privacy",
       title: "Privacy",
-      text: "Purpose limitation, minimization and access control define what may be used, why it may be used and who may access it.",
+      text: "Privacy defines what may be used, why it may be used and who may see it.",
     },
     {
       id: "explainability",
       title: "Explainability",
-      text: "Model structures and assistance inputs should remain inspectable enough for engineers and authorized reviewers to understand what context informed a pathway.",
+      text: "Reviewers should be able to see what context informed an assistance pathway.",
     },
     {
       id: "extensibility",
       title: "Extensibility",
-      text: "New context categories may be added only through governed architecture changes, not by ad hoc collection outside the model.",
+      text: "New categories may be added only through governed architecture changes, not by informal collection outside the model.",
     },
     {
       id: "interoperability",
       title: "Interoperability",
-      text: "Exchange with authorized external environments uses scoped contracts that remain subordinate to privacy, security and safety constraints.",
+      text: "Exchange with approved external environments stays limited and remains under privacy, security and safety rules.",
     },
     {
       id: "human-oversight",
       title: "Human Oversight",
-      text: "The model supports assistance under human authority. It does not grant systems autonomous decision authority over people.",
+      text: "The model supports assistance under human authority. It does not give systems independent decision power over people.",
     },
   ],
   architectureHeading: "Architecture Overview",
   architectureIntro:
-    "Conceptually, authorized human context moves through the Human Data Model before knowledge structures and decision-support pathways may use it. The sequence below is architectural, not an implementation blueprint.",
+    "In concept, Human Data moves through the Human Data Model before later layers may use it. The Knowledge Engine organizes knowledge and provides consistent context to other components. It does not make independent decisions. AI Decision Support uses available information to support human review and decision-making. It does not replace human judgment.",
   architectureDiagram: {
     id: "human-data-model-flow",
     kind: "flow",
@@ -131,110 +130,110 @@ export const humanDataModelPageContent: HumanDataModelPageContent = {
     description:
       "Conceptual flow from Human through Human Data Model, Knowledge Engine and AI Decision Support to Applications.",
     nodes: [
-      { id: "human", label: "Human", detail: "Person and context" },
+      { id: "human", label: "Human", detail: "Person and situation" },
       {
         id: "human-data-model",
         label: "Human Data Model",
-        detail: "Permissioned representation",
+        detail: "Organizes Human Data",
       },
       {
         id: "knowledge-engine",
         label: "Knowledge Engine",
-        detail: "Governed knowledge structures",
+        detail: "Consistent context; no independent decisions",
       },
       {
         id: "ai-decision-support",
         label: "AI Decision Support",
-        detail: "Assisted interpretation",
+        detail: "Supports human review",
       },
       {
         id: "applications",
         label: "Applications",
-        detail: "Human contexts of use",
+        detail: "Contexts of use",
       },
     ],
   },
   categoriesHeading: "Data Categories",
   categoriesIntro:
-    "Categories describe roles inside the model. They are not product features, collection claims or evidence that SAVEN Core currently processes these information types in production.",
+    "The categories below describe how the model groups information. For what each kind of Human Data means as information itself, read the Human Data page. These roles do not claim production collection or processing.",
   categories: [
     {
       id: "personal-information",
       title: "Personal Information",
-      role: "Identity and basic personal attributes needed to recognize an authorized individual within a governed context.",
+      role: "Groups identity attributes needed to recognize an authorized person in a governed context.",
     },
     {
       id: "health-information",
       title: "Health Information",
-      role: "Health-related context that may inform careful assistance when permissions and purpose limitation allow.",
+      role: "Groups health-related context for careful assistance when permissions allow.",
     },
     {
       id: "medical-history",
       title: "Medical History",
-      role: "Longitudinal medical context used only under explicit authorization; not a claim of clinical record-system operation.",
+      role: "Groups longer-term medical context under explicit authorization.",
     },
     {
       id: "laboratory-information",
       title: "Laboratory Information",
-      role: "Structured laboratory-related context as a governed category placeholder for future interfaces, not a laboratory service.",
+      role: "Keeps laboratory-related context as a separate sensitive group—not a laboratory service.",
     },
     {
       id: "genetics",
       title: "Genetics",
-      role: "Highly sensitive hereditary context that would require strict separation, purpose limitation and oversight if ever authorized.",
+      role: "Keeps hereditary context under the strictest separation and purpose limits if ever authorized.",
     },
     {
       id: "lifestyle",
       title: "Lifestyle",
-      role: "Daily-life and behavioral context that may support continuity of assistance without unrestricted profiling.",
+      role: "Groups daily-life context that may support continuity of assistance without open profiling.",
     },
     {
       id: "environmental-factors",
       title: "Environmental Factors",
-      role: "Surrounding conditions that may affect interpretation of human context when inclusion is justified and permissioned.",
+      role: "Groups surrounding conditions that may change how human context is interpreted when permitted.",
     },
     {
       id: "device-information",
       title: "Device Information",
-      role: "Device and interface context needed to connect people with authorized systems under safety and security boundaries.",
+      role: "Groups device and interface context needed to connect people with authorized systems safely.",
     },
     {
       id: "user-preferences",
       title: "User Preferences",
-      role: "Stated preferences that guide assistance presentation while remaining revocable and purpose-limited.",
+      role: "Groups stated preferences that guide assistance presentation and remain easy to change.",
     },
   ],
   relationshipsHeading: "Model Relationships",
   relationshipsIntro:
-    "Relationships below are rendered from the canonical knowledge entity registry for Human Data Model. They describe architectural links, not runtime integrations.",
+    "Relationships below come from the shared registry for Human Data Model. They describe architecture links, not live integrations.",
   privacyHeading: "Privacy and Trust",
   privacy: [
-    "Privacy architecture limits exposure of human context. Unnecessary collection and broad secondary use are outside the model’s purpose.",
-    "Trust Architecture relates privacy, security, the Safety Layer and human data so permissions and accountability remain cross-cutting constraints.",
-    "Access is expected to be role-aware and reviewable. Public documentation does not assert completed certifications or audits.",
+    "Privacy limits exposure of human context. Broad secondary use is outside the model’s purpose.",
+    "Trust constraints connect privacy, security, safety and human data so permissions stay cross-cutting.",
+    "Access should be role-aware and reviewable. This page does not claim completed certifications or audits.",
   ],
   engineeringHeading: "Engineering Considerations",
   engineering: [
-    "Treat category boundaries as engineering contracts. Cross-category joins require an explicit purpose and permission check.",
-    "Prefer minimization: systems should request only the context required for a defined assistance pathway.",
-    "Keep status language precise—active development, conceptual or planned—so documentation does not overstate maturity.",
-    "Preserve human oversight points wherever model outputs could influence consequential recommendations or actions.",
-    "Align interface work with interoperability, security and data-infrastructure disciplines without inventing undeclared external partners.",
+    "Treat category boundaries as contracts. Combining categories needs an explicit purpose and permission check.",
+    "Ask only for the context required for a defined assistance pathway.",
+    "Keep status language precise so documentation does not overstate maturity.",
+    "Keep human review points wherever model outputs could influence important recommendations or actions.",
   ],
   scopeHeading: "Current Development Scope",
   scope: [
-    "Current public scope defines the Human Data Model as an architectural system entity: purpose, principles, category roles, relationships and development status.",
-    "The model is in active development as architecture. This page does not claim production operation, clinical deployment or completed data-platform delivery.",
-    "Implementation schemas, permission matrices and change-event designs remain future documentation topics listed from the registry.",
+    "Current public scope defines the Human Data Model as architecture: purpose, principles, category roles, relationships and development status.",
+    "The model is in active development as architecture. This page does not claim production operation or clinical deployment.",
+    "Schemas, permission matrices and change-event designs remain future documentation topics from the registry.",
   ],
   futureHeading: "Future Topics",
   futureIntro:
-    "Topics below come from the Human Data Model entity futureTopics in the registry. They are documentation placeholders, not delivery commitments.",
+    "Topics below come from the Human Data Model entity in the shared registry. They mark later documentation needs. They are not delivery promises. A dedicated Knowledge Engine page is not published yet.",
   relatedSystemsHeading: "Related Systems",
   relatedResearchHeading: "Related Research",
   relatedApplicationsHeading: "Related Applications",
   referenceHeading: "Reference Links",
   referenceLinks: [
+    { label: "Human Data", href: "/technology/human-data/" },
     { label: "Technology", href: "/technology/" },
     { label: "Foundation", href: "/foundation/" },
     { label: "Research", href: "/research/" },

@@ -97,25 +97,23 @@ export function TechnologyRelationshipMatrix({
       ) : null}
 
       <ol className="eng-diagram__list technology-relationship-matrix__flow">
-        {layers.map((layer, index) => (
-          <li key={layer.id} className="eng-diagram__node">
-            {index > 0 ? (
-              <span className="eng-diagram__connector" aria-hidden="true" />
-            ) : null}
-            <div className="eng-diagram__card technology-relationship-matrix__card">
-              <span className="eng-diagram__label">{layer.title}</span>
-              {layer.items.length > 0 ? (
+        {layers
+          .filter((layer) => layer.items.length > 0)
+          .map((layer, index) => (
+            <li key={layer.id} className="eng-diagram__node">
+              {index > 0 ? (
+                <span className="eng-diagram__connector" aria-hidden="true" />
+              ) : null}
+              <div className="eng-diagram__card technology-relationship-matrix__card">
+                <span className="eng-diagram__label">{layer.title}</span>
                 <ul className="technology-relationship-matrix__items">
                   {layer.items.map((item) => (
                     <li key={item.id}>{item.title}</li>
                   ))}
                 </ul>
-              ) : (
-                <span className="eng-diagram__detail">No linked entities</span>
-              )}
-            </div>
-          </li>
-        ))}
+              </div>
+            </li>
+          ))}
       </ol>
       <p className="visually-hidden">
         Relationship flow from Technology through Systems, Research,

@@ -3,10 +3,9 @@ import type {
   EngineeringPrinciple,
   PageMetadata,
 } from "@/components/engineering/engineering-types";
-import { getRelatedDomainNav } from "@/content/knowledge";
 
 /**
- * Technology domain page — long-form content only (Phase 3.1).
+ * Technology domain page — long-form content (Phase 3.1 / Content Review 1).
  * Entity titles, summaries, statuses, relations, and futureTopics come from
  * the canonical registry via page components.
  */
@@ -43,85 +42,88 @@ export const technologyPageContent: TechnologyPageContent = {
     version: "0.1",
     lastUpdated: "2026-07-24",
     readingTime: "8 min",
-    relatedDomain: "Systems, Research, Trust, Foundation",
+    relatedDomain: "Foundation, Research, Applications",
   },
   label: "Technology",
-  title: "Technical disciplines that support foundation and systems.",
+  title: "Technical capabilities used to build SAVEN Core systems.",
   introduction:
-    "Technology organizes the engineering disciplines that connect human-centered foundation layers to systems and application contexts. Each discipline is defined in the shared knowledge entity registry and remains under explicit development status.",
-  overviewHeading: "Technology Overview",
+    "Technology is the set of technical capabilities and engineering foundations used to build SAVEN Core systems. This index explains those disciplines and how they connect to later systems and applications.",
+  overviewHeading: "Executive Summary",
   overview: [
-    "The Technology domain describes how artificial intelligence, human data, robotics, automation, privacy, security, data infrastructure and interoperability are scoped for SAVEN Core.",
-    "Disciplines are structural. They do not imply production deployment, clinical use, regulatory approval or completed commercial products. Status labels describe architectural maturity only.",
-    "Systems consume technology capabilities under permissions, safety boundaries and human oversight. Research and Trust constrain how those capabilities may expand.",
+    "Technology is the set of technical capabilities and engineering foundations used to build SAVEN Core systems. It matters because shared disciplines—such as Human Data, privacy and artificial intelligence—must be defined before systems can assist people under clear limits.",
+    "This index lists those disciplines and how they connect to systems and applications. Continue with Human Data, then the Human Data Model.",
   ],
   categoriesHeading: "Technology Categories",
   relationshipsHeading: "Technology Relationships",
   relationshipsIntro:
-    "Technology connects downward into systems, research questions, application contexts and trust constraints. The matrix below aggregates registry relationships from Technology entities; it is not a runtime graph.",
+    "Technology feeds systems, research topics, application contexts and trust constraints. The view below summarizes those links from the shared registry. It is a reading aid, not a live system map.",
   principlesHeading: "Engineering Principles",
   principles: [
     {
       id: "interoperability",
       title: "Interoperability",
-      text: "Interfaces exchange information only through scoped, permissioned contracts that remain subordinate to safety and privacy constraints.",
+      text: "Systems exchange information only through clear, limited agreements. Safety and privacy rules still apply.",
     },
     {
       id: "safety",
       title: "Safety",
-      text: "Operational boundaries, escalation and stop conditions are structural. Safety is not treated as a decorative trust signal or certification claim.",
+      text: "Boundaries, escalation and stop conditions are part of the design. Safety is not a slogan or a certification claim.",
     },
     {
       id: "privacy",
       title: "Privacy",
-      text: "Purpose limitation, minimization and access control define what human context may be used, why it may be used and who may access it.",
+      text: "Privacy defines what information about a person may be used, why it may be used and who may see it.",
     },
     {
       id: "human-oversight",
       title: "Human Oversight",
-      text: "Assistance pathways retain human authority for consequential action. Automation and decision support do not claim autonomous decision authority.",
+      text: "Important actions stay under human authority. Automation and decision support do not replace human judgment.",
     },
     {
       id: "scalability",
       title: "Scalability",
-      text: "Architecture is designed so capabilities can expand only when permissions, evidence and governance boundaries support that expansion.",
+      text: "Capabilities expand only when permissions, evidence and governance support that expansion.",
     },
     {
       id: "maintainability",
       title: "Maintainability",
-      text: "Disciplines, interfaces and status labels stay explicit so engineering knowledge remains reviewable as systems and research evolve.",
+      text: "Disciplines, interfaces and status labels stay explicit so the work remains reviewable over time.",
     },
   ],
   scopeHeading: "Current Development Scope",
   scope: [
-    "Current public Technology content defines discipline architecture, relationships and development status. It is a knowledge-domain index, not an operations console or product catalog.",
-    "Active-development labels identify disciplines under architectural work. Conceptual and planned labels identify disciplines that are structured but not claimed as operating systems.",
-    "No customer deployments, partnership outcomes, regulatory certifications or scientific validation results are asserted on this page.",
+    "This page is a knowledge index. It describes Technology architecture, relationships and development status.",
+    "Status labels describe maturity of the architecture only. They do not mean systems are operating in production.",
+    "This page makes no customer, partnership, certification or validation claims.",
   ],
-  futureHeading: "Future Expansion",
+  futureHeading: "Future Topics",
   futureIntro:
-    "The topics below are taken from Technology entity futureTopics in the registry. They are placeholders for later documentation, not delivery commitments.",
+    "Topics below come from Technology entries in the shared registry. They mark later documentation needs. They are not delivery promises.",
   relatedDomainsHeading: "Related Domains",
-  relatedDomainLinks: getRelatedDomainNav("technology").map((item) => ({
-    label: item.label,
-    href: item.href,
-  })),
-  referenceHeading: "Reference Links",
-  referenceLinks: [
+  relatedDomainLinks: [
     { label: "Foundation", href: "/foundation/" },
-    { label: "Purpose", href: "/purpose/" },
     { label: "Research", href: "/research/" },
     { label: "Applications", href: "/applications/" },
+    { label: "Purpose", href: "/purpose/" },
+  ],
+  referenceHeading: "Reference Links",
+  referenceLinks: [
+    { label: "Human Data", href: "/technology/human-data/" },
+    { label: "Human Data Model", href: "/technology/human-data-model/" },
+    { label: "Foundation", href: "/foundation/" },
+    { label: "Research", href: "/research/" },
+    { label: "Applications", href: "/applications/" },
+    { label: "Purpose", href: "/purpose/" },
   ],
   developmentNote:
-    "Technology information describes intended architecture and development relationships. It does not imply commercial deployment, clinical use or regulatory approval.",
+    "Technology pages describe intended architecture. They do not imply commercial deployment, clinical use or regulatory approval.",
   sectionNav: [
-    { id: "technology-overview", label: "Overview" },
+    { id: "technology-overview", label: "Summary" },
     { id: "technology-categories", label: "Categories" },
     { id: "technology-relationships", label: "Relationships" },
     { id: "engineering-principles", label: "Principles" },
     { id: "current-development-scope", label: "Scope" },
-    { id: "future-expansion", label: "Future expansion" },
+    { id: "future-expansion", label: "Future topics" },
     { id: "related-domains", label: "Related domains" },
     { id: "reference-links", label: "References" },
   ],

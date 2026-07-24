@@ -47,27 +47,6 @@ export type TechnologyDisciplinePageContent = {
   sectionNav: readonly { id: string; label: string }[];
 };
 
-/** Live Technology-domain and site links used across discipline pages. */
-export const TECHNOLOGY_DOMAIN_REFERENCE_LINKS: readonly EngineeringLink[] = [
-  { label: "Technology", href: "/technology/" },
-  { label: "Human Data", href: "/technology/human-data/" },
-  { label: "Human Data Model", href: "/technology/human-data-model/" },
-  { label: "Data Infrastructure", href: "/technology/data-infrastructure/" },
-  { label: "Interoperability", href: "/technology/interoperability/" },
-  { label: "Privacy", href: "/technology/privacy/" },
-  { label: "Security", href: "/technology/security/" },
-  {
-    label: "Artificial Intelligence",
-    href: "/technology/artificial-intelligence/",
-  },
-  { label: "Automation", href: "/technology/automation/" },
-  { label: "Robotics", href: "/technology/robotics/" },
-  { label: "Foundation", href: "/foundation/" },
-  { label: "Research", href: "/research/" },
-  { label: "Applications", href: "/applications/" },
-  { label: "Purpose", href: "/purpose/" },
-];
-
 export const TECHNOLOGY_DISCIPLINE_SECTION_NAV: readonly {
   id: string;
   label: string;

@@ -157,28 +157,30 @@ export function MobileNavigation({ locale }: MobileNavigationProps) {
           </ul>
         </nav>
 
-        <nav aria-label="Utility">
-          <p className="mobile-nav__section-title">Utility</p>
-          <ul className="mobile-nav__list">
-            {utilityNavigation.map((item) => {
-              const href = localizePath(locale, item.href);
-              const active = isPathActive(pathname, locale, item.href);
+        {utilityNavigation.length > 0 ? (
+          <nav aria-label="Utility">
+            <p className="mobile-nav__section-title">Utility</p>
+            <ul className="mobile-nav__list">
+              {utilityNavigation.map((item) => {
+                const href = localizePath(locale, item.href);
+                const active = isPathActive(pathname, locale, item.href);
 
-              return (
-                <li key={item.id}>
-                  <Link
-                    href={href}
-                    className="mobile-nav__link"
-                    aria-current={active ? "page" : undefined}
-                    onClick={closeMenu}
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </nav>
+                return (
+                  <li key={item.id}>
+                    <Link
+                      href={href}
+                      className="mobile-nav__link"
+                      aria-current={active ? "page" : undefined}
+                      onClick={closeMenu}
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
+        ) : null}
 
         <div>
           <p className="mobile-nav__section-title">Language</p>

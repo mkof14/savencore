@@ -8,14 +8,14 @@ If you are a coding agent (Cursor or otherwise), read this file before making an
 
 ## Current Phase
 
-**Content Sprint — Technology domain complete (authorized)**
+**Navigation bug fix — global dropdowns populated from published routes**
 
-All Technology knowledge pages are published. See `docs/CONTENT_SPRINT_TECHNOLOGY_COMPLETE.md` and Decision D-0113. Home, navigation and Entity Registry were not redesigned in this sprint.
+Header/footer navigation now lists only live pages. Technology dropdown includes all Technology leaves. See `docs/NAVIGATION_DROPDOWN_AUDIT.md`. Entity Registry was not modified.
 
 **Do not begin without explicit owner approval:**
 
 - Further content waves or domain destination-page build-out;
-- Home redesign or navigation changes;
+- Home redesign beyond navigation data corrections;
 - Entity Registry edits unless explicitly authorized;
 - custom brand fonts / final brand colors / logo asset / imagery;
 - CMS, database, working search, forms, analytics, cookie consent;

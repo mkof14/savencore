@@ -179,8 +179,52 @@
 }
 
 /* Technology domain — Phase 3.1 */
-.page-technology-metadata {
+.page-technology-metadata,
+.page-hdm-metadata {
   padding-block-start: var(--space-24);
+}
+
+/* Human Data Model — Phase 3.2 */
+.hdm-architecture .eng-diagram {
+  margin-block-start: var(--space-16);
+}
+
+.hdm-relationships-index {
+  margin-block: var(--space-16) 0;
+  padding-block: 0;
+  border-block: none;
+}
+
+.hdm-categories {
+  list-style: none;
+  margin: var(--space-16) 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0;
+  border-block-start: 1px solid var(--color-text);
+}
+
+.hdm-categories__item {
+  padding-block: var(--space-16);
+  border-block-end: 1px solid var(--color-divider);
+  min-inline-size: 0;
+}
+
+.hdm-categories__title {
+  margin: 0 0 var(--space-8);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  color: var(--color-text);
+}
+
+.hdm-categories__role {
+  margin: 0;
+  max-inline-size: 65ch;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
 }
 
 .page-technology-future-intro {

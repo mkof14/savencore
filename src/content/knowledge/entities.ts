@@ -447,7 +447,11 @@ export const knowledgeEntities: readonly KnowledgeEntity[] = [
     ],
     relatedTrustIds: ["trust-architecture"],
     relatedPageLinks: [
-      { label: "Systems", href: "/systems/" },
+      {
+        label: "Human Data Model",
+        href: "/technology/human-data-model/",
+      },
+      { label: "Technology", href: "/technology/" },
       { label: "Foundation", href: "/foundation/" },
     ],
     futureTopics: [

@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-24 (Phase 3.1 append)
+**Last updated:** 2026-07-24 (Phase 3.2 append)
 
 ## Rules
 
@@ -122,7 +122,10 @@
 | D-0102 | 2026-07-24 | Phase 3.1 Technology domain authorized | Active |
 | D-0103 | 2026-07-24 | Technology domain consumes canonical entity registry | Active |
 | D-0104 | 2026-07-24 | Technology is the reference knowledge-domain implementation | Active |
-| D-0105 | 2026-07-24 | Phase 3.2 remains unauthorized | Active |
+| D-0105 | 2026-07-24 | Phase 3.2 remains unauthorized | Superseded by D-0106 |
+| D-0106 | 2026-07-24 | Phase 3.2 Human Data Model page authorized | Active |
+| D-0107 | 2026-07-24 | Human Data Model is the flagship engineering reference page | Active |
+| D-0108 | 2026-07-24 | Phase 3.3 remains unauthorized | Active |
 
 ---
 
@@ -884,9 +887,31 @@
 ### D-0105 — Phase 3.2 remains unauthorized
 
 - **Date:** 2026-07-24
-- **Status:** Active
+- **Status:** Superseded by D-0106
 - **Decision:** Completing Phase 3.1 does not authorize Phase 3.2 or additional domain build-out.
 - **Implications:** Stop after Phase 3.1 commit unless explicitly authorized.
+
+### D-0106 — Phase 3.2 Human Data Model page authorized
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Authorize the Human Data Model flagship knowledge page at `/[locale]/technology/human-data-model/`. See `docs/PHASE_3_2_HUMAN_DATA_MODEL.md`.
+- **Out of scope:** Home redesign, navigation changes, backend/CMS/database, invented capability claims.
+- **Implications:** Relationships and futureTopics render from the canonical `human-data-model` entity.
+
+### D-0107 — Human Data Model is the flagship engineering reference page
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** The Human Data Model page is the engineering reference pattern for deep knowledge documentation: metadata, summary, principles, architecture, categories, registry-driven relations, privacy/trust, scope and future topics.
+- **Implications:** Later flagship entity pages should follow this structure unless superseded.
+
+### D-0108 — Phase 3.3 remains unauthorized
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Completing Phase 3.2 does not authorize Phase 3.3 or further domain/entity page build-out.
+- **Implications:** Stop after Phase 3.2 commit unless explicitly authorized.
 
 ---
 

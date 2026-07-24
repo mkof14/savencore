@@ -8,14 +8,15 @@ If you are a coding agent (Cursor or otherwise), read this file before making an
 
 ## Current Phase
 
-**Phase 3.2 — Human Data Model (authorized; flagship knowledge page established)**
+**Content Wave 1.1 — Human Data (authorized; Human Data knowledge page established)**
 
-Human Data Model flagship page at `/[locale]/technology/human-data-model/`. See `docs/PHASE_3_2_HUMAN_DATA_MODEL.md` and Decisions D-0106–D-0108. Home and global navigation were not redesigned in this phase.
+Human Data page at `/[locale]/technology/human-data/`. See `docs/CONTENT_WAVE_1_1_HUMAN_DATA.md` and Decision D-0109. Architecture, registry, navigation and existing page templates were not changed in this wave.
 
 **Do not begin without explicit owner approval:**
 
-- Phase 3.3 or additional domain destination-page build-out;
+- Further content waves or domain destination-page build-out;
 - Home redesign or navigation changes;
+- Entity Registry edits unless explicitly authorized;
 - custom brand fonts / final brand colors / logo asset / imagery;
 - CMS, database, working search, forms, analytics, cookie consent;
 - authentication or investor portal;

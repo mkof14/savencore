@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-24 (Phase 3.2 append)
+**Last updated:** 2026-07-24 (Content Wave 1.1 append)
 
 ## Rules
 
@@ -126,6 +126,7 @@
 | D-0106 | 2026-07-24 | Phase 3.2 Human Data Model page authorized | Active |
 | D-0107 | 2026-07-24 | Human Data Model is the flagship engineering reference page | Active |
 | D-0108 | 2026-07-24 | Phase 3.3 remains unauthorized | Active |
+| D-0109 | 2026-07-24 | Content Wave 1.1 Human Data page authorized | Active |
 
 ---
 
@@ -912,6 +913,14 @@
 - **Status:** Active
 - **Decision:** Completing Phase 3.2 does not authorize Phase 3.3 or further domain/entity page build-out.
 - **Implications:** Stop after Phase 3.2 commit unless explicitly authorized.
+
+### D-0109 — Content Wave 1.1 Human Data page authorized
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Authorize Content Wave 1.1 to create the Human Data knowledge page at `/[locale]/technology/human-data/` for readability-focused documentation. See `docs/CONTENT_WAVE_1_1_HUMAN_DATA.md`.
+- **Out of scope:** Site redesign, navigation changes, Entity Registry edits, changes to existing page templates.
+- **Implications:** New page content and a dedicated page composition may be added; architecture systems remain unchanged.
 
 ---
 

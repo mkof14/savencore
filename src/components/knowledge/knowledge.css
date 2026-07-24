@@ -180,7 +180,8 @@
 
 /* Technology domain — Phase 3.1 */
 .page-technology-metadata,
-.page-hdm-metadata {
+.page-hdm-metadata,
+.page-human-data-metadata {
   padding-block-start: var(--space-24);
 }
 

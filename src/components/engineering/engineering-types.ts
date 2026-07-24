@@ -29,9 +29,12 @@ export type PageMetadata = {
 
 export type EngineeringCalloutType =
   | "information"
+  | "definition"
   | "engineering-note"
   | "important"
-  | "future-work";
+  | "current-scope"
+  | "future-work"
+  | "relationship";
 
 export type EngineeringCallout = {
   id: string;

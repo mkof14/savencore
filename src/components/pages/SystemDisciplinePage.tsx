@@ -5,7 +5,9 @@ import {
   KeyPrinciples,
   ReferenceLinks,
 } from "@/components/engineering";
+import { DomainFlowDiagram } from "@/components/knowledge/DomainFlowDiagram";
 import { EntityRelationshipIndex } from "@/components/knowledge/EntityRelationshipIndex";
+import { PageContextNav } from "@/components/pages/PageContextNav";
 import { PageMasthead } from "@/components/pages/PageMasthead";
 import { PageSectionNav } from "@/components/pages/PageSectionNav";
 import type { Locale } from "@/config/locales";
@@ -15,6 +17,7 @@ import {
   getEntityRelationsSummary,
 } from "@/content/knowledge/entity-registry";
 import type { SystemDisciplinePageContent } from "@/content/pages/en/system-discipline-types";
+import { ENTITY_PAGE_HREFS } from "@/navigation/entity-page-paths";
 
 const SYSTEM_RELATION_GROUPS: readonly EntityRelationGroupId[] = [
   "depends-on",
@@ -83,6 +86,10 @@ export function SystemDisciplinePage({
       note: topic,
     })) ?? [];
 
+  const currentHref =
+    ENTITY_PAGE_HREFS[content.entityId] ?? "/systems/";
+  const showContextChain = content.entityId === "knowledge-engine";
+
   const showRelationships = hasRelationGroups(
     content.entityId,
     SYSTEM_RELATION_GROUPS,
@@ -104,6 +111,7 @@ export function SystemDisciplinePage({
       </div>
 
       <PageMasthead
+        domain="systems"
         label={content.label}
         title={content.title}
         titleId={titleId}
@@ -119,16 +127,46 @@ export function SystemDisciplinePage({
         </div>
       </div>
 
+      <PageContextNav
+        locale={locale}
+        domain="systems"
+        currentHref={currentHref}
+      />
+
       <PageSectionNav items={content.sectionNav} />
 
       <div className="page-body">
         <div className="page-shell__inner">
-          <div id="executive-summary">
+          <div id="executive-summary" className="eng-block--lede">
             <EngineeringSummary
               heading={content.executiveSummaryHeading}
               paragraphs={content.executiveSummary}
             />
           </div>
+
+          {showContextChain ? (
+            <section
+              className="eng-block"
+              aria-labelledby="system-context-chain-heading"
+            >
+              <h2
+                id="system-context-chain-heading"
+                className="eng-block__heading"
+              >
+                Context chain
+              </h2>
+              <DomainFlowDiagram
+                id="knowledge-engine-context-chain"
+                title="Human Data to Knowledge Engine"
+                description="Human Data feeds the Human Data Model. The Knowledge Engine organizes shared context for other systems."
+                nodes={[
+                  { id: "human-data", label: "Human Data" },
+                  { id: "hdm", label: "Human Data Model" },
+                  { id: "ke", label: "Knowledge Engine" },
+                ]}
+              />
+            </section>
+          ) : null}
 
           <ProseSection
             id="why-it-matters"
@@ -223,11 +261,13 @@ export function SystemDisciplinePage({
             paragraphs={content.humanOversight}
           />
 
-          <ProseSection
-            id="current-development-scope"
-            heading={content.scopeHeading}
-            paragraphs={content.scope}
-          />
+          <div className="eng-block--scope">
+            <ProseSection
+              id="current-development-scope"
+              heading={content.scopeHeading}
+              paragraphs={content.scope}
+            />
+          </div>
 
           {futureItems.length > 0 ? (
             <div id="future-topics">

@@ -20,6 +20,30 @@
   border-block-end: 1px solid var(--color-divider);
 }
 
+.page-masthead__domain {
+  margin: 0 0 var(--space-12);
+  display: inline-block;
+  padding: var(--space-4) var(--space-8);
+  border: 1px solid var(--color-divider);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  background: var(--color-background);
+}
+
+.page-masthead__domain--technology {
+  border-color: var(--color-text);
+}
+
+.page-masthead__domain--systems {
+  background: var(--color-text);
+  border-color: var(--color-text);
+  color: var(--color-background);
+}
+
 .page-masthead__label {
   margin: 0 0 var(--space-12);
   font-size: 0.75rem;
@@ -31,19 +55,19 @@
 
 .page-masthead__title {
   margin: 0;
-  max-width: 22ch;
-  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  max-width: 24ch;
+  font-size: clamp(1.875rem, 3.2vw, 2.5rem);
   font-weight: 600;
-  letter-spacing: -0.025em;
-  line-height: 1.15;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
   color: var(--color-text);
 }
 
 .page-masthead__intro {
   margin: var(--space-16) 0 0;
-  max-width: 58ch;
-  font-size: 1rem;
-  line-height: 1.55;
+  max-width: 54ch;
+  font-size: 1.0625rem;
+  line-height: 1.5;
   color: var(--color-text-secondary);
 }
 
@@ -141,20 +165,200 @@
   max-width: var(--container-max-lg);
 }
 
-/* Development / access notes */
+/* Development / access notes — read as Current Scope callouts */
 .page-dev-note,
 .page-access-note {
   padding-block: var(--space-16);
   border-block-end: 1px solid var(--color-divider);
+  background: var(--color-surface);
 }
 
 .page-dev-note__text,
 .page-access-note__text {
   margin: 0;
   max-width: 58ch;
+  padding-inline-start: var(--space-16);
+  border-inline-start: 3px solid var(--color-text);
   font-size: 0.875rem;
   line-height: 1.5;
   color: var(--color-text-secondary);
+}
+
+.page-dev-note__text::before,
+.page-access-note__text::before {
+  content: "Current scope — ";
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+
+/* Domain identity — Technology vs Systems without brand color change */
+.page--technology,
+.page--technology-discipline,
+.page--human-data,
+.page--human-data-model,
+.page--data-infrastructure {
+  border-inline-start: 4px solid var(--color-text);
+}
+
+.page--technology .page-masthead,
+.page--technology-discipline .page-masthead,
+.page--human-data .page-masthead,
+.page--human-data-model .page-masthead,
+.page--data-infrastructure .page-masthead {
+  background: var(--color-background);
+  border-block-end: 2px solid var(--color-text);
+}
+
+.page--systems,
+.page--system-discipline {
+  border-inline-start: 4px double var(--color-text);
+}
+
+.page--systems .page-masthead,
+.page--system-discipline .page-masthead {
+  background: var(--color-surface);
+  border-block-end: 1px solid var(--color-text);
+}
+
+.page--technology .page-section-nav,
+.page--technology-discipline .page-section-nav,
+.page--human-data .page-section-nav,
+.page--human-data-model .page-section-nav,
+.page--data-infrastructure .page-section-nav {
+  background: var(--color-background);
+  border-block-end: 1px solid var(--color-text);
+}
+
+.page--systems .page-section-nav,
+.page--system-discipline .page-section-nav {
+  background: var(--color-surface);
+  border-block-end: 1px solid var(--color-divider);
+}
+
+.page--technology .eng-block__heading,
+.page--technology-discipline .eng-block__heading,
+.page--human-data .eng-block__heading,
+.page--human-data-model .eng-block__heading,
+.page--data-infrastructure .eng-block__heading {
+  padding-inline-start: var(--space-12);
+  border-inline-start: 2px solid var(--color-text);
+}
+
+.page--systems .eng-block__heading,
+.page--system-discipline .eng-block__heading {
+  font-family: var(--font-sans);
+  letter-spacing: -0.02em;
+}
+
+.page--systems .eng-block__heading::before,
+.page--system-discipline .eng-block__heading::before {
+  content: "§ ";
+  font-family: var(--font-mono);
+  font-size: 0.75em;
+  color: var(--color-text-secondary);
+}
+
+/* Page location / prev-next */
+.page-context-nav {
+  padding-block: var(--space-16) var(--space-24);
+  border-block-end: 1px solid var(--color-divider);
+  background: var(--color-background);
+}
+
+.page-context-nav__inner {
+  display: grid;
+  gap: var(--space-16);
+}
+
+.page-context-nav__eyebrow,
+.page-context-nav__step-label {
+  display: block;
+  margin: 0 0 var(--space-4);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.page-context-nav__trail {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-8);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.page-context-nav__trail-link,
+.page-context-nav__step-link,
+.page-context-nav__related-link {
+  color: var(--color-text);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.page-context-nav__sep {
+  color: var(--color-text-secondary);
+}
+
+.page-context-nav__current {
+  font-weight: 600;
+}
+
+.page-context-nav__steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-12);
+}
+
+@media (min-width: 640px) {
+  .page-context-nav__steps {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-24);
+  }
+}
+
+.page-context-nav__step-empty {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.page-context-nav__related-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8) var(--space-16);
+}
+
+.page-context-nav__related-link {
+  font-size: 0.875rem;
+}
+
+.domain-flow-diagram {
+  margin-block: var(--space-8) var(--space-24);
+}
+
+/* Lede / scope wrappers around existing eng-block sections */
+.eng-block--lede > .eng-block {
+  border-block-end: 2px solid var(--color-text);
+  padding-block-end: var(--space-32);
+}
+
+.eng-block--scope > .eng-block {
+  margin: 0;
+  padding: 0;
+  border: 0;
 }
 
 /* Editorial */

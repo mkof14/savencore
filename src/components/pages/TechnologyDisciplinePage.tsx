@@ -6,12 +6,14 @@ import {
   ReferenceLinks,
 } from "@/components/engineering";
 import { EntityRelationshipIndex } from "@/components/knowledge/EntityRelationshipIndex";
+import { PageContextNav } from "@/components/pages/PageContextNav";
 import { PageMasthead } from "@/components/pages/PageMasthead";
 import { PageSectionNav } from "@/components/pages/PageSectionNav";
 import type { Locale } from "@/config/locales";
 import type { EntityRelationGroupId } from "@/content/knowledge/entity-types";
 import { getEntityById } from "@/content/knowledge/entity-registry";
 import type { TechnologyDisciplinePageContent } from "@/content/pages/en/technology-discipline-types";
+import { ENTITY_PAGE_HREFS } from "@/navigation/entity-page-paths";
 
 const RELATIONSHIP_GROUPS: readonly EntityRelationGroupId[] = [
   "depends-on",
@@ -43,6 +45,9 @@ export function TechnologyDisciplinePage({
       note: topic,
     })) ?? [];
 
+  const currentHref =
+    ENTITY_PAGE_HREFS[content.entityId] ?? "/technology/";
+
   return (
     <article
       className="page page--technology-discipline"
@@ -53,6 +58,7 @@ export function TechnologyDisciplinePage({
       </div>
 
       <PageMasthead
+        domain="technology"
         label={content.label}
         title={content.title}
         titleId={titleId}
@@ -68,11 +74,17 @@ export function TechnologyDisciplinePage({
         </div>
       </div>
 
+      <PageContextNav
+        locale={locale}
+        domain="technology"
+        currentHref={currentHref}
+      />
+
       <PageSectionNav items={content.sectionNav} />
 
       <div className="page-body">
         <div className="page-shell__inner">
-          <div id="executive-summary">
+          <div id="executive-summary" className="eng-block--lede">
             <EngineeringSummary
               heading={content.executiveSummaryHeading}
               paragraphs={content.executiveSummary}

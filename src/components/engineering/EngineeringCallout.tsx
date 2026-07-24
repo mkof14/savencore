@@ -6,9 +6,12 @@ type EngineeringCalloutProps = {
 
 const TYPE_LABELS: Record<EngineeringCalloutModel["type"], string> = {
   information: "Information",
+  definition: "Definition",
   "engineering-note": "Engineering Note",
   important: "Important",
-  "future-work": "Future Work",
+  "current-scope": "Current Scope",
+  "future-work": "Future Scope",
+  relationship: "Relationship",
 };
 
 export function EngineeringCallout({ callout }: EngineeringCalloutProps) {

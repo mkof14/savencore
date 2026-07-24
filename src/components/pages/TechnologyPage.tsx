@@ -6,8 +6,10 @@ import {
   ReferenceLinks,
   RelatedTopicsBlock,
 } from "@/components/engineering";
+import { DomainFlowDiagram } from "@/components/knowledge/DomainFlowDiagram";
 import { TechnologyCategoryList } from "@/components/knowledge/TechnologyCategoryList";
 import { TechnologyRelationshipMatrix } from "@/components/knowledge/TechnologyRelationshipMatrix";
+import { PageContextNav } from "@/components/pages/PageContextNav";
 import { PageMasthead } from "@/components/pages/PageMasthead";
 import { PageSectionNav } from "@/components/pages/PageSectionNav";
 import type { Locale } from "@/config/locales";
@@ -20,8 +22,7 @@ type TechnologyPageProps = {
 };
 
 /**
- * Technology knowledge domain index — Phase 3.1 reference implementation.
- * Section order is fixed by the phase specification.
+ * Technology domain entrance — presentation-focused index.
  */
 export function TechnologyPage({ locale, content }: TechnologyPageProps) {
   const titleId = "page-title";
@@ -41,6 +42,7 @@ export function TechnologyPage({ locale, content }: TechnologyPageProps) {
       </div>
 
       <PageMasthead
+        domain="technology"
         label={content.label}
         title={content.title}
         titleId={titleId}
@@ -56,6 +58,12 @@ export function TechnologyPage({ locale, content }: TechnologyPageProps) {
         </div>
       </div>
 
+      <PageContextNav
+        locale={locale}
+        domain="technology"
+        currentHref="/technology/"
+      />
+
       <PageSectionNav items={content.sectionNav} />
 
       <div className="page-body">
@@ -66,6 +74,44 @@ export function TechnologyPage({ locale, content }: TechnologyPageProps) {
               paragraphs={content.overview}
             />
           </div>
+
+          <section
+            className="eng-block eng-block--lede"
+            aria-labelledby="technology-domain-chain-heading"
+          >
+            <h2
+              id="technology-domain-chain-heading"
+              className="eng-block__heading"
+            >
+              Domain chain
+            </h2>
+            <p className="eng-block__body">
+              Technology provides foundations. Systems use those foundations.
+              Applications describe contexts of use.
+            </p>
+            <DomainFlowDiagram
+              id="technology-domain-chain"
+              title="Technology to Applications"
+              description="Technology foundations feed Systems. Systems connect to Applications contexts."
+              nodes={[
+                {
+                  id: "technology",
+                  label: "Technology",
+                  detail: "Foundations and disciplines",
+                },
+                {
+                  id: "systems",
+                  label: "Systems",
+                  detail: "How SAVEN Core works",
+                },
+                {
+                  id: "applications",
+                  label: "Applications",
+                  detail: "Contexts of use",
+                },
+              ]}
+            />
+          </section>
 
           <TechnologyCategoryList
             locale={locale}
@@ -86,7 +132,7 @@ export function TechnologyPage({ locale, content }: TechnologyPageProps) {
 
           <section
             id="current-development-scope"
-            className="eng-block"
+            className="eng-block eng-block--scope"
             aria-labelledby="current-development-scope-heading"
           >
             <h2

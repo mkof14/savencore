@@ -6,7 +6,9 @@ import {
   KeyPrinciples,
   ReferenceLinks,
 } from "@/components/engineering";
+import { DomainFlowDiagram } from "@/components/knowledge/DomainFlowDiagram";
 import { EntityRelationshipIndex } from "@/components/knowledge/EntityRelationshipIndex";
+import { PageContextNav } from "@/components/pages/PageContextNav";
 import { PageMasthead } from "@/components/pages/PageMasthead";
 import { PageSectionNav } from "@/components/pages/PageSectionNav";
 import type { Locale } from "@/config/locales";
@@ -43,6 +45,7 @@ export function HumanDataPage({ locale, content }: HumanDataPageProps) {
       </div>
 
       <PageMasthead
+        domain="technology"
         label={content.label}
         title={content.title}
         titleId={titleId}
@@ -58,16 +61,44 @@ export function HumanDataPage({ locale, content }: HumanDataPageProps) {
         </div>
       </div>
 
+      <PageContextNav
+        locale={locale}
+        domain="technology"
+        currentHref="/technology/human-data/"
+      />
+
       <PageSectionNav items={content.sectionNav} />
 
       <div className="page-body">
         <div className="page-shell__inner">
-          <div id="executive-summary">
+          <div id="executive-summary" className="eng-block--lede">
             <EngineeringSummary
               heading={content.executiveSummaryHeading}
               paragraphs={content.executiveSummary}
             />
           </div>
+
+          <section
+            className="eng-block"
+            aria-labelledby="human-data-context-chain-heading"
+          >
+            <h2
+              id="human-data-context-chain-heading"
+              className="eng-block__heading"
+            >
+              Context chain
+            </h2>
+            <DomainFlowDiagram
+              id="human-data-context-chain"
+              title="Human Data through Systems"
+              description="Human Data feeds the Human Data Model. The Knowledge Engine organizes shared context for other systems."
+              nodes={[
+                { id: "human-data", label: "Human Data" },
+                { id: "hdm", label: "Human Data Model" },
+                { id: "ke", label: "Knowledge Engine" },
+              ]}
+            />
+          </section>
 
           <section
             id="purpose"

@@ -6,6 +6,7 @@ import {
   ReferenceLinks,
 } from "@/components/engineering";
 import { EntityRelationshipIndex } from "@/components/knowledge/EntityRelationshipIndex";
+import { PageContextNav } from "@/components/pages/PageContextNav";
 import { PageMasthead } from "@/components/pages/PageMasthead";
 import { PageSectionNav } from "@/components/pages/PageSectionNav";
 import type { Locale } from "@/config/locales";
@@ -48,6 +49,7 @@ export function DataInfrastructurePage({
       </div>
 
       <PageMasthead
+        domain="technology"
         label={content.label}
         title={content.title}
         titleId={titleId}
@@ -63,11 +65,17 @@ export function DataInfrastructurePage({
         </div>
       </div>
 
+      <PageContextNav
+        locale={locale}
+        domain="technology"
+        currentHref="/technology/data-infrastructure/"
+      />
+
       <PageSectionNav items={content.sectionNav} />
 
       <div className="page-body">
         <div className="page-shell__inner">
-          <div id="executive-summary">
+          <div id="executive-summary" className="eng-block--lede">
             <EngineeringSummary
               heading={content.executiveSummaryHeading}
               paragraphs={content.executiveSummary}

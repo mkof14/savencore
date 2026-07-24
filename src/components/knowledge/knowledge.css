@@ -247,13 +247,21 @@
   margin: 0;
   padding: 0;
   display: grid;
-  gap: var(--space-32);
+  gap: var(--space-16);
+}
+
+@media (min-width: 720px) {
+  .technology-category-list__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-16);
+  }
 }
 
 .technology-category-list__item {
   min-inline-size: 0;
-  padding-block-start: var(--space-24);
-  border-block-start: 1px solid var(--color-divider);
+  padding: var(--space-16);
+  border: 1px solid var(--color-divider);
+  background: var(--color-background);
 }
 
 .technology-category__header {
@@ -308,17 +316,82 @@
   border-block: none;
 }
 
+.systems-overview-map__grid {
+  list-style: none;
+  margin: var(--space-16) 0 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-12);
+}
+
+@media (min-width: 720px) {
+  .systems-overview-map__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .systems-overview-map__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.systems-overview-map__card {
+  height: 100%;
+  padding: var(--space-16);
+  border: 1px solid var(--color-text);
+  background: var(--color-background);
+  display: grid;
+  gap: var(--space-8);
+}
+
+.systems-overview-map__index {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--color-text-secondary);
+}
+
+.systems-overview-map__title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.systems-overview-map__link {
+  color: var(--color-text);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.systems-overview-map__status {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+.systems-overview-map__summary {
+  margin: 0;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+}
+
 .systems-category-list__list {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
-  gap: var(--space-32);
+  gap: var(--space-16);
 }
 
 .systems-category-list__item {
   min-inline-size: 0;
-  padding-block-start: var(--space-24);
+  padding: var(--space-16) 0;
   border-block-start: 1px solid var(--color-divider);
 }
 

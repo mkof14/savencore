@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-24 (Phase 1A.1 append)
+**Last updated:** 2026-07-24 (Phase 1B append)
 
 ## Rules
 
@@ -44,7 +44,12 @@
 | D-0024 | 2026-07-24 | Next.js 16 proxy convention adopted | Active |
 | D-0025 | 2026-07-24 | Deprecated middleware convention removed | Active |
 | D-0026 | 2026-07-24 | Git repository initialized; baseline commit pending identity | Active |
-| D-0027 | 2026-07-24 | Phase 1B remains unauthorized | Active |
+| D-0027 | 2026-07-24 | Phase 1B remains unauthorized | Superseded by D-0028 |
+| D-0028 | 2026-07-24 | Phase 1B design foundation authorized | Active |
+| D-0029 | 2026-07-24 | Design token modules and spacing scale adopted | Active |
+| D-0030 | 2026-07-24 | Straight-corner radius default and system fonts adopted | Active |
+| D-0031 | 2026-07-24 | Neutral semantic colors only; brand accents deferred | Active |
+| D-0032 | 2026-07-24 | Header / Footer / Home remain unauthorized after Phase 1B | Active |
 
 ---
 
@@ -247,9 +252,46 @@
 ### D-0027 — Phase 1B remains unauthorized
 
 - **Date:** 2026-07-24
-- **Status:** Active
+- **Status:** Superseded by D-0028
 - **Decision:** Phase 1A.1 authorization does not extend to Phase 1B. Design system, Home page, Header/Footer/navigation, marketing pages, CMS, forms, authentication, analytics, and visual design remain unauthorized.
 - **Implications:** Agents must stop after Phase 1A.1 corrections and Git baseline preparation.
+
+### D-0028 — Phase 1B design foundation authorized
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Authorize Phase 1B to create the visual engineering foundation under `src/design/` and document it in `docs/PHASE_1B_DESIGN_FOUNDATION.md`.
+- **Supersedes:** D-0027 for design-foundation scope only.
+- **Out of scope:** Home page, Header, Footer, navigation, content sections, marketing copy, UI components, custom fonts, final brand colors.
+- **Implications:** Subsequent UI work must consume these tokens. Phase 1B does not authorize component or page build-out.
+
+### D-0029 — Design token modules and spacing scale adopted
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Adopt modules `tokens.ts`, `spacing.ts`, `typography.ts`, `breakpoints.ts`, `container.ts`, `motion.ts`, and `radius.ts`. Spacing scale is exclusively 4, 8, 12, 16, 24, 32, 48, 64, 96.
+- **Implications:** No random spacing. Breakpoints and containers follow one responsive ladder (sm → 2xl).
+
+### D-0030 — Straight-corner radius default and system fonts adopted
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Global border radius remains `0`. Typography uses system font stacks and the defined type roles only. Custom brand fonts remain deferred.
+- **Implications:** Any future rounding must be explicit opt-in per component, never a sitewide card radius system.
+
+### D-0031 — Neutral semantic colors only; brand accents deferred
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Phase 1B defines only neutral semantic color tokens (`background`, `surface`, `text`, `textSecondary`, `border`, `divider`, `success`, `warning`, `error`) plus limited dark-section neutrals. Final brand accent colors are not selected.
+- **Implications:** Do not introduce purple/indigo AI gradients, neon, or template brand palettes.
+
+### D-0032 — Header / Footer / Home remain unauthorized after Phase 1B
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Completing Phase 1B does not authorize Header, Footer, navigation, Home page, or component libraries.
+- **Implications:** Stop after design foundation validation unless a new phase is explicitly authorized.
 
 ---
 

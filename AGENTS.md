@@ -8,18 +8,16 @@ If you are a coding agent (Cursor or otherwise), read this file before making an
 
 ## Current Phase
 
-**Phase 1A / 1A.1 — Technical foundation complete; Git baseline pending owner identity**
+**Phase 1B — Design Foundation (authorized for tokens only)**
 
-Phase 1A initialized the Next.js foundation. Phase 1A.1 migrated `middleware` → `proxy`, verified root-layout `html`/`body` ownership, and initialized Git on `main`. See `docs/PHASE_1A_TECHNICAL_FOUNDATION.md` and Decisions D-0018, D-0024–D-0027.
-
-**Baseline commit status:** staged locally; commit blocked until the owner sets Git `user.name` and `user.email`.
+Technical foundation (1A / 1A.1) is complete on `main`. Phase 1B establishes design tokens under `src/design/`. See `docs/PHASE_1B_DESIGN_FOUNDATION.md` and Decisions D-0028–D-0032.
 
 **Do not begin without explicit owner approval:**
 
-- Phase 1B or later;
-- design system / design tokens / custom fonts;
-- production Home page;
-- Header, Footer, Mega Menu, marketing sections;
+- Header, Footer, navigation, Mega Menu;
+- production Home page or marketing sections;
+- UI component libraries beyond tokens;
+- custom brand fonts / final brand colors;
 - CMS, database, forms, analytics, cookie consent;
 - authentication or investor access;
 - leaf marketing pages across the sitemap.

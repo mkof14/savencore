@@ -1,11 +1,14 @@
 import {
+  ArchitectureStack,
+  DefinitionPanel,
   DocumentMetadata,
+  EngineeringCardGrid,
   EngineeringSummary,
   FutureExpansionBlock,
   KeyPrinciples,
   ReferenceLinks,
+  RelationshipChain,
 } from "@/components/engineering";
-import { DomainFlowDiagram } from "@/components/knowledge/DomainFlowDiagram";
 import { EntityRelationshipIndex } from "@/components/knowledge/EntityRelationshipIndex";
 import { PageContextNav } from "@/components/pages/PageContextNav";
 import { PageMasthead } from "@/components/pages/PageMasthead";
@@ -88,7 +91,7 @@ export function SystemDisciplinePage({
 
   const currentHref =
     ENTITY_PAGE_HREFS[content.entityId] ?? "/systems/";
-  const showContextChain = content.entityId === "knowledge-engine";
+  const isKnowledgeEngine = content.entityId === "knowledge-engine";
 
   const showRelationships = hasRelationGroups(
     content.entityId,
@@ -137,36 +140,102 @@ export function SystemDisciplinePage({
 
       <div className="page-body">
         <div className="page-shell__inner">
-          <div id="executive-summary" className="eng-block--lede">
+          {isKnowledgeEngine ? (
+            <>
+              <div className="engineering-hero engineering-hero--architecture">
+                <div className="engineering-hero__primary">
+                  <DefinitionPanel
+                    term="Knowledge Engine"
+                    definition="Organizes knowledge and preserves context for other components. It does not make decisions."
+                  />
+                </div>
+                <div className="engineering-hero__diagram">
+                  <ArchitectureStack
+                    id="knowledge-engine-system-map"
+                    title="System map"
+                    description="Knowledge Engine position among SAVEN Core systems."
+                    identity="architecture"
+                    nodes={[
+                      {
+                        id: "ke",
+                        label: "Knowledge Engine",
+                        current: true,
+                      },
+                      { id: "ads", label: "AI Decision Support" },
+                      { id: "safety", label: "Safety Layer" },
+                      { id: "comms", label: "Communication Layer" },
+                    ]}
+                  />
+                </div>
+              </div>
+
+              <EngineeringCardGrid
+                locale={locale}
+                heading="Connected systems"
+                identity="architecture"
+                items={[
+                  {
+                    id: "ads",
+                    title: "AI Decision Support",
+                    summary:
+                      "Analyzes available information to support people. Does not replace people.",
+                    href: "/systems/ai-decision-support/",
+                  },
+                  {
+                    id: "safety",
+                    title: "Safety Layer",
+                    summary:
+                      "Applies validation, limits, human review and escalation.",
+                    href: "/systems/safety-layer/",
+                  },
+                  {
+                    id: "hdm",
+                    title: "Human Data Model",
+                    summary:
+                      "Structured representation that organizes Human Data.",
+                    href: "/technology/human-data-model/",
+                  },
+                ]}
+              />
+
+              <RelationshipChain
+                locale={locale}
+                heading="Architecture relationships"
+                steps={[
+                  {
+                    id: "ke",
+                    label: "Knowledge Engine",
+                    href: "/systems/knowledge-engine/",
+                    relation: "powers",
+                  },
+                  {
+                    id: "ads",
+                    label: "AI Decision Support",
+                    href: "/systems/ai-decision-support/",
+                    relation: "protected by",
+                  },
+                  {
+                    id: "safety",
+                    label: "Safety Layer",
+                    href: "/systems/safety-layer/",
+                    relation: "communicates through",
+                  },
+                  {
+                    id: "comms",
+                    label: "Communication Layer",
+                    href: "/systems/communication-layer/",
+                  },
+                ]}
+              />
+            </>
+          ) : null}
+
+          <div id="executive-summary">
             <EngineeringSummary
               heading={content.executiveSummaryHeading}
               paragraphs={content.executiveSummary}
             />
           </div>
-
-          {showContextChain ? (
-            <section
-              className="eng-block"
-              aria-labelledby="system-context-chain-heading"
-            >
-              <h2
-                id="system-context-chain-heading"
-                className="eng-block__heading"
-              >
-                Context chain
-              </h2>
-              <DomainFlowDiagram
-                id="knowledge-engine-context-chain"
-                title="Human Data to Knowledge Engine"
-                description="Human Data feeds the Human Data Model. The Knowledge Engine organizes shared context for other systems."
-                nodes={[
-                  { id: "human-data", label: "Human Data" },
-                  { id: "hdm", label: "Human Data Model" },
-                  { id: "ke", label: "Knowledge Engine" },
-                ]}
-              />
-            </section>
-          ) : null}
 
           <ProseSection
             id="why-it-matters"

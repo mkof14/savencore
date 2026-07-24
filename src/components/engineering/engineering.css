@@ -678,3 +678,369 @@
   fill: none;
   stroke-width: 1;
 }
+
+/* -------------------------------------------------------------------------- */
+/* Engineering experience — definition, stack, cards, relationships           */
+/* -------------------------------------------------------------------------- */
+
+.definition-panel {
+  margin: 0 0 var(--space-32);
+  padding: var(--space-32) var(--space-24);
+  border: 1px solid var(--color-text);
+  background: var(--color-background);
+}
+
+.definition-panel__eyebrow {
+  margin: 0 0 var(--space-16);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.definition-panel__term {
+  margin: 0 0 var(--space-16);
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: var(--color-text);
+}
+
+.definition-panel__text {
+  margin: 0;
+  max-inline-size: 36ch;
+  font-size: 1.125rem;
+  line-height: 1.45;
+  color: var(--color-text);
+}
+
+.architecture-stack {
+  margin: 0 0 var(--space-32);
+  padding: var(--space-24);
+  border: 1px solid var(--color-divider);
+  background: var(--color-background);
+}
+
+.architecture-stack--blueprint {
+  border-style: dashed;
+  border-width: 1px;
+  border-color: var(--color-text);
+  background: var(--color-background);
+}
+
+.architecture-stack--blueprint .architecture-stack__card {
+  border-style: solid;
+  border-width: 1px;
+}
+
+.architecture-stack--architecture {
+  border-width: 2px;
+  border-color: var(--color-text);
+  padding-block: var(--space-32);
+}
+
+.architecture-stack--usage {
+  border-inline-start-width: 4px;
+  border-inline-start-color: var(--color-text);
+  background: var(--color-surface);
+}
+
+.architecture-stack__caption {
+  margin: 0 0 var(--space-24);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.architecture-stack__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  max-inline-size: 28rem;
+}
+
+.architecture-stack__node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.architecture-stack__connector {
+  display: block;
+  padding-block: var(--space-8);
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  line-height: 1;
+  color: var(--color-text);
+}
+
+.architecture-stack__card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-16) var(--space-20);
+  border: 1px solid var(--color-text);
+  background: var(--color-background);
+  text-align: center;
+}
+
+.architecture-stack__node.is-current .architecture-stack__card {
+  border-width: 2px;
+}
+
+.architecture-stack__label {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--color-text);
+}
+
+.architecture-stack__detail {
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  color: var(--color-text-secondary);
+}
+
+.engineering-card-grid {
+  margin: 0 0 var(--space-32);
+  padding-block: var(--space-8) var(--space-24);
+  border-block-end: 1px solid var(--color-divider);
+}
+
+.engineering-card-grid__heading {
+  margin: 0 0 var(--space-24);
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+}
+
+.engineering-card-grid__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-16);
+}
+
+@media (min-width: 720px) {
+  .engineering-card-grid__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .engineering-card-grid--architecture .engineering-card-grid__list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.engineering-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  padding: var(--space-20);
+  border: 1px solid var(--color-text);
+  background: var(--color-background);
+  min-inline-size: 0;
+}
+
+.engineering-card-grid--blueprint .engineering-card {
+  border-color: var(--color-divider);
+  border-block-start: 2px solid var(--color-text);
+}
+
+.engineering-card-grid--architecture .engineering-card {
+  border-width: 1px;
+  border-color: var(--color-text);
+}
+
+.engineering-card-grid--usage .engineering-card {
+  border: 0;
+  border-block-start: 1px solid var(--color-text);
+  background: var(--color-surface);
+  padding-inline: 0;
+}
+
+.engineering-card__index {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--color-text-secondary);
+}
+
+.engineering-card__title {
+  margin: 0;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  color: var(--color-text);
+}
+
+.engineering-card__meta {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+.engineering-card__summary {
+  margin: 0;
+  flex: 1 1 auto;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+}
+
+.engineering-card__rule {
+  margin-block-start: var(--space-8);
+  border-block-start: 1px solid var(--color-divider);
+}
+
+.engineering-card__action {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+  margin-block-start: var(--space-4);
+  min-height: 2.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.engineering-card__action:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.relationship-chain {
+  margin: 0 0 var(--space-32);
+  padding: var(--space-24);
+  border: 1px solid var(--color-divider);
+  background: var(--color-surface);
+}
+
+.relationship-chain__heading {
+  margin: 0 0 var(--space-12);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.relationship-chain__description {
+  margin: 0 0 var(--space-24);
+  max-inline-size: 58ch;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+}
+
+.relationship-chain__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+}
+
+.relationship-chain__node {
+  padding: var(--space-12) var(--space-16);
+  border: 1px solid var(--color-text);
+  background: var(--color-background);
+}
+
+.relationship-chain__link,
+.relationship-chain__label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.relationship-chain__link:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.relationship-chain__bridge {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+  padding-block: var(--space-8);
+  padding-inline-start: var(--space-16);
+}
+
+.relationship-chain__verb {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.relationship-chain__arrow {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  color: var(--color-text);
+}
+
+.engineering-hero {
+  display: grid;
+  gap: var(--space-32);
+  margin: 0 0 var(--space-32);
+  padding-block-end: var(--space-32);
+  border-block-end: 1px solid var(--color-divider);
+}
+
+@media (min-width: 960px) {
+  .engineering-hero {
+    grid-template-columns: minmax(0, 1.1fr) minmax(16rem, 0.9fr);
+    align-items: start;
+  }
+
+  .engineering-hero--architecture {
+    grid-template-columns: minmax(0, 0.95fr) minmax(18rem, 1.05fr);
+  }
+}
+
+.engineering-hero__primary {
+  min-inline-size: 0;
+}
+
+.engineering-hero__diagram {
+  min-inline-size: 0;
+}
+
+.page--technology .engineering-hero,
+.page--technology-discipline .engineering-hero,
+.page--human-data .engineering-hero,
+.page--human-data-model .engineering-hero,
+.page--data-infrastructure .engineering-hero {
+  border-block-end-width: 2px;
+  border-block-end-color: var(--color-text);
+}
+
+.page--systems .engineering-hero,
+.page--system-discipline .engineering-hero {
+  border-block-end-width: 1px;
+  border-block-end-color: var(--color-text);
+  background: transparent;
+}

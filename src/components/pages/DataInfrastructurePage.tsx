@@ -1,9 +1,13 @@
 import {
+  ArchitectureStack,
+  DefinitionPanel,
   DocumentMetadata,
+  EngineeringCardGrid,
   EngineeringSummary,
   FutureExpansionBlock,
   KeyPrinciples,
   ReferenceLinks,
+  RelationshipChain,
 } from "@/components/engineering";
 import { EntityRelationshipIndex } from "@/components/knowledge/EntityRelationshipIndex";
 import { PageContextNav } from "@/components/pages/PageContextNav";
@@ -75,7 +79,86 @@ export function DataInfrastructurePage({
 
       <div className="page-body">
         <div className="page-shell__inner">
-          <div id="executive-summary" className="eng-block--lede">
+          <div className="engineering-hero">
+            <div className="engineering-hero__primary">
+              <DefinitionPanel
+                term="Data Infrastructure"
+                definition="How authorized information is organized and made available to other systems."
+              />
+            </div>
+            <div className="engineering-hero__diagram">
+              <ArchitectureStack
+                id="data-infrastructure-position"
+                title="Where this fits"
+                description="Data Infrastructure supports Human Data Model and Knowledge Engine pathways."
+                identity="blueprint"
+                nodes={[
+                  { id: "human-data", label: "Human Data" },
+                  { id: "hdm", label: "Human Data Model" },
+                  {
+                    id: "data-infra",
+                    label: "Data Infrastructure",
+                    current: true,
+                  },
+                  { id: "ke", label: "Knowledge Engine" },
+                ]}
+              />
+            </div>
+          </div>
+
+          <EngineeringCardGrid
+            locale={locale}
+            heading="Connected foundations"
+            identity="blueprint"
+            items={[
+              {
+                id: "human-data",
+                title: "Human Data",
+                summary: "Information about a person from different sources.",
+                href: "/technology/human-data/",
+              },
+              {
+                id: "hdm",
+                title: "Human Data Model",
+                summary:
+                  "Structured representation that organizes Human Data and preserves context.",
+                href: "/technology/human-data-model/",
+              },
+              {
+                id: "ke",
+                title: "Knowledge Engine",
+                summary:
+                  "Organizes knowledge and preserves context for other components.",
+                href: "/systems/knowledge-engine/",
+              },
+            ]}
+          />
+
+          <RelationshipChain
+            locale={locale}
+            heading="Architecture relationships"
+            steps={[
+              {
+                id: "hdm",
+                label: "Human Data Model",
+                href: "/technology/human-data-model/",
+                relation: "supported by",
+              },
+              {
+                id: "data-infra",
+                label: "Data Infrastructure",
+                href: "/technology/data-infrastructure/",
+                relation: "feeds",
+              },
+              {
+                id: "ke",
+                label: "Knowledge Engine",
+                href: "/systems/knowledge-engine/",
+              },
+            ]}
+          />
+
+          <div id="executive-summary">
             <EngineeringSummary
               heading={content.executiveSummaryHeading}
               paragraphs={content.executiveSummary}

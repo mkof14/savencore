@@ -1,20 +1,21 @@
 import {
-  ArchitectureOverview,
+  ArchitectureStack,
+  DefinitionPanel,
   DocumentMetadata,
+  EngineeringCardGrid,
   FutureExpansionBlock,
   KeyPrinciples,
   ReferenceLinks,
-  RelatedTopicsBlock,
+  RelationshipChain,
 } from "@/components/engineering";
-import { DomainFlowDiagram } from "@/components/knowledge/DomainFlowDiagram";
-import { SystemsCategoryList } from "@/components/knowledge/SystemsCategoryList";
-import { SystemsOverviewMap } from "@/components/knowledge/SystemsOverviewMap";
 import { PageContextNav } from "@/components/pages/PageContextNav";
 import { PageMasthead } from "@/components/pages/PageMasthead";
 import { PageSectionNav } from "@/components/pages/PageSectionNav";
 import type { Locale } from "@/config/locales";
 import { getEntityById } from "@/content/knowledge/entity-registry";
+import { getEntityStatusLabel } from "@/content/knowledge/status-labels";
 import type { SystemsPageContent } from "@/content/pages/en/systems";
+import { systemsNavChildren } from "@/navigation/site-navigation";
 
 const SYSTEM_ENTITY_IDS = [
   "knowledge-engine",
@@ -31,35 +32,8 @@ type SystemsPageProps = {
   content: SystemsPageContent;
 };
 
-function ProseSection({
-  id,
-  heading,
-  paragraphs,
-}: {
-  id: string;
-  heading: string;
-  paragraphs: readonly string[];
-}) {
-  if (paragraphs.length === 0) {
-    return null;
-  }
-  const headingId = `${id}-heading`;
-  return (
-    <section id={id} className="eng-block" aria-labelledby={headingId}>
-      <h2 id={headingId} className="eng-block__heading">
-        {heading}
-      </h2>
-      {paragraphs.map((paragraph) => (
-        <p key={paragraph} className="eng-block__body">
-          {paragraph}
-        </p>
-      ))}
-    </section>
-  );
-}
-
 /**
- * Systems domain landing page — visual overview plus architecture reading path.
+ * Systems domain landing — architecture map first, then detail.
  */
 export function SystemsPage({ locale, content }: SystemsPageProps) {
   const titleId = "page-title";
@@ -74,6 +48,25 @@ export function SystemsPage({ locale, content }: SystemsPageProps) {
       label: entity.title,
       note: topic,
     }));
+  });
+
+  const systemCards = SYSTEM_ENTITY_IDS.flatMap((entityId) => {
+    const entity = getEntityById(entityId);
+    const href = systemsNavChildren.find(
+      (item) => item.id === `systems-${entityId}`,
+    )?.href;
+    if (!entity || !href) {
+      return [];
+    }
+    return [
+      {
+        id: entity.id,
+        title: entity.title,
+        summary: entity.summary,
+        href,
+        meta: getEntityStatusLabel(entity.status),
+      },
+    ];
   });
 
   return (
@@ -109,104 +102,131 @@ export function SystemsPage({ locale, content }: SystemsPageProps) {
 
       <div className="page-body">
         <div className="page-shell__inner">
-          <div id="systems-overview">
-            <ArchitectureOverview
-              heading={content.overviewHeading}
-              paragraphs={content.overview}
-            />
+          <div className="engineering-hero engineering-hero--architecture">
+            <div className="engineering-hero__primary">
+              <DefinitionPanel
+                term="System"
+                definition="A coordinated engineering component that performs a specific role inside SAVEN Core."
+              />
+            </div>
+            <div className="engineering-hero__diagram">
+              <ArchitectureStack
+                id="systems-platform-overview"
+                title="Architecture overview"
+                description="Technology foundations feed Systems. Systems connect to Applications."
+                identity="architecture"
+                nodes={[
+                  { id: "technology", label: "Technology" },
+                  { id: "systems", label: "Systems", current: true },
+                  { id: "applications", label: "Applications" },
+                ]}
+              />
+            </div>
           </div>
 
           <section
-            className="eng-block eng-block--lede"
-            aria-labelledby="systems-domain-chain-heading"
-          >
-            <h2
-              id="systems-domain-chain-heading"
-              className="eng-block__heading"
-            >
-              Domain chain
-            </h2>
-            <p className="eng-block__body">
-              Systems sit between Technology foundations and Applications
-              contexts.
-            </p>
-            <DomainFlowDiagram
-              id="systems-domain-chain"
-              title="Technology to Applications"
-              description="Technology feeds Systems. Systems connect to Applications."
-              nodes={[
-                { id: "technology", label: "Technology" },
-                { id: "systems", label: "Systems" },
-                { id: "applications", label: "Applications" },
-              ]}
-            />
-          </section>
-
-          <SystemsOverviewMap locale={locale} heading="System map" />
-
-          <section
+            id="systems-overview"
             className="eng-block"
-            aria-labelledby="systems-working-chain-heading"
+            aria-labelledby="systems-map-heading"
           >
-            <h2
-              id="systems-working-chain-heading"
-              className="eng-block__heading"
-            >
-              Working relationships
+            <h2 id="systems-map-heading" className="eng-block__heading">
+              System map
             </h2>
             <p className="eng-block__body">
-              Shared context feeds assistance. Safety and communication constrain
-              clinical and physical pathways.
+              How SAVEN Core systems relate as architecture.
             </p>
-            <DomainFlowDiagram
-              id="systems-working-chain"
-              title="How systems connect"
-              description="Knowledge Engine to AI Decision Support to Safety Layer, then Clinical Interfaces and Robotics Layer."
-              kind="flow"
+            <ArchitectureStack
+              id="systems-architecture-map"
+              title="Systems architecture"
+              description="Knowledge Engine through Drone Systems in architecture order."
+              identity="architecture"
               nodes={[
                 { id: "ke", label: "Knowledge Engine" },
                 { id: "ads", label: "AI Decision Support" },
                 { id: "safety", label: "Safety Layer" },
+                { id: "comms", label: "Communication Layer" },
                 { id: "clinical", label: "Clinical Interfaces" },
                 { id: "robotics", label: "Robotics Layer" },
+                { id: "drones", label: "Drone Systems" },
               ]}
             />
           </section>
 
-          <ProseSection
-            id="what-a-system-means"
-            heading={content.meaningHeading}
-            paragraphs={content.meaning}
-          />
+          <div id="systems-categories">
+            <EngineeringCardGrid
+              locale={locale}
+              heading="Published systems"
+              identity="architecture"
+              items={systemCards}
+            />
+          </div>
 
-          <ProseSection
-            id="systems-and-technology"
-            heading={content.technologyHeading}
-            paragraphs={content.technology}
-          />
-
-          <ProseSection
-            id="systems-and-applications"
-            heading={content.applicationsHeading}
-            paragraphs={content.applications}
-          />
-
-          <ProseSection
-            id="systems-together"
-            heading={content.togetherHeading}
-            paragraphs={content.together}
-          />
-
-          <ProseSection
-            id="where-to-continue"
-            heading={content.continueHeading}
-            paragraphs={content.continue}
-          />
-
-          <SystemsCategoryList
+          <RelationshipChain
             locale={locale}
-            heading={content.categoriesHeading}
+            heading="Working relationships"
+            description="Shared context feeds assistance under safety and communication limits."
+            steps={[
+              {
+                id: "ke",
+                label: "Knowledge Engine",
+                href: "/systems/knowledge-engine/",
+                relation: "powers",
+              },
+              {
+                id: "ads",
+                label: "AI Decision Support",
+                href: "/systems/ai-decision-support/",
+                relation: "protected by",
+              },
+              {
+                id: "safety",
+                label: "Safety Layer",
+                href: "/systems/safety-layer/",
+                relation: "communicates through",
+              },
+              {
+                id: "comms",
+                label: "Communication Layer",
+                href: "/systems/communication-layer/",
+                relation: "reaches",
+              },
+              {
+                id: "clinical",
+                label: "Clinical Interfaces",
+                href: "/systems/clinical-interfaces/",
+              },
+            ]}
           />
+
+          <section
+            id="systems-and-technology"
+            className="eng-block"
+            aria-labelledby="systems-chain-heading"
+          >
+            <h2 id="systems-chain-heading" className="eng-block__heading">
+              {content.technologyHeading}
+            </h2>
+            {content.technology.map((paragraph) => (
+              <p key={paragraph} className="eng-block__body">
+                {paragraph}
+              </p>
+            ))}
+          </section>
+
+          <section
+            id="systems-and-applications"
+            className="eng-block"
+            aria-labelledby="systems-applications-heading"
+          >
+            <h2 id="systems-applications-heading" className="eng-block__heading">
+              {content.applicationsHeading}
+            </h2>
+            {content.applications.map((paragraph) => (
+              <p key={paragraph} className="eng-block__body">
+                {paragraph}
+              </p>
+            ))}
+          </section>
 
           <div id="engineering-principles">
             <KeyPrinciples
@@ -242,14 +262,6 @@ export function SystemsPage({ locale, content }: SystemsPageProps) {
               />
             </div>
           ) : null}
-
-          <div id="related-domains">
-            <RelatedTopicsBlock
-              locale={locale}
-              heading={content.relatedDomainsHeading}
-              links={content.relatedDomainLinks}
-            />
-          </div>
 
           <div id="reference-links">
             <ReferenceLinks

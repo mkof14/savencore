@@ -1,12 +1,15 @@
 import {
+  ArchitectureStack,
+  DefinitionPanel,
   DocumentMetadata,
+  EngineeringCardGrid,
   EngineeringDiagram,
   EngineeringSummary,
   FutureExpansionBlock,
   KeyPrinciples,
   ReferenceLinks,
+  RelationshipChain,
 } from "@/components/engineering";
-import { DomainFlowDiagram } from "@/components/knowledge/DomainFlowDiagram";
 import { EntityRelationshipIndex } from "@/components/knowledge/EntityRelationshipIndex";
 import { PageContextNav } from "@/components/pages/PageContextNav";
 import { PageMasthead } from "@/components/pages/PageMasthead";
@@ -71,34 +74,88 @@ export function HumanDataPage({ locale, content }: HumanDataPageProps) {
 
       <div className="page-body">
         <div className="page-shell__inner">
-          <div id="executive-summary" className="eng-block--lede">
+          <div className="engineering-hero">
+            <div className="engineering-hero__primary">
+              <DefinitionPanel
+                term="Human Data"
+                definition="Information about a person from different sources."
+              />
+            </div>
+            <div className="engineering-hero__diagram">
+              <ArchitectureStack
+                id="human-data-position"
+                title="Where this fits"
+                description="Human Data feeds the Human Data Model, then Knowledge Engine and AI Decision Support."
+                identity="blueprint"
+                nodes={[
+                  { id: "human-data", label: "Human Data", current: true },
+                  { id: "hdm", label: "Human Data Model" },
+                  { id: "ke", label: "Knowledge Engine" },
+                  { id: "ads", label: "AI Decision Support" },
+                ]}
+              />
+            </div>
+          </div>
+
+          <div id="executive-summary">
             <EngineeringSummary
               heading={content.executiveSummaryHeading}
               paragraphs={content.executiveSummary}
             />
           </div>
 
-          <section
-            className="eng-block"
-            aria-labelledby="human-data-context-chain-heading"
-          >
-            <h2
-              id="human-data-context-chain-heading"
-              className="eng-block__heading"
-            >
-              Context chain
-            </h2>
-            <DomainFlowDiagram
-              id="human-data-context-chain"
-              title="Human Data through Systems"
-              description="Human Data feeds the Human Data Model. The Knowledge Engine organizes shared context for other systems."
-              nodes={[
-                { id: "human-data", label: "Human Data" },
-                { id: "hdm", label: "Human Data Model" },
-                { id: "ke", label: "Knowledge Engine" },
-              ]}
-            />
-          </section>
+          <EngineeringCardGrid
+            locale={locale}
+            heading="Continue in this path"
+            identity="blueprint"
+            items={[
+              {
+                id: "hdm",
+                title: "Human Data Model",
+                summary:
+                  "Structured representation that organizes Human Data and preserves context and relationships.",
+                href: "/technology/human-data-model/",
+              },
+              {
+                id: "data-infra",
+                title: "Data Infrastructure",
+                summary:
+                  "How authorized information is organized and made available to other systems.",
+                href: "/technology/data-infrastructure/",
+              },
+              {
+                id: "ke",
+                title: "Knowledge Engine",
+                summary:
+                  "Organizes knowledge and preserves context for other components.",
+                href: "/systems/knowledge-engine/",
+              },
+            ]}
+          />
+
+          <RelationshipChain
+            locale={locale}
+            heading="Architecture relationships"
+            steps={[
+              {
+                id: "human-data",
+                label: "Human Data",
+                href: "/technology/human-data/",
+                relation: "organized by",
+              },
+              {
+                id: "hdm",
+                label: "Human Data Model",
+                href: "/technology/human-data-model/",
+                relation: "feeds",
+              },
+              {
+                id: "ke",
+                label: "Knowledge Engine",
+                href: "/systems/knowledge-engine/",
+              },
+            ]}
+          />
 
           <section
             id="purpose"

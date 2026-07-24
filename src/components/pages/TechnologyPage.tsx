@@ -1,20 +1,24 @@
 import {
-  ArchitectureOverview,
+  ArchitectureStack,
+  DefinitionPanel,
   DocumentMetadata,
+  EngineeringCardGrid,
   FutureExpansionBlock,
   KeyPrinciples,
   ReferenceLinks,
-  RelatedTopicsBlock,
+  RelationshipChain,
 } from "@/components/engineering";
-import { DomainFlowDiagram } from "@/components/knowledge/DomainFlowDiagram";
-import { TechnologyCategoryList } from "@/components/knowledge/TechnologyCategoryList";
-import { TechnologyRelationshipMatrix } from "@/components/knowledge/TechnologyRelationshipMatrix";
 import { PageContextNav } from "@/components/pages/PageContextNav";
 import { PageMasthead } from "@/components/pages/PageMasthead";
 import { PageSectionNav } from "@/components/pages/PageSectionNav";
 import type { Locale } from "@/config/locales";
-import { getEntitiesByDomain } from "@/content/knowledge/entity-registry";
+import {
+  getEntitiesByDomain,
+  getEntityById,
+} from "@/content/knowledge/entity-registry";
+import { getEntityStatusLabel } from "@/content/knowledge/status-labels";
 import type { TechnologyPageContent } from "@/content/pages/en/technology";
+import { technologyNavChildren } from "@/navigation/site-navigation";
 
 type TechnologyPageProps = {
   locale: Locale;
@@ -22,7 +26,7 @@ type TechnologyPageProps = {
 };
 
 /**
- * Technology domain entrance — presentation-focused index.
+ * Technology domain entrance — engineering knowledge experience.
  */
 export function TechnologyPage({ locale, content }: TechnologyPageProps) {
   const titleId = "page-title";
@@ -34,6 +38,22 @@ export function TechnologyPage({ locale, content }: TechnologyPageProps) {
       note: topic,
     })),
   );
+
+  const technologyCards = technologyNavChildren
+    .filter((item) => item.href !== "/technology/")
+    .map((item) => {
+      const entityId = item.id.replace(/^technology-/, "");
+      const entity = getEntityById(entityId);
+      return {
+        id: item.id,
+        title: item.label,
+        summary: entity?.summary ?? item.label,
+        href: item.href,
+        ...(entity
+          ? { meta: getEntityStatusLabel(entity.status) }
+          : {}),
+      };
+    });
 
   return (
     <article className="page page--technology" aria-labelledby={titleId}>
@@ -68,59 +88,102 @@ export function TechnologyPage({ locale, content }: TechnologyPageProps) {
 
       <div className="page-body">
         <div className="page-shell__inner">
-          <div id="technology-overview">
-            <ArchitectureOverview
-              heading={content.overviewHeading}
-              paragraphs={content.overview}
-            />
+          <div className="engineering-hero">
+            <div className="engineering-hero__primary">
+              <DefinitionPanel
+                term="Technology"
+                definition="Technical capabilities and engineering foundations used to build SAVEN Core systems."
+              />
+            </div>
+            <div className="engineering-hero__diagram">
+              <ArchitectureStack
+                id="technology-platform-overview"
+                title="Architecture overview"
+                description="Technology foundations feed Systems. Systems connect to Applications."
+                identity="blueprint"
+                nodes={[
+                  { id: "technology", label: "Technology", current: true },
+                  { id: "systems", label: "Systems" },
+                  { id: "applications", label: "Applications" },
+                ]}
+              />
+            </div>
           </div>
 
           <section
-            className="eng-block eng-block--lede"
-            aria-labelledby="technology-domain-chain-heading"
+            id="technology-overview"
+            className="eng-block"
+            aria-labelledby="technology-domain-map-heading"
           >
             <h2
-              id="technology-domain-chain-heading"
+              id="technology-domain-map-heading"
               className="eng-block__heading"
             >
-              Domain chain
+              Domain map
             </h2>
             <p className="eng-block__body">
-              Technology provides foundations. Systems use those foundations.
-              Applications describe contexts of use.
+              How Technology connects into Systems and Applications.
             </p>
-            <DomainFlowDiagram
-              id="technology-domain-chain"
-              title="Technology to Applications"
-              description="Technology foundations feed Systems. Systems connect to Applications contexts."
+            <ArchitectureStack
+              id="technology-domain-map"
+              title="Reading path"
+              description="Human Data through Data Infrastructure into Knowledge Engine and AI Decision Support, then Applications."
+              identity="blueprint"
               nodes={[
-                {
-                  id: "technology",
-                  label: "Technology",
-                  detail: "Foundations and disciplines",
-                },
-                {
-                  id: "systems",
-                  label: "Systems",
-                  detail: "How SAVEN Core works",
-                },
-                {
-                  id: "applications",
-                  label: "Applications",
-                  detail: "Contexts of use",
-                },
+                { id: "human-data", label: "Human Data" },
+                { id: "hdm", label: "Human Data Model" },
+                { id: "data-infra", label: "Data Infrastructure" },
+                { id: "ke", label: "Knowledge Engine" },
+                { id: "ads", label: "AI Decision Support" },
+                { id: "applications", label: "Applications" },
               ]}
             />
           </section>
 
-          <TechnologyCategoryList
-            locale={locale}
-            heading={content.categoriesHeading}
-          />
+          <div id="technology-categories">
+            <EngineeringCardGrid
+              locale={locale}
+              heading="Technology disciplines"
+              identity="blueprint"
+              items={technologyCards}
+            />
+          </div>
 
-          <TechnologyRelationshipMatrix
-            heading={content.relationshipsHeading}
-            introduction={content.relationshipsIntro}
+          <RelationshipChain
+            locale={locale}
+            heading="Platform relationships"
+            description="Technology organizes foundations before Systems assist people."
+            steps={[
+              {
+                id: "human-data",
+                label: "Human Data",
+                href: "/technology/human-data/",
+                relation: "organized by",
+              },
+              {
+                id: "hdm",
+                label: "Human Data Model",
+                href: "/technology/human-data-model/",
+                relation: "supported by",
+              },
+              {
+                id: "data-infra",
+                label: "Data Infrastructure",
+                href: "/technology/data-infrastructure/",
+                relation: "feeds",
+              },
+              {
+                id: "ke",
+                label: "Knowledge Engine",
+                href: "/systems/knowledge-engine/",
+                relation: "enables",
+              },
+              {
+                id: "ads",
+                label: "AI Decision Support",
+                href: "/systems/ai-decision-support/",
+              },
+            ]}
           />
 
           <div id="engineering-principles">
@@ -153,14 +216,6 @@ export function TechnologyPage({ locale, content }: TechnologyPageProps) {
               heading={content.futureHeading}
               introduction={content.futureIntro}
               items={futureItems}
-            />
-          </div>
-
-          <div id="related-domains">
-            <RelatedTopicsBlock
-              locale={locale}
-              heading={content.relatedDomainsHeading}
-              links={content.relatedDomainLinks}
             />
           </div>
 

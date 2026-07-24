@@ -1,4 +1,4 @@
-/* Home Phase 1D.1–1D.2. Radius: 0. No gradients, shadows, or cards. */
+/* Home Phase 1D.1–1D.3. Radius: 0. No gradients, shadows, or cards. */
 
 .home {
   width: 100%;
@@ -637,4 +637,245 @@
 .home-technology__link:focus-visible {
   outline: 2px solid var(--color-text);
   outline-offset: 3px;
+}
+
+/* Systems — architectural stacked list */
+.home-systems__list {
+  list-style: none;
+  margin: var(--space-48) 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-block-start: 1px solid var(--color-text);
+}
+
+.home-systems__item {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-16);
+  padding-block: var(--space-32);
+  border-block-end: 1px solid var(--color-divider);
+}
+
+@media (min-width: 768px) {
+  .home-systems__item {
+    grid-template-columns: minmax(10rem, 14rem) minmax(0, 1fr);
+    column-gap: var(--space-32);
+    align-items: start;
+  }
+}
+
+.home-systems__meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+
+.home-systems__index {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: var(--color-text-secondary);
+}
+
+.home-systems__role {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  color: var(--color-text);
+  max-width: 18ch;
+}
+
+.home-systems__title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--color-text);
+}
+
+.home-systems__text {
+  margin: var(--space-12) 0 0;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--color-text-secondary);
+  max-width: 52ch;
+}
+
+.home-systems__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  margin-block-start: var(--space-8);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text);
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+  text-decoration-thickness: 1px;
+}
+
+.home-systems__link:hover {
+  color: var(--color-text-secondary);
+}
+
+.home-systems__link:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 3px;
+}
+
+/* Research & Labs — two-layer comparison */
+.home-research-labs__layers {
+  margin-block-start: var(--space-48);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  border: 1px solid var(--color-divider);
+}
+
+@media (min-width: 768px) {
+  .home-research-labs__layers {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.home-research-labs__layer {
+  padding: var(--space-32);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  min-height: 100%;
+}
+
+.home-research-labs__layer--research {
+  background: var(--color-background);
+  border-block-end: 1px solid var(--color-divider);
+}
+
+@media (min-width: 768px) {
+  .home-research-labs__layer--research {
+    border-block-end: 0;
+    border-inline-end: 1px solid var(--color-divider);
+  }
+}
+
+.home-research-labs__layer--labs {
+  background: var(--color-surface);
+}
+
+.home-research-labs__title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+}
+
+.home-research-labs__text {
+  margin: 0;
+  flex: 1 1 auto;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--color-text-secondary);
+  max-width: 40ch;
+}
+
+.home-research-labs__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text);
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+  text-decoration-thickness: 1px;
+  width: fit-content;
+}
+
+.home-research-labs__link:hover {
+  color: var(--color-text-secondary);
+}
+
+.home-research-labs__link:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 3px;
+}
+
+.home-research-labs__relationship {
+  margin: var(--space-32) 0 0;
+  max-width: 58ch;
+  font-size: 1rem;
+  line-height: 1.55;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+/* Trust Architecture — three-pillar governance */
+.home-trust__pillars {
+  list-style: none;
+  margin: var(--space-48) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+
+@media (min-width: 768px) {
+  .home-trust__pillars {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.home-trust__pillar {
+  padding: var(--space-24) 0;
+  border-block-start: 1px solid var(--color-divider);
+}
+
+@media (min-width: 768px) {
+  .home-trust__pillar {
+    padding: var(--space-32) var(--space-24);
+    border-block-start: 1px solid var(--color-text);
+    border-inline-end: 1px solid var(--color-divider);
+  }
+
+  .home-trust__pillar:first-child {
+    padding-inline-start: 0;
+  }
+
+  .home-trust__pillar:last-child {
+    border-inline-end: 0;
+    padding-inline-end: 0;
+  }
+}
+
+.home-trust__pillar-title {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+}
+
+.home-trust__pillar-text {
+  margin: var(--space-16) 0 0;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--color-text-secondary);
+  max-width: 32ch;
+}
+
+.home-trust__principle {
+  margin: var(--space-48) 0 0;
+  max-width: 48ch;
+  padding-block: var(--space-24);
+  border-block: 1px solid var(--color-text);
+  font-size: 1.0625rem;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  font-weight: 600;
+  color: var(--color-text);
 }

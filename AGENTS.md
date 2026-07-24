@@ -8,13 +8,13 @@ If you are a coding agent (Cursor or otherwise), read this file before making an
 
 ## Current Phase
 
-**Phase 1D.2 — Foundation and System Logic (authorized for sections 4–6 only)**
+**Phase 1D.3 — Systems, Research and Trust (authorized for sections 7–9 only)**
 
-Home sections 1–6 are in place through Phase 1D.2. See `docs/PHASE_1D_2_FOUNDATION_SYSTEM_LOGIC.md` and Decisions D-0046–D-0052.
+Home sections 1–9 are in place through Phase 1D.3. See `docs/PHASE_1D_3_SYSTEMS_RESEARCH_TRUST.md` and Decisions D-0053–D-0058.
 
 **Do not begin without explicit owner approval:**
 
-- Phase 1D.3 or remaining Home sections (Systems, Research, Safety, Status, Company, Investors);
+- Phase 1D.4 or remaining Home sections (Development Status, Company, Investors, Roadmap);
 - custom brand fonts / final brand colors / logo asset / imagery;
 - CMS, database, working search, forms, analytics, cookie consent;
 - authentication or investor portal;

@@ -1,5 +1,5 @@
 /**
- * Canonical English Home content for Phase 1D.1–1D.2.
+ * Canonical English Home content for Phase 1D.1–1D.3.
  * Used as controlled fallback across locale routes until localization is approved.
  */
 
@@ -199,4 +199,110 @@ export const technologyOverviewContent = {
     },
   ],
   linkLabel: "Explore technology",
+} as const;
+
+export const systemsOverviewContent = {
+  label: "Systems",
+  heading: "Engineering systems for physical and digital environments.",
+  introduction:
+    "SAVEN Core is being developed as a family of connected systems. Each system addresses a defined operational role while remaining part of a shared architecture.",
+  systems: [
+    {
+      id: "saven-robotics-interface",
+      title: "SAVEN Robotics Interface",
+      role: "Human-system interaction",
+      description:
+        "A structured interface between people, robotic systems, devices and environment-level controls.",
+      href: "/systems/",
+    },
+    {
+      id: "saven-systems-architecture",
+      title: "SAVEN Systems Architecture",
+      role: "Coordination and orchestration",
+      description:
+        "The engineering framework that connects software, data, permissions, devices and operational workflows.",
+      href: "/systems/",
+    },
+    {
+      id: "saven-ai",
+      title: "SAVEN AI",
+      role: "Interpretation and decision assistance",
+      description:
+        "Models and rules intended to support context interpretation, option evaluation and controlled assistance.",
+      href: "/systems/",
+    },
+    {
+      id: "saven-drone-platform",
+      title: "SAVEN Drone Platform",
+      role: "Aerial operations",
+      description:
+        "A system framework for sensing, inspection, mapping, monitoring and other authorized aerial tasks.",
+      href: "/systems/",
+    },
+    {
+      id: "human-data-model-interface",
+      title: "Human Data Model Interface",
+      role: "Human context connection",
+      description:
+        "A controlled interface between human context, authorized data and the systems that may use that information.",
+      href: "/systems/",
+    },
+  ],
+  linkLabel: "View systems",
+} as const;
+
+export const researchLabsContent = {
+  label: "Research & Labs",
+  heading: "Research translated into engineering practice.",
+  introduction:
+    "Research defines questions, models and evidence. Labs turn that work into testable systems, interfaces and engineering methods.",
+  layers: [
+    {
+      id: "research",
+      title: "Research",
+      description:
+        "Publications, research areas, system models, methods and technical questions that shape the architecture.",
+      linkLabel: "Explore research",
+      href: "/research/",
+    },
+    {
+      id: "labs",
+      title: "Labs",
+      description:
+        "Focused engineering environments for robotics, artificial intelligence, autonomous systems, safety, privacy and human-system interaction.",
+      linkLabel: "Explore labs",
+      href: "/labs/",
+    },
+  ],
+  relationship:
+    "Research defines what must be understood. Labs determine how it can be built, tested and governed.",
+} as const;
+
+export const trustArchitectureContent = {
+  label: "Trust Architecture",
+  heading: "Limits, permissions and human control are part of the system.",
+  introduction:
+    "SAVEN Core is being designed around defined boundaries. System capability must remain connected to permissions, context, accountability and the ability for people to intervene.",
+  pillars: [
+    {
+      id: "safety-architecture",
+      title: "Safety Architecture",
+      description:
+        "Defines operational boundaries, escalation paths, failure handling, fallback behavior and conditions where a system must stop or defer.",
+    },
+    {
+      id: "privacy-architecture",
+      title: "Privacy Architecture",
+      description:
+        "Defines what information may be used, why it may be used, who may access it and how unnecessary exposure is reduced.",
+    },
+    {
+      id: "human-oversight",
+      title: "Human Oversight",
+      description:
+        "Keeps people responsible for consequential decisions, exceptions, permissions and review.",
+    },
+  ],
+  principleLine:
+    "Autonomy is limited by purpose, permission, risk and human authority.",
 } as const;

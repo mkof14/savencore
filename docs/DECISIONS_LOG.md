@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-24 (Phase 1D.2 append)
+**Last updated:** 2026-07-24 (Phase 1D.3 append)
 
 ## Rules
 
@@ -69,7 +69,13 @@
 | D-0049 | 2026-07-24 | Five-step governed system logic adopted | Active |
 | D-0050 | 2026-07-24 | Six-part Technology Overview as disciplines | Active |
 | D-0051 | 2026-07-24 | No imagery in Phase 1D.2 | Active |
-| D-0052 | 2026-07-24 | Phase 1D.3 remains unauthorized | Active |
+| D-0052 | 2026-07-24 | Phase 1D.3 remains unauthorized | Superseded by D-0053 |
+| D-0053 | 2026-07-24 | Phase 1D.3 Systems, Research and Trust authorized | Active |
+| D-0054 | 2026-07-24 | Five-system Home overview adopted | Active |
+| D-0055 | 2026-07-24 | Research and Labs remain separate concepts | Active |
+| D-0056 | 2026-07-24 | Trust Architecture pillars and autonomy limit line | Active |
+| D-0057 | 2026-07-24 | No imagery in Phase 1D.3 | Active |
+| D-0058 | 2026-07-24 | Phase 1D.4 remains unauthorized | Active |
 
 ---
 
@@ -452,9 +458,52 @@
 ### D-0052 — Phase 1D.3 remains unauthorized
 
 - **Date:** 2026-07-24
-- **Status:** Active
+- **Status:** Superseded by D-0053
 - **Decision:** Completing Phase 1D.2 does not authorize Phase 1D.3 or any later Home sections.
 - **Implications:** Stop after Phase 1D.2 commit unless explicitly authorized.
+
+### D-0053 — Phase 1D.3 Systems, Research and Trust authorized
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Authorize Home sections 7–9: Systems, Research & Labs, and Safety/Privacy/Human Oversight (Trust Architecture). See `docs/PHASE_1D_3_SYSTEMS_RESEARCH_TRUST.md`.
+- **Out of scope:** Development Status, Company, Investors, Roadmap, imagery, CMS, backend.
+- **Implications:** Remaining Home sections require later authorization.
+
+### D-0054 — Five-system Home overview adopted
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Present five systems on Home: SAVEN Robotics Interface, SAVEN Systems Architecture, SAVEN AI, SAVEN Drone Platform, and Human Data Model Interface, each linking to the Systems route.
+- **Implications:** Use development-safe language; do not imply deployment or medical-device approval.
+
+### D-0055 — Research and Labs remain separate concepts
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Research and Labs are presented as two clearly separated layers with a relationship statement: research defines what must be understood; labs determine how it can be built, tested and governed.
+- **Implications:** Do not invent publications, partners, universities, or lab names beyond approved terminology.
+
+### D-0056 — Trust Architecture pillars and autonomy limit line
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Trust Architecture comprises Safety Architecture, Privacy Architecture, and Human Oversight, with the principle line: “Autonomy is limited by purpose, permission, risk and human authority.”
+- **Implications:** Present as engineering principles, not certifications or compliance claims.
+
+### D-0057 — No imagery in Phase 1D.3
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Phase 1D.3 uses typography, borders, indexes, and layout only. No images, icons, shields, locks, robots, or science decoration.
+- **Implications:** Visual distinction between sections remains structural.
+
+### D-0058 — Phase 1D.4 remains unauthorized
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Completing Phase 1D.3 does not authorize Phase 1D.4 or any later Home sections.
+- **Implications:** Stop after Phase 1D.3 commit unless explicitly authorized.
 
 ---
 

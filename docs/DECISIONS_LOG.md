@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-24 (Phase 1C append)
+**Last updated:** 2026-07-24 (Phase 1D.1 append)
 
 ## Rules
 
@@ -55,7 +55,14 @@
 | D-0035 | 2026-07-24 | Accessible disclosure + rectangular mobile navigation | Active |
 | D-0036 | 2026-07-24 | Text wordmark and flagless language selector | Active |
 | D-0037 | 2026-07-24 | Unresolved destination routes may remain unimplemented | Active |
-| D-0038 | 2026-07-24 | Phase 1D remains unauthorized | Active |
+| D-0038 | 2026-07-24 | Phase 1D remains unauthorized | Partially superseded by D-0039 (1D.1 only) |
+| D-0039 | 2026-07-24 | Phase 1D.1 Home Hero and Purpose authorized | Active |
+| D-0040 | 2026-07-24 | Editorial Hero layout without imagery | Active |
+| D-0041 | 2026-07-24 | Approved Hero copy adopted | Active |
+| D-0042 | 2026-07-24 | Three application contexts on Home | Active |
+| D-0043 | 2026-07-24 | English fallback across locale Home routes | Active |
+| D-0044 | 2026-07-24 | Home built in incremental section phases | Active |
+| D-0045 | 2026-07-24 | Phase 1D.2 remains unauthorized | Active |
 
 ---
 
@@ -338,9 +345,59 @@
 ### D-0038 — Phase 1D remains unauthorized
 
 - **Date:** 2026-07-24
-- **Status:** Active
+- **Status:** Partially superseded by D-0039 (1D.1 only)
 - **Decision:** Completing Phase 1C does not authorize Phase 1D, the production Home page, or further marketing page build-out.
 - **Implications:** Stop after Phase 1C commit unless explicitly authorized.
+
+### D-0039 — Phase 1D.1 Home Hero and Purpose authorized
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Authorize Home sections 1–3 only: Hero, Human Purpose, and Hospital / Home / Everyday Life strip. See `docs/PHASE_1D_1_HOME_HERO_PURPOSE.md`.
+- **Out of scope:** Remaining Home sections, imagery, CMS, forms, analytics, search, authentication, backend.
+- **Implications:** Lower Home sections require a later phase authorization.
+
+### D-0040 — Editorial Hero layout without imagery
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Home Hero uses a left-aligned editorial layout with optional CSS-only structural field. No images, video, robots, silhouettes, or glowing AI visuals.
+- **Implications:** Decorative structure must remain `aria-hidden` and gradient-free.
+
+### D-0041 — Approved Hero copy adopted
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Adopt the Phase 1D.1 Hero copy: eyebrow “SAVEN Core”; heading “Intelligent systems built to support human life.”; approved supporting text, status line, and Foundation / Applications actions.
+- **Implications:** Inflated marketing language remains prohibited.
+
+### D-0042 — Three application contexts on Home
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Home includes a three-part Hospitals / Home / Everyday Life strip with development-safe explanatory sentences and locale-aware Applications links.
+- **Implications:** Do not imply active commercial deployment.
+
+### D-0043 — English fallback across locale Home routes
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** For Phase 1D.1, all valid locale Home routes render controlled English content while preserving locale-prefixed links and RTL document direction.
+- **Implications:** No machine translation and no localized slugs in this phase.
+
+### D-0044 — Home built in incremental section phases
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Home development proceeds in small authorized section slices rather than a single full-page build.
+- **Implications:** Agents must not invent or implement deferred Home sections.
+
+### D-0045 — Phase 1D.2 remains unauthorized
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Completing Phase 1D.1 does not authorize Phase 1D.2 or any remaining Home sections.
+- **Implications:** Stop after Phase 1D.1 commit unless explicitly authorized.
 
 ---
 

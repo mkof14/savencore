@@ -23,6 +23,11 @@ type DesktopNavigationProps = {
   locale: Locale;
 };
 
+/**
+ * Desktop primary navigation.
+ * Dropdown content is rendered only from `primaryNavigation` in
+ * `src/navigation/site-navigation.ts` — no local submenu arrays.
+ */
 export function DesktopNavigation({ locale }: DesktopNavigationProps) {
   const pathname = usePathname() ?? `/${locale}/`;
   const [openGroupId, setOpenGroupId] = useState<string | null>(null);

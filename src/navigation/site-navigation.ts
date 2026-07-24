@@ -1,12 +1,18 @@
-import type {
-  FooterGroup,
-  NavLinkItem,
-  PrimaryNavItem,
+import {
+  isNavGroup,
+  type FooterGroup,
+  type NavLinkItem,
+  type PrimaryNavItem,
 } from "./navigation-types";
 
 /**
  * Centralized site navigation — single source for Header, mobile nav, and Footer.
  * Only published routes. Do not duplicate this tree in components.
+ *
+ * Render path:
+ * SiteHeader → DesktopNavigation / MobileNavigation → primaryNavigation
+ * Technology dropdown children MUST be `technologyNavChildren` only.
+ * Systems and Labs must never appear inside the Technology group.
  */
 
 /** Technology domain children — shared by primary nav and reference lists. */
@@ -222,3 +228,42 @@ export const footerNavigation: readonly FooterGroup[] = [
 ] as const;
 
 export const FOOTER_COPYRIGHT = "© 2026 SAVEN Core. All rights reserved.";
+
+/** Guard against regressing to the legacy Technology / Systems / Labs submenu. */
+function assertTechnologyDropdownSource(): void {
+  const technology = primaryNavigation.find((item) => item.id === "technology");
+  if (!technology || !isNavGroup(technology)) {
+    throw new Error("Technology primary nav group is missing.");
+  }
+  if (technology.children !== technologyNavChildren) {
+    throw new Error(
+      "Technology dropdown must use technologyNavChildren as its only children source.",
+    );
+  }
+
+  for (const child of technology.children) {
+    if (
+      child.id === "systems" ||
+      child.id === "labs" ||
+      child.label === "Systems" ||
+      child.label === "Labs" ||
+      child.href === "/systems/" ||
+      child.href === "/labs/"
+    ) {
+      throw new Error(
+        `Technology dropdown must not include Systems or Labs (found ${child.label}).`,
+      );
+    }
+    if (
+      child.href !== "/technology/" &&
+      !child.href.startsWith("/technology/")
+    ) {
+      throw new Error(
+        `Technology dropdown child must be a Technology route (found ${child.href}).`,
+      );
+    }
+  }
+}
+
+assertTechnologyDropdownSource();
+

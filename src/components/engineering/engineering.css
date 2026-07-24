@@ -1,0 +1,618 @@
+/*
+ * SAVEN Core Engineering Documentation Design System — Phase 2.2
+ * Radius: 0. No gradients. No shadows. Straight geometry.
+ * Shared by knowledge blocks and internal page types.
+ */
+
+/* -------------------------------------------------------------------------- */
+/* Typography roles                                                           */
+/* -------------------------------------------------------------------------- */
+
+.eng-type-h1 {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  color: var(--color-text);
+}
+
+.eng-type-h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+  color: var(--color-text);
+}
+
+.eng-type-h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  color: var(--color-text);
+}
+
+.eng-type-body {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+.eng-type-caption {
+  font-size: 0.75rem;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  color: var(--color-text-secondary);
+}
+
+.eng-type-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.eng-type-metadata {
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  color: var(--color-text);
+}
+
+.eng-type-term {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.eng-type-code,
+.eng-code {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: var(--color-text);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Page rhythm                                                                */
+/* -------------------------------------------------------------------------- */
+
+.eng-rhythm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-32);
+}
+
+.eng-rhythm > * + * {
+  margin-block-start: 0;
+}
+
+.eng-block {
+  padding-block: var(--space-8) var(--space-24);
+  border-block-end: 1px solid var(--color-divider);
+}
+
+.eng-block:last-child {
+  border-block-end: 0;
+}
+
+.eng-block__heading,
+.knowledge-block__heading {
+  margin: 0 0 var(--space-16);
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+}
+
+.eng-block__body {
+  margin: 0 0 var(--space-12);
+  max-width: 62ch;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+.eng-block__body:last-child {
+  margin-block-end: 0;
+}
+
+.eng-text-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text);
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+  text-decoration-thickness: 1px;
+}
+
+.eng-text-link:hover {
+  color: var(--color-text-secondary);
+}
+
+.eng-text-link:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 3px;
+}
+
+.eng-link-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8) var(--space-24);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Metadata                                                                   */
+/* -------------------------------------------------------------------------- */
+
+.eng-metadata {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-12) var(--space-24);
+  margin: 0;
+  padding-block: var(--space-16);
+  border-block: 1px solid var(--color-divider);
+}
+
+@media (min-width: 768px) {
+  .eng-metadata {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .eng-metadata {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.eng-metadata__item {
+  margin: 0;
+}
+
+.eng-metadata__label {
+  margin: 0 0 var(--space-4);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.eng-metadata__value {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Callouts — neutral only                                                    */
+/* -------------------------------------------------------------------------- */
+
+.eng-callout,
+.knowledge-note {
+  padding: var(--space-16) var(--space-24);
+  border-inline-start: 2px solid var(--color-text);
+  background: var(--color-surface);
+}
+
+.eng-callout__type,
+.knowledge-note__eyebrow {
+  margin: 0 0 var(--space-8);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.eng-callout__title,
+.knowledge-note__title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.eng-callout__text,
+.knowledge-note__text {
+  margin: var(--space-8) 0 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+  max-width: 58ch;
+}
+
+.eng-callout--information {
+  border-inline-start-color: var(--color-border);
+}
+
+.eng-callout--engineering-note {
+  border-inline-start-color: var(--color-text);
+}
+
+.eng-callout--important {
+  border-inline-start-width: 3px;
+  border-inline-start-color: var(--color-text);
+  background: var(--color-background);
+  border: 1px solid var(--color-divider);
+  border-inline-start-width: 3px;
+}
+
+.eng-callout--future-work {
+  border-inline-start-style: dashed;
+  border-inline-start-color: var(--color-text-secondary);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Principles / layers / dependencies / future                                */
+/* -------------------------------------------------------------------------- */
+
+.eng-principles,
+.eng-dependencies,
+.eng-future,
+.knowledge-future__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-block-start: 1px solid var(--color-divider);
+}
+
+.eng-principles__item,
+.eng-dependencies__item,
+.eng-future__item,
+.knowledge-future__item {
+  padding-block: var(--space-16);
+  border-block-end: 1px solid var(--color-divider);
+}
+
+.eng-principles__title,
+.eng-dependencies__title,
+.eng-future__label,
+.knowledge-future__label {
+  margin: 0;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.eng-principles__text,
+.eng-dependencies__text,
+.eng-future__note,
+.knowledge-future__note {
+  margin: var(--space-8) 0 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+  max-width: 52ch;
+}
+
+.eng-layers {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-block-start: 1px solid var(--color-text);
+}
+
+.eng-layers__item {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr);
+  gap: var(--space-16);
+  padding-block: var(--space-16);
+  border-block-end: 1px solid var(--color-divider);
+}
+
+.eng-layers__index {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: var(--color-text-secondary);
+  padding-block-start: 0.2em;
+}
+
+.eng-layers__title {
+  margin: 0;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.eng-layers__role {
+  margin: var(--space-4) 0 0;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.eng-layers__text {
+  margin: var(--space-8) 0 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+  max-width: 56ch;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Tables                                                                     */
+/* -------------------------------------------------------------------------- */
+
+.eng-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.eng-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  line-height: 1.45;
+}
+
+.eng-table__caption {
+  caption-side: top;
+  text-align: start;
+  margin-block-end: var(--space-12);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.eng-table th,
+.eng-table td {
+  padding: var(--space-12) var(--space-16) var(--space-12) 0;
+  text-align: start;
+  vertical-align: top;
+  border-block-end: 1px solid var(--color-divider);
+}
+
+.eng-table thead th {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  border-block-end: 1px solid var(--color-text);
+}
+
+.eng-table tbody th {
+  font-weight: 600;
+  color: var(--color-text);
+  white-space: nowrap;
+  padding-inline-end: var(--space-24);
+}
+
+.eng-table tbody td {
+  color: var(--color-text-secondary);
+}
+
+.eng-table--status tbody td:first-of-type {
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Diagram language (shared with page + knowledge class names)                */
+/* -------------------------------------------------------------------------- */
+
+.eng-diagram,
+.page-diagram,
+.knowledge-diagram {
+  margin: 0;
+  padding: var(--space-24);
+  border: 1px solid var(--color-divider);
+  background: var(--color-surface);
+}
+
+.page-diagram {
+  margin-block-end: var(--space-48);
+}
+
+.eng-diagram__caption,
+.page-diagram__caption,
+.knowledge-diagram__caption {
+  margin: 0 0 var(--space-16);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.eng-diagram__list,
+.page-diagram__list,
+.knowledge-diagram__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+}
+
+.eng-diagram__node,
+.page-diagram__node,
+.knowledge-diagram__node {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.eng-diagram__connector,
+.page-diagram__connector,
+.knowledge-diagram__connector {
+  display: block;
+  inline-size: 1px;
+  block-size: var(--space-16);
+  margin-inline: auto;
+  background: var(--color-text);
+}
+
+.eng-diagram__card,
+.page-diagram__card,
+.knowledge-diagram__card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-12) var(--space-16);
+  border: 1px solid var(--color-border);
+  background: var(--color-background);
+}
+
+.eng-diagram__label,
+.page-diagram__label,
+.knowledge-diagram__label {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.eng-diagram__detail,
+.page-diagram__detail,
+.knowledge-diagram__detail {
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  color: var(--color-text-secondary);
+}
+
+.eng-diagram--flow .eng-diagram__list,
+.page-diagram--flow .page-diagram__list,
+.knowledge-diagram--flow .knowledge-diagram__list {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: var(--space-8);
+}
+
+.eng-diagram--flow .eng-diagram__node,
+.page-diagram--flow .page-diagram__node,
+.knowledge-diagram--flow .knowledge-diagram__node {
+  flex-direction: row;
+  align-items: center;
+  flex: 1 1 8rem;
+  min-inline-size: 7rem;
+}
+
+.eng-diagram--flow .eng-diagram__connector,
+.page-diagram--flow .page-diagram__connector,
+.knowledge-diagram--flow .knowledge-diagram__connector {
+  inline-size: var(--space-16);
+  block-size: 1px;
+  margin-inline: 0;
+  margin-block: auto;
+  flex: 0 0 auto;
+}
+
+.eng-diagram--flow .eng-diagram__card,
+.page-diagram--flow .page-diagram__card,
+.knowledge-diagram--flow .knowledge-diagram__card {
+  flex: 1 1 auto;
+  min-inline-size: 0;
+}
+
+.eng-diagram--layers .eng-diagram__list,
+.page-diagram--layers .page-diagram__list,
+.knowledge-diagram--layers .knowledge-diagram__list {
+  gap: var(--space-8);
+}
+
+.eng-diagram--layers .eng-diagram__connector,
+.page-diagram--layers .page-diagram__connector,
+.knowledge-diagram--layers .knowledge-diagram__connector {
+  display: none;
+}
+
+.eng-diagram--layers .eng-diagram__card,
+.page-diagram--layers .page-diagram__card,
+.knowledge-diagram--layers .knowledge-diagram__card {
+  border-color: var(--color-text);
+}
+
+.eng-diagram--layers .eng-diagram__node:nth-child(1) .eng-diagram__card,
+.page-diagram--layers .page-diagram__node:nth-child(1) .page-diagram__card,
+.knowledge-diagram--layers .knowledge-diagram__node:nth-child(1) .knowledge-diagram__card {
+  padding-block: var(--space-16);
+}
+
+.eng-diagram--layers .eng-diagram__node:nth-child(2) .eng-diagram__card,
+.page-diagram--layers .page-diagram__node:nth-child(2) .page-diagram__card,
+.knowledge-diagram--layers .knowledge-diagram__node:nth-child(2) .knowledge-diagram__card {
+  margin-inline: var(--space-8);
+}
+
+.eng-diagram--layers .eng-diagram__node:nth-child(3) .eng-diagram__card,
+.page-diagram--layers .page-diagram__node:nth-child(3) .page-diagram__card,
+.knowledge-diagram--layers .knowledge-diagram__node:nth-child(3) .knowledge-diagram__card {
+  margin-inline: var(--space-16);
+}
+
+.eng-diagram--layers .eng-diagram__node:nth-child(4) .eng-diagram__card,
+.page-diagram--layers .page-diagram__node:nth-child(4) .page-diagram__card,
+.knowledge-diagram--layers .knowledge-diagram__node:nth-child(4) .knowledge-diagram__card {
+  margin-inline: var(--space-24);
+}
+
+.eng-diagram--relationship .eng-diagram__list,
+.page-diagram--relationship .page-diagram__list,
+.knowledge-diagram--relationship .knowledge-diagram__list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-12);
+}
+
+@media (min-width: 768px) {
+  .eng-diagram--relationship .eng-diagram__list,
+  .page-diagram--relationship .page-diagram__list,
+  .knowledge-diagram--relationship .knowledge-diagram__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.eng-diagram--relationship .eng-diagram__connector,
+.page-diagram--relationship .page-diagram__connector,
+.knowledge-diagram--relationship .knowledge-diagram__connector {
+  display: none;
+}
+
+.eng-diagram--relationship .eng-diagram__card,
+.page-diagram--relationship .page-diagram__card,
+.knowledge-diagram--relationship .knowledge-diagram__card {
+  min-block-size: 4rem;
+  justify-content: center;
+}
+
+/* Optional SVG container for future straight-geometry diagrams */
+.eng-diagram-svg {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+.eng-diagram-svg line,
+.eng-diagram-svg rect,
+.eng-diagram-svg path {
+  stroke: var(--color-text);
+  fill: none;
+  stroke-width: 1;
+}

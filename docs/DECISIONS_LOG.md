@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-24 (Phase 2.1 append)
+**Last updated:** 2026-07-24 (Phase 2.2 append)
 
 ## Rules
 
@@ -106,7 +106,11 @@
 | D-0086 | 2026-07-24 | Phase 2.1 knowledge architecture authorized | Active |
 | D-0087 | 2026-07-24 | Eight knowledge domains adopted | Active |
 | D-0088 | 2026-07-24 | Knowledge content and visual blocks separated from page redesign | Active |
-| D-0089 | 2026-07-24 | Phase 2.2 remains unauthorized | Active |
+| D-0089 | 2026-07-24 | Phase 2.2 remains unauthorized | Superseded by D-0090 |
+| D-0090 | 2026-07-24 | Phase 2.2 engineering design system authorized | Active |
+| D-0091 | 2026-07-24 | Shared engineering documentation visual language adopted | Active |
+| D-0092 | 2026-07-24 | Neutral callout types; single table and diagram language | Active |
+| D-0093 | 2026-07-24 | Phase 2.3 remains unauthorized | Active |
 
 ---
 
@@ -754,9 +758,38 @@
 ### D-0089 — Phase 2.2 remains unauthorized
 
 - **Date:** 2026-07-24
-- **Status:** Active
+- **Status:** Superseded by D-0090
 - **Decision:** Completing Phase 2.1 does not authorize Phase 2.2 or knowledge destination-page build-out.
 - **Implications:** Stop after Phase 2.1 commit unless explicitly authorized.
+
+### D-0090 — Phase 2.2 engineering design system authorized
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Authorize the permanent engineering documentation design system. See `docs/ENGINEERING_DESIGN_SYSTEM.md`.
+- **Out of scope:** Home redesign, navigation changes, new routes/content pages, Phase 2.3.
+- **Implications:** Future knowledge pages use shared engineering blocks and styles.
+
+### D-0091 — Shared engineering documentation visual language adopted
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Consolidate documentation presentation in `src/components/engineering/` with standard content blocks, metadata header, typography roles, and page rhythm.
+- **Implications:** `pages.css` and `knowledge.css` import the shared system and retain only composition-specific rules.
+
+### D-0092 — Neutral callout types; single table and diagram language
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Adopt four neutral callout types (Information, Engineering Note, Important, Future Work), one table system with architecture/taxonomy/relationships/status variants, and one HTML/CSS(/SVG) diagram language shared with existing page and knowledge diagram class names.
+- **Implications:** No warning colors, gradients, shadows, or image-based diagrams.
+
+### D-0093 — Phase 2.3 remains unauthorized
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Completing Phase 2.2 does not authorize Phase 2.3 or destination-page build-out.
+- **Implications:** Stop after Phase 2.2 commit unless explicitly authorized.
 
 ---
 

@@ -8,13 +8,13 @@ If you are a coding agent (Cursor or otherwise), read this file before making an
 
 ## Current Phase
 
-**Phase 2.1 — Knowledge Architecture (authorized; architecture registry established)**
+**Phase 2.2 — Engineering Design System (authorized; documentation visual language established)**
 
-Permanent knowledge domains, relationships, and reusable knowledge visual blocks are in place. See `docs/PHASE_2_1_KNOWLEDGE_ARCHITECTURE.md` and Decisions D-0086–D-0089. Home, navigation, and existing page designs were not changed in this phase.
+Shared engineering documentation design system is in place. See `docs/ENGINEERING_DESIGN_SYSTEM.md` and Decisions D-0090–D-0093. Home, navigation, and routes were not changed in this phase.
 
 **Do not begin without explicit owner approval:**
 
-- Phase 2.2 or knowledge destination-page build-out;
+- Phase 2.3 or destination-page build-out;
 - Home redesign or navigation changes;
 - custom brand fonts / final brand colors / logo asset / imagery;
 - CMS, database, working search, forms, analytics, cookie consent;

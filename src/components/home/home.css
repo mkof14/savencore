@@ -1,4 +1,4 @@
-/* Home Phase 1D.1–1D.3. Radius: 0. No gradients, shadows, or cards. */
+/* Home Phase 1D.1–1D.4. Radius: 0. No gradients, shadows, or cards. */
 
 .home {
   width: 100%;
@@ -878,4 +878,273 @@
   letter-spacing: -0.01em;
   font-weight: 600;
   color: var(--color-text);
+}
+
+/* Development Status — staged sequence */
+.home-status__stages {
+  list-style: none;
+  margin: var(--space-48) 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-block-start: 1px solid var(--color-text);
+}
+
+.home-status__stage {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-16);
+  padding-block: var(--space-32);
+  border-block-end: 1px solid var(--color-divider);
+}
+
+@media (min-width: 768px) {
+  .home-status__stage {
+    grid-template-columns: minmax(11rem, 15rem) minmax(0, 1fr);
+    column-gap: var(--space-32);
+    align-items: start;
+  }
+}
+
+.home-status__stage-meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+}
+
+.home-status__index {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: var(--color-text-secondary);
+}
+
+.home-status__status {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.home-status__status-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.home-status__status-value {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  color: var(--color-text);
+}
+
+.home-status__stage-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--color-text);
+}
+
+.home-status__stage-text {
+  margin: var(--space-12) 0 0;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--color-text-secondary);
+  max-width: 52ch;
+}
+
+.home-status__note {
+  margin: var(--space-32) 0 0;
+  max-width: 58ch;
+  padding-block-start: var(--space-24);
+  border-block-start: 1px solid var(--color-divider);
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--color-text-secondary);
+}
+
+/* Company — editorial + principle rail */
+.home-company__layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-48);
+}
+
+@media (min-width: 1024px) {
+  .home-company__layout {
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.85fr);
+    gap: var(--space-64);
+    align-items: start;
+  }
+}
+
+.home-company__editorial {
+  max-width: 42rem;
+}
+
+.home-company__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-12);
+  margin-block-start: var(--space-32);
+}
+
+.home-company__principles {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-block-start: 1px solid var(--color-text);
+}
+
+.home-company__principle {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-16);
+  padding-block: var(--space-24);
+  border-block-end: 1px solid var(--color-divider);
+}
+
+.home-company__principle-index {
+  flex: 0 0 auto;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: var(--color-text-secondary);
+}
+
+.home-company__principle-title {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--color-text);
+}
+
+/* Investors — restrained institutional panel */
+.home-investors__panel {
+  max-width: 48rem;
+  padding: var(--space-32);
+  border: 1px solid var(--color-divider);
+  background: var(--color-surface);
+}
+
+@media (min-width: 768px) {
+  .home-investors__panel {
+    padding: var(--space-48);
+  }
+}
+
+.home-investors__panel .home-section__heading {
+  max-width: 24ch;
+}
+
+.home-investors__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-12);
+  margin-block-start: var(--space-32);
+}
+
+/* Roadmap — categorized closing framework */
+.home-roadmap__categories {
+  list-style: none;
+  margin: var(--space-48) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  border-block-start: 1px solid var(--color-divider);
+}
+
+@media (min-width: 768px) {
+  .home-roadmap__categories {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.home-roadmap__category {
+  padding: var(--space-24) 0;
+  border-block-end: 1px solid var(--color-divider);
+}
+
+@media (min-width: 768px) {
+  .home-roadmap__category {
+    padding: var(--space-32) var(--space-24);
+    border-inline-end: 1px solid var(--color-divider);
+  }
+
+  .home-roadmap__category:nth-child(odd) {
+    padding-inline-start: 0;
+  }
+
+  .home-roadmap__category:nth-child(even) {
+    border-inline-end: 0;
+    padding-inline-end: 0;
+  }
+
+  .home-roadmap__category:nth-child(-n + 2) {
+    border-block-start: 1px solid var(--color-text);
+  }
+}
+
+.home-roadmap__category-title {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+}
+
+.home-roadmap__category-text {
+  margin: var(--space-12) 0 0;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--color-text-secondary);
+  max-width: 36ch;
+}
+
+.home-roadmap__close {
+  margin-block-start: var(--space-64);
+  padding-block-start: var(--space-32);
+  border-block-start: 1px solid var(--color-text);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+  align-items: flex-start;
+}
+
+.home-roadmap__statement {
+  margin: 0;
+  max-width: 36ch;
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  color: var(--color-text);
+}
+
+.home-roadmap__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text);
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+  text-decoration-thickness: 1px;
+}
+
+.home-roadmap__link:hover {
+  color: var(--color-text-secondary);
+}
+
+.home-roadmap__link:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 3px;
 }

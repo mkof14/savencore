@@ -8,17 +8,17 @@ If you are a coding agent (Cursor or otherwise), read this file before making an
 
 ## Current Phase
 
-**Phase 1D.3 — Systems, Research and Trust (authorized for sections 7–9 only)**
+**Phase 1D.4 — Home Completion (authorized for sections 10–13; Home structure complete)**
 
-Home sections 1–9 are in place through Phase 1D.3. See `docs/PHASE_1D_3_SYSTEMS_RESEARCH_TRUST.md` and Decisions D-0053–D-0058.
+Home sections 1–13 are in place through Phase 1D.4. See `docs/PHASE_1D_4_HOME_COMPLETION.md` and Decisions D-0059–D-0066.
 
 **Do not begin without explicit owner approval:**
 
-- Phase 1D.4 or remaining Home sections (Development Status, Company, Investors, Roadmap);
+- Phase 1E or destination-page development;
+- further Home visual redesign beyond authorized review;
 - custom brand fonts / final brand colors / logo asset / imagery;
 - CMS, database, working search, forms, analytics, cookie consent;
 - authentication or investor portal;
-- destination pages solely to avoid 404s;
 - leaf marketing pages across the sitemap.
 
 ---

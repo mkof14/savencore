@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-24 (Phase 1D.3 append)
+**Last updated:** 2026-07-24 (Phase 1D.4 append)
 
 ## Rules
 
@@ -75,7 +75,15 @@
 | D-0055 | 2026-07-24 | Research and Labs remain separate concepts | Active |
 | D-0056 | 2026-07-24 | Trust Architecture pillars and autonomy limit line | Active |
 | D-0057 | 2026-07-24 | No imagery in Phase 1D.3 | Active |
-| D-0058 | 2026-07-24 | Phase 1D.4 remains unauthorized | Active |
+| D-0058 | 2026-07-24 | Phase 1D.4 remains unauthorized | Superseded by D-0059 |
+| D-0059 | 2026-07-24 | Phase 1D.4 Home completion authorized | Active |
+| D-0060 | 2026-07-24 | Four-stage Development Status without dates or percentages | Active |
+| D-0061 | 2026-07-24 | Company principles adopted | Active |
+| D-0062 | 2026-07-24 | Investor communication without financial claims | Active |
+| D-0063 | 2026-07-24 | Roadmap by capability; approved Home closing statement | Active |
+| D-0064 | 2026-07-24 | Home page structural build complete | Active |
+| D-0065 | 2026-07-24 | Further Home visual review before destination pages | Active |
+| D-0066 | 2026-07-24 | Phase 1E remains unauthorized | Active |
 
 ---
 
@@ -501,9 +509,66 @@
 ### D-0058 — Phase 1D.4 remains unauthorized
 
 - **Date:** 2026-07-24
-- **Status:** Active
+- **Status:** Superseded by D-0059
 - **Decision:** Completing Phase 1D.3 does not authorize Phase 1D.4 or any later Home sections.
 - **Implications:** Stop after Phase 1D.3 commit unless explicitly authorized.
+
+### D-0059 — Phase 1D.4 Home completion authorized
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Authorize Home sections 10–13: Development Status, Company, Investors, and Roadmap / Closing. See `docs/PHASE_1D_4_HOME_COMPLETION.md`.
+- **Out of scope:** Destination pages, imagery, CMS, backend, forms, analytics, authentication, investor portal, Phase 1E.
+- **Implications:** Completes the authorized Home structural build.
+
+### D-0060 — Four-stage Development Status without dates or percentages
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Present Development Status as Foundation (Established), Digital Systems (In development), Physical Systems (Planned and under research), and Deployment Readiness (Future phase), with an explicit non-deployment / non-approval note.
+- **Implications:** No invented dates, percentages, progress bars, or “coming soon” language.
+
+### D-0061 — Company principles adopted
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Company Home section uses three principles: Purpose before technology; Engineering before promotion; Responsibility before scale.
+- **Implications:** No headquarters, legal entity, headcount, leadership, or partner invention on Home.
+
+### D-0062 — Investor communication without financial claims
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Investors Home section describes long-term capital posture and possible material types only; links to investor overview and request-access routes without forms or authentication.
+- **Implications:** No funding rounds, valuation, revenue, forecasts, or return claims.
+
+### D-0063 — Roadmap by capability; approved Home closing statement
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Roadmap Home section uses Architecture, Software, Physical Systems, and Readiness categories (not dated milestones), ending with: “Intelligent systems are valuable only when people can understand, govern and trust how they are used.”
+- **Implications:** Capability framing remains public until owner-approved dated roadmap entries exist.
+
+### D-0064 — Home page structural build complete
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** The thirteen-section Home structural build authorized across Phases 1D.1–1D.4 is complete.
+- **Implications:** Further Home work is limited to authorized visual review or later phases; do not add sections without approval.
+
+### D-0065 — Further Home visual review before destination pages
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Destination-page development remains deferred until further Home visual review is authorized.
+- **Implications:** Linked routes may continue to 404 until explicitly built.
+
+### D-0066 — Phase 1E remains unauthorized
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Completing Phase 1D.4 does not authorize Phase 1E or any destination-page, localization, CMS, or product-surface work.
+- **Implications:** Stop after Phase 1D.4 commit unless explicitly authorized.
 
 ---
 

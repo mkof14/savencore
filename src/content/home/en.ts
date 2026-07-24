@@ -1,5 +1,5 @@
 /**
- * Canonical English Home content for Phase 1D.1–1D.3.
+ * Canonical English Home content for Phase 1D.1–1D.4.
  * Used as controlled fallback across locale routes until localization is approved.
  */
 
@@ -305,4 +305,130 @@ export const trustArchitectureContent = {
   ],
   principleLine:
     "Autonomy is limited by purpose, permission, risk and human authority.",
+} as const;
+
+export const developmentStatusContent = {
+  label: "Development Status",
+  heading: "Built in stages, reviewed before expansion.",
+  introduction:
+    "SAVEN Core is being developed through defined phases across architecture, software, research, interfaces and physical-system engineering.",
+  stages: [
+    {
+      id: "foundation",
+      title: "Foundation",
+      description:
+        "Purpose, terminology, information architecture, governance and technical foundation.",
+      status: "Established",
+    },
+    {
+      id: "digital-systems",
+      title: "Digital Systems",
+      description:
+        "Core software architecture, human-context models, interfaces and controlled system logic.",
+      status: "In development",
+    },
+    {
+      id: "physical-systems",
+      title: "Physical Systems",
+      description:
+        "Robotics, sensing, devices, environment integration and operational testing.",
+      status: "Planned and under research",
+    },
+    {
+      id: "deployment-readiness",
+      title: "Deployment Readiness",
+      description:
+        "Validation, permissions, operating procedures, safety review and controlled implementation.",
+      status: "Future phase",
+    },
+  ],
+  statusNote:
+    "Public information reflects the current development stage and does not imply commercial deployment, clinical use or regulatory approval.",
+} as const;
+
+export const companyOverviewContent = {
+  label: "Company",
+  heading: "An engineering organization centered on human life.",
+  paragraphs: [
+    "SAVEN Core brings together systems architecture, software, artificial intelligence, robotics, research and human-centered design around one purpose: building systems that support people in real environments.",
+    "The company is being structured for long-term research, responsible development and collaboration across technical, medical, institutional and industrial fields.",
+  ],
+  principles: [
+    {
+      id: "purpose-before-technology",
+      title: "Purpose before technology",
+    },
+    {
+      id: "engineering-before-promotion",
+      title: "Engineering before promotion",
+    },
+    {
+      id: "responsibility-before-scale",
+      title: "Responsibility before scale",
+    },
+  ],
+  primaryLink: {
+    label: "About SAVEN Core",
+    href: "/company/",
+  },
+  secondaryLink: {
+    label: "Contact",
+    href: "/contact/",
+  },
+} as const;
+
+export const investorOverviewContent = {
+  label: "Investors",
+  heading: "Long-term capital for systems that require careful development.",
+  paragraphs: [
+    "SAVEN Core is intended for investors who understand that human-centered systems, robotics, safety architecture and physical infrastructure require disciplined engineering and staged validation.",
+    "Investor materials may include company architecture, development priorities, research direction, system concepts and future commercialization pathways.",
+  ],
+  primaryLink: {
+    label: "Investor overview",
+    href: "/investors/",
+  },
+  secondaryLink: {
+    label: "Request access",
+    href: "/investors/access/",
+  },
+} as const;
+
+export const roadmapClosingContent = {
+  label: "Roadmap",
+  heading: "Progress is organized around capability, evidence and responsibility.",
+  introduction:
+    "The SAVEN Core roadmap is structured around what must be understood, built, tested and governed before wider use.",
+  categories: [
+    {
+      id: "architecture",
+      title: "Architecture",
+      description:
+        "System boundaries, terminology, interfaces, data models and governance.",
+    },
+    {
+      id: "software",
+      title: "Software",
+      description:
+        "Digital services, controlled intelligence, applications and operating tools.",
+    },
+    {
+      id: "physical-systems",
+      title: "Physical Systems",
+      description:
+        "Robotics, sensing, devices, environment integration and field validation.",
+    },
+    {
+      id: "readiness",
+      title: "Readiness",
+      description:
+        "Safety review, permissions, operating procedures, deployment controls and institutional collaboration.",
+    },
+  ],
+  primaryLink: {
+    label: "View roadmap",
+    href: "/roadmap/",
+  },
+  closingStatement:
+    "Intelligent systems are valuable only when people can understand, govern and trust how they are used.",
 } as const;

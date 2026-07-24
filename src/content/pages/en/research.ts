@@ -1,5 +1,14 @@
 import type { ResearchPageContent } from "@/components/pages/page-types";
 import { researchLabsContent } from "@/content/home/en";
+import { getEntitiesByDomain } from "@/content/knowledge/entity-registry";
+
+/**
+ * Research page content — Phase 3.0.
+ * Section index derives from the canonical entity registry.
+ * Working-document entries remain page-specific display content.
+ */
+
+const researchEntities = getEntitiesByDomain("research");
 
 /** Demonstration Research page. Concise architecture validation content. */
 export const researchPageContent: ResearchPageContent = {
@@ -8,7 +17,8 @@ export const researchPageContent: ResearchPageContent = {
   introduction: researchLabsContent.introduction,
   status: "Research architecture demonstration",
   sectionNav: [
-    { id: "research-areas", label: "Research areas" },
+    { id: "research-areas", label: "Research sections" },
+    { id: "research-relations", label: "Related domains" },
     { id: "research-entries", label: "Working documents" },
   ],
   filterLabels: [
@@ -17,26 +27,11 @@ export const researchPageContent: ResearchPageContent = {
     "Human-system interaction",
     "Autonomy",
   ],
-  areas: [
-    {
-      id: "system-models",
-      title: "System models",
-      summary:
-        "Models and methods that define how human context, permissions and system behavior connect.",
-    },
-    {
-      id: "safety-privacy",
-      title: "Safety and privacy",
-      summary:
-        "Technical questions about boundaries, escalation, minimization and accountable use.",
-    },
-    {
-      id: "human-system",
-      title: "Human-system interaction",
-      summary:
-        "Research that shapes interfaces between people, robotic systems and environment-level controls.",
-    },
-  ],
+  areas: researchEntities.map((entity) => ({
+    id: entity.id,
+    title: entity.title,
+    summary: entity.summary,
+  })),
   entriesHeading: "Working documents",
   entries: [
     {
@@ -59,3 +54,6 @@ export const researchPageContent: ResearchPageContent = {
     { label: "View applications", href: "/applications/" },
   ],
 };
+
+/** Entity used for the compact related-domain relationship block. */
+export const researchRelationsEntityId = "research-areas" as const;

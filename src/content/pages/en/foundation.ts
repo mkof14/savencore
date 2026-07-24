@@ -1,9 +1,162 @@
-import type { TechnicalPageContent } from "@/components/pages/page-types";
+import type {
+  FoundationLayerField,
+  TechnicalPageContent,
+} from "@/components/pages/page-types";
+import { getFoundationHierarchyEntities } from "@/content/knowledge/entity-registry";
 
 /**
- * Canonical Foundation page content — Phase 1F.1.
- * Permanent technical reference for what SAVEN Core is built upon.
+ * Canonical Foundation page content — Phase 1F.1 / Phase 3.0.
+ * Hierarchy diagram and layer order derive from the entity registry.
+ * Layer field copy remains page-specific display content.
  */
+
+const foundationHierarchy = getFoundationHierarchyEntities();
+
+const foundationLayerDetails: Readonly<
+  Record<string, { detail: string; fields: readonly FoundationLayerField[] }>
+> = {
+  "biomath-life": {
+    detail: "Human-centered foundation",
+    fields: [
+      {
+        id: "purpose",
+        title: "Purpose",
+        text: "Establish the human-centered foundation for understanding the individual across biological, medical, behavioral, environmental and life context.",
+      },
+      {
+        id: "role",
+        title: "Role",
+        text: "The origin layer of the architecture. It defines why human understanding comes before product framing.",
+      },
+      {
+        id: "relationship",
+        title: "Relationship",
+        text: "Feeds BioMath Core. Later layers inherit its human orientation and must not invert that priority.",
+      },
+      {
+        id: "scope",
+        title: "Scope",
+        text: "Concepts, terminology and framing for health, behavior, context and daily life as connected parts of one human system.",
+      },
+      {
+        id: "outputs",
+        title: "Outputs",
+        text: "Guiding questions, definitions and constraints that shape intelligence models and system boundaries.",
+      },
+      {
+        id: "dependencies",
+        title: "Dependencies",
+        text: "Depends on approved human-purpose principles, privacy expectations and development-safe public communication.",
+      },
+    ],
+  },
+  "biomath-core": {
+    detail: "Intelligence layer",
+    fields: [
+      {
+        id: "purpose",
+        title: "Purpose",
+        text: "Organize human data and intelligence so context can be interpreted with permissions, privacy and accountable use.",
+      },
+      {
+        id: "role",
+        title: "Role",
+        text: "The intelligence layer. It turns human-centered understanding into structured models and decision assistance.",
+      },
+      {
+        id: "relationship",
+        title: "Relationship",
+        text: "Receives orientation from BioMath Life and provides the Human Data Model interface used by SAVEN and SAVEN Core.",
+      },
+      {
+        id: "scope",
+        title: "Scope",
+        text: "Personal context, longitudinal information, signals, patterns, permissions, privacy controls and safe personalization logic.",
+      },
+      {
+        id: "outputs",
+        title: "Outputs",
+        text: "Structured human-context representations, interpretation methods and governed interfaces for downstream systems.",
+      },
+      {
+        id: "dependencies",
+        title: "Dependencies",
+        text: "Depends on BioMath Life definitions and on safety/privacy architecture that limits what may be used and by whom.",
+      },
+    ],
+  },
+  saven: {
+    detail: "Execution layer",
+    fields: [
+      {
+        id: "purpose",
+        title: "Purpose",
+        text: "Connect human understanding and intelligence with actions, workflows, devices and operational responses.",
+      },
+      {
+        id: "role",
+        title: "Role",
+        text: "The execution layer. It is the physical and operational extension of the intelligence foundation.",
+      },
+      {
+        id: "relationship",
+        title: "Relationship",
+        text: "Uses BioMath Core outputs and prepares the integration surface that SAVEN Core engineers as systems.",
+      },
+      {
+        id: "scope",
+        title: "Scope",
+        text: "Interfaces between intelligence and action: robotics pathways, autonomous system controls, sensors and assistance workflows.",
+      },
+      {
+        id: "outputs",
+        title: "Outputs",
+        text: "Execution models, interface contracts and operational patterns suitable for system-level engineering.",
+      },
+      {
+        id: "dependencies",
+        title: "Dependencies",
+        text: "Depends on BioMath Core context models and on explicit permissions before consequential action.",
+      },
+    ],
+  },
+  "saven-core": {
+    detail: "Physical systems layer",
+    fields: [
+      {
+        id: "purpose",
+        title: "Purpose",
+        text: "Integrate the human intelligence foundation with physical and digital systems under one engineering organization.",
+      },
+      {
+        id: "role",
+        title: "Role",
+        text: "The physical systems layer and the company-level technology structure for SAVEN Core.",
+      },
+      {
+        id: "relationship",
+        title: "Relationship",
+        text: "Unifies prior layers into systems, technology disciplines, labs and application contexts for hospitals, home and everyday life.",
+      },
+      {
+        id: "scope",
+        title: "Scope",
+        text: "Software, robotics, sensing, environment-level infrastructure, safety architecture, privacy architecture and human-system interaction.",
+      },
+      {
+        id: "outputs",
+        title: "Outputs",
+        text: "Connected system frameworks, engineering methods and governed development pathways.",
+      },
+      {
+        id: "dependencies",
+        title: "Dependencies",
+        text: "Depends on BioMath Life orientation, BioMath Core intelligence, SAVEN execution patterns and continuous human oversight requirements.",
+      },
+    ],
+  },
+};
+
 export const foundationPageContent: TechnicalPageContent = {
   label: "Foundation",
   title: "A connected path from human understanding to physical systems.",
@@ -14,10 +167,10 @@ export const foundationPageContent: TechnicalPageContent = {
     "Foundation information describes intended architecture and development relationships. It does not imply commercial deployment, clinical use or regulatory approval.",
   sectionNav: [
     { id: "foundation-hierarchy", label: "Hierarchy" },
-    { id: "biomath-life", label: "BioMath Life" },
-    { id: "biomath-core", label: "BioMath Core" },
-    { id: "saven", label: "SAVEN" },
-    { id: "saven-core", label: "SAVEN Core" },
+    ...foundationHierarchy.map((entity) => ({
+      id: entity.id,
+      label: entity.title,
+    })),
     { id: "human-data-model", label: "Human Data Model" },
     { id: "system-relationships", label: "System relationships" },
     { id: "technology-relationships", label: "Technology relationships" },
@@ -30,24 +183,12 @@ export const foundationPageContent: TechnicalPageContent = {
       title: "Foundation hierarchy",
       description:
         "Vertical hierarchy from BioMath Life through BioMath Core and SAVEN to SAVEN Core.",
-      nodes: [
-        {
-          id: "biomath-life",
-          label: "BioMath Life",
-          detail: "Human-centered foundation",
-        },
-        {
-          id: "biomath-core",
-          label: "BioMath Core",
-          detail: "Intelligence layer",
-        },
-        { id: "saven", label: "SAVEN", detail: "Execution layer" },
-        {
-          id: "saven-core",
-          label: "SAVEN Core",
-          detail: "Physical systems layer",
-        },
-      ],
+      nodes: foundationHierarchy.map((entity) => {
+        const detail = foundationLayerDetails[entity.id]?.detail;
+        return detail
+          ? { id: entity.id, label: entity.title, detail }
+          : { id: entity.id, label: entity.title };
+      }),
     },
     {
       id: "foundation-layers",
@@ -55,12 +196,12 @@ export const foundationPageContent: TechnicalPageContent = {
       title: "Layer model",
       description:
         "Stacked layer model showing SAVEN Core resting on SAVEN, BioMath Core and BioMath Life.",
-      nodes: [
-        { id: "layer-saven-core", label: "SAVEN Core" },
-        { id: "layer-saven", label: "SAVEN" },
-        { id: "layer-biomath-core", label: "BioMath Core" },
-        { id: "layer-biomath-life", label: "BioMath Life" },
-      ],
+      nodes: [...foundationHierarchy]
+        .reverse()
+        .map((entity) => ({
+          id: `layer-${entity.id}`,
+          label: entity.title,
+        })),
     },
     {
       id: "system-logic-flow",
@@ -90,152 +231,11 @@ export const foundationPageContent: TechnicalPageContent = {
       ],
     },
   ],
-  layers: [
-    {
-      id: "biomath-life",
-      title: "BioMath Life",
-      fields: [
-        {
-          id: "purpose",
-          title: "Purpose",
-          text: "Establish the human-centered foundation for understanding the individual across biological, medical, behavioral, environmental and life context.",
-        },
-        {
-          id: "role",
-          title: "Role",
-          text: "The origin layer of the architecture. It defines why human understanding comes before product framing.",
-        },
-        {
-          id: "relationship",
-          title: "Relationship",
-          text: "Feeds BioMath Core. Later layers inherit its human orientation and must not invert that priority.",
-        },
-        {
-          id: "scope",
-          title: "Scope",
-          text: "Concepts, terminology and framing for health, behavior, context and daily life as connected parts of one human system.",
-        },
-        {
-          id: "outputs",
-          title: "Outputs",
-          text: "Guiding questions, definitions and constraints that shape intelligence models and system boundaries.",
-        },
-        {
-          id: "dependencies",
-          title: "Dependencies",
-          text: "Depends on approved human-purpose principles, privacy expectations and development-safe public communication.",
-        },
-      ],
-    },
-    {
-      id: "biomath-core",
-      title: "BioMath Core",
-      fields: [
-        {
-          id: "purpose",
-          title: "Purpose",
-          text: "Organize human data and intelligence so context can be interpreted with permissions, privacy and accountable use.",
-        },
-        {
-          id: "role",
-          title: "Role",
-          text: "The intelligence layer. It turns human-centered understanding into structured models and decision assistance.",
-        },
-        {
-          id: "relationship",
-          title: "Relationship",
-          text: "Receives orientation from BioMath Life and provides the Human Data Model interface used by SAVEN and SAVEN Core.",
-        },
-        {
-          id: "scope",
-          title: "Scope",
-          text: "Personal context, longitudinal information, signals, patterns, permissions, privacy controls and safe personalization logic.",
-        },
-        {
-          id: "outputs",
-          title: "Outputs",
-          text: "Structured human-context representations, interpretation methods and governed interfaces for downstream systems.",
-        },
-        {
-          id: "dependencies",
-          title: "Dependencies",
-          text: "Depends on BioMath Life definitions and on safety/privacy architecture that limits what may be used and by whom.",
-        },
-      ],
-    },
-    {
-      id: "saven",
-      title: "SAVEN",
-      fields: [
-        {
-          id: "purpose",
-          title: "Purpose",
-          text: "Connect human understanding and intelligence with actions, workflows, devices and operational responses.",
-        },
-        {
-          id: "role",
-          title: "Role",
-          text: "The execution layer. It is the physical and operational extension of the intelligence foundation.",
-        },
-        {
-          id: "relationship",
-          title: "Relationship",
-          text: "Uses BioMath Core outputs and prepares the integration surface that SAVEN Core engineers as systems.",
-        },
-        {
-          id: "scope",
-          title: "Scope",
-          text: "Interfaces between intelligence and action: robotics pathways, autonomous system controls, sensors and assistance workflows.",
-        },
-        {
-          id: "outputs",
-          title: "Outputs",
-          text: "Execution models, interface contracts and operational patterns suitable for system-level engineering.",
-        },
-        {
-          id: "dependencies",
-          title: "Dependencies",
-          text: "Depends on BioMath Core context models and on explicit permissions before consequential action.",
-        },
-      ],
-    },
-    {
-      id: "saven-core",
-      title: "SAVEN Core",
-      fields: [
-        {
-          id: "purpose",
-          title: "Purpose",
-          text: "Integrate the human intelligence foundation with physical and digital systems under one engineering organization.",
-        },
-        {
-          id: "role",
-          title: "Role",
-          text: "The physical systems layer and the company-level technology structure for SAVEN Core.",
-        },
-        {
-          id: "relationship",
-          title: "Relationship",
-          text: "Unifies prior layers into systems, technology disciplines, labs and application contexts for hospitals, home and everyday life.",
-        },
-        {
-          id: "scope",
-          title: "Scope",
-          text: "Software, robotics, sensing, environment-level infrastructure, safety architecture, privacy architecture and human-system interaction.",
-        },
-        {
-          id: "outputs",
-          title: "Outputs",
-          text: "Connected system frameworks, engineering methods and governed development pathways.",
-        },
-        {
-          id: "dependencies",
-          title: "Dependencies",
-          text: "Depends on BioMath Life orientation, BioMath Core intelligence, SAVEN execution patterns and continuous human oversight requirements.",
-        },
-      ],
-    },
-  ],
+  layers: foundationHierarchy.map((entity) => ({
+    id: entity.id,
+    title: entity.title,
+    fields: foundationLayerDetails[entity.id]?.fields ?? [],
+  })),
   architectureSections: [
     {
       id: "human-data-model",

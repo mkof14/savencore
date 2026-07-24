@@ -1,95 +1,48 @@
-import type { ResearchKnowledge } from "@/content/knowledge/types";
+import { getEntitiesByDomain } from "@/content/knowledge/entity-registry";
+import type { KnowledgeDomainId, ResearchKnowledge } from "@/content/knowledge/types";
 
 /**
- * Research knowledge architecture — sections only.
- * No invented publications, partners or institutions.
+ * Research knowledge architecture — Phase 2.1 presentation export.
+ * Section index and relations derive from the Phase 3.0 entity registry.
+ * Purpose copy and domain-level relatedDomains remain display-specific.
  */
+
+/** Temporary compatibility: purpose strings for Research sections. */
+const researchPurposeById: Readonly<Record<string, string>> = {
+  "research-areas":
+    "Group the technical questions that shape architecture and system design.",
+  "white-papers":
+    "Reserve a structured place for approved long-form technical papers.",
+  "engineering-notes":
+    "Capture concise engineering observations that inform implementation.",
+  publications:
+    "Provide a registry structure for approved public research outputs.",
+  "future-research":
+    "Track intended research directions without promising delivery dates.",
+  laboratories:
+    "Describe engineering environments that turn research into testable methods.",
+};
+
+/** Temporary compatibility: prior relatedDomains lists (domain IDs, not entity IDs). */
+const researchRelatedDomainsById: Readonly<
+  Record<string, readonly KnowledgeDomainId[]>
+> = {
+  "research-areas": ["technology", "systems", "foundation"],
+  "white-papers": ["technology", "trust", "foundation"],
+  "engineering-notes": ["systems", "technology", "foundation"],
+  publications: ["research", "technology", "company"],
+  "future-research": ["foundation", "systems", "trust"],
+  laboratories: ["systems", "technology", "trust"],
+};
+
 export const researchKnowledge: ResearchKnowledge = {
   domainId: "research",
-  sections: [
-    {
-      id: "research-areas",
-      title: "Research Areas",
-      purpose:
-        "Group the technical questions that shape architecture and system design.",
-      summary:
-        "Areas such as system models, safety, privacy and human-system interaction.",
-      futureTopics: [
-        "Area indexes",
-        "Question registers",
-        "Cross-links to systems",
-      ],
-      relatedDomains: ["technology", "systems", "foundation"],
-    },
-    {
-      id: "white-papers",
-      title: "White Papers",
-      purpose:
-        "Reserve a structured place for approved long-form technical papers.",
-      summary:
-        "Placeholder architecture only. No paper titles or counts are invented in this phase.",
-      futureTopics: [
-        "Paper metadata schema",
-        "Public versus restricted classification",
-        "Version history",
-      ],
-      relatedDomains: ["technology", "trust", "foundation"],
-    },
-    {
-      id: "engineering-notes",
-      title: "Engineering Notes",
-      purpose:
-        "Capture concise engineering observations that inform implementation.",
-      summary:
-        "Short notes linking methods, constraints and open questions to systems and technology.",
-      futureTopics: [
-        "Note templates",
-        "Status labels",
-        "Traceability to systems",
-      ],
-      relatedDomains: ["systems", "technology", "foundation"],
-    },
-    {
-      id: "publications",
-      title: "Publications",
-      purpose:
-        "Provide a registry structure for approved public research outputs.",
-      summary:
-        "Structural placeholder. Entries are added only when owner-approved publications exist.",
-      futureTopics: [
-        "Citation fields",
-        "Abstract summaries",
-        "Related research areas",
-      ],
-      relatedDomains: ["research", "technology", "company"],
-    },
-    {
-      id: "future-research",
-      title: "Future Research",
-      purpose:
-        "Track intended research directions without promising delivery dates.",
-      summary:
-        "Forward-looking questions organized by capability and evidence needs.",
-      futureTopics: [
-        "Horizon topics",
-        "Dependency on foundation layers",
-        "Validation prerequisites",
-      ],
-      relatedDomains: ["foundation", "systems", "trust"],
-    },
-    {
-      id: "laboratories",
-      title: "Laboratories",
-      purpose:
-        "Describe engineering environments that turn research into testable methods.",
-      summary:
-        "Labs remain distinct from research. Named labs appear only with approved terminology.",
-      futureTopics: [
-        "Lab pages",
-        "Focus areas",
-        "Links to systems under test",
-      ],
-      relatedDomains: ["systems", "technology", "trust"],
-    },
-  ],
+  sections: getEntitiesByDomain("research").map((entity) => ({
+    id: entity.id,
+    title: entity.title,
+    purpose: researchPurposeById[entity.id] ?? entity.summary,
+    summary: entity.summary,
+    futureTopics: entity.futureTopics,
+    relatedDomains: researchRelatedDomainsById[entity.id] ?? [],
+  })),
 };

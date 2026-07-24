@@ -1,3 +1,4 @@
+import { EntityRelationshipIndex } from "@/components/knowledge/EntityRelationshipIndex";
 import { PageMasthead } from "@/components/pages/PageMasthead";
 import { PageRelatedLinks } from "@/components/pages/PageRelatedLinks";
 import { PageSectionNav } from "@/components/pages/PageSectionNav";
@@ -7,9 +8,15 @@ import type { Locale } from "@/config/locales";
 type ResearchPageProps = {
   locale: Locale;
   content: ResearchPageContent;
+  /** Canonical entity id for the compact relationship block. */
+  relationsEntityId?: string;
 };
 
-export function ResearchPage({ locale, content }: ResearchPageProps) {
+export function ResearchPage({
+  locale,
+  content,
+  relationsEntityId,
+}: ResearchPageProps) {
   const titleId = "page-title";
 
   return (
@@ -51,7 +58,7 @@ export function ResearchPage({ locale, content }: ResearchPageProps) {
             aria-labelledby="research-areas-heading"
           >
             <h2 id="research-areas-heading" className="page-research-areas__heading">
-              Research areas
+              Research sections
             </h2>
             <ul className="page-research-areas__list">
               {content.areas.map((area) => (
@@ -62,6 +69,16 @@ export function ResearchPage({ locale, content }: ResearchPageProps) {
               ))}
             </ul>
           </section>
+
+          {relationsEntityId ? (
+            <div id="research-relations" className="page-research-relations">
+              <EntityRelationshipIndex
+                locale={locale}
+                entityId={relationsEntityId}
+                heading="Related domains"
+              />
+            </div>
+          ) : null}
 
           {content.entries && content.entries.length > 0 ? (
             <section

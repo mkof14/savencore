@@ -8,18 +8,19 @@ If you are a coding agent (Cursor or otherwise), read this file before making an
 
 ## Current Phase
 
-**Phase 2.2 — Engineering Design System (authorized; documentation visual language established)**
+**Phase 3.0 — Unified Knowledge Entity Model (authorized; canonical registry established)**
 
-Shared engineering documentation design system is in place. See `docs/ENGINEERING_DESIGN_SYSTEM.md` and Decisions D-0090–D-0093. Home, navigation, and routes were not changed in this phase.
+Canonical static TypeScript knowledge entity model is in place. See `docs/PHASE_3_0_UNIFIED_KNOWLEDGE_ENTITY_MODEL.md` and Decisions D-0094–D-0101. Home, navigation, and routes were not changed in this phase.
 
 **Do not begin without explicit owner approval:**
 
-- Phase 2.3 or destination-page build-out;
+- Phase 3.1 or destination-page build-out;
 - Home redesign or navigation changes;
 - custom brand fonts / final brand colors / logo asset / imagery;
 - CMS, database, working search, forms, analytics, cookie consent;
 - authentication or investor portal;
-- leaf marketing pages across the sitemap.
+- leaf marketing pages across the sitemap;
+- graph visualization or knowledge CMS.
 
 ---
 

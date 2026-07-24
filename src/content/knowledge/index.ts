@@ -4,6 +4,8 @@ import {
   knowledgeDomains,
   knowledgeMapDiagram,
 } from "@/content/knowledge/domains";
+import { knowledgeEntities } from "@/content/knowledge/entities";
+import "@/content/knowledge/entity-registry";
 import { researchKnowledge } from "@/content/knowledge/research";
 import { systemsKnowledge } from "@/content/knowledge/systems";
 import { technologyKnowledge } from "@/content/knowledge/technology";
@@ -13,6 +15,9 @@ import type {
 } from "@/content/knowledge/types";
 
 export * from "@/content/knowledge/types";
+export * from "@/content/knowledge/entity-types";
+export * from "@/content/knowledge/entities";
+export * from "@/content/knowledge/entity-registry";
 export * from "@/content/knowledge/domains";
 export * from "@/content/knowledge/technology";
 export * from "@/content/knowledge/systems";
@@ -24,6 +29,7 @@ export const knowledgeArchitecture = {
   domains: knowledgeDomains,
   domainMap: knowledgeDomainMap,
   mapDiagram: knowledgeMapDiagram,
+  entities: knowledgeEntities,
   technology: technologyKnowledge,
   systems: systemsKnowledge,
   research: researchKnowledge,

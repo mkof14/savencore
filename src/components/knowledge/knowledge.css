@@ -151,3 +151,29 @@
   outline: 2px solid var(--color-text);
   outline-offset: 3px;
 }
+
+/* Entity relationship index (Phase 3.0) */
+.entity-relationship-index__groups {
+  display: grid;
+  gap: var(--space-24);
+}
+
+.entity-relationship-index__group {
+  min-inline-size: 0;
+}
+
+.entity-relationship-index__group .eng-type-h3 {
+  margin: 0 0 var(--space-12);
+}
+
+.page-research-relations {
+  margin-block-start: var(--space-32);
+  padding-block-start: var(--space-24);
+  border-block-start: 1px solid var(--color-divider);
+}
+
+@media (min-width: 640px) {
+  .entity-relationship-index__groups {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

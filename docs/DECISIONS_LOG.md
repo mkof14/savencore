@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-24 (Phase 2.2 append)
+**Last updated:** 2026-07-24 (Phase 3.0 append)
 
 ## Rules
 
@@ -111,6 +111,14 @@
 | D-0091 | 2026-07-24 | Shared engineering documentation visual language adopted | Active |
 | D-0092 | 2026-07-24 | Neutral callout types; single table and diagram language | Active |
 | D-0093 | 2026-07-24 | Phase 2.3 remains unauthorized | Active |
+| D-0094 | 2026-07-24 | One canonical knowledge entity registry | Active |
+| D-0095 | 2026-07-24 | Static TypeScript knowledge model; no runtime database | Active |
+| D-0096 | 2026-07-24 | Relationship IDs are the source of truth | Active |
+| D-0097 | 2026-07-24 | Deterministic entity registry validation | Active |
+| D-0098 | 2026-07-24 | Domain exports derive from the entity registry | Active |
+| D-0099 | 2026-07-24 | No graph visualization in Phase 3.0 | Active |
+| D-0100 | 2026-07-24 | Phase 3.0 authorized; Foundation and Research demo only | Active |
+| D-0101 | 2026-07-24 | Phase 3.1 remains unauthorized | Active |
 
 ---
 
@@ -790,6 +798,62 @@
 - **Status:** Active
 - **Decision:** Completing Phase 2.2 does not authorize Phase 2.3 or destination-page build-out.
 - **Implications:** Stop after Phase 2.2 commit unless explicitly authorized.
+
+### D-0094 — One canonical knowledge entity registry
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Adopt a single canonical `KnowledgeEntity` registry in `src/content/knowledge/entities.ts` as the shared source of truth for approved knowledge entities.
+- **Implications:** Future knowledge pages must not maintain competing entity lists.
+
+### D-0095 — Static TypeScript knowledge model; no runtime database
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** The knowledge entity model is a static TypeScript content model. No runtime database, CMS, API, or search engine is introduced in Phase 3.0.
+- **Implications:** Content remains compile-time typed data until a later authorized persistence phase.
+
+### D-0096 — Relationship IDs are the source of truth
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Cross-entity relationships are encoded as typed ID arrays on each entity (`parentId`, `childIds`, `dependencyIds`, `usedByIds`, related-* fields).
+- **Implications:** Presentation layers adapt from IDs; they do not invent parallel relationship graphs.
+
+### D-0097 — Deterministic entity registry validation
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Registry validation runs on module import via `assertEntityRegistryValid()` (unique IDs/slugs, referential integrity, parent-child consistency, Foundation hierarchy, locale-neutral page links).
+- **Implications:** Invalid registries fail development/build without adding a new test framework.
+
+### D-0098 — Domain exports derive from the entity registry
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Phase 2.1 domain presentation exports (`technology`, `systems`, `research`, `applications`) derive item lists and relation IDs from the canonical registry. Display-only purpose copy may remain as temporary compatibility maps.
+- **Implications:** Avoids two competing sources of truth while preserving existing component APIs.
+
+### D-0099 — No graph visualization in Phase 3.0
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Phase 3.0 does not add graph visualization, network layout libraries, or graph traversal algorithms.
+- **Implications:** Relationship presentation is limited to typed grouped lists via `EntityRelationshipIndex` / `getEntityRelationsSummary`.
+
+### D-0100 — Phase 3.0 authorized; Foundation and Research demo only
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Authorize Phase 3.0 unified knowledge entity model. Demonstrate registry consumption only on existing Foundation and Research pages. Do not redesign Home, change navigation, or add routes.
+- **Implications:** See `docs/PHASE_3_0_UNIFIED_KNOWLEDGE_ENTITY_MODEL.md`.
+
+### D-0101 — Phase 3.1 remains unauthorized
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Completing Phase 3.0 does not authorize Phase 3.1, destination-page build-out, CMS/database work, or graph visualization.
+- **Implications:** Stop after Phase 3.0 commit unless explicitly authorized.
 
 ---
 

@@ -1,41 +1,42 @@
-import { developmentStatusContent } from "@/content/home/en";
+import { developmentStatusHomeContent } from "@/content/home/en";
 
 export function DevelopmentStatus() {
-  const content = developmentStatusContent;
+  const content = developmentStatusHomeContent;
 
   return (
     <section
-      className="home-section home-status"
+      className="home-region home-status"
       aria-labelledby="development-status-heading"
     >
       <div className="home__inner">
-        <p className="home-section__label">{content.label}</p>
-        <h2 id="development-status-heading" className="home-section__heading">
+        <p className="home-region__label">{content.label}</p>
+        <h2 id="development-status-heading" className="home-region__heading">
           {content.heading}
         </h2>
-        <p className="home-section__body">{content.introduction}</p>
 
-        <ol className="home-status__stages">
-          {content.stages.map((stage, index) => (
-            <li key={stage.id} className="home-status__stage">
-              <div className="home-status__stage-meta">
-                <span className="home-status__index" aria-hidden="true">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <p className="home-status__status">
-                  <span className="home-status__status-label">Status</span>
-                  <span className="home-status__status-value">
-                    {stage.status}
-                  </span>
-                </p>
-              </div>
-              <div className="home-status__stage-body">
-                <h3 className="home-status__stage-title">{stage.title}</h3>
-                <p className="home-status__stage-text">{stage.description}</p>
-              </div>
-            </li>
-          ))}
-        </ol>
+        <div className="home-status__table-wrap">
+          <table className="home-status__table">
+            <caption className="visually-hidden">
+              Development status by stage
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">Stage</th>
+                <th scope="col">Status</th>
+                <th scope="col">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              {content.stages.map((stage) => (
+                <tr key={stage.id}>
+                  <th scope="row">{stage.title}</th>
+                  <td>{stage.status}</td>
+                  <td>{stage.description}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
 
         <p className="home-status__note">{content.statusNote}</p>
       </div>

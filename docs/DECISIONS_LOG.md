@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-24 (Phase 1D.4 append)
+**Last updated:** 2026-07-24 (Phase 1E.1 append)
 
 ## Rules
 
@@ -83,7 +83,15 @@
 | D-0063 | 2026-07-24 | Roadmap by capability; approved Home closing statement | Active |
 | D-0064 | 2026-07-24 | Home page structural build complete | Active |
 | D-0065 | 2026-07-24 | Further Home visual review before destination pages | Active |
-| D-0066 | 2026-07-24 | Phase 1E remains unauthorized | Active |
+| D-0066 | 2026-07-24 | Phase 1E remains unauthorized | Superseded by D-0067 |
+| D-0067 | 2026-07-24 | Phase 1E.1 corporate Home restructure authorized | Active |
+| D-0068 | 2026-07-24 | Home is a corporate gateway, not a full presentation | Active |
+| D-0069 | 2026-07-24 | Seven-region Home structure adopted | Active |
+| D-0070 | 2026-07-24 | Long-form content belongs on destination pages | Active |
+| D-0071 | 2026-07-24 | Technology and Systems combined on Home; taxonomies separate | Active |
+| D-0072 | 2026-07-24 | Research, Labs and Trust combined visually; concepts separate | Active |
+| D-0073 | 2026-07-24 | Closing Company, Investors and Roadmap region | Active |
+| D-0074 | 2026-07-24 | Phase 1E.2 destination pages remain unauthorized | Active |
 
 ---
 
@@ -566,9 +574,66 @@
 ### D-0066 — Phase 1E remains unauthorized
 
 - **Date:** 2026-07-24
-- **Status:** Active
+- **Status:** Superseded by D-0067
 - **Decision:** Completing Phase 1D.4 does not authorize Phase 1E or any destination-page, localization, CMS, or product-surface work.
 - **Implications:** Stop after Phase 1D.4 commit unless explicitly authorized.
+
+### D-0067 — Phase 1E.1 corporate Home restructure authorized
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Authorize restructuring the completed Home page into a compact corporate gateway. See `docs/PHASE_1E_1_CORPORATE_HOME_RESTRUCTURE.md`.
+- **Out of scope:** Destination pages, navigation redesign, taxonomy changes, Phase 1E.2.
+- **Implications:** Home presentation becomes shorter and navigational; long-form content is preserved for later pages.
+
+### D-0068 — Home is a corporate gateway, not a full presentation
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Home explains SAVEN Core quickly, presents principal organizational areas, and routes into deeper sections rather than telling the entire company story on one page.
+- **Implications:** Header remains the primary site map; Home supplements navigation.
+
+### D-0069 — Seven-region Home structure adopted
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Home comprises exactly seven regions: Hero; Purpose and Foundation; Applications; Technology and Systems; Research and Trust; Development Status; Company, Investors and Roadmap.
+- **Implications:** The prior thirteen full-height standalone sections are retired from Home presentation.
+
+### D-0070 — Long-form content belongs on destination pages
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Approved long-form Home copy is retained in `src/content/home/en.ts` for destination-page reuse and is not rendered in full on Home.
+- **Implications:** Compact Home exports derive shared strings from preserved sources where practical.
+
+### D-0071 — Technology and Systems combined on Home; taxonomies separate
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Technology and Systems appear together as a Home directory region but remain separate site taxonomies with separate destinations.
+- **Implications:** Do not merge Technology and Systems in information architecture.
+
+### D-0072 — Research, Labs and Trust combined visually; concepts separate
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Research, Labs, and Trust Architecture share one Home region as three columns while remaining separate concepts and destinations.
+- **Implications:** Detailed Trust pillars remain for the Trust destination page.
+
+### D-0073 — Closing Company, Investors and Roadmap region
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Company, Investors, and Roadmap form one institutional closing region with the approved closing statement retained below the columns.
+- **Implications:** No giant CTA banner; links remain restrained.
+
+### D-0074 — Phase 1E.2 destination pages remain unauthorized
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Completing Phase 1E.1 does not authorize Phase 1E.2 or any destination-page development.
+- **Implications:** Stop after Phase 1E.1 commit unless explicitly authorized.
 
 ---
 

@@ -1,24 +1,17 @@
 /**
- * Canonical English Home content for Phase 1D.1–1D.4.
- * Used as controlled fallback across locale routes until localization is approved.
+ * Canonical English Home content — Phase 1E.1 corporate gateway.
+ * English remains the controlled fallback across locale routes.
+ *
+ * Structure:
+ * - Preserved destination-page exports (long-form source of truth)
+ * - Active Home presentation exports (compact; derived where possible)
  */
 
-export const homeHeroContent = {
-  eyebrow: "SAVEN Core",
-  heading: "Intelligent systems built to support human life.",
-  supporting:
-    "SAVEN Core develops the physical and digital systems that connect human data, artificial intelligence, robotics and real-world environments.",
-  statusLine: "Built for hospitals, homes and everyday life.",
-  primaryLink: {
-    label: "Explore the foundation",
-    href: "/foundation/",
-  },
-  secondaryLink: {
-    label: "View applications",
-    href: "/applications/",
-  },
-} as const;
+/* -------------------------------------------------------------------------- */
+/* Preserved for destination pages — long-form source of truth                */
+/* -------------------------------------------------------------------------- */
 
+/** Future Purpose / Foundation pages — full purpose principles. */
 export const humanPurposeContent = {
   label: "Human Purpose",
   heading: "Technology should serve people in the moments that matter.",
@@ -45,34 +38,7 @@ export const humanPurposeContent = {
   ],
 } as const;
 
-export const applicationContextsContent = {
-  label: "Where life happens",
-  heading: "Hospitals. Home. Everyday life.",
-  items: [
-    {
-      id: "hospitals",
-      title: "Hospitals",
-      text: "Systems designed to support clinical environments, staff workflows and patient care infrastructure.",
-      href: "/applications/",
-      linkLabel: "View applications",
-    },
-    {
-      id: "home",
-      title: "Home",
-      text: "Systems intended to support independence, continuity and safer daily routines.",
-      href: "/applications/",
-      linkLabel: "View applications",
-    },
-    {
-      id: "everyday-life",
-      title: "Everyday Life",
-      text: "Systems designed for the environments where people live, move, work and age.",
-      href: "/applications/",
-      linkLabel: "View applications",
-    },
-  ],
-} as const;
-
+/** Future Foundation page — full stage descriptions. */
 export const foundationChainContent = {
   label: "Foundation",
   heading: "A connected path from human understanding to physical systems.",
@@ -110,6 +76,7 @@ export const foundationChainContent = {
   ],
 } as const;
 
+/** Future Foundation or Technology page — five-step governed system logic. */
 export const systemLogicContent = {
   label: "System Logic",
   heading: "From human context to careful action.",
@@ -149,6 +116,36 @@ export const systemLogicContent = {
     "Important actions remain subject to permissions, defined safeguards and human oversight.",
 } as const;
 
+/** Future Applications page — longer context statements. */
+export const applicationContextsContent = {
+  label: "Where life happens",
+  heading: "Hospitals. Home. Everyday life.",
+  items: [
+    {
+      id: "hospitals",
+      title: "Hospitals",
+      text: "Systems designed to support clinical environments, staff workflows and patient care infrastructure.",
+      href: "/applications/",
+      linkLabel: "View applications",
+    },
+    {
+      id: "home",
+      title: "Home",
+      text: "Systems intended to support independence, continuity and safer daily routines.",
+      href: "/applications/",
+      linkLabel: "View applications",
+    },
+    {
+      id: "everyday-life",
+      title: "Everyday Life",
+      text: "Systems designed for the environments where people live, move, work and age.",
+      href: "/applications/",
+      linkLabel: "View applications",
+    },
+  ],
+} as const;
+
+/** Future Technology page — discipline descriptions. */
 export const technologyOverviewContent = {
   label: "Technology",
   heading: "Disciplines combined around real human environments.",
@@ -201,6 +198,7 @@ export const technologyOverviewContent = {
   linkLabel: "Explore technology",
 } as const;
 
+/** Future Systems page — system descriptions. */
 export const systemsOverviewContent = {
   label: "Systems",
   heading: "Engineering systems for physical and digital environments.",
@@ -251,6 +249,7 @@ export const systemsOverviewContent = {
   linkLabel: "View systems",
 } as const;
 
+/** Future Research / Labs pages. */
 export const researchLabsContent = {
   label: "Research & Labs",
   heading: "Research translated into engineering practice.",
@@ -278,6 +277,7 @@ export const researchLabsContent = {
     "Research defines what must be understood. Labs determine how it can be built, tested and governed.",
 } as const;
 
+/** Future Trust page — Safety, Privacy and Human Oversight pillars. */
 export const trustArchitectureContent = {
   label: "Trust Architecture",
   heading: "Limits, permissions and human control are part of the system.",
@@ -307,6 +307,7 @@ export const trustArchitectureContent = {
     "Autonomy is limited by purpose, permission, risk and human authority.",
 } as const;
 
+/** Development status register — used on Home and preserved for destination reuse. */
 export const developmentStatusContent = {
   label: "Development Status",
   heading: "Built in stages, reviewed before expansion.",
@@ -346,6 +347,7 @@ export const developmentStatusContent = {
     "Public information reflects the current development stage and does not imply commercial deployment, clinical use or regulatory approval.",
 } as const;
 
+/** Future Company page. */
 export const companyOverviewContent = {
   label: "Company",
   heading: "An engineering organization centered on human life.",
@@ -377,6 +379,7 @@ export const companyOverviewContent = {
   },
 } as const;
 
+/** Future Investors page. */
 export const investorOverviewContent = {
   label: "Investors",
   heading: "Long-term capital for systems that require careful development.",
@@ -394,6 +397,7 @@ export const investorOverviewContent = {
   },
 } as const;
 
+/** Future Roadmap page — capability categories. */
 export const roadmapClosingContent = {
   label: "Roadmap",
   heading: "Progress is organized around capability, evidence and responsibility.",
@@ -431,4 +435,184 @@ export const roadmapClosingContent = {
   },
   closingStatement:
     "Intelligent systems are valuable only when people can understand, govern and trust how they are used.",
+} as const;
+
+/* -------------------------------------------------------------------------- */
+/* Active Home presentation — compact gateway (Phase 1E.1)                    */
+/* -------------------------------------------------------------------------- */
+
+export const homeHeroContent = {
+  eyebrow: "SAVEN Core",
+  heading: "Intelligent systems built to support human life.",
+  supporting:
+    "SAVEN Core develops the physical and digital systems that connect human data, artificial intelligence, robotics and real-world environments.",
+  statusLine: "Built for hospitals, homes and everyday life.",
+  primaryLink: {
+    label: "Explore the foundation",
+    href: "/foundation/",
+  },
+  secondaryLink: {
+    label: "View applications",
+    href: "/applications/",
+  },
+} as const;
+
+export const purposeFoundationHomeContent = {
+  label: "Purpose and Foundation",
+  heading: humanPurposeContent.heading,
+  purpose: humanPurposeContent.paragraphs[0],
+  purposeLink: {
+    label: "Explore purpose",
+    href: "/purpose/",
+  },
+  foundationLink: {
+    label: "Explore the foundation",
+    href: "/foundation/",
+  },
+  stages: foundationChainContent.stages.map(({ id, title, role }) => ({
+    id,
+    title,
+    role,
+  })),
+} as const;
+
+export const applicationDirectoryHomeContent = {
+  label: "Applications",
+  heading: applicationContextsContent.heading,
+  sectionLink: {
+    label: "View all applications",
+    href: "/applications/",
+  },
+  items: [
+    {
+      id: "hospitals",
+      title: "Hospitals",
+      text: "Support for clinical environments, staff workflows and care infrastructure.",
+      href: "/applications/",
+      linkLabel: "Hospitals",
+    },
+    {
+      id: "home",
+      title: "Home",
+      text: "Support for independence, continuity and safer daily routines.",
+      href: "/applications/",
+      linkLabel: "Home",
+    },
+    {
+      id: "everyday-life",
+      title: "Everyday Life",
+      text: "Support for the environments where people live, move, work and age.",
+      href: "/applications/",
+      linkLabel: "Everyday Life",
+    },
+  ],
+} as const;
+
+export const technologySystemsHomeContent = {
+  label: "Technology and Systems",
+  heading: "Disciplines and engineering systems.",
+  technology: {
+    title: technologyOverviewContent.label,
+    linkLabel: technologyOverviewContent.linkLabel,
+    href: "/technology/",
+    items: technologyOverviewContent.areas.map(({ id, title }) => ({
+      id,
+      title,
+    })),
+  },
+  systems: {
+    title: systemsOverviewContent.label,
+    linkLabel: systemsOverviewContent.linkLabel,
+    href: "/systems/",
+    items: systemsOverviewContent.systems.map(({ id, title, role }) => ({
+      id,
+      title,
+      role,
+    })),
+  },
+} as const;
+
+export const researchTrustHomeContent = {
+  label: "Research and Trust",
+  heading: "Evidence, engineering practice and governed limits.",
+  columns: [
+    {
+      id: "research",
+      title: researchLabsContent.layers[0].title,
+      description: researchLabsContent.layers[0].description,
+      linkLabel: researchLabsContent.layers[0].linkLabel,
+      href: researchLabsContent.layers[0].href,
+    },
+    {
+      id: "labs",
+      title: researchLabsContent.layers[1].title,
+      description: researchLabsContent.layers[1].description,
+      linkLabel: researchLabsContent.layers[1].linkLabel,
+      href: researchLabsContent.layers[1].href,
+    },
+    {
+      id: "trust",
+      title: trustArchitectureContent.label,
+      description:
+        "Defined boundaries that keep capability connected to permissions, accountability and human control.",
+      linkLabel: "Explore trust",
+      href: "/trust/",
+    },
+  ],
+} as const;
+
+export const developmentStatusHomeContent = {
+  label: developmentStatusContent.label,
+  heading: developmentStatusContent.heading,
+  stages: developmentStatusContent.stages,
+  statusNote: developmentStatusContent.statusNote,
+} as const;
+
+export const corporateClosingHomeContent = {
+  label: "Organization",
+  heading: "Company, investors and roadmap.",
+  columns: [
+    {
+      id: "company",
+      title: companyOverviewContent.label,
+      text: companyOverviewContent.paragraphs[1],
+      links: [
+        {
+          label: companyOverviewContent.primaryLink.label,
+          href: companyOverviewContent.primaryLink.href,
+        },
+        {
+          label: companyOverviewContent.secondaryLink.label,
+          href: companyOverviewContent.secondaryLink.href,
+        },
+      ],
+    },
+    {
+      id: "investors",
+      title: investorOverviewContent.label,
+      text: "Intended for long-term capital that understands disciplined engineering and staged validation for human-centered systems.",
+      links: [
+        {
+          label: investorOverviewContent.primaryLink.label,
+          href: investorOverviewContent.primaryLink.href,
+        },
+        {
+          label: investorOverviewContent.secondaryLink.label,
+          href: investorOverviewContent.secondaryLink.href,
+        },
+      ],
+    },
+    {
+      id: "roadmap",
+      title: roadmapClosingContent.label,
+      text: roadmapClosingContent.introduction,
+      links: [
+        {
+          label: roadmapClosingContent.primaryLink.label,
+          href: roadmapClosingContent.primaryLink.href,
+        },
+      ],
+    },
+  ],
+  closingStatement: roadmapClosingContent.closingStatement,
 } as const;

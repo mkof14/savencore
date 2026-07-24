@@ -8,14 +8,14 @@ If you are a coding agent (Cursor or otherwise), read this file before making an
 
 ## Current Phase
 
-**Phase 1D.4 — Home Completion (authorized for sections 10–13; Home structure complete)**
+**Phase 1E.1 — Corporate Home Restructure (authorized; Home gateway complete)**
 
-Home sections 1–13 are in place through Phase 1D.4. See `docs/PHASE_1D_4_HOME_COMPLETION.md` and Decisions D-0059–D-0066.
+Home is a seven-region corporate gateway. See `docs/PHASE_1E_1_CORPORATE_HOME_RESTRUCTURE.md` and Decisions D-0067–D-0074.
 
 **Do not begin without explicit owner approval:**
 
-- Phase 1E or destination-page development;
-- further Home visual redesign beyond authorized review;
+- Phase 1E.2 or destination-page development;
+- navigation redesign or taxonomy changes;
 - custom brand fonts / final brand colors / logo asset / imagery;
 - CMS, database, working search, forms, analytics, cookie consent;
 - authentication or investor portal;

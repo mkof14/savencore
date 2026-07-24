@@ -1,18 +1,12 @@
 import { notFound } from "next/navigation";
 
-import { ApplicationContexts } from "@/components/home/ApplicationContexts";
-import { CompanyOverview } from "@/components/home/CompanyOverview";
+import { ApplicationDirectory } from "@/components/home/ApplicationDirectory";
+import { CorporateClosing } from "@/components/home/CorporateClosing";
 import { DevelopmentStatus } from "@/components/home/DevelopmentStatus";
-import { FoundationChain } from "@/components/home/FoundationChain";
 import { HomeHero } from "@/components/home/HomeHero";
-import { HumanPurpose } from "@/components/home/HumanPurpose";
-import { InvestorOverview } from "@/components/home/InvestorOverview";
-import { ResearchLabs } from "@/components/home/ResearchLabs";
-import { RoadmapClosing } from "@/components/home/RoadmapClosing";
-import { SystemLogic } from "@/components/home/SystemLogic";
-import { SystemsOverview } from "@/components/home/SystemsOverview";
-import { TechnologyOverview } from "@/components/home/TechnologyOverview";
-import { TrustArchitecture } from "@/components/home/TrustArchitecture";
+import { PurposeFoundationOverview } from "@/components/home/PurposeFoundationOverview";
+import { ResearchTrustOverview } from "@/components/home/ResearchTrustOverview";
+import { TechnologySystemsDirectory } from "@/components/home/TechnologySystemsDirectory";
 import "@/components/home/home.css";
 import { isLocale } from "@/config/locales";
 
@@ -21,7 +15,7 @@ type LocalePageProps = {
 };
 
 /**
- * Home route — Phase 1D.1–1D.4 complete structural sections.
+ * Home route — Phase 1E.1 corporate gateway (seven regions).
  * English content is the controlled fallback for all locales in this phase.
  */
 export default async function LocaleHomePage({ params }: LocalePageProps) {
@@ -36,18 +30,12 @@ export default async function LocaleHomePage({ params }: LocalePageProps) {
   return (
     <div className="home">
       <HomeHero locale={locale} />
-      <HumanPurpose />
-      <ApplicationContexts locale={locale} />
-      <FoundationChain />
-      <SystemLogic />
-      <TechnologyOverview locale={locale} />
-      <SystemsOverview locale={locale} />
-      <ResearchLabs locale={locale} />
-      <TrustArchitecture />
+      <PurposeFoundationOverview locale={locale} />
+      <ApplicationDirectory locale={locale} />
+      <TechnologySystemsDirectory locale={locale} />
+      <ResearchTrustOverview locale={locale} />
       <DevelopmentStatus />
-      <CompanyOverview locale={locale} />
-      <InvestorOverview locale={locale} />
-      <RoadmapClosing locale={locale} />
+      <CorporateClosing locale={locale} />
     </div>
   );
 }

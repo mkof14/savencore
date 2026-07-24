@@ -8,13 +8,13 @@ If you are a coding agent (Cursor or otherwise), read this file before making an
 
 ## Current Phase
 
-**Phase 1E.1 — Corporate Home Restructure (authorized; Home gateway complete)**
+**Phase 1E.2 — Internal Page Architecture (authorized; four demonstration routes only)**
 
-Home is a seven-region corporate gateway. See `docs/PHASE_1E_1_CORPORATE_HOME_RESTRUCTURE.md` and Decisions D-0067–D-0074.
+Reusable Editorial, Technical, Research, and Directory page types are in place with demonstration routes for Purpose, Foundation, Research, and Applications. See `docs/PHASE_1E_2_INTERNAL_PAGE_ARCHITECTURE.md` and Decisions D-0075–D-0080.
 
 **Do not begin without explicit owner approval:**
 
-- Phase 1E.2 or destination-page development;
+- Phase 1E.3 or full destination-page development beyond the four demonstration routes;
 - navigation redesign or taxonomy changes;
 - custom brand fonts / final brand colors / logo asset / imagery;
 - CMS, database, working search, forms, analytics, cookie consent;

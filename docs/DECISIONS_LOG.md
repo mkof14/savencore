@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-24 (Phase 1E.1 append)
+**Last updated:** 2026-07-24 (Phase 1E.2 append)
 
 ## Rules
 
@@ -91,7 +91,13 @@
 | D-0071 | 2026-07-24 | Technology and Systems combined on Home; taxonomies separate | Active |
 | D-0072 | 2026-07-24 | Research, Labs and Trust combined visually; concepts separate | Active |
 | D-0073 | 2026-07-24 | Closing Company, Investors and Roadmap region | Active |
-| D-0074 | 2026-07-24 | Phase 1E.2 destination pages remain unauthorized | Active |
+| D-0074 | 2026-07-24 | Phase 1E.2 destination pages remain unauthorized | Superseded by D-0075 |
+| D-0075 | 2026-07-24 | Phase 1E.2 internal page architecture authorized | Active |
+| D-0076 | 2026-07-24 | Four internal page types adopted | Active |
+| D-0077 | 2026-07-24 | Compact internal masthead; shared page architecture | Active |
+| D-0078 | 2026-07-24 | Internal page content outside JSX; four demo routes only | Active |
+| D-0079 | 2026-07-24 | Full destination-page development deferred | Active |
+| D-0080 | 2026-07-24 | Phase 1E.3 remains unauthorized | Active |
 
 ---
 
@@ -631,9 +637,52 @@
 ### D-0074 — Phase 1E.2 destination pages remain unauthorized
 
 - **Date:** 2026-07-24
-- **Status:** Active
+- **Status:** Superseded by D-0075
 - **Decision:** Completing Phase 1E.1 does not authorize Phase 1E.2 or any destination-page development.
 - **Implications:** Stop after Phase 1E.1 commit unless explicitly authorized.
+
+### D-0075 — Phase 1E.2 internal page architecture authorized
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Authorize reusable internal page architecture and four demonstration routes only. See `docs/PHASE_1E_2_INTERNAL_PAGE_ARCHITECTURE.md`.
+- **Out of scope:** Full destination catalog, CMS, forms, search functionality, Phase 1E.3.
+- **Implications:** Later pages must use the shared page types rather than inventing one-off layouts.
+
+### D-0076 — Four internal page types adopted
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Adopt Editorial, Technical, Research, and Directory as the four internal page types for the corporate site.
+- **Implications:** Destination pages map to these types; Home remains a separate gateway composition.
+
+### D-0077 — Compact internal masthead; shared page architecture
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Internal pages use a compact masthead and shared page-level components (`PageMasthead`, section nav, related links) rather than Home Hero patterns.
+- **Implications:** No landing-page Hero reuse on internal routes.
+
+### D-0078 — Internal page content outside JSX; four demo routes only
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Store demonstration page content in `src/content/pages/en/` and implement only `/purpose/`, `/foundation/`, `/research/`, and `/applications/` in this phase.
+- **Implications:** English fallback remains active; no additional locale content files yet.
+
+### D-0079 — Full destination-page development deferred
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Full long-form destination pages beyond the four demonstration routes remain deferred.
+- **Implications:** Remaining IA routes may continue to 404 until explicitly authorized.
+
+### D-0080 — Phase 1E.3 remains unauthorized
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Completing Phase 1E.2 does not authorize Phase 1E.3 or broader destination-page build-out.
+- **Implications:** Stop after Phase 1E.2 commit unless explicitly authorized.
 
 ---
 

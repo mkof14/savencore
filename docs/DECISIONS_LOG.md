@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-24 (Content Review 1 append)
+**Last updated:** 2026-07-24 (Content Wave 1.2 append)
 
 ## Rules
 
@@ -129,6 +129,7 @@
 | D-0109 | 2026-07-24 | Content Wave 1.1 Human Data page authorized | Active |
 | D-0110 | 2026-07-24 | Plain-language editorial standard for knowledge pages | Active |
 | D-0111 | 2026-07-24 | Approved definitions: Human Data and Human Data Model | Active |
+| D-0112 | 2026-07-24 | Content Wave 1.2 Data Infrastructure page authorized | Active |
 
 ---
 
@@ -937,6 +938,14 @@
 - **Status:** Active
 - **Decision:** Adopt permanent definitions — **Human Data:** information about a person from different sources. **Human Data Model:** the structured representation that organizes Human Data and preserves context and relationships. Related approved terms: Technology (technical capabilities and engineering foundations used to build SAVEN Core systems); Knowledge Engine (organizes knowledge and provides consistent context; does not make independent decisions); AI Decision Support (supports human review and decision-making; does not replace human judgment).
 - **Implications:** These three Technology foundation pages, and future pages that reuse the terms, must not redefine them differently.
+
+### D-0112 — Content Wave 1.2 Data Infrastructure page authorized
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Authorize Content Wave 1.2 to create the Data Infrastructure knowledge page at `/[locale]/technology/data-infrastructure/`. See `docs/CONTENT_WAVE_1_2_DATA_INFRASTRUCTURE.md`.
+- **Out of scope:** Site redesign, navigation changes, vendor/database/cloud implementation detail, Entity Registry edits unless a missing relationship is required.
+- **Implications:** Page remains architecture-level; Future Topics and related lists come from the existing `data-infrastructure` entity.
 
 ---
 

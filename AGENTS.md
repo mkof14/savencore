@@ -8,9 +8,9 @@ If you are a coding agent (Cursor or otherwise), read this file before making an
 
 ## Current Phase
 
-**Content Review 1 — Technology Foundation (authorized; clarity pass complete)**
+**Content Wave 1.2 — Data Infrastructure (authorized; knowledge page established)**
 
-Technology, Human Data and Human Data Model pages refined for plain language and a connected reading path. See `docs/CONTENT_REVIEW_1_TECHNOLOGY_FOUNDATION.md` and Decisions D-0110–D-0111. Home, navigation, Entity Registry and page templates were not redesigned.
+Data Infrastructure page at `/[locale]/technology/data-infrastructure/`. See `docs/CONTENT_WAVE_1_2_DATA_INFRASTRUCTURE.md` and Decision D-0112. Home, navigation and Entity Registry were not changed in this wave.
 
 **Do not begin without explicit owner approval:**
 

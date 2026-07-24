@@ -1,5 +1,5 @@
 /**
- * Canonical English Home content for Phase 1D.1.
+ * Canonical English Home content for Phase 1D.1–1D.2.
  * Used as controlled fallback across locale routes until localization is approved.
  */
 
@@ -71,4 +71,132 @@ export const applicationContextsContent = {
       linkLabel: "View applications",
     },
   ],
+} as const;
+
+export const foundationChainContent = {
+  label: "Foundation",
+  heading: "A connected path from human understanding to physical systems.",
+  introduction:
+    "SAVEN Core is being developed as the physical systems layer of a broader architecture for understanding people, interpreting context and supporting real-world environments.",
+  stages: [
+    {
+      id: "biomath-life",
+      title: "BioMath Life",
+      role: "The human-centered foundation.",
+      description:
+        "Defines the broader approach to understanding health, behavior, context and daily life as connected parts of one human system.",
+    },
+    {
+      id: "biomath-core",
+      title: "BioMath Core",
+      role: "The intelligence layer.",
+      description:
+        "Organizes human data, models context and supports analysis, interpretation and decision assistance.",
+    },
+    {
+      id: "saven",
+      title: "SAVEN",
+      role: "The execution layer.",
+      description:
+        "Connects intelligence with actions, workflows, devices and operational responses.",
+    },
+    {
+      id: "saven-core",
+      title: "SAVEN Core",
+      role: "The physical systems layer.",
+      description:
+        "Brings software, robotics, sensing and environment-level infrastructure into one engineering framework.",
+    },
+  ],
+} as const;
+
+export const systemLogicContent = {
+  label: "System Logic",
+  heading: "From human context to careful action.",
+  steps: [
+    {
+      id: "observe",
+      title: "Observe",
+      description:
+        "Receive signals from people, devices, environments and authorized data sources.",
+    },
+    {
+      id: "understand",
+      title: "Understand",
+      description:
+        "Organize signals into a Human Data Model and interpret the surrounding context.",
+    },
+    {
+      id: "evaluate",
+      title: "Evaluate",
+      description:
+        "Use defined rules, models and artificial intelligence to assess conditions, options and uncertainty.",
+    },
+    {
+      id: "assist",
+      title: "Assist",
+      description:
+        "Support people, professionals or connected systems with an appropriate response.",
+    },
+    {
+      id: "learn",
+      title: "Learn",
+      description:
+        "Use reviewed outcomes and new information to improve future interpretation.",
+    },
+  ],
+  governanceNote:
+    "Important actions remain subject to permissions, defined safeguards and human oversight.",
+} as const;
+
+export const technologyOverviewContent = {
+  label: "Technology",
+  heading: "Disciplines combined around real human environments.",
+  introduction:
+    "SAVEN Core brings together several technical disciplines. Each has a defined role; none is presented as the purpose by itself.",
+  areas: [
+    {
+      id: "artificial-intelligence",
+      title: "Artificial Intelligence",
+      description:
+        "Interpretation, pattern recognition and decision-support logic operating within defined constraints.",
+      href: "/technology/",
+    },
+    {
+      id: "robotics",
+      title: "Robotics",
+      description:
+        "Physical interaction, mobility, manipulation and assistance in real-world settings.",
+      href: "/technology/",
+    },
+    {
+      id: "autonomous-systems",
+      title: "Autonomous Systems",
+      description:
+        "Controlled system behavior for tasks that can be delegated safely and reviewed appropriately.",
+      href: "/technology/",
+    },
+    {
+      id: "human-data-and-intelligence",
+      title: "Human Data and Intelligence",
+      description:
+        "Structured representation of human context, history, signals and changing conditions.",
+      href: "/technology/",
+    },
+    {
+      id: "safety-architecture",
+      title: "Safety Architecture",
+      description:
+        "Permissions, boundaries, escalation paths, failure handling and human control.",
+      href: "/technology/",
+    },
+    {
+      id: "privacy-architecture",
+      title: "Privacy Architecture",
+      description:
+        "Data minimization, access control, purpose limitation and accountable use.",
+      href: "/technology/",
+    },
+  ],
+  linkLabel: "Explore technology",
 } as const;

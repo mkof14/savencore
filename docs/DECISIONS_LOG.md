@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-24 (Phase 1D.1 append)
+**Last updated:** 2026-07-24 (Phase 1D.2 append)
 
 ## Rules
 
@@ -62,7 +62,14 @@
 | D-0042 | 2026-07-24 | Three application contexts on Home | Active |
 | D-0043 | 2026-07-24 | English fallback across locale Home routes | Active |
 | D-0044 | 2026-07-24 | Home built in incremental section phases | Active |
-| D-0045 | 2026-07-24 | Phase 1D.2 remains unauthorized | Active |
+| D-0045 | 2026-07-24 | Phase 1D.2 remains unauthorized | Superseded by D-0046 |
+| D-0046 | 2026-07-24 | Phase 1D.2 Foundation and System Logic authorized | Active |
+| D-0047 | 2026-07-24 | Four-stage Foundation Chain adopted | Active |
+| D-0048 | 2026-07-24 | Human Data Model terminology retained | Active |
+| D-0049 | 2026-07-24 | Five-step governed system logic adopted | Active |
+| D-0050 | 2026-07-24 | Six-part Technology Overview as disciplines | Active |
+| D-0051 | 2026-07-24 | No imagery in Phase 1D.2 | Active |
+| D-0052 | 2026-07-24 | Phase 1D.3 remains unauthorized | Active |
 
 ---
 
@@ -395,9 +402,59 @@
 ### D-0045 — Phase 1D.2 remains unauthorized
 
 - **Date:** 2026-07-24
-- **Status:** Active
+- **Status:** Superseded by D-0046
 - **Decision:** Completing Phase 1D.1 does not authorize Phase 1D.2 or any remaining Home sections.
 - **Implications:** Stop after Phase 1D.1 commit unless explicitly authorized.
+
+### D-0046 — Phase 1D.2 Foundation and System Logic authorized
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Authorize Home sections 4–6: Foundation Chain, How the System Works, and Technology Overview. See `docs/PHASE_1D_2_FOUNDATION_SYSTEM_LOGIC.md`.
+- **Out of scope:** Systems, Research, Safety section, Development Status, Company, Investors, Roadmap, imagery, CMS, backend.
+- **Implications:** Remaining Home sections require later authorization.
+
+### D-0047 — Four-stage Foundation Chain adopted
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Present BioMath Life → BioMath Core → SAVEN → SAVEN Core as an explicit four-stage progression with roles and descriptions. Do not use four rounded cards or imply full operational status.
+- **Implications:** Hierarchy must remain connected and continuous.
+
+### D-0048 — Human Data Model terminology retained
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Retain “Human Data Model” terminology in the System Logic Understand step and related public Home content where relevant.
+- **Implications:** Do not replace with generic alternatives such as “digital twin.”
+
+### D-0049 — Five-step governed system logic adopted
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Adopt Observe → Understand → Evaluate → Assist → Learn with a governance note that important actions remain subject to permissions, safeguards, and human oversight.
+- **Implications:** Do not present a fully autonomous loop, diagnosis, continuous medical monitoring, or unreviewed self-learning.
+
+### D-0050 — Six-part Technology Overview as disciplines
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Present six technology disciplines with defined roles, each linking to the Technology route. Technology is enabling infrastructure; none is the purpose by itself.
+- **Implications:** No AI-first positioning, logos, certifications, or medical claims.
+
+### D-0051 — No imagery in Phase 1D.2
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Phase 1D.2 uses typography, lines, indexes, and grids only. No images, video, icons, robots, or silhouettes.
+- **Implications:** Visual sequencing remains CSS-based and lightweight.
+
+### D-0052 — Phase 1D.3 remains unauthorized
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Completing Phase 1D.2 does not authorize Phase 1D.3 or any later Home sections.
+- **Implications:** Stop after Phase 1D.2 commit unless explicitly authorized.
 
 ---
 

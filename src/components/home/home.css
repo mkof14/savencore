@@ -1,4 +1,4 @@
-/* Home Phase 1D.1 — Hero, Human Purpose, Application contexts. Radius: 0. */
+/* Home Phase 1D.1–1D.2. Radius: 0. No gradients, shadows, or cards. */
 
 .home {
   width: 100%;
@@ -380,6 +380,261 @@
 }
 
 .home-contexts__link:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 3px;
+}
+
+/* Foundation Chain — vertical progression */
+.home-foundation__stages {
+  list-style: none;
+  margin: var(--space-48) 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: 48rem;
+}
+
+.home-foundation__stage {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: var(--space-24);
+  padding-block: var(--space-24);
+  border-block-start: 1px solid var(--color-divider);
+}
+
+.home-foundation__stage:first-child {
+  border-block-start: 0;
+  padding-block-start: 0;
+}
+
+.home-foundation__stage-index {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--color-text-secondary);
+  padding-block-start: var(--space-4);
+}
+
+.home-foundation__stage-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--color-text);
+}
+
+.home-foundation__stage-role {
+  margin: var(--space-8) 0 0;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  color: var(--color-text);
+}
+
+.home-foundation__stage-text {
+  margin: var(--space-12) 0 0;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--color-text-secondary);
+  max-width: 48ch;
+}
+
+.home-foundation__connector {
+  position: absolute;
+  inset-inline-start: 0.7rem;
+  inset-block-end: 0;
+  block-size: var(--space-24);
+  inline-size: 1px;
+  background: var(--color-border);
+  transform: translateY(50%);
+}
+
+.home-foundation__stage:last-child .home-foundation__connector {
+  display: none;
+}
+
+/* System Logic — process grid */
+.home-logic__steps {
+  list-style: none;
+  margin: var(--space-48) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  border: 1px solid var(--color-divider);
+}
+
+@media (min-width: 768px) {
+  .home-logic__steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .home-logic__steps {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+.home-logic__step {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  padding: var(--space-24);
+  border-block-end: 1px solid var(--color-divider);
+  min-height: 100%;
+}
+
+@media (min-width: 768px) {
+  .home-logic__step {
+    border-inline-end: 1px solid var(--color-divider);
+  }
+
+  .home-logic__step:nth-child(2n) {
+    border-inline-end: 0;
+  }
+
+  .home-logic__step:nth-last-child(-n + 2) {
+    border-block-end: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .home-logic__step {
+    border-block-end: 0;
+    border-inline-end: 1px solid var(--color-divider);
+    padding: var(--space-24) var(--space-16);
+  }
+
+  .home-logic__step:nth-child(2n) {
+    border-inline-end: 1px solid var(--color-divider);
+  }
+
+  .home-logic__step:last-child {
+    border-inline-end: 0;
+  }
+
+  .home-logic__step:nth-last-child(-n + 2) {
+    border-block-end: 0;
+  }
+}
+
+.home-logic__step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 1.75rem;
+  block-size: 1.75rem;
+  border: 1px solid var(--color-border);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.home-logic__step-title {
+  margin: 0;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+}
+
+.home-logic__step-text {
+  margin: var(--space-8) 0 0;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--color-text-secondary);
+}
+
+.home-logic__governance {
+  margin: var(--space-32) 0 0;
+  max-width: 62ch;
+  padding-block-start: var(--space-24);
+  border-block-start: 1px solid var(--color-text);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  letter-spacing: -0.005em;
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+/* Technology Overview — indexed taxonomy grid */
+.home-technology__list {
+  list-style: none;
+  margin: var(--space-48) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+
+@media (min-width: 768px) {
+  .home-technology__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: var(--space-48);
+  }
+}
+
+@media (min-width: 1280px) {
+  .home-technology__list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.home-technology__item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: var(--space-16);
+  padding-block: var(--space-24);
+  border-block-start: 1px solid var(--color-divider);
+}
+
+.home-technology__index {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: var(--color-text-secondary);
+  padding-block-start: var(--space-4);
+}
+
+.home-technology__title {
+  margin: 0;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+}
+
+.home-technology__text {
+  margin: var(--space-12) 0 0;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--color-text-secondary);
+  max-width: 36ch;
+}
+
+.home-technology__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  margin-block-start: var(--space-8);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text);
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+  text-decoration-thickness: 1px;
+}
+
+.home-technology__link:hover {
+  color: var(--color-text-secondary);
+}
+
+.home-technology__link:focus-visible {
   outline: 2px solid var(--color-text);
   outline-offset: 3px;
 }

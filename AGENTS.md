@@ -8,13 +8,13 @@ If you are a coding agent (Cursor or otherwise), read this file before making an
 
 ## Current Phase
 
-**Phase 1D.1 — Home Hero and Purpose (authorized for sections 1–3 only)**
+**Phase 1D.2 — Foundation and System Logic (authorized for sections 4–6 only)**
 
-Shell and design foundation are in place. Phase 1D.1 adds Home Hero, Human Purpose, and the Hospitals / Home / Everyday Life strip. See `docs/PHASE_1D_1_HOME_HERO_PURPOSE.md` and Decisions D-0039–D-0045.
+Home sections 1–6 are in place through Phase 1D.2. See `docs/PHASE_1D_2_FOUNDATION_SYSTEM_LOGIC.md` and Decisions D-0046–D-0052.
 
 **Do not begin without explicit owner approval:**
 
-- Phase 1D.2 or remaining Home sections;
+- Phase 1D.3 or remaining Home sections (Systems, Research, Safety, Status, Company, Investors);
 - custom brand fonts / final brand colors / logo asset / imagery;
 - CMS, database, working search, forms, analytics, cookie consent;
 - authentication or investor portal;

@@ -18,10 +18,10 @@ export default async function LocaleFoundationPage({ params }: LocalePageProps) 
   }
 
   return (
-    <main className="foundation-placeholder">
+    <div className="foundation-placeholder">
       <p>SAVEN Core</p>
       <p>Foundation build</p>
       <p>{locale}</p>
-    </main>
+    </div>
   );
 }

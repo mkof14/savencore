@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-24 (Phase 1B append)
+**Last updated:** 2026-07-24 (Phase 1C append)
 
 ## Rules
 
@@ -49,7 +49,13 @@
 | D-0029 | 2026-07-24 | Design token modules and spacing scale adopted | Active |
 | D-0030 | 2026-07-24 | Straight-corner radius default and system fonts adopted | Active |
 | D-0031 | 2026-07-24 | Neutral semantic colors only; brand accents deferred | Active |
-| D-0032 | 2026-07-24 | Header / Footer / Home remain unauthorized after Phase 1B | Active |
+| D-0032 | 2026-07-24 | Header / Footer / Home remain unauthorized after Phase 1B | Partially superseded by D-0033 (shell only) |
+| D-0033 | 2026-07-24 | Phase 1C global site shell authorized | Active |
+| D-0034 | 2026-07-24 | Centralized navigation data adopted | Active |
+| D-0035 | 2026-07-24 | Accessible disclosure + rectangular mobile navigation | Active |
+| D-0036 | 2026-07-24 | Text wordmark and flagless language selector | Active |
+| D-0037 | 2026-07-24 | Unresolved destination routes may remain unimplemented | Active |
+| D-0038 | 2026-07-24 | Phase 1D remains unauthorized | Active |
 
 ---
 
@@ -289,9 +295,52 @@
 ### D-0032 — Header / Footer / Home remain unauthorized after Phase 1B
 
 - **Date:** 2026-07-24
-- **Status:** Active
+- **Status:** Partially superseded by D-0033 (shell only)
 - **Decision:** Completing Phase 1B does not authorize Header, Footer, navigation, Home page, or component libraries.
 - **Implications:** Stop after design foundation validation unless a new phase is explicitly authorized.
+
+### D-0033 — Phase 1C global site shell authorized
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Authorize a reusable localized site shell: Header, desktop/mobile navigation, utility navigation, language selector, and Footer integrated into `app/[locale]/layout.tsx`.
+- **Out of scope:** Production Home page, marketing sections, CMS, search functionality, forms, authentication, analytics, cookie consent, investor portal, translated marketing copy.
+- **Implications:** See `docs/PHASE_1C_GLOBAL_SITE_SHELL.md`.
+
+### D-0034 — Centralized navigation data adopted
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Primary, utility, and footer navigation are defined once in `src/navigation/site-navigation.ts` and consumed by shell components. Labels/grouping follow Architecture Decisions.
+- **Implications:** Do not hard-code duplicate navigation trees in desktop, mobile, or Footer.
+
+### D-0035 — Accessible disclosure + rectangular mobile navigation
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Desktop groups use accessible disclosure menus (not hover-only mega menus). Mobile navigation is a full-viewport rectangular surface with explicit open/close, Escape-to-close, and temporary body-scroll lock.
+- **Implications:** No third-party UI packages. No pill-shaped/floating mobile panels.
+
+### D-0036 — Text wordmark and flagless language selector
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Header brand is a text wordmark “SAVEN Core” until a brand asset is approved. Language selector lists all ten canonical locales with text labels/codes and no flags.
+- **Implications:** No automatic browser-language detection. Preserve path locale segment when safe.
+
+### D-0037 — Unresolved destination routes may remain unimplemented
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Shell links may point to approved routes that are not yet implemented. Fake destination pages must not be created solely to avoid 404 responses.
+- **Implications:** 404s for unimplemented IA routes are acceptable in Phase 1C.
+
+### D-0038 — Phase 1D remains unauthorized
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Completing Phase 1C does not authorize Phase 1D, the production Home page, or further marketing page build-out.
+- **Implications:** Stop after Phase 1C commit unless explicitly authorized.
 
 ---
 

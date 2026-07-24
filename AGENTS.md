@@ -8,18 +8,18 @@ If you are a coding agent (Cursor or otherwise), read this file before making an
 
 ## Current Phase
 
-**Phase 1B — Design Foundation (authorized for tokens only)**
+**Phase 1C — Global Site Shell (authorized for shell only)**
 
-Technical foundation (1A / 1A.1) is complete on `main`. Phase 1B establishes design tokens under `src/design/`. See `docs/PHASE_1B_DESIGN_FOUNDATION.md` and Decisions D-0028–D-0032.
+Design tokens (1B) and technical foundation (1A) are in place. Phase 1C adds the reusable Header, navigation, language selector, and Footer. See `docs/PHASE_1C_GLOBAL_SITE_SHELL.md` and Decisions D-0033–D-0038.
 
 **Do not begin without explicit owner approval:**
 
-- Header, Footer, navigation, Mega Menu;
+- Phase 1D or later;
 - production Home page or marketing sections;
-- UI component libraries beyond tokens;
-- custom brand fonts / final brand colors;
-- CMS, database, forms, analytics, cookie consent;
-- authentication or investor access;
+- custom brand fonts / final brand colors / logo asset;
+- CMS, database, working search, forms, analytics, cookie consent;
+- authentication or investor portal;
+- destination pages solely to avoid 404s;
 - leaf marketing pages across the sitemap.
 
 ---

@@ -1,6 +1,9 @@
 import type { ReactNode } from "react";
 import { notFound } from "next/navigation";
 
+import { SiteFooter } from "@/components/site/SiteFooter";
+import { SiteHeader } from "@/components/site/SiteHeader";
+import "@/components/site/site-shell.css";
 import {
   getHtmlLang,
   getTextDirection,
@@ -35,7 +38,13 @@ export default async function LocaleLayout({
 
   return (
     <html lang={getHtmlLang(locale)} dir={getTextDirection(locale)}>
-      <body>{children}</body>
+      <body>
+        <div className="site-shell">
+          <SiteHeader locale={locale} />
+          <main className="site-shell__main">{children}</main>
+          <SiteFooter locale={locale} />
+        </div>
+      </body>
     </html>
   );
 }

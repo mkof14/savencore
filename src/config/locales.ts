@@ -56,3 +56,21 @@ export function getTextDirection(locale: Locale): TextDirection {
 export function getHtmlLang(locale: Locale): string {
   return HTML_LANG_BY_LOCALE[locale];
 }
+
+/** Display labels for the language selector (not marketing translations). */
+export const LOCALE_LABELS: Record<Locale, string> = {
+  en: "English",
+  es: "Spanish",
+  de: "German",
+  fr: "French",
+  ja: "Japanese",
+  "zh-cn": "Chinese (Simplified)",
+  ar: "Arabic",
+  he: "Hebrew",
+  uk: "Ukrainian",
+  ru: "Russian",
+};
+
+export function getLocaleLabel(locale: Locale): string {
+  return LOCALE_LABELS[locale];
+}

@@ -1,13 +1,20 @@
 import Link from "next/link";
 
 import type { Locale } from "@/config/locales";
+import type { EntityRelationGroupId } from "@/content/knowledge/entity-types";
 import { getEntityRelationsSummary } from "@/content/knowledge/entity-registry";
 import { localizePath } from "@/navigation/locale-path";
 
 type EntityRelationshipIndexProps = {
   locale: Locale;
   entityId: string;
-  heading?: string;
+  /** Outer heading text. Pass `null` to omit the outer heading. */
+  heading?: string | null;
+  headingLevel?: 2 | 3;
+  groupHeadingLevel?: 3 | 4;
+  /** When set, only these relation groups are rendered. */
+  includeGroups?: readonly EntityRelationGroupId[];
+  className?: string;
 };
 
 /** Localize a path while preserving an optional hash fragment. */
@@ -22,32 +29,54 @@ function localizeHref(locale: Locale, href: string): string {
 }
 
 /**
- * Reusable relationship presentation adapter for future knowledge pages.
+ * Reusable relationship presentation adapter for knowledge pages.
  * Uses Engineering Design System block styles. Does not render empty groups.
  */
 export function EntityRelationshipIndex({
   locale,
   entityId,
   heading = "Relationships",
+  headingLevel = 2,
+  groupHeadingLevel = 3,
+  includeGroups,
+  className,
 }: EntityRelationshipIndexProps) {
   const summary = getEntityRelationsSummary(entityId);
 
-  if (!summary || summary.groups.length === 0) {
+  if (!summary) {
+    return null;
+  }
+
+  const groups =
+    includeGroups === undefined
+      ? summary.groups
+      : summary.groups.filter((group) => includeGroups.includes(group.id));
+
+  if (groups.length === 0) {
     return null;
   }
 
   const headingId = `entity-relations-${entityId}`;
+  const HeadingTag = headingLevel === 2 ? "h2" : "h3";
+  const GroupHeadingTag = groupHeadingLevel === 3 ? "h3" : "h4";
+  const sectionClassName = ["eng-block", "entity-relationship-index", className]
+    .filter(Boolean)
+    .join(" ");
 
   return (
     <section
-      className="eng-block entity-relationship-index"
-      aria-labelledby={headingId}
+      className={sectionClassName}
+      {...(heading
+        ? { "aria-labelledby": headingId }
+        : { "aria-label": "Relationships" })}
     >
-      <h2 id={headingId} className="eng-block__heading">
-        {heading}
-      </h2>
+      {heading ? (
+        <HeadingTag id={headingId} className="eng-block__heading">
+          {heading}
+        </HeadingTag>
+      ) : null}
       <div className="entity-relationship-index__groups">
-        {summary.groups.map((group) => {
+        {groups.map((group) => {
           const groupHeadingId = `${headingId}-${group.id}`;
           return (
             <section
@@ -55,9 +84,9 @@ export function EntityRelationshipIndex({
               className="entity-relationship-index__group"
               aria-labelledby={groupHeadingId}
             >
-              <h3 id={groupHeadingId} className="eng-type-h3">
+              <GroupHeadingTag id={groupHeadingId} className="eng-type-h3">
                 {group.heading}
-              </h3>
+              </GroupHeadingTag>
               <ul className="eng-link-list">
                 {group.items.map((item) => (
                   <li key={`${group.id}-${item.id}`}>

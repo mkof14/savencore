@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-24 (Phase 3.0 append)
+**Last updated:** 2026-07-24 (Phase 3.1 append)
 
 ## Rules
 
@@ -118,7 +118,11 @@
 | D-0098 | 2026-07-24 | Domain exports derive from the entity registry | Active |
 | D-0099 | 2026-07-24 | No graph visualization in Phase 3.0 | Active |
 | D-0100 | 2026-07-24 | Phase 3.0 authorized; Foundation and Research demo only | Active |
-| D-0101 | 2026-07-24 | Phase 3.1 remains unauthorized | Active |
+| D-0101 | 2026-07-24 | Phase 3.1 remains unauthorized | Superseded by D-0102 |
+| D-0102 | 2026-07-24 | Phase 3.1 Technology domain authorized | Active |
+| D-0103 | 2026-07-24 | Technology domain consumes canonical entity registry | Active |
+| D-0104 | 2026-07-24 | Technology is the reference knowledge-domain implementation | Active |
+| D-0105 | 2026-07-24 | Phase 3.2 remains unauthorized | Active |
 
 ---
 
@@ -851,9 +855,38 @@
 ### D-0101 — Phase 3.1 remains unauthorized
 
 - **Date:** 2026-07-24
-- **Status:** Active
+- **Status:** Superseded by D-0102
 - **Decision:** Completing Phase 3.0 does not authorize Phase 3.1, destination-page build-out, CMS/database work, or graph visualization.
 - **Implications:** Stop after Phase 3.0 commit unless explicitly authorized.
+
+### D-0102 — Phase 3.1 Technology domain authorized
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Authorize Phase 3.1 to build the Technology knowledge domain index at `/[locale]/technology/`. See `docs/PHASE_3_1_TECHNOLOGY_DOMAIN.md`.
+- **Out of scope:** Home redesign, global navigation changes, backend/CMS/database/search/auth/APIs, graph libraries.
+- **Implications:** Technology becomes the first complete knowledge domain page.
+
+### D-0103 — Technology domain consumes canonical entity registry
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Technology categories, statuses, relations and futureTopics are read from `getEntitiesByDomain("technology")` and related registry helpers. Entity definitions are not duplicated in page content.
+- **Implications:** `src/content/pages/en/technology.ts` holds long-form page copy only.
+
+### D-0104 — Technology is the reference knowledge-domain implementation
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** The Technology page structure (metadata → introduction → overview → categories → relationships → principles → scope → future → related domains → references) is the reference pattern for later knowledge domains.
+- **Implications:** Future domain pages should reuse Engineering Design System blocks and registry-driven category patterns unless a later decision supersedes this.
+
+### D-0105 — Phase 3.2 remains unauthorized
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Completing Phase 3.1 does not authorize Phase 3.2 or additional domain build-out.
+- **Implications:** Stop after Phase 3.1 commit unless explicitly authorized.
 
 ---
 

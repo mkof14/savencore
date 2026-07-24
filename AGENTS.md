@@ -8,13 +8,13 @@ If you are a coding agent (Cursor or otherwise), read this file before making an
 
 ## Current Phase
 
-**Phase 3.0 — Unified Knowledge Entity Model (authorized; canonical registry established)**
+**Phase 3.1 — Technology Domain (authorized; Technology knowledge domain index established)**
 
-Canonical static TypeScript knowledge entity model is in place. See `docs/PHASE_3_0_UNIFIED_KNOWLEDGE_ENTITY_MODEL.md` and Decisions D-0094–D-0101. Home, navigation, and routes were not changed in this phase.
+Technology domain index at `/[locale]/technology/` is the reference implementation for future knowledge domains. See `docs/PHASE_3_1_TECHNOLOGY_DOMAIN.md` and Decisions D-0102–D-0105. Home and global navigation were not redesigned in this phase.
 
 **Do not begin without explicit owner approval:**
 
-- Phase 3.1 or destination-page build-out;
+- Phase 3.2 or additional domain destination-page build-out;
 - Home redesign or navigation changes;
 - custom brand fonts / final brand colors / logo asset / imagery;
 - CMS, database, working search, forms, analytics, cookie consent;

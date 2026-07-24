@@ -177,3 +177,112 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+/* Technology domain — Phase 3.1 */
+.page-technology-metadata {
+  padding-block-start: var(--space-24);
+}
+
+.page-technology-future-intro {
+  margin-block-end: 0;
+}
+
+.technology-category-list__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-32);
+}
+
+.technology-category-list__item {
+  min-inline-size: 0;
+  padding-block-start: var(--space-24);
+  border-block-start: 1px solid var(--color-divider);
+}
+
+.technology-category__header {
+  display: grid;
+  gap: var(--space-8);
+  margin-block-end: var(--space-12);
+}
+
+.technology-category__title {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  color: var(--color-text);
+}
+
+.technology-category__status {
+  margin: 0;
+}
+
+.technology-category__summary {
+  margin: 0 0 var(--space-16);
+  max-inline-size: 65ch;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+.technology-category__relations {
+  margin-block: 0 var(--space-16);
+  padding-block: 0;
+  border-block: none;
+}
+
+.technology-category__future .eng-type-h3 {
+  margin: 0 0 var(--space-12);
+}
+
+.technology-category__future-list {
+  margin: 0;
+}
+
+.technology-category__future-list .eng-future__item {
+  padding-block: var(--space-8);
+}
+
+.technology-relationship-matrix__flow {
+  margin-block-start: var(--space-16);
+}
+
+.technology-relationship-matrix__card {
+  width: 100%;
+}
+
+.technology-relationship-matrix__items {
+  list-style: none;
+  margin: var(--space-12) 0 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-4);
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: var(--color-text-secondary);
+}
+
+@media (min-width: 720px) {
+  .technology-relationship-matrix__flow {
+    display: grid;
+    gap: var(--space-12);
+  }
+
+  .technology-relationship-matrix__flow .eng-diagram__node {
+    display: grid;
+    grid-template-columns: 1.25rem minmax(0, 1fr);
+    gap: var(--space-12);
+    align-items: start;
+  }
+
+  .technology-relationship-matrix__flow .eng-diagram__connector {
+    inline-size: 1px;
+    block-size: 1.25rem;
+    margin-inline: auto;
+    margin-block: 0;
+    background: var(--color-text);
+  }
+}

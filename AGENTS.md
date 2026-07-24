@@ -8,14 +8,14 @@ If you are a coding agent (Cursor or otherwise), read this file before making an
 
 ## Current Phase
 
-**Phase 1F.1 — Purpose & Foundation (authorized; reference pages established)**
+**Phase 2.1 — Knowledge Architecture (authorized; architecture registry established)**
 
-Purpose and Foundation are permanent reference pages on the Editorial and Technical page types. See `docs/PHASE_1F_1_PURPOSE_FOUNDATION.md` and Decisions D-0081–D-0085.
+Permanent knowledge domains, relationships, and reusable knowledge visual blocks are in place. See `docs/PHASE_2_1_KNOWLEDGE_ARCHITECTURE.md` and Decisions D-0086–D-0089. Home, navigation, and existing page designs were not changed in this phase.
 
 **Do not begin without explicit owner approval:**
 
-- Phase 1F.2 or further destination-page content phases;
-- navigation redesign or taxonomy changes;
+- Phase 2.2 or knowledge destination-page build-out;
+- Home redesign or navigation changes;
 - custom brand fonts / final brand colors / logo asset / imagery;
 - CMS, database, working search, forms, analytics, cookie consent;
 - authentication or investor portal;

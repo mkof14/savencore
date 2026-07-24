@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-24 (Phase 1F.1 append)
+**Last updated:** 2026-07-24 (Phase 2.1 append)
 
 ## Rules
 
@@ -103,6 +103,10 @@
 | D-0083 | 2026-07-24 | Foundation layer field model adopted | Active |
 | D-0084 | 2026-07-24 | HTML/CSS architecture diagrams only | Active |
 | D-0085 | 2026-07-24 | Phase 1F.2 remains unauthorized | Active |
+| D-0086 | 2026-07-24 | Phase 2.1 knowledge architecture authorized | Active |
+| D-0087 | 2026-07-24 | Eight knowledge domains adopted | Active |
+| D-0088 | 2026-07-24 | Knowledge content and visual blocks separated from page redesign | Active |
+| D-0089 | 2026-07-24 | Phase 2.2 remains unauthorized | Active |
 
 ---
 
@@ -724,6 +728,35 @@
 - **Status:** Active
 - **Decision:** Completing Phase 1F.1 does not authorize Phase 1F.2 or further destination-page content phases.
 - **Implications:** Stop after Phase 1F.1 commit unless explicitly authorized.
+
+### D-0086 — Phase 2.1 knowledge architecture authorized
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Authorize the permanent knowledge architecture for SAVEN Core as an engineering knowledge center. See `docs/PHASE_2_1_KNOWLEDGE_ARCHITECTURE.md`.
+- **Out of scope:** Home redesign, navigation changes, backend, long-form destination content, Phase 2.2.
+- **Implications:** Later knowledge pages consume this registry rather than inventing alternate taxonomies.
+
+### D-0087 — Eight knowledge domains adopted
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Adopt Purpose, Foundation, Technology, Systems, Research, Applications, Trust, and Company as the top-level knowledge domains with explicit related-domain links and future-expansion placeholders.
+- **Implications:** Technology, Systems, Research, and Applications include architecture-only subsection/category models in `src/content/knowledge/`.
+
+### D-0088 — Knowledge content and visual blocks separated from page redesign
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Knowledge models and reusable visual blocks (Knowledge Index, Section Navigator, Related Topics, Engineering Note, Future Expansion, Architecture Diagram) are introduced without redesigning Home, Purpose, Foundation, or site navigation.
+- **Implications:** Blocks may be composed into destination pages in later authorized phases.
+
+### D-0089 — Phase 2.2 remains unauthorized
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Completing Phase 2.1 does not authorize Phase 2.2 or knowledge destination-page build-out.
+- **Implications:** Stop after Phase 2.1 commit unless explicitly authorized.
 
 ---
 

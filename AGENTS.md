@@ -8,13 +8,13 @@ If you are a coding agent (Cursor or otherwise), read this file before making an
 
 ## Current Phase
 
-**Phase 1E.2 — Internal Page Architecture (authorized; four demonstration routes only)**
+**Phase 1F.1 — Purpose & Foundation (authorized; reference pages established)**
 
-Reusable Editorial, Technical, Research, and Directory page types are in place with demonstration routes for Purpose, Foundation, Research, and Applications. See `docs/PHASE_1E_2_INTERNAL_PAGE_ARCHITECTURE.md` and Decisions D-0075–D-0080.
+Purpose and Foundation are permanent reference pages on the Editorial and Technical page types. See `docs/PHASE_1F_1_PURPOSE_FOUNDATION.md` and Decisions D-0081–D-0085.
 
 **Do not begin without explicit owner approval:**
 
-- Phase 1E.3 or full destination-page development beyond the four demonstration routes;
+- Phase 1F.2 or further destination-page content phases;
 - navigation redesign or taxonomy changes;
 - custom brand fonts / final brand colors / logo asset / imagery;
 - CMS, database, working search, forms, analytics, cookie consent;

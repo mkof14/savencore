@@ -1,3 +1,4 @@
+import { ArchitectureDiagram } from "@/components/pages/ArchitectureDiagram";
 import { PageMasthead } from "@/components/pages/PageMasthead";
 import { PageRelatedLinks } from "@/components/pages/PageRelatedLinks";
 import { PageSectionNav } from "@/components/pages/PageSectionNav";
@@ -28,6 +29,10 @@ export function EditorialPage({ locale, content }: EditorialPageProps) {
 
       <div className="page-body">
         <div className="page-shell__inner page-body__editorial">
+          {content.diagrams?.map((diagram) => (
+            <ArchitectureDiagram key={diagram.id} diagram={diagram} />
+          ))}
+
           {content.sections.map((section) => (
             <section
               key={section.id}
@@ -41,21 +46,48 @@ export function EditorialPage({ locale, content }: EditorialPageProps) {
               >
                 {section.title}
               </h2>
-              {section.paragraphs.map((paragraph) => (
+              {section.paragraphs?.map((paragraph) => (
                 <p key={paragraph} className="page-editorial-section__text">
                   {paragraph}
                 </p>
               ))}
+              {section.subsections && section.subsections.length > 0 ? (
+                <ul className="page-editorial-subsections">
+                  {section.subsections.map((subsection) => (
+                    <li
+                      key={subsection.id}
+                      id={subsection.id}
+                      className="page-editorial-subsection"
+                    >
+                      <h3 className="page-editorial-subsection__title">
+                        {subsection.title}
+                      </h3>
+                      {subsection.paragraphs.map((paragraph) => (
+                        <p
+                          key={paragraph}
+                          className="page-editorial-subsection__text"
+                        >
+                          {paragraph}
+                        </p>
+                      ))}
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
             </section>
           ))}
 
           {content.principles && content.principles.length > 0 ? (
             <section
+              id="principles"
               className="page-principles"
               aria-labelledby="page-principles-heading"
             >
-              <h2 id="page-principles-heading" className="page-principles__heading">
-                Principles
+              <h2
+                id="page-principles-heading"
+                className="page-principles__heading"
+              >
+                {content.principlesHeading ?? "Principles"}
               </h2>
               <ul className="page-principles__list">
                 {content.principles.map((principle) => (
@@ -71,7 +103,11 @@ export function EditorialPage({ locale, content }: EditorialPageProps) {
       </div>
 
       {content.relatedLinks ? (
-        <PageRelatedLinks locale={locale} links={content.relatedLinks} />
+        <PageRelatedLinks
+          locale={locale}
+          links={content.relatedLinks}
+          heading={content.relatedLinksHeading ?? "Related Pages"}
+        />
       ) : null}
     </article>
   );

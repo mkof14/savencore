@@ -128,10 +128,12 @@
 /* Sections use :target for a restrained focus cue without scroll spy */
 .page-editorial-section:target,
 .page-tech-section:target,
+.page-layer:target,
 .page-research-areas:target,
 .page-research-entries:target,
 .page-index:target,
-.page-directory-groups:target {
+.page-directory-groups:target,
+.page-diagram-slot:target {
   outline: 1px solid var(--color-text);
   outline-offset: var(--space-8);
 }
@@ -141,7 +143,11 @@
 }
 
 .page-body__editorial {
-  max-width: 42rem;
+  max-width: 48rem;
+}
+
+.page--technical .page-shell__inner {
+  max-width: var(--container-max-lg);
 }
 
 /* Development / access notes */
@@ -180,6 +186,225 @@
   font-size: 0.9375rem;
   line-height: 1.6;
   color: var(--color-text-secondary);
+}
+
+.page-editorial-subsections {
+  list-style: none;
+  margin: var(--space-24) 0 0;
+  padding: 0;
+}
+
+.page-editorial-subsection {
+  padding-block: var(--space-16);
+  border-block-end: 1px solid var(--color-divider);
+}
+
+.page-editorial-subsection__title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.page-editorial-subsection__text {
+  margin: var(--space-8) 0 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+}
+
+/* Architecture diagrams — HTML/CSS only */
+.page-diagram {
+  margin: 0 0 var(--space-48);
+  padding: var(--space-24);
+  border: 1px solid var(--color-divider);
+  background: var(--color-surface);
+}
+
+.page-diagram__caption {
+  margin: 0 0 var(--space-16);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.page-diagram__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+}
+
+.page-diagram__node {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.page-diagram__connector {
+  display: block;
+  inline-size: 1px;
+  block-size: var(--space-16);
+  margin-inline: auto;
+  background: var(--color-text);
+}
+
+.page-diagram__card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-12) var(--space-16);
+  border: 1px solid var(--color-border);
+  background: var(--color-background);
+}
+
+.page-diagram__label {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.page-diagram__detail {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+}
+
+.page-diagram--flow .page-diagram__list {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: var(--space-8);
+}
+
+.page-diagram--flow .page-diagram__node {
+  flex-direction: row;
+  align-items: center;
+  flex: 1 1 8rem;
+  min-inline-size: 7rem;
+}
+
+.page-diagram--flow .page-diagram__connector {
+  inline-size: var(--space-16);
+  block-size: 1px;
+  margin-inline: 0;
+  margin-block: auto;
+  flex: 0 0 auto;
+}
+
+.page-diagram--flow .page-diagram__card {
+  flex: 1 1 auto;
+  min-inline-size: 0;
+}
+
+.page-diagram--layers .page-diagram__list {
+  gap: var(--space-8);
+}
+
+.page-diagram--layers .page-diagram__connector {
+  display: none;
+}
+
+.page-diagram--layers .page-diagram__card {
+  border-color: var(--color-text);
+}
+
+.page-diagram--layers .page-diagram__node:nth-child(1) .page-diagram__card {
+  padding-block: var(--space-16);
+}
+
+.page-diagram--layers .page-diagram__node:nth-child(2) .page-diagram__card {
+  margin-inline: var(--space-8);
+}
+
+.page-diagram--layers .page-diagram__node:nth-child(3) .page-diagram__card {
+  margin-inline: var(--space-16);
+}
+
+.page-diagram--layers .page-diagram__node:nth-child(4) .page-diagram__card {
+  margin-inline: var(--space-24);
+}
+
+.page-diagram--relationship .page-diagram__list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-12);
+}
+
+@media (min-width: 768px) {
+  .page-diagram--relationship .page-diagram__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.page-diagram--relationship .page-diagram__connector {
+  display: none;
+}
+
+.page-diagram--relationship .page-diagram__card {
+  min-block-size: 4rem;
+  justify-content: center;
+}
+
+.page-diagram-slot {
+  margin-block-end: var(--space-32);
+}
+
+/* Foundation layers */
+.page-layer {
+  margin-block-end: var(--space-48);
+  padding-block-end: var(--space-32);
+  border-block-end: 1px solid var(--color-divider);
+}
+
+.page-layer__title {
+  margin: 0;
+  font-size: 1.375rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+}
+
+.page-layer__fields {
+  list-style: none;
+  margin: var(--space-24) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+
+@media (min-width: 768px) {
+  .page-layer__fields {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: var(--space-32);
+  }
+}
+
+.page-layer__field {
+  padding-block: var(--space-16);
+  border-block-end: 1px solid var(--color-divider);
+}
+
+.page-layer__field-heading {
+  margin: 0;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.page-layer__field-text {
+  margin: var(--space-8) 0 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--color-text);
+  max-width: 40ch;
 }
 
 .page-principles {
@@ -520,11 +745,10 @@
 
 .page-related__heading {
   margin: 0;
-  font-size: 0.75rem;
+  font-size: 1.25rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-text-secondary);
+  letter-spacing: -0.015em;
+  color: var(--color-text);
 }
 
 .page-related__list {

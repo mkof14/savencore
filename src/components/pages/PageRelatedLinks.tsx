@@ -13,7 +13,7 @@ type PageRelatedLinksProps = {
 export function PageRelatedLinks({
   locale,
   links,
-  heading = "Related",
+  heading = "Related Pages",
 }: PageRelatedLinksProps) {
   if (links.length === 0) {
     return null;

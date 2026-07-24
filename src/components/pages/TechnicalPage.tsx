@@ -1,3 +1,4 @@
+import { ArchitectureDiagram } from "@/components/pages/ArchitectureDiagram";
 import { PageMasthead } from "@/components/pages/PageMasthead";
 import { PageRelatedLinks } from "@/components/pages/PageRelatedLinks";
 import { PageSectionNav } from "@/components/pages/PageSectionNav";
@@ -11,6 +12,9 @@ type TechnicalPageProps = {
 
 export function TechnicalPage({ locale, content }: TechnicalPageProps) {
   const titleId = "page-title";
+  const hierarchyDiagram = content.diagrams?.find((d) => d.kind === "hierarchy");
+  const otherDiagrams =
+    content.diagrams?.filter((d) => d.kind !== "hierarchy") ?? [];
 
   return (
     <article className="page page--technical" aria-labelledby={titleId}>
@@ -36,7 +40,38 @@ export function TechnicalPage({ locale, content }: TechnicalPageProps) {
 
       <div className="page-body">
         <div className="page-shell__inner">
-          {content.architectureSections.map((section) => (
+          {hierarchyDiagram ? (
+            <div id="foundation-hierarchy" className="page-diagram-slot">
+              <ArchitectureDiagram diagram={hierarchyDiagram} />
+            </div>
+          ) : null}
+
+          {content.layers?.map((layer) => (
+            <section
+              key={layer.id}
+              id={layer.id}
+              className="page-layer"
+              aria-labelledby={`${layer.id}-heading`}
+            >
+              <h2 id={`${layer.id}-heading`} className="page-layer__title">
+                {layer.title}
+              </h2>
+              <ul className="page-layer__fields">
+                {layer.fields.map((field) => (
+                  <li key={field.id} className="page-layer__field">
+                    <h3 className="page-layer__field-heading">{field.title}</h3>
+                    <p className="page-layer__field-text">{field.text}</p>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ))}
+
+          {otherDiagrams.map((diagram) => (
+            <ArchitectureDiagram key={diagram.id} diagram={diagram} />
+          ))}
+
+          {content.architectureSections?.map((section) => (
             <section
               key={section.id}
               id={section.id}
@@ -88,7 +123,11 @@ export function TechnicalPage({ locale, content }: TechnicalPageProps) {
       </div>
 
       {content.relatedLinks ? (
-        <PageRelatedLinks locale={locale} links={content.relatedLinks} />
+        <PageRelatedLinks
+          locale={locale}
+          links={content.relatedLinks}
+          heading={content.relatedLinksHeading ?? "Related Pages"}
+        />
       ) : null}
     </article>
   );

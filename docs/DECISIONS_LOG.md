@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-24 (Phase 1E.2 append)
+**Last updated:** 2026-07-24 (Phase 1F.1 append)
 
 ## Rules
 
@@ -98,6 +98,11 @@
 | D-0078 | 2026-07-24 | Internal page content outside JSX; four demo routes only | Active |
 | D-0079 | 2026-07-24 | Full destination-page development deferred | Active |
 | D-0080 | 2026-07-24 | Phase 1E.3 remains unauthorized | Active |
+| D-0081 | 2026-07-24 | Phase 1F.1 Purpose and Foundation authorized | Active |
+| D-0082 | 2026-07-24 | Purpose and Foundation are permanent reference pages | Active |
+| D-0083 | 2026-07-24 | Foundation layer field model adopted | Active |
+| D-0084 | 2026-07-24 | HTML/CSS architecture diagrams only | Active |
+| D-0085 | 2026-07-24 | Phase 1F.2 remains unauthorized | Active |
 
 ---
 
@@ -683,6 +688,42 @@
 - **Status:** Active
 - **Decision:** Completing Phase 1E.2 does not authorize Phase 1E.3 or broader destination-page build-out.
 - **Implications:** Stop after Phase 1E.2 commit unless explicitly authorized.
+
+### D-0081 — Phase 1F.1 Purpose and Foundation authorized
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Authorize permanent Purpose and Foundation content architecture on the existing Editorial and Technical page types. See `docs/PHASE_1F_1_PURPOSE_FOUNDATION.md`.
+- **Out of scope:** Marketing/investor copy, product documentation, additional page types, Phase 1F.2.
+- **Implications:** These pages become reference content for later site sections.
+
+### D-0082 — Purpose and Foundation are permanent reference pages
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Purpose answers why SAVEN Core exists; Foundation answers what SAVEN Core is built upon, using the fixed BioMath Life → BioMath Core → SAVEN → SAVEN Core sequence.
+- **Implications:** Later pages should align to this architecture rather than inventing alternate foundation stories.
+
+### D-0083 — Foundation layer field model adopted
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Each foundation layer documents Purpose, Role, Relationship, Scope, Outputs, and Dependencies, followed by Human Data Model, System Relationships, Technology Relationships, and Development Philosophy.
+- **Implications:** TechnicalPage supports structured layer fields for Foundation without a new page type.
+
+### D-0084 — HTML/CSS architecture diagrams only
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Architecture diagrams on Purpose and Foundation use HTML/CSS figures (hierarchy, layers, flow, relationship). No image assets.
+- **Implications:** Diagrams remain responsive, semantic, and RTL-safe.
+
+### D-0085 — Phase 1F.2 remains unauthorized
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Completing Phase 1F.1 does not authorize Phase 1F.2 or further destination-page content phases.
+- **Implications:** Stop after Phase 1F.1 commit unless explicitly authorized.
 
 ---
 

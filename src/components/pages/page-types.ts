@@ -1,5 +1,5 @@
 /**
- * Typed content models for internal page types (Phase 1E.2).
+ * Typed content models for internal page types.
  * Content-facing only — not CMS or database schemas.
  */
 
@@ -20,12 +20,41 @@ type CommonPageFields = {
   status?: string;
   sectionNav?: readonly PageSectionNavItem[];
   relatedLinks?: readonly PageLink[];
+  relatedLinksHeading?: string;
+};
+
+export type ArchitectureDiagramKind =
+  | "hierarchy"
+  | "relationship"
+  | "layers"
+  | "flow";
+
+export type ArchitectureDiagramNode = {
+  id: string;
+  label: string;
+  detail?: string;
+};
+
+export type ArchitectureDiagram = {
+  id: string;
+  kind: ArchitectureDiagramKind;
+  title: string;
+  /** Accessible description of the diagram structure. */
+  description: string;
+  nodes: readonly ArchitectureDiagramNode[];
+};
+
+export type EditorialSubsection = {
+  id: string;
+  title: string;
+  paragraphs: readonly string[];
 };
 
 export type EditorialSection = {
   id: string;
   title: string;
-  paragraphs: readonly string[];
+  paragraphs?: readonly string[];
+  subsections?: readonly EditorialSubsection[];
 };
 
 export type EditorialPrinciple = {
@@ -35,7 +64,9 @@ export type EditorialPrinciple = {
 };
 
 export type EditorialPageContent = CommonPageFields & {
+  diagrams?: readonly ArchitectureDiagram[];
   sections: readonly EditorialSection[];
+  principlesHeading?: string;
   principles?: readonly EditorialPrinciple[];
 };
 
@@ -52,9 +83,23 @@ export type TechnicalIndexedItem = {
   description: string;
 };
 
+export type FoundationLayerField = {
+  id: string;
+  title: string;
+  text: string;
+};
+
+export type FoundationLayer = {
+  id: string;
+  title: string;
+  fields: readonly FoundationLayerField[];
+};
+
 export type TechnicalPageContent = CommonPageFields & {
   developmentNote?: string;
-  architectureSections: readonly TechnicalArchitectureSection[];
+  diagrams?: readonly ArchitectureDiagram[];
+  layers?: readonly FoundationLayer[];
+  architectureSections?: readonly TechnicalArchitectureSection[];
   indexedItemsHeading?: string;
   indexedItems?: readonly TechnicalIndexedItem[];
 };

@@ -8,9 +8,9 @@ If you are a coding agent (Cursor or otherwise), read this file before making an
 
 ## Current Phase
 
-**Phase 1C — Global Site Shell (authorized for shell only)**
+**Phase 1C / 1C.1 — Global Site Shell + enterprise layout polish**
 
-Design tokens (1B) and technical foundation (1A) are in place. Phase 1C adds the reusable Header, navigation, language selector, and Footer. See `docs/PHASE_1C_GLOBAL_SITE_SHELL.md` and Decisions D-0033–D-0038.
+Design tokens (1B) and technical foundation (1A) are in place. Phase 1C adds the reusable shell; 1C.1 refines visual precision only. See `docs/PHASE_1C_GLOBAL_SITE_SHELL.md` and Decisions D-0033–D-0038.
 
 **Do not begin without explicit owner approval:**
 

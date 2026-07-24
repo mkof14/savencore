@@ -20,8 +20,8 @@ export default async function LocaleFoundationPage({ params }: LocalePageProps) 
   return (
     <div className="foundation-placeholder">
       <p>SAVEN Core</p>
-      <p>Foundation build</p>
-      <p>{locale}</p>
+      <p>Engineering Foundation</p>
+      <p>Active locale: {locale.toUpperCase()}</p>
     </div>
   );
 }

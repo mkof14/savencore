@@ -3,6 +3,7 @@ import type {
   EngineeringPrinciple,
   PageMetadata,
 } from "@/components/engineering/engineering-types";
+import { technologyDisciplineReferenceLinks } from "@/content/pages/en/technology-reference-links";
 
 /**
  * Data Infrastructure knowledge page — Content Wave 1.2.
@@ -208,15 +209,9 @@ export const dataInfrastructurePageContent: DataInfrastructurePageContent = {
   relatedResearchHeading: "Related Research",
   relatedApplicationsHeading: "Related Applications",
   referenceHeading: "Reference Links",
-  referenceLinks: [
-    { label: "Technology", href: "/technology/" },
-    { label: "Human Data", href: "/technology/human-data/" },
-    { label: "Human Data Model", href: "/technology/human-data-model/" },
-    { label: "Foundation", href: "/foundation/" },
-    { label: "Research", href: "/research/" },
-    { label: "Applications", href: "/applications/" },
-    { label: "Purpose", href: "/purpose/" },
-  ],
+  referenceLinks: technologyDisciplineReferenceLinks(
+    "/technology/data-infrastructure/",
+  ),
   sectionNav: [
     { id: "executive-summary", label: "Summary" },
     { id: "purpose", label: "Purpose" },

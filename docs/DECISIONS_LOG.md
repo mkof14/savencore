@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-24 (Content Wave 1.2 append)
+**Last updated:** 2026-07-24 (Technology Content Sprint append)
 
 ## Rules
 
@@ -130,6 +130,7 @@
 | D-0110 | 2026-07-24 | Plain-language editorial standard for knowledge pages | Active |
 | D-0111 | 2026-07-24 | Approved definitions: Human Data and Human Data Model | Active |
 | D-0112 | 2026-07-24 | Content Wave 1.2 Data Infrastructure page authorized | Active |
+| D-0113 | 2026-07-24 | Technology knowledge domain content sprint completed | Active |
 
 ---
 
@@ -946,6 +947,14 @@
 - **Decision:** Authorize Content Wave 1.2 to create the Data Infrastructure knowledge page at `/[locale]/technology/data-infrastructure/`. See `docs/CONTENT_WAVE_1_2_DATA_INFRASTRUCTURE.md`.
 - **Out of scope:** Site redesign, navigation changes, vendor/database/cloud implementation detail, Entity Registry edits unless a missing relationship is required.
 - **Implications:** Page remains architecture-level; Future Topics and related lists come from the existing `data-infrastructure` entity.
+
+### D-0113 — Technology knowledge domain content sprint completed
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Authorize and record completion of the Technology content sprint: Interoperability, Privacy, Security, Artificial Intelligence, Automation and Robotics leaf pages under `/[locale]/technology/`. See `docs/CONTENT_SPRINT_TECHNOLOGY_COMPLETE.md`.
+- **Out of scope:** Home redesign, navigation changes, Entity Registry redesign, Systems/Trust domain build-out.
+- **Implications:** Every Technology registry entity now has a published knowledge page. Shared template is `TechnologyDisciplinePage`.
 
 ---
 

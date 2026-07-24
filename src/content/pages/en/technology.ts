@@ -110,6 +110,16 @@ export const technologyPageContent: TechnologyPageContent = {
   referenceLinks: [
     { label: "Human Data", href: "/technology/human-data/" },
     { label: "Human Data Model", href: "/technology/human-data-model/" },
+    { label: "Data Infrastructure", href: "/technology/data-infrastructure/" },
+    { label: "Interoperability", href: "/technology/interoperability/" },
+    { label: "Privacy", href: "/technology/privacy/" },
+    { label: "Security", href: "/technology/security/" },
+    {
+      label: "Artificial Intelligence",
+      href: "/technology/artificial-intelligence/",
+    },
+    { label: "Automation", href: "/technology/automation/" },
+    { label: "Robotics", href: "/technology/robotics/" },
     { label: "Foundation", href: "/foundation/" },
     { label: "Research", href: "/research/" },
     { label: "Applications", href: "/applications/" },

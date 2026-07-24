@@ -182,8 +182,15 @@
 .page-technology-metadata,
 .page-hdm-metadata,
 .page-human-data-metadata,
-.page-data-infrastructure-metadata {
+.page-data-infrastructure-metadata,
+.page-technology-discipline-metadata {
   padding-block-start: var(--space-24);
+}
+
+.tech-discipline-relationships-index {
+  margin-block: var(--space-16) 0;
+  padding-block: 0;
+  border-block: none;
 }
 
 /* Human Data Model — Phase 3.2 */

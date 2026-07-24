@@ -8,9 +8,9 @@ If you are a coding agent (Cursor or otherwise), read this file before making an
 
 ## Current Phase
 
-**Content Wave 1.2 — Data Infrastructure (authorized; knowledge page established)**
+**Content Sprint — Technology domain complete (authorized)**
 
-Data Infrastructure page at `/[locale]/technology/data-infrastructure/`. See `docs/CONTENT_WAVE_1_2_DATA_INFRASTRUCTURE.md` and Decision D-0112. Home, navigation and Entity Registry were not changed in this wave.
+All Technology knowledge pages are published. See `docs/CONTENT_SPRINT_TECHNOLOGY_COMPLETE.md` and Decision D-0113. Home, navigation and Entity Registry were not redesigned in this sprint.
 
 **Do not begin without explicit owner approval:**
 

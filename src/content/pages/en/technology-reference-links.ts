@@ -2,6 +2,7 @@ import type { EngineeringLink } from "@/components/engineering/engineering-types
 import { technologyNavChildren } from "@/navigation/site-navigation";
 
 const SITE_REFERENCE_LINKS: readonly EngineeringLink[] = [
+  { label: "Systems", href: "/systems/" },
   { label: "Foundation", href: "/foundation/" },
   { label: "Research", href: "/research/" },
   { label: "Applications", href: "/applications/" },

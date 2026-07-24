@@ -13,6 +13,8 @@ import type {
 } from "@/content/knowledge/entity-types";
 import { knowledgeDomainMap } from "@/content/knowledge/domains";
 import type { KnowledgeDomainId } from "@/content/knowledge/types";
+import { ENTITY_PAGE_HREFS } from "@/navigation/entity-page-paths";
+import { isPublishedRoute } from "@/navigation/published-routes";
 
 const LOCALE_PREFIX =
   /^\/(en|zh|hi|es|ar|fr|pt|ru|ur|he)(\/|$)/;
@@ -44,7 +46,23 @@ function isLocaleNeutralPath(href: string): boolean {
   return true;
 }
 
+function routePath(href: string): string {
+  const hashIndex = href.indexOf("#");
+  return hashIndex === -1 ? href : href.slice(0, hashIndex) || "/";
+}
+
 function entityHref(entity: KnowledgeEntity): string {
+  const mapped = ENTITY_PAGE_HREFS[entity.id];
+  if (mapped) {
+    return mapped;
+  }
+  // Leaf destination pages are unpublished — link domain overviews only.
+  if (entity.domain === "applications") {
+    return "/applications/";
+  }
+  if (entity.domain === "research") {
+    return "/research/";
+  }
   const domain = knowledgeDomainMap[entity.domain];
   return `${domain.href}#${entity.slug}`;
 }
@@ -56,10 +74,14 @@ function toRelationItems(ids: readonly string[]): EntityRelationItem[] {
     if (!entity) {
       continue;
     }
+    const href = entityHref(entity);
+    if (!isPublishedRoute(routePath(href))) {
+      continue;
+    }
     items.push({
       id: entity.id,
       title: entity.title,
-      href: entityHref(entity),
+      href,
     });
   }
   return items;
@@ -389,11 +411,13 @@ export function getEntityRelationsSummary(
     groups,
     "related-pages",
     "Related Pages",
-    entity.relatedPageLinks.map((link) => ({
-      id: link.href,
-      title: link.label,
-      href: link.href,
-    })),
+    entity.relatedPageLinks
+      .filter((link) => isPublishedRoute(routePath(link.href)))
+      .map((link) => ({
+        id: link.href,
+        title: link.label,
+        href: link.href,
+      })),
   );
 
   return { entityId: id, groups };

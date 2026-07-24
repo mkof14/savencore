@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-24 (Technology Content Sprint append)
+**Last updated:** 2026-07-24 (Systems Content Sprint append)
 
 ## Rules
 
@@ -131,6 +131,9 @@
 | D-0111 | 2026-07-24 | Approved definitions: Human Data and Human Data Model | Active |
 | D-0112 | 2026-07-24 | Content Wave 1.2 Data Infrastructure page authorized | Active |
 | D-0113 | 2026-07-24 | Technology knowledge domain content sprint completed | Active |
+| D-0114 | 2026-07-24 | Systems knowledge domain content sprint completed | Active |
+| D-0115 | 2026-07-24 | Approved Systems page boundaries and definitions | Active |
+| D-0116 | 2026-07-24 | Relation links use published routes only | Active |
 
 ---
 
@@ -955,6 +958,28 @@
 - **Decision:** Authorize and record completion of the Technology content sprint: Interoperability, Privacy, Security, Artificial Intelligence, Automation and Robotics leaf pages under `/[locale]/technology/`. See `docs/CONTENT_SPRINT_TECHNOLOGY_COMPLETE.md`.
 - **Out of scope:** Home redesign, navigation changes, Entity Registry redesign, Systems/Trust domain build-out.
 - **Implications:** Every Technology registry entity now has a published knowledge page. Shared template is `TechnologyDisciplinePage`.
+
+### D-0114 — Systems knowledge domain content sprint completed
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Authorize and record completion of the Systems content sprint: Systems Overview plus Knowledge Engine, AI Decision Support, Safety Layer, Communication Layer, Clinical Interfaces, Robotics Layer and Drone Systems under `/[locale]/systems/`. See `docs/CONTENT_SPRINT_SYSTEMS_COMPLETE.md`.
+- **Out of scope:** Applications leaf pages, Trust page, Labs, Company, Home redesign, Entity Registry entity invention.
+- **Implications:** Systems appears in primary, mobile and footer navigation from the shared published-route source. Shared template is `SystemDisciplinePage`.
+
+### D-0115 — Approved Systems page boundaries and definitions
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Adopt the Systems boundaries recorded in `docs/CONTENT_SPRINT_SYSTEMS_COMPLETE.md`: Knowledge Engine does not make independent decisions; AI Decision Support does not replace human judgment; Clinical Interfaces claim no diagnosis, treatment or autonomous medical action; Robotics Layer implies no autonomous deployment without oversight; Drone Systems avoid military, surveillance or unsupported operational claims.
+- **Implications:** Later Systems pages must not redefine these boundaries differently.
+
+### D-0116 — Relation links use published routes only
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Entity relation and related-page links resolve through published leaf paths when available (`ENTITY_PAGE_HREFS`) and omit destinations that are not in `PUBLISHED_ROUTES`. Unpublished Applications and Research leaves link to their domain overviews only.
+- **Implications:** Navigation and knowledge relation indexes must not expose unpublished leaf URLs.
 
 ---
 

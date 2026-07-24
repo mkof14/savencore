@@ -102,6 +102,7 @@ export const technologyPageContent: TechnologyPageContent = {
     "Topics below come from Technology entries in the shared registry. They mark later documentation needs. They are not delivery promises.",
   relatedDomainsHeading: "Related Domains",
   relatedDomainLinks: [
+    { label: "Systems", href: "/systems/" },
     { label: "Foundation", href: "/foundation/" },
     { label: "Research", href: "/research/" },
     { label: "Applications", href: "/applications/" },
@@ -112,6 +113,7 @@ export const technologyPageContent: TechnologyPageContent = {
     ...technologyNavChildren
       .filter((item) => item.href !== "/technology/")
       .map((item) => ({ label: item.label, href: item.href })),
+    { label: "Systems", href: "/systems/" },
     { label: "Foundation", href: "/foundation/" },
     { label: "Research", href: "/research/" },
     { label: "Applications", href: "/applications/" },

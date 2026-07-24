@@ -63,13 +63,56 @@ export const technologyNavChildren: readonly NavLinkItem[] = [
   },
 ] as const;
 
+/** Systems domain children — shared by primary nav and reference lists. */
+export const systemsNavChildren: readonly NavLinkItem[] = [
+  {
+    id: "systems-overview",
+    label: "Systems Overview",
+    href: "/systems/",
+  },
+  {
+    id: "systems-knowledge-engine",
+    label: "Knowledge Engine",
+    href: "/systems/knowledge-engine/",
+  },
+  {
+    id: "systems-ai-decision-support",
+    label: "AI Decision Support",
+    href: "/systems/ai-decision-support/",
+  },
+  {
+    id: "systems-safety-layer",
+    label: "Safety Layer",
+    href: "/systems/safety-layer/",
+  },
+  {
+    id: "systems-communication-layer",
+    label: "Communication Layer",
+    href: "/systems/communication-layer/",
+  },
+  {
+    id: "systems-clinical-interfaces",
+    label: "Clinical Interfaces",
+    href: "/systems/clinical-interfaces/",
+  },
+  {
+    id: "systems-robotics-layer",
+    label: "Robotics Layer",
+    href: "/systems/robotics-layer/",
+  },
+  {
+    id: "systems-drone-systems",
+    label: "Drone Systems",
+    href: "/systems/drone-systems/",
+  },
+] as const;
+
 /**
  * Primary header navigation.
  * Groups only appear when they have published children beyond the overview,
  * or when a single overview child is still useful as an explicit menu entry.
  *
- * Systems and Labs are omitted until those indexes are published.
- * Company utility destinations are omitted until published.
+ * Labs and Company are omitted until those indexes are published.
  */
 export const primaryNavigation: readonly PrimaryNavItem[] = [
   {
@@ -87,6 +130,12 @@ export const primaryNavigation: readonly PrimaryNavItem[] = [
     label: "Technology",
     href: "/technology/",
     children: technologyNavChildren,
+  },
+  {
+    id: "systems",
+    label: "Systems",
+    href: "/systems/",
+    children: systemsNavChildren,
   },
   {
     id: "applications",
@@ -134,6 +183,15 @@ export const footerNavigation: readonly FooterGroup[] = [
     id: "technology",
     title: "Technology",
     links: technologyNavChildren.map((item) => ({
+      id: `footer-${item.id}`,
+      label: item.label,
+      href: item.href,
+    })),
+  },
+  {
+    id: "systems",
+    title: "Systems",
+    links: systemsNavChildren.map((item) => ({
       id: `footer-${item.id}`,
       label: item.label,
       href: item.href,

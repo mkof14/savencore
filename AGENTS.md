@@ -8,15 +8,15 @@ If you are a coding agent (Cursor or otherwise), read this file before making an
 
 ## Current Phase
 
-**Navigation bug fix — global dropdowns populated from published routes**
+**Systems knowledge domain complete**
 
-Header/footer navigation now lists only live pages. Technology dropdown includes all Technology leaves. See `docs/NAVIGATION_DROPDOWN_AUDIT.md`. Entity Registry was not modified.
+Systems Overview and seven system pages are published. Navigation includes Systems from the shared published-route source. See `docs/CONTENT_SPRINT_SYSTEMS_COMPLETE.md`.
 
 **Do not begin without explicit owner approval:**
 
-- Further content waves or domain destination-page build-out;
+- Applications leaf pages or further domain destination-page build-out;
 - Home redesign beyond navigation data corrections;
-- Entity Registry edits unless explicitly authorized;
+- Entity Registry entity invention unless explicitly authorized;
 - custom brand fonts / final brand colors / logo asset / imagery;
 - CMS, database, working search, forms, analytics, cookie consent;
 - authentication or investor portal;

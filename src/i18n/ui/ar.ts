@@ -89,7 +89,7 @@ export const uiAr: UiMessages = {
     themeLight: "فاتح",
     themeDark: "داكن",
     version: "الإصدار",
-    tagline: "أنظمة ذكية بُنيت لدعم حياة الإنسان.",
+    tagline: "بيانات بشرية.\nأنظمة مترابطة.\nتقنية مسؤولة.",
   },
 
   home: {

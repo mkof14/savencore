@@ -89,7 +89,7 @@ export const uiHe: UiMessages = {
     themeLight: "בהיר",
     themeDark: "כהה",
     version: "גרסה",
-    tagline: "מערכות חכמות שנבנו לתמיכה בחיי אדם.",
+    tagline: "נתונים אנושיים.\nמערכות מחוברות.\nטכנולוגיה אחראית.",
   },
 
   home: {

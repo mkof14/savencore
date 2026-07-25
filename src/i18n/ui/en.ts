@@ -134,7 +134,8 @@ export const uiEn = {
     themeLight: "Light",
     themeDark: "Dark",
     version: "Version",
-    tagline: "Intelligent systems built to support human life.",
+    tagline:
+      "Human data.\nConnected systems.\nResponsible technology.",
   },
 
   home: {

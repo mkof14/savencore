@@ -19,6 +19,8 @@ import {
   footerNavigation,
 } from "@/navigation/site-navigation";
 
+import { SavenLogo } from "@/components/brand/SavenLogo";
+
 import { LanguageSelector } from "./LanguageSelector";
 import { ThemeSwitch } from "./ThemeSwitch";
 
@@ -78,7 +80,12 @@ export function SiteFooter({ locale }: SiteFooterProps) {
     <footer className="site-footer">
       <div className="site-shell__inner site-footer__inner">
         <div className="site-footer__intro">
-          <p className="site-footer__brand">SAVEN Core</p>
+          <SavenLogo
+            locale={locale}
+            variant="footer"
+            tone="dark"
+            className="site-footer__brand"
+          />
           <p className="site-footer__tagline">{ui.footer.tagline}</p>
         </div>
 

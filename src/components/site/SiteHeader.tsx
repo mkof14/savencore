@@ -1,7 +1,5 @@
-import Link from "next/link";
-
+import { SavenLogo } from "@/components/brand/SavenLogo";
 import type { Locale } from "@/config/locales";
-import { localizePath } from "@/navigation/locale-path";
 
 import { DesktopNavigation } from "./DesktopNavigation";
 import { LanguageSelector } from "./LanguageSelector";
@@ -15,12 +13,12 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
   return (
     <header className="site-header">
       <div className="site-shell__inner site-header__bar">
-        <Link
-          href={localizePath(locale, "/")}
+        <SavenLogo
+          locale={locale}
+          variant="header"
+          tone="dark"
           className="site-header__brand"
-        >
-          SAVEN Core
-        </Link>
+        />
 
         <div className="site-header__desktop">
           <DesktopNavigation locale={locale} />

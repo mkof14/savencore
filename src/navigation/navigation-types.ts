@@ -19,16 +19,29 @@ export function isNavGroup(item: PrimaryNavItem): item is NavGroupItem {
   return "children" in item;
 }
 
-export type FooterLinkItem = {
+export type FooterLinkPublished = {
   id: string;
   label: string;
+  status: "published";
   href: NavHref;
 };
+
+export type FooterLinkComingSoon = {
+  id: string;
+  label: string;
+  status: "coming-soon";
+};
+
+export type FooterLinkItem = FooterLinkPublished | FooterLinkComingSoon;
 
 export type FooterGroup = {
   id: string;
   title: string;
   links: readonly FooterLinkItem[];
-  /** When true, show a calm "coming later" note instead of inventing links. */
-  planned?: boolean;
 };
+
+export function isFooterLinkPublished(
+  link: FooterLinkItem,
+): link is FooterLinkPublished {
+  return link.status === "published";
+}

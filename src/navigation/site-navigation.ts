@@ -1,9 +1,23 @@
 import {
   isNavGroup,
   type FooterGroup,
+  type FooterLinkItem,
+  type NavHref,
   type NavLinkItem,
   type PrimaryNavItem,
 } from "./navigation-types";
+
+function published(
+  id: string,
+  label: string,
+  href: NavHref,
+): FooterLinkItem {
+  return { id, label, status: "published", href };
+}
+
+function comingSoon(id: string, label: string): FooterLinkItem {
+  return { id, label, status: "coming-soon" };
+}
 
 /**
  * Centralized site navigation — single source for Header, mobile nav, and Footer.
@@ -178,94 +192,166 @@ export const primaryNavigation: readonly PrimaryNavItem[] = [
 export const utilityNavigation: readonly NavLinkItem[] = [] as const;
 
 /**
- * Footer — complete published sitemap.
- * Legal policy pages are omitted until published (no broken links).
+ * Footer — complete navigation hub.
+ * Published routes link through; unpublished items stay visible as Coming Soon.
  */
 export const footerNavigation: readonly FooterGroup[] = [
   {
-    id: "about",
-    title: "About",
-    links: [
-      { id: "footer-resources-home", label: "Home", href: "/" },
-      { id: "footer-purpose", label: "Purpose", href: "/purpose/" },
-      { id: "footer-foundation", label: "Foundation", href: "/foundation/" },
-    ],
-  },
-  {
     id: "technology",
     title: "Technology",
-    links: technologyNavChildren.map((item) => ({
-      id: `footer-${item.id}`,
-      label: item.label,
-      href: item.href,
-    })),
+    links: [
+      published("footer-technology-overview", "Overview", "/technology/"),
+      published("footer-technology-human-data", "Human Data", "/technology/human-data/"),
+      published(
+        "footer-technology-human-data-model",
+        "Human Data Model",
+        "/technology/human-data-model/",
+      ),
+      published(
+        "footer-technology-data-infrastructure",
+        "Data Infrastructure",
+        "/technology/data-infrastructure/",
+      ),
+      published(
+        "footer-technology-knowledge-engine",
+        "Knowledge Engine",
+        "/systems/knowledge-engine/",
+      ),
+      published(
+        "footer-technology-ai-decision-support",
+        "AI Decision Support",
+        "/systems/ai-decision-support/",
+      ),
+      published(
+        "footer-technology-safety-layer",
+        "Safety Layer",
+        "/systems/safety-layer/",
+      ),
+    ],
   },
   {
     id: "systems",
     title: "Systems",
-    links: systemsNavChildren.map((item) => ({
-      id: `footer-${item.id}`,
-      label: item.label,
-      href: item.href,
-    })),
+    links: [
+      published("footer-systems-overview", "Overview", "/systems/"),
+      comingSoon("footer-systems-architecture", "Architecture"),
+      comingSoon("footer-systems-core-services", "Core Services"),
+      comingSoon("footer-systems-decision-engine", "Decision Engine"),
+      comingSoon("footer-systems-monitoring", "Monitoring"),
+      comingSoon("footer-systems-integration", "Integration"),
+    ],
   },
   {
     id: "applications",
     title: "Applications",
-    links: applicationsNavChildren.map((item) => ({
-      id: `footer-${item.id}`,
-      label: item.label,
-      href: item.href,
-    })),
+    links: [
+      published("footer-applications-overview", "Overview", "/applications/"),
+      published(
+        "footer-applications-healthcare",
+        "Healthcare",
+        "/applications/healthcare/",
+      ),
+      published("footer-applications-home", "Home", "/applications/home/"),
+      published(
+        "footer-applications-hospitals",
+        "Hospitals",
+        "/applications/hospitals/",
+      ),
+      published(
+        "footer-applications-emergency",
+        "Emergency",
+        "/applications/emergency/",
+      ),
+      published(
+        "footer-applications-industrial",
+        "Industrial",
+        "/applications/industrial/",
+      ),
+      published(
+        "footer-applications-government",
+        "Government",
+        "/applications/government/",
+      ),
+      published(
+        "footer-applications-agriculture",
+        "Agriculture",
+        "/applications/agriculture/",
+      ),
+      published(
+        "footer-applications-research",
+        "Research",
+        "/applications/research-applications/",
+      ),
+    ],
   },
   {
     id: "trust",
     title: "Trust",
-    links: trustNavChildren.map((item) => ({
-      id: `footer-${item.id}`,
-      label: item.label,
-      href: item.href,
-    })),
+    links: [
+      published("footer-trust-overview", "Overview", "/trust/"),
+      published("footer-trust-privacy", "Privacy", "/trust/privacy/"),
+      published("footer-trust-security", "Security", "/trust/security/"),
+      published(
+        "footer-trust-transparency",
+        "Transparency",
+        "/trust/transparency/",
+      ),
+      published(
+        "footer-trust-human-oversight",
+        "Human Oversight",
+        "/trust/human-oversight/",
+      ),
+      published(
+        "footer-trust-ethics",
+        "Ethics",
+        "/trust/ethics-and-responsible-use/",
+      ),
+      published("footer-trust-limitations", "Limitations", "/trust/limitations/"),
+    ],
   },
   {
     id: "research",
     title: "Research",
     links: [
-      { id: "footer-research", label: "Research", href: "/research/" },
+      published("footer-research-overview", "Overview", "/research/"),
+      comingSoon("footer-research-publications", "Publications"),
+      comingSoon("footer-research-future-directions", "Future Directions"),
     ],
   },
   {
     id: "resources",
     title: "Resources",
     links: [
-      { id: "footer-resources-purpose", label: "Purpose", href: "/purpose/" },
-      {
-        id: "footer-resources-foundation",
-        label: "Foundation",
-        href: "/foundation/",
-      },
-      { id: "footer-resources-research", label: "Research", href: "/research/" },
+      comingSoon("footer-resources-glossary", "Glossary"),
+      comingSoon("footer-resources-suggested-reading", "Suggested Reading"),
+      comingSoon("footer-resources-faq", "FAQ"),
+      comingSoon("footer-resources-contact", "Contact"),
     ],
   },
   {
     id: "company",
     title: "Company",
-    links: [],
-    planned: true,
+    links: [
+      published("footer-company-about", "About", "/foundation/"),
+      published("footer-company-mission", "Mission", "/purpose/"),
+      comingSoon("footer-company-roadmap", "Roadmap"),
+      comingSoon("footer-company-careers", "Careers"),
+      comingSoon("footer-company-news", "News"),
+    ],
   },
   {
     id: "legal",
     title: "Legal",
-    links: [],
-    planned: true,
-  },
-  {
-    id: "contact",
-    title: "Contact",
-    links: [],
-    planned: true,
+    links: [
+      comingSoon("footer-legal-privacy-policy", "Privacy Policy"),
+      comingSoon("footer-legal-terms", "Terms of Use"),
+      comingSoon("footer-legal-cookies", "Cookie Policy"),
+      comingSoon("footer-legal-accessibility", "Accessibility"),
+    ],
   },
 ] as const;
+
+export const FOOTER_VERSION = "0.1.0";
 
 export const FOOTER_COPYRIGHT = "© 2026 SAVEN Core. All rights reserved.";
 

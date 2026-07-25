@@ -122,6 +122,15 @@ body {
   color: var(--color-text);
 }
 
+html[data-theme="dark"] {
+  --color-background: #0b1220;
+  --color-surface: #151d2e;
+  --color-text: #eef3f7;
+  --color-text-secondary: #9aa8b8;
+  --color-border: #2a3648;
+  --color-divider: #334155;
+}
+
 h1,
 h2,
 h3,

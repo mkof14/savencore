@@ -2,7 +2,6 @@ import {
   ArchitectureMap,
   ConceptGrid,
   DefinitionPanel,
-  DocumentMetadata,
   EngineeringAnnotation,
   FutureExpansionBlock,
   KeyPrinciples,
@@ -12,6 +11,7 @@ import {
   ScopePanel,
   SignalDiagram,
 } from "@/components/engineering";
+import { KnowledgeObjectFrame } from "@/components/knowledge-object";
 import { KnowledgePageNavigation } from "@/components/pages/KnowledgePageNavigation";
 import { PageSectionNav } from "@/components/pages/PageSectionNav";
 import type { Locale } from "@/config/locales";
@@ -127,156 +127,160 @@ export function SystemsPage({ locale, content }: SystemsPageProps) {
         visualization={<SignalDiagram variant="systems-overview" />}
       />
 
-      <div className="page-body">
-        <div className="page-shell__inner">
-          <DefinitionPanel
-            term="System"
-            definition="A coordinated engineering component that performs a specific role inside SAVEN Core."
-            coordinate="SYS"
-          />
-
-          <EngineeringAnnotation
-            coordinate="ARC"
-            label="Reading order"
-            text="HUMAN SIGNALS → STRUCTURED KNOWLEDGE → CONTROLLED ACTION"
-          />
-
-          <div id="systems-overview">
-            <ArchitectureMap locale={locale} />
-          </div>
-
-          <div id="systems-categories">
-            <ConceptGrid
-              locale={locale}
-              heading="Published systems"
-              identity="architecture"
-              items={systemCards}
-            />
-          </div>
-
-          <RelationshipFlow
-            locale={locale}
-            heading="Working relationships"
-            description="Shared context feeds assistance under safety and communication limits."
-            steps={[
-              {
-                id: "ke",
-                label: "Knowledge Engine",
-                href: "/systems/knowledge-engine/",
-                relation: "powers",
-              },
-              {
-                id: "ads",
-                label: "AI Decision Support",
-                href: "/systems/ai-decision-support/",
-                relation: "protected by",
-              },
-              {
-                id: "safety",
-                label: "Safety Layer",
-                href: "/systems/safety-layer/",
-                relation: "communicates through",
-              },
-              {
-                id: "comms",
-                label: "Communication Layer",
-                href: "/systems/communication-layer/",
-                relation: "reaches",
-              },
-              {
-                id: "clinical",
-                label: "Clinical Interfaces",
-                href: "/systems/clinical-interfaces/",
-              },
-            ]}
-          />
-
-          <section
-            id="systems-and-technology"
-            className="eng-block"
-            aria-labelledby="systems-chain-heading"
-          >
-            <h2 id="systems-chain-heading" className="eng-block__heading">
-              {content.technologyHeading}
-            </h2>
-            {content.technology.map((paragraph) => (
-              <p key={paragraph} className="eng-block__body">
-                {paragraph}
-              </p>
-            ))}
-          </section>
-
-          <section
-            id="systems-and-applications"
-            className="eng-block"
-            aria-labelledby="systems-applications-heading"
-          >
-            <h2 id="systems-applications-heading" className="eng-block__heading">
-              {content.applicationsHeading}
-            </h2>
-            {content.applications.map((paragraph) => (
-              <p key={paragraph} className="eng-block__body">
-                {paragraph}
-              </p>
-            ))}
-          </section>
-
-          <div id="engineering-principles">
-            <KeyPrinciples
-              heading={content.principlesHeading}
-              principles={content.principles}
-            />
-          </div>
-
-          <ScopePanel
-            id="current-development-scope"
-            variant="current-scope"
-            title={content.scopeHeading}
-          >
-            {content.scope.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-          </ScopePanel>
-
-          <ScopePanel
-            variant="engineering-note"
-            title="Development status"
-          >
-            <p>{content.developmentNote}</p>
-          </ScopePanel>
-
-          {futureItems.length > 0 ? (
-            <div id="future-expansion">
-              <FutureExpansionBlock
-                heading={content.futureHeading}
-                introduction={content.futureIntro}
-                items={futureItems}
-              />
-            </div>
-          ) : null}
-
-          <div id="reference-links">
-            <ReferenceLinks
-              locale={locale}
-              heading={content.referenceHeading}
-              links={content.referenceLinks}
-            />
-          </div>
-        </div>
-      </div>
-
-      <KnowledgePageNavigation
+      <KnowledgeObjectFrame
+        locale={locale}
+        domain={"systems"}
+        input={{
+          knowledgeId: "page-systems",
+          href: "/systems/",
+          title: content.label,
+          domain: "Systems",
+          metadata: content.metadata,
+          currentScope: content.developmentNote,
+        }}
+        between={
+          <KnowledgePageNavigation
         locale={locale}
         domain="systems"
         currentHref="/systems/"
-      />
+          />
+        }
+        supporting={<PageSectionNav items={content.sectionNav} />}
+      >
+        <DefinitionPanel
+          term="System"
+          definition="A coordinated engineering component that performs a specific role inside SAVEN Core."
+          coordinate="SYS"
+        />
 
-      <div className="page-supporting">
-        <div className="page-shell__inner">
-          <DocumentMetadata metadata={content.metadata} />
-          <PageSectionNav items={content.sectionNav} />
+        <EngineeringAnnotation
+          coordinate="ARC"
+          label="Reading order"
+          text="HUMAN SIGNALS → STRUCTURED KNOWLEDGE → CONTROLLED ACTION"
+        />
+
+        <div id="systems-overview">
+          <ArchitectureMap locale={locale} />
         </div>
-      </div>
+
+        <div id="systems-categories">
+          <ConceptGrid
+            locale={locale}
+            heading="Published systems"
+            identity="architecture"
+            items={systemCards}
+          />
+        </div>
+
+        <RelationshipFlow
+          locale={locale}
+          heading="Working relationships"
+          description="Shared context feeds assistance under safety and communication limits."
+          steps={[
+            {
+              id: "ke",
+              label: "Knowledge Engine",
+              href: "/systems/knowledge-engine/",
+              relation: "powers",
+            },
+            {
+              id: "ads",
+              label: "AI Decision Support",
+              href: "/systems/ai-decision-support/",
+              relation: "protected by",
+            },
+            {
+              id: "safety",
+              label: "Safety Layer",
+              href: "/systems/safety-layer/",
+              relation: "communicates through",
+            },
+            {
+              id: "comms",
+              label: "Communication Layer",
+              href: "/systems/communication-layer/",
+              relation: "reaches",
+            },
+            {
+              id: "clinical",
+              label: "Clinical Interfaces",
+              href: "/systems/clinical-interfaces/",
+            },
+          ]}
+        />
+
+        <section
+          id="systems-and-technology"
+          className="eng-block"
+          aria-labelledby="systems-chain-heading"
+        >
+          <h2 id="systems-chain-heading" className="eng-block__heading">
+            {content.technologyHeading}
+          </h2>
+          {content.technology.map((paragraph) => (
+            <p key={paragraph} className="eng-block__body">
+              {paragraph}
+            </p>
+          ))}
+        </section>
+
+        <section
+          id="systems-and-applications"
+          className="eng-block"
+          aria-labelledby="systems-applications-heading"
+        >
+          <h2 id="systems-applications-heading" className="eng-block__heading">
+            {content.applicationsHeading}
+          </h2>
+          {content.applications.map((paragraph) => (
+            <p key={paragraph} className="eng-block__body">
+              {paragraph}
+            </p>
+          ))}
+        </section>
+
+        <div id="engineering-principles">
+          <KeyPrinciples
+            heading={content.principlesHeading}
+            principles={content.principles}
+          />
+        </div>
+
+        <ScopePanel
+          id="current-development-scope"
+          variant="current-scope"
+          title={content.scopeHeading}
+        >
+          {content.scope.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+        </ScopePanel>
+
+        <ScopePanel
+          variant="engineering-note"
+          title="Development status"
+        >
+          <p>{content.developmentNote}</p>
+        </ScopePanel>
+
+        {futureItems.length > 0 ? (
+          <div id="future-expansion">
+            <FutureExpansionBlock
+              heading={content.futureHeading}
+              introduction={content.futureIntro}
+              items={futureItems}
+            />
+          </div>
+        ) : null}
+
+        <div id="reference-links">
+          <ReferenceLinks
+            locale={locale}
+            heading={content.referenceHeading}
+            links={content.referenceLinks}
+          />
+        </div>
+      </KnowledgeObjectFrame>
     </article>
   );
 }

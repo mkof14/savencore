@@ -137,6 +137,7 @@ export const platformStatusItems = [
 export const featuredConcepts = [
   {
     id: "human-data",
+    knowledgeId: "human-data",
     title: "Human Data",
     role: "Signal intake",
     href: "/technology/human-data/",
@@ -144,6 +145,7 @@ export const featuredConcepts = [
   },
   {
     id: "knowledge-engine",
+    knowledgeId: "knowledge-engine",
     title: "Knowledge Engine",
     role: "Context layer",
     href: "/systems/knowledge-engine/",
@@ -151,6 +153,7 @@ export const featuredConcepts = [
   },
   {
     id: "ai-decision-support",
+    knowledgeId: "ai-decision-support",
     title: "AI Decision Support",
     role: "Review support",
     href: "/systems/ai-decision-support/",
@@ -158,6 +161,7 @@ export const featuredConcepts = [
   },
   {
     id: "safety-layer",
+    knowledgeId: "safety-layer",
     title: "Safety Layer",
     role: "Control path",
     href: "/systems/safety-layer/",
@@ -165,6 +169,7 @@ export const featuredConcepts = [
   },
   {
     id: "human-oversight",
+    knowledgeId: "human-oversight",
     title: "Human Oversight",
     role: "Authority boundary",
     href: "/trust/human-oversight/",

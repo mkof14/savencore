@@ -1,6 +1,5 @@
 import {
   DefinitionPanel,
-  DocumentMetadata,
   EngineeringSummary,
   FutureExpansionBlock,
   KeyPrinciples,
@@ -11,6 +10,7 @@ import {
   type SignalDiagramVariant,
 } from "@/components/engineering";
 import { EntityRelationshipIndex } from "@/components/knowledge/EntityRelationshipIndex";
+import { KnowledgeObjectFrame } from "@/components/knowledge-object";
 import { KnowledgePageNavigation } from "@/components/pages/KnowledgePageNavigation";
 import { PageSectionNav } from "@/components/pages/PageSectionNav";
 import type { Locale } from "@/config/locales";
@@ -126,181 +126,186 @@ export function TechnologyDisciplinePage({
         visualization={<SignalDiagram variant={diagram} />}
       />
 
-      <div className="page-body">
-        <div className="page-shell__inner">
-          <DefinitionPanel
-            term={definition.term}
-            definition={definition.definition}
-            coordinate={definition.coordinate}
-          />
-
-          <div id="executive-summary" className="eng-block--lede">
-            <EngineeringSummary
-              heading={content.executiveSummaryHeading}
-              paragraphs={content.executiveSummary}
-            />
-          </div>
-
-          <section
-            id="why-it-matters"
-            className="eng-block"
-            aria-labelledby="tech-discipline-why-heading"
-          >
-            <h2
-              id="tech-discipline-why-heading"
-              className="eng-block__heading"
-            >
-              {content.whyItMattersHeading}
-            </h2>
-            {content.whyItMatters.map((paragraph) => (
-              <p key={paragraph} className="eng-block__body">
-                {paragraph}
-              </p>
-            ))}
-          </section>
-
-          <section
-            id="purpose"
-            className="eng-block"
-            aria-labelledby="tech-discipline-purpose-heading"
-          >
-            <h2
-              id="tech-discipline-purpose-heading"
-              className="eng-block__heading"
-            >
-              {content.purposeHeading}
-            </h2>
-            {content.purpose.map((paragraph) => (
-              <p key={paragraph} className="eng-block__body">
-                {paragraph}
-              </p>
-            ))}
-          </section>
-
-          <section
-            id="core-concepts"
-            className="eng-block"
-            aria-labelledby="tech-discipline-concepts-heading"
-          >
-            <h2
-              id="tech-discipline-concepts-heading"
-              className="eng-block__heading"
-            >
-              {content.coreConceptsHeading}
-            </h2>
-            <p className="eng-block__body">{content.coreConceptsIntro}</p>
-            <ul className="eng-principles">
-              {content.coreConcepts.map((concept) => (
-                <li key={concept.id} className="eng-principles__item">
-                  <h3 className="eng-principles__title">{concept.title}</h3>
-                  <p className="eng-principles__text">{concept.text}</p>
-                </li>
-              ))}
-            </ul>
-          </section>
-
-          <section
-            id="relationships"
-            className="eng-block"
-            aria-labelledby="tech-discipline-relationships-heading"
-          >
-            <h2
-              id="tech-discipline-relationships-heading"
-              className="eng-block__heading"
-            >
-              {content.relationshipsHeading}
-            </h2>
-            <p className="eng-block__body">{content.relationshipsIntro}</p>
-            <EntityRelationshipIndex
-              locale={locale}
-              entityId={content.entityId}
-              heading={null}
-              groupHeadingLevel={3}
-              includeGroups={RELATIONSHIP_GROUPS}
-              className="tech-discipline-relationships-index"
-            />
-          </section>
-
-          <div id="engineering-principles">
-            <KeyPrinciples
-              heading={content.principlesHeading}
-              principles={content.principles}
-            />
-          </div>
-
-          <ScopePanel
-            id="current-development-scope"
-            variant="current-scope"
-            title={content.scopeHeading}
-          >
-            {content.scope.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-          </ScopePanel>
-
-          <ScopePanel variant="engineering-note" title="Development status">
-            <p>{content.developmentNote}</p>
-          </ScopePanel>
-
-          {futureItems.length > 0 ? (
-            <div id="future-topics">
-              <FutureExpansionBlock
-                heading={content.futureHeading}
-                introduction={content.futureIntro}
-                items={futureItems}
-              />
-            </div>
-          ) : null}
-
-          <div id="related-systems">
-            <EntityRelationshipIndex
-              locale={locale}
-              entityId={content.entityId}
-              heading={content.relatedSystemsHeading}
-              includeGroups={["related-systems"]}
-            />
-          </div>
-
-          <div id="related-research">
-            <EntityRelationshipIndex
-              locale={locale}
-              entityId={content.entityId}
-              heading={content.relatedResearchHeading}
-              includeGroups={["related-research"]}
-            />
-          </div>
-
-          <div id="related-applications">
-            <EntityRelationshipIndex
-              locale={locale}
-              entityId={content.entityId}
-              heading={content.relatedApplicationsHeading}
-              includeGroups={["related-applications"]}
-            />
-          </div>
-
-          <div id="reference-links">
-            <ReferenceLinks
-              locale={locale}
-              heading={content.referenceHeading}
-              links={content.referenceLinks}
-            />
-          </div>
-        </div>
-      </div>
-
-      <KnowledgePageNavigation
+      <KnowledgeObjectFrame
+        locale={locale}
+        domain={"technology"}
+        input={{
+          knowledgeId: content.entityId,
+          href: currentHref,
+          title: content.label,
+          domain: "Technology",
+          entityId: content.entityId,
+          metadata: content.metadata,
+          currentScope: content.developmentNote,
+        }}
+        between={
+          <KnowledgePageNavigation
         locale={locale}
         domain="technology"
         currentHref={currentHref}
-      />
+          />
+        }
+        supporting={<PageSectionNav items={content.sectionNav} />}
+      >
+        <DefinitionPanel
+          term={definition.term}
+          definition={definition.definition}
+          coordinate={definition.coordinate}
+        />
 
-      <div className="page-supporting">
-        <div className="page-shell__inner">
-          <DocumentMetadata metadata={content.metadata} />
-          <PageSectionNav items={content.sectionNav} />
+        <div id="executive-summary" className="eng-block--lede">
+          <EngineeringSummary
+            heading={content.executiveSummaryHeading}
+            paragraphs={content.executiveSummary}
+          />
         </div>
-      </div>
+
+        <section
+          id="why-it-matters"
+          className="eng-block"
+          aria-labelledby="tech-discipline-why-heading"
+        >
+          <h2
+            id="tech-discipline-why-heading"
+            className="eng-block__heading"
+          >
+            {content.whyItMattersHeading}
+          </h2>
+          {content.whyItMatters.map((paragraph) => (
+            <p key={paragraph} className="eng-block__body">
+              {paragraph}
+            </p>
+          ))}
+        </section>
+
+        <section
+          id="purpose"
+          className="eng-block"
+          aria-labelledby="tech-discipline-purpose-heading"
+        >
+          <h2
+            id="tech-discipline-purpose-heading"
+            className="eng-block__heading"
+          >
+            {content.purposeHeading}
+          </h2>
+          {content.purpose.map((paragraph) => (
+            <p key={paragraph} className="eng-block__body">
+              {paragraph}
+            </p>
+          ))}
+        </section>
+
+        <section
+          id="core-concepts"
+          className="eng-block"
+          aria-labelledby="tech-discipline-concepts-heading"
+        >
+          <h2
+            id="tech-discipline-concepts-heading"
+            className="eng-block__heading"
+          >
+            {content.coreConceptsHeading}
+          </h2>
+          <p className="eng-block__body">{content.coreConceptsIntro}</p>
+          <ul className="eng-principles">
+            {content.coreConcepts.map((concept) => (
+              <li key={concept.id} className="eng-principles__item">
+                <h3 className="eng-principles__title">{concept.title}</h3>
+                <p className="eng-principles__text">{concept.text}</p>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section
+          id="relationships"
+          className="eng-block"
+          aria-labelledby="tech-discipline-relationships-heading"
+        >
+          <h2
+            id="tech-discipline-relationships-heading"
+            className="eng-block__heading"
+          >
+            {content.relationshipsHeading}
+          </h2>
+          <p className="eng-block__body">{content.relationshipsIntro}</p>
+          <EntityRelationshipIndex
+            locale={locale}
+            entityId={content.entityId}
+            heading={null}
+            groupHeadingLevel={3}
+            includeGroups={RELATIONSHIP_GROUPS}
+            className="tech-discipline-relationships-index"
+          />
+        </section>
+
+        <div id="engineering-principles">
+          <KeyPrinciples
+            heading={content.principlesHeading}
+            principles={content.principles}
+          />
+        </div>
+
+        <ScopePanel
+          id="current-development-scope"
+          variant="current-scope"
+          title={content.scopeHeading}
+        >
+          {content.scope.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+        </ScopePanel>
+
+        <ScopePanel variant="engineering-note" title="Development status">
+          <p>{content.developmentNote}</p>
+        </ScopePanel>
+
+        {futureItems.length > 0 ? (
+          <div id="future-topics">
+            <FutureExpansionBlock
+              heading={content.futureHeading}
+              introduction={content.futureIntro}
+              items={futureItems}
+            />
+          </div>
+        ) : null}
+
+        <div id="related-systems">
+          <EntityRelationshipIndex
+            locale={locale}
+            entityId={content.entityId}
+            heading={content.relatedSystemsHeading}
+            includeGroups={["related-systems"]}
+          />
+        </div>
+
+        <div id="related-research">
+          <EntityRelationshipIndex
+            locale={locale}
+            entityId={content.entityId}
+            heading={content.relatedResearchHeading}
+            includeGroups={["related-research"]}
+          />
+        </div>
+
+        <div id="related-applications">
+          <EntityRelationshipIndex
+            locale={locale}
+            entityId={content.entityId}
+            heading={content.relatedApplicationsHeading}
+            includeGroups={["related-applications"]}
+          />
+        </div>
+
+        <div id="reference-links">
+          <ReferenceLinks
+            locale={locale}
+            heading={content.referenceHeading}
+            links={content.referenceLinks}
+          />
+        </div>
+      </KnowledgeObjectFrame>
     </article>
   );
 }

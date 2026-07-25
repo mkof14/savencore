@@ -1,7 +1,6 @@
 import {
   ConceptGrid,
   DefinitionPanel,
-  DocumentMetadata,
   EngineeringAnnotation,
   FutureExpansionBlock,
   KeyPrinciples,
@@ -11,6 +10,7 @@ import {
   ScopePanel,
   SignalDiagram,
 } from "@/components/engineering";
+import { KnowledgeObjectFrame } from "@/components/knowledge-object";
 import { KnowledgePageNavigation } from "@/components/pages/KnowledgePageNavigation";
 import { PageSectionNav } from "@/components/pages/PageSectionNav";
 import type { Locale } from "@/config/locales";
@@ -117,132 +117,136 @@ export function TechnologyPage({ locale, content }: TechnologyPageProps) {
         visualization={<SignalDiagram variant="technology-overview" />}
       />
 
-      <div className="page-body">
-        <div className="page-shell__inner">
-          <DefinitionPanel
-            term="Technology"
-            definition="Technical capabilities and engineering foundations used to build SAVEN Core systems."
-            coordinate="TEC"
-          />
-
-          <EngineeringAnnotation
-            coordinate="LAY"
-            label="Foundation sequence"
-            text="Human Data → Human Data Model → Data Infrastructure → Systems"
-          />
-
-          <section
-            id="technology-overview"
-            className="eng-block"
-            aria-labelledby="technology-domain-map-heading"
-          >
-            <h2
-              id="technology-domain-map-heading"
-              className="eng-block__heading"
-            >
-              Domain map
-            </h2>
-            <p className="eng-block__body">
-              How Technology connects into Systems and Applications.
-            </p>
-            <RelationshipFlow
-              locale={locale}
-              heading="Reading path"
-              description="Foundations organize before Systems assist people."
-              steps={[
-                {
-                  id: "human-data",
-                  label: "Human Data",
-                  href: "/technology/human-data/",
-                  relation: "organized by",
-                },
-                {
-                  id: "hdm",
-                  label: "Human Data Model",
-                  href: "/technology/human-data-model/",
-                  relation: "supported by",
-                },
-                {
-                  id: "data-infra",
-                  label: "Data Infrastructure",
-                  href: "/technology/data-infrastructure/",
-                  relation: "feeds",
-                },
-                {
-                  id: "ke",
-                  label: "Knowledge Engine",
-                  href: "/systems/knowledge-engine/",
-                  relation: "enables",
-                },
-                {
-                  id: "ads",
-                  label: "AI Decision Support",
-                  href: "/systems/ai-decision-support/",
-                },
-              ]}
-            />
-          </section>
-
-          <div id="technology-categories">
-            <ConceptGrid
-              locale={locale}
-              heading="Technology disciplines"
-              identity="blueprint"
-              items={technologyCards}
-            />
-          </div>
-
-          <div id="engineering-principles">
-            <KeyPrinciples
-              heading={content.principlesHeading}
-              principles={content.principles}
-            />
-          </div>
-
-          <ScopePanel
-            id="current-development-scope"
-            variant="current-scope"
-            title={content.scopeHeading}
-          >
-            {content.scope.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-          </ScopePanel>
-
-          <ScopePanel variant="engineering-note" title="Development status">
-            <p>{content.developmentNote}</p>
-          </ScopePanel>
-
-          <div id="future-expansion">
-            <FutureExpansionBlock
-              heading={content.futureHeading}
-              introduction={content.futureIntro}
-              items={futureItems}
-            />
-          </div>
-
-          <div id="reference-links">
-            <ReferenceLinks
-              locale={locale}
-              heading={content.referenceHeading}
-              links={content.referenceLinks}
-            />
-          </div>
-        </div>
-      </div>
-
-      <KnowledgePageNavigation
+      <KnowledgeObjectFrame
+        locale={locale}
+        domain={"technology"}
+        input={{
+          knowledgeId: "page-technology",
+          href: "/technology/",
+          title: content.label,
+          domain: "Technology",
+          metadata: content.metadata,
+          currentScope: content.developmentNote,
+        }}
+        between={
+          <KnowledgePageNavigation
         locale={locale}
         domain="technology"
         currentHref="/technology/"
-      />
+          />
+        }
+        supporting={<PageSectionNav items={content.sectionNav} />}
+      >
+        <DefinitionPanel
+          term="Technology"
+          definition="Technical capabilities and engineering foundations used to build SAVEN Core systems."
+          coordinate="TEC"
+        />
 
-      <div className="page-supporting">
-        <div className="page-shell__inner">
-          <DocumentMetadata metadata={content.metadata} />
-          <PageSectionNav items={content.sectionNav} />
+        <EngineeringAnnotation
+          coordinate="LAY"
+          label="Foundation sequence"
+          text="Human Data → Human Data Model → Data Infrastructure → Systems"
+        />
+
+        <section
+          id="technology-overview"
+          className="eng-block"
+          aria-labelledby="technology-domain-map-heading"
+        >
+          <h2
+            id="technology-domain-map-heading"
+            className="eng-block__heading"
+          >
+            Domain map
+          </h2>
+          <p className="eng-block__body">
+            How Technology connects into Systems and Applications.
+          </p>
+          <RelationshipFlow
+            locale={locale}
+            heading="Reading path"
+            description="Foundations organize before Systems assist people."
+            steps={[
+              {
+                id: "human-data",
+                label: "Human Data",
+                href: "/technology/human-data/",
+                relation: "organized by",
+              },
+              {
+                id: "hdm",
+                label: "Human Data Model",
+                href: "/technology/human-data-model/",
+                relation: "supported by",
+              },
+              {
+                id: "data-infra",
+                label: "Data Infrastructure",
+                href: "/technology/data-infrastructure/",
+                relation: "feeds",
+              },
+              {
+                id: "ke",
+                label: "Knowledge Engine",
+                href: "/systems/knowledge-engine/",
+                relation: "enables",
+              },
+              {
+                id: "ads",
+                label: "AI Decision Support",
+                href: "/systems/ai-decision-support/",
+              },
+            ]}
+          />
+        </section>
+
+        <div id="technology-categories">
+          <ConceptGrid
+            locale={locale}
+            heading="Technology disciplines"
+            identity="blueprint"
+            items={technologyCards}
+          />
         </div>
-      </div>
+
+        <div id="engineering-principles">
+          <KeyPrinciples
+            heading={content.principlesHeading}
+            principles={content.principles}
+          />
+        </div>
+
+        <ScopePanel
+          id="current-development-scope"
+          variant="current-scope"
+          title={content.scopeHeading}
+        >
+          {content.scope.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+        </ScopePanel>
+
+        <ScopePanel variant="engineering-note" title="Development status">
+          <p>{content.developmentNote}</p>
+        </ScopePanel>
+
+        <div id="future-expansion">
+          <FutureExpansionBlock
+            heading={content.futureHeading}
+            introduction={content.futureIntro}
+            items={futureItems}
+          />
+        </div>
+
+        <div id="reference-links">
+          <ReferenceLinks
+            locale={locale}
+            heading={content.referenceHeading}
+            links={content.referenceLinks}
+          />
+        </div>
+      </KnowledgeObjectFrame>
     </article>
   );
 }

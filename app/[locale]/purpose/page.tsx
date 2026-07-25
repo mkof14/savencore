@@ -16,5 +16,17 @@ export default async function PurposePage({ params }: PurposePageProps) {
     notFound();
   }
 
-  return <EditorialPage locale={localeParam} content={purposePageContent} />;
+  return (
+    <EditorialPage
+      locale={localeParam}
+      content={purposePageContent}
+      knowledge={{
+        knowledgeId: "page-purpose",
+        href: "/purpose/",
+        title: "Purpose",
+        domain: "Purpose",
+        typeOverride: "Foundation",
+      }}
+    />
+  );
 }

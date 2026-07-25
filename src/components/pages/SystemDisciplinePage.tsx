@@ -1,7 +1,6 @@
 import {
   ConceptGrid,
   DefinitionPanel,
-  DocumentMetadata,
   EngineeringSummary,
   FutureExpansionBlock,
   KeyPrinciples,
@@ -13,6 +12,7 @@ import {
   type SignalDiagramVariant,
 } from "@/components/engineering";
 import { EntityRelationshipIndex } from "@/components/knowledge/EntityRelationshipIndex";
+import { KnowledgeObjectFrame } from "@/components/knowledge-object";
 import { KnowledgePageNavigation } from "@/components/pages/KnowledgePageNavigation";
 import { PageSectionNav } from "@/components/pages/PageSectionNav";
 import type { Locale } from "@/config/locales";
@@ -190,337 +190,342 @@ export function SystemDisciplinePage({
         }
       />
 
-      <div className="page-body">
-        <div className="page-shell__inner">
-          {hero ? (
-            <>
-              <DefinitionPanel
-                term={hero.term}
-                definition={hero.definition}
-                coordinate={hero.coordinate}
-              />
+      <KnowledgeObjectFrame
+        locale={locale}
+        domain={"systems"}
+        input={{
+          knowledgeId: content.entityId,
+          href: currentHref,
+          title: content.label,
+          domain: "Systems",
+          entityId: content.entityId,
+          metadata: content.metadata,
+          currentScope: content.developmentNote,
+        }}
+        between={
+          <KnowledgePageNavigation
+        locale={locale}
+        domain="systems"
+        currentHref={currentHref}
+          />
+        }
+        supporting={<PageSectionNav items={content.sectionNav} />}
+      >
+        {hero ? (
+          <>
+            <DefinitionPanel
+              term={hero.term}
+              definition={hero.definition}
+              coordinate={hero.coordinate}
+            />
 
-              {content.entityId === "knowledge-engine" ? (
-                <>
-                  <ConceptGrid
-                    locale={locale}
-                    heading="Connected systems"
-                    identity="architecture"
-                    items={[
-                      {
-                        id: "ads",
-                        title: "AI Decision Support",
-                        responsibility:
-                          "Analyzes available information to support people. Does not replace people.",
-                        relationship: "Consumes knowledge context",
-                        href: "/systems/ai-decision-support/",
-                        role: "system",
-                        classification: "SYS-02",
-                      },
-                      {
-                        id: "safety",
-                        title: "Safety Layer",
-                        responsibility:
-                          "Applies validation, limits, human review and escalation.",
-                        relationship: "Governs knowledge pathways",
-                        href: "/systems/safety-layer/",
-                        role: "control",
-                        classification: "CTL-01",
-                      },
-                      {
-                        id: "hdm",
-                        title: "Human Data Model",
-                        responsibility:
-                          "Structured representation that organizes Human Data.",
-                        relationship: "Foundation for structured knowledge",
-                        href: "/technology/human-data-model/",
-                        role: "foundation",
-                        classification: "TEC-02",
-                      },
-                    ]}
-                  />
+            {content.entityId === "knowledge-engine" ? (
+              <>
+                <ConceptGrid
+                  locale={locale}
+                  heading="Connected systems"
+                  identity="architecture"
+                  items={[
+                    {
+                      id: "ads",
+                      title: "AI Decision Support",
+                      responsibility:
+                        "Analyzes available information to support people. Does not replace people.",
+                      relationship: "Consumes knowledge context",
+                      href: "/systems/ai-decision-support/",
+                      role: "system",
+                      classification: "SYS-02",
+                    },
+                    {
+                      id: "safety",
+                      title: "Safety Layer",
+                      responsibility:
+                        "Applies validation, limits, human review and escalation.",
+                      relationship: "Governs knowledge pathways",
+                      href: "/systems/safety-layer/",
+                      role: "control",
+                      classification: "CTL-01",
+                    },
+                    {
+                      id: "hdm",
+                      title: "Human Data Model",
+                      responsibility:
+                        "Structured representation that organizes Human Data.",
+                      relationship: "Foundation for structured knowledge",
+                      href: "/technology/human-data-model/",
+                      role: "foundation",
+                      classification: "TEC-02",
+                    },
+                  ]}
+                />
 
-                  <RelationshipFlow
-                    locale={locale}
-                    heading="Architecture relationships"
-                    steps={[
-                      {
-                        id: "ke",
-                        label: "Knowledge Engine",
-                        href: "/systems/knowledge-engine/",
-                        relation: "powers",
-                      },
-                      {
-                        id: "ads",
-                        label: "AI Decision Support",
-                        href: "/systems/ai-decision-support/",
-                        relation: "protected by",
-                      },
-                      {
-                        id: "safety",
-                        label: "Safety Layer",
-                        href: "/systems/safety-layer/",
-                        relation: "communicates through",
-                      },
-                      {
-                        id: "comms",
-                        label: "Communication Layer",
-                        href: "/systems/communication-layer/",
-                      },
-                    ]}
-                  />
-                </>
-              ) : null}
-
-              {content.entityId === "ai-decision-support" ? (
                 <RelationshipFlow
                   locale={locale}
-                  heading="Review path"
-                  description="Knowledge and signals support analysis that stops at human review."
+                  heading="Architecture relationships"
                   steps={[
                     {
                       id: "ke",
                       label: "Knowledge Engine",
                       href: "/systems/knowledge-engine/",
-                      relation: "feeds",
+                      relation: "powers",
                     },
                     {
                       id: "ads",
                       label: "AI Decision Support",
                       href: "/systems/ai-decision-support/",
-                      relation: "stops at",
+                      relation: "protected by",
                     },
                     {
-                      id: "human",
-                      label: "Human review",
+                      id: "safety",
+                      label: "Safety Layer",
+                      href: "/systems/safety-layer/",
+                      relation: "communicates through",
+                    },
+                    {
+                      id: "comms",
+                      label: "Communication Layer",
+                      href: "/systems/communication-layer/",
                     },
                   ]}
                 />
-              ) : null}
+              </>
+            ) : null}
 
-              {content.entityId === "safety-layer" ? (
-                <RelationshipFlow
-                  locale={locale}
-                  heading="Control path"
-                  description="Checks, limits, escalation, and oversight govern system action."
-                  steps={[
-                    {
-                      id: "checks",
-                      label: "Checks",
-                      relation: "then",
-                    },
-                    {
-                      id: "limits",
-                      label: "Limits",
-                      relation: "then",
-                    },
-                    {
-                      id: "escalation",
-                      label: "Escalation",
-                      relation: "to",
-                    },
-                    {
-                      id: "oversight",
-                      label: "Human oversight",
-                    },
-                  ]}
-                />
-              ) : null}
-            </>
-          ) : null}
-
-          <div id="executive-summary">
-            <EngineeringSummary
-              heading={content.executiveSummaryHeading}
-              paragraphs={content.executiveSummary}
-            />
-          </div>
-
-          <ProseSection
-            id="why-it-matters"
-            heading={content.whyItMattersHeading}
-            paragraphs={content.whyItMatters}
-          />
-
-          <ProseSection
-            id="purpose"
-            heading={content.purposeHeading}
-            paragraphs={content.purpose}
-          />
-
-          <ProseSection
-            id="architecture-role"
-            heading={content.architectureRoleHeading}
-            paragraphs={content.architectureRole}
-          />
-
-          {content.inputs.length > 0 ? (
-            <section
-              id="inputs"
-              className="eng-block"
-              aria-labelledby="system-inputs-heading"
-            >
-              <h2 id="system-inputs-heading" className="eng-block__heading">
-                {content.inputsHeading}
-              </h2>
-              <ul className="eng-principles">
-                {content.inputs.map((item) => (
-                  <li key={item} className="eng-principles__item">
-                    <p className="eng-principles__text">{item}</p>
-                  </li>
-                ))}
-              </ul>
-            </section>
-          ) : null}
-
-          {content.outputs.length > 0 ? (
-            <section
-              id="outputs"
-              className="eng-block"
-              aria-labelledby="system-outputs-heading"
-            >
-              <h2 id="system-outputs-heading" className="eng-block__heading">
-                {content.outputsHeading}
-              </h2>
-              <ul className="eng-principles">
-                {content.outputs.map((item) => (
-                  <li key={item} className="eng-principles__item">
-                    <p className="eng-principles__text">{item}</p>
-                  </li>
-                ))}
-              </ul>
-            </section>
-          ) : null}
-
-          {showRelationships ? (
-            <section
-              id="relationships"
-              className="eng-block"
-              aria-labelledby="system-relationships-heading"
-            >
-              <h2
-                id="system-relationships-heading"
-                className="eng-block__heading"
-              >
-                {content.relationshipsHeading}
-              </h2>
-              <p className="eng-block__body">{content.relationshipsIntro}</p>
-              <EntityRelationshipIndex
+            {content.entityId === "ai-decision-support" ? (
+              <RelationshipFlow
                 locale={locale}
-                entityId={content.entityId}
-                heading={null}
-                groupHeadingLevel={3}
-                includeGroups={SYSTEM_RELATION_GROUPS}
-                className="system-discipline-relationships-index"
+                heading="Review path"
+                description="Knowledge and signals support analysis that stops at human review."
+                steps={[
+                  {
+                    id: "ke",
+                    label: "Knowledge Engine",
+                    href: "/systems/knowledge-engine/",
+                    relation: "feeds",
+                  },
+                  {
+                    id: "ads",
+                    label: "AI Decision Support",
+                    href: "/systems/ai-decision-support/",
+                    relation: "stops at",
+                  },
+                  {
+                    id: "human",
+                    label: "Human review",
+                  },
+                ]}
               />
-            </section>
-          ) : null}
+            ) : null}
 
-          <div id="engineering-principles">
-            <KeyPrinciples
-              heading={content.principlesHeading}
-              principles={content.principles}
-            />
-          </div>
+            {content.entityId === "safety-layer" ? (
+              <RelationshipFlow
+                locale={locale}
+                heading="Control path"
+                description="Checks, limits, escalation, and oversight govern system action."
+                steps={[
+                  {
+                    id: "checks",
+                    label: "Checks",
+                    relation: "then",
+                  },
+                  {
+                    id: "limits",
+                    label: "Limits",
+                    relation: "then",
+                  },
+                  {
+                    id: "escalation",
+                    label: "Escalation",
+                    relation: "to",
+                  },
+                  {
+                    id: "oversight",
+                    label: "Human oversight",
+                  },
+                ]}
+              />
+            ) : null}
+          </>
+        ) : null}
 
-          {content.humanOversight.length > 0 ? (
-            <ScopePanel
-              id="human-oversight"
-              variant="human-oversight"
-              title={content.humanOversightHeading}
-            >
-              {content.humanOversight.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
-            </ScopePanel>
-          ) : null}
+        <div id="executive-summary">
+          <EngineeringSummary
+            heading={content.executiveSummaryHeading}
+            paragraphs={content.executiveSummary}
+          />
+        </div>
 
-          {content.entityId === "safety-layer" &&
-          content.humanOversight.length > 0 ? (
-            <ScopePanel variant="safety-boundary" title="Safety boundary">
-              <p>{content.humanOversight[0]}</p>
-            </ScopePanel>
-          ) : null}
+        <ProseSection
+          id="why-it-matters"
+          heading={content.whyItMattersHeading}
+          paragraphs={content.whyItMatters}
+        />
 
-          <ScopePanel
-            id="current-development-scope"
-            variant="current-scope"
-            title={content.scopeHeading}
+        <ProseSection
+          id="purpose"
+          heading={content.purposeHeading}
+          paragraphs={content.purpose}
+        />
+
+        <ProseSection
+          id="architecture-role"
+          heading={content.architectureRoleHeading}
+          paragraphs={content.architectureRole}
+        />
+
+        {content.inputs.length > 0 ? (
+          <section
+            id="inputs"
+            className="eng-block"
+            aria-labelledby="system-inputs-heading"
           >
-            {content.scope.map((paragraph) => (
+            <h2 id="system-inputs-heading" className="eng-block__heading">
+              {content.inputsHeading}
+            </h2>
+            <ul className="eng-principles">
+              {content.inputs.map((item) => (
+                <li key={item} className="eng-principles__item">
+                  <p className="eng-principles__text">{item}</p>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ) : null}
+
+        {content.outputs.length > 0 ? (
+          <section
+            id="outputs"
+            className="eng-block"
+            aria-labelledby="system-outputs-heading"
+          >
+            <h2 id="system-outputs-heading" className="eng-block__heading">
+              {content.outputsHeading}
+            </h2>
+            <ul className="eng-principles">
+              {content.outputs.map((item) => (
+                <li key={item} className="eng-principles__item">
+                  <p className="eng-principles__text">{item}</p>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ) : null}
+
+        {showRelationships ? (
+          <section
+            id="relationships"
+            className="eng-block"
+            aria-labelledby="system-relationships-heading"
+          >
+            <h2
+              id="system-relationships-heading"
+              className="eng-block__heading"
+            >
+              {content.relationshipsHeading}
+            </h2>
+            <p className="eng-block__body">{content.relationshipsIntro}</p>
+            <EntityRelationshipIndex
+              locale={locale}
+              entityId={content.entityId}
+              heading={null}
+              groupHeadingLevel={3}
+              includeGroups={SYSTEM_RELATION_GROUPS}
+              className="system-discipline-relationships-index"
+            />
+          </section>
+        ) : null}
+
+        <div id="engineering-principles">
+          <KeyPrinciples
+            heading={content.principlesHeading}
+            principles={content.principles}
+          />
+        </div>
+
+        {content.humanOversight.length > 0 ? (
+          <ScopePanel
+            id="human-oversight"
+            variant="human-oversight"
+            title={content.humanOversightHeading}
+          >
+            {content.humanOversight.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}
           </ScopePanel>
+        ) : null}
 
-          <ScopePanel variant="engineering-note" title="Development status">
-            <p>{content.developmentNote}</p>
+        {content.entityId === "safety-layer" &&
+        content.humanOversight.length > 0 ? (
+          <ScopePanel variant="safety-boundary" title="Safety boundary">
+            <p>{content.humanOversight[0]}</p>
           </ScopePanel>
+        ) : null}
 
-          {futureItems.length > 0 ? (
-            <div id="future-topics">
-              <FutureExpansionBlock
-                heading={content.futureHeading}
-                introduction={content.futureIntro}
-                items={futureItems}
-              />
-            </div>
-          ) : null}
+        <ScopePanel
+          id="current-development-scope"
+          variant="current-scope"
+          title={content.scopeHeading}
+        >
+          {content.scope.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+        </ScopePanel>
 
-          {showRelatedTechnology ? (
-            <div id="related-technology">
-              <EntityRelationshipIndex
-                locale={locale}
-                entityId={content.entityId}
-                heading={content.relatedTechnologyHeading}
-                includeGroups={["related-technologies"]}
-              />
-            </div>
-          ) : null}
+        <ScopePanel variant="engineering-note" title="Development status">
+          <p>{content.developmentNote}</p>
+        </ScopePanel>
 
-          {showRelatedSystems ? (
-            <div id="related-systems">
-              <EntityRelationshipIndex
-                locale={locale}
-                entityId={content.entityId}
-                heading={content.relatedSystemsHeading}
-                includeGroups={["related-systems"]}
-              />
-            </div>
-          ) : null}
-
-          {showRelatedApplications ? (
-            <div id="related-applications">
-              <EntityRelationshipIndex
-                locale={locale}
-                entityId={content.entityId}
-                heading={content.relatedApplicationsHeading}
-                includeGroups={["related-applications"]}
-              />
-            </div>
-          ) : null}
-
-          <div id="reference-links">
-            <ReferenceLinks
-              locale={locale}
-              heading={content.referenceHeading}
-              links={content.referenceLinks}
+        {futureItems.length > 0 ? (
+          <div id="future-topics">
+            <FutureExpansionBlock
+              heading={content.futureHeading}
+              introduction={content.futureIntro}
+              items={futureItems}
             />
           </div>
-        </div>
-      </div>
+        ) : null}
 
-      <KnowledgePageNavigation
-        locale={locale}
-        domain="systems"
-        currentHref={currentHref}
-      />
+        {showRelatedTechnology ? (
+          <div id="related-technology">
+            <EntityRelationshipIndex
+              locale={locale}
+              entityId={content.entityId}
+              heading={content.relatedTechnologyHeading}
+              includeGroups={["related-technologies"]}
+            />
+          </div>
+        ) : null}
 
-      <div className="page-supporting">
-        <div className="page-shell__inner">
-          <DocumentMetadata metadata={content.metadata} />
-          <PageSectionNav items={content.sectionNav} />
+        {showRelatedSystems ? (
+          <div id="related-systems">
+            <EntityRelationshipIndex
+              locale={locale}
+              entityId={content.entityId}
+              heading={content.relatedSystemsHeading}
+              includeGroups={["related-systems"]}
+            />
+          </div>
+        ) : null}
+
+        {showRelatedApplications ? (
+          <div id="related-applications">
+            <EntityRelationshipIndex
+              locale={locale}
+              entityId={content.entityId}
+              heading={content.relatedApplicationsHeading}
+              includeGroups={["related-applications"]}
+            />
+          </div>
+        ) : null}
+
+        <div id="reference-links">
+          <ReferenceLinks
+            locale={locale}
+            heading={content.referenceHeading}
+            links={content.referenceLinks}
+          />
         </div>
-      </div>
+      </KnowledgeObjectFrame>
     </article>
   );
 }

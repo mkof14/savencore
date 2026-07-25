@@ -1,6 +1,5 @@
 import {
   DefinitionPanel,
-  DocumentMetadata,
   EngineeringSummary,
   FutureExpansionBlock,
   KeyPrinciples,
@@ -10,6 +9,7 @@ import {
   SignalDiagram,
 } from "@/components/engineering";
 import { EntityRelationshipIndex } from "@/components/knowledge/EntityRelationshipIndex";
+import { KnowledgeObjectFrame } from "@/components/knowledge-object";
 import { KnowledgePageNavigation } from "@/components/pages/KnowledgePageNavigation";
 import { PageSectionNav } from "@/components/pages/PageSectionNav";
 import type { Locale } from "@/config/locales";
@@ -86,154 +86,159 @@ export function TrustDisciplinePage({ locale, content }: Props) {
         visualization={<SignalDiagram variant={content.diagramVariant} />}
       />
 
-      <div className="page-body">
-        <div className="page-shell__inner">
-          <DefinitionPanel
-            term={content.definitionTerm}
-            definition={content.definition}
-            coordinate={content.definitionCoordinate}
-          />
-
-          <div id="executive-summary">
-            <EngineeringSummary
-              heading={content.executiveSummaryHeading}
-              paragraphs={content.executiveSummary}
-            />
-          </div>
-
-          <ProseSection
-            id="principle"
-            heading={content.principleHeading}
-            paragraphs={content.principle}
-          />
-          <ProseSection
-            id="why-it-matters"
-            heading={content.whyItMattersHeading}
-            paragraphs={content.whyItMatters}
-          />
-          <ProseSection
-            id="responsibilities"
-            heading={content.responsibilitiesHeading}
-            paragraphs={content.responsibilities}
-          />
-
-          {content.boundaries.length > 0 ? (
-            <ScopePanel
-              id="boundaries"
-              variant="safety-boundary"
-              title={content.boundariesHeading}
-            >
-              {content.boundaries.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
-            </ScopePanel>
-          ) : null}
-
-          <ProseSection
-            id="controls"
-            heading={content.controlsHeading}
-            paragraphs={content.controls}
-          />
-
-          {content.humanOversight.length > 0 ? (
-            <ScopePanel
-              id="human-oversight"
-              variant="human-oversight"
-              title={content.humanOversightHeading}
-            >
-              {content.humanOversight.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
-            </ScopePanel>
-          ) : null}
-
-          {content.limitations.length > 0 ? (
-            <ScopePanel
-              id="limitations"
-              variant="limitation"
-              title={content.limitationsHeading}
-            >
-              {content.limitations.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
-            </ScopePanel>
-          ) : null}
-
-          <div id="engineering-principles">
-            <KeyPrinciples
-              heading={content.principlesHeading}
-              principles={content.principles}
-            />
-          </div>
-
-          <ScopePanel
-            id="current-development-scope"
-            variant="current-scope"
-            title={content.scopeHeading}
-          >
-            {content.scope.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-          </ScopePanel>
-
-          <ScopePanel variant="engineering-note" title="Development status">
-            <p>{content.developmentNote}</p>
-          </ScopePanel>
-
-          {futureItems.length > 0 ? (
-            <div id="future-topics">
-              <FutureExpansionBlock
-                heading={content.futureHeading}
-                introduction={content.futureIntro}
-                items={futureItems}
-              />
-            </div>
-          ) : null}
-
-          {hasGroups(content.entityId, ["related-technologies"]) ? (
-            <div id="related-technology">
-              <EntityRelationshipIndex
-                locale={locale}
-                entityId={content.entityId}
-                heading={content.relatedTechnologyHeading}
-                includeGroups={["related-technologies"]}
-              />
-            </div>
-          ) : null}
-
-          {hasGroups(content.entityId, ["related-systems"]) ? (
-            <div id="related-systems">
-              <EntityRelationshipIndex
-                locale={locale}
-                entityId={content.entityId}
-                heading={content.relatedSystemsHeading}
-                includeGroups={["related-systems"]}
-              />
-            </div>
-          ) : null}
-
-          <div id="reference-links">
-            <ReferenceLinks
-              locale={locale}
-              heading={content.referenceHeading}
-              links={content.referenceLinks}
-            />
-          </div>
-        </div>
-      </div>
-
-      <KnowledgePageNavigation
+      <KnowledgeObjectFrame
+        locale={locale}
+        domain={"trust"}
+        input={{
+          knowledgeId: content.entityId,
+          href: currentHref,
+          title: content.label,
+          domain: "Trust",
+          entityId: content.entityId,
+          metadata: content.metadata,
+          currentScope: content.developmentNote,
+        }}
+        between={
+          <KnowledgePageNavigation
         locale={locale}
         domain="trust"
         currentHref={currentHref}
-      />
+          />
+        }
+        supporting={<PageSectionNav items={content.sectionNav} />}
+      >
+        <DefinitionPanel
+          term={content.definitionTerm}
+          definition={content.definition}
+          coordinate={content.definitionCoordinate}
+        />
 
-      <div className="page-supporting">
-        <div className="page-shell__inner">
-          <DocumentMetadata metadata={content.metadata} />
-          <PageSectionNav items={content.sectionNav} />
+        <div id="executive-summary">
+          <EngineeringSummary
+            heading={content.executiveSummaryHeading}
+            paragraphs={content.executiveSummary}
+          />
         </div>
-      </div>
+
+        <ProseSection
+          id="principle"
+          heading={content.principleHeading}
+          paragraphs={content.principle}
+        />
+        <ProseSection
+          id="why-it-matters"
+          heading={content.whyItMattersHeading}
+          paragraphs={content.whyItMatters}
+        />
+        <ProseSection
+          id="responsibilities"
+          heading={content.responsibilitiesHeading}
+          paragraphs={content.responsibilities}
+        />
+
+        {content.boundaries.length > 0 ? (
+          <ScopePanel
+            id="boundaries"
+            variant="safety-boundary"
+            title={content.boundariesHeading}
+          >
+            {content.boundaries.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </ScopePanel>
+        ) : null}
+
+        <ProseSection
+          id="controls"
+          heading={content.controlsHeading}
+          paragraphs={content.controls}
+        />
+
+        {content.humanOversight.length > 0 ? (
+          <ScopePanel
+            id="human-oversight"
+            variant="human-oversight"
+            title={content.humanOversightHeading}
+          >
+            {content.humanOversight.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </ScopePanel>
+        ) : null}
+
+        {content.limitations.length > 0 ? (
+          <ScopePanel
+            id="limitations"
+            variant="limitation"
+            title={content.limitationsHeading}
+          >
+            {content.limitations.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </ScopePanel>
+        ) : null}
+
+        <div id="engineering-principles">
+          <KeyPrinciples
+            heading={content.principlesHeading}
+            principles={content.principles}
+          />
+        </div>
+
+        <ScopePanel
+          id="current-development-scope"
+          variant="current-scope"
+          title={content.scopeHeading}
+        >
+          {content.scope.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+        </ScopePanel>
+
+        <ScopePanel variant="engineering-note" title="Development status">
+          <p>{content.developmentNote}</p>
+        </ScopePanel>
+
+        {futureItems.length > 0 ? (
+          <div id="future-topics">
+            <FutureExpansionBlock
+              heading={content.futureHeading}
+              introduction={content.futureIntro}
+              items={futureItems}
+            />
+          </div>
+        ) : null}
+
+        {hasGroups(content.entityId, ["related-technologies"]) ? (
+          <div id="related-technology">
+            <EntityRelationshipIndex
+              locale={locale}
+              entityId={content.entityId}
+              heading={content.relatedTechnologyHeading}
+              includeGroups={["related-technologies"]}
+            />
+          </div>
+        ) : null}
+
+        {hasGroups(content.entityId, ["related-systems"]) ? (
+          <div id="related-systems">
+            <EntityRelationshipIndex
+              locale={locale}
+              entityId={content.entityId}
+              heading={content.relatedSystemsHeading}
+              includeGroups={["related-systems"]}
+            />
+          </div>
+        ) : null}
+
+        <div id="reference-links">
+          <ReferenceLinks
+            locale={locale}
+            heading={content.referenceHeading}
+            links={content.referenceLinks}
+          />
+        </div>
+      </KnowledgeObjectFrame>
     </article>
   );
 }

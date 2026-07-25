@@ -17,6 +17,17 @@ export default async function FoundationPage({ params }: FoundationPageProps) {
   }
 
   return (
-    <TechnicalPage locale={localeParam} content={foundationPageContent} />
+    <TechnicalPage
+      locale={localeParam}
+      content={foundationPageContent}
+      knowledge={{
+        knowledgeId: "page-foundation",
+        href: "/foundation/",
+        title: "Foundation",
+        domain: "Foundation",
+        entityId: "saven-core",
+        typeOverride: "Foundation",
+      }}
+    />
   );
 }

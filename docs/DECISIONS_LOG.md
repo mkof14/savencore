@@ -1049,6 +1049,13 @@
 - **Decision:** Replace the corporate gateway Home with a Knowledge Explorer entrance: engineering hero with architecture chain, domain explorer cards, dependency map, honest platform status, featured concepts, and structured domain entrances. No new domains or long-form Home prose.
 - **Implications:** Home explains what SAVEN Core is, how domains connect, and where to begin. Research remains In Progress; Company remains Planned. Do not link unpublished Company/Investors/Roadmap destinations from Home.
 
+### D-0125 — Knowledge Object Architecture authorized and completed
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Introduce a reusable Knowledge Object layer over the Phase 3.0 entity registry and published page metadata. Every published page exposes passport, maturity, evidence, directional relationships, dependency/graph views, lifecycle, version placeholders, and reading paths. Unknown fields display “Not yet assigned.” Validated maturity is never inferred.
+- **Implications:** No new public domains, navigation redesign, visual-language redesign, or URL changes. See `docs/KNOWLEDGE_OBJECT_ARCHITECTURE.md`.
+
 ---
 
 ## Pending Owner Decisions

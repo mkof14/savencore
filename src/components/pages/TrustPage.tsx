@@ -1,7 +1,6 @@
 import {
   ConceptGrid,
   DefinitionPanel,
-  DocumentMetadata,
   EngineeringAnnotation,
   KeyPrinciples,
   KnowledgeHero,
@@ -10,6 +9,7 @@ import {
   ScopePanel,
   SignalDiagram,
 } from "@/components/engineering";
+import { KnowledgeObjectFrame } from "@/components/knowledge-object";
 import { KnowledgePageNavigation } from "@/components/pages/KnowledgePageNavigation";
 import { PageSectionNav } from "@/components/pages/PageSectionNav";
 import type { Locale } from "@/config/locales";
@@ -38,109 +38,114 @@ export function TrustPage({ locale, content }: Props) {
         visualization={<SignalDiagram variant="trust-overview" />}
       />
 
-      <div className="page-body">
-        <div className="page-shell__inner">
-          <div id="definition">
-            <DefinitionPanel
-              term={content.definitionTerm}
-              definition={content.definition}
-              coordinate="TRU"
-            />
-          </div>
-
-          <EngineeringAnnotation
-            coordinate="GOV"
-            label="Trust model"
-            text="Principles → Controls → Oversight → Accountability"
-          />
-
-          <ScopePanel id="boundaries" variant="safety-boundary" title="Page boundaries">
-            <p>{content.boundaryNote}</p>
-          </ScopePanel>
-
-          <RelationshipFlow
-            locale={locale}
-            heading="Trust path"
-            description="Governance commitments shape controls, oversight and accountability."
-            steps={[
-              {
-                id: "principles",
-                label: "Principles",
-                href: "/trust/",
-                relation: "shape",
-              },
-              {
-                id: "controls",
-                label: "Controls",
-                href: "/trust/privacy/",
-                relation: "require",
-              },
-              {
-                id: "oversight",
-                label: "Oversight",
-                href: "/trust/human-oversight/",
-                relation: "record",
-              },
-              {
-                id: "accountability",
-                label: "Accountability",
-                href: "/trust/limitations/",
-              },
-            ]}
-          />
-
-          <div id="trust-topics">
-            <ConceptGrid
-              locale={locale}
-              heading={content.cardsHeading}
-              identity="architecture"
-              items={content.cards}
-            />
-          </div>
-
-          <div id="engineering-principles">
-            <KeyPrinciples
-              heading={content.principlesHeading}
-              principles={content.principles}
-            />
-          </div>
-
-          <ScopePanel
-            id="current-development-scope"
-            variant="current-scope"
-            title={content.scopeHeading}
-          >
-            {content.scope.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-          </ScopePanel>
-
-          <ScopePanel variant="engineering-note" title="Development status">
-            <p>{content.developmentNote}</p>
-          </ScopePanel>
-
-          <div id="reference-links">
-            <ReferenceLinks
-              locale={locale}
-              heading={content.referenceHeading}
-              links={content.referenceLinks}
-            />
-          </div>
-        </div>
-      </div>
-
-      <KnowledgePageNavigation
+      <KnowledgeObjectFrame
+        locale={locale}
+        domain={"trust"}
+        input={{
+          knowledgeId: "page-trust",
+          href: "/trust/",
+          title: content.label,
+          domain: "Trust",
+          entityId: "trust-architecture",
+          metadata: content.metadata,
+          currentScope: content.developmentNote,
+        }}
+        between={
+          <KnowledgePageNavigation
         locale={locale}
         domain="trust"
         currentHref="/trust/"
-      />
-
-      <div className="page-supporting">
-        <div className="page-shell__inner">
-          <DocumentMetadata metadata={content.metadata} />
-          <PageSectionNav items={content.sectionNav} />
+          />
+        }
+        supporting={<PageSectionNav items={content.sectionNav} />}
+      >
+        <div id="definition">
+          <DefinitionPanel
+            term={content.definitionTerm}
+            definition={content.definition}
+            coordinate="TRU"
+          />
         </div>
-      </div>
+
+        <EngineeringAnnotation
+          coordinate="GOV"
+          label="Trust model"
+          text="Principles → Controls → Oversight → Accountability"
+        />
+
+        <ScopePanel id="boundaries" variant="safety-boundary" title="Page boundaries">
+          <p>{content.boundaryNote}</p>
+        </ScopePanel>
+
+        <RelationshipFlow
+          locale={locale}
+          heading="Trust path"
+          description="Governance commitments shape controls, oversight and accountability."
+          steps={[
+            {
+              id: "principles",
+              label: "Principles",
+              href: "/trust/",
+              relation: "shape",
+            },
+            {
+              id: "controls",
+              label: "Controls",
+              href: "/trust/privacy/",
+              relation: "require",
+            },
+            {
+              id: "oversight",
+              label: "Oversight",
+              href: "/trust/human-oversight/",
+              relation: "record",
+            },
+            {
+              id: "accountability",
+              label: "Accountability",
+              href: "/trust/limitations/",
+            },
+          ]}
+        />
+
+        <div id="trust-topics">
+          <ConceptGrid
+            locale={locale}
+            heading={content.cardsHeading}
+            identity="architecture"
+            items={content.cards}
+          />
+        </div>
+
+        <div id="engineering-principles">
+          <KeyPrinciples
+            heading={content.principlesHeading}
+            principles={content.principles}
+          />
+        </div>
+
+        <ScopePanel
+          id="current-development-scope"
+          variant="current-scope"
+          title={content.scopeHeading}
+        >
+          {content.scope.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+        </ScopePanel>
+
+        <ScopePanel variant="engineering-note" title="Development status">
+          <p>{content.developmentNote}</p>
+        </ScopePanel>
+
+        <div id="reference-links">
+          <ReferenceLinks
+            locale={locale}
+            heading={content.referenceHeading}
+            links={content.referenceLinks}
+          />
+        </div>
+      </KnowledgeObjectFrame>
     </article>
   );
 }

@@ -8,13 +8,14 @@ If you are a coding agent (Cursor or otherwise), read this file before making an
 
 ## Current Phase
 
-**Home Knowledge Explorer complete**
+**Knowledge Object Architecture complete**
 
-Home is the entrance to SAVEN Core (engineering hero, Knowledge Explorer, domain map, platform status, featured concepts, continue exploring). Technology, Systems, Applications and Trust knowledge domains are published; Research remains In Progress. See D-0124, `docs/CONTENT_DESIGN_SPRINT_2_APPLICATIONS_TRUST.md`, and `docs/DESIGN_SPRINT_1_SAVEN_VISUAL_SYSTEM.md`.
+Published pages are Knowledge Objects (passport, maturity, evidence, directional relationships, dependencies, lifecycle, reading paths). Home Knowledge Explorer remains the entrance. See D-0125, `docs/KNOWLEDGE_OBJECT_ARCHITECTURE.md`, D-0124, and `docs/DESIGN_SPRINT_1_SAVEN_VISUAL_SYSTEM.md`.
 
 **Do not begin without explicit owner approval:**
 
 - Further Home redesign beyond authorized Knowledge Explorer work;
+- Fabricating Knowledge Object owners, version history, Validated maturity, or evidence upgrades;
 - `/legal/*` policy page publication;
 - Entity Registry entity invention unless explicitly authorized;
 - custom brand fonts / final brand colors / logo asset / imagery;

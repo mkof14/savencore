@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import "@/components/site/site-shell.css";
+import "@/components/experience/experience.css";
 import {
   getHtmlLang,
   getTextDirection,
@@ -11,6 +12,7 @@ import {
   LOCALES,
   type Locale,
 } from "@/config/locales";
+import { experienceFontVariables } from "@/design/fonts";
 
 type LocaleLayoutProps = {
   children: ReactNode;
@@ -37,7 +39,11 @@ export default async function LocaleLayout({
   const locale: Locale = localeParam;
 
   return (
-    <html lang={getHtmlLang(locale)} dir={getTextDirection(locale)}>
+    <html
+      lang={getHtmlLang(locale)}
+      dir={getTextDirection(locale)}
+      className={experienceFontVariables}
+    >
       <body>
         <div className="site-shell">
           <SiteHeader locale={locale} />

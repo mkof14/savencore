@@ -24,13 +24,13 @@
   --space-64: 4rem;
   --space-96: 6rem;
 
-  /* Neutral semantic color tokens (mirror src/design/tokens.ts) */
-  --color-background: #ffffff;
-  --color-surface: #f4f4f5;
-  --color-text: #18181b;
-  --color-text-secondary: #52525b;
-  --color-border: #e4e4e7;
-  --color-divider: #d4d4d8;
+  /* Experience palette — calm ink on cool paper */
+  --color-background: #f2f5f7;
+  --color-surface: #ffffff;
+  --color-text: #0b1220;
+  --color-text-secondary: #4a5568;
+  --color-border: #d5dde4;
+  --color-divider: #c8d2db;
   --color-success: #15803d;
   --color-warning: #a16207;
   --color-error: #b91c1c;
@@ -42,9 +42,12 @@
   --signal-safety: #7f1d1d;
   --signal-action: #14532d;
 
-  /* Typography */
-  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  /* Typography — display for memory, sans for clarity */
+  --font-display: var(--font-display-face), "Iowan Old Style", "Palatino Linotype",
+    Palatino, Georgia, serif;
+  --font-sans: var(--font-sans-face), "IBM Plex Sans", system-ui, sans-serif;
+  --font-mono: var(--font-mono-face), ui-monospace, SFMono-Regular, Menlo,
+    monospace;
 
   /* Motion */
   --motion-duration-fast: 120ms;
@@ -95,6 +98,15 @@ html {
   color: var(--color-text);
 }
 
+html[lang="ar"] {
+  --font-sans: var(--font-sans-ar-face), "IBM Plex Sans Arabic", system-ui,
+    sans-serif;
+}
+
+html[lang="he"] {
+  --font-sans: var(--font-sans-he-face), Heebo, system-ui, sans-serif;
+}
+
 body {
   margin: 0;
   min-height: 100%;
@@ -108,6 +120,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--color-background);
   color: var(--color-text);
+}
+
+h1,
+h2,
+h3,
+.kx-hero__sentence,
+.knowledge-hero__title {
+  font-family: var(--font-display);
 }
 
 img,

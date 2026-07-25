@@ -1070,6 +1070,13 @@
 - **Decision:** Keep Knowledge Objects and Visual System, but restore progressive disclosure: human understanding first, professional context second, engineering document details third (collapsed). Remove technical chrome from the first viewport. Soften Home to Understand → Explore → Discover → Continue. Footer remains the complete map; Company/Legal/Contact appear as planned groups without unpublished links. UI chrome is localized for all ten system locales; page bodies remain fully localized for en/ar/he/ru/uk.
 - **Implications:** Do not return Knowledge Passport or metadata to the hero/first screen. Translate every UI update across all UI locale catalogs.
 
+### D-0128 — SAVEN Experience Redesign authorized
+
+- **Date:** 2026-07-25
+- **Status:** Active
+- **Decision:** Owner-authorized experience redesign. Priority is memorable, domain-distinct visual composition — not documentation aesthetics. Distinctive display/sans typography (Newsreader + IBM Plex family, Arabic/Hebrew faces), cool-paper atmosphere, full-bleed home monument, domain-specific hero languages (Technology strata, Systems constellation, Applications places, Trust rings, Research open field), and a permanent visual footer map are approved. Straight corners remain. No neon/glow marketing effects. Labels and Knowledge Object placement rules from D-0127 remain.
+- **Implications:** Pages must remain visually non-interchangeable across domains. Future UI work should preserve domain composition languages.
+
 ---
 
 ## Pending Owner Decisions

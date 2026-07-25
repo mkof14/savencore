@@ -1,6 +1,6 @@
+import { KnowledgeHero, SignalDiagram } from "@/components/engineering";
 import { EntityRelationshipIndex } from "@/components/knowledge/EntityRelationshipIndex";
 import { KnowledgeObjectFrame } from "@/components/knowledge-object";
-import { PageMasthead } from "@/components/pages/PageMasthead";
 import { PageRelatedLinks } from "@/components/pages/PageRelatedLinks";
 import { PageSectionNav } from "@/components/pages/PageSectionNav";
 import type { ResearchPageContent } from "@/components/pages/page-types";
@@ -22,12 +22,15 @@ export function ResearchPage({
 
   return (
     <article className="page page--research" aria-labelledby={titleId}>
-      <PageMasthead
+      <KnowledgeHero
+        locale={locale}
+        domain="research"
         label={content.label}
         title={content.title}
         titleId={titleId}
-        introduction={content.introduction}
+        explanation={content.introduction}
         {...(content.status ? { status: content.status } : {})}
+        visualization={<SignalDiagram variant="research-overview" />}
       />
 
       {content.sectionNav ? (

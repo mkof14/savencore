@@ -1,6 +1,7 @@
 export type SignalDiagramVariant =
   | "systems-overview"
   | "technology-overview"
+  | "research-overview"
   | "human-data"
   | "human-data-model"
   | "data-infrastructure"
@@ -56,6 +57,10 @@ const COPY: Record<SignalDiagramVariant, DiagramCopy> = {
     caption: "Foundation layers",
     description:
       "Technical disciplines stack as schemas and data layers before Systems.",
+  },
+  "research-overview": {
+    caption: "Open field",
+    description: "Questions and evidence guide design before scale.",
   },
   "human-data": {
     caption: "Signal intake",
@@ -224,6 +229,11 @@ export function SignalDiagram({ variant, className }: SignalDiagramProps) {
 
       {variant === "systems-overview" ? <SystemsOverviewDiagram /> : null}
       {variant === "technology-overview" ? <TechnologyOverviewDiagram /> : null}
+      {variant === "research-overview" ? <ResearchOverviewDiagram /> : null}
+      {variant === "applications-overview" ? (
+        <ApplicationsOverviewDiagram />
+      ) : null}
+      {variant === "trust-overview" ? <TrustOverviewDiagram /> : null}
       {variant === "human-data" ? <HumanDataDiagram /> : null}
       {variant === "human-data-model" ? <HumanDataModelDiagram /> : null}
       {variant === "data-infrastructure" ? <DataInfrastructureDiagram /> : null}
@@ -241,7 +251,6 @@ export function SignalDiagram({ variant, className }: SignalDiagramProps) {
       {variant === "artificial-intelligence" ? <Pipeline nodes={[{label:"Context",marker:"knowledge"},{label:"Model support",role:"assist",current:true,marker:"control"},{label:"Human oversight",marker:"safety"}]} paths={["interprets","requires"]} aria={COPY["artificial-intelligence"].description} /> : null}
       {variant === "automation" ? <Pipeline nodes={[{label:"Task",marker:"control"},{label:"Bounded automation",role:"delegated",current:true,marker:"action"},{label:"Intervention",marker:"safety"}]} paths={["runs inside","allows"]} aria={COPY.automation.description} /> : null}
       {variant === "robotics" ? <Pipeline nodes={[{label:"Environment",marker:"signal"},{label:"Device action",role:"physical",current:true,marker:"action"},{label:"Stop condition",marker:"safety"}]} paths={["acts in","respects"]} aria={COPY.robotics.description} /> : null}
-      {variant === "applications-overview" ? <Pipeline nodes={[{label:"Technology",marker:"knowledge"},{label:"Systems",role:"coordination",marker:"control"},{label:"Environments",role:"real-world",current:true,marker:"action"}]} paths={["feeds","operate in"]} aria={COPY["applications-overview"].description} /> : null}
       {variant === "healthcare" ? <Pipeline nodes={[{label:"Human Data",marker:"signal"},{label:"Decision support",marker:"knowledge"},{label:"Human review",role:"authority",current:true,marker:"safety"},{label:"Care workflow",marker:"action"}]} paths={["informs","stops at","may support"]} aria={COPY.healthcare.description} /> : null}
       {variant === "home" ? <Pipeline nodes={[{label:"Permissions",marker:"control"},{label:"Daily context",marker:"signal"},{label:"Assistance",role:"support",current:true,marker:"action"},{label:"Human control",marker:"safety"}]} paths={["authorize","enable","remain under"]} aria={COPY.home.description} /> : null}
       {variant === "hospitals" ? <Pipeline nodes={[{label:"Staff workflow",marker:"signal"},{label:"Clinical interface",marker:"control"},{label:"Safety limits",role:"gate",current:true,marker:"safety"},{label:"Care infrastructure",marker:"action"}]} paths={["connect","apply","reach"]} aria={COPY.hospitals.description} /> : null}
@@ -250,7 +259,6 @@ export function SignalDiagram({ variant, className }: SignalDiagramProps) {
       {variant === "government" ? <Pipeline nodes={[{label:"Authorized use",marker:"control"},{label:"Controls",marker:"safety"},{label:"Oversight",role:"review",current:true,marker:"knowledge"},{label:"Accountability",marker:"safety"}]} paths={["require","support","record"]} aria={COPY.government.description} /> : null}
       {variant === "agriculture" ? <Pipeline nodes={[{label:"Sensing",marker:"signal"},{label:"Analysis",marker:"knowledge"},{label:"Approved operation",role:"limit",current:true,marker:"control"},{label:"Field action",marker:"action"}]} paths={["inform","authorize","support"]} aria={COPY.agriculture.description} /> : null}
       {variant === "research-applications" ? <Pipeline nodes={[{label:"Questions",marker:"knowledge"},{label:"Evidence",marker:"signal"},{label:"Controlled evaluation",role:"bounded",current:true,marker:"control"},{label:"Review",marker:"safety"}]} paths={["gather","enter","require"]} aria={COPY["research-applications"].description} /> : null}
-      {variant === "trust-overview" ? <Pipeline nodes={[{label:"Principles",marker:"knowledge"},{label:"Controls",marker:"control"},{label:"Oversight",role:"human",current:true,marker:"safety"},{label:"Accountability",marker:"safety"}]} paths={["shape","require","record"]} aria={COPY["trust-overview"].description} /> : null}
       {variant === "trust-privacy" ? <Pipeline nodes={[{label:"Collection boundary",marker:"signal"},{label:"Permission",marker:"control"},{label:"Use",role:"limited",current:true,marker:"knowledge"},{label:"Retention / removal",marker:"safety"}]} paths={["requires","allows","ends in"]} aria={COPY["trust-privacy"].description} /> : null}
       {variant === "trust-security" ? <Pipeline nodes={[{label:"Access",marker:"control"},{label:"Protection",marker:"safety"},{label:"Monitoring",role:"observe",current:true,marker:"knowledge"},{label:"Response",marker:"action"}]} paths={["guards","watches","triggers"]} aria={COPY["trust-security"].description} /> : null}
       {variant === "trust-safety" ? <Pipeline nodes={[{label:"Risk",marker:"signal"},{label:"Limits",marker:"control"},{label:"Escalation",role:"raise",current:true,marker:"safety"},{label:"Human authority",marker:"safety"}]} paths={["meet","raise","return to"]} aria={COPY["trust-safety"].description} /> : null}
@@ -310,12 +318,22 @@ function Boundary({ label }: { label: string }) {
 
 function SystemsOverviewDiagram() {
   return (
-    <div className="signal-diagram__canvas" role="img" aria-label={COPY["systems-overview"].description}>
-      <Node label="Technology" role="foundations" marker="knowledge" />
-      <Path label="feeds" />
-      <Node label="Systems" role="coordination" current marker="control" />
-      <Path label="supports" />
-      <Node label="Applications" role="operating contexts" marker="action" />
+    <div
+      className="signal-diagram__canvas signal-diagram__canvas--constellation"
+      role="img"
+      aria-label={COPY["systems-overview"].description}
+    >
+      <div className="signal-diagram__orbit" aria-hidden="true" />
+      <ul className="signal-diagram__satellites" aria-hidden="true">
+        <li className="signal-diagram__satellite">Technology</li>
+        <li className="signal-diagram__satellite">Safety</li>
+        <li className="signal-diagram__satellite">Applications</li>
+        <li className="signal-diagram__satellite">Knowledge</li>
+      </ul>
+      <div className="signal-diagram__hub">
+        <span className="signal-diagram__hub-label">Systems</span>
+        <span className="signal-diagram__hub-role">coordination</span>
+      </div>
     </div>
   );
 }
@@ -342,6 +360,87 @@ function TechnologyOverviewDiagram() {
         <Node label="Data Infrastructure" role="availability" marker="knowledge" />
       </div>
       <Path label="into Systems" />
+    </div>
+  );
+}
+
+function ApplicationsOverviewDiagram() {
+  const places = [
+    { id: "healthcare", label: "Healthcare", current: true },
+    { id: "home", label: "Home" },
+    { id: "hospitals", label: "Hospitals" },
+    { id: "emergency", label: "Emergency" },
+    { id: "industrial", label: "Industrial" },
+    { id: "government", label: "Government" },
+    { id: "agriculture", label: "Agriculture" },
+    { id: "research", label: "Research" },
+  ];
+
+  return (
+    <div
+      className="signal-diagram__canvas signal-diagram__canvas--places"
+      role="img"
+      aria-label={COPY["applications-overview"].description}
+    >
+      {places.map((place) => (
+        <div
+          key={place.id}
+          className={[
+            "signal-diagram__place",
+            place.current ? "is-current" : "",
+          ]
+            .filter(Boolean)
+            .join(" ")}
+        >
+          {place.label}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function TrustOverviewDiagram() {
+  return (
+    <div
+      className="signal-diagram__canvas signal-diagram__canvas--rings"
+      role="img"
+      aria-label={COPY["trust-overview"].description}
+    >
+      <div className="signal-diagram__ring signal-diagram__ring--outer" aria-hidden="true" />
+      <div className="signal-diagram__ring signal-diagram__ring--mid" aria-hidden="true" />
+      <div className="signal-diagram__ring signal-diagram__ring--inner">
+        Human
+        <br />
+        authority
+      </div>
+      <div className="signal-diagram__ring-labels" aria-hidden="true">
+        <span className="signal-diagram__ring-label">Principles</span>
+        <span className="signal-diagram__ring-label">Controls</span>
+        <span className="signal-diagram__ring-label">Oversight</span>
+      </div>
+    </div>
+  );
+}
+
+function ResearchOverviewDiagram() {
+  return (
+    <div
+      className="signal-diagram__canvas signal-diagram__canvas--open"
+      role="img"
+      aria-label="Open questions guide careful system design."
+    >
+      <p className="signal-diagram__open-line">
+        <span className="signal-diagram__open-mark" aria-hidden="true" />
+        Questions before conclusions
+      </p>
+      <p className="signal-diagram__open-line">
+        <span className="signal-diagram__open-mark" aria-hidden="true" />
+        Evidence before scale
+      </p>
+      <p className="signal-diagram__open-line">
+        <span className="signal-diagram__open-mark" aria-hidden="true" />
+        Limits before claims
+      </p>
     </div>
   );
 }

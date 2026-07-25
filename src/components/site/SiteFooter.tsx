@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 
 import type { Locale } from "@/config/locales";
@@ -15,31 +13,32 @@ type SiteFooterProps = {
   locale: Locale;
 };
 
+/** Full navigation map — always visible, strongly grouped. */
 export function SiteFooter({ locale }: SiteFooterProps) {
   const ui = getUi(locale);
 
   return (
     <footer className="site-footer">
       <div className="site-shell__inner">
+        <p className="site-footer__brand">SAVEN Core</p>
         <div className="site-footer__grid">
           {footerNavigation.map((group) => {
             const title = getFooterGroupTitle(locale, group.id, group.title);
             const headingId = `footer-${group.id}`;
 
             return (
-              <details key={group.id} className="site-footer__group">
-                <summary
-                  className="site-footer__group-title"
-                  id={headingId}
-                >
+              <section
+                key={group.id}
+                className="site-footer__group"
+                aria-labelledby={headingId}
+              >
+                <h2 className="site-footer__group-title" id={headingId}>
                   {title}
-                </summary>
+                </h2>
                 {group.planned || group.links.length === 0 ? (
-                  <p className="site-footer__planned" aria-labelledby={headingId}>
-                    {ui.footer.plannedNote}
-                  </p>
+                  <p className="site-footer__planned">{ui.footer.plannedNote}</p>
                 ) : (
-                  <ul className="site-footer__list" aria-labelledby={headingId}>
+                  <ul className="site-footer__list">
                     {group.links.map((link) => (
                       <li key={link.id}>
                         <Link
@@ -52,7 +51,7 @@ export function SiteFooter({ locale }: SiteFooterProps) {
                     ))}
                   </ul>
                 )}
-              </details>
+              </section>
             );
           })}
         </div>

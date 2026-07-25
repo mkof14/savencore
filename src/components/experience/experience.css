@@ -1,0 +1,645 @@
+/*
+ * SAVEN Experience — domain visual languages
+ * Each domain has a unique composition, rhythm, and diagram grammar.
+ * Radius remains 0. Atmosphere is tonal, not decorative neon.
+ */
+
+:root {
+  --xp-ink: #0b1220;
+  --xp-ink-soft: #243044;
+  --xp-paper: #f2f5f7;
+  --xp-paper-deep: #e6ecef;
+  --xp-field: #ffffff;
+  --xp-tech: #0d3b45;
+  --xp-tech-wash: #d9e8eb;
+  --xp-systems: #172554;
+  --xp-systems-wash: #dde5f5;
+  --xp-apps: #1a3328;
+  --xp-apps-wash: #dce8e1;
+  --xp-trust: #3b2418;
+  --xp-trust-wash: #f0e8e1;
+  --xp-research: #0f2744;
+  --xp-research-wash: #e4eef6;
+}
+
+/* ——— Site chrome ——— */
+
+.site-header {
+  background: #0b1220;
+  border-block-end: 1px solid rgba(238, 243, 247, 0.12);
+  color: #eef3f7;
+}
+
+.site-header__brand {
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: #eef3f7;
+}
+
+.site-header .desktop-nav__link,
+.site-header .desktop-nav__trigger,
+.site-header .language-selector__summary,
+.site-header .mobile-nav-toggle {
+  color: #eef3f7;
+}
+
+.site-header .desktop-nav__link.is-active,
+.site-header .desktop-nav__trigger[aria-expanded="true"] {
+  color: #ffffff;
+}
+
+.site-header .desktop-nav__panel {
+  background: #132033;
+  border-color: rgba(238, 243, 247, 0.16);
+}
+
+.site-header .desktop-nav__panel-link {
+  color: #eef3f7;
+}
+
+.site-footer {
+  margin-block-start: 0;
+  padding-block: var(--space-96) var(--space-48);
+  background:
+    radial-gradient(120% 80% at 0% 0%, rgba(61, 120, 140, 0.22) 0%, transparent 55%),
+    linear-gradient(180deg, var(--xp-ink) 0%, #151d2e 100%);
+  color: #e8eef5;
+  border-block-start: 0;
+}
+
+.site-footer__brand {
+  margin: 0 0 var(--space-48);
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: #e8eef5;
+}
+
+.site-footer .site-footer__group-title,
+.site-footer .site-footer__link,
+.site-footer .site-footer__meta,
+.site-footer .site-footer__planned {
+  color: inherit;
+}
+
+.site-footer__grid {
+  display: grid;
+  gap: var(--space-32) var(--space-24);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (min-width: 768px) {
+  .site-footer__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1100px) {
+  .site-footer__grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+.site-footer__group {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  margin: 0;
+}
+
+.site-footer__group-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.site-footer__list {
+  list-style: none;
+  margin: var(--space-16) 0 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-8);
+}
+
+.site-footer__link {
+  font-size: 0.9375rem;
+  opacity: 0.78;
+  text-decoration: none;
+  transition: opacity var(--motion-duration-base) var(--motion-easing-standard);
+}
+
+.site-footer__link:hover {
+  opacity: 1;
+}
+
+.site-footer__planned {
+  margin: var(--space-12) 0 0;
+  opacity: 0.55;
+  font-size: 0.875rem;
+}
+
+.site-footer__meta {
+  margin: var(--space-64) 0 0;
+  padding-block-start: var(--space-24);
+  border-block-start: 1px solid rgba(232, 238, 245, 0.18);
+  opacity: 0.55;
+  font-size: 0.8125rem;
+}
+
+/* ——— Knowledge heroes: unique compositions ——— */
+
+.knowledge-hero {
+  position: relative;
+  overflow: hidden;
+  min-height: min(78vh, 46rem);
+  padding-block: var(--space-64) var(--space-96);
+  border-block-end: 0;
+}
+
+.knowledge-hero__frame {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: var(--space-48);
+  align-items: center;
+}
+
+.knowledge-hero__domain {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  color: inherit;
+  opacity: 0.72;
+}
+
+.knowledge-hero__label {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  opacity: 0.7;
+}
+
+.knowledge-hero__title {
+  max-width: 16ch;
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5.5vw, 3.75rem);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+}
+
+.knowledge-hero__explanation {
+  max-width: 36ch;
+  font-size: 1.125rem;
+  line-height: 1.55;
+}
+
+.knowledge-hero__visual {
+  border: 0;
+  background: transparent;
+  min-height: 18rem;
+}
+
+.knowledge-hero__status {
+  border-block-start-color: color-mix(in srgb, currentColor 18%, transparent);
+}
+
+/* Technology — geological strata, visual-first */
+.knowledge-hero--technology {
+  color: #e8f3f5;
+  background:
+    linear-gradient(165deg, #071f24 0%, var(--xp-tech) 42%, #164853 100%);
+}
+
+.knowledge-hero--technology .knowledge-hero__frame {
+  min-height: 28rem;
+}
+
+@media (min-width: 960px) {
+  .knowledge-hero--technology .knowledge-hero__frame {
+    grid-template-columns: minmax(0, 0.9fr) minmax(22rem, 1.1fr);
+    gap: var(--space-64);
+  }
+}
+
+.knowledge-hero--technology .knowledge-hero__visual {
+  align-self: stretch;
+}
+
+.knowledge-hero--technology .signal-diagram {
+  height: 100%;
+  padding: var(--space-32);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(232, 243, 245, 0.2);
+}
+
+.knowledge-hero--technology .signal-diagram__caption-label,
+.knowledge-hero--technology .signal-diagram__caption-text,
+.knowledge-hero--technology .signal-diagram__node-label,
+.knowledge-hero--technology .signal-diagram__node-role,
+.knowledge-hero--technology .signal-diagram__path-label,
+.knowledge-hero--technology .signal-diagram__coord {
+  color: #e8f3f5;
+}
+
+.knowledge-hero--technology .signal-diagram__node {
+  border-color: rgba(232, 243, 245, 0.35);
+  background: rgba(7, 31, 36, 0.45);
+}
+
+.knowledge-hero--technology .signal-diagram__canvas--layers {
+  gap: var(--space-12);
+}
+
+.knowledge-hero--technology .signal-diagram__layer {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  gap: var(--space-12);
+  align-items: stretch;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.knowledge-hero--technology .signal-diagram__layer .signal-diagram__node {
+  padding-block: var(--space-20);
+}
+
+.knowledge-hero--technology .signal-diagram__layer:nth-child(1) .signal-diagram__node {
+  transform: translateX(0);
+}
+
+.knowledge-hero--technology .signal-diagram__layer:nth-child(2) .signal-diagram__node {
+  transform: translateX(1.25rem);
+}
+
+.knowledge-hero--technology .signal-diagram__layer:nth-child(3) .signal-diagram__node {
+  transform: translateX(2.5rem);
+}
+
+@keyframes xp-rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.knowledge-hero--technology .knowledge-hero__copy {
+  animation: xp-rise var(--motion-duration-slow) var(--motion-easing-standard) both;
+}
+
+.knowledge-hero--technology .knowledge-hero__visual {
+  animation: xp-rise calc(var(--motion-duration-slow) + 80ms) var(--motion-easing-standard) both;
+  animation-delay: 60ms;
+}
+
+/* Systems — constellation center */
+.knowledge-hero--systems {
+  color: var(--xp-ink);
+  background:
+    radial-gradient(ellipse 70% 60% at 70% 45%, var(--xp-systems-wash) 0%, transparent 70%),
+    linear-gradient(180deg, #f7f8fc 0%, var(--xp-paper) 100%);
+}
+
+@media (min-width: 960px) {
+  .knowledge-hero--systems .knowledge-hero__frame {
+    grid-template-columns: minmax(0, 0.85fr) minmax(24rem, 1.15fr);
+    align-items: center;
+  }
+}
+
+.knowledge-hero--systems .signal-diagram__canvas--constellation {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 22rem;
+  padding: var(--space-32);
+}
+
+.knowledge-hero--systems .signal-diagram__hub {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 12rem);
+  aspect-ratio: 1;
+  display: grid;
+  place-content: center;
+  gap: var(--space-8);
+  border: 2px solid var(--xp-systems);
+  background: var(--xp-field);
+  text-align: center;
+  box-shadow: 0 0 0 12px color-mix(in srgb, var(--xp-systems-wash) 80%, transparent);
+}
+
+.knowledge-hero--systems .signal-diagram__hub-label {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--xp-systems);
+}
+
+.knowledge-hero--systems .signal-diagram__hub-role {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--xp-ink-soft);
+  opacity: 0.7;
+}
+
+.knowledge-hero--systems .signal-diagram__orbit {
+  position: absolute;
+  inset: 8%;
+  border: 1px dashed color-mix(in srgb, var(--xp-systems) 35%, transparent);
+  pointer-events: none;
+}
+
+.knowledge-hero--systems .signal-diagram__satellites {
+  position: absolute;
+  inset: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.knowledge-hero--systems .signal-diagram__satellite {
+  position: absolute;
+  padding: var(--space-12) var(--space-16);
+  border: 1px solid var(--xp-systems);
+  background: var(--xp-field);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.knowledge-hero--systems .signal-diagram__satellite:nth-child(1) {
+  top: 8%;
+  inset-inline-start: 50%;
+  transform: translateX(-50%);
+}
+
+.knowledge-hero--systems .signal-diagram__satellite:nth-child(2) {
+  top: 42%;
+  inset-inline-end: 4%;
+}
+
+.knowledge-hero--systems .signal-diagram__satellite:nth-child(3) {
+  bottom: 10%;
+  inset-inline-start: 50%;
+  transform: translateX(-50%);
+}
+
+.knowledge-hero--systems .signal-diagram__satellite:nth-child(4) {
+  top: 42%;
+  inset-inline-start: 4%;
+}
+
+/* Applications — place panorama */
+.knowledge-hero--applications {
+  color: #eef6f1;
+  background:
+    linear-gradient(120deg, #102419 0%, var(--xp-apps) 55%, #244a38 100%);
+}
+
+@media (min-width: 960px) {
+  .knowledge-hero--applications .knowledge-hero__frame {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    gap: var(--space-48);
+  }
+
+  .knowledge-hero--applications .knowledge-hero__copy {
+    max-width: 40rem;
+  }
+
+  .knowledge-hero--applications .knowledge-hero__visual {
+    width: 100%;
+  }
+}
+
+.knowledge-hero--applications .signal-diagram__canvas--places {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-12);
+}
+
+@media (min-width: 720px) {
+  .knowledge-hero--applications .signal-diagram__canvas--places {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.knowledge-hero--applications .signal-diagram__place {
+  min-height: 7.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--space-16);
+  border: 1px solid rgba(238, 246, 241, 0.28);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.1));
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #eef6f1;
+}
+
+.knowledge-hero--applications .signal-diagram__place.is-current {
+  background: rgba(238, 246, 241, 0.14);
+  border-color: rgba(238, 246, 241, 0.7);
+}
+
+.knowledge-hero--applications .signal-diagram__caption-label,
+.knowledge-hero--applications .signal-diagram__caption-text {
+  color: #eef6f1;
+}
+
+/* Trust — concentric boundary */
+.knowledge-hero--trust {
+  color: var(--xp-ink);
+  background:
+    radial-gradient(circle at 72% 48%, var(--xp-trust-wash) 0%, transparent 42%),
+    linear-gradient(180deg, #fbf8f5 0%, #f3ebe4 100%);
+}
+
+@media (min-width: 960px) {
+  .knowledge-hero--trust .knowledge-hero__frame {
+    grid-template-columns: minmax(0, 0.95fr) minmax(22rem, 1.05fr);
+  }
+}
+
+.knowledge-hero--trust .signal-diagram__canvas--rings {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 22rem;
+}
+
+.knowledge-hero--trust .signal-diagram__ring {
+  position: absolute;
+  border: 1px solid color-mix(in srgb, var(--xp-trust) 35%, transparent);
+  aspect-ratio: 1;
+}
+
+.knowledge-hero--trust .signal-diagram__ring--outer {
+  width: min(100%, 20rem);
+}
+
+.knowledge-hero--trust .signal-diagram__ring--mid {
+  width: min(78%, 15.5rem);
+}
+
+.knowledge-hero--trust .signal-diagram__ring--inner {
+  width: min(52%, 10.5rem);
+  border-width: 2px;
+  border-color: var(--xp-trust);
+  background: color-mix(in srgb, var(--xp-trust-wash) 70%, white);
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: var(--space-16);
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 600;
+  position: relative;
+}
+
+.knowledge-hero--trust .signal-diagram__ring-labels {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.knowledge-hero--trust .signal-diagram__ring-label {
+  position: absolute;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--xp-trust);
+  opacity: 0.75;
+}
+
+.knowledge-hero--trust .signal-diagram__ring-label:nth-child(1) {
+  top: 4%;
+  inset-inline-start: 50%;
+  transform: translateX(-50%);
+}
+
+.knowledge-hero--trust .signal-diagram__ring-label:nth-child(2) {
+  top: 18%;
+  inset-inline-end: 8%;
+}
+
+.knowledge-hero--trust .signal-diagram__ring-label:nth-child(3) {
+  bottom: 22%;
+  inset-inline-start: 6%;
+}
+
+/* Research — typographic monument */
+.knowledge-hero--research {
+  color: var(--xp-research);
+  background:
+    linear-gradient(180deg, #f5f9fc 0%, var(--xp-research-wash) 100%);
+  min-height: min(70vh, 40rem);
+}
+
+.knowledge-hero--research .knowledge-hero__frame {
+  grid-template-columns: 1fr;
+  max-width: 54rem;
+}
+
+.knowledge-hero--research .knowledge-hero__title {
+  max-width: 22ch;
+  font-size: clamp(2.75rem, 6vw, 4.25rem);
+  font-style: italic;
+}
+
+.knowledge-hero--research .knowledge-hero__visual {
+  max-width: 36rem;
+}
+
+.knowledge-hero--research .signal-diagram__canvas--open {
+  display: grid;
+  gap: var(--space-16);
+  padding: var(--space-24) 0;
+  border-block-start: 1px solid color-mix(in srgb, var(--xp-research) 25%, transparent);
+}
+
+.knowledge-hero--research .signal-diagram__open-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-12);
+  align-items: baseline;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+}
+
+.knowledge-hero--research .signal-diagram__open-mark {
+  width: 0.55rem;
+  height: 0.55rem;
+  border: 1px solid var(--xp-research);
+  border-radius: 50%;
+}
+
+/* Domain page body atmospheres */
+.page--technology {
+  border-inline-start: 0;
+  background:
+    linear-gradient(180deg, var(--xp-tech-wash) 0%, transparent 18rem);
+}
+
+.page--systems {
+  border-inline-start: 0;
+  background:
+    linear-gradient(180deg, var(--xp-systems-wash) 0%, transparent 16rem);
+}
+
+.page--applications {
+  border-inline-start: 0;
+  background:
+    linear-gradient(180deg, var(--xp-apps-wash) 0%, transparent 16rem);
+}
+
+.page--trust {
+  border-inline-start: 0;
+  background:
+    linear-gradient(180deg, var(--xp-trust-wash) 0%, transparent 16rem);
+}
+
+.page--research {
+  border-inline-start: 0;
+  background:
+    linear-gradient(180deg, var(--xp-research-wash) 0%, transparent 16rem);
+}
+
+.page--technology .eng-block__heading,
+.page--systems .eng-block__heading,
+.page--applications .eng-block__heading,
+.page--trust .eng-block__heading,
+.page--research .page-research-areas__heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  letter-spacing: -0.03em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .knowledge-hero--technology .knowledge-hero__copy,
+  .knowledge-hero--technology .knowledge-hero__visual {
+    animation: none;
+  }
+}

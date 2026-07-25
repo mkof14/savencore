@@ -8,9 +8,9 @@ If you are a coding agent (Cursor or otherwise), read this file before making an
 
 ## Current Phase
 
-**Human-first design philosophy (v1.1) active**
+**SAVEN Experience Redesign active (D-0128)**
 
-Progressive disclosure: ideas first, professional context second, Knowledge Object details third (collapsed). UI chrome localized for all 10 locales; page bodies for en/ar/he/ru/uk. See D-0127, D-0126, `docs/LANGUAGE_AND_LOCALIZATION.md`.
+Domain-distinct visual languages; memorable first screens; human-first progressive disclosure (D-0127). UI chrome localized for all 10 locales; page bodies for en/ar/he/ru/uk.
 
 **Always translate UI updates** across every file in `src/i18n/ui/`.
 
@@ -22,12 +22,12 @@ Progressive disclosure: ideas first, professional context second, Knowledge Obje
 - Full page-body localization for es/de/fr/ja/zh-cn without approval;
 - `/legal/*` policy page publication;
 - Entity Registry entity invention unless explicitly authorized;
-- custom brand fonts / final brand colors / logo asset / imagery;
+- logo asset / photography imagery beyond approved diagram language;
 - CMS, database, working search, forms, analytics, cookie consent;
 - authentication or investor portal;
 - leaf marketing pages across the sitemap;
 - graph visualization or knowledge CMS;
-- animation or decorative visual effects beyond the approved visual grammar.
+- neon, glow, or futuristic decoration outside the approved experience grammar.
 
 ---
 

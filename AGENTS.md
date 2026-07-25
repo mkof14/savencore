@@ -8,16 +8,18 @@ If you are a coding agent (Cursor or otherwise), read this file before making an
 
 ## Current Phase
 
-**Language, navigation and footer refinement complete**
+**Human-first design philosophy (v1.1) active**
 
-Primary nav is simplified; footer is the full sitemap; public language prefers clear natural wording; en/ar/he/ru/uk are fully localized. See D-0126, `docs/LANGUAGE_AND_LOCALIZATION.md`, `docs/TERMINOLOGY_GUIDE.md`, and D-0125.
+Progressive disclosure: ideas first, professional context second, Knowledge Object details third (collapsed). UI chrome localized for all 10 locales; page bodies for en/ar/he/ru/uk. See D-0127, D-0126, `docs/LANGUAGE_AND_LOCALIZATION.md`.
+
+**Always translate UI updates** across every file in `src/i18n/ui/`.
 
 **Do not begin without explicit owner approval:**
 
-- Further Home redesign beyond authorized Knowledge Explorer work;
+- Returning Knowledge Passport / metadata to the first viewport;
 - Fabricating Knowledge Object owners, version history, Validated maturity, or evidence upgrades;
-- Publishing Legal / Glossary / Contact destinations;
-- Localizing remaining locales (es/de/fr/ja/zh-cn) without approval;
+- Publishing Legal / Company / Contact destinations;
+- Full page-body localization for es/de/fr/ja/zh-cn without approval;
 - `/legal/*` policy page publication;
 - Entity Registry entity invention unless explicitly authorized;
 - custom brand fonts / final brand colors / logo asset / imagery;

@@ -5,6 +5,7 @@ import { PageRelatedLinks } from "@/components/pages/PageRelatedLinks";
 import { PageSectionNav } from "@/components/pages/PageSectionNav";
 import type { DirectoryPageContent } from "@/components/pages/page-types";
 import type { Locale } from "@/config/locales";
+import { getUi } from "@/i18n/ui";
 import { localizePath } from "@/navigation/locale-path";
 
 type DirectoryPageProps = {
@@ -14,6 +15,7 @@ type DirectoryPageProps = {
 
 export function DirectoryPage({ locale, content }: DirectoryPageProps) {
   const titleId = "page-title";
+  const ui = getUi(locale);
 
   return (
     <article className="page page--directory" aria-labelledby={titleId}>
@@ -28,7 +30,12 @@ export function DirectoryPage({ locale, content }: DirectoryPageProps) {
       {content.accessNote ? (
         <div className="page-access-note">
           <div className="page-shell__inner">
-            <p className="page-access-note__text">{content.accessNote}</p>
+            <p className="page-access-note__text">
+              <span className="page-access-note__label">
+                {ui.scope["current-scope"]}
+              </span>
+              {content.accessNote}
+            </p>
           </div>
         </div>
       ) : null}

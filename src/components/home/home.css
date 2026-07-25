@@ -29,18 +29,17 @@
 /* Shared section header */
 
 .kx-section-header {
-  margin-block-end: var(--space-32);
-  padding-block-end: var(--space-16);
-  border-block-end: 1px solid var(--color-text);
+  margin-block-end: var(--space-48);
+  padding-block-end: var(--space-24);
+  border-block-end: 1px solid var(--color-divider);
+  max-width: 40rem;
 }
 
 .kx-section-header__kicker {
-  margin: 0 0 var(--space-8);
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  margin: 0 0 var(--space-12);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
   color: var(--color-text-secondary);
 }
 
@@ -56,8 +55,8 @@
 /* Hero */
 
 .kx-hero {
-  padding-block: var(--space-48) var(--space-64);
-  border-block-end: 2px solid var(--color-text);
+  padding-block: var(--space-64) var(--space-96);
+  border-block-end: 1px solid var(--color-divider);
   background: var(--color-background);
 }
 
@@ -228,7 +227,7 @@
 /* Knowledge Explorer */
 
 .kx-explorer {
-  padding-block: var(--space-64);
+  padding-block: var(--space-96);
   border-block-end: 1px solid var(--color-divider);
 }
 
@@ -405,7 +404,7 @@
 /* Domain map */
 
 .kx-domain-map {
-  padding-block: var(--space-64);
+  padding-block: var(--space-96);
   border-block-end: 1px solid var(--color-divider);
   background: var(--color-surface);
 }
@@ -545,7 +544,7 @@
 /* Platform status */
 
 .kx-status {
-  padding-block: var(--space-64);
+  padding-block: var(--space-96);
   border-block-end: 1px solid var(--color-divider);
 }
 
@@ -613,7 +612,7 @@
 /* Featured concepts */
 
 .kx-featured {
-  padding-block: var(--space-64);
+  padding-block: var(--space-96);
   border-block-end: 1px solid var(--color-divider);
   background: var(--color-surface);
 }
@@ -715,7 +714,7 @@
 /* Continue exploring */
 
 .kx-continue {
-  padding-block: var(--space-64) var(--space-96);
+  padding-block: var(--space-96) var(--space-96);
 }
 
 .kx-continue__list {

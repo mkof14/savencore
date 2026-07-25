@@ -247,6 +247,24 @@ export const footerNavigation: readonly FooterGroup[] = [
       { id: "footer-resources-research", label: "Research", href: "/research/" },
     ],
   },
+  {
+    id: "company",
+    title: "Company",
+    links: [],
+    planned: true,
+  },
+  {
+    id: "legal",
+    title: "Legal",
+    links: [],
+    planned: true,
+  },
+  {
+    id: "contact",
+    title: "Contact",
+    links: [],
+    planned: true,
+  },
 ] as const;
 
 export const FOOTER_COPYRIGHT = "© 2026 SAVEN Core. All rights reserved.";

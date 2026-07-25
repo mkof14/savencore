@@ -6,6 +6,7 @@ import { PageSectionNav } from "@/components/pages/PageSectionNav";
 import type { TechnicalPageContent } from "@/components/pages/page-types";
 import type { Locale } from "@/config/locales";
 import type { KnowledgeObjectPageInput } from "@/content/knowledge-objects";
+import { getUi } from "@/i18n/ui";
 
 type TechnicalPageProps = {
   locale: Locale;
@@ -19,6 +20,7 @@ export function TechnicalPage({
   knowledge,
 }: TechnicalPageProps) {
   const titleId = "page-title";
+  const ui = getUi(locale);
   const hierarchyDiagram = content.diagrams?.find((d) => d.kind === "hierarchy");
   const otherDiagrams =
     content.diagrams?.filter((d) => d.kind !== "hierarchy") ?? [];
@@ -36,7 +38,12 @@ export function TechnicalPage({
       {content.developmentNote ? (
         <div className="page-dev-note">
           <div className="page-shell__inner">
-            <p className="page-dev-note__text">{content.developmentNote}</p>
+            <p className="page-dev-note__text">
+              <span className="page-dev-note__label">
+                {ui.scope["current-scope"]}
+              </span>
+              {content.developmentNote}
+            </p>
           </div>
         </div>
       ) : null}

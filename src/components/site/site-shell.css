@@ -572,6 +572,26 @@
   color: var(--color-text);
 }
 
+.site-footer__planned {
+  display: none;
+  margin: 0;
+  padding: 0 0 var(--space-16);
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: var(--color-text-secondary);
+}
+
+.site-footer__group[open] .site-footer__planned {
+  display: block;
+}
+
+@media (min-width: 720px) {
+  .site-footer__group .site-footer__planned {
+    display: block;
+    padding-block-end: 0;
+  }
+}
+
 .site-footer__meta {
   margin-block-start: var(--space-64);
   padding-block-start: var(--space-24);

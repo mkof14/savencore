@@ -79,11 +79,15 @@ Layout:
 
 ## 5. Translation approach
 
-### Content locales (full site)
+### Content locales (full page bodies)
 
 `en` · `ar` · `he` · `ru` · `uk`
 
-Other configured locales (`es`, `de`, `fr`, `ja`, `zh-cn`) keep English fallback until approved.
+### UI chrome locales (navigation, footer, labels)
+
+All ten system locales: `en` · `es` · `de` · `fr` · `ja` · `zh-cn` · `ar` · `he` · `uk` · `ru`
+
+Page bodies for `es` / `de` / `fr` / `ja` / `zh-cn` still fall back to English until approved. Any UI string change must update every UI locale catalog.
 
 ### Layers
 

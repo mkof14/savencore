@@ -36,7 +36,7 @@ export function HomeHero({ locale }: HomeHeroProps) {
         <figure className="kx-hero__diagram">
           <figcaption className="kx-hero__diagram-caption">
             <span className="kx-hero__diagram-kicker">
-              {ui.home.architectureOverview}
+              {ui.home.understand}
             </span>
             <span className="kx-hero__diagram-text">
               {ui.home.architectureOverviewText}

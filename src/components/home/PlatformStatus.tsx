@@ -23,7 +23,7 @@ export function PlatformStatus({ locale }: PlatformStatusProps) {
     >
       <div className="home__inner">
         <header className="kx-section-header">
-          <p className="kx-section-header__kicker">{ui.home.currentStatus}</p>
+          <p className="kx-section-header__kicker">{ui.home.discover}</p>
           <h2 id="platform-status-heading" className="kx-section-header__title">
             {ui.home.platformProgress}
           </h2>

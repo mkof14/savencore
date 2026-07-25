@@ -1063,6 +1063,13 @@
 - **Decision:** Simplify public language and UI labels; reduce primary navigation to Home + Technology/Systems/Applications/Trust/Research with short dropdowns; make the footer the complete published sitemap (mobile accordion); localize full site content for en/ar/he/ru/uk. Other locales keep English fallback. Legal destinations remain unpublished.
 - **Implications:** See `docs/LANGUAGE_AND_LOCALIZATION.md` and `docs/TERMINOLOGY_GUIDE.md`.
 
+### D-0127 — Human-first design philosophy correction (v1.1)
+
+- **Date:** 2026-07-25
+- **Status:** Active
+- **Decision:** Keep Knowledge Objects and Visual System, but restore progressive disclosure: human understanding first, professional context second, engineering document details third (collapsed). Remove technical chrome from the first viewport. Soften Home to Understand → Explore → Discover → Continue. Footer remains the complete map; Company/Legal/Contact appear as planned groups without unpublished links. UI chrome is localized for all ten system locales; page bodies remain fully localized for en/ar/he/ru/uk.
+- **Implications:** Do not return Knowledge Passport or metadata to the hero/first screen. Translate every UI update across all UI locale catalogs.
+
 ---
 
 ## Pending Owner Decisions

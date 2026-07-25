@@ -154,7 +154,7 @@
 }
 
 .page-body {
-  padding-block: var(--space-32) var(--space-48);
+  padding-block: var(--space-48) var(--space-64);
 }
 
 .page-body__editorial {
@@ -184,14 +184,13 @@
   color: var(--color-text-secondary);
 }
 
-.page-dev-note__text::before,
-.page-access-note__text::before {
-  content: "Current scope — ";
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
+.page-dev-note__label,
+.page-access-note__label {
+  display: block;
+  margin-block-end: var(--space-4);
+  font-size: 0.8125rem;
   font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  letter-spacing: -0.01em;
   color: var(--color-text);
 }
 

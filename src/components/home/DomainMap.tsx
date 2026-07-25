@@ -18,7 +18,7 @@ export function DomainMap({ locale }: DomainMapProps) {
     <section className="kx-domain-map" aria-labelledby="domain-map-heading">
       <div className="home__inner">
         <header className="kx-section-header">
-          <p className="kx-section-header__kicker">{ui.home.domainMap}</p>
+          <p className="kx-section-header__kicker">{ui.home.discover}</p>
           <h2 id="domain-map-heading" className="kx-section-header__title">
             {ui.home.architectureDependencies}
           </h2>

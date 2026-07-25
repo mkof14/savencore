@@ -34,18 +34,24 @@ export function SiteFooter({ locale }: SiteFooterProps) {
                 >
                   {title}
                 </summary>
-                <ul className="site-footer__list" aria-labelledby={headingId}>
-                  {group.links.map((link) => (
-                    <li key={link.id}>
-                      <Link
-                        href={localizePath(locale, link.href)}
-                        className="site-footer__link"
-                      >
-                        {getNavEntryLabel(locale, link.id, link.label)}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
+                {group.planned || group.links.length === 0 ? (
+                  <p className="site-footer__planned" aria-labelledby={headingId}>
+                    {ui.footer.plannedNote}
+                  </p>
+                ) : (
+                  <ul className="site-footer__list" aria-labelledby={headingId}>
+                    {group.links.map((link) => (
+                      <li key={link.id}>
+                        <Link
+                          href={localizePath(locale, link.href)}
+                          className="site-footer__link"
+                        >
+                          {getNavEntryLabel(locale, link.id, link.label)}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </details>
             );
           })}

@@ -21,9 +21,7 @@ export function ContinueExploring({ locale }: ContinueExploringProps) {
     >
       <div className="home__inner">
         <header className="kx-section-header">
-          <p className="kx-section-header__kicker">
-            {ui.home.continueExploring}
-          </p>
+          <p className="kx-section-header__kicker">{ui.home.continue}</p>
           <h2
             id="continue-exploring-heading"
             className="kx-section-header__title"

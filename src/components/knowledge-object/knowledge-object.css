@@ -6,20 +6,93 @@
 @import "../engineering/engineering.css";
 
 .ko-shell {
-  display: grid;
-  gap: var(--space-32);
-  align-items: start;
+  display: block;
 }
 
-@media (min-width: 1100px) {
-  .ko-shell {
-    grid-template-columns: minmax(0, 1fr) minmax(16rem, 18.5rem);
-    gap: var(--space-48);
-  }
+.ko-shell--human-first .ko-shell__main {
+  max-width: 48rem;
 }
 
 .ko-shell__main {
   min-inline-size: 0;
+}
+
+/* Progressive disclosure levels */
+
+.ko-level {
+  margin-block: var(--space-64);
+  padding-block: var(--space-48);
+  border-block-start: 1px solid var(--color-divider);
+}
+
+.ko-level__header {
+  margin-block-end: var(--space-32);
+  max-width: 40rem;
+}
+
+.ko-level__kicker {
+  margin: 0 0 var(--space-8);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--color-text-secondary);
+}
+
+.ko-level__title {
+  margin: 0;
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+}
+
+.ko-level__grid {
+  display: grid;
+  gap: var(--space-32);
+}
+
+@media (min-width: 900px) {
+  .ko-level__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-48);
+  }
+}
+
+.ko-level--engineering {
+  border: 1px solid var(--color-divider);
+  padding: 0;
+  background: var(--color-background);
+}
+
+.ko-level__summary {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  padding: var(--space-24) var(--space-24);
+  cursor: pointer;
+  list-style: none;
+}
+
+.ko-level__summary::-webkit-details-marker {
+  display: none;
+}
+
+.ko-level__summary::after {
+  content: "+";
+  font-family: var(--font-mono);
+  font-size: 1.125rem;
+  color: var(--color-text-secondary);
+  margin-block-start: var(--space-8);
+}
+
+.ko-level--engineering[open] > .ko-level__summary::after {
+  content: "−";
+}
+
+.ko-level--engineering .ko-dossier {
+  padding-inline: var(--space-24);
+  padding-block-end: var(--space-32);
+  border-block-start: 1px solid var(--color-divider);
 }
 
 .ko-sidebar {
@@ -137,15 +210,13 @@
 }
 
 .ko-passport__title {
-  margin: 0 0 var(--space-12);
-  padding-block-end: var(--space-8);
+  margin: 0 0 var(--space-16);
+  padding-block-end: var(--space-12);
   border-block-end: 1px solid var(--color-divider);
-  font-family: var(--font-mono);
-  font-size: 0.625rem;
+  font-size: 0.9375rem;
   font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--color-text-secondary);
+  letter-spacing: -0.01em;
+  color: var(--color-text);
 }
 
 .ko-passport__list {
@@ -163,11 +234,8 @@
 
 .ko-passport__label {
   margin: 0;
-  font-family: var(--font-mono);
-  font-size: 0.625rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-size: 0.8125rem;
+  font-weight: 500;
   color: var(--color-text-secondary);
 }
 
@@ -498,9 +566,8 @@ a.ko-deps__node:focus-visible {
 .ko-dossier {
   display: flex;
   flex-direction: column;
-  gap: var(--space-24);
-  padding-block: var(--space-24);
-  border-block-end: 1px solid var(--color-divider);
+  gap: var(--space-32);
+  padding-block: var(--space-32);
 }
 
 .ko-dossier__heading {
@@ -509,6 +576,15 @@ a.ko-deps__node:focus-visible {
   font-weight: 600;
   letter-spacing: -0.02em;
   color: var(--color-text);
+}
+
+.ko-passport,
+.ko-deps,
+.ko-graph,
+.ko-lifecycle,
+.ko-versions,
+.ko-paths {
+  border-color: var(--color-divider);
 }
 
 /* Home reference chip */

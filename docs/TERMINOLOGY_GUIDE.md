@@ -75,3 +75,13 @@ comprehensive · cutting-edge · state-of-the-art · next-generation · advanced
 - No exaggerated claims
 - No unnecessary repetition
 - Explain ideas in ordinary language for healthcare professionals, engineers, researchers, investors, business leaders, and educated general readers
+- Human-first: title, short explanation, diagrams, why it matters, and what you will learn before document metadata
+- Prefer calm, confident wording over documentation or compliance tone
+
+## 7. Progressive disclosure labels
+
+| Level | Prefer |
+|-------|--------|
+| 1 | Human understanding (title, explanation, diagrams) |
+| 2 | Related reading / related concepts / status |
+| 3 | Document information for professionals (passport, lifecycle, versions, evidence) |

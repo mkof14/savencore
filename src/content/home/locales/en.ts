@@ -12,9 +12,9 @@ export const homeContentEn: HomeContent = {
     brand: "SAVEN Core",
     sentence: "Intelligent systems built to support human life.",
     explanation:
-      "SAVEN Core brings together human understanding, technology, systems and real-world settings — with clear limits.",
+      "We design systems that help people in hospitals, at home and in everyday life — carefully, and with clear limits.",
     status:
-      "Status today: architecture and development work. This is not a finished product platform.",
+      "We are building the architecture now. This site explains the ideas — not a finished product.",
   },
   architectureChain: [
     { id: "human", label: "People" },

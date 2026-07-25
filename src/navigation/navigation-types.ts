@@ -29,4 +29,6 @@ export type FooterGroup = {
   id: string;
   title: string;
   links: readonly FooterLinkItem[];
+  /** When true, show a calm "coming later" note instead of inventing links. */
+  planned?: boolean;
 };

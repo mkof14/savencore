@@ -174,7 +174,7 @@ export const foundationPageContent: TechnicalPageContent = {
     { id: "human-data-model", label: "Human Data Model" },
     { id: "system-relationships", label: "System relationships" },
     { id: "technology-relationships", label: "Technology relationships" },
-    { id: "development-philosophy", label: "Development philosophy" },
+    { id: "development-philosophy", label: "Design approach" },
   ],
   diagrams: [
     {
@@ -263,9 +263,9 @@ export const foundationPageContent: TechnicalPageContent = {
     },
     {
       id: "development-philosophy",
-      title: "Development Philosophy",
+      title: "Design Approach",
       paragraphs: [
-        "Development proceeds in stages: understand, architect, build, test and govern before wider use. Public status remains Research, Architecture or In Development unless a later approved status is justified.",
+        "Capability expands through clear stages: understand, architect, build, test and govern before wider use. Published materials state Architecture or Research scope with evidence appropriate to that stage.",
         "Important actions remain subject to permissions, defined safeguards and human oversight. Evidence and responsibility constrain expansion.",
       ],
     },

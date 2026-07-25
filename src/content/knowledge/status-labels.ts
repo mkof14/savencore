@@ -1,14 +1,14 @@
 import type { KnowledgeEntityStatus } from "@/content/knowledge/entity-types";
 
-/** Human-readable labels for entity development status. */
+/** Visitor-facing labels for entity public status. */
 export const knowledgeEntityStatusLabels: Readonly<
   Record<KnowledgeEntityStatus, string>
 > = {
   foundational: "Foundational",
-  "active-development": "Active development",
+  "active-development": "Architecture",
   research: "Research",
-  conceptual: "Conceptual",
-  planned: "Planned",
+  conceptual: "Concept",
+  planned: "Reference",
   reference: "Reference",
 };
 

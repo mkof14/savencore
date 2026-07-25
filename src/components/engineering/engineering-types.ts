@@ -7,7 +7,7 @@ export type DocumentStatus =
   | "Architecture"
   | "In Development"
   | "Reference"
-  | "Draft";
+  | "Documented";
 
 export type DocumentType =
   | "Editorial"

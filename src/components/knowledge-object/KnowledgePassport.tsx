@@ -18,7 +18,7 @@ export function KnowledgePassport({
 }: KnowledgePassportProps) {
   const ui = getUi(locale);
   const display = (value: string) =>
-    value === "Not yet assigned." ? ui.ko.notYetAssigned : value;
+    value === "Unspecified" ? ui.ko.notYetAssigned : value;
 
   const fields: { key: keyof KnowledgeObject; label: string }[] = [
     { key: "knowledgeId", label: ui.ko.knowledgeId },

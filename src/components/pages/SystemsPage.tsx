@@ -258,7 +258,7 @@ export function SystemsPage({ locale, content }: SystemsPageProps) {
 
         <ScopePanel locale={locale}
           variant="engineering-note"
-          title="Development status"
+          title="Scope"
         >
           <p>{content.developmentNote}</p>
         </ScopePanel>

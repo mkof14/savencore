@@ -86,7 +86,7 @@ export function EngineeringSidebar({
         <section className="ko-sidebar__section">
           <h3 className="ko-sidebar__heading">{ui.ko.readingTime}</h3>
           <p className="ko-sidebar__value">
-            {object.readingTime === "Not yet assigned."
+            {object.readingTime === "Unspecified"
               ? ui.ko.notYetAssigned
               : object.readingTime}
           </p>

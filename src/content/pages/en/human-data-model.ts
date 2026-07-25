@@ -81,7 +81,7 @@ export const humanDataModelPageContent: HumanDataModelPageContent = {
   purpose: [
     "Organize Human Data so foundation layers and systems can use a shared, limited view of a person.",
     "Keep what may be known, who may access it and why it may be used as structural rules—not optional extras.",
-    "Prepare careful assistance pathways for later application contexts, without claiming those pathways are deployed today.",
+    "Prepare careful assistance pathways for application contexts within stated permissions and limits.",
   ],
   principlesHeading: "Core Principles",
   principles: [
@@ -217,14 +217,14 @@ export const humanDataModelPageContent: HumanDataModelPageContent = {
   engineering: [
     "Treat category boundaries as contracts. Combining categories needs an explicit purpose and permission check.",
     "Ask only for the context required for a defined assistance pathway.",
-    "Keep status language precise so documentation does not overstate maturity.",
+    "Keep scope language precise so documentation stays accurate.",
     "Keep human review points wherever model outputs could influence important recommendations or actions.",
   ],
   scopeHeading: "Scope",
   scope: [
-    "Current public scope defines the Human Data Model as architecture: purpose, principles, category roles, relationships and development status.",
-    "The model is in active development as architecture. This page does not claim production operation or clinical deployment.",
-    "Schemas, permission matrices and change-event designs remain future documentation topics from the registry.",
+    "Current public scope defines the Human Data Model as architecture: purpose, principles, category roles, relationships and scope.",
+    "Public material presents the Human Data Model as architecture: purpose, principles, category roles, relationships and scope — not a production or clinical system.",
+    "Detailed schemas, permission matrices and change-event designs are covered in related registry topics.",
   ],
   futureHeading: "Related topics",
   futureIntro:

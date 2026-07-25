@@ -98,7 +98,6 @@ export const dictionary: Record<string, string> = {
   "Information Flow": "تدفق المعلومات",
   "Human Role": "دور الإنسان",
   "Safety and Trust": "السلامة والثقة",
-  "Current Development Scope": "نطاق التطوير الحالي",
   "Related Technology": "التقنية ذات الصلة",
   "Related Systems": "الأنظمة ذات الصلة",
   "Related Trust": "الثقة ذات الصلة",

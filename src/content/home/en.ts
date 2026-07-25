@@ -16,7 +16,7 @@ export const humanPurposeContent = {
   label: "Human Purpose",
   heading: "Technology should serve people in the moments that matter.",
   paragraphs: [
-    "SAVEN Core is being developed so that systems can understand context, respond carefully and support people across care, independence, safety and daily life.",
+    "SAVEN Core is designed so that systems can understand context, respond carefully and support people across care, independence, safety and daily life.",
     "The work begins with people — not with products. Artificial intelligence, robotics and physical systems are tools for assistance under human oversight.",
   ],
   principles: [
@@ -43,7 +43,7 @@ export const foundationChainContent = {
   label: "Foundation",
   heading: "A connected path from human understanding to physical systems.",
   introduction:
-    "SAVEN Core is being developed as the physical systems layer of a broader architecture for understanding people, interpreting context and supporting real-world environments.",
+    "SAVEN Core is the physical systems layer of a broader architecture for understanding people, interpreting context and supporting real-world environments.",
   stages: [
     {
       id: "biomath-life",
@@ -203,7 +203,7 @@ export const systemsOverviewContent = {
   label: "Systems",
   heading: "Engineering systems for physical and digital environments.",
   introduction:
-    "SAVEN Core is being developed as a family of connected systems. Each system addresses a defined operational role while remaining part of a shared architecture.",
+    "SAVEN Core is a family of connected systems. Each system addresses a defined operational role while remaining part of a shared architecture.",
   systems: [
     {
       id: "saven-robotics-interface",
@@ -307,12 +307,12 @@ export const trustArchitectureContent = {
     "Autonomy is limited by purpose, permission, risk and human authority.",
 } as const;
 
-/** Development status register — used on Home and preserved for destination reuse. */
+/** Architecture scope register — used on Home and preserved for destination reuse. */
 export const developmentStatusContent = {
-  label: "Development Status",
-  heading: "Built in stages, reviewed before expansion.",
+  label: "Architecture Scope",
+  heading: "Organized by capability, evidence and responsibility.",
   introduction:
-    "SAVEN Core is being developed through defined phases across architecture, software, research, interfaces and physical-system engineering.",
+    "SAVEN Core organizes work across architecture, software, research, interfaces and physical-system engineering.",
   stages: [
     {
       id: "foundation",
@@ -326,25 +326,25 @@ export const developmentStatusContent = {
       title: "Digital Systems",
       description:
         "Core software architecture, human-context models, interfaces and controlled system logic.",
-      status: "In development",
+      status: "Architecture",
     },
     {
       id: "physical-systems",
       title: "Physical Systems",
       description:
         "Robotics, sensing, devices, environment integration and operational testing.",
-      status: "Planned and under research",
+      status: "Research",
     },
     {
       id: "deployment-readiness",
       title: "Deployment Readiness",
       description:
         "Validation, permissions, operating procedures, safety review and controlled implementation.",
-      status: "Future phase",
+      status: "Readiness",
     },
   ],
   statusNote:
-    "Public information reflects the current development stage and does not imply commercial deployment, clinical use or regulatory approval.",
+    "Public information describes architecture and scope. It does not imply commercial deployment, clinical use or regulatory approval.",
 } as const;
 
 /** Future Company page. */
@@ -399,10 +399,10 @@ export const investorOverviewContent = {
 
 /** Future Roadmap page — capability categories. */
 export const roadmapClosingContent = {
-  label: "Roadmap",
+  label: "Direction",
   heading: "Progress is organized around capability, evidence and responsibility.",
   introduction:
-    "The SAVEN Core roadmap is structured around what must be understood, built, tested and governed before wider use.",
+    "SAVEN Core direction is structured around what must be understood, built, tested and governed before wider use.",
   categories: [
     {
       id: "architecture",
@@ -430,7 +430,7 @@ export const roadmapClosingContent = {
     },
   ],
   primaryLink: {
-    label: "View roadmap",
+    label: "View direction",
     href: "/roadmap/",
   },
   closingStatement:
@@ -570,7 +570,7 @@ export const developmentStatusHomeContent = {
 
 export const corporateClosingHomeContent = {
   label: "Organization",
-  heading: "Company, investors and roadmap.",
+  heading: "Company, investors and direction.",
   columns: [
     {
       id: "company",

@@ -95,7 +95,6 @@ export const dictionary: Record<string, string> = {
   "Information Flow": "Потік інформації",
   "Human Role": "Роль людини",
   "Safety and Trust": "Безпека та довіра",
-  "Current Development Scope": "Поточний обсяг розробки",
   "Related Technology": "Пов’язана технологія",
   "Related Systems": "Пов’язані системи",
   "Related Trust": "Пов’язана довіра",

@@ -240,6 +240,12 @@ html[dir="rtl"] .saven-logo__mark {
 .brand-name__core {
   font-weight: 600;
   letter-spacing: 0.04em;
+  color: var(--color-accent-text);
+}
+
+.site-header .brand-name__core,
+.site-footer .brand-name__core,
+.kx-hero .brand-name__core {
   color: var(--color-accent);
 }
 

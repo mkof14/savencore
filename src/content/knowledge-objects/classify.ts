@@ -96,13 +96,13 @@ function maturityFromDocumentStatus(
   }
   const normalized = status.trim().toLowerCase();
   if (normalized === "draft") {
-    return "Draft";
+    return "Documented";
   }
   if (normalized === "research") {
-    return "Experimental";
+    return "Research";
   }
   if (normalized === "architecture" || normalized === "in development") {
-    return "Engineering Review";
+    return "Architecture";
   }
   if (normalized === "reference" || normalized.includes("reference")) {
     return "Published";
@@ -116,16 +116,16 @@ function maturityFromEntityStatus(
   switch (status) {
     case "conceptual":
     case "planned":
-      return "Draft";
+      return "Documented";
     case "research":
-      return "Experimental";
+      return "Research";
     case "active-development":
-      return "Engineering Review";
+      return "Architecture";
     case "foundational":
     case "reference":
       return "Published";
     default:
-      return "Draft";
+      return "Documented";
   }
 }
 
@@ -144,7 +144,7 @@ export function classifyMaturity(
   if (entity) {
     return maturityFromEntityStatus(entity.status);
   }
-  return "Draft";
+  return "Documented";
 }
 
 /**

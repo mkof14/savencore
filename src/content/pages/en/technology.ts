@@ -93,7 +93,7 @@ export const technologyPageContent: TechnologyPageContent = {
   ],
   scopeHeading: "Scope",
   scope: [
-    "This page is a knowledge index. It describes Technology architecture, relationships and development status.",
+    "This page is a knowledge index. It describes Technology architecture, relationships and scope.",
     "Status labels describe maturity of the architecture only. They do not mean systems are operating in production.",
     "This page makes no customer, partnership, certification or validation claims.",
   ],

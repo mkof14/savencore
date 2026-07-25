@@ -91,7 +91,7 @@ export const safetyLayerPageContent: SystemDisciplinePageContent = {
   scope: [
     "This page defines architecture only.",
     "It does not claim certified safety products or production control rooms.",
-    "Status is active development as architecture only."
+    "This page documents safety architecture and operating boundaries."
   ],
   futureHeading: "Related topics",
   futureIntro:

@@ -1,6 +1,6 @@
 /**
  * Resolve Knowledge Objects from entity registry + page inputs.
- * Missing fields become "Not yet assigned." — never fabricated.
+ * Missing fields become "Unspecified" — never fabricated.
  */
 
 import { getEntityById } from "@/content/knowledge/entity-registry";

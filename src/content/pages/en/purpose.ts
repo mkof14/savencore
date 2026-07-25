@@ -8,7 +8,7 @@ export const purposePageContent: EditorialPageContent = {
   label: "Purpose",
   title: "Intelligent systems built to support human life.",
   introduction:
-    "SAVEN Core exists to develop physical and digital systems that support people in hospitals, at home and in everyday life. The work begins with human purpose, then proceeds to architecture, engineering and governed assistance.",
+    "SAVEN Core builds physical and digital systems that support people in hospitals, at home and in everyday life. The work begins with human purpose, then proceeds to architecture, engineering and governed assistance.",
   status: "Reference architecture",
   sectionNav: [
     { id: "purpose", label: "Purpose" },
@@ -83,7 +83,7 @@ export const purposePageContent: EditorialPageContent = {
           id: "engineering-before-promotion",
           title: "Engineering before promotion",
           paragraphs: [
-            "Public communication follows architecture, evidence and development status.",
+            "Public communication follows architecture, evidence and scope.",
           ],
         },
         {

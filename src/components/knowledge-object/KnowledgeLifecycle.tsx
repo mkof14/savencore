@@ -11,7 +11,7 @@ type KnowledgeLifecycleProps = {
 export function KnowledgeLifecycle({ locale, object }: KnowledgeLifecycleProps) {
   const ui = getUi(locale);
   const display = (value: string) =>
-    value === "Not yet assigned." ? ui.ko.notYetAssigned : value;
+    value === "Unspecified" ? ui.ko.notYetAssigned : value;
 
   const fields: { key: keyof KnowledgeObject["lifecycle"]; label: string }[] = [
     { key: "created", label: ui.ko.created },

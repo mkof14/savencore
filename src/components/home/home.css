@@ -36,7 +36,7 @@
   margin: 0 0 var(--space-12);
   font-size: 0.9375rem;
   font-weight: 500;
-  color: var(--color-accent);
+  color: var(--color-accent-text);
 }
 
 .kx-section-header__title {
@@ -268,8 +268,13 @@
 .kx-explorer {
   padding-block: var(--space-96);
   background:
-    radial-gradient(80% 50% at 100% 0%, #d9e8eb 0%, transparent 55%),
+    radial-gradient(
+      80% 50% at 100% 0%,
+      color-mix(in srgb, var(--color-surface) 70%, #c5d8e4) 0%,
+      transparent 55%
+    ),
     var(--color-background);
+  color: var(--color-text);
 }
 
 .kx-explorer__grid {
@@ -333,24 +338,86 @@
   background:
     radial-gradient(circle at 90% 20%, #dde5f5 0%, #ffffff 45%);
   border-color: #172554;
+  color: var(--color-ink-fixed);
 }
 
 .kx-domain-card--applications .kx-domain-card__inner {
   background:
     linear-gradient(135deg, #dce8e1 0%, #ffffff 55%);
   border-color: #1a3328;
+  color: var(--color-ink-fixed);
 }
 
 .kx-domain-card--trust .kx-domain-card__inner {
   background:
     radial-gradient(circle at 80% 80%, #f0e8e1 0%, #ffffff 50%);
   border-color: #3b2418;
+  color: var(--color-ink-fixed);
 }
 
 .kx-domain-card--research .kx-domain-card__inner {
   background:
     linear-gradient(180deg, #e4eef6 0%, #ffffff 60%);
   border-color: #0f2744;
+  color: var(--color-ink-fixed);
+}
+
+.kx-domain-card--systems .kx-domain-card__action,
+.kx-domain-card--applications .kx-domain-card__action,
+.kx-domain-card--trust .kx-domain-card__action,
+.kx-domain-card--research .kx-domain-card__action {
+  color: #8a6414;
+}
+
+html[data-theme="dark"] .kx-domain-card--systems .kx-domain-card__inner {
+  background:
+    radial-gradient(
+      circle at 90% 20%,
+      color-mix(in srgb, #3b4f8a 40%, #151d2e) 0%,
+      #151d2e 50%
+    );
+  border-color: #7f93c4;
+  color: #eef3f7;
+}
+
+html[data-theme="dark"] .kx-domain-card--applications .kx-domain-card__inner {
+  background:
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, #2d5a45 45%, #151d2e) 0%,
+      #151d2e 55%
+    );
+  border-color: #7aab90;
+  color: #eef3f7;
+}
+
+html[data-theme="dark"] .kx-domain-card--trust .kx-domain-card__inner {
+  background:
+    radial-gradient(
+      circle at 80% 80%,
+      color-mix(in srgb, #6b4634 40%, #151d2e) 0%,
+      #151d2e 50%
+    );
+  border-color: #c4a089;
+  color: #eef3f7;
+}
+
+html[data-theme="dark"] .kx-domain-card--research .kx-domain-card__inner {
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, #2a4a6e 45%, #151d2e) 0%,
+      #151d2e 60%
+    );
+  border-color: #7fa3c9;
+  color: #eef3f7;
+}
+
+html[data-theme="dark"] .kx-domain-card--systems .kx-domain-card__action,
+html[data-theme="dark"] .kx-domain-card--applications .kx-domain-card__action,
+html[data-theme="dark"] .kx-domain-card--trust .kx-domain-card__action,
+html[data-theme="dark"] .kx-domain-card--research .kx-domain-card__action {
+  color: var(--color-accent-text);
 }
 
 .kx-domain-card__index {
@@ -358,7 +425,7 @@
   font-family: var(--font-mono);
   font-size: 0.75rem;
   letter-spacing: 0.08em;
-  opacity: 0.55;
+  opacity: 0.72;
 }
 
 .kx-domain-card__title {
@@ -385,7 +452,7 @@
   margin: 0 0 var(--space-8);
   font-size: 0.8125rem;
   font-weight: 600;
-  opacity: 0.65;
+  opacity: 0.8;
 }
 
 .kx-domain-card__page-list {
@@ -421,7 +488,7 @@
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  opacity: 0.55;
+  opacity: 0.75;
 }
 
 .kx-domain-card__action {
@@ -432,13 +499,13 @@
   font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
-  color: var(--color-accent);
+  color: var(--color-accent-text);
 }
 
 .kx-domain-card__action:hover {
-  color: var(--color-accent-strong);
+  color: var(--color-accent-text);
   text-decoration: underline;
-  text-decoration-color: var(--color-accent);
+  text-decoration-color: var(--color-accent-text);
   text-underline-offset: 0.2em;
 }
 
@@ -599,7 +666,21 @@
 .kx-featured {
   padding-block: var(--space-96);
   background:
-    linear-gradient(180deg, #e4eef6 0%, var(--color-background) 40%);
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--color-surface) 88%, #c5d8e4) 0%,
+      var(--color-background) 40%
+    );
+  color: var(--color-text);
+}
+
+.kx-featured .kx-section-header__title,
+.kx-featured .kx-section-header__kicker {
+  color: inherit;
+}
+
+.kx-featured .kx-section-header__kicker {
+  color: var(--color-accent-text);
 }
 
 .kx-featured__grid {
@@ -710,7 +791,7 @@
   grid-row: 1 / span 2;
   align-self: center;
   font-size: 1.5rem;
-  color: var(--color-accent);
+  color: var(--color-accent-text);
 }
 
 @media (prefers-reduced-motion: reduce) {

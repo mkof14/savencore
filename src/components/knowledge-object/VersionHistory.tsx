@@ -11,7 +11,7 @@ type VersionHistoryProps = {
 export function VersionHistory({ locale, object }: VersionHistoryProps) {
   const ui = getUi(locale);
   const display = (value: string) =>
-    value === "Not yet assigned." ? ui.ko.notYetAssigned : value;
+    value === "Unspecified" ? ui.ko.notYetAssigned : value;
 
   return (
     <section className="ko-versions" aria-label={ui.ko.versionHistory}>

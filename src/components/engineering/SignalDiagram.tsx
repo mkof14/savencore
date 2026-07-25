@@ -59,7 +59,7 @@ const COPY: Record<SignalDiagramVariant, DiagramCopy> = {
       "Technical disciplines stack as schemas and data layers before Systems.",
   },
   "research-overview": {
-    caption: "Open field",
+    caption: "Research field",
     description: "Questions and evidence guide design before scale.",
   },
   "human-data": {

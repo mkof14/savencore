@@ -6,7 +6,7 @@
 import type { PageMetadata } from "@/components/engineering/engineering-types";
 
 /** Placeholder when a field has no approved assigned value. */
-export const NOT_YET_ASSIGNED = "Not yet assigned." as const;
+export const NOT_YET_ASSIGNED = "Unspecified" as const;
 
 /** Standardized primary document classification. */
 export type KnowledgeObjectType =
@@ -20,25 +20,25 @@ export type KnowledgeObjectType =
   | "Standard"
   | "Reference";
 
-/** Engineering document maturity — do not overstate. */
+/** Document maturity — visitor-facing vocabulary. */
 export type KnowledgeMaturity =
-  | "Draft"
-  | "Internal Review"
-  | "Engineering Review"
+  | "Documented"
+  | "Review"
+  | "Architecture"
   | "Published"
   | "Validated"
-  | "Experimental"
+  | "Research"
   | "Deprecated";
 
 /** Evidence classification — separate from maturity. */
 export type KnowledgeEvidenceLevel =
   | "Concept"
   | "Engineering"
-  | "Prototype"
+  | "Architecture"
   | "Operational"
   | "Clinical"
   | "Research"
-  | "Future"
+  | "Reference"
   | "Unknown";
 
 /** Directional relationship kinds. */

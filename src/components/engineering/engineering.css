@@ -918,14 +918,14 @@
   min-height: 2.5rem;
   font-size: 0.875rem;
   font-weight: 600;
-  color: var(--color-accent);
+  color: var(--color-accent-text);
   text-decoration: none;
 }
 
 .engineering-card__action:hover {
-  color: var(--color-accent-strong);
+  color: var(--color-accent-text);
   text-decoration: underline;
-  text-decoration-color: var(--color-accent);
+  text-decoration-color: var(--color-accent-text);
   text-underline-offset: 0.2em;
 }
 
@@ -1719,7 +1719,12 @@
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--color-text-secondary);
+  color: color-mix(in srgb, var(--color-ink-fixed) 72%, transparent);
+}
+
+.knowledge-hero--technology .signal-diagram__caption-label,
+.knowledge-hero--applications .signal-diagram__caption-label {
+  color: color-mix(in srgb, #eef3f7 78%, transparent);
 }
 
 .signal-diagram__caption-text {
@@ -2387,14 +2392,14 @@
   min-height: 2.5rem;
   font-size: 0.875rem;
   font-weight: 600;
-  color: var(--color-accent);
+  color: var(--color-accent-text);
   text-decoration: none;
 }
 
 .concept-card__action:hover {
-  color: var(--color-accent-strong);
+  color: var(--color-accent-text);
   text-decoration: underline;
-  text-decoration-color: var(--color-accent);
+  text-decoration-color: var(--color-accent-text);
   text-underline-offset: 0.2em;
 }
 

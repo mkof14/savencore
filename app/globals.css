@@ -38,9 +38,13 @@
   /* Brand gold — from CORE wordmark (accents, rules, selected states) */
   --color-accent: #d4a84b;
   --color-accent-strong: #e0b85a;
-  --color-accent-muted: color-mix(in srgb, var(--color-accent) 72%, transparent);
+  /* Readable gold on light paper; bright gold for dark chrome */
+  --color-accent-text: #8a6414;
+  --color-accent-muted: color-mix(in srgb, var(--color-accent-text) 78%, transparent);
   --color-accent-soft: color-mix(in srgb, var(--color-accent) 16%, transparent);
   --color-accent-line: color-mix(in srgb, var(--color-accent) 55%, transparent);
+  --color-ink-fixed: #0b1220;
+  --color-paper-fixed: #f2f5f7;
 
   /* Functional accents — meaning markers only (borders/dots), not fills */
   --signal-human: #0f4c5c;
@@ -133,9 +137,11 @@ html[data-theme="dark"] {
   --color-background: #0b1220;
   --color-surface: #151d2e;
   --color-text: #eef3f7;
-  --color-text-secondary: #9aa8b8;
+  --color-text-secondary: #b7c3d2;
   --color-border: #2a3648;
   --color-divider: #334155;
+  --color-accent-text: #d4a84b;
+  --color-accent-muted: color-mix(in srgb, var(--color-accent) 72%, transparent);
 }
 
 h1,

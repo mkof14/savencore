@@ -770,7 +770,7 @@ export const knowledgeEntities: readonly KnowledgeEntity[] = [
   defineEntity({
     id: "engineering-notes",
     slug: "engineering-notes",
-    title: "Engineering Notes",
+    title: "Technical Notes",
     entityType: "research-output",
     domain: "research",
     summary:
@@ -1247,7 +1247,7 @@ export const knowledgeEntities: readonly KnowledgeEntity[] = [
       { label: "Technology Privacy", href: "/technology/privacy/" },
     ],
     futureTopics: [
-      "Reviewed policy drafts when approved",
+      "Reviewed policy documents when approved",
       "Accountability records",
     ],
   }),

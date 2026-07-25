@@ -37,7 +37,7 @@ export const knowledgeDomains: readonly KnowledgeDomain[] = [
     purpose:
       "Define what SAVEN Core is built upon and the permanent layer sequence.",
     scope:
-      "BioMath Life, BioMath Core, SAVEN, SAVEN Core, Human Data Model and development philosophy.",
+      "BioMath Life, BioMath Core, SAVEN, SAVEN Core, Human Data Model and design approach.",
     parent: null,
     children: [
       "biomath-life",
@@ -115,7 +115,7 @@ export const knowledgeDomains: readonly KnowledgeDomain[] = [
     purpose:
       "Structure research areas, documents and laboratories that shape engineering practice.",
     scope:
-      "Research areas, white papers, engineering notes, publications, future research and laboratories.",
+      "Research areas, white papers, technical notes, publications, future research and laboratories.",
     parent: null,
     children: [
       "research-areas",
@@ -155,7 +155,7 @@ export const knowledgeDomains: readonly KnowledgeDomain[] = [
     futureExpansion: [
       "Context pages",
       "Workflow notes",
-      "Institutional collaboration placeholders",
+      "Institutional collaboration topics",
     ],
   },
   {

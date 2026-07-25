@@ -471,7 +471,7 @@ export function SystemDisciplinePage({
           ))}
         </ScopePanel>
 
-        <ScopePanel locale={locale} variant="engineering-note" title="Development status">
+        <ScopePanel locale={locale} variant="engineering-note" title="Scope">
           <p>{content.developmentNote}</p>
         </ScopePanel>
 

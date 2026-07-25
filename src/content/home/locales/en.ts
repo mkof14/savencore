@@ -67,7 +67,7 @@ export const homeContentEn: HomeContent = {
     {
       id: "research",
       title: "Research",
-      purpose: "Questions, methods and open work that guide design.",
+      purpose: "Questions, methods and evidence that guide design.",
       href: "/research/",
       pageIds: ["research-overview"],
       relationships: "Informs Technology and Systems through questions, methods and evidence.",

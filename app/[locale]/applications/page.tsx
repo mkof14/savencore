@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { ApplicationsPage } from "@/components/pages/ApplicationsPage";
 import "@/components/pages/pages.css";
 import { isLocale } from "@/config/locales";
-import { applicationsPageContent } from "@/content/pages/en/applications";
+import { getApplicationsPageContent } from "@/content/pages/get-localized-page";
 
 type ApplicationsRouteProps = {
   params: Promise<{ locale: string }>;
@@ -19,6 +19,6 @@ export default async function ApplicationsRoute({
   }
 
   return (
-    <ApplicationsPage locale={localeParam} content={applicationsPageContent} />
+    <ApplicationsPage locale={localeParam} content={getApplicationsPageContent(localeParam)} />
   );
 }

@@ -9,6 +9,7 @@ import {
   LOCALES,
   type Locale,
 } from "@/config/locales";
+import { getUi } from "@/i18n/ui";
 import { swapLocaleInPathname } from "@/navigation/locale-path";
 
 type LanguageSelectorProps = {
@@ -42,6 +43,8 @@ export function LanguageSelector({
     return () => details.removeEventListener("keydown", onKeyDown);
   }, []);
 
+  const ui = getUi(locale);
+
   return (
     <details ref={detailsRef} className="language-selector">
       <summary
@@ -49,7 +52,7 @@ export function LanguageSelector({
         className="language-selector__summary"
         aria-controls={panelId}
       >
-        Language
+        {ui.language}
         <span className="language-selector__code" aria-hidden="true">
           {locale}
         </span>

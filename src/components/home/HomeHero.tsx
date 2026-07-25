@@ -1,21 +1,19 @@
 import Link from "next/link";
 
 import type { Locale } from "@/config/locales";
-import {
-  knowledgeArchitectureChain,
-  knowledgeHeroContent,
-} from "@/content/home/knowledge-explorer";
+import { getHomeContent } from "@/content/home/get-home-content";
+import { getUi } from "@/i18n/ui";
 import { localizePath } from "@/navigation/locale-path";
 
 type HomeHeroProps = {
   locale: Locale;
 };
 
-/**
- * Engineering home hero — brand + architecture overview chain.
- */
+/** Home hero — brand, short explanation, and architecture chain. */
 export function HomeHero({ locale }: HomeHeroProps) {
-  const content = knowledgeHeroContent;
+  const content = getHomeContent(locale).hero;
+  const chain = getHomeContent(locale).architectureChain;
+  const ui = getUi(locale);
 
   return (
     <section className="kx-hero" aria-labelledby="home-hero-heading">
@@ -28,22 +26,29 @@ export function HomeHero({ locale }: HomeHeroProps) {
           <p className="kx-hero__explanation">{content.explanation}</p>
           <p className="kx-hero__status">
             <span className="kx-hero__status-mark" aria-hidden="true" />
-            <span className="kx-hero__status-label">Development status</span>
+            <span className="kx-hero__status-label">
+              {ui.home.developmentStatus}
+            </span>
             <span className="kx-hero__status-text">{content.status}</span>
           </p>
         </div>
 
         <figure className="kx-hero__diagram">
           <figcaption className="kx-hero__diagram-caption">
-            <span className="kx-hero__diagram-kicker">Architecture Overview</span>
+            <span className="kx-hero__diagram-kicker">
+              {ui.home.architectureOverview}
+            </span>
             <span className="kx-hero__diagram-text">
-              From human understanding to governed operating contexts.
+              {ui.home.architectureOverviewText}
             </span>
           </figcaption>
-          <ol className="kx-arch-chain" aria-label="SAVEN Core architecture chain">
-            {knowledgeArchitectureChain.map((node, index) => (
+          <ol
+            className="kx-arch-chain"
+            aria-label={ui.home.architectureOverview}
+          >
+            {chain.map((node, index) => (
               <li key={node.id} className="kx-arch-chain__item">
-                {"href" in node && node.href ? (
+                {node.href ? (
                   <Link
                     href={localizePath(locale, node.href)}
                     className="kx-arch-chain__node kx-arch-chain__node--link"
@@ -57,7 +62,7 @@ export function HomeHero({ locale }: HomeHeroProps) {
                     <span className="kx-arch-chain__label">{node.label}</span>
                   </div>
                 )}
-                {index < knowledgeArchitectureChain.length - 1 ? (
+                {index < chain.length - 1 ? (
                   <span className="kx-arch-chain__path" aria-hidden="true">
                     ↓
                   </span>

@@ -4,7 +4,7 @@ import "@/components/knowledge/knowledge.css";
 import { TechnologyPage } from "@/components/pages/TechnologyPage";
 import "@/components/pages/pages.css";
 import { isLocale } from "@/config/locales";
-import { technologyPageContent } from "@/content/pages/en/technology";
+import { getTechnologyPageContent } from "@/content/pages/get-localized-page";
 
 type TechnologyPageRouteProps = {
   params: Promise<{ locale: string }>;
@@ -20,6 +20,6 @@ export default async function TechnologyRoutePage({
   }
 
   return (
-    <TechnologyPage locale={localeParam} content={technologyPageContent} />
+    <TechnologyPage locale={localeParam} content={getTechnologyPageContent(localeParam)} />
   );
 }

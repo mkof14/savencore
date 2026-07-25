@@ -11,6 +11,11 @@ import {
 } from "react";
 
 import type { Locale } from "@/config/locales";
+import {
+  getNavEntryLabel,
+  getPrimaryNavLabel,
+} from "@/i18n/nav-label";
+import { getUi } from "@/i18n/ui";
 import { isPathActive, localizePath } from "@/navigation/locale-path";
 import { isNavGroup } from "@/navigation/navigation-types";
 import {
@@ -37,6 +42,7 @@ export function MobileNavigation({ locale }: MobileNavigationProps) {
   const toggleRef = useRef<HTMLButtonElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
   const panelId = useId();
+  const ui = getUi(locale);
 
   if (pathname !== pathForMenu) {
     setPathForMenu(pathname);
@@ -83,7 +89,7 @@ export function MobileNavigation({ locale }: MobileNavigationProps) {
         aria-controls={panelId}
         onClick={() => setOpen(true)}
       >
-        Menu
+        {ui.menu}
       </button>
 
       <div
@@ -92,7 +98,7 @@ export function MobileNavigation({ locale }: MobileNavigationProps) {
         hidden={!open}
         role="dialog"
         aria-modal="true"
-        aria-label="Site menu"
+        aria-label={ui.menu}
       >
         <div className="mobile-nav__top">
           <p className="mobile-nav__title">SAVEN Core</p>
@@ -105,16 +111,16 @@ export function MobileNavigation({ locale }: MobileNavigationProps) {
               toggleRef.current?.focus();
             }}
           >
-            Close
+            {ui.close}
           </button>
         </div>
 
-        <nav aria-label="Primary">
-          <p className="mobile-nav__section-title">Primary</p>
+        <nav aria-label={ui.nav.home}>
           <ul className="mobile-nav__list">
             {primaryNavigation.map((item) => {
               const href = localizePath(locale, item.href);
               const active = isPathActive(pathname, locale, item.href);
+              const itemLabel = getPrimaryNavLabel(locale, item.id, item.label);
 
               return (
                 <li key={item.id}>
@@ -124,7 +130,7 @@ export function MobileNavigation({ locale }: MobileNavigationProps) {
                     aria-current={active ? "page" : undefined}
                     onClick={closeMenu}
                   >
-                    {item.label}
+                    {itemLabel}
                   </Link>
                   {isNavGroup(item) ? (
                     <ul className="mobile-nav__children">
@@ -144,7 +150,7 @@ export function MobileNavigation({ locale }: MobileNavigationProps) {
                               aria-current={childActive ? "page" : undefined}
                               onClick={closeMenu}
                             >
-                              {child.label}
+                              {getNavEntryLabel(locale, child.id, child.label)}
                             </Link>
                           </li>
                         );
@@ -159,7 +165,6 @@ export function MobileNavigation({ locale }: MobileNavigationProps) {
 
         {utilityNavigation.length > 0 ? (
           <nav aria-label="Utility">
-            <p className="mobile-nav__section-title">Utility</p>
             <ul className="mobile-nav__list">
               {utilityNavigation.map((item) => {
                 const href = localizePath(locale, item.href);
@@ -173,7 +178,7 @@ export function MobileNavigation({ locale }: MobileNavigationProps) {
                       aria-current={active ? "page" : undefined}
                       onClick={closeMenu}
                     >
-                      {item.label}
+                      {getNavEntryLabel(locale, item.id, item.label)}
                     </Link>
                   </li>
                 );
@@ -183,7 +188,7 @@ export function MobileNavigation({ locale }: MobileNavigationProps) {
         ) : null}
 
         <div>
-          <p className="mobile-nav__section-title">Language</p>
+          <p className="mobile-nav__section-title">{ui.language}</p>
           <LanguageSelector locale={locale} idPrefix="mobile-language" />
         </div>
       </div>

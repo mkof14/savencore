@@ -1,5 +1,9 @@
 import type { ReactNode } from "react";
 
+import type { Locale } from "@/config/locales";
+import { DEFAULT_LOCALE } from "@/config/locales";
+import { getUi } from "@/i18n/ui";
+
 export type ScopePanelVariant =
   | "definition"
   | "current-scope"
@@ -15,21 +19,11 @@ type ScopePanelProps = {
   children: ReactNode;
   id?: string;
   className?: string;
-};
-
-const LABELS: Record<ScopePanelVariant, string> = {
-  definition: "Definition",
-  "current-scope": "Current Scope",
-  "future-scope": "Future Scope",
-  "human-oversight": "Human Oversight",
-  "safety-boundary": "Safety Boundary",
-  "engineering-note": "Engineering Note",
-  limitation: "Limitation",
+  locale?: Locale;
 };
 
 /**
  * Distinct reusable panels for scope, oversight, safety, and notes.
- * Structural differences — not identical bordered boxes.
  */
 export function ScopePanel({
   variant,
@@ -37,8 +31,10 @@ export function ScopePanel({
   children,
   id,
   className,
+  locale = DEFAULT_LOCALE,
 }: ScopePanelProps) {
   const headingId = id ? `${id}-heading` : undefined;
+  const label = getUi(locale).scope[variant];
 
   return (
     <aside
@@ -53,10 +49,10 @@ export function ScopePanel({
       aria-labelledby={headingId}
     >
       <div className="scope-panel__rail" aria-hidden="true">
-        <span className="scope-panel__rail-label">{LABELS[variant]}</span>
+        <span className="scope-panel__rail-label">{label}</span>
       </div>
       <div className="scope-panel__body">
-        <p className="scope-panel__type">{LABELS[variant]}</p>
+        <p className="scope-panel__type">{label}</p>
         <h2 id={headingId} className="scope-panel__title">
           {title}
         </h2>

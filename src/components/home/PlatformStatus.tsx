@@ -1,9 +1,21 @@
-import { platformStatusItems } from "@/content/home/knowledge-explorer";
+import type { Locale } from "@/config/locales";
+import { getHomeContent } from "@/content/home/get-home-content";
+import { getUi } from "@/i18n/ui";
 
-/**
- * Current platform progress — published domain completion only.
- */
-export function PlatformStatus() {
+type PlatformStatusProps = {
+  locale: Locale;
+};
+
+/** Current platform progress — honest status only. */
+export function PlatformStatus({ locale }: PlatformStatusProps) {
+  const items = getHomeContent(locale).platformStatus;
+  const ui = getUi(locale);
+  const stateLabel = {
+    complete: ui.home.complete,
+    inProgress: ui.home.inProgress,
+    planned: ui.home.planned,
+  } as const;
+
   return (
     <section
       className="kx-status"
@@ -11,14 +23,14 @@ export function PlatformStatus() {
     >
       <div className="home__inner">
         <header className="kx-section-header">
-          <p className="kx-section-header__kicker">Current status</p>
+          <p className="kx-section-header__kicker">{ui.home.currentStatus}</p>
           <h2 id="platform-status-heading" className="kx-section-header__title">
-            Platform progress
+            {ui.home.platformProgress}
           </h2>
         </header>
 
         <ul className="kx-status__list">
-          {platformStatusItems.map((item) => (
+          {items.map((item) => (
             <li
               key={item.id}
               className={[
@@ -30,7 +42,9 @@ export function PlatformStatus() {
                 {item.complete ? "✔" : "·"}
               </span>
               <span className="kx-status__label">{item.label}</span>
-              <span className="kx-status__state">{item.state}</span>
+              <span className="kx-status__state">
+                {stateLabel[item.stateKey]}
+              </span>
             </li>
           ))}
         </ul>

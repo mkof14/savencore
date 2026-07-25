@@ -443,7 +443,7 @@ export function SystemDisciplinePage({
         </div>
 
         {content.humanOversight.length > 0 ? (
-          <ScopePanel
+          <ScopePanel locale={locale}
             id="human-oversight"
             variant="human-oversight"
             title={content.humanOversightHeading}
@@ -456,12 +456,12 @@ export function SystemDisciplinePage({
 
         {content.entityId === "safety-layer" &&
         content.humanOversight.length > 0 ? (
-          <ScopePanel variant="safety-boundary" title="Safety boundary">
+          <ScopePanel locale={locale} variant="safety-boundary" title="Safety boundary">
             <p>{content.humanOversight[0]}</p>
           </ScopePanel>
         ) : null}
 
-        <ScopePanel
+        <ScopePanel locale={locale}
           id="current-development-scope"
           variant="current-scope"
           title={content.scopeHeading}
@@ -471,7 +471,7 @@ export function SystemDisciplinePage({
           ))}
         </ScopePanel>
 
-        <ScopePanel variant="engineering-note" title="Development status">
+        <ScopePanel locale={locale} variant="engineering-note" title="Development status">
           <p>{content.developmentNote}</p>
         </ScopePanel>
 

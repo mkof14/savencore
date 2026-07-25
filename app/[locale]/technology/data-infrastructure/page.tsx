@@ -4,7 +4,7 @@ import "@/components/knowledge/knowledge.css";
 import { DataInfrastructurePage } from "@/components/pages/DataInfrastructurePage";
 import "@/components/pages/pages.css";
 import { isLocale } from "@/config/locales";
-import { dataInfrastructurePageContent } from "@/content/pages/en/data-infrastructure";
+import { getDataInfrastructurePageContent } from "@/content/pages/get-localized-page";
 
 type DataInfrastructureRouteProps = {
   params: Promise<{ locale: string }>;
@@ -22,7 +22,7 @@ export default async function DataInfrastructureRoutePage({
   return (
     <DataInfrastructurePage
       locale={localeParam}
-      content={dataInfrastructurePageContent}
+      content={getDataInfrastructurePageContent(localeParam)}
     />
   );
 }

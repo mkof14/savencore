@@ -1,35 +1,40 @@
+import type { Locale } from "@/config/locales";
 import type { KnowledgeObject } from "@/content/knowledge-objects";
+import { getUi } from "@/i18n/ui";
 
 type KnowledgePassportProps = {
+  locale: Locale;
   object: KnowledgeObject;
   compact?: boolean;
 };
 
-const PASSPORT_FIELDS: readonly {
-  key: keyof KnowledgeObject;
-  label: string;
-}[] = [
-  { key: "knowledgeId", label: "Knowledge ID" },
-  { key: "domain", label: "Domain" },
-  { key: "type", label: "Type" },
-  { key: "status", label: "Status" },
-  { key: "version", label: "Version" },
-  { key: "evidenceLevel", label: "Evidence" },
-  { key: "maturity", label: "Maturity" },
-  { key: "readingTime", label: "Reading Time" },
-  { key: "lastReview", label: "Last Review" },
-  { key: "owner", label: "Owner" },
-];
-
 /**
- * Compact engineering Knowledge Passport — identity and metadata only.
+ * Compact document information card — identity and metadata only.
  */
 export function KnowledgePassport({
+  locale,
   object,
   compact = false,
 }: KnowledgePassportProps) {
-  const fields = compact
-    ? PASSPORT_FIELDS.filter((field) =>
+  const ui = getUi(locale);
+  const display = (value: string) =>
+    value === "Not yet assigned." ? ui.ko.notYetAssigned : value;
+
+  const fields: { key: keyof KnowledgeObject; label: string }[] = [
+    { key: "knowledgeId", label: ui.ko.knowledgeId },
+    { key: "domain", label: ui.ko.domain },
+    { key: "type", label: ui.ko.type },
+    { key: "status", label: ui.ko.status },
+    { key: "version", label: ui.ko.version },
+    { key: "evidenceLevel", label: ui.ko.evidence },
+    { key: "maturity", label: ui.ko.maturity },
+    { key: "readingTime", label: ui.ko.readingTime },
+    { key: "lastReview", label: ui.ko.lastReview },
+    { key: "owner", label: ui.ko.owner },
+  ];
+
+  const visible = compact
+    ? fields.filter((field) =>
         [
           "knowledgeId",
           "domain",
@@ -41,21 +46,23 @@ export function KnowledgePassport({
           "readingTime",
         ].includes(field.key),
       )
-    : PASSPORT_FIELDS;
+    : fields;
 
   return (
     <section
       className={["ko-passport", compact ? "ko-passport--compact" : ""]
         .filter(Boolean)
         .join(" ")}
-      aria-label="Knowledge Passport"
+      aria-label={ui.ko.passport}
     >
-      <h3 className="ko-passport__title">Knowledge Passport</h3>
+      <h3 className="ko-passport__title">{ui.ko.passport}</h3>
       <dl className="ko-passport__list">
-        {fields.map((field) => (
+        {visible.map((field) => (
           <div key={field.key} className="ko-passport__row">
             <dt className="ko-passport__label">{field.label}</dt>
-            <dd className="ko-passport__value">{String(object[field.key])}</dd>
+            <dd className="ko-passport__value">
+              {display(String(object[field.key]))}
+            </dd>
           </div>
         ))}
       </dl>

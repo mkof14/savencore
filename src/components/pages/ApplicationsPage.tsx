@@ -113,7 +113,7 @@ export function ApplicationsPage({ locale, content }: Props) {
           />
         </div>
 
-        <ScopePanel
+        <ScopePanel locale={locale}
           id="current-development-scope"
           variant="current-scope"
           title={content.scopeHeading}
@@ -123,11 +123,11 @@ export function ApplicationsPage({ locale, content }: Props) {
           ))}
         </ScopePanel>
 
-        <ScopePanel variant="engineering-note" title="Development status">
+        <ScopePanel locale={locale} variant="engineering-note" title="Development status">
           <p>{content.developmentNote}</p>
         </ScopePanel>
 
-        <ScopePanel variant="future-scope" title={content.futureHeading}>
+        <ScopePanel locale={locale} variant="future-scope" title={content.futureHeading}>
           <p>{content.futureIntro}</p>
         </ScopePanel>
 

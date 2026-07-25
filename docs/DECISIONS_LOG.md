@@ -1056,6 +1056,13 @@
 - **Decision:** Introduce a reusable Knowledge Object layer over the Phase 3.0 entity registry and published page metadata. Every published page exposes passport, maturity, evidence, directional relationships, dependency/graph views, lifecycle, version placeholders, and reading paths. Unknown fields display “Not yet assigned.” Validated maturity is never inferred.
 - **Implications:** No new public domains, navigation redesign, visual-language redesign, or URL changes. See `docs/KNOWLEDGE_OBJECT_ARCHITECTURE.md`.
 
+### D-0126 — Language, navigation and footer refinement authorized and completed
+
+- **Date:** 2026-07-24
+- **Status:** Active
+- **Decision:** Simplify public language and UI labels; reduce primary navigation to Home + Technology/Systems/Applications/Trust/Research with short dropdowns; make the footer the complete published sitemap (mobile accordion); localize full site content for en/ar/he/ru/uk. Other locales keep English fallback. Legal destinations remain unpublished.
+- **Implications:** See `docs/LANGUAGE_AND_LOCALIZATION.md` and `docs/TERMINOLOGY_GUIDE.md`.
+
 ---
 
 ## Pending Owner Decisions

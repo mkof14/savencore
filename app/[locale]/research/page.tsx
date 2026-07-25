@@ -5,9 +5,9 @@ import { ResearchPage } from "@/components/pages/ResearchPage";
 import "@/components/pages/pages.css";
 import { isLocale } from "@/config/locales";
 import {
-  researchPageContent,
-  researchRelationsEntityId,
-} from "@/content/pages/en/research";
+  getResearchPageContent,
+  getResearchRelationsEntityId,
+} from "@/content/pages/get-localized-page";
 
 type ResearchPageRouteProps = {
   params: Promise<{ locale: string }>;
@@ -25,8 +25,8 @@ export default async function ResearchRoutePage({
   return (
     <ResearchPage
       locale={localeParam}
-      content={researchPageContent}
-      relationsEntityId={researchRelationsEntityId}
+      content={getResearchPageContent(localeParam)}
+      relationsEntityId={getResearchRelationsEntityId()}
     />
   );
 }

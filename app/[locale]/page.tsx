@@ -30,7 +30,7 @@ export default async function LocaleHomePage({ params }: LocalePageProps) {
       <HomeHero locale={locale} />
       <KnowledgeExplorer locale={locale} />
       <DomainMap locale={locale} />
-      <PlatformStatus />
+      <PlatformStatus locale={locale} />
       <FeaturedConcepts locale={locale} />
       <ContinueExploring locale={locale} />
     </div>

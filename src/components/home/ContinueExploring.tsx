@@ -1,17 +1,19 @@
 import Link from "next/link";
 
 import type { Locale } from "@/config/locales";
-import { continueExploring } from "@/content/home/knowledge-explorer";
+import { getHomeContent } from "@/content/home/get-home-content";
+import { getUi } from "@/i18n/ui";
 import { localizePath } from "@/navigation/locale-path";
 
 type ContinueExploringProps = {
   locale: Locale;
 };
 
-/**
- * Structured domain entry points — not plain link lists.
- */
+/** Structured topic entrances. */
 export function ContinueExploring({ locale }: ContinueExploringProps) {
+  const items = getHomeContent(locale).continueExploring;
+  const ui = getUi(locale);
+
   return (
     <section
       className="kx-continue"
@@ -19,14 +21,19 @@ export function ContinueExploring({ locale }: ContinueExploringProps) {
     >
       <div className="home__inner">
         <header className="kx-section-header">
-          <p className="kx-section-header__kicker">Continue exploring</p>
-          <h2 id="continue-exploring-heading" className="kx-section-header__title">
-            Choose a domain entrance
+          <p className="kx-section-header__kicker">
+            {ui.home.continueExploring}
+          </p>
+          <h2
+            id="continue-exploring-heading"
+            className="kx-section-header__title"
+          >
+            {ui.home.chooseEntrance}
           </h2>
         </header>
 
         <ul className="kx-continue__list">
-          {continueExploring.map((item) => (
+          {items.map((item) => (
             <li key={item.id}>
               <Link
                 href={localizePath(locale, item.href)}

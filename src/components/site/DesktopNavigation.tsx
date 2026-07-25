@@ -12,6 +12,11 @@ import {
 } from "react";
 
 import type { Locale } from "@/config/locales";
+import {
+  getNavEntryLabel,
+  getPrimaryNavLabel,
+} from "@/i18n/nav-label";
+import { getUi } from "@/i18n/ui";
 import { isPathActive, localizePath } from "@/navigation/locale-path";
 import { isNavGroup } from "@/navigation/navigation-types";
 import {
@@ -84,10 +89,14 @@ export function DesktopNavigation({ locale }: DesktopNavigationProps) {
     }
   };
 
+  const ui = getUi(locale);
+
   return (
     <>
-      <nav ref={navRef} className="desktop-nav" aria-label="Primary">
+      <nav ref={navRef} className="desktop-nav" aria-label={ui.nav.home}>
         {primaryNavigation.map((item) => {
+          const itemLabel = getPrimaryNavLabel(locale, item.id, item.label);
+
           if (!isNavGroup(item)) {
             const href = localizePath(locale, item.href);
             const active = isPathActive(pathname, locale, item.href);
@@ -99,7 +108,7 @@ export function DesktopNavigation({ locale }: DesktopNavigationProps) {
                 className={`desktop-nav__link${active ? " is-active" : ""}`}
                 aria-current={active ? "page" : undefined}
               >
-                {item.label}
+                {itemLabel}
               </Link>
             );
           }
@@ -111,7 +120,6 @@ export function DesktopNavigation({ locale }: DesktopNavigationProps) {
             );
           const isOpen = openGroupId === item.id;
           const panelId = `${baseId}-${item.id}-panel`;
-          const widePanel = item.children.length > 6;
 
           return (
             <div
@@ -134,11 +142,11 @@ export function DesktopNavigation({ locale }: DesktopNavigationProps) {
                 }
                 onKeyDown={(event) => onTriggerKeyDown(event, item.id)}
               >
-                {item.label}
+                {itemLabel}
               </button>
               <div
                 id={panelId}
-                className={`desktop-nav__panel${widePanel ? " desktop-nav__panel--wide" : ""}`}
+                className="desktop-nav__panel"
                 hidden={!isOpen}
               >
                 {item.children.map((child) => {
@@ -153,7 +161,7 @@ export function DesktopNavigation({ locale }: DesktopNavigationProps) {
                       aria-current={active ? "page" : undefined}
                       onClick={closeMenus}
                     >
-                      {child.label}
+                      {getNavEntryLabel(locale, child.id, child.label)}
                     </Link>
                   );
                 })}
@@ -176,7 +184,7 @@ export function DesktopNavigation({ locale }: DesktopNavigationProps) {
                 className="utility-nav__link"
                 aria-current={active ? "page" : undefined}
               >
-                {item.label}
+                {getNavEntryLabel(locale, item.id, item.label)}
               </Link>
             );
           })}

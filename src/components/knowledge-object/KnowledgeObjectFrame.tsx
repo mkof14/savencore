@@ -13,6 +13,8 @@ import {
   resolveKnowledgeObject,
   type KnowledgeObjectPageInput,
 } from "@/content/knowledge-objects";
+import { getNavEntryLabel, getPrimaryNavLabel } from "@/i18n/nav-label";
+import { getUi } from "@/i18n/ui";
 import {
   getDomainSequenceContext,
   type KnowledgeDomainId,
@@ -23,13 +25,12 @@ type KnowledgeObjectFrameProps = {
   input: KnowledgeObjectPageInput;
   domain?: KnowledgeDomainId;
   children: ReactNode;
-  /** Rendered between main body and supporting dossier (e.g. page navigation). */
   between?: ReactNode;
   supporting?: ReactNode;
 };
 
 /**
- * Shared page frame: main content + engineering sidebar + knowledge dossier.
+ * Shared page frame: main content + document sidebar + document dossier.
  */
 export function KnowledgeObjectFrame({
   locale,
@@ -39,13 +40,22 @@ export function KnowledgeObjectFrame({
   between,
   supporting,
 }: KnowledgeObjectFrameProps) {
+  const ui = getUi(locale);
   const object = resolveKnowledgeObject(input);
   const sequence = domain
     ? getDomainSequenceContext(domain, input.href)
     : null;
-  const currentPosition = sequence
-    ? `${sequence.domainLabel} / ${sequence.current.label}`
-    : `${object.domain} / ${object.title}`;
+
+  const domainLabel = sequence
+    ? getPrimaryNavLabel(locale, sequence.domain, sequence.domainLabel)
+    : object.domain;
+  const currentLabel = sequence
+    ? getNavEntryLabel(locale, sequence.current.id, sequence.current.label)
+    : object.title;
+  const currentPosition = `${domainLabel} / ${currentLabel}`;
+  const nextLabel = sequence?.next
+    ? getNavEntryLabel(locale, sequence.next.id, sequence.next.label)
+    : null;
 
   return (
     <>
@@ -57,7 +67,7 @@ export function KnowledgeObjectFrame({
             object={object}
             currentPosition={currentPosition}
             nextHref={sequence?.next?.href ?? null}
-            nextLabel={sequence?.next?.label ?? null}
+            nextLabel={nextLabel}
           />
         </div>
       </div>
@@ -67,12 +77,12 @@ export function KnowledgeObjectFrame({
       <div className="page-supporting">
         <div className="page-shell__inner">
           <div className="ko-dossier">
-            <h2 className="ko-dossier__heading">Knowledge Object</h2>
-            <KnowledgePassport object={object} />
+            <h2 className="ko-dossier__heading">{ui.ko.document}</h2>
+            <KnowledgePassport locale={locale} object={object} />
             <DependencyGraph locale={locale} object={object} />
             <KnowledgeGraphPanel locale={locale} object={object} />
-            <KnowledgeLifecycle object={object} />
-            <VersionHistory object={object} />
+            <KnowledgeLifecycle locale={locale} object={object} />
+            <VersionHistory locale={locale} object={object} />
             <ReadingPathsPanel locale={locale} object={object} />
           </div>
           {supporting}

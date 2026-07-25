@@ -285,7 +285,7 @@ export function DataInfrastructurePage({
           />
         </div>
 
-        <ScopePanel
+        <ScopePanel locale={locale}
           id="current-development-scope"
           variant="current-scope"
           title={content.scopeHeading}
@@ -295,7 +295,7 @@ export function DataInfrastructurePage({
           ))}
         </ScopePanel>
 
-        <ScopePanel variant="engineering-note" title="Development status">
+        <ScopePanel locale={locale} variant="engineering-note" title="Development status">
           <p>{content.developmentNote}</p>
         </ScopePanel>
 

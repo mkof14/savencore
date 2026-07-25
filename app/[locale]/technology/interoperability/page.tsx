@@ -4,7 +4,7 @@ import "@/components/knowledge/knowledge.css";
 import { TechnologyDisciplinePage } from "@/components/pages/TechnologyDisciplinePage";
 import "@/components/pages/pages.css";
 import { isLocale } from "@/config/locales";
-import { interoperabilityPageContent } from "@/content/pages/en/interoperability";
+import { getInteroperabilityPageContent } from "@/content/pages/get-localized-page";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -16,7 +16,7 @@ export default async function InteroperabilityRoutePage({ params }: Props) {
   return (
     <TechnologyDisciplinePage
       locale={localeParam}
-      content={interoperabilityPageContent}
+      content={getInteroperabilityPageContent(localeParam)}
     />
   );
 }

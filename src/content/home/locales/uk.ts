@@ -1,0 +1,143 @@
+import type { HomeContent } from "@/content/home/types";
+import {
+  applicationsNavChildren,
+  systemsNavChildren,
+  technologyNavChildren,
+  trustNavChildren,
+} from "@/navigation/site-navigation";
+
+export const homeContentUk: HomeContent = {
+  hero: {
+    brand: "SAVEN Core",
+    sentence: "Інтелектуальні системи, створені для підтримки людського життя.",
+    explanation:
+      "SAVEN Core поєднує розуміння людини, технології, системи та реальні середовища — у чітко визначених межах.",
+    status:
+      "Поточний стан: архітектурна та інженерна розробка. Це не готова продуктова платформа.",
+  },
+  architectureChain: [
+    { id: "human", label: "Люди" },
+    { id: "human-data", label: "Дані про людину", href: "/technology/human-data/" },
+    {
+      id: "human-data-model",
+      label: "Модель даних про людину",
+      href: "/technology/human-data-model/",
+    },
+    { id: "technology", label: "Технології", href: "/technology/" },
+    { id: "systems", label: "Системи", href: "/systems/" },
+    { id: "applications", label: "Застосування", href: "/applications/" },
+    { id: "trust", label: "Довіра", href: "/trust/" },
+    { id: "research", label: "Дослідження", href: "/research/" },
+  ],
+  explorerDomains: [
+    {
+      id: "technology",
+      title: "Технології",
+      purpose: "Базові складові, з яких створюються системи SAVEN Core.",
+      href: "/technology/",
+      pageIds: technologyNavChildren.map((item) => item.id),
+      relationships: "Підтримують системи через потоки даних і технічні методи.",
+    },
+    {
+      id: "systems",
+      title: "Системи",
+      purpose: "Компоненти, що працюють разом у межах чітких ролей і обмежень.",
+      href: "/systems/",
+      pageIds: systemsNavChildren.map((item) => item.id),
+      relationships: "Використовують технології та підтримують застосування в межах принципів довіри.",
+    },
+    {
+      id: "applications",
+      title: "Застосування",
+      purpose: "Середовища, де SAVEN Core має підтримувати людей і місця.",
+      href: "/applications/",
+      pageIds: applicationsNavChildren.map((item) => item.id),
+      relationships: "Залежать від систем і залишаються в межах принципів довіри.",
+    },
+    {
+      id: "trust",
+      title: "Довіра",
+      purpose: "Зобов’язання, нагляд, підзвітність і межі.",
+      href: "/trust/",
+      pageIds: trustNavChildren.map((item) => item.id),
+      relationships: "Встановлює межі для технологій, систем і застосувань.",
+    },
+    {
+      id: "research",
+      title: "Дослідження",
+      purpose: "Питання, методи та відкрита робота, що спрямовують проєктування.",
+      href: "/research/",
+      pageIds: ["research-overview"],
+      relationships: "Спрямовують розвиток технологій і систем. Робота триває.",
+    },
+  ],
+  domainMapSteps: [
+    { id: "technology", label: "Технології", href: "/technology/", dependency: "створюють" },
+    { id: "systems", label: "Системи", href: "/systems/", dependency: "координують" },
+    { id: "applications", label: "Застосування", href: "/applications/", dependency: "підтримують" },
+    { id: "trust", label: "Довіра", href: "/trust/", dependency: "визначає межі" },
+    { id: "research", label: "Дослідження", href: "/research/", dependency: "спрямовують" },
+  ],
+  platformStatus: [
+    { id: "technology", label: "Технології", stateKey: "complete", complete: true },
+    { id: "systems", label: "Системи", stateKey: "complete", complete: true },
+    { id: "applications", label: "Застосування", stateKey: "complete", complete: true },
+    { id: "trust", label: "Довіра", stateKey: "complete", complete: true },
+    { id: "research", label: "Дослідження", stateKey: "inProgress", complete: false },
+    { id: "company", label: "Компанія", stateKey: "planned", complete: false },
+  ],
+  featuredConcepts: [
+    {
+      id: "human-data",
+      knowledgeId: "human-data",
+      title: "Дані про людину",
+      role: "Надходження сигналів",
+      href: "/technology/human-data/",
+      note: "Інформація про людину з різних джерел.",
+    },
+    {
+      id: "knowledge-engine",
+      knowledgeId: "knowledge-engine",
+      title: "Knowledge Engine",
+      role: "Контекстний рівень",
+      href: "/systems/knowledge-engine/",
+      note: "Організовує знання. Не ухвалює рішень.",
+    },
+    {
+      id: "ai-decision-support",
+      knowledgeId: "ai-decision-support",
+      title: "Підтримка рішень на основі ШІ",
+      role: "Підтримка перевірки",
+      href: "/systems/ai-decision-support/",
+      note: "Підтримує людей. Не замінює їх.",
+    },
+    {
+      id: "safety-layer",
+      knowledgeId: "safety-layer",
+      title: "Рівень безпеки",
+      role: "Контур керування",
+      href: "/systems/safety-layer/",
+      note: "Перевірки, обмеження, ескалація та нагляд.",
+    },
+    {
+      id: "human-oversight",
+      knowledgeId: "human-oversight",
+      title: "Людський нагляд",
+      role: "Межа повноважень",
+      href: "/trust/human-oversight/",
+      note: "Люди залишаються тими, хто ухвалює рішення.",
+    },
+  ],
+  continueExploring: [
+    { id: "technology", title: "Дослідити технології", detail: "Основи й технічні теми", href: "/technology/" },
+    { id: "systems", title: "Дослідити системи", detail: "Як компоненти працюють разом", href: "/systems/" },
+    { id: "applications", title: "Дослідити застосування", detail: "Середовища та контексти використання", href: "/applications/" },
+    { id: "trust", title: "Дослідити довіру", detail: "Зобов’язання, нагляд і межі", href: "/trust/" },
+    { id: "research", title: "Дослідити дослідження", detail: "Дані та відкриті питання", href: "/research/" },
+  ],
+  domainMapConstraints: [
+    "Довіра встановлює межі для технологій, систем і застосувань",
+    "Дослідження спрямовують розвиток технологій і систем",
+    "Застосування з’являються після координації систем",
+  ],
+};

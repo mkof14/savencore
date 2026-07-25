@@ -11,6 +11,7 @@ import {
   getReadingPathsForObject,
   type KnowledgeObject,
 } from "@/content/knowledge-objects";
+import { getUi } from "@/i18n/ui";
 import { localizePath } from "@/navigation/locale-path";
 
 type EngineeringSidebarProps = {
@@ -47,8 +48,7 @@ function resolveRecommendedNext(
 }
 
 /**
- * Optional engineering sidebar — passport, dependencies, position, next reading.
- * Desktop sticky; tablet collapsible; mobile inline.
+ * Document details sidebar — passport, related concepts, position, next reading.
  */
 export function EngineeringSidebar({
   locale,
@@ -59,12 +59,13 @@ export function EngineeringSidebar({
 }: EngineeringSidebarProps) {
   const [open, setOpen] = useState(false);
   const panelId = useId();
+  const ui = getUi(locale);
   const recommended = resolveRecommendedNext(object, nextHref, nextLabel);
 
   return (
     <aside
       className={["ko-sidebar", open ? "is-open" : ""].filter(Boolean).join(" ")}
-      aria-label="Engineering sidebar"
+      aria-label={ui.ko.engineeringObject}
     >
       <button
         type="button"
@@ -73,27 +74,31 @@ export function EngineeringSidebar({
         aria-controls={panelId}
         onClick={() => setOpen((value) => !value)}
       >
-        <span>Engineering object</span>
+        <span>{ui.ko.engineeringObject}</span>
         <span aria-hidden="true">{open ? "−" : "+"}</span>
       </button>
 
       <div id={panelId} className="ko-sidebar__inner">
-        <KnowledgePassport object={object} compact />
+        <KnowledgePassport locale={locale} object={object} compact />
 
         <DependencyGraph locale={locale} object={object} compact />
 
         <section className="ko-sidebar__section">
-          <h3 className="ko-sidebar__heading">Reading Time</h3>
-          <p className="ko-sidebar__value">{object.readingTime}</p>
+          <h3 className="ko-sidebar__heading">{ui.ko.readingTime}</h3>
+          <p className="ko-sidebar__value">
+            {object.readingTime === "Not yet assigned."
+              ? ui.ko.notYetAssigned
+              : object.readingTime}
+          </p>
         </section>
 
         <section className="ko-sidebar__section">
-          <h3 className="ko-sidebar__heading">Current Position</h3>
+          <h3 className="ko-sidebar__heading">{ui.ko.currentPosition}</h3>
           <p className="ko-sidebar__value">{currentPosition}</p>
         </section>
 
         <section className="ko-sidebar__section">
-          <h3 className="ko-sidebar__heading">Next Recommended Reading</h3>
+          <h3 className="ko-sidebar__heading">{ui.ko.nextReading}</h3>
           {recommended ? (
             <p className="ko-sidebar__value">
               <Link
@@ -104,7 +109,7 @@ export function EngineeringSidebar({
               </Link>
             </p>
           ) : (
-            <p className="ko-sidebar__value">Not yet assigned.</p>
+            <p className="ko-sidebar__value">{ui.ko.notYetAssigned}</p>
           )}
         </section>
       </div>

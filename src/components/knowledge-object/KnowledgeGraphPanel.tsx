@@ -6,6 +6,7 @@ import type {
   KnowledgeObject,
   KnowledgeRelationEdge,
 } from "@/content/knowledge-objects";
+import { getUi } from "@/i18n/ui";
 import { localizePath } from "@/navigation/locale-path";
 
 type KnowledgeGraphPanelProps = {
@@ -13,26 +14,17 @@ type KnowledgeGraphPanelProps = {
   object: KnowledgeObject;
 };
 
-const GROUP_ORDER: readonly {
-  key: keyof KnowledgeGraphView;
-  title: string;
-}[] = [
-  { key: "parents", title: "Parents" },
-  { key: "children", title: "Children" },
-  { key: "dependencies", title: "Dependencies" },
-  { key: "consumers", title: "Consumers" },
-  { key: "providers", title: "Providers" },
-];
-
 function EdgeList({
   locale,
   edges,
+  emptyLabel,
 }: {
   locale: Locale;
   edges: readonly KnowledgeRelationEdge[];
+  emptyLabel: string;
 }) {
   if (edges.length === 0) {
-    return <p className="ko-deps__empty">None published</p>;
+    return <p className="ko-deps__empty">{emptyLabel}</p>;
   }
 
   return (
@@ -52,21 +44,32 @@ function EdgeList({
   );
 }
 
-/**
- * Cross-domain graph exposure: parents, children, dependencies, consumers, providers.
- */
+/** Cross-topic connections for a document. */
 export function KnowledgeGraphPanel({
   locale,
   object,
 }: KnowledgeGraphPanelProps) {
+  const ui = getUi(locale);
+  const groups: { key: keyof KnowledgeGraphView; title: string }[] = [
+    { key: "parents", title: ui.ko.parents },
+    { key: "children", title: ui.ko.children },
+    { key: "dependencies", title: ui.ko.dependencies },
+    { key: "consumers", title: ui.ko.consumers },
+    { key: "providers", title: ui.ko.providers },
+  ];
+
   return (
-    <section className="ko-graph" aria-label={`Knowledge graph for ${object.title}`}>
-      <h3 className="ko-graph__title">Knowledge Graph</h3>
+    <section className="ko-graph" aria-label={ui.ko.knowledgeGraph}>
+      <h3 className="ko-graph__title">{ui.ko.knowledgeGraph}</h3>
       <div className="ko-graph__groups">
-        {GROUP_ORDER.map((group) => (
+        {groups.map((group) => (
           <div key={group.key}>
             <p className="ko-graph__group-title">{group.title}</p>
-            <EdgeList locale={locale} edges={object.graph[group.key]} />
+            <EdgeList
+              locale={locale}
+              edges={object.graph[group.key]}
+              emptyLabel={ui.ko.nonePublished}
+            />
           </div>
         ))}
       </div>

@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { TechnicalPage } from "@/components/pages/TechnicalPage";
 import "@/components/pages/pages.css";
 import { isLocale } from "@/config/locales";
-import { foundationPageContent } from "@/content/pages/en/foundation";
+import { getFoundationPageContent } from "@/content/pages/get-localized-page";
 
 type FoundationPageProps = {
   params: Promise<{ locale: string }>;
@@ -19,7 +19,7 @@ export default async function FoundationPage({ params }: FoundationPageProps) {
   return (
     <TechnicalPage
       locale={localeParam}
-      content={foundationPageContent}
+      content={getFoundationPageContent(localeParam)}
       knowledge={{
         knowledgeId: "page-foundation",
         href: "/foundation/",

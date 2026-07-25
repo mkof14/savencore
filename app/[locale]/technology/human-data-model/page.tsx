@@ -4,7 +4,7 @@ import "@/components/knowledge/knowledge.css";
 import { HumanDataModelPage } from "@/components/pages/HumanDataModelPage";
 import "@/components/pages/pages.css";
 import { isLocale } from "@/config/locales";
-import { humanDataModelPageContent } from "@/content/pages/en/human-data-model";
+import { getHumanDataModelPageContent } from "@/content/pages/get-localized-page";
 
 type HumanDataModelRouteProps = {
   params: Promise<{ locale: string }>;
@@ -22,7 +22,7 @@ export default async function HumanDataModelRoutePage({
   return (
     <HumanDataModelPage
       locale={localeParam}
-      content={humanDataModelPageContent}
+      content={getHumanDataModelPageContent(localeParam)}
     />
   );
 }

@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { TrustDisciplinePage } from "@/components/pages/TrustDisciplinePage";
 import "@/components/pages/pages.css";
 import { isLocale } from "@/config/locales";
-import { ethicsResponsibleUsePageContent } from "@/content/pages/en/ethics-responsible-use";
+import { getEthicsResponsibleUsePageContent } from "@/content/pages/get-localized-page";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -12,5 +12,5 @@ export default async function Page({ params }: Props) {
   if (!isLocale(localeParam)) {
     notFound();
   }
-  return <TrustDisciplinePage locale={localeParam} content={ethicsResponsibleUsePageContent} />;
+  return <TrustDisciplinePage locale={localeParam} content={getEthicsResponsibleUsePageContent(localeParam)} />;
 }

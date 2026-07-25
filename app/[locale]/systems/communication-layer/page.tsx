@@ -4,7 +4,7 @@ import "@/components/knowledge/knowledge.css";
 import { SystemDisciplinePage } from "@/components/pages/SystemDisciplinePage";
 import "@/components/pages/pages.css";
 import { isLocale } from "@/config/locales";
-import { communicationLayerPageContent } from "@/content/pages/en/communication-layer";
+import { getCommunicationLayerPageContent } from "@/content/pages/get-localized-page";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -14,6 +14,6 @@ export default async function Page({ params }: Props) {
     notFound();
   }
   return (
-    <SystemDisciplinePage locale={localeParam} content={communicationLayerPageContent} />
+    <SystemDisciplinePage locale={localeParam} content={getCommunicationLayerPageContent(localeParam)} />
   );
 }

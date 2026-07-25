@@ -6,6 +6,7 @@ import {
   getReadingPathsForObject,
   type KnowledgeObject,
 } from "@/content/knowledge-objects";
+import { getUi } from "@/i18n/ui";
 import { localizePath } from "@/navigation/locale-path";
 
 type ReadingPathsPanelProps = {
@@ -13,10 +14,9 @@ type ReadingPathsPanelProps = {
   object: KnowledgeObject;
 };
 
-/**
- * Reading paths that include the current Knowledge Object.
- */
+/** Suggested reading journeys that include this document. */
 export function ReadingPathsPanel({ locale, object }: ReadingPathsPanelProps) {
+  const ui = getUi(locale);
   const paths = getReadingPathsForObject(object.knowledgeId);
   const pathsByEntity =
     object.entityId && object.entityId !== object.knowledgeId
@@ -34,8 +34,8 @@ export function ReadingPathsPanel({ locale, object }: ReadingPathsPanelProps) {
   }
 
   return (
-    <section className="ko-paths" aria-label="Reading paths">
-      <h3 className="ko-paths__title">Reading Paths</h3>
+    <section className="ko-paths" aria-label={ui.ko.readingPaths}>
+      <h3 className="ko-paths__title">{ui.ko.readingPaths}</h3>
       <ul className="ko-paths__list">
         {merged.map((path) => (
           <li key={path.id} className="ko-paths__card">

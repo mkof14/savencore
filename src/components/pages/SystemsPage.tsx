@@ -246,7 +246,7 @@ export function SystemsPage({ locale, content }: SystemsPageProps) {
           />
         </div>
 
-        <ScopePanel
+        <ScopePanel locale={locale}
           id="current-development-scope"
           variant="current-scope"
           title={content.scopeHeading}
@@ -256,7 +256,7 @@ export function SystemsPage({ locale, content }: SystemsPageProps) {
           ))}
         </ScopePanel>
 
-        <ScopePanel
+        <ScopePanel locale={locale}
           variant="engineering-note"
           title="Development status"
         >

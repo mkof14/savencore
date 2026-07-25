@@ -137,7 +137,7 @@ export function TrustDisciplinePage({ locale, content }: Props) {
         />
 
         {content.boundaries.length > 0 ? (
-          <ScopePanel
+          <ScopePanel locale={locale}
             id="boundaries"
             variant="safety-boundary"
             title={content.boundariesHeading}
@@ -155,7 +155,7 @@ export function TrustDisciplinePage({ locale, content }: Props) {
         />
 
         {content.humanOversight.length > 0 ? (
-          <ScopePanel
+          <ScopePanel locale={locale}
             id="human-oversight"
             variant="human-oversight"
             title={content.humanOversightHeading}
@@ -167,7 +167,7 @@ export function TrustDisciplinePage({ locale, content }: Props) {
         ) : null}
 
         {content.limitations.length > 0 ? (
-          <ScopePanel
+          <ScopePanel locale={locale}
             id="limitations"
             variant="limitation"
             title={content.limitationsHeading}
@@ -185,7 +185,7 @@ export function TrustDisciplinePage({ locale, content }: Props) {
           />
         </div>
 
-        <ScopePanel
+        <ScopePanel locale={locale}
           id="current-development-scope"
           variant="current-scope"
           title={content.scopeHeading}
@@ -195,7 +195,7 @@ export function TrustDisciplinePage({ locale, content }: Props) {
           ))}
         </ScopePanel>
 
-        <ScopePanel variant="engineering-note" title="Development status">
+        <ScopePanel locale={locale} variant="engineering-note" title="Development status">
           <p>{content.developmentNote}</p>
         </ScopePanel>
 

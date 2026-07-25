@@ -4,7 +4,7 @@ import "@/components/knowledge/knowledge.css";
 import { SystemDisciplinePage } from "@/components/pages/SystemDisciplinePage";
 import "@/components/pages/pages.css";
 import { isLocale } from "@/config/locales";
-import { knowledgeEnginePageContent } from "@/content/pages/en/knowledge-engine";
+import { getKnowledgeEnginePageContent } from "@/content/pages/get-localized-page";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -14,6 +14,6 @@ export default async function Page({ params }: Props) {
     notFound();
   }
   return (
-    <SystemDisciplinePage locale={localeParam} content={knowledgeEnginePageContent} />
+    <SystemDisciplinePage locale={localeParam} content={getKnowledgeEnginePageContent(localeParam)} />
   );
 }

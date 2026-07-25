@@ -1,28 +1,30 @@
 import type { EngineeringCallout as EngineeringCalloutModel } from "@/components/engineering/engineering-types";
+import type { Locale } from "@/config/locales";
+import { DEFAULT_LOCALE } from "@/config/locales";
+import { getUi } from "@/i18n/ui";
 
 type EngineeringCalloutProps = {
   callout: EngineeringCalloutModel;
+  locale?: Locale;
 };
 
-const TYPE_LABELS: Record<EngineeringCalloutModel["type"], string> = {
-  information: "Information",
-  definition: "Definition",
-  "engineering-note": "Engineering Note",
-  important: "Important",
-  "current-scope": "Current Scope",
-  "future-work": "Future Scope",
-  relationship: "Relationship",
-};
-
-export function EngineeringCallout({ callout }: EngineeringCalloutProps) {
+export function EngineeringCallout({
+  callout,
+  locale = DEFAULT_LOCALE,
+}: EngineeringCalloutProps) {
   const titleId = `eng-callout-${callout.id}`;
+  const ui = getUi(locale);
+  const typeLabel =
+    callout.type === "future-work"
+      ? ui.callout["future-scope"]
+      : ui.callout[callout.type];
 
   return (
     <aside
       className={`eng-callout eng-callout--${callout.type}`}
       aria-labelledby={titleId}
     >
-      <p className="eng-callout__type">{TYPE_LABELS[callout.type]}</p>
+      <p className="eng-callout__type">{typeLabel}</p>
       <h3 id={titleId} className="eng-callout__title">
         {callout.title}
       </h3>

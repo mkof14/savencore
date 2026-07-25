@@ -8,14 +8,16 @@ If you are a coding agent (Cursor or otherwise), read this file before making an
 
 ## Current Phase
 
-**Knowledge Object Architecture complete**
+**Language, navigation and footer refinement complete**
 
-Published pages are Knowledge Objects (passport, maturity, evidence, directional relationships, dependencies, lifecycle, reading paths). Home Knowledge Explorer remains the entrance. See D-0125, `docs/KNOWLEDGE_OBJECT_ARCHITECTURE.md`, D-0124, and `docs/DESIGN_SPRINT_1_SAVEN_VISUAL_SYSTEM.md`.
+Primary nav is simplified; footer is the full sitemap; public language prefers clear natural wording; en/ar/he/ru/uk are fully localized. See D-0126, `docs/LANGUAGE_AND_LOCALIZATION.md`, `docs/TERMINOLOGY_GUIDE.md`, and D-0125.
 
 **Do not begin without explicit owner approval:**
 
 - Further Home redesign beyond authorized Knowledge Explorer work;
 - Fabricating Knowledge Object owners, version history, Validated maturity, or evidence upgrades;
+- Publishing Legal / Glossary / Contact destinations;
+- Localizing remaining locales (es/de/fr/ja/zh-cn) without approval;
 - `/legal/*` policy page publication;
 - Entity Registry entity invention unless explicitly authorized;
 - custom brand fonts / final brand colors / logo asset / imagery;

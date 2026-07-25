@@ -73,7 +73,7 @@ export function TrustPage({ locale, content }: Props) {
           text="Principles → Controls → Oversight → Accountability"
         />
 
-        <ScopePanel id="boundaries" variant="safety-boundary" title="Page boundaries">
+        <ScopePanel locale={locale} id="boundaries" variant="safety-boundary" title="Page boundaries">
           <p>{content.boundaryNote}</p>
         </ScopePanel>
 
@@ -124,7 +124,7 @@ export function TrustPage({ locale, content }: Props) {
           />
         </div>
 
-        <ScopePanel
+        <ScopePanel locale={locale}
           id="current-development-scope"
           variant="current-scope"
           title={content.scopeHeading}
@@ -134,7 +134,7 @@ export function TrustPage({ locale, content }: Props) {
           ))}
         </ScopePanel>
 
-        <ScopePanel variant="engineering-note" title="Development status">
+        <ScopePanel locale={locale} variant="engineering-note" title="Development status">
           <p>{content.developmentNote}</p>
         </ScopePanel>
 

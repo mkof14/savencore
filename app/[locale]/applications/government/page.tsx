@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { ApplicationDisciplinePage } from "@/components/pages/ApplicationDisciplinePage";
 import "@/components/pages/pages.css";
 import { isLocale } from "@/config/locales";
-import { governmentPageContent } from "@/content/pages/en/government";
+import { getGovernmentPageContent } from "@/content/pages/get-localized-page";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -12,5 +12,5 @@ export default async function Page({ params }: Props) {
   if (!isLocale(localeParam)) {
     notFound();
   }
-  return <ApplicationDisciplinePage locale={localeParam} content={governmentPageContent} />;
+  return <ApplicationDisciplinePage locale={localeParam} content={getGovernmentPageContent(localeParam)} />;
 }

@@ -457,7 +457,7 @@
   font-weight: 600;
 }
 
-/* Footer — enterprise, not sitemap-dense */
+/* Footer — complete sitemap; accordion on mobile, open columns on larger screens */
 .site-footer {
   border-block-start: 1px solid var(--color-border);
   background: var(--color-background);
@@ -469,24 +469,39 @@
   display: grid;
   grid-template-columns: 1fr;
   column-gap: var(--space-48);
-  row-gap: var(--space-48);
+  row-gap: var(--space-16);
 }
 
-@media (min-width: 640px) {
+@media (min-width: 720px) {
   .site-footer__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (min-width: 1024px) {
-  .site-footer__grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    column-gap: var(--space-48);
     row-gap: var(--space-48);
   }
+
+  .site-footer__group {
+    border-block-end: 0;
+    padding-block: 0;
+  }
+
+  .site-footer__group-title {
+    pointer-events: none;
+    list-style: none;
+    min-height: 0;
+    margin-block-end: var(--space-16);
+    cursor: default;
+  }
+
+  .site-footer__group-title::-webkit-details-marker {
+    display: none;
+  }
+
+  .site-footer__group .site-footer__list {
+    display: flex;
+    padding-block-end: 0;
+  }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1100px) {
   .site-footer__grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
     column-gap: var(--space-48);
@@ -494,23 +509,55 @@
   }
 }
 
+.site-footer__group {
+  margin: 0;
+  border-block-end: 1px solid var(--color-divider);
+  padding-block: var(--space-8);
+}
+
 .site-footer__group-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 2.75rem;
   font-size: 0.8125rem;
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--color-text);
-  margin-block-end: var(--space-16);
+  margin: 0;
   line-height: 1.3;
+  cursor: pointer;
+}
+
+.site-footer__group-title::after {
+  content: "+";
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.site-footer__group[open] > .site-footer__group-title::after {
+  content: "−";
+}
+
+@media (min-width: 720px) {
+  .site-footer__group-title::after {
+    display: none;
+  }
 }
 
 .site-footer__list {
   list-style: none;
-  padding: 0;
+  padding: 0 0 var(--space-16);
   margin: 0;
-  display: flex;
+  display: none;
   flex-direction: column;
   gap: var(--space-12);
+}
+
+.site-footer__group[open] .site-footer__list {
+  display: flex;
 }
 
 .site-footer__link {

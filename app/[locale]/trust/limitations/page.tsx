@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { TrustDisciplinePage } from "@/components/pages/TrustDisciplinePage";
 import "@/components/pages/pages.css";
 import { isLocale } from "@/config/locales";
-import { limitationsPageContent } from "@/content/pages/en/limitations";
+import { getLimitationsPageContent } from "@/content/pages/get-localized-page";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -12,5 +12,5 @@ export default async function Page({ params }: Props) {
   if (!isLocale(localeParam)) {
     notFound();
   }
-  return <TrustDisciplinePage locale={localeParam} content={limitationsPageContent} />;
+  return <TrustDisciplinePage locale={localeParam} content={getLimitationsPageContent(localeParam)} />;
 }

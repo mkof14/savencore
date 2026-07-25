@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import type { Locale } from "@/config/locales";
 import type { KnowledgeObject } from "@/content/knowledge-objects";
+import { getUi } from "@/i18n/ui";
 import { localizePath } from "@/navigation/locale-path";
 
 type DependencyGraphProps = {
@@ -10,28 +11,27 @@ type DependencyGraphProps = {
   compact?: boolean;
 };
 
-/**
- * Lightweight incoming/outgoing dependency view — HTML/CSS only.
- */
+/** Lightweight related-concepts view — HTML/CSS only. */
 export function DependencyGraph({
   locale,
   object,
   compact = false,
 }: DependencyGraphProps) {
+  const ui = getUi(locale);
   const incoming = object.incomingDependencies;
   const outgoing = object.outgoingDependencies;
 
   return (
     <section
       className="ko-deps"
-      aria-label={`Dependency graph for ${object.title}`}
+      aria-label={`${ui.ko.dependencies}: ${object.title}`}
     >
       <h3 className="ko-deps__title">
-        {compact ? "Dependencies" : "Dependency Graph"}
+        {compact ? ui.ko.dependencies : ui.ko.dependencyGraph}
       </h3>
       <div className="ko-deps__columns">
         <div>
-          <p className="ko-deps__column-title">Incoming</p>
+          <p className="ko-deps__column-title">{ui.ko.incoming}</p>
           {incoming.length > 0 ? (
             <ul className="ko-deps__list">
               {incoming.map((edge) => (
@@ -46,7 +46,7 @@ export function DependencyGraph({
               ))}
             </ul>
           ) : (
-            <p className="ko-deps__empty">None published</p>
+            <p className="ko-deps__empty">{ui.ko.nonePublished}</p>
           )}
         </div>
 
@@ -59,7 +59,7 @@ export function DependencyGraph({
         </div>
 
         <div>
-          <p className="ko-deps__column-title">Outgoing</p>
+          <p className="ko-deps__column-title">{ui.ko.outgoing}</p>
           {outgoing.length > 0 ? (
             <ul className="ko-deps__list">
               {outgoing.map((edge) => (
@@ -74,7 +74,7 @@ export function DependencyGraph({
               ))}
             </ul>
           ) : (
-            <p className="ko-deps__empty">None published</p>
+            <p className="ko-deps__empty">{ui.ko.nonePublished}</p>
           )}
         </div>
       </div>

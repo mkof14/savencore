@@ -4,7 +4,7 @@ import "@/components/knowledge/knowledge.css";
 import { HumanDataPage } from "@/components/pages/HumanDataPage";
 import "@/components/pages/pages.css";
 import { isLocale } from "@/config/locales";
-import { humanDataPageContent } from "@/content/pages/en/human-data";
+import { getHumanDataPageContent } from "@/content/pages/get-localized-page";
 
 type HumanDataRouteProps = {
   params: Promise<{ locale: string }>;
@@ -19,5 +19,5 @@ export default async function HumanDataRoutePage({
     notFound();
   }
 
-  return <HumanDataPage locale={localeParam} content={humanDataPageContent} />;
+  return <HumanDataPage locale={localeParam} content={getHumanDataPageContent(localeParam)} />;
 }

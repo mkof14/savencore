@@ -35,8 +35,7 @@ export const dictionary: Record<string, string> = {
   "Paired with Automation": "В сочетании с автоматизацией",
   "Automation may carry out bounded tasks. Artificial Intelligence may help interpret. Neither replaces oversight.": "Автоматизация может выполнять ограниченные задачи. Искусственный интеллект может помочь в интерпретации. Ни то, ни другое не заменяет надзор.",
   "Current Development Scope": "Текущий объем разработки",
-  "Future Topics": "Будущие темы",
-  "Topics below come from the Artificial Intelligence entity in the shared registry. They are documentation placeholders, not delivery promises.": "Приведенные ниже темы взяты из объекта искусственного интеллекта в общем реестре. Это заполнители документации, а не обещания доставки.",
+  "Related topics": "Будущие темы",
   "Related Systems": "Связанные системы",
   "Related Research": "Связанные исследования",
   "Related Applications": "Связанные приложения",
@@ -92,9 +91,8 @@ export const dictionary: Record<string, string> = {
   "Categories": "Категории",
   "Principles": "Принципы",
   "Scope": "Область применения",
-  "Future topics": "Будущие темы",
   "Related systems": "Связанные системы",
   "Related research": "Связанные исследования",
   "Related applications": "Связанные приложения",
-  "References": "Ссылки"
+  "References": "Ссылки",
 };

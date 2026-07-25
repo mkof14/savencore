@@ -95,15 +95,15 @@ export const roboticsPageContent: TechnologyDisciplinePageContent = {
       text: "Important physical outcomes remain under human authority.",
     },
   ],
-  scopeHeading: "Current Development Scope",
+  scopeHeading: "Scope",
   scope: [
     "This page defines Robotics as architecture inside the Technology domain.",
     "It does not name robot vendors, device models or production fleets.",
     "Status remains conceptual for this discipline. No operational deployment is claimed.",
   ],
-  futureHeading: "Future Topics",
+  futureHeading: "Related topics",
   futureIntro:
-    "Topics below come from the Robotics entity in the shared registry. They are documentation placeholders, not delivery promises.",
+    "Topics below are drawn from the Robotics entry in the shared registry and provide context for related architecture.",
   relatedSystemsHeading: "Related Systems",
   relatedResearchHeading: "Related Research",
   relatedApplicationsHeading: "Related Applications",

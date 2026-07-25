@@ -51,7 +51,7 @@ function hrefForEntity(entityId: string): string | undefined {
 
 /**
  * Registry-driven Systems category blocks for published system pages only.
- * Empty relation groups and empty Future Topics are not rendered.
+ * Empty relation groups and empty Related topics are not rendered.
  */
 export function SystemsCategoryList({
   locale,
@@ -118,7 +118,7 @@ export function SystemsCategoryList({
 
                 {showFutureTopics ? (
                   <div className="systems-category__future">
-                    <h4 className="eng-type-h3">Future Topics</h4>
+                    <h4 className="eng-type-h3">Related topics</h4>
                     <ul className="eng-future systems-category__future-list">
                       {entity.futureTopics.map((topic) => (
                         <li key={topic} className="eng-future__item">

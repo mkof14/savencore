@@ -66,7 +66,7 @@ export const TRUST_DISCIPLINE_SECTION_NAV: readonly {
   { id: "human-oversight", label: "Human oversight" },
   { id: "limitations", label: "Limitations" },
   { id: "current-development-scope", label: "Scope" },
-  { id: "future-topics", label: "Future topics" },
+  { id: "future-topics", label: "Related topics" },
   { id: "related-technology", label: "Related technology" },
   { id: "related-systems", label: "Related systems" },
   { id: "reference-links", label: "References" },

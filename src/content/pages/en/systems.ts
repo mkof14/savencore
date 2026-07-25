@@ -78,7 +78,7 @@ export const systemsPageContent: SystemsPageContent = {
   applications: [
     "Applications describe where systems may be used.",
     "They are contexts of use, not claims of deployment.",
-    "Leaf Application pages are not published yet. Use the Applications overview for the current public description.",
+    "The Applications overview provides the current public description for application contexts.",
   ],
   togetherHeading: "How the Systems Work Together",
   together: [
@@ -121,15 +121,15 @@ export const systemsPageContent: SystemsPageContent = {
       text: "Architecture pages do not claim deployment, diagnosis, treatment or autonomous medicine.",
     },
   ],
-  scopeHeading: "Current Development Scope",
+  scopeHeading: "Scope",
   scope: [
     "This page is the Systems domain landing page.",
     "It describes architecture and published system pages only.",
     "It makes no customer, partnership, certification or validation claims.",
   ],
-  futureHeading: "Future Topics",
+  futureHeading: "Related topics",
   futureIntro:
-    "Topics below come from Systems entries in the shared registry. They mark later documentation needs. They are not delivery promises.",
+    "Topics below are drawn from Systems entries in the shared registry and provide context for related architecture.",
   relatedDomainsHeading: "Related Domains",
   relatedDomainLinks: [
     { label: "Technology", href: "/technology/" },
@@ -162,7 +162,7 @@ export const systemsPageContent: SystemsPageContent = {
     { id: "systems-categories", label: "Published systems" },
     { id: "engineering-principles", label: "Principles" },
     { id: "current-development-scope", label: "Scope" },
-    { id: "future-expansion", label: "Future topics" },
+    { id: "future-expansion", label: "Related topics" },
     { id: "related-domains", label: "Related domains" },
     { id: "reference-links", label: "References" },
   ],

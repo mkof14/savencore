@@ -78,7 +78,7 @@ export const dictionary: Record<string, string> = {
   "Relationships": "Отношения",
   "Principles": "Принципы",
   "Scope": "Область применения",
-  "Future topics": "Будущие темы",
+  "Related topics": "Будущие темы",
   "Related systems": "Связанные системы",
   "Related research": "Связанные исследования",
   "Related applications": "Связанные приложения",

@@ -48,7 +48,7 @@ export const dictionary: Record<string, string> = {
   "Human Oversight": "Человеческий надзор",
   "Infrastructure supports assistance. It does not replace human judgment for important outcomes.": "Инфраструктура поддерживает помощь. Оно не заменяет человеческое суждение о важных результатах.",
   "Current Development Scope": "Текущий объем разработки",
-  "Future Topics": "Будущие темы",
+  "Related topics": "Будущие темы",
   "Topics below come from the Data Infrastructure entity in the shared registry. They mark later documentation needs. They are not delivery promises.": "Приведенные ниже темы взяты из объекта «Инфраструктура данных» в общем реестре. Они отмечают последующие потребности в документации. Это не обещания поставки.",
   "Related Systems": "Связанные системы",
   "Related Research": "Связанные исследования",
@@ -63,7 +63,6 @@ export const dictionary: Record<string, string> = {
   "Knowledge Engine": "Двигатель знаний",
   "Principles": "Принципы",
   "Scope": "Область применения",
-  "Future topics": "Будущие темы",
   "Related systems": "Связанные системы",
   "Related research": "Связанные исследования",
   "Related applications": "Связанные приложения",
@@ -125,5 +124,5 @@ export const dictionary: Record<string, string> = {
   "Ethics and Responsible Use": "Этика и ответственное использование",
   "Limitations": "Ограничения",
   "Categories": "Категории",
-  "Relationships": "Отношения"
+  "Relationships": "Отношения",
 };

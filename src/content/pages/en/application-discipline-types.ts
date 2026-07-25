@@ -63,7 +63,7 @@ export const APPLICATIONS_DISCIPLINE_SECTION_NAV: readonly {
   { id: "human-role", label: "Human role" },
   { id: "safety-and-trust", label: "Safety and trust" },
   { id: "current-development-scope", label: "Scope" },
-  { id: "future-topics", label: "Future topics" },
+  { id: "future-topics", label: "Related topics" },
   { id: "related-technology", label: "Related technology" },
   { id: "related-systems", label: "Related systems" },
   { id: "related-trust", label: "Related trust" },

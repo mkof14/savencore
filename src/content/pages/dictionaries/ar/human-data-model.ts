@@ -55,7 +55,7 @@ export const dictionary: Record<string, string> = {
   "Privacy and Trust": "الخصوصية والثقة",
   "Engineering Considerations": "الاعتبارات الهندسية",
   "Current Development Scope": "نطاق التطوير الحالي",
-  "Future Topics": "موضوعات المستقبل",
+  "Related topics": "المواضيع المستقبلية",
   "Topics below come from the Human Data Model entity in the shared registry. They mark later documentation needs. They are not delivery promises. A dedicated Knowledge Engine page is not published yet.": "المواضيع الواردة أدناه تأتي من كيان نموذج البيانات البشرية في السجل المشترك. أنها تحدد احتياجات التوثيق في وقت لاحق. فهي ليست وعود التسليم. لم يتم نشر صفحة مخصصة لمحرك المعرفة بعد.",
   "Related Systems": "الأنظمة ذات الصلة",
   "Related Research": "البحوث ذات الصلة",
@@ -68,7 +68,6 @@ export const dictionary: Record<string, string> = {
   "Privacy and trust": "الخصوصية والثقة",
   "Engineering": "الهندسة",
   "Scope": "النطاق",
-  "Future topics": "المواضيع المستقبلية",
   "Related systems": "الأنظمة ذات الصلة",
   "Related research": "البحوث ذات الصلة",
   "Related applications": "التطبيقات ذات الصلة",
@@ -126,5 +125,5 @@ export const dictionary: Record<string, string> = {
   "Transparency": "الشفافية",
   "Ethics and Responsible Use": "الأخلاقيات والاستخدام المسؤول",
   "Limitations": "القيود",
-  "Categories": "الفئات"
+  "Categories": "الفئات",
 };

@@ -35,6 +35,13 @@
   --color-warning: #a16207;
   --color-error: #b91c1c;
 
+  /* Brand gold — from CORE wordmark (accents, rules, selected states) */
+  --color-accent: #d4a84b;
+  --color-accent-strong: #e0b85a;
+  --color-accent-muted: color-mix(in srgb, var(--color-accent) 72%, transparent);
+  --color-accent-soft: color-mix(in srgb, var(--color-accent) 16%, transparent);
+  --color-accent-line: color-mix(in srgb, var(--color-accent) 55%, transparent);
+
   /* Functional accents — meaning markers only (borders/dots), not fills */
   --signal-human: #0f4c5c;
   --signal-knowledge: #1e3a5f;

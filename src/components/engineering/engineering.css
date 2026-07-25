@@ -907,7 +907,7 @@
 
 .engineering-card__rule {
   margin-block-start: var(--space-8);
-  border-block-start: 1px solid var(--color-divider);
+  border-block-start: 1px solid var(--color-accent-line);
 }
 
 .engineering-card__action {
@@ -918,12 +918,14 @@
   min-height: 2.5rem;
   font-size: 0.875rem;
   font-weight: 600;
-  color: var(--color-text);
+  color: var(--color-accent);
   text-decoration: none;
 }
 
 .engineering-card__action:hover {
+  color: var(--color-accent-strong);
   text-decoration: underline;
+  text-decoration-color: var(--color-accent);
   text-underline-offset: 0.2em;
 }
 
@@ -2375,7 +2377,7 @@
 
 .concept-card__rule {
   margin-block-start: var(--space-8);
-  border-block-start: 1px solid var(--color-divider);
+  border-block-start: 1px solid var(--color-accent-line);
 }
 
 .concept-card__action {
@@ -2385,12 +2387,14 @@
   min-height: 2.5rem;
   font-size: 0.875rem;
   font-weight: 600;
-  color: var(--color-text);
+  color: var(--color-accent);
   text-decoration: none;
 }
 
 .concept-card__action:hover {
+  color: var(--color-accent-strong);
   text-decoration: underline;
+  text-decoration-color: var(--color-accent);
   text-underline-offset: 0.2em;
 }
 

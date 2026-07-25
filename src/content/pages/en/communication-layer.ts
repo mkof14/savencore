@@ -87,15 +87,15 @@ export const communicationLayerPageContent: SystemDisciplinePageContent = {
     "People approve consequential external connections.",
     "The Communication Layer carries messages. It does not invent authority."
   ],
-  scopeHeading: "Current Development Scope",
+  scopeHeading: "Scope",
   scope: [
     "This page defines architecture only.",
     "It does not claim production messaging platforms.",
     "Status remains conceptual."
   ],
-  futureHeading: "Future Topics",
+  futureHeading: "Related topics",
   futureIntro:
-    "Topics below come from the shared registry. They mark later documentation needs. They are not delivery promises.",
+    "Topics below are drawn from the shared registry and provide context for related architecture.",
   relatedTechnologyHeading: "Related Technology",
   relatedSystemsHeading: "Related Systems",
   relatedApplicationsHeading: "Related Applications",

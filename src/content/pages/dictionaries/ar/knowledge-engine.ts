@@ -27,7 +27,7 @@ export const dictionary: Record<string, string> = {
   "Authorized people must be able to understand what was shared.": "يجب أن يكون الأشخاص المعتمدون قادرين على فهم ما تمت مشاركته.",
   "Human Oversight": "الرقابة البشرية",
   "Current Development Scope": "نطاق التطوير الحالي",
-  "Future Topics": "موضوعات المستقبل",
+  "Related topics": "المواضيع المستقبلية",
   "Topics below come from the shared registry. They mark later documentation needs. They are not delivery promises.": "المواضيع أدناه تأتي من التسجيل المشترك. أنها تحدد احتياجات التوثيق في وقت لاحق. فهي ليست وعود التسليم.",
   "Related Technology": "التقنية ذات الصلة",
   "Related Systems": "الأنظمة ذات الصلة",
@@ -93,7 +93,6 @@ export const dictionary: Record<string, string> = {
   "Categories": "الفئات",
   "Principles": "المبادئ",
   "Scope": "النطاق",
-  "Future topics": "المواضيع المستقبلية",
   "Related systems": "الأنظمة ذات الصلة",
   "Related research": "البحوث ذات الصلة",
   "Related applications": "التطبيقات ذات الصلة",
@@ -115,5 +114,5 @@ export const dictionary: Record<string, string> = {
   "Controls": "الضوابط",
   "Architecture role": "دور البنية",
   "Privacy engineering": "هندسة الخصوصية",
-  "Security engineering": "هندسة الأمن"
+  "Security engineering": "هندسة الأمن",
 };

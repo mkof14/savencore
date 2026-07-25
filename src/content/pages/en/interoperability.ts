@@ -95,15 +95,15 @@ export const interoperabilityPageContent: TechnologyDisciplinePageContent = {
       text: "Important exchange decisions stay under human authority.",
     },
   ],
-  scopeHeading: "Current Development Scope",
+  scopeHeading: "Scope",
   scope: [
     "This page defines Interoperability as architecture inside the Technology domain.",
     "It does not name vendors, protocols, APIs or institutional partners.",
     "No production exchange systems are claimed here.",
   ],
-  futureHeading: "Future Topics",
+  futureHeading: "Related topics",
   futureIntro:
-    "Topics below come from the Interoperability entity in the shared registry. They are documentation placeholders, not delivery promises.",
+    "Topics below are drawn from the Interoperability entry in the shared registry and provide context for related architecture.",
   relatedSystemsHeading: "Related Systems",
   relatedResearchHeading: "Related Research",
   relatedApplicationsHeading: "Related Applications",

@@ -87,15 +87,15 @@ export const clinicalInterfacesPageContent: SystemDisciplinePageContent = {
     "Clinicians and authorized roles remain responsible for care decisions.",
     "Interfaces may present information. They do not act as the clinician."
   ],
-  scopeHeading: "Current Development Scope",
+  scopeHeading: "Scope",
   scope: [
     "This page defines architecture only.",
     "It does not claim medical-device approval or clinical deployment.",
     "Status remains planned."
   ],
-  futureHeading: "Future Topics",
+  futureHeading: "Related topics",
   futureIntro:
-    "Topics below come from the shared registry. They mark later documentation needs. They are not delivery promises.",
+    "Topics below are drawn from the shared registry and provide context for related architecture.",
   relatedTechnologyHeading: "Related Technology",
   relatedSystemsHeading: "Related Systems",
   relatedApplicationsHeading: "Related Applications",

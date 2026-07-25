@@ -25,7 +25,7 @@ export const dictionary: Record<string, string> = {
   "Maintainability": "Ремонтопридатність",
   "Disciplines, interfaces and status labels stay explicit so the work remains reviewable over time.": "Дисципліни, інтерфейси та мітки статусу залишаються чіткими, тому роботу можна переглядати з часом.",
   "Current Development Scope": "Поточний обсяг розробки",
-  "Future Topics": "Майбутні теми",
+  "Related topics": "Майбутні теми",
   "Topics below come from Technology entries in the shared registry. They mark later documentation needs. They are not delivery promises.": "Наведені нижче теми походять із записів Technology у спільному реєстрі. Вони позначають пізнішу потребу в документації. Це не обіцянки доставки.",
   "Related Domains": "Пов’язані домени",
   "Systems": "Системи",
@@ -40,7 +40,6 @@ export const dictionary: Record<string, string> = {
   "Relationships": "стосунки",
   "Principles": "Принципи",
   "Scope": "Область застосування",
-  "Future topics": "Майбутні теми",
   "Related domains": "Пов'язані домени",
   "References": "Список літератури",
   "Technology is the set of technical capabilities and engineering foundations used to build SAVEN Core systems. It matters because shared disciplines—such as Human Data, privacy and artificial intelligence—must be defined before systems can assist people under clear limits.": "Технологія — це сукупність технічних можливостей та інженерних основ, які використовуються для створення систем SAVEN Core. Це важливо, оскільки спільні дисципліни, такі як людські дані, конфіденційність і штучний інтелект, мають бути визначені, перш ніж системи зможуть допомагати людям у чітких обмеженнях.",
@@ -79,5 +78,5 @@ export const dictionary: Record<string, string> = {
   "Limitations": "Обмеження",
   "Related systems": "Споріднені системи",
   "Related research": "Пов'язані дослідження",
-  "Related applications": "Пов'язані програми"
+  "Related applications": "Пов'язані програми",
 };

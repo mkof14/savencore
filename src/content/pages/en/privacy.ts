@@ -95,15 +95,15 @@ export const privacyPageContent: TechnologyDisciplinePageContent = {
       text: "This page describes architecture. It does not claim completed audits or approvals.",
     },
   ],
-  scopeHeading: "Current Development Scope",
+  scopeHeading: "Scope",
   scope: [
     "This page defines Privacy as architecture inside the Technology domain.",
     "It does not name vendors, regulations as product claims or completed certifications.",
     "No production privacy platform is claimed here.",
   ],
-  futureHeading: "Future Topics",
+  futureHeading: "Related topics",
   futureIntro:
-    "Topics below come from the Privacy entity in the shared registry. They are documentation placeholders, not delivery promises.",
+    "Topics below are drawn from the Privacy entry in the shared registry and provide context for related architecture.",
   relatedSystemsHeading: "Related Systems",
   relatedResearchHeading: "Related Research",
   relatedApplicationsHeading: "Related Applications",

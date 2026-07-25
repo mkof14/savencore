@@ -95,15 +95,15 @@ export const automationPageContent: TechnologyDisciplinePageContent = {
       text: "Important outcomes remain under human authority.",
     },
   ],
-  scopeHeading: "Current Development Scope",
+  scopeHeading: "Scope",
   scope: [
     "This page defines Automation as architecture inside the Technology domain.",
     "It does not name vendors, robots-as-products or production automation services.",
     "No unsupervised operational systems are claimed here.",
   ],
-  futureHeading: "Future Topics",
+  futureHeading: "Related topics",
   futureIntro:
-    "Topics below come from the Automation entity in the shared registry. They are documentation placeholders, not delivery promises.",
+    "Topics below are drawn from the Automation entry in the shared registry and provide context for related architecture.",
   relatedSystemsHeading: "Related Systems",
   relatedResearchHeading: "Related Research",
   relatedApplicationsHeading: "Related Applications",

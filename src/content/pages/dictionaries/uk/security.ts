@@ -35,8 +35,7 @@ export const dictionary: Record<string, string> = {
   "No certification claim": "Жодних претензій щодо сертифікації",
   "This page does not claim completed security audits or product certifications.": "Ця сторінка не вимагає завершених перевірок безпеки чи сертифікації продукту.",
   "Current Development Scope": "Поточний обсяг розробки",
-  "Future Topics": "Майбутні теми",
-  "Topics below come from the Security entity in the shared registry. They are documentation placeholders, not delivery promises.": "Наведені нижче теми походять із сутності безпеки в спільному реєстрі. Це заповнювачі документації, а не обіцянки доставки.",
+  "Related topics": "Майбутні теми",
   "Related Systems": "Пов'язані системи",
   "Related Research": "Пов'язані дослідження",
   "Related Applications": "Пов'язані програми",
@@ -92,9 +91,8 @@ export const dictionary: Record<string, string> = {
   "Categories": "Категорії",
   "Principles": "Принципи",
   "Scope": "Область застосування",
-  "Future topics": "Майбутні теми",
   "Related systems": "Споріднені системи",
   "Related research": "Пов'язані дослідження",
   "Related applications": "Пов'язані програми",
-  "References": "Список літератури"
+  "References": "Список літератури",
 };

@@ -87,15 +87,15 @@ export const aiDecisionSupportPageContent: SystemDisciplinePageContent = {
     "Human reviewers remain responsible for consequential choices.",
     "Assistance may inform. It may not close the decision."
   ],
-  scopeHeading: "Current Development Scope",
+  scopeHeading: "Scope",
   scope: [
     "This page defines architecture only.",
     "It does not claim clinical deployment or autonomous medical action.",
     "Status remains conceptual."
   ],
-  futureHeading: "Future Topics",
+  futureHeading: "Related topics",
   futureIntro:
-    "Topics below come from the shared registry. They mark later documentation needs. They are not delivery promises.",
+    "Topics below are drawn from the shared registry and provide context for related architecture.",
   relatedTechnologyHeading: "Related Technology",
   relatedSystemsHeading: "Related Systems",
   relatedApplicationsHeading: "Related Applications",

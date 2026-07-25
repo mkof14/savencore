@@ -13,7 +13,7 @@ export const homeContentAr: HomeContent = {
     explanation:
       "نصمّم أنظمة تساعد الناس في المستشفيات والمنازل والحياة اليومية — بعناية وحدود واضحة.",
     status:
-      "نبني البنية الآن. هذا الموقع يشرح الأفكار — وليس منتجاً مكتملاً.",
+      "هندسة وأنظمة ومبادئ تتمحور حول الإنسان للمساعدة المسؤولة.",
   },
   architectureChain: [
     { id: "human", label: "الناس" },
@@ -68,7 +68,7 @@ export const homeContentAr: HomeContent = {
       purpose: "أسئلة وأساليب وأعمال مفتوحة توجه التصميم.",
       href: "/research/",
       pageIds: ["research-overview"],
-      relationships: "يُسهم في توجيه التقنية والأنظمة. وما زال يتوسع.",
+      relationships: "يوجّه التقنية والأنظمة عبر الأسئلة والأساليب والأدلة.",
     },
   ],
   domainMapSteps: [
@@ -83,8 +83,7 @@ export const homeContentAr: HomeContent = {
     { id: "systems", label: "الأنظمة", stateKey: "complete", complete: true },
     { id: "applications", label: "التطبيقات", stateKey: "complete", complete: true },
     { id: "trust", label: "الثقة", stateKey: "complete", complete: true },
-    { id: "research", label: "البحث", stateKey: "inProgress", complete: false },
-    { id: "company", label: "الشركة", stateKey: "planned", complete: false },
+    { id: "research", label: "البحث", stateKey: "complete", complete: true },
   ],
   featuredConcepts: [
     {

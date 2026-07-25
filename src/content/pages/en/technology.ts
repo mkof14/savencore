@@ -91,15 +91,15 @@ export const technologyPageContent: TechnologyPageContent = {
       text: "Disciplines, interfaces and status labels stay explicit so the work remains reviewable over time.",
     },
   ],
-  scopeHeading: "Current Development Scope",
+  scopeHeading: "Scope",
   scope: [
     "This page is a knowledge index. It describes Technology architecture, relationships and development status.",
     "Status labels describe maturity of the architecture only. They do not mean systems are operating in production.",
     "This page makes no customer, partnership, certification or validation claims.",
   ],
-  futureHeading: "Future Topics",
+  futureHeading: "Related topics",
   futureIntro:
-    "Topics below come from Technology entries in the shared registry. They mark later documentation needs. They are not delivery promises.",
+    "Topics below are drawn from Technology entries in the shared registry and provide context for related architecture.",
   relatedDomainsHeading: "Related Domains",
   relatedDomainLinks: [
     { label: "Systems", href: "/systems/" },
@@ -127,7 +127,7 @@ export const technologyPageContent: TechnologyPageContent = {
     { id: "technology-relationships", label: "Relationships" },
     { id: "engineering-principles", label: "Principles" },
     { id: "current-development-scope", label: "Scope" },
-    { id: "future-expansion", label: "Future topics" },
+    { id: "future-expansion", label: "Related topics" },
     { id: "related-domains", label: "Related domains" },
     { id: "reference-links", label: "References" },
   ],

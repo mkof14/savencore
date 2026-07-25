@@ -580,7 +580,7 @@ export const knowledgeEntities: readonly KnowledgeEntity[] = [
     futureTopics: [
       "Workflow touchpoints",
       "Role-based access",
-      "Institutional integration placeholders",
+      "Institutional integration patterns",
     ],
   }),
   defineEntity({
@@ -745,7 +745,7 @@ export const knowledgeEntities: readonly KnowledgeEntity[] = [
     entityType: "research-output",
     domain: "research",
     summary:
-      "Structured place for approved long-form technical papers. Placeholder architecture only; no paper titles or counts are invented here.",
+      "Structured place for approved long-form technical papers. Approved long-form technical papers and architecture notes.",
     status: "planned",
     parentId: null,
     childIds: [],
@@ -812,7 +812,7 @@ export const knowledgeEntities: readonly KnowledgeEntity[] = [
     entityType: "research-output",
     domain: "research",
     summary:
-      "Registry structure for approved public research outputs. Structural placeholder; entries are added only when owner-approved publications exist.",
+      "Public research record for approved technical outputs. Entries are included when approved publications are available.",
     status: "planned",
     parentId: null,
     childIds: [],
@@ -932,7 +932,7 @@ export const knowledgeEntities: readonly KnowledgeEntity[] = [
       { label: "Trust", href: "/trust/" },
     ],
     futureTopics: [
-      "Care workflow placeholders",
+      "Care workflow design",
       "Role boundaries",
       "Institutional collaboration notes",
     ],
@@ -1007,7 +1007,7 @@ export const knowledgeEntities: readonly KnowledgeEntity[] = [
     entityType: "application",
     domain: "applications",
     summary:
-      "Time-critical assistance architecture under strict permissions and oversight. Placeholder only; no operational deployment claims.",
+      "Time-critical assistance architecture under strict permissions and oversight. Architecture-level context; no operational deployment claims.",
     status: "planned",
     parentId: null,
     childIds: [],
@@ -1067,7 +1067,7 @@ export const knowledgeEntities: readonly KnowledgeEntity[] = [
     entityType: "application",
     domain: "applications",
     summary:
-      "Placeholder category for governed institutional and public-sector collaboration pathways when approved. No partnership claims.",
+      "Institutional and public-sector collaboration architecture. No partnership claims are made.",
     status: "planned",
     parentId: null,
     childIds: [],
@@ -1104,7 +1104,7 @@ export const knowledgeEntities: readonly KnowledgeEntity[] = [
     entityType: "application",
     domain: "applications",
     summary:
-      "Future agricultural extensions of sensing and assistance systems. Secondary extension domain; architecture placeholder only.",
+      "Agricultural applications of sensing and assistance systems. A secondary extension domain governed by the same architectural constraints.",
     status: "planned",
     parentId: null,
     childIds: [],
@@ -1161,7 +1161,7 @@ export const knowledgeEntities: readonly KnowledgeEntity[] = [
     ],
     futureTopics: [
       "Evaluation environments",
-      "Controlled trial placeholders",
+      "Controlled trial environments",
       "Links to laboratories",
     ],
   }),

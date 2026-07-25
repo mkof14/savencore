@@ -13,7 +13,7 @@ export const homeContentHe: HomeContent = {
     explanation:
       "אנחנו מעצבים מערכות שעוזרות לאנשים בבתי חולים, בבית ובחיי היומיום — בזהירות ועם גבולות ברורים.",
     status:
-      "אנחנו בונים את הארכיטקטורה עכשיו. האתר מסביר את הרעיונות — לא מוצר מוגמר.",
+      "ארכיטקטורה, מערכות ועקרונות ממוקדי אדם לסיוע אחראי.",
   },
   architectureChain: [
     { id: "human", label: "אנשים" },
@@ -68,7 +68,7 @@ export const homeContentHe: HomeContent = {
       purpose: "שאלות, שיטות ועבודה פתוחה שמכוונות את התכנון.",
       href: "/research/",
       pageIds: ["research-overview"],
-      relationships: "מנחה את הטכנולוגיה ואת המערכות. התחום עדיין מתרחב.",
+      relationships: "מנחה את הטכנולוגיה ואת המערכות באמצעות שאלות, שיטות וראיות.",
     },
   ],
   domainMapSteps: [
@@ -83,8 +83,7 @@ export const homeContentHe: HomeContent = {
     { id: "systems", label: "מערכות", stateKey: "complete", complete: true },
     { id: "applications", label: "יישומים", stateKey: "complete", complete: true },
     { id: "trust", label: "אמון", stateKey: "complete", complete: true },
-    { id: "research", label: "מחקר", stateKey: "inProgress", complete: false },
-    { id: "company", label: "החברה", stateKey: "planned", complete: false },
+    { id: "research", label: "מחקר", stateKey: "complete", complete: true },
   ],
   featuredConcepts: [
     {

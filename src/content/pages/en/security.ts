@@ -95,15 +95,15 @@ export const securityPageContent: TechnologyDisciplinePageContent = {
       text: "This page does not claim completed security audits or product certifications.",
     },
   ],
-  scopeHeading: "Current Development Scope",
+  scopeHeading: "Scope",
   scope: [
     "This page defines Security as architecture inside the Technology domain.",
     "It does not name vendors, tools or completed certifications.",
     "No production security platform is claimed here.",
   ],
-  futureHeading: "Future Topics",
+  futureHeading: "Related topics",
   futureIntro:
-    "Topics below come from the Security entity in the shared registry. They are documentation placeholders, not delivery promises.",
+    "Topics below are drawn from the Security entry in the shared registry and provide context for related architecture.",
   relatedSystemsHeading: "Related Systems",
   relatedResearchHeading: "Related Research",
   relatedApplicationsHeading: "Related Applications",

@@ -25,7 +25,7 @@ export const dictionary: Record<string, string> = {
   "Maintainability": "قابلية الصيانة",
   "Disciplines, interfaces and status labels stay explicit so the work remains reviewable over time.": "تظل التخصصات والواجهات وتسميات الحالة واضحة بحيث يظل العمل قابلاً للمراجعة بمرور الوقت.",
   "Current Development Scope": "نطاق التطوير الحالي",
-  "Future Topics": "موضوعات المستقبل",
+  "Related topics": "المواضيع المستقبلية",
   "Topics below come from Technology entries in the shared registry. They mark later documentation needs. They are not delivery promises.": "المواضيع أدناه تأتي من إدخالات التكنولوجيا في التسجيل المشترك. أنها تحدد احتياجات التوثيق في وقت لاحق. فهي ليست وعود التسليم.",
   "Related Domains": "المجالات ذات الصلة",
   "Systems": "الأنظمة",
@@ -40,7 +40,6 @@ export const dictionary: Record<string, string> = {
   "Relationships": "العلاقات",
   "Principles": "المبادئ",
   "Scope": "النطاق",
-  "Future topics": "المواضيع المستقبلية",
   "Related domains": "المجالات ذات الصلة",
   "References": "المراجع",
   "Technology is the set of technical capabilities and engineering foundations used to build SAVEN Core systems. It matters because shared disciplines—such as Human Data, privacy and artificial intelligence—must be defined before systems can assist people under clear limits.": "التكنولوجيا هي مجموعة القدرات التقنية والأسس الهندسية المستخدمة لبناء أنظمة SAVEN Core. وهذا مهم لأنه يجب تحديد التخصصات المشتركة - مثل البيانات البشرية والخصوصية والذكاء الاصطناعي - قبل أن تتمكن الأنظمة من مساعدة الأشخاص ضمن حدود واضحة.",
@@ -79,5 +78,5 @@ export const dictionary: Record<string, string> = {
   "Limitations": "القيود",
   "Related systems": "الأنظمة ذات الصلة",
   "Related research": "البحوث ذات الصلة",
-  "Related applications": "التطبيقات ذات الصلة"
+  "Related applications": "التطبيقات ذات الصلة",
 };

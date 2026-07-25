@@ -69,10 +69,6 @@ export function ResearchPage({
                 </li>
               ))}
             </ul>
-            <p className="page-filters__note">
-              Category filters are structural placeholders and are not
-              interactive in this phase.
-            </p>
           </div>
         ) : null}
 

@@ -96,15 +96,15 @@ export const artificialIntelligencePageContent: TechnologyDisciplinePageContent 
         text: "Automation may carry out bounded tasks. Artificial Intelligence may help interpret. Neither replaces oversight.",
       },
     ],
-    scopeHeading: "Current Development Scope",
+    scopeHeading: "Scope",
     scope: [
       "This page defines Artificial Intelligence as architecture inside the Technology domain.",
       "It does not name models, vendors, training datasets or production AI services.",
       "No autonomous clinical or commercial decision systems are claimed here.",
     ],
-    futureHeading: "Future Topics",
+    futureHeading: "Related topics",
     futureIntro:
-      "Topics below come from the Artificial Intelligence entity in the shared registry. They are documentation placeholders, not delivery promises.",
+      "Topics below are drawn from the Artificial Intelligence entry in the shared registry and provide context for related architecture.",
     relatedSystemsHeading: "Related Systems",
     relatedResearchHeading: "Related Research",
     relatedApplicationsHeading: "Related Applications",

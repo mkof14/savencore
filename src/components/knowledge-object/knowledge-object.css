@@ -35,7 +35,7 @@
   font-size: 0.8125rem;
   font-weight: 500;
   letter-spacing: 0.02em;
-  color: var(--color-text-secondary);
+  color: var(--color-accent);
 }
 
 .ko-level__title {

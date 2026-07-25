@@ -36,7 +36,7 @@
   margin: 0 0 var(--space-12);
   font-size: 0.9375rem;
   font-weight: 500;
-  color: var(--color-text-secondary);
+  color: var(--color-accent);
 }
 
 .kx-section-header__title {
@@ -63,7 +63,8 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(80% 60% at 85% 15%, rgba(61, 120, 140, 0.35) 0%, transparent 55%),
+    radial-gradient(70% 50% at 90% 10%, color-mix(in srgb, var(--color-accent) 18%, transparent) 0%, transparent 55%),
+    radial-gradient(80% 60% at 85% 15%, rgba(61, 120, 140, 0.32) 0%, transparent 55%),
     radial-gradient(60% 50% at 10% 80%, rgba(36, 70, 120, 0.28) 0%, transparent 50%),
     linear-gradient(165deg, #0b1220 0%, #132033 55%, #0d3b45 100%);
   pointer-events: none;
@@ -96,6 +97,10 @@
   color: #eef3f7;
 }
 
+.kx-hero__brand .brand-name__saven {
+  color: #eef3f7;
+}
+
 .kx-hero__sentence {
   margin: 0;
   max-width: 12ch;
@@ -125,14 +130,14 @@
   align-items: baseline;
   margin: var(--space-48) 0 0;
   padding-block-start: var(--space-20);
-  border-block-start: 1px solid rgba(238, 243, 247, 0.18);
+  border-block-start: 1px solid var(--color-accent-line);
   max-width: 40ch;
 }
 
 .kx-hero__status-mark {
   width: 0.5rem;
   height: 0.5rem;
-  border: 1px solid rgba(238, 243, 247, 0.8);
+  border: 1px solid var(--color-accent);
   border-radius: 50%;
   background: transparent;
 }
@@ -140,7 +145,7 @@
 .kx-hero__status-label {
   font-size: 0.8125rem;
   font-weight: 500;
-  color: rgba(238, 243, 247, 0.55);
+  color: var(--color-accent-muted);
 }
 
 .kx-hero__status-text {
@@ -214,8 +219,8 @@
 }
 
 .kx-arch-journey__node--link:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(238, 243, 247, 0.55);
+  background: color-mix(in srgb, var(--color-accent) 12%, transparent);
+  border-color: var(--color-accent-line);
   transform: translateX(4px);
 }
 
@@ -227,7 +232,8 @@
   font-family: var(--font-mono);
   font-size: 0.6875rem;
   letter-spacing: 0.08em;
-  opacity: 0.55;
+  color: var(--color-accent);
+  opacity: 0.9;
 }
 
 .kx-arch-journey__label {
@@ -242,7 +248,7 @@
   display: grid;
   place-items: center;
   height: 1.1rem;
-  color: rgba(238, 243, 247, 0.4);
+  color: var(--color-accent-muted);
   font-size: 0.75rem;
 }
 
@@ -426,11 +432,13 @@
   font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
-  color: inherit;
+  color: var(--color-accent);
 }
 
 .kx-domain-card__action:hover {
+  color: var(--color-accent-strong);
   text-decoration: underline;
+  text-decoration-color: var(--color-accent);
   text-underline-offset: 0.2em;
 }
 
@@ -442,7 +450,10 @@
   color: #eef3f7;
 }
 
-.kx-domain-map .kx-section-header__kicker,
+.kx-domain-map .kx-section-header__kicker {
+  color: var(--color-accent);
+}
+
 .kx-domain-map .kx-section-header__title {
   color: #eef3f7;
 }
@@ -679,7 +690,7 @@
 }
 
 .kx-continue__card:hover {
-  border-color: var(--color-text);
+  border-color: var(--color-accent);
 }
 
 .kx-continue__title {
@@ -699,6 +710,7 @@
   grid-row: 1 / span 2;
   align-self: center;
   font-size: 1.5rem;
+  color: var(--color-accent);
 }
 
 @media (prefers-reduced-motion: reduce) {

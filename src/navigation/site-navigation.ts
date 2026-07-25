@@ -193,7 +193,7 @@ export const utilityNavigation: readonly NavLinkItem[] = [] as const;
 
 /**
  * Footer — complete navigation hub.
- * Published routes link through; unpublished items stay visible as Coming Soon.
+ * Published routes link through; unpublished destinations are omitted from the visitor footer.
  */
 export const footerNavigation: readonly FooterGroup[] = [
   {

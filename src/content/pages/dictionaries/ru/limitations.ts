@@ -80,7 +80,7 @@ export const dictionary: Record<string, string> = {
   "Categories": "Категории",
   "Relationships": "Отношения",
   "Principles": "Принципы",
-  "Future topics": "Будущие темы",
+  "Related topics": "Будущие темы",
   "Related systems": "Связанные системы",
   "Related research": "Связанные исследования",
   "Related applications": "Связанные приложения",

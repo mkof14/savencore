@@ -83,7 +83,7 @@ export const dictionary: Record<string, string> = {
   "Summary": "ملخص",
   "Categories": "الفئات",
   "Relationships": "العلاقات",
-  "Future topics": "المواضيع المستقبلية",
+  "Related topics": "المواضيع المستقبلية",
   "Related systems": "الأنظمة ذات الصلة",
   "Related research": "البحوث ذات الصلة",
   "Related applications": "التطبيقات ذات الصلة",

@@ -13,7 +13,7 @@ export const homeContentUk: HomeContent = {
     explanation:
       "Ми створюємо системи, які допомагають людям у лікарнях, вдома та в повсякденному житті — обережно і з чіткими межами.",
     status:
-      "Зараз ми будуємо архітектуру. Цей сайт пояснює ідеї — це не готовий продукт.",
+      "Архітектура, системи та людиноцентричні принципи відповідальної підтримки.",
   },
   architectureChain: [
     { id: "human", label: "Люди" },
@@ -68,7 +68,7 @@ export const homeContentUk: HomeContent = {
       purpose: "Питання, методи та відкрита робота, що спрямовують проєктування.",
       href: "/research/",
       pageIds: ["research-overview"],
-      relationships: "Спрямовують розвиток технологій і систем. Робота триває.",
+      relationships: "Спрямовують технології та системи через питання, методи й докази.",
     },
   ],
   domainMapSteps: [
@@ -83,8 +83,7 @@ export const homeContentUk: HomeContent = {
     { id: "systems", label: "Системи", stateKey: "complete", complete: true },
     { id: "applications", label: "Застосування", stateKey: "complete", complete: true },
     { id: "trust", label: "Довіра", stateKey: "complete", complete: true },
-    { id: "research", label: "Дослідження", stateKey: "inProgress", complete: false },
-    { id: "company", label: "Компанія", stateKey: "planned", complete: false },
+    { id: "research", label: "Дослідження", stateKey: "complete", complete: true },
   ],
   featuredConcepts: [
     {

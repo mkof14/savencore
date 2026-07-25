@@ -20,9 +20,14 @@ type SavenLogoProps = {
   linked?: boolean;
 };
 
-const MARK_PX: Record<SavenLogoSize, number> = {
-  header: 88,
-  footer: 128,
+/** Cropped mark (padding removed) — fills header without empty plate. */
+const MARK_SRC = "/brand/saven-logo-mark.png";
+/** Native cropped asset ratio (479×647). */
+const MARK_ASPECT = 479 / 647;
+
+const MARK_HEIGHT: Record<SavenLogoSize, number> = {
+  header: 136,
+  footer: 208,
   compact: 56,
 };
 
@@ -47,13 +52,16 @@ export function SavenLogo({
     .filter(Boolean)
     .join(" ");
 
+  const markHeight = MARK_HEIGHT[variant];
+  const markWidth = Math.round(markHeight * MARK_ASPECT);
+
   const body = (
     <>
       <Image
-        src="/brand/saven-logo.png"
+        src={MARK_SRC}
         alt="SAVEN Core"
-        width={MARK_PX[variant]}
-        height={MARK_PX[variant]}
+        width={markWidth}
+        height={markHeight}
         className="saven-logo__mark"
         priority={variant === "header"}
         draggable={false}

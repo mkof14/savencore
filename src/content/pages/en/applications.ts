@@ -78,15 +78,15 @@ export const applicationsPageContent: ApplicationsPageContent = {
       text: "Current scope and unsupported claims stay visible.",
     },
   ],
-  scopeHeading: "Current Development Scope",
+  scopeHeading: "Scope",
   scope: [
     "This domain documents intended contexts and architecture relationships.",
     "It does not claim clinical use, emergency service, regulatory approval or autonomous operation.",
     "Industrial, government and agriculture pages remain future-extension contexts.",
   ],
-  futureHeading: "Future Topics",
+  futureHeading: "Related topics",
   futureIntro:
-    "Later work may deepen workflow notes for each context. Future topics are documentation needs, not delivery promises.",
+    "Related topics provide additional context for each application architecture.",
   cardsHeading: "Operating contexts",
   cards: [
     {

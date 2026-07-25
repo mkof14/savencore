@@ -40,7 +40,7 @@ export const purposePageContent: EditorialPageContent = {
       id: "purpose",
       title: "Purpose",
       paragraphs: [
-        "The primary purpose of SAVEN Core is helping people. Intelligent systems are being developed to support care, independence, safety and daily life across every age and stage of life.",
+        "The primary purpose of SAVEN Core is helping people. SAVEN Core brings human-centered architecture to care, independence, safety and daily life across every age and stage of life.",
         "Robotics, aerial systems, infrastructure and other technical extensions remain subordinate to that purpose. They must not replace or obscure the human reason for the work.",
       ],
     },
@@ -56,8 +56,8 @@ export const purposePageContent: EditorialPageContent = {
       id: "what-we-build",
       title: "What We Build",
       paragraphs: [
-        "SAVEN Core is being developed as a family of connected systems that join human-context models, artificial intelligence, robotics, sensing, interfaces and environment-level controls.",
-        "The work includes software architecture, safety and privacy architecture, human-system interaction and physical-system engineering. Public materials describe development architecture, not commercial deployment.",
+        "SAVEN Core brings together human-context models, artificial intelligence, robotics, sensing, interfaces and environment-level controls as a connected system architecture.",
+        "The work includes software architecture, safety and privacy architecture, human-system interaction and physical-system engineering. Public materials describe architecture and scope; they do not claim commercial deployment.",
       ],
     },
     {

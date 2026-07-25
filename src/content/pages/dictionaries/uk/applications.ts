@@ -20,8 +20,8 @@ export const dictionary: Record<string, string> = {
   "Clear boundaries": "Чіткі межі",
   "Current scope and unsupported claims stay visible.": "Поточний обсяг і непідтверджені претензії залишаються видимими.",
   "Current Development Scope": "Поточний обсяг розробки",
-  "Future Topics": "Майбутні теми",
-  "Later work may deepen workflow notes for each context. Future topics are documentation needs, not delivery promises.": "Пізніша робота може поглибити примітки робочого процесу для кожного контексту. Майбутні теми потребують документації, а не обіцянок доставки.",
+  "Related topics": "Майбутні теми",
+  "Later work may deepen workflow notes for each context. Related topics are documentation needs, not delivery promises.": "Пізніша робота може поглибити примітки робочого процесу для кожного контексту. Майбутні теми потребують документації, а не обіцянок доставки.",
   "Operating contexts": "Операційні контексти",
   "Healthcare": "Охорона здоров'я",
   "Bounded support around care contexts and review.": "Обмежена підтримка щодо контекстів догляду та огляду.",
@@ -85,7 +85,6 @@ export const dictionary: Record<string, string> = {
   "Summary": "Резюме",
   "Categories": "Категорії",
   "Relationships": "стосунки",
-  "Future topics": "Майбутні теми",
   "Related systems": "Споріднені системи",
   "Related research": "Пов'язані дослідження",
   "Related applications": "Пов'язані програми",
@@ -112,5 +111,5 @@ export const dictionary: Record<string, string> = {
   "Inputs": "Вхідні дані",
   "Outputs": "Вихідні дані",
   "Privacy engineering": "Інженерія приватності",
-  "Security engineering": "Інженерія безпеки"
+  "Security engineering": "Інженерія безпеки",
 };

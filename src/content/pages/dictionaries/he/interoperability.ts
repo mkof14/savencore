@@ -35,8 +35,7 @@ export const dictionary: Record<string, string> = {
   "Human oversight": "פיקוח אנושי",
   "Important exchange decisions stay under human authority.": "החלטות חילופין חשובות נשארות בסמכות אנושית.",
   "Current Development Scope": "היקף הפיתוח הנוכחי",
-  "Future Topics": "נושאים עתידיים",
-  "Topics below come from the Interoperability entity in the shared registry. They are documentation placeholders, not delivery promises.": "הנושאים להלן מגיעים מהישות של יכולת פעולה הדדית ברישום המשותף. הם מצייני מקום לתיעוד, לא הבטחות מסירה.",
+  "Related topics": "נושאים עתידיים",
   "Related Systems": "מערכות קשורות",
   "Related Research": "מחקר קשור",
   "Related Applications": "יישומים קשורים",
@@ -92,9 +91,8 @@ export const dictionary: Record<string, string> = {
   "Categories": "קטגוריות",
   "Principles": "עקרונות",
   "Scope": "היקף",
-  "Future topics": "נושאים עתידיים",
   "Related systems": "מערכות קשורות",
   "Related research": "מחקר בנושא",
   "Related applications": "יישומים קשורים",
-  "References": "הפניות"
+  "References": "הפניות",
 };

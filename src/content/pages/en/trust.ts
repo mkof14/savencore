@@ -79,10 +79,10 @@ export const trustPageContent: TrustPageContent = {
       text: "Trust pages do not claim zero risk or completed certification.",
     },
   ],
-  scopeHeading: "Current Development Scope",
+  scopeHeading: "Scope",
   scope: [
-    "These pages define governance architecture and public commitments in development.",
-    "They are not privacy policies, terms of use or completed audits.",
+    "These pages define governance architecture and public commitments.",
+    "They are distinct from privacy policies, terms of use and audits.",
     "Legal documents under /legal remain separate when published.",
   ],
   cardsHeading: "Trust topics",

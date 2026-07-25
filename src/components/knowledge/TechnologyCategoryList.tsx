@@ -32,7 +32,7 @@ function hasVisibleRelationGroups(entityId: string): boolean {
 /**
  * Registry-driven Technology category blocks.
  * Uses getEntitiesByDomain("technology") — no hard-coded entity list.
- * Empty relation groups and empty Future Topics are not rendered.
+ * Empty relation groups and empty Related topics are not rendered.
  */
 export function TechnologyCategoryList({
   locale,
@@ -89,7 +89,7 @@ export function TechnologyCategoryList({
 
                 {showFutureTopics ? (
                   <div className="technology-category__future">
-                    <h4 className="eng-type-h3">Future Topics</h4>
+                    <h4 className="eng-type-h3">Related topics</h4>
                     <ul className="eng-future technology-category__future-list">
                       {entity.futureTopics.map((topic) => (
                         <li key={topic} className="eng-future__item">

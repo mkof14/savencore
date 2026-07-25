@@ -78,7 +78,7 @@ export const dictionary: Record<string, string> = {
   "Relationships": "מערכות יחסים",
   "Principles": "עקרונות",
   "Scope": "היקף",
-  "Future topics": "נושאים עתידיים",
+  "Related topics": "נושאים עתידיים",
   "Related systems": "מערכות קשורות",
   "Related research": "מחקר בנושא",
   "Related applications": "יישומים קשורים",

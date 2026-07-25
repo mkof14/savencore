@@ -35,8 +35,7 @@ export const dictionary: Record<string, string> = {
   "No certification claim": "لا توجد مطالبة بالشهادة",
   "This page does not claim completed security audits or product certifications.": "لا تطالب هذه الصفحة بعمليات تدقيق الأمان المكتملة أو شهادات المنتج.",
   "Current Development Scope": "نطاق التطوير الحالي",
-  "Future Topics": "موضوعات المستقبل",
-  "Topics below come from the Security entity in the shared registry. They are documentation placeholders, not delivery promises.": "المواضيع الواردة أدناه تأتي من كيان الأمان في التسجيل المشترك. إنها عناصر نائبة للتوثيق، وليست وعود التسليم.",
+  "Related topics": "المواضيع المستقبلية",
   "Related Systems": "الأنظمة ذات الصلة",
   "Related Research": "البحوث ذات الصلة",
   "Related Applications": "التطبيقات ذات الصلة",
@@ -92,9 +91,8 @@ export const dictionary: Record<string, string> = {
   "Categories": "الفئات",
   "Principles": "المبادئ",
   "Scope": "النطاق",
-  "Future topics": "المواضيع المستقبلية",
   "Related systems": "الأنظمة ذات الصلة",
   "Related research": "البحوث ذات الصلة",
   "Related applications": "التطبيقات ذات الصلة",
-  "References": "المراجع"
+  "References": "المراجع",
 };

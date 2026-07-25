@@ -35,8 +35,7 @@ export const dictionary: Record<string, string> = {
   "Paired with Automation": "يقترن بالأتمتة",
   "Automation may carry out bounded tasks. Artificial Intelligence may help interpret. Neither replaces oversight.": "قد تنفذ الأتمتة مهامًا محدودة. الذكاء الاصطناعي قد يساعد في تفسير. ولا يحل أي منهما محل الرقابة.",
   "Current Development Scope": "نطاق التطوير الحالي",
-  "Future Topics": "موضوعات المستقبل",
-  "Topics below come from the Artificial Intelligence entity in the shared registry. They are documentation placeholders, not delivery promises.": "المواضيع الواردة أدناه تأتي من كيان الذكاء الاصطناعي في السجل المشترك. إنها عناصر نائبة للتوثيق، وليست وعود التسليم.",
+  "Related topics": "المواضيع المستقبلية",
   "Related Systems": "الأنظمة ذات الصلة",
   "Related Research": "البحوث ذات الصلة",
   "Related Applications": "التطبيقات ذات الصلة",
@@ -92,9 +91,8 @@ export const dictionary: Record<string, string> = {
   "Categories": "الفئات",
   "Principles": "المبادئ",
   "Scope": "النطاق",
-  "Future topics": "المواضيع المستقبلية",
   "Related systems": "الأنظمة ذات الصلة",
   "Related research": "البحوث ذات الصلة",
   "Related applications": "التطبيقات ذات الصلة",
-  "References": "المراجع"
+  "References": "المراجع",
 };

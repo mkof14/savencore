@@ -27,7 +27,7 @@ export const dictionary: Record<string, string> = {
   "This page does not claim completed safety audits.": "На этой странице не заявлены пройденные проверки безопасности.",
   "Human Oversight": "Человеческий надзор",
   "Current Development Scope": "Текущая область разработки",
-  "Future Topics": "Будущие темы",
+  "Related topics": "Будущие темы",
   "Topics below come from the shared registry. They mark later documentation needs. They are not delivery promises.": "Темы ниже взяты из общего реестра. Они отмечают последующие потребности в документации. Это не обещания поставки.",
   "Related Technology": "Связанная технология",
   "Related Systems": "Связанные системы",
@@ -94,7 +94,6 @@ export const dictionary: Record<string, string> = {
   "Categories": "Категории",
   "Principles": "Принципы",
   "Scope": "Область применения",
-  "Future topics": "Будущие темы",
   "Related systems": "Связанные системы",
   "Related research": "Связанные исследования",
   "Related applications": "Связанные приложения",
@@ -116,5 +115,5 @@ export const dictionary: Record<string, string> = {
   "Controls": "Контроли",
   "Architecture role": "Роль архитектуры",
   "Privacy engineering": "Инженерия конфиденциальности",
-  "Security engineering": "Инженерия безопасности"
+  "Security engineering": "Инженерия безопасности",
 };

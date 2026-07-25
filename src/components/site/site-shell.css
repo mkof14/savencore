@@ -30,7 +30,7 @@
 }
 
 .site-shell :where(a, button, summary, select):focus-visible {
-  outline: 2px solid var(--color-text);
+  outline: 2px solid var(--color-accent);
   outline-offset: 3px;
 }
 
@@ -38,20 +38,44 @@
 .site-header {
   border-block-end: 1px solid var(--color-border);
   background: var(--color-background);
+  overflow: visible;
 }
 
 .site-header__bar {
   display: flex;
   align-items: center;
   gap: var(--space-24);
-  min-height: 4.75rem; /* 76px — within 72–80px */
+  min-height: 4.75rem; /* 76px — do not grow */
   height: 4.75rem;
+  max-height: 4.75rem;
   padding-block: 0;
   box-sizing: border-box;
+  overflow: visible;
 }
 
 .site-header__brand {
   flex: 0 0 auto;
+}
+
+/* Thin gold rule between brand lockup and nav — matches approved chrome */
+@media (min-width: 1024px) {
+  .site-header__brand {
+    position: relative;
+    padding-inline-end: 1.35rem;
+    margin-inline-end: 0.15rem;
+  }
+
+  .site-header__brand::after {
+    content: "";
+    position: absolute;
+    inset-inline-end: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 3rem;
+    background: var(--color-accent-line);
+    pointer-events: none;
+  }
 }
 
 .site-header__desktop {
@@ -133,8 +157,9 @@
 .desktop-nav__trigger.is-active {
   font-weight: 600;
   text-decoration: underline;
+  text-decoration-color: var(--color-accent);
   text-underline-offset: 0.4em;
-  text-decoration-thickness: 1px;
+  text-decoration-thickness: 1.5px;
 }
 
 .desktop-nav__item {
@@ -196,8 +221,9 @@
 .desktop-nav__panel-link[aria-current="page"] {
   font-weight: 600;
   text-decoration: underline;
+  text-decoration-color: var(--color-accent);
   text-underline-offset: 0.3em;
-  text-decoration-thickness: 1px;
+  text-decoration-thickness: 1.5px;
 }
 
 /* Utility navigation — visually quieter and separated */
@@ -231,8 +257,9 @@
   color: var(--color-text);
   font-weight: 600;
   text-decoration: underline;
+  text-decoration-color: var(--color-accent);
   text-underline-offset: 0.35em;
-  text-decoration-thickness: 1px;
+  text-decoration-thickness: 1.5px;
 }
 
 /* Language selector — reduced visual weight */
@@ -308,7 +335,7 @@
 
 .language-selector__option[aria-current="true"] {
   background: var(--color-surface);
-  color: var(--color-text);
+  color: var(--color-accent);
   font-weight: 600;
 }
 
@@ -415,8 +442,9 @@
 .mobile-nav__link[aria-current="page"] {
   font-weight: 600;
   text-decoration: underline;
+  text-decoration-color: var(--color-accent);
   text-underline-offset: 0.3em;
-  text-decoration-thickness: 1px;
+  text-decoration-thickness: 1.5px;
 }
 
 .mobile-nav__children {
@@ -442,7 +470,7 @@
 }
 
 .mobile-nav__child-link[aria-current="page"] {
-  color: var(--color-text);
+  color: var(--color-accent);
   font-weight: 600;
 }
 
@@ -533,7 +561,7 @@
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #f4f7fb;
+  color: var(--color-accent);
   line-height: 1.3;
   list-style: none;
   cursor: pointer;
@@ -552,7 +580,7 @@
   font-family: var(--font-mono);
   font-size: 1rem;
   font-weight: 500;
-  color: rgba(232, 238, 245, 0.55);
+  color: var(--color-accent-muted);
 }
 
 .site-footer__group[open] > .site-footer__group-title::after {
@@ -609,7 +637,7 @@
 }
 
 a.site-footer__link:hover {
-  color: #ffffff;
+  color: var(--color-accent-strong);
 }
 
 .site-footer__link--soon {
@@ -622,7 +650,7 @@ a.site-footer__link:hover {
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: rgba(232, 238, 245, 0.42);
+  color: var(--color-accent-muted);
 }
 
 .site-footer__bar {
@@ -716,11 +744,12 @@ a.site-footer__link:hover {
 }
 
 .site-footer__theme:hover {
-  color: #ffffff;
+  color: var(--color-accent-strong);
 }
 
 .site-footer__theme-value {
   font-weight: 600;
+  color: var(--color-accent);
 }
 
 .site-footer__version {

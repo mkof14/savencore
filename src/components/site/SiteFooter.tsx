@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
+import { BrandName } from "@/components/brand/BrandName";
+import { SavenLogo } from "@/components/brand/SavenLogo";
 import type { Locale } from "@/config/locales";
 import {
   getFooterGroupTitle,
@@ -10,16 +12,8 @@ import {
 } from "@/i18n/nav-label";
 import { getUi } from "@/i18n/ui";
 import { localizePath } from "@/navigation/locale-path";
-import {
-  isFooterLinkPublished,
-  type FooterLinkItem,
-} from "@/navigation/navigation-types";
-import {
-  FOOTER_VERSION,
-  footerNavigation,
-} from "@/navigation/site-navigation";
-
-import { SavenLogo } from "@/components/brand/SavenLogo";
+import { isFooterLinkPublished } from "@/navigation/navigation-types";
+import { footerNavigation } from "@/navigation/site-navigation";
 
 import { LanguageSelector } from "./LanguageSelector";
 import { ThemeSwitch } from "./ThemeSwitch";
@@ -28,42 +22,7 @@ type SiteFooterProps = {
   locale: Locale;
 };
 
-function FooterLink({
-  locale,
-  link,
-  comingSoonLabel,
-}: {
-  locale: Locale;
-  link: FooterLinkItem;
-  comingSoonLabel: string;
-}) {
-  const label = getNavEntryLabel(locale, link.id, link.label);
-
-  if (isFooterLinkPublished(link)) {
-    return (
-      <Link
-        href={localizePath(locale, link.href)}
-        className="site-footer__link"
-      >
-        {label}
-      </Link>
-    );
-  }
-
-  return (
-    <button
-      type="button"
-      className="site-footer__link site-footer__link--soon"
-      disabled
-      aria-disabled="true"
-    >
-      <span className="site-footer__link-label">{label}</span>
-      <span className="site-footer__soon">{comingSoonLabel}</span>
-    </button>
-  );
-}
-
-/** Complete professional footer — full navigation hub. */
+/** Professional footer — published destinations only. */
 export function SiteFooter({ locale }: SiteFooterProps) {
   const ui = getUi(locale);
   const [isCompact, setIsCompact] = useState(false);
@@ -75,6 +34,13 @@ export function SiteFooter({ locale }: SiteFooterProps) {
     media.addEventListener("change", sync);
     return () => media.removeEventListener("change", sync);
   }, []);
+
+  const groups = footerNavigation
+    .map((group) => ({
+      ...group,
+      links: group.links.filter(isFooterLinkPublished),
+    }))
+    .filter((group) => group.links.length > 0);
 
   return (
     <footer className="site-footer">
@@ -90,7 +56,7 @@ export function SiteFooter({ locale }: SiteFooterProps) {
         </div>
 
         <div className="site-footer__grid">
-          {footerNavigation.map((group) => {
+          {groups.map((group) => {
             const title = getFooterGroupTitle(locale, group.id, group.title);
             const headingId = `footer-${group.id}`;
 
@@ -106,11 +72,12 @@ export function SiteFooter({ locale }: SiteFooterProps) {
                   <ul className="site-footer__list" aria-labelledby={headingId}>
                     {group.links.map((link) => (
                       <li key={link.id}>
-                        <FooterLink
-                          locale={locale}
-                          link={link}
-                          comingSoonLabel={ui.footer.comingSoon}
-                        />
+                        <Link
+                          href={localizePath(locale, link.href)}
+                          className="site-footer__link"
+                        >
+                          {getNavEntryLabel(locale, link.id, link.label)}
+                        </Link>
                       </li>
                     ))}
                   </ul>
@@ -130,11 +97,12 @@ export function SiteFooter({ locale }: SiteFooterProps) {
                 <ul className="site-footer__list">
                   {group.links.map((link) => (
                     <li key={link.id}>
-                      <FooterLink
-                        locale={locale}
-                        link={link}
-                        comingSoonLabel={ui.footer.comingSoon}
-                      />
+                      <Link
+                        href={localizePath(locale, link.href)}
+                        className="site-footer__link"
+                      >
+                        {getNavEntryLabel(locale, link.id, link.label)}
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -144,50 +112,13 @@ export function SiteFooter({ locale }: SiteFooterProps) {
         </div>
 
         <div className="site-footer__bar">
-          <p className="site-footer__copyright">{ui.footer.copyrightShort}</p>
-
-          <ul className="site-footer__legal">
-            <li>
-              <button
-                type="button"
-                className="site-footer__bar-link site-footer__bar-link--soon"
-                disabled
-                aria-disabled="true"
-              >
-                {ui.footer.privacy}
-                <span className="site-footer__soon">{ui.footer.comingSoon}</span>
-              </button>
-            </li>
-            <li>
-              <button
-                type="button"
-                className="site-footer__bar-link site-footer__bar-link--soon"
-                disabled
-                aria-disabled="true"
-              >
-                {ui.footer.terms}
-                <span className="site-footer__soon">{ui.footer.comingSoon}</span>
-              </button>
-            </li>
-            <li>
-              <button
-                type="button"
-                className="site-footer__bar-link site-footer__bar-link--soon"
-                disabled
-                aria-disabled="true"
-              >
-                {ui.footer.cookies}
-                <span className="site-footer__soon">{ui.footer.comingSoon}</span>
-              </button>
-            </li>
-          </ul>
+          <p className="site-footer__copyright">
+            © 2026 <BrandName />. {ui.footer.rightsReserved}
+          </p>
 
           <div className="site-footer__utilities">
             <LanguageSelector locale={locale} idPrefix="footer-language" />
             <ThemeSwitch locale={locale} />
-            <p className="site-footer__version">
-              {ui.footer.version} {FOOTER_VERSION}
-            </p>
           </div>
         </div>
       </div>

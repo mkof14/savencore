@@ -26,7 +26,7 @@ export const dictionary: Record<string, string> = {
   "No overclaim": "Жодних претензій",
   "Architecture pages do not claim deployment, diagnosis, treatment or autonomous medicine.": "Архітектурні сторінки не претендують на розгортання, діагностику, лікування чи автономну медицину.",
   "Current Development Scope": "Поточний обсяг розробки",
-  "Future Topics": "Майбутні теми",
+  "Related topics": "Майбутні теми",
   "Topics below come from Systems entries in the shared registry. They mark later documentation needs. They are not delivery promises.": "Наведені нижче теми походять із системних записів у спільному реєстрі. Вони позначають пізнішу потребу в документації. Це не обіцянки доставки.",
   "Related Domains": "Пов’язані домени",
   "Technology": "технології",
@@ -44,7 +44,6 @@ export const dictionary: Record<string, string> = {
   "Published systems": "Опубліковані системи",
   "Principles": "Принципи",
   "Scope": "Область застосування",
-  "Future topics": "Майбутні теми",
   "Related domains": "Пов'язані домени",
   "References": "Список літератури",
   "Systems are the engineering components that show how SAVEN Core works. Each system has a role, inputs, outputs and limits.": "Системи — це інженерні компоненти, які показують, як працює SAVEN Core. Кожна система має роль, входи, виходи та обмеження.",
@@ -125,5 +124,5 @@ export const dictionary: Record<string, string> = {
   "Inputs": "Вхідні дані",
   "Outputs": "Вихідні дані",
   "Privacy engineering": "Інженерія приватності",
-  "Security engineering": "Інженерія безпеки"
+  "Security engineering": "Інженерія безпеки",
 };

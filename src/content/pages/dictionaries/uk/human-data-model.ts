@@ -55,7 +55,7 @@ export const dictionary: Record<string, string> = {
   "Privacy and Trust": "Конфіденційність і довіра",
   "Engineering Considerations": "Інженерні міркування",
   "Current Development Scope": "Поточний обсяг розробки",
-  "Future Topics": "Майбутні теми",
+  "Related topics": "Майбутні теми",
   "Topics below come from the Human Data Model entity in the shared registry. They mark later documentation needs. They are not delivery promises. A dedicated Knowledge Engine page is not published yet.": "Наведені нижче теми походять із сутності моделі даних людини в спільному реєстрі. Вони позначають пізнішу потребу в документації. Це не обіцянки доставки. Спеціальна сторінка Knowledge Engine ще не опублікована.",
   "Related Systems": "Пов'язані системи",
   "Related Research": "Пов'язані дослідження",
@@ -68,7 +68,6 @@ export const dictionary: Record<string, string> = {
   "Privacy and trust": "Конфіденційність і довіра",
   "Engineering": "Інженерія",
   "Scope": "Область застосування",
-  "Future topics": "Майбутні теми",
   "Related systems": "Споріднені системи",
   "Related research": "Пов'язані дослідження",
   "Related applications": "Пов'язані програми",
@@ -126,5 +125,5 @@ export const dictionary: Record<string, string> = {
   "Transparency": "Прозорість",
   "Ethics and Responsible Use": "Етика та відповідальне використання",
   "Limitations": "Обмеження",
-  "Categories": "Категорії"
+  "Categories": "Категорії",
 };

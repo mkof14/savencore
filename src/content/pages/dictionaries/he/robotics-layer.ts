@@ -27,7 +27,7 @@ export const dictionary: Record<string, string> = {
   "This page does not claim operating robot fleets.": "דף זה אינו טוען לציי רובוטים הפועלים.",
   "Human Oversight": "פיקוח אנושי",
   "Current Development Scope": "היקף הפיתוח הנוכחי",
-  "Future Topics": "נושאים עתידיים",
+  "Related topics": "נושאים עתידיים",
   "Topics below come from the shared registry. They mark later documentation needs. They are not delivery promises.": "הנושאים הבאים מגיעים מהרישום המשותף. הם מסמנים צרכי תיעוד מאוחרים יותר. הם לא הבטחות מסירה.",
   "Related Technology": "טכנולוגיה קשורה",
   "Related Systems": "מערכות קשורות",
@@ -94,7 +94,6 @@ export const dictionary: Record<string, string> = {
   "Categories": "קטגוריות",
   "Principles": "עקרונות",
   "Scope": "היקף",
-  "Future topics": "נושאים עתידיים",
   "Related systems": "מערכות קשורות",
   "Related research": "מחקר בנושא",
   "Related applications": "יישומים קשורים",
@@ -116,5 +115,5 @@ export const dictionary: Record<string, string> = {
   "Controls": "בקרות",
   "Architecture role": "תפקיד בארכיטקטורה",
   "Privacy engineering": "הנדסת פרטיות",
-  "Security engineering": "הנדסת אבטחה"
+  "Security engineering": "הנדסת אבטחה",
 };

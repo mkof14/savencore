@@ -35,8 +35,7 @@ export const dictionary: Record<string, string> = {
   "No certification claim": "אין תביעת אישור",
   "This page describes architecture. It does not claim completed audits or approvals.": "דף זה מתאר ארכיטקטורה. היא אינה טוענת לביקורות שהושלמו או לאישורים.",
   "Current Development Scope": "היקף הפיתוח הנוכחי",
-  "Future Topics": "נושאים עתידיים",
-  "Topics below come from the Privacy entity in the shared registry. They are documentation placeholders, not delivery promises.": "הנושאים שלהלן מגיעים מהישות הפרטיות ברישום המשותף. הם מצייני מקום לתיעוד, לא הבטחות מסירה.",
+  "Related topics": "נושאים עתידיים",
   "Related Systems": "מערכות קשורות",
   "Related Research": "מחקר קשור",
   "Related Applications": "יישומים קשורים",
@@ -92,9 +91,8 @@ export const dictionary: Record<string, string> = {
   "Categories": "קטגוריות",
   "Principles": "עקרונות",
   "Scope": "היקף",
-  "Future topics": "נושאים עתידיים",
   "Related systems": "מערכות קשורות",
   "Related research": "מחקר בנושא",
   "Related applications": "יישומים קשורים",
-  "References": "הפניות"
+  "References": "הפניות",
 };

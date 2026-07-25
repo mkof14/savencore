@@ -35,8 +35,7 @@ export const dictionary: Record<string, string> = {
   "No certification claim": "Без претензий на сертификацию",
   "This page describes architecture. It does not claim completed audits or approvals.": "На этой странице описывается архитектура. Он не претендует на завершение аудита или одобрения.",
   "Current Development Scope": "Текущий объем разработки",
-  "Future Topics": "Будущие темы",
-  "Topics below come from the Privacy entity in the shared registry. They are documentation placeholders, not delivery promises.": "Приведенные ниже темы взяты из раздела «Конфиденциальность» в общем реестре. Это заполнители документации, а не обещания доставки.",
+  "Related topics": "Будущие темы",
   "Related Systems": "Связанные системы",
   "Related Research": "Связанные исследования",
   "Related Applications": "Связанные приложения",
@@ -92,9 +91,8 @@ export const dictionary: Record<string, string> = {
   "Categories": "Категории",
   "Principles": "Принципы",
   "Scope": "Область применения",
-  "Future topics": "Будущие темы",
   "Related systems": "Связанные системы",
   "Related research": "Связанные исследования",
   "Related applications": "Связанные приложения",
-  "References": "Ссылки"
+  "References": "Ссылки",
 };

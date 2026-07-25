@@ -58,7 +58,7 @@ export const TECHNOLOGY_DISCIPLINE_SECTION_NAV: readonly {
   { id: "relationships", label: "Relationships" },
   { id: "engineering-principles", label: "Principles" },
   { id: "current-development-scope", label: "Scope" },
-  { id: "future-topics", label: "Future topics" },
+  { id: "future-topics", label: "Related topics" },
   { id: "related-systems", label: "Related systems" },
   { id: "related-research", label: "Related research" },
   { id: "related-applications", label: "Related applications" },

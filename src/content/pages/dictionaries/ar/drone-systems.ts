@@ -27,7 +27,7 @@ export const dictionary: Record<string, string> = {
   "Operators remain responsible for consequential aerial action.": "ويظل المشغلون مسؤولين عن الأعمال الجوية اللاحقة.",
   "Human Oversight": "الرقابة البشرية",
   "Current Development Scope": "نطاق التطوير الحالي",
-  "Future Topics": "موضوعات المستقبل",
+  "Related topics": "المواضيع المستقبلية",
   "Topics below come from the shared registry. They mark later documentation needs. They are not delivery promises.": "المواضيع أدناه تأتي من التسجيل المشترك. أنها تحدد احتياجات التوثيق في وقت لاحق. فهي ليست وعود التسليم.",
   "Related Technology": "التقنية ذات الصلة",
   "Related Systems": "الأنظمة ذات الصلة",
@@ -94,7 +94,6 @@ export const dictionary: Record<string, string> = {
   "Categories": "الفئات",
   "Principles": "المبادئ",
   "Scope": "النطاق",
-  "Future topics": "المواضيع المستقبلية",
   "Related systems": "الأنظمة ذات الصلة",
   "Related research": "البحوث ذات الصلة",
   "Related applications": "التطبيقات ذات الصلة",
@@ -116,5 +115,5 @@ export const dictionary: Record<string, string> = {
   "Controls": "الضوابط",
   "Architecture role": "دور البنية",
   "Privacy engineering": "هندسة الخصوصية",
-  "Security engineering": "هندسة الأمن"
+  "Security engineering": "هندسة الأمن",
 };

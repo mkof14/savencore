@@ -27,7 +27,7 @@ export const dictionary: Record<string, string> = {
   "Only approved roles may see sensitive context.": "Лише схвалені ролі можуть бачити конфіденційний контекст.",
   "Human Oversight": "Людський нагляд",
   "Current Development Scope": "Поточний обсяг розробки",
-  "Future Topics": "Майбутні теми",
+  "Related topics": "Майбутні теми",
   "Topics below come from the shared registry. They mark later documentation needs. They are not delivery promises.": "Наведені нижче теми походять зі спільного реєстру. Вони позначають пізнішу потребу в документації. Це не обіцянки доставки.",
   "Related Technology": "Пов’язана технологія",
   "Related Systems": "Пов’язані системи",
@@ -93,7 +93,6 @@ export const dictionary: Record<string, string> = {
   "Categories": "Категорії",
   "Principles": "Принципи",
   "Scope": "Область застосування",
-  "Future topics": "Майбутні теми",
   "Related systems": "Споріднені системи",
   "Related research": "Пов'язані дослідження",
   "Related applications": "Пов'язані програми",
@@ -115,5 +114,5 @@ export const dictionary: Record<string, string> = {
   "Controls": "Засоби контролю",
   "Architecture role": "Роль архітектури",
   "Privacy engineering": "Інженерія приватності",
-  "Security engineering": "Інженерія безпеки"
+  "Security engineering": "Інженерія безпеки",
 };

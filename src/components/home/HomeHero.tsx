@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { BrandName } from "@/components/brand/BrandName";
 import type { Locale } from "@/config/locales";
 import { getHomeContent } from "@/content/home/get-home-content";
 import { getUi } from "@/i18n/ui";
@@ -20,7 +21,9 @@ export function HomeHero({ locale }: HomeHeroProps) {
       <div className="kx-hero__atmosphere" aria-hidden="true" />
       <div className="home__inner kx-hero__frame">
         <div className="kx-hero__copy">
-          <p className="kx-hero__brand">{content.brand}</p>
+          <p className="kx-hero__brand">
+            <BrandName variant="title" />
+          </p>
           <h1 id="home-hero-heading" className="kx-hero__sentence">
             {content.sentence}
           </h1>

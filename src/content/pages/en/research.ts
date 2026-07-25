@@ -3,23 +3,23 @@ import { researchLabsContent } from "@/content/home/en";
 import { getEntitiesByDomain } from "@/content/knowledge/entity-registry";
 
 /**
- * Research page content — Phase 3.0.
+ * Research page content.
  * Section index derives from the canonical entity registry.
- * Working-document entries remain page-specific display content.
+ * Research entries remain page-specific display content.
  */
 
 const researchEntities = getEntitiesByDomain("research");
 
-/** Demonstration Research page. Concise architecture validation content. */
+/** Research page content. */
 export const researchPageContent: ResearchPageContent = {
   label: "Research",
   title: researchLabsContent.heading,
   introduction: researchLabsContent.introduction,
-  status: "Research architecture demonstration",
+  status: "Research architecture",
   sectionNav: [
     { id: "research-areas", label: "Research sections" },
     { id: "research-relations", label: "Related domains" },
-    { id: "research-entries", label: "Working documents" },
+    { id: "research-entries", label: "Research notes" },
   ],
   filterLabels: [
     "Architecture",
@@ -32,14 +32,14 @@ export const researchPageContent: ResearchPageContent = {
     title: entity.title,
     summary: entity.summary,
   })),
-  entriesHeading: "Working documents",
+  entriesHeading: "Research notes",
   entries: [
     {
       id: "research-orientation",
       title: "Research orientation",
-      meta: "Internal architecture note",
+      meta: "Research overview",
       summary:
-        "Research defines questions, models and evidence. Public materials will expand as approved documents become available.",
+        "Research defines the questions, models and evidence that inform architecture and system design.",
     },
     {
       id: "labs-relationship",

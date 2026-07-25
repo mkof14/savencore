@@ -162,9 +162,9 @@ export const foundationPageContent: TechnicalPageContent = {
   title: "A connected path from human understanding to physical systems.",
   introduction:
     "SAVEN Core is the physical systems layer of a broader foundation. The sequence below defines how human-centered understanding becomes intelligence architecture, execution capability and integrated engineering systems.",
-  status: "Architecture in development",
+  status: "Architecture",
   developmentNote:
-    "Foundation information describes intended architecture and development relationships. It does not imply commercial deployment, clinical use or regulatory approval.",
+    "Foundation information defines architecture and relationships. It does not describe commercial deployment, clinical use or regulatory approval.",
   sectionNav: [
     { id: "foundation-hierarchy", label: "Hierarchy" },
     ...foundationHierarchy.map((entity) => ({

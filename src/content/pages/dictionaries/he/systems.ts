@@ -26,7 +26,7 @@ export const dictionary: Record<string, string> = {
   "No overclaim": "אין תביעת יתר",
   "Architecture pages do not claim deployment, diagnosis, treatment or autonomous medicine.": "דפי אדריכלות אינם טוענים לפריסה, אבחון, טיפול או רפואה אוטונומית.",
   "Current Development Scope": "היקף הפיתוח הנוכחי",
-  "Future Topics": "נושאים עתידיים",
+  "Related topics": "נושאים עתידיים",
   "Topics below come from Systems entries in the shared registry. They mark later documentation needs. They are not delivery promises.": "הנושאים שלהלן מגיעים מערכי מערכות ברישום המשותף. הם מסמנים צרכי תיעוד מאוחרים יותר. הם לא הבטחות מסירה.",
   "Related Domains": "דומיינים קשורים",
   "Technology": "טכנולוגיה",
@@ -44,7 +44,6 @@ export const dictionary: Record<string, string> = {
   "Published systems": "מערכות שפורסמו",
   "Principles": "עקרונות",
   "Scope": "היקף",
-  "Future topics": "נושאים עתידיים",
   "Related domains": "דומיינים קשורים",
   "References": "הפניות",
   "Systems are the engineering components that show how SAVEN Core works. Each system has a role, inputs, outputs and limits.": "מערכות הן הרכיבים ההנדסיים שמראים כיצד SAVEN Core עובד. לכל מערכת יש תפקיד, תשומות, תפוקות ומגבלות.",
@@ -125,5 +124,5 @@ export const dictionary: Record<string, string> = {
   "Inputs": "קלטים",
   "Outputs": "פלטים",
   "Privacy engineering": "הנדסת פרטיות",
-  "Security engineering": "הנדסת אבטחה"
+  "Security engineering": "הנדסת אבטחה",
 };

@@ -73,7 +73,7 @@ export const dictionary: Record<string, string> = {
   "Human Oversight": "Людський нагляд",
   "People remain responsible for important outcomes. Human Data supports assistance; it does not replace human judgment.": "Люди залишаються відповідальними за важливі результати. Human Data підтримує допомогу; воно не замінює людського судження.",
   "Current Development Scope": "Поточний обсяг розробки",
-  "Future Topics": "Майбутні теми",
+  "Related topics": "Майбутні теми",
   "Topics below come from the Human Data entity in the shared registry. They mark later documentation needs. They are not delivery promises.": "Теми, наведені нижче, походять із об’єкта даних людини в спільному реєстрі. Вони позначають пізнішу потребу в документації. Це не обіцянки доставки.",
   "Related Systems": "Пов'язані системи",
   "Related Research": "Пов'язані дослідження",
@@ -85,7 +85,6 @@ export const dictionary: Record<string, string> = {
   "Other technologies": "Інші технології",
   "Principles": "Принципи",
   "Scope": "Область застосування",
-  "Future topics": "Майбутні теми",
   "Related systems": "Споріднені системи",
   "Related research": "Пов'язані дослідження",
   "Related applications": "Пов'язані програми",
@@ -132,5 +131,5 @@ export const dictionary: Record<string, string> = {
   "Transparency": "Прозорість",
   "Ethics and Responsible Use": "Етика та відповідальне використання",
   "Limitations": "Обмеження",
-  "Relationships": "стосунки"
+  "Relationships": "стосунки",
 };

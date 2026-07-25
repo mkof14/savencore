@@ -13,7 +13,7 @@ export const homeContentRu: HomeContent = {
     explanation:
       "Мы создаём системы, которые помогают людям в больницах, дома и в повседневной жизни — осторожно и с ясными пределами.",
     status:
-      "Сейчас мы выстраиваем архитектуру. Этот сайт объясняет идеи — это не готовый продукт.",
+      "Архитектура, системы и ориентированные на человека принципы ответственной помощи.",
   },
   architectureChain: [
     { id: "human", label: "Люди" },
@@ -69,7 +69,7 @@ export const homeContentRu: HomeContent = {
       purpose: "Вопросы, методы и открытая работа, направляющие проектирование.",
       href: "/research/",
       pageIds: ["research-overview"],
-      relationships: "Направляют развитие технологий и систем. Работа продолжается.",
+      relationships: "Направляют технологии и системы через вопросы, методы и доказательства.",
     },
   ],
   domainMapSteps: [
@@ -84,8 +84,7 @@ export const homeContentRu: HomeContent = {
     { id: "systems", label: "Системы", stateKey: "complete", complete: true },
     { id: "applications", label: "Применения", stateKey: "complete", complete: true },
     { id: "trust", label: "Доверие", stateKey: "complete", complete: true },
-    { id: "research", label: "Исследования", stateKey: "inProgress", complete: false },
-    { id: "company", label: "Компания", stateKey: "planned", complete: false },
+    { id: "research", label: "Исследования", stateKey: "complete", complete: true },
   ],
   featuredConcepts: [
     {

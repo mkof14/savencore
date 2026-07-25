@@ -14,7 +14,7 @@ export const homeContentEn: HomeContent = {
     explanation:
       "We design systems that help people in hospitals, at home and in everyday life — carefully, and with clear limits.",
     status:
-      "We are building the architecture now. This site explains the ideas — not a finished product.",
+      "Architecture, systems and human-centered principles for responsible assistance.",
   },
   architectureChain: [
     { id: "human", label: "People" },
@@ -70,7 +70,7 @@ export const homeContentEn: HomeContent = {
       purpose: "Questions, methods and open work that guide design.",
       href: "/research/",
       pageIds: ["research-overview"],
-      relationships: "Informs Technology and Systems. Still growing.",
+      relationships: "Informs Technology and Systems through questions, methods and evidence.",
     },
   ],
   domainMapSteps: [
@@ -118,10 +118,9 @@ export const homeContentEn: HomeContent = {
     {
       id: "research",
       label: "Research",
-      stateKey: "inProgress",
-      complete: false,
+      stateKey: "complete",
+      complete: true,
     },
-    { id: "company", label: "Company", stateKey: "planned", complete: false },
   ],
   featuredConcepts: [
     {

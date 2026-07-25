@@ -20,8 +20,8 @@ export const dictionary: Record<string, string> = {
   "Clear boundaries": "حدود واضحة",
   "Current scope and unsupported claims stay visible.": "يظل النطاق الحالي والمطالبات غير المدعومة مرئية.",
   "Current Development Scope": "نطاق التطوير الحالي",
-  "Future Topics": "موضوعات المستقبل",
-  "Later work may deepen workflow notes for each context. Future topics are documentation needs, not delivery promises.": "قد يؤدي العمل اللاحق إلى تعميق ملاحظات سير العمل لكل سياق. المواضيع المستقبلية هي احتياجات التوثيق، وليس وعود التسليم.",
+  "Related topics": "المواضيع المستقبلية",
+  "Later work may deepen workflow notes for each context. Related topics are documentation needs, not delivery promises.": "قد يؤدي العمل اللاحق إلى تعميق ملاحظات سير العمل لكل سياق. المواضيع المستقبلية هي احتياجات التوثيق، وليس وعود التسليم.",
   "Operating contexts": "سياقات التشغيل",
   "Healthcare": "الرعاية الصحية",
   "Bounded support around care contexts and review.": "دعم محدود حول سياقات الرعاية والمراجعة.",
@@ -85,7 +85,6 @@ export const dictionary: Record<string, string> = {
   "Summary": "ملخص",
   "Categories": "الفئات",
   "Relationships": "العلاقات",
-  "Future topics": "المواضيع المستقبلية",
   "Related systems": "الأنظمة ذات الصلة",
   "Related research": "البحوث ذات الصلة",
   "Related applications": "التطبيقات ذات الصلة",
@@ -112,5 +111,5 @@ export const dictionary: Record<string, string> = {
   "Inputs": "المدخلات",
   "Outputs": "المخرجات",
   "Privacy engineering": "هندسة الخصوصية",
-  "Security engineering": "هندسة الأمن"
+  "Security engineering": "هندسة الأمن",
 };

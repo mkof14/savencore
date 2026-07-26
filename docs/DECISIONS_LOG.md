@@ -179,6 +179,7 @@
 | D-0159 | 2026-07-25 | Robotics Lab / Research hero / Investors brochure expansion | Active |
 | D-0160 | 2026-07-25 | Unified visual domain-page system (hubs + leaves) | Active |
 | D-0166 | 2026-07-26 | Labs visual pages + SAVEN data/action loop diagram | Active |
+| D-0167 | 2026-07-26 | Labs data-loop diagram placement + visual enrichment | Active |
 | D-0161 | 2026-07-26 | Full page-body localization (10 locales) + cleanup + Vercel prep | Active |
 | D-0162 | 2026-07-26 | PWA + SEO / security headers / marketing surface prep | Active |
 | D-0163 | 2026-07-26 | Credentials sign-in form + show password + Google | Active |
@@ -1459,6 +1460,15 @@
 - **In scope:** `LabsDataLoop` client component; `HubPageContent.diagram` / `scenes`; Labs mastheads + scene bands; flagship Labs copy; flagship dictionaries + `hub.scenes` UI (10 locales); D-0166 + AGENTS phase pointer; `tsc`; smoke Labs routes; screenshots under `tmp/labs-visual/`; commit/push.
 - **Out of scope:** Invented traction/deployments; new marketing leaves beyond Labs set; neon/glow fireworks; CMS/database; final legal prose; graph CMS.
 - **Implications:** Extends D-0160 Labs visuals and D-0159 brochure depth with an interactive architecture narrative on `/labs/` only.
+
+### D-0167 — Labs data-loop diagram placement + visual enrichment
+
+- **Date:** 2026-07-26
+- **Status:** Active
+- **Decision:** Owner authorizes moving the Labs overview animated data/action loop diagram higher on `/labs/` — immediately under the visual masthead, before the story-band / body / scenes / path grids — so it sits in the first scroll attention zone. Visual enrichment authorized: deeper navy/charcoal diagram field, gold accents, soft blue data paths, warm Human Data Model tint, layered gradient fills on SAVEN and the executive-device cluster, clearer path particles / flow pulses / soft node breathing, and miniature device silhouettes for clarity. Still architecture framing with honesty note; no neon/glow spam; straight corners; `prefers-reduced-motion` remains a richer static still. No new marketing claims or operational deployment language.
+- **In scope:** `HubReadablePage` diagram order; `LabsDataLoop` + `labs-data-loop.css` visual upgrade; D-0167 + AGENTS phase pointer; `tsc`; smoke `/en/labs/`; screenshots `tmp/labs-visual/diagram-high-*.png`; commit/push.
+- **Out of scope:** New UI copy strings (reuse D-0166 labels); invented traction; neon HUD; CMS; other hub pages.
+- **Implications:** Supersedes D-0166 placement of the diagram after story/body; visual language remains brand-atmospheric, not sci-fi chrome.
 
 ## Pending Owner Decisions
 

@@ -1,22 +1,34 @@
-/* Labs data/action loop — modern composition, no neon HUD (D-0166) */
+/* Labs data/action loop — richer brand field + motion (D-0166 / D-0167) */
 
 .ldl {
-  margin-block: clamp(1.75rem, 4vh, 2.75rem) clamp(2rem, 5vh, 3.25rem);
-  padding: clamp(1.25rem, 3vw, 1.75rem);
+  --ldl-navy: #0c1628;
+  --ldl-navy-mid: #152033;
+  --ldl-blue: #5b8db8;
+  --ldl-blue-soft: #7eb8c9;
+  --ldl-teal: #3d7a86;
+  --ldl-gold: #d4a84b;
+  --ldl-gold-deep: #c9a24a;
+  --ldl-warm: #c4a882;
+  --ldl-ink-lite: #e8eef4;
+
+  margin-block: 0.85rem clamp(1.75rem, 4vh, 2.75rem);
+  padding: clamp(1.25rem, 3vw, 1.85rem);
   background:
     linear-gradient(
-      165deg,
-      color-mix(in srgb, var(--color-surface) 92%, #1e3a5f) 0%,
-      var(--color-surface) 48%,
-      color-mix(in srgb, var(--color-surface) 94%, var(--color-accent)) 100%
+      155deg,
+      color-mix(in srgb, var(--color-surface) 78%, #1a2f4a) 0%,
+      color-mix(in srgb, var(--color-surface) 90%, #152033) 42%,
+      color-mix(in srgb, var(--color-surface) 86%, var(--ldl-gold)) 100%
     );
-  border: 1px solid color-mix(in srgb, var(--color-border) 80%, var(--color-accent));
-  box-shadow: 0 1px 0 color-mix(in srgb, var(--color-accent) 18%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-border) 55%, var(--ldl-gold));
+  box-shadow:
+    0 1px 0 color-mix(in srgb, var(--ldl-gold) 22%, transparent),
+    0 12px 28px color-mix(in srgb, var(--ldl-navy) 8%, transparent);
 }
 
 .ldl__header {
   max-width: 42rem;
-  margin-block-end: 1.25rem;
+  margin-block-end: 1.15rem;
 }
 
 .ldl__title {
@@ -37,15 +49,10 @@
 
 .ldl__stage {
   position: relative;
-  overflow: visible;
-  background:
-    radial-gradient(
-      70% 60% at 50% 45%,
-      color-mix(in srgb, #1e3a5f 10%, transparent) 0%,
-      transparent 70%
-    ),
-    color-mix(in srgb, var(--color-background) 70%, var(--color-surface));
-  border: 1px solid var(--color-border);
+  overflow: hidden;
+  background: var(--ldl-navy);
+  border: 1px solid color-mix(in srgb, var(--ldl-gold) 35%, #2a3a52);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ldl-blue) 12%, transparent);
 }
 
 .ldl__svg {
@@ -54,153 +61,264 @@
   display: block;
 }
 
-.ldl__atmosphere {
-  fill: color-mix(in srgb, #1e3a5f 7%, transparent);
+.ldl__atmosphere--a {
+  fill: color-mix(in srgb, var(--ldl-blue) 14%, transparent);
 }
 
 .ldl__atmosphere--b {
-  fill: color-mix(in srgb, var(--color-accent) 8%, transparent);
+  fill: color-mix(in srgb, var(--ldl-gold) 10%, transparent);
+}
+
+.ldl__atmosphere--c {
+  fill: color-mix(in srgb, var(--ldl-teal) 16%, transparent);
+}
+
+.ldl__atmosphere--gold {
+  fill: color-mix(in srgb, var(--ldl-gold) 12%, transparent);
+}
+
+.ldl__path-glow {
+  fill: none;
+  stroke-width: 6;
+  stroke-linecap: square;
+  opacity: 0.22;
+}
+
+.ldl__path-glow--ingress {
+  stroke: var(--ldl-teal);
+}
+
+.ldl__path-glow--out {
+  stroke: var(--ldl-gold);
+}
+
+.ldl__path-glow--return {
+  stroke: var(--ldl-blue-soft);
+}
+
+.ldl__path-glow--ascent {
+  stroke: var(--ldl-gold-deep);
+  opacity: 0.18;
 }
 
 .ldl__path {
   fill: none;
-  stroke: color-mix(in srgb, #1e3a5f 42%, var(--color-border));
-  stroke-width: 1.5;
+  stroke: color-mix(in srgb, var(--ldl-blue) 70%, #2a3a52);
+  stroke-width: 1.75;
   stroke-linecap: square;
 }
 
 .ldl__path--ingress {
-  stroke: color-mix(in srgb, #0f4c5c 55%, var(--color-border));
+  stroke: color-mix(in srgb, var(--ldl-teal) 80%, var(--ldl-blue-soft));
+  stroke-width: 2;
 }
 
 .ldl__path--out,
 .ldl__path--fan {
-  stroke: color-mix(in srgb, var(--color-accent) 50%, #1e3a5f);
+  stroke: color-mix(in srgb, var(--ldl-gold) 72%, var(--ldl-blue));
+  stroke-width: 1.85;
 }
 
 .ldl__path--return {
-  stroke: color-mix(in srgb, #0f4c5c 45%, var(--color-border));
+  stroke: color-mix(in srgb, var(--ldl-blue-soft) 75%, #4a6a80);
   stroke-dasharray: 5 4;
+  stroke-width: 1.75;
 }
 
 .ldl__path--ascent {
-  stroke: color-mix(in srgb, var(--color-accent-text) 55%, var(--color-border));
-  stroke-width: 1.25;
+  stroke: color-mix(in srgb, var(--ldl-gold) 65%, #fff);
+  stroke-width: 1.4;
   stroke-dasharray: 3 5;
-  opacity: 0.7;
+  opacity: 0.8;
+}
+
+.ldl__path-pulse {
+  fill: none;
+  stroke-width: 2.5;
+  stroke-linecap: square;
+  stroke-dasharray: 14 48;
+  opacity: 0;
 }
 
 .ldl__node-plate {
-  fill: var(--color-surface);
-  stroke: var(--color-border);
-  stroke-width: 1.25;
+  stroke: color-mix(in srgb, var(--ldl-blue) 45%, #3a4a60);
+  stroke-width: 1.35;
 }
 
 .ldl__node-plate--saven {
-  fill: color-mix(in srgb, var(--color-surface) 88%, #0b1220);
-  stroke: color-mix(in srgb, var(--color-accent) 55%, var(--color-border));
-  stroke-width: 1.5;
+  stroke: color-mix(in srgb, var(--ldl-gold) 70%, #4a5a40);
+  stroke-width: 1.6;
 }
 
-.ldl__node--biomath .ldl__node-plate {
-  fill: color-mix(in srgb, var(--color-surface) 92%, #1e3a5f);
-  stroke: color-mix(in srgb, #1e3a5f 35%, var(--color-border));
+.ldl__saven-frame {
+  fill: none;
+  stroke: color-mix(in srgb, var(--ldl-gold) 40%, transparent);
+  stroke-width: 1;
+  opacity: 0.55;
 }
 
-.ldl__node--hdm .ldl__node-plate {
-  fill: color-mix(in srgb, var(--color-surface) 90%, #0f4c5c);
-  stroke: color-mix(in srgb, #0f4c5c 40%, var(--color-border));
+.ldl__node-accent {
+  fill: var(--ldl-blue);
+}
+
+.ldl__node-accent--warm {
+  fill: var(--ldl-warm);
 }
 
 .ldl__node-label {
   font-family: var(--font-sans);
   font-size: 14px;
   font-weight: 600;
-  fill: var(--color-text);
+  fill: var(--ldl-ink-lite);
+}
+
+.ldl__node-label--lite {
+  fill: #f0f4f8;
 }
 
 .ldl__node-label--saven {
   font-size: 16px;
-  letter-spacing: 0.04em;
-  fill: #eef3f7;
+  letter-spacing: 0.05em;
+  fill: #fff8e8;
+  paint-order: stroke fill;
+  stroke: color-mix(in srgb, #0b1220 55%, transparent);
+  stroke-width: 2.5px;
 }
 
 .ldl__node-sub {
   font-family: var(--font-sans);
   font-size: 10.5px;
-  fill: var(--color-text-secondary);
+  fill: color-mix(in srgb, var(--ldl-ink-lite) 72%, var(--ldl-gold));
 }
 
 .ldl__saven-ring {
   fill: none;
-  stroke: color-mix(in srgb, var(--color-accent) 70%, transparent);
-  stroke-width: 1.5;
+  stroke: color-mix(in srgb, var(--ldl-gold) 85%, transparent);
+  stroke-width: 1.6;
   transform-box: fill-box;
   transform-origin: center;
 }
 
-.ldl__saven-core {
-  fill: color-mix(in srgb, #0b1220 88%, var(--color-accent));
+.ldl__saven-ring--outer {
+  stroke: color-mix(in srgb, var(--ldl-blue) 55%, var(--ldl-gold));
+  stroke-width: 1.1;
+  opacity: 0.55;
+}
+
+.ldl__saven-core-glow {
+  pointer-events: none;
+}
+
+.ldl__saven-core-shine {
+  fill: color-mix(in srgb, #fff6d6 40%, transparent);
+  pointer-events: none;
 }
 
 .ldl__cluster-plate {
-  fill: color-mix(in srgb, var(--color-surface) 85%, #152033);
-  stroke: color-mix(in srgb, var(--color-accent) 30%, var(--color-border));
-  stroke-width: 1.25;
-  opacity: 0.95;
+  opacity: 0.98;
+}
+
+.ldl__cluster-frame {
+  fill: none;
+  stroke: color-mix(in srgb, var(--ldl-gold) 42%, var(--ldl-blue));
+  stroke-width: 1.35;
 }
 
 .ldl__cluster-title {
   font-family: var(--font-sans);
   font-size: 12px;
   font-weight: 600;
-  letter-spacing: 0.02em;
-  fill: var(--color-text-secondary);
+  letter-spacing: 0.03em;
+  fill: color-mix(in srgb, var(--ldl-ink-lite) 78%, var(--ldl-gold));
 }
 
 .ldl__device-plate {
-  fill: var(--color-surface);
-  stroke: var(--color-border);
-  stroke-width: 1;
-}
-
-.ldl__device-dot {
-  fill: var(--color-accent);
+  fill: color-mix(in srgb, #1a2a3e 88%, #0b1220);
+  stroke: color-mix(in srgb, var(--ldl-blue) 40%, #3a4a60);
+  stroke-width: 1.1;
 }
 
 .ldl__device-label {
   font-family: var(--font-sans);
   font-size: 13px;
   font-weight: 550;
-  fill: var(--color-text);
+  fill: var(--ldl-ink-lite);
+}
+
+.ldl__icon-fill {
+  fill: color-mix(in srgb, var(--ldl-blue-soft) 70%, #9ab);
+}
+
+.ldl__icon-fill--gold {
+  fill: var(--ldl-gold);
+}
+
+.ldl__icon-fill--warm {
+  fill: var(--ldl-warm);
+}
+
+.ldl__icon-stroke {
+  stroke: color-mix(in srgb, var(--ldl-blue-soft) 75%, #cde);
+  stroke-width: 1.4;
+  stroke-linecap: square;
+  fill: none;
+}
+
+.ldl__icon-stroke--thick {
+  stroke-width: 2.2;
+}
+
+.ldl__icon-stroke--warm {
+  stroke: var(--ldl-warm);
+  stroke-width: 1.6;
+}
+
+.ldl__icon-stroke--blue {
+  stroke: var(--ldl-blue-soft);
+  stroke-width: 1.5;
 }
 
 .ldl__cue {
   font-family: var(--font-sans);
   font-size: 11px;
-  fill: var(--color-text-secondary);
+  font-weight: 500;
+  fill: color-mix(in srgb, var(--ldl-ink-lite) 82%, var(--ldl-blue-soft));
+}
+
+.ldl__cue--return {
+  fill: color-mix(in srgb, var(--ldl-blue-soft) 90%, #fff);
 }
 
 .ldl__cue--ascent {
-  fill: var(--color-accent-text);
+  fill: var(--ldl-gold);
   font-size: 10.5px;
 }
 
 .ldl__particle {
-  fill: var(--color-accent);
-  opacity: 0.9;
+  fill: var(--ldl-gold);
+  opacity: 0.95;
 }
 
 .ldl__particle--a,
 .ldl__particle--b,
 .ldl__particle--e,
 .ldl__particle--f {
-  fill: #0f4c5c;
+  fill: var(--ldl-blue-soft);
+}
+
+.ldl__particle--warm {
+  fill: var(--ldl-warm);
+}
+
+.ldl__particle--gold,
+.ldl__particle--c,
+.ldl__particle--d {
+  fill: var(--ldl-gold);
 }
 
 .ldl__particle--ascent {
-  fill: var(--color-accent-text);
-  opacity: 0.85;
+  fill: #f0d78a;
+  opacity: 0.9;
 }
 
 .ldl__note {
@@ -211,49 +329,83 @@
   max-width: 48rem;
 }
 
-/* Soft pulses when motion is allowed */
+/* Soft pulses when motion is allowed — atmospheric, not neon */
 @media (prefers-reduced-motion: no-preference) {
   .ldl--motion .ldl__saven-ring {
-    animation: ldl-ring 3.6s ease-in-out infinite;
+    animation: ldl-ring 3.2s ease-in-out infinite;
+  }
+
+  .ldl--motion .ldl__saven-ring--outer {
+    animation: ldl-ring-outer 4.2s ease-in-out infinite;
   }
 
   .ldl--motion .ldl__saven-core {
-    animation: ldl-core 3.6s ease-in-out infinite;
+    animation: ldl-core 3.2s ease-in-out infinite;
+  }
+
+  .ldl--motion .ldl__atmosphere--gold {
+    animation: ldl-breathe 5.5s ease-in-out infinite;
+  }
+
+  .ldl--motion .ldl__node--hdm .ldl__node-plate {
+    animation: ldl-hdm-breathe 4.8s ease-in-out infinite;
   }
 
   .ldl--motion .ldl__path--ingress,
   .ldl--motion .ldl__path--out,
   .ldl--motion .ldl__path--fan {
-    stroke-dasharray: 6 10;
-    animation: ldl-dash 14s linear infinite;
+    stroke-dasharray: 7 11;
+    animation: ldl-dash 12s linear infinite;
   }
 
   .ldl--motion .ldl__path--return {
-    animation: ldl-dash-rev 16s linear infinite;
+    animation: ldl-dash-rev 14s linear infinite;
   }
 
   .ldl--motion .ldl__path--ascent {
-    animation: ldl-ascent-path 10s ease-in-out infinite;
+    animation: ldl-ascent-path 9s ease-in-out infinite;
   }
 
-  .ldl--motion .ldl__device-dot {
-    animation: ldl-dot 2.8s ease-in-out infinite;
+  .ldl--motion .ldl__path-pulse--ingress,
+  .ldl--motion .ldl__path-pulse--out {
+    opacity: 0.55;
+    animation: ldl-pulse-flow 3.8s linear infinite;
   }
 
-  .ldl--motion .ldl__device:nth-child(2) .ldl__device-dot {
+  .ldl--motion .ldl__path-pulse--out {
+    animation-delay: 1.2s;
+  }
+
+  .ldl--motion .ldl__device-plate {
+    animation: ldl-device 3.4s ease-in-out infinite;
+  }
+
+  .ldl--motion .ldl__device:nth-child(3) .ldl__device-plate {
+    animation-delay: 0.4s;
+  }
+
+  .ldl--motion .ldl__device:nth-child(4) .ldl__device-plate {
+    animation-delay: 0.8s;
+  }
+
+  .ldl--motion .ldl__icon-fill--gold {
+    animation: ldl-dot 2.4s ease-in-out infinite;
+  }
+
+  .ldl--motion .ldl__device:nth-child(3) .ldl__icon-fill--gold {
     animation-delay: 0.35s;
   }
 
-  .ldl--motion .ldl__device:nth-child(3) .ldl__device-dot {
+  .ldl--motion .ldl__device:nth-child(4) .ldl__icon-fill--gold {
     animation-delay: 0.7s;
   }
 
-  .ldl--motion .ldl__device:nth-child(4) .ldl__device-dot {
-    animation-delay: 1.05s;
+  .ldl--motion .ldl__node--biomath .ldl__node-plate {
+    animation: ldl-biomath 9s ease-in-out infinite;
   }
 
-  .ldl--motion .ldl__node--biomath .ldl__node-plate {
-    animation: ldl-biomath 10s ease-in-out infinite;
+  .ldl--motion .ldl__cluster-frame {
+    animation: ldl-cluster 6s ease-in-out infinite;
   }
 }
 
@@ -265,29 +417,67 @@
   }
   50% {
     stroke-opacity: 1;
-    transform: scale(1.04);
+    transform: scale(1.06);
+  }
+}
+
+@keyframes ldl-ring-outer {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.75;
+    transform: scale(1.08);
   }
 }
 
 @keyframes ldl-core {
   0%,
   100% {
-    fill: color-mix(in srgb, #0b1220 88%, var(--color-accent));
+    opacity: 0.92;
   }
   50% {
-    fill: color-mix(in srgb, #0b1220 72%, var(--color-accent));
+    opacity: 1;
+  }
+}
+
+@keyframes ldl-breathe {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes ldl-hdm-breathe {
+  0%,
+  100% {
+    stroke: color-mix(in srgb, var(--ldl-teal) 50%, #3a4a60);
+  }
+  50% {
+    stroke: color-mix(in srgb, var(--ldl-warm) 65%, var(--ldl-teal));
   }
 }
 
 @keyframes ldl-dash {
   to {
-    stroke-dashoffset: -160;
+    stroke-dashoffset: -180;
   }
 }
 
 @keyframes ldl-dash-rev {
   to {
-    stroke-dashoffset: 160;
+    stroke-dashoffset: 180;
+  }
+}
+
+@keyframes ldl-pulse-flow {
+  to {
+    stroke-dashoffset: -124;
   }
 }
 
@@ -299,7 +489,7 @@
   }
   55%,
   70% {
-    opacity: 0.95;
+    opacity: 1;
   }
 }
 
@@ -313,44 +503,60 @@
   }
 }
 
+@keyframes ldl-device {
+  0%,
+  100% {
+    stroke: color-mix(in srgb, var(--ldl-blue) 40%, #3a4a60);
+  }
+  50% {
+    stroke: color-mix(in srgb, var(--ldl-gold) 50%, var(--ldl-blue));
+  }
+}
+
 @keyframes ldl-biomath {
   0%,
   45%,
   100% {
-    stroke: color-mix(in srgb, #1e3a5f 35%, var(--color-border));
+    stroke: color-mix(in srgb, var(--ldl-blue) 45%, #3a4a60);
   }
   55%,
   70% {
-    stroke: color-mix(in srgb, var(--color-accent) 55%, #1e3a5f);
+    stroke: color-mix(in srgb, var(--ldl-gold) 60%, var(--ldl-blue));
   }
+}
+
+@keyframes ldl-cluster {
+  0%,
+  100% {
+    stroke: color-mix(in srgb, var(--ldl-gold) 42%, var(--ldl-blue));
+  }
+  50% {
+    stroke: color-mix(in srgb, var(--ldl-gold) 68%, var(--ldl-blue-soft));
+  }
+}
+
+/* Static still keeps the rich field */
+.ldl--static .ldl__path-pulse {
+  opacity: 0;
 }
 
 html[data-theme="dark"] .ldl {
   background:
     linear-gradient(
-      165deg,
-      color-mix(in srgb, var(--color-surface) 90%, #1e3a5f) 0%,
-      var(--color-surface) 50%,
-      color-mix(in srgb, var(--color-surface) 92%, var(--color-accent)) 100%
+      155deg,
+      color-mix(in srgb, var(--color-surface) 82%, #1a2f4a) 0%,
+      var(--color-surface) 48%,
+      color-mix(in srgb, var(--color-surface) 88%, var(--ldl-gold)) 100%
     );
-}
-
-html[data-theme="dark"] .ldl__node-plate,
-html[data-theme="dark"] .ldl__device-plate {
-  fill: var(--color-surface);
-}
-
-html[data-theme="dark"] .ldl__node-label--saven {
-  fill: #eef3f7;
-}
-
-html[data-theme="dark"] .ldl__cluster-plate {
-  fill: color-mix(in srgb, var(--color-surface) 80%, #0b1220);
+  box-shadow:
+    0 1px 0 color-mix(in srgb, var(--ldl-gold) 18%, transparent),
+    0 14px 32px color-mix(in srgb, #000 35%, transparent);
 }
 
 @media (max-width: 720px) {
   .ldl {
     padding: 1rem;
+    margin-block-start: 0.65rem;
   }
 
   .ldl__cue {
@@ -359,5 +565,9 @@ html[data-theme="dark"] .ldl__cluster-plate {
 
   .ldl__node-sub {
     font-size: 9px;
+  }
+
+  .ldl__device-label {
+    font-size: 12px;
   }
 }

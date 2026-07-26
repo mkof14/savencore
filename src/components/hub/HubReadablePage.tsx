@@ -62,6 +62,11 @@ export function HubReadablePage({ locale, content }: HubReadablePageProps) {
       </header>
 
       <div className="hub-page__inner hub-page__body-wrap">
+        {/* Labs architecture diagram sits early — first scroll attention (D-0167) */}
+        {content.diagram?.kind === "labs-data-loop" ? (
+          <LabsDataLoop labels={content.diagram.labels} />
+        ) : null}
+
         {content.highlights && content.highlights.length > 0 ? (
           <section
             className="hub-page__story"
@@ -89,10 +94,6 @@ export function HubReadablePage({ locale, content }: HubReadablePageProps) {
               <p key={paragraph}>{paragraph}</p>
             ))}
           </div>
-        ) : null}
-
-        {content.diagram?.kind === "labs-data-loop" ? (
-          <LabsDataLoop labels={content.diagram.labels} />
         ) : null}
 
         {content.scenes && content.scenes.length > 0 ? (

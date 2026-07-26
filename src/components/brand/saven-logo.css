@@ -30,6 +30,22 @@
   mix-blend-mode: lighten;
 }
 
+/*
+ * Header/footer logos ship tone="dark" for dark chrome.
+ * In light theme, flip to navy ink / normal mark blend (D-0171).
+ */
+html:not([data-theme="dark"]) .site-header .saven-logo--dark .saven-logo__saven,
+html:not([data-theme="dark"]) .site-footer .saven-logo--dark .saven-logo__saven,
+html:not([data-theme="dark"]) .auth-sign-in .saven-logo--dark .saven-logo__saven {
+  color: var(--saven-navy);
+}
+
+html:not([data-theme="dark"]) .site-header .saven-logo--dark .saven-logo__mark,
+html:not([data-theme="dark"]) .site-footer .saven-logo--dark .saven-logo__mark,
+html:not([data-theme="dark"]) .auth-sign-in .saven-logo--dark .saven-logo__mark {
+  mix-blend-mode: normal;
+}
+
 .saven-logo__wordmark {
   display: flex;
   flex-direction: column;
@@ -267,8 +283,11 @@ html[dir="rtl"] .saven-logo__mark {
 
 /* Hero / dark surfaces: SAVEN reads as logo ink */
 .pw-hero__brand .brand-name__saven,
-.kx-hero__brand .brand-name__saven,
-.auth-sign-in__title .brand-name__saven {
+.kx-hero__brand .brand-name__saven {
+  color: #ffffff;
+}
+
+html[data-theme="dark"] .auth-sign-in__title .brand-name__saven {
   color: #ffffff;
 }
 

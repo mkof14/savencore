@@ -1322,10 +1322,14 @@
 }
 
 .knowledge-hero--systems {
-  color: #0b1220;
+  color: var(--color-text);
   background:
-    radial-gradient(ellipse 70% 60% at 70% 45%, #dde5f5 0%, transparent 70%),
-    linear-gradient(180deg, #f7f8fc 0%, #f2f5f7 100%);
+    radial-gradient(
+      ellipse 70% 60% at 70% 45%,
+      color-mix(in srgb, var(--color-surface) 70%, #dde5f5) 0%,
+      transparent 70%
+    ),
+    linear-gradient(180deg, var(--color-surface) 0%, var(--color-background) 100%);
 }
 
 @media (min-width: 960px) {
@@ -1357,9 +1361,9 @@
   place-content: center;
   gap: var(--space-8);
   border: 2px solid #172554;
-  background: #ffffff;
+  background: var(--color-surface);
   text-align: center;
-  box-shadow: 0 0 0 12px rgba(221, 229, 245, 0.85);
+  box-shadow: 0 0 0 12px color-mix(in srgb, #dde5f5 55%, transparent);
 }
 
 .knowledge-hero--systems .signal-diagram__hub-label {
@@ -1398,7 +1402,7 @@
   position: absolute;
   padding: var(--space-12) var(--space-16);
   border: 1px solid #172554;
-  background: #ffffff;
+  background: var(--color-surface);
   font-size: 0.875rem;
   font-weight: 600;
 }
@@ -1493,10 +1497,14 @@
 }
 
 .knowledge-hero--trust {
-  color: #0b1220;
+  color: var(--color-text);
   background:
-    radial-gradient(circle at 72% 48%, #f0e8e1 0%, transparent 42%),
-    linear-gradient(180deg, #fbf8f5 0%, #f3ebe4 100%);
+    radial-gradient(
+      circle at 72% 48%,
+      color-mix(in srgb, var(--color-surface) 72%, #f0e8e1) 0%,
+      transparent 42%
+    ),
+    linear-gradient(180deg, var(--color-surface) 0%, var(--color-background) 100%);
 }
 
 @media (min-width: 960px) {
@@ -1537,7 +1545,7 @@
   width: min(52%, 10.5rem);
   border-width: 2px;
   border-color: #3b2418;
-  background: color-mix(in srgb, #f0e8e1 70%, white);
+  background: color-mix(in srgb, #f0e8e1 70%, var(--color-surface));
   display: grid;
   place-items: center;
   text-align: center;
@@ -1580,8 +1588,12 @@
 }
 
 .knowledge-hero--research {
-  color: #0f2744;
-  background: linear-gradient(180deg, #f5f9fc 0%, #e4eef6 100%);
+  color: var(--color-text);
+  background: linear-gradient(
+    180deg,
+    var(--color-surface) 0%,
+    color-mix(in srgb, var(--color-background) 80%, #e4eef6) 100%
+  );
   min-height: min(70vh, 40rem);
 }
 

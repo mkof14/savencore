@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-26 (D-0170 — Theme contrast fix on home/chrome)
+**Last updated:** 2026-07-26 (D-0171 — Full light/dark theme coverage)
 
 ## Rules
 
@@ -182,7 +182,8 @@
 | D-0167 | 2026-07-26 | Labs data-loop diagram placement + visual enrichment | Active |
 | D-0168 | 2026-07-26 | Typography system — Apple-like clarity sitewide | Active |
 | D-0169 | 2026-07-26 | Visible Apple-clean Inter webfont + sans titles | Active |
-| D-0170 | 2026-07-26 | Theme contrast fix — home hero/care + dark chrome | Active |
+| D-0170 | 2026-07-26 | Theme contrast fix — home hero/care + dark chrome | Superseded for chrome/care by D-0171 |
+| D-0171 | 2026-07-26 | Full light/dark theme coverage — chrome + content planes | Active |
 | D-0161 | 2026-07-26 | Full page-body localization (10 locales) + cleanup + Vercel prep | Active |
 | D-0162 | 2026-07-26 | PWA + SEO / security headers / marketing surface prep | Active |
 | D-0163 | 2026-07-26 | Credentials sign-in form + show password + Google | Active |
@@ -1499,6 +1500,15 @@
 - **In scope:** `physical-world-home.css`, `globals.css`, `experience.css`, `site-shell.css`, `public/sw.js`, D-0170 + AGENTS phase pointer; Playwright screenshots `tmp/theme-fix/`; `tsc`; smoke `/en/`; commit/push; production deploy.
 - **Out of scope:** New theme palettes; neon; inventing content; changing BrandName structure; final legal prose; CMS.
 - **Implications:** Theme toggle must keep all home/header/footer text readable; hero may stay dark atmospheric with light copy in both themes; care plane stays light paper in both themes.
+
+### D-0171 — Full light/dark theme coverage
+
+- **Date:** 2026-07-26
+- **Status:** Active
+- **Decision:** Owner reports that not everything switches when toggling light/dark (D-0170 only repaired hero H1 contrast and kept care + header/footer locked). Authorize **full theme coverage**: (1) **Light theme** = light page backgrounds, surfaces, text, borders, cards/story-bands, care living plane, hub/domain bodies, labs surround chrome, auth (light paper card), and **light header/footer/menus** (Apple-like); logo ink navy on light chrome. (2) **Dark theme** = dark page + dark chrome (navy header/footer) with light ink / bright gold; logo white on dark chrome. (3) **Intentional exceptions** that stay atmospheric in both themes: photoreal home hero collage, domain/hub mastheads and other dark photo heroes, homepage closing meaning band, Labs diagram stage (navy canvas). Surrounding page chrome and body planes must still flip. (4) Prefer CSS variables (`--color-background`, `--color-surface`, `--color-surface-muted`, `--color-text`, `--color-text-secondary`, `--color-border`, footer-scoped `--footer-*`, auth-scoped `--auth-*`). (5) Bump service worker cache to `savencore-shell-v4`. Supersedes D-0170 items that forced care/header/footer to ignore theme.
+- **In scope:** `globals.css`, `site-shell.css`, `experience.css`, `physical-world-home.css`, `sign-in.css`, `saven-logo.css`, `layer1-hub.css`, `engineering.css` token sweep; `public/sw.js`; D-0171 + AGENTS phase pointer; Playwright screenshots `tmp/theme-full/`; `tsc`; smoke; commit/push; production deploy.
+- **Out of scope:** New theme palettes beyond existing tokens; neon; inventing content; changing BrandName structure; final legal prose; CMS; inventing leaf pages.
+- **Implications:** Theme toggle must visibly flip the whole site except documented atmospheric photo/diagram exceptions; light mode header/footer are no longer always-dark.
 
 ## Pending Owner Decisions
 

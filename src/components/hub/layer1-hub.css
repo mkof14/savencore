@@ -316,6 +316,10 @@
 .hub-page__scene-media {
   position: relative;
   min-height: 14rem;
+  background: var(--color-surface-muted);
+}
+
+html[data-theme="dark"] .hub-page__scene-media {
   background: #152033;
 }
 
@@ -421,6 +425,10 @@
   position: relative;
   display: block;
   overflow: hidden;
+  background: var(--color-surface-muted);
+}
+
+html[data-theme="dark"] .hub-page__path-thumb {
   background: #152033;
 }
 

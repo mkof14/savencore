@@ -17,6 +17,7 @@ type SiteHeaderProps = {
 /**
  * Layer-1 chrome — logo, important hubs, Sign In/Up, theme, language (D-0153–D-0156).
  * Full leaf map remains in the footer. Install app lives in the footer only (D-0164).
+ * Logo tone="dark" base; light theme flips ink via CSS (D-0171).
  */
 export function SiteHeader({ locale }: SiteHeaderProps) {
   const ui = getUi(locale);

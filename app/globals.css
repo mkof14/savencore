@@ -27,6 +27,7 @@
   /* Experience palette — calm ink on cool paper */
   --color-background: #f2f5f7;
   --color-surface: #ffffff;
+  --color-surface-muted: #e8eef2;
   --color-text: #0b1220;
   --color-text-secondary: #3a4556;
   --color-border: #d5dde4;
@@ -174,6 +175,7 @@ body {
 html[data-theme="dark"] {
   --color-background: #0b1220;
   --color-surface: #151d2e;
+  --color-surface-muted: #1a2438;
   --color-text: #eef3f7;
   --color-text-secondary: #c5d0de;
   --color-border: #2a3648;
@@ -184,13 +186,17 @@ html[data-theme="dark"] {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Dark chrome / dark promotional bands — antialiased faces read cleaner */
-.site-header,
-.site-footer,
+/*
+ * Dark promotional bands stay atmospheric in both themes (D-0171).
+ * Header/footer follow theme — antialias only when dark.
+ */
+html[data-theme="dark"] .site-header,
+html[data-theme="dark"] .site-footer,
 .pw-hero,
 .hub-page__masthead,
-.auth-sign-in,
-.knowledge-hero {
+html[data-theme="dark"] .auth-sign-in,
+.knowledge-hero--technology,
+.knowledge-hero--applications {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

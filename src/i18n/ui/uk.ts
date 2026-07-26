@@ -44,7 +44,7 @@ export const uiUk: UiMessages = {
     "systems-drone-systems": "Дрон-системи",
     "applications-overview": "Застосування",
     "applications-healthcare": "Охорона здоров’я",
-    "applications-home": "Дім",
+    "applications-home": "Домашнє застосування",
     "applications-hospitals": "Лікарні",
     "applications-emergency": "Надзвичайні ситуації",
     "applications-industrial": "Промисловість",

@@ -1,6 +1,6 @@
 /* Generated from the canonical English source. */
 export const dictionary: Record<string, string> = {
-  "Home": "Zuhause",
+  "Home Application": "Heimanwendung",
   "Support in personal living environments.": "Unterstützung in persönlichen Lebensumgebungen.",
   "Home is an intended context where support must respect personal routines, consent and control.": "Zuhause ist ein beabsichtigter Kontext, in dem Unterstützung persönliche Routinen, Einwilligung und Kontrolle respektieren muss.",
   "Home application": "Zuhause-Anwendung",

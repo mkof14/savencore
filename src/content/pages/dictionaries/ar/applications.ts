@@ -26,7 +26,7 @@ export const dictionary: Record<string, string> = {
   "Healthcare": "الرعاية الصحية",
   "Bounded support around care contexts and review.": "دعم محدود حول سياقات الرعاية والمراجعة.",
   "Human care environment": "بيئة رعاية الإنسان",
-  "Home": "الصفحة الرئيسية",
+  "Home Application": "التطبيق المنزلي",
   "Independence and daily routines under permissions.": "الاستقلال والروتين اليومي بموجب الأذونات.",
   "Home environment": "البيئة المنزلية",
   "Hospitals": "المستشفيات",

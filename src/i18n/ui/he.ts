@@ -44,7 +44,7 @@ export const uiHe: UiMessages = {
     "systems-drone-systems": "מערכות רחפנים",
     "applications-overview": "יישומים",
     "applications-healthcare": "בריאות",
-    "applications-home": "בית",
+    "applications-home": "יישום ביתי",
     "applications-hospitals": "בתי חולים",
     "applications-emergency": "חירום",
     "applications-industrial": "תעשייה",

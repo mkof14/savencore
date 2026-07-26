@@ -44,7 +44,7 @@ export const uiRu: UiMessages = {
     "systems-drone-systems": "Дрон-системы",
     "applications-overview": "Применения",
     "applications-healthcare": "Здравоохранение",
-    "applications-home": "Дом",
+    "applications-home": "Домашнее применение",
     "applications-hospitals": "Больницы",
     "applications-emergency": "Чрезвычайные ситуации",
     "applications-industrial": "Промышленность",

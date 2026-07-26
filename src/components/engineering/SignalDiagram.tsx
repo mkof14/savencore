@@ -367,7 +367,7 @@ function TechnologyOverviewDiagram() {
 function ApplicationsOverviewDiagram() {
   const places = [
     { id: "healthcare", label: "Healthcare", current: true },
-    { id: "home", label: "Home" },
+    { id: "home", label: "Home Application" },
     { id: "hospitals", label: "Hospitals" },
     { id: "emergency", label: "Emergency" },
     { id: "industrial", label: "Industrial" },

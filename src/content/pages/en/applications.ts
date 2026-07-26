@@ -100,7 +100,7 @@ export const applicationsPageContent: ApplicationsPageContent = {
     },
     {
       id: "home",
-      title: "Home",
+      title: "Home Application",
       responsibility: "Independence and daily routines under permissions.",
       relationship: "Home environment",
       href: "/applications/home/",

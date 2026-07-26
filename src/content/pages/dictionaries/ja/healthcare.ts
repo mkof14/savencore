@@ -62,7 +62,7 @@ export const dictionary: Record<string, string> = {
   "Clinical Interfaces": "臨床インターフェース",
   "Robotics Layer": "ロボティクス・レイヤー",
   "Drone Systems": "ドローンシステム",
-  "Home": "家庭",
+  "Home Application": "家庭アプリケーション",
   "Hospitals": "病院",
   "Emergency": "緊急時",
   "Industrial": "産業",

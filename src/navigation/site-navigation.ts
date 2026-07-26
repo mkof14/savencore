@@ -110,7 +110,7 @@ export const systemsNavChildren: readonly NavLinkItem[] = [
 export const applicationsNavChildren: readonly NavLinkItem[] = [
   { id: "applications-overview", label: "Applications", href: "/applications/" },
   { id: "applications-healthcare", label: "Healthcare", href: "/applications/healthcare/" },
-  { id: "applications-home", label: "Home", href: "/applications/home/" },
+  { id: "applications-home", label: "Home Application", href: "/applications/home/" },
   { id: "applications-hospitals", label: "Hospitals", href: "/applications/hospitals/" },
   { id: "applications-emergency", label: "Emergency", href: "/applications/emergency/" },
   { id: "applications-industrial", label: "Industrial", href: "/applications/industrial/" },

@@ -940,7 +940,7 @@ export const knowledgeEntities: readonly KnowledgeEntity[] = [
   defineEntity({
     id: "home",
     slug: "home",
-    title: "Home",
+    title: "Home Application",
     entityType: "application",
     domain: "applications",
     summary:

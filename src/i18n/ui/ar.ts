@@ -44,7 +44,7 @@ export const uiAr: UiMessages = {
     "systems-drone-systems": "أنظمة الطائرات بدون طيار",
     "applications-overview": "التطبيقات",
     "applications-healthcare": "الرعاية الصحية",
-    "applications-home": "المنزل",
+    "applications-home": "التطبيق المنزلي",
     "applications-hospitals": "المستشفيات",
     "applications-emergency": "الطوارئ",
     "applications-industrial": "الصناعة",

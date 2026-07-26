@@ -86,7 +86,7 @@ export const dictionary: Record<string, string> = {
   "Robotics Layer": "机器人层",
   "Drone Systems": "无人机系统",
   "Healthcare": "医疗健康",
-  "Home": "家庭",
+  "Home Application": "家庭应用",
   "Hospitals": "医院",
   "Emergency": "紧急情况",
   "Industrial": "工业",

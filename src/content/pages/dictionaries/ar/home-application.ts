@@ -1,6 +1,6 @@
 /* Generated from the canonical English source. */
 export const dictionary: Record<string, string> = {
-  "Home": "الصفحة الرئيسية",
+  "Home Application": "التطبيق المنزلي",
   "Support in personal living environments.": "الدعم في بيئات المعيشة الشخصية.",
   "Home is an intended context where support must respect personal routines, consent and control.": "المنزل هو السياق المقصود حيث يجب أن يحترم الدعم الروتين الشخصي والموافقة والسيطرة.",
   "Home application": "تطبيق المنزل",

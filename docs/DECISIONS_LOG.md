@@ -1602,6 +1602,24 @@
 - **Out of scope:** Inventing mission claims, metrics, or social profile URLs; neon/glow; changing public Experience freeze (D-0175); SMTP/CRM beyond existing optional send.
 - **Implications:** Extends D-0176 / D-0178 branded email. Mailings that inject template HTML pick up the new chrome automatically. Owner should hard-refresh admin template preview after deploy.
 
+### D-0181 — Footer Legal equal columns, More hub, socials bottom row
+
+- **Date:** 2026-07-26
+- **Status:** Active
+- **Decision:** Owner requires the public footer Legal column to share **equal column weight** with other footer sections (same grid track, balanced visual mass). Show a **primary** Legal link set in the column; overflow destinations are reached via a localized **More** link to a structural `/[locale]/legal/` index hub that lists existing draft legal routes only (no new policy bodies, no invented legal claims). Restructure the footer for neater symmetry: intro (brand + tagline) → equal columns grid → **full-width social icons row under the grid** → copyright / utilities bar. Social icons keep `NEXT_PUBLIC_SOCIAL_*` disabled-when-unset behavior; hover/focus may use subtle brand-compatible network tints (not neon/glow). Admin footer link visibility for signed-in admins is unchanged. UI chrome strings (More, Legal hub lead, social aria) must be translated across all ten locales.
+  - **In scope:** `SiteFooter`, `FooterSocials`, `site-shell.css`; `site-navigation` primary Legal + More; `published-routes` + legal index page; `src/i18n/ui/*`; D-0181 + AGENTS phase pointer; smoke `/en/` (+ brief RTL if easy); commit/push; production deploy.
+  - **Out of scope:** Final legal/policy prose; inventing social profile URLs; Experience Redesign hero freeze changes; neon/glow decoration; changing Admin visibility rules.
+  - **Implications:** Footer depth-map assertion treats `/legal/` hub + More as covering Legal leaf routes not listed in the primary column. Extends D-0154 structural Legal publish and D-0176 social row.
+
+### D-0182 — Rename Applications “Home” leaf to Home Application
+
+- **Date:** 2026-07-26
+- **Status:** Active
+- **Decision:** Owner requires the Applications leaf formerly labeled **Home** (page eyebrow/label + Architecture status read as “Home Architecture”) to be renamed so it is not confused with the website homepage nav **Home**. Canonical display title: **Home Application** (matches existing definition term / content key `home-application`). Route remains `/applications/home/`. Site-root nav label `nav.home` → `/` is unchanged.
+  - **In scope:** `site-navigation` applications-home label; `src/i18n/ui/*` `applications-home`; EN page/entity/hub titles; locale page dictionaries; D-0182 note; commit/push/deploy when clean relative to concurrent D-0181 footer WIP.
+  - **Out of scope:** URL slug change; inventing product/deployment claims; renaming the website homepage.
+  - **Implications:** Footer/Applications hub cards, domain leaf label, and related-application entity title show Home Application in all ten locales.
+
 ## Pending Owner Decisions
 
 These are not decisions yet; they are tracked for future resolution:

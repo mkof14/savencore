@@ -45,7 +45,7 @@ export const uiEn = {
     "systems-drone-systems": "Drone Systems",
     "applications-overview": "Applications",
     "applications-healthcare": "Healthcare",
-    "applications-home": "Home",
+    "applications-home": "Home Application",
     "applications-hospitals": "Hospitals",
     "applications-emergency": "Emergency",
     "applications-industrial": "Industrial",

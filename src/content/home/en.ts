@@ -130,7 +130,7 @@ export const applicationContextsContent = {
     },
     {
       id: "home",
-      title: "Home",
+      title: "Home Application",
       text: "Systems intended to support independence, continuity and safer daily routines.",
       href: "/applications/",
       linkLabel: "View applications",
@@ -493,10 +493,10 @@ export const applicationDirectoryHomeContent = {
     },
     {
       id: "home",
-      title: "Home",
+      title: "Home Application",
       text: "Support for independence, continuity and safer daily routines.",
       href: "/applications/",
-      linkLabel: "Home",
+      linkLabel: "Home Application",
     },
     {
       id: "everyday-life",

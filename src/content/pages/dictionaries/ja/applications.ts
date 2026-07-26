@@ -26,7 +26,7 @@ export const dictionary: Record<string, string> = {
   "Healthcare": "医療",
   "Bounded support around care contexts and review.": "ケア文脈とレビュー周辺の限定された支援。",
   "Human care environment": "人のケア環境",
-  "Home": "家庭",
+  "Home Application": "家庭アプリケーション",
   "Independence and daily routines under permissions.": "許可のもとでの独立と日々のルーティン。",
   "Home environment": "家庭環境",
   "Hospitals": "病院",

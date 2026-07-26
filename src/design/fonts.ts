@@ -2,19 +2,19 @@ import {
   Heebo,
   IBM_Plex_Mono,
   IBM_Plex_Sans_Arabic,
-  Source_Serif_4,
+  Inter,
 } from "next/font/google";
 
 /**
- * Typography faces (D-0168) — Apple-like clarity sitewide.
- * Body/UI uses the system SF-adjacent stack in CSS (`--font-sans`).
- * Source Serif loads only for large display titles; Arabic/Hebrew keep
- * dedicated readable faces; mono remains for engineering labels.
+ * Typography faces (D-0169) — visible Apple-clean Inter + sans titles.
+ * Inter is the Latin/Cyrillic UI face so the change is unmistakable vs prior
+ * Source Serif headlines / system-only stacks. Arabic/Hebrew keep dedicated
+ * readable faces; mono remains for engineering labels.
  */
-export const fontDisplay = Source_Serif_4({
+export const fontSans = Inter({
   subsets: ["latin", "latin-ext", "cyrillic"],
-  style: ["normal", "italic"],
-  variable: "--font-display-face",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-sans-face",
   display: "swap",
 });
 
@@ -40,7 +40,7 @@ export const fontMono = IBM_Plex_Mono({
 });
 
 export const experienceFontVariables = [
-  fontDisplay.variable,
+  fontSans.variable,
   fontSansArabic.variable,
   fontSansHebrew.variable,
   fontMono.variable,

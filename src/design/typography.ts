@@ -1,12 +1,12 @@
 /**
- * Typography scale — Apple-like clarity (D-0168).
- * Body/UI: system SF-adjacent stack. Display serif reserved for large titles in CSS.
+ * Typography scale — Apple-clean Inter + sans titles (D-0169).
+ * Display role is the large-title scale (sans), not a serif face.
  */
 
 export const fontFamily = {
-  sans: 'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
+  sans: 'var(--font-sans-face), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
   display:
-    'var(--font-display-face), "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif',
+    'var(--font-sans-face), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
   mono: "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace",
 } as const;
 
@@ -37,13 +37,13 @@ export const typography: Record<TypeRole, TypeStyle> = {
     fontSize: "clamp(2.75rem, 2rem + 3vw, 4.5rem)",
     lineHeight: "1.08",
     fontWeight: 600,
-    letterSpacing: "-0.022em",
+    letterSpacing: "-0.025em",
   },
   h1: {
     fontSize: "clamp(2.25rem, 1.7rem + 2vw, 3.25rem)",
     lineHeight: "1.12",
     fontWeight: 600,
-    letterSpacing: "-0.02em",
+    letterSpacing: "-0.022em",
   },
   h2: {
     fontSize: "clamp(1.75rem, 1.4rem + 1.2vw, 2.25rem)",
@@ -70,7 +70,7 @@ export const typography: Record<TypeRole, TypeStyle> = {
     letterSpacing: "0",
   },
   body: {
-    fontSize: "1.0625rem",
+    fontSize: "1.125rem",
     lineHeight: "1.52",
     fontWeight: 400,
     letterSpacing: "0",

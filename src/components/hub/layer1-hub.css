@@ -124,7 +124,7 @@
 
 .hub-page__title {
   margin: 0 0 var(--space-20);
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: clamp(2.125rem, 5vw, 3.25rem);
   font-weight: var(--weight-semibold);
   letter-spacing: var(--tracking-display);

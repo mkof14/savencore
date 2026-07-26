@@ -294,7 +294,7 @@
 
 .pw-hero__title {
   margin: 0 0 var(--space-24);
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: clamp(2.5rem, 5.5vw, 4.25rem);
   font-weight: var(--weight-semibold);
   letter-spacing: var(--tracking-display);
@@ -507,7 +507,7 @@
 
 .pw-domains__title {
   margin: 0 0 var(--space-16);
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: clamp(2.25rem, 5vw, 3.5rem);
   font-weight: var(--weight-semibold);
   letter-spacing: var(--tracking-display);

@@ -28,7 +28,7 @@
   --color-background: #f2f5f7;
   --color-surface: #ffffff;
   --color-text: #0b1220;
-  --color-text-secondary: #4a5568;
+  --color-text-secondary: #3a4556;
   --color-border: #d5dde4;
   --color-divider: #c8d2db;
   --color-success: #15803d;
@@ -54,35 +54,34 @@
   --signal-action: #14532d;
 
   /*
-   * Typography — Apple-like clarity (D-0168)
-   * Body/UI: system SF-adjacent stack. Display serif: large titles only.
+   * Typography — visible Apple-clean Inter (D-0169)
+   * Body/UI + titles: Inter first, then system fallbacks. No marketing serif.
    */
-  --font-ui: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-ui: var(--font-sans-face), ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-sans: var(--font-ui);
-  --font-display: var(--font-display-face), "Iowan Old Style", "Palatino Linotype",
-    Palatino, Georgia, "Times New Roman", serif;
+  --font-display: var(--font-sans);
   --font-mono: var(--font-mono-face), ui-monospace, SFMono-Regular, Menlo, Monaco,
     Consolas, monospace;
 
   /* Fluid type scale */
   --text-caption: 0.75rem;
   --text-sm: 0.875rem;
-  --text-base: 1.0625rem; /* ~17px — comfortable reading size */
-  --text-md: 1.125rem;
+  --text-base: 1.125rem; /* 18px — comfortable reading size */
+  --text-md: 1.1875rem;
   --text-lg: 1.25rem;
   --text-xl: clamp(1.375rem, 1.2rem + 0.7vw, 1.625rem);
   --text-2xl: clamp(1.75rem, 1.4rem + 1.2vw, 2.25rem);
   --text-3xl: clamp(2.25rem, 1.7rem + 2vw, 3.25rem);
   --text-display: clamp(2.75rem, 2rem + 3vw, 4.5rem);
 
-  --leading-tight: 1.1;
+  --leading-tight: 1.08;
   --leading-snug: 1.25;
   --leading-body: 1.52;
   --leading-relaxed: 1.6;
 
-  --tracking-display: -0.022em;
-  --tracking-title: -0.02em;
+  --tracking-display: -0.025em;
+  --tracking-title: -0.022em;
   --tracking-heading: -0.015em;
   --tracking-body: 0;
   --tracking-ui: -0.011em;
@@ -176,7 +175,7 @@ html[data-theme="dark"] {
   --color-background: #0b1220;
   --color-surface: #151d2e;
   --color-text: #eef3f7;
-  --color-text-secondary: #b7c3d2;
+  --color-text-secondary: #c5d0de;
   --color-border: #2a3648;
   --color-divider: #334155;
   --color-accent-text: #d4a84b;
@@ -197,8 +196,8 @@ html[data-theme="dark"] {
 }
 
 /*
- * Heading hierarchy — sharp sans by default.
- * Large display serif is opt-in via .type-display / hero / masthead titles.
+ * Heading hierarchy — sharp Inter/sans sitewide (D-0169).
+ * Large titles use Apple-like tracking; BrandName lockup unchanged (D-0164).
  */
 h1,
 h2,
@@ -239,12 +238,13 @@ p {
   text-wrap: pretty;
 }
 
-/* Large display titles — serif reserved for hero / masthead scale */
+/* Large titles — same crisp sans as body, Apple-tight tracking */
 .type-display,
 .knowledge-hero__title,
 .hub-page__title,
 .pw-hero__title {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
+  font-weight: var(--weight-semibold);
   letter-spacing: var(--tracking-display);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

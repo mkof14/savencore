@@ -101,7 +101,7 @@
 .kx-hero__sentence {
   margin: 0;
   max-width: 12ch;
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: clamp(2.75rem, 7vw, 5rem);
   font-weight: var(--weight-semibold);
   letter-spacing: var(--tracking-display);

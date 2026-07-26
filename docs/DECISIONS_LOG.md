@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-26 (D-0168 — Typography system, Apple-like clarity sitewide)
+**Last updated:** 2026-07-26 (D-0169 — Visible Apple-clean Inter + sans titles)
 
 ## Rules
 
@@ -181,6 +181,7 @@
 | D-0166 | 2026-07-26 | Labs visual pages + SAVEN data/action loop diagram | Active |
 | D-0167 | 2026-07-26 | Labs data-loop diagram placement + visual enrichment | Active |
 | D-0168 | 2026-07-26 | Typography system — Apple-like clarity sitewide | Active |
+| D-0169 | 2026-07-26 | Visible Apple-clean Inter webfont + sans titles | Active |
 | D-0161 | 2026-07-26 | Full page-body localization (10 locales) + cleanup + Vercel prep | Active |
 | D-0162 | 2026-07-26 | PWA + SEO / security headers / marketing surface prep | Active |
 | D-0163 | 2026-07-26 | Credentials sign-in form + show password + Google | Active |
@@ -1479,6 +1480,15 @@
 - **In scope:** `src/design/fonts.ts`, `src/design/typography.ts`, `app/globals.css` type tokens; hub/home/labs/auth/experience/engineering/technology/shell CSS inheritance sweep; D-0168 + AGENTS phase pointer; `tsc`; smoke `/en/`, `/en/labs/`, `/en/technology/`, `/ar/`; screenshots `tmp/type-clarity/`; commit/push.
 - **Out of scope:** New UI chrome strings; neon; inventing content; changing BrandName color/structure; final legal prose; CMS.
 - **Implications:** Single CSS-variable source updates all pages; RTL locales keep dedicated faces with improved sizing/smoothing; display serif is opt-in at large scale only.
+
+### D-0169 — Visible Apple-clean Inter webfont + sans titles
+
+- **Date:** 2026-07-26
+- **Status:** Active
+- **Decision:** Owner reports D-0168 was not visibly noticeable (system-ui ≈ SF Pro on macOS; hero/masthead titles still used Source Serif). Authorize a **visible** Apple-clean pass: load **Inter** via `next/font` (weights 400/500/600/700) as the first face for `--font-sans` / `--font-ui`; migrate all marketing/display titles (`.pw-hero__title`, `.hub-page__title`, knowledge/home hero titles, section titles that used `--font-display`) to sharp sans with Apple-like tracking/semibold; **stop loading Source Serif 4**; keep Arabic IBM Plex Sans Arabic and Hebrew Heebo; BrandName lockup structure/colors unchanged (D-0164). Slightly stronger secondary-text contrast; body ~18px; bump service worker cache to `savencore-shell-v2` so clients fetch new CSS. Supersedes D-0168 for Latin/Cyrillic face choice and for display-title face (sans, not serif).
+- **In scope:** `src/design/fonts.ts`, `src/design/typography.ts`, `app/globals.css` tokens; hub/home/experience title CSS; `public/sw.js` cache name; D-0169 + AGENTS phase pointer; `tsc` + build; screenshots `tmp/type-clarity/v2-*.png`; commit/push; production deploy.
+- **Out of scope:** New UI chrome strings; neon; inventing content; changing BrandName color/structure; final legal prose; CMS.
+- **Implications:** Titles and body share one crisp Inter stack sitewide; DevTools should show Inter (not Source Serif) on Latin pages; hard refresh / SW update may be needed once after deploy.
 
 ## Pending Owner Decisions
 

@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-26 (D-0169 — Visible Apple-clean Inter + sans titles)
+**Last updated:** 2026-07-26 (D-0170 — Theme contrast fix on home/chrome)
 
 ## Rules
 
@@ -182,6 +182,7 @@
 | D-0167 | 2026-07-26 | Labs data-loop diagram placement + visual enrichment | Active |
 | D-0168 | 2026-07-26 | Typography system — Apple-like clarity sitewide | Active |
 | D-0169 | 2026-07-26 | Visible Apple-clean Inter webfont + sans titles | Active |
+| D-0170 | 2026-07-26 | Theme contrast fix — home hero/care + dark chrome | Active |
 | D-0161 | 2026-07-26 | Full page-body localization (10 locales) + cleanup + Vercel prep | Active |
 | D-0162 | 2026-07-26 | PWA + SEO / security headers / marketing surface prep | Active |
 | D-0163 | 2026-07-26 | Credentials sign-in form + show password + Google | Active |
@@ -1489,6 +1490,15 @@
 - **In scope:** `src/design/fonts.ts`, `src/design/typography.ts`, `app/globals.css` tokens; hub/home/experience title CSS; `public/sw.js` cache name; D-0169 + AGENTS phase pointer; `tsc` + build; screenshots `tmp/type-clarity/v2-*.png`; commit/push; production deploy.
 - **Out of scope:** New UI chrome strings; neon; inventing content; changing BrandName color/structure; final legal prose; CMS.
 - **Implications:** Titles and body share one crisp Inter stack sitewide; DevTools should show Inter (not Source Serif) on Latin pages; hard refresh / SW update may be needed once after deploy.
+
+### D-0170 — Theme contrast fix — home hero/care + dark chrome
+
+- **Date:** 2026-07-26
+- **Status:** Active
+- **Decision:** Owner reports that toggling light/dark theme on the homepage makes part of the text disappear (including concerns for footer/menu). Root cause: D-0169 global `h1–h4 { color: var(--color-text) }` overrode dark-band headings, so in light theme the hero H1 became dark ink on the always-dark hero (`#0b1220`). Care living block also mixed theme `--color-background` into a light paper plane, so dark theme inverted care copy toward light-on-light. Authorize a contrast fix: (1) dark atmospheric bands (hero, knowledge heroes) keep light ink via `color: inherit` from the band parent; (2) care living block stays a fixed light paper plane in both themes with scoped light-ink CSS variables; (3) header and footer remain dark chrome with scoped light text / bright gold accent tokens so menu and footer stay readable in both themes; (4) header/footer logo stays `tone="dark"` (white SAVEN on dark chrome); (5) bump service worker cache to `savencore-shell-v3`. No navigation, content, or palette invention beyond contrast repair.
+- **In scope:** `physical-world-home.css`, `globals.css`, `experience.css`, `site-shell.css`, `public/sw.js`, D-0170 + AGENTS phase pointer; Playwright screenshots `tmp/theme-fix/`; `tsc`; smoke `/en/`; commit/push; production deploy.
+- **Out of scope:** New theme palettes; neon; inventing content; changing BrandName structure; final legal prose; CMS.
+- **Implications:** Theme toggle must keep all home/header/footer text readable; hero may stay dark atmospheric with light copy in both themes; care plane stays light paper in both themes.
 
 ## Pending Owner Decisions
 

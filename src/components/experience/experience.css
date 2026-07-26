@@ -28,6 +28,11 @@
   background: #0b1220;
   border-block-end: 1px solid rgba(238, 243, 247, 0.12);
   color: #eef3f7;
+  /* Dark chrome — menu ink stays light in both themes (D-0170) */
+  --color-text: #eef3f7;
+  --color-text-secondary: rgba(238, 243, 247, 0.78);
+  --color-accent-text: #d4a84b;
+  --color-border: rgba(238, 243, 247, 0.22);
 }
 
 .site-header .desktop-nav__link,
@@ -173,6 +178,8 @@
   font-weight: var(--weight-semibold);
   letter-spacing: var(--tracking-display);
   line-height: 1.08;
+  /* Inherit domain hero ink — not theme --color-text (D-0170) */
+  color: inherit;
 }
 
 .knowledge-hero__explanation {

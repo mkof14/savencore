@@ -300,6 +300,8 @@
   letter-spacing: var(--tracking-display);
   line-height: 1.05;
   max-width: 12ch;
+  /* Hero stays dark atmospheric — do not use theme --color-text (D-0170) */
+  color: inherit;
 }
 
 .pw-hero__breath {
@@ -700,10 +702,24 @@
   position: relative;
   width: 100%;
   border-block-start: 1px solid color-mix(in srgb, var(--signal-human) 28%, transparent);
+  /*
+   * Care plane stays light paper in both themes (D-0148 / D-0170).
+   * Lock light-ink tokens so dark theme cannot invert copy to white-on-white.
+   */
+  --color-background: #f2f5f7;
+  --color-surface: #ffffff;
+  --color-text: #0b1220;
+  --color-text-secondary: #3a4556;
+  --color-border: #d5dde4;
+  --color-divider: #c8d2db;
+  --color-accent-text: #8a6414;
+  --color-accent-muted: color-mix(in srgb, #8a6414 78%, transparent);
+  --color-accent-line: color-mix(in srgb, #d4a84b 55%, transparent);
+  color: #0b1220;
   background: linear-gradient(
     180deg,
     color-mix(in srgb, var(--signal-human) 6%, #eef3f7) 0%,
-    var(--color-background) 28%,
+    #f2f5f7 28%,
     #e8eef2 100%
   );
 }

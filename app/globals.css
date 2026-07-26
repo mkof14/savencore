@@ -250,6 +250,15 @@ p {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/*
+ * Dark atmospheric bands set their own ink on the parent.
+ * Inherit so global h1–h4 theme tokens cannot paint dark-on-dark in light theme (D-0170).
+ */
+.pw-hero__title,
+.knowledge-hero__title {
+  color: inherit;
+}
+
 img,
 picture,
 video,

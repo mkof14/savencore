@@ -73,7 +73,7 @@ The site must feel like a **confident, simple, large-company product surface** â
 |-------|------|
 | **Primary line** | Intelligence for the Physical World. |
 | **Supporting** | SAVEN Core develops intelligent systems that connect artificial intelligence with the physical world, building technologies for autonomous physical systems. |
-| **Explanation** | SAVEN Core develops AI, robotics, autonomous systems and engineering technologies designed to operate in the real world. |
+| **Explanation** | SAVEN Core applies and advances AI alongside robotics, autonomous systems and engineering technologies designed to operate in the real world. |
 
 ### Comprehension test
 

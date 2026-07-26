@@ -119,8 +119,7 @@ const FR = {
     "Robotique et systèmes futurs pour le monde physique",
   "Robotics engineering lab": "Laboratoire d'ingénierie robotique",
   "SAVEN Core": "SAVEN Core",
-  "SAVEN Core is building AI, robotics, autonomous systems, and engineering technologies meant to operate in real environments.":
-    "SAVEN Core construit IA, robotique, systèmes autonomes et technologies d'ingénierie destinées à fonctionner dans des environnements réels.",
+  "SAVEN Core uses and advances AI alongside robotics, autonomous systems, and engineering technologies meant to operate in real environments.": "SAVEN Core utilise et fait progresser l'IA aux côtés de la robotique, des systèmes autonomes et des technologies d'ingénierie destinées à opérer dans des environnements réels.",
   "SAVEN Core seeks partners who understand long-horizon platform building: patient capital, clear governance, and honesty about development status.":
     "SAVEN Core recherche des partenaires qui comprennent la construction de plateforme à long horizon : capital patient, gouvernance claire et honnêteté sur le statut de développement.",
   "SAVEN Robotics Interface": "SAVEN Robotics Interface",

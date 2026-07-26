@@ -79,7 +79,7 @@ export const translations = {
   "Robotics here is a means — not the brand story. Intelligence matters when it becomes reliable assistance that people can understand, pause, and direct.": "La robotique est ici un moyen — pas le récit de marque. L'intelligence compte lorsqu'elle devient une assistance fiable que les personnes peuvent comprendre, suspendre et diriger.",
   "Role-based access": "Acceso basado en roles",
   "SAVEN Core": "SAVEN Core",
-  "SAVEN Core is building AI, robotics, autonomous systems, and engineering technologies meant to operate in real environments.": "SAVEN Core construit l'IA, la robotique, les systèmes autonomes et les technologies d'ingénierie destinées à opérer dans des environnements réels.",
+  "SAVEN Core uses and advances AI alongside robotics, autonomous systems, and engineering technologies meant to operate in real environments.": "SAVEN Core utilise et fait progresser l'IA aux côtés de la robotique, des systèmes autonomes et des technologies d'ingénierie destinées à opérer dans des environnements réels.",
   "SAVEN Core seeks partners who understand long-horizon platform building: patient capital, clear governance, and honesty about development status.": "SAVEN Core recherche des partenaires qui comprennent la construction de plateformes à long terme      : capital patient, gouvernance claire et honnêteté sur le statut de développement.",
   "SAVEN Robotics Interface": "SAVEN Robotics Interface",
   "SAVEN Robotics Lab": "SAVEN Robotics Lab",

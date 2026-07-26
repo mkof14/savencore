@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-26 (D-0173 — Investors visual + Contact + About team)
+**Last updated:** 2026-07-26 (D-0174 — Positioning: uses/advances AI, does not create AI)
 
 ## Rules
 
@@ -1528,6 +1528,16 @@
 - **In scope:** Investors content/visuals/CSS icons; Contact page + form + dictionaries; Foundation team section + dictionaries; `published-routes`, footer, sitemap; `src/i18n/ui/*`; D-0173 + AGENTS phase pointer; `tsc`; smoke `/en/investors/`, `/en/contact/`, `/en/foundation/`; screenshots `tmp/company-pages/`; commit/push; optional Vercel prod.
 - **Out of scope:** SMTP/CRM backend; named leadership bios; investor portal; inventing metrics/returns/clients; final legal prose; neon.
 - **Implications:** Contact email destination is approved for public use; Contact mailto form is authorized; team narrative without names is authorized; pending “Contact emails / forms destinations” item is resolved for this public channel.
+
+### D-0174 — Positioning: SAVEN uses and advances AI; does not claim to create AI
+
+- **Date:** 2026-07-26
+- **Status:** Active
+- **Decision:** Owner rule: SAVEN Core does **not** create, build, or invent AI. Public and documentation copy must say the company **uses / refines / advances / applies** AI alongside robotics, autonomous systems, and engineering technologies. Domain/discipline page titles such as “Artificial Intelligence” remain OK. Claims that SAVEN creates AI (any locale) are prohibited.
+- **Canonical English replacements:** (1) Investors body: “SAVEN Core uses and advances AI alongside robotics, autonomous systems, and engineering technologies meant to operate in real environments.” (2) Home oneBreath: “We use and refine AI with robotics that work in the real world — so machines can sense, move, and assist under human control.” (3) SITE_ASSIGNMENT explanation: “SAVEN Core applies and advances AI alongside robotics…”.
+- **In scope:** Flagship EN + all locale dictionaries + `scripts/fl-translations/` sync copies; home physical-world oneBreath all locales; `docs/SITE_ASSIGNMENT.md`; AI technology page scan (reframe only if create-AI claims found); D-0174 + AGENTS phase pointer; `tsc`; commit/push; Vercel prod.
+- **Out of scope:** Inventing new product claims; changing robotics “builds engineering basis” language; SMTP/CMS; neon.
+- **Implications:** All future copy and translations must follow use/refine/advance framing for AI; dictionary keys that embed the old English must be renamed when EN changes.
 
 ## Pending Owner Decisions
 

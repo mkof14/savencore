@@ -272,7 +272,7 @@ export const investorsPageEn: FlagshipBrochureContent = {
   status: "In Development",
   lede: "For long-term partners who value disciplined engineering for intelligent systems in the physical world — with human care as the enduring purpose.",
   body: [
-    "SAVEN Core is building AI, robotics, autonomous systems, and engineering technologies meant to operate in real environments.",
+    "SAVEN Core uses and advances AI alongside robotics, autonomous systems, and engineering technologies meant to operate in real environments.",
     "Investor conversations follow architecture, responsibility, staged evidence, and multi-domain optionality — not invented traction metrics, valuations, or promised returns.",
   ],
   listHeading: "What we share publicly",

@@ -79,7 +79,7 @@ export const dictionary: Record<string, string> = {
   "Robotics here is a means — not the brand story. Intelligence matters when it becomes reliable assistance that people can understand, pause, and direct.": "机器人在这里只是一种手段，而不是品牌故事。当情报成为人们可以理解、暂停和指导的可靠帮助时，它就很重要。",
   "Role-based access": "基于角色的访问",
   "SAVEN Core": "SAVEN Core",
-  "SAVEN Core is building AI, robotics, autonomous systems, and engineering technologies meant to operate in real environments.": "SAVEN Core 正在构建旨在在真实环境中运行的人工智能、机器人、自主系统和工程技术。",
+  "SAVEN Core uses and advances AI alongside robotics, autonomous systems, and engineering technologies meant to operate in real environments.": "SAVEN Core 运用并推进人工智能，同时发展旨在在真实环境中运行的机器人、自主系统和工程技术。",
   "SAVEN Core seeks partners who understand long-horizon platform building: patient capital, clear governance, and honesty about development status.": "SAVEN Core 寻求了解长期平台建设的合作伙伴：耐心的资本、明确的治理以及对发展状况的诚实态度。",
   "SAVEN Robotics Interface": "Interfaz SAVEN Robotics",
   "SAVEN Robotics Lab": "SAVEN Robotics Lab",

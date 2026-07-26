@@ -5,7 +5,7 @@ export const physicalWorldHomeJa: PhysicalWorldHomeContent = {
   brand: "SAVEN Core",
   heroLine: "物理世界のための知能。",
   oneBreath:
-    "私たちは現実世界で働くAIとロボティクスを構築します — 機械が人の制御のもとで感知し、動き、支援できるように。",
+    "私たちは現実世界で働くロボティクスとともに AI を活用・洗練します — 機械が人の制御のもとで感知し、動き、支援できるように。",
   builds: ["人工知能", "ロボティクス", "自律システム"],
   buildsLabel: "私たちがつくるもの",
   tagline: "知能を人のケアへつなぐ",

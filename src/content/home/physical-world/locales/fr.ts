@@ -5,7 +5,7 @@ export const physicalWorldHomeFr: PhysicalWorldHomeContent = {
   brand: "SAVEN Core",
   heroLine: "L'intelligence pour le monde physique.",
   oneBreath:
-    "Nous concevons l'IA et la robotique pour le monde réel — afin que les machines puissent percevoir, se déplacer et assister sous contrôle humain.",
+    "Nous utilisons et affinons l'IA avec une robotique conçue pour le monde réel — afin que les machines puissent percevoir, se déplacer et assister sous contrôle humain.",
   builds: ["Intelligence artificielle", "Robotique", "Systèmes autonomes"],
   buildsLabel: "Ce que nous construisons",
   tagline: "Transformer l'intelligence en soin humain",

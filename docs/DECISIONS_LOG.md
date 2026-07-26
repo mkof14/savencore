@@ -1548,7 +1548,7 @@
 - **Status:** Active
 - **Decision:** Owner pin/freeze: the public site state after this Experience Redesign UI pass is an **approved completed snapshot**. Do not casually regress Contact, Applications, Labs, or Purpose masthead treatments without a new decision. Prior AI positioning (D-0174) remains in force and is already on `main`.
 - **Freeze coverage:** (1) Contact — smaller secondary email link + company horizon hero (`scene-long-horizon`). (2) Applications hub — robotics hand masthead (distinct from care overview). (3) Labs hub — multi-robot / trolley+humanoid masthead crop. (4) Purpose hub — diverse multi-care collage (home / disaster / hospital / rural-remote; ages and need-help contexts). Hub collage rendering + masthead object-position tuning included.
-- **Freeze commit:** pending (recorded in follow-up note on same day after git SHA is known).
+- **Freeze commit:** `2417475b8b123aecc1b955549a158079bd939b64` (`2417475` on `main`).
 - **In scope:** Contact form/CSS contrast; hub masthead collage path; `domain-visuals` / hub visual wiring; Layer-1 hub CSS; D-0175 + AGENTS phase pointer; commit/push; Vercel production deploy to `https://www.savencore.com`.
 - **Out of scope:** Legal dictionary WIP under `scripts/fl-translations/*-legal.mjs` and related legal locale churn; SMTP/CRM; inventing imagery beyond approved care/domain assets; neon.
 - **Implications:** This snapshot is the baseline for further Experience work; material visual regress of the frozen hubs/Contact requires owner approval / a new Decisions Log entry.

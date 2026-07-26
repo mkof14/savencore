@@ -1,6 +1,7 @@
 import {
   EMAIL_BRAND,
   button,
+  headline,
   paragraph,
   wrapEmailHtml,
 } from "@/content/admin/email-templates/brand";
@@ -9,7 +10,8 @@ import type { EmailTemplateDefinition } from "@/content/admin/email-templates/ty
 const { name, siteUrl, contactEmail } = EMAIL_BRAND;
 
 /**
- * Canonical English email templates for business life cases (D-0176).
+ * Canonical English email templates for business life cases (D-0176 / D-0180).
+ * Shared chrome (header / features / quote / contact / footer) lives in brand.ts.
  * No fake claims, traction, returns, or operational product language.
  */
 export const EMAIL_TEMPLATES: readonly EmailTemplateDefinition[] = [
@@ -21,7 +23,7 @@ export const EMAIL_TEMPLATES: readonly EmailTemplateDefinition[] = [
     preheader: "A clear invitation to explore SAVEN Core.",
     status: "In Development",
     bodyHtml: [
-      paragraph(`Thank you for your interest in ${name}.`),
+      headline(`Thank you for your interest in ${name}.`),
       paragraph(
         "We develop intelligent systems that help people in hospitals, at home, and wherever life happens — across every age and stage of life. AI and robotics are tools; human support is the purpose.",
       ),
@@ -29,7 +31,6 @@ export const EMAIL_TEMPLATES: readonly EmailTemplateDefinition[] = [
         "You can explore our public site to learn how we think about human data, responsible technology, and physical-world assistance. Everything principal remains in development.",
       ),
       button("Visit SAVEN Core", siteUrl),
-      paragraph(`Questions are welcome at ${contactEmail}.`),
     ].join(""),
   },
   {
@@ -40,7 +41,10 @@ export const EMAIL_TEMPLATES: readonly EmailTemplateDefinition[] = [
     preheader: "You are invited to review SAVEN Core.",
     status: "In Development",
     bodyHtml: [
-      paragraph("You have been invited to review selected pages on the SAVEN Core website."),
+      headline("You are invited to review SAVEN Core."),
+      paragraph(
+        "You have been invited to review selected pages on the SAVEN Core website.",
+      ),
       paragraph(
         "This invitation grants access to publicly published materials only. Restricted systems and private portals are not included.",
       ),
@@ -59,7 +63,7 @@ export const EMAIL_TEMPLATES: readonly EmailTemplateDefinition[] = [
     preheader: "An introduction to SAVEN Core for investors.",
     status: "Architecture",
     bodyHtml: [
-      paragraph(`Thank you for your interest in learning about ${name}.`),
+      headline(`Thank you for your interest in learning about ${name}.`),
       paragraph(
         "SAVEN Core uses and advances AI alongside robotics, autonomous systems, and engineering technologies meant to operate in real environments under human control. Our focus is human support — from understanding to physical assistance.",
       ),
@@ -67,7 +71,6 @@ export const EMAIL_TEMPLATES: readonly EmailTemplateDefinition[] = [
         "Principal systems remain in development. We do not present forecasts, returns, customer counts, or commercial availability in this note. For orientation, please begin with the public Investors and Foundation pages.",
       ),
       button("Investors overview", `${siteUrl}/en/investors/`),
-      paragraph(`For follow-up, write to ${contactEmail}.`),
     ].join(""),
   },
   {
@@ -78,7 +81,10 @@ export const EMAIL_TEMPLATES: readonly EmailTemplateDefinition[] = [
     preheader: "Thank you — we received your message.",
     status: "In Development",
     bodyHtml: [
-      paragraph("Thank you for contacting SAVEN Core about a possible partnership."),
+      headline("Thank you for contacting SAVEN Core."),
+      paragraph(
+        "Thank you for contacting SAVEN Core about a possible partnership.",
+      ),
       paragraph(
         "We have received your inquiry. A member of the team will review it and respond when appropriate. This message confirms receipt only — it is not an agreement, evaluation outcome, or commitment.",
       ),
@@ -93,12 +99,11 @@ export const EMAIL_TEMPLATES: readonly EmailTemplateDefinition[] = [
     preheader: "Thank you for your media inquiry.",
     status: "Architecture",
     bodyHtml: [
-      paragraph("Thank you for reaching out to SAVEN Core."),
+      headline("Thank you for reaching out to SAVEN Core."),
       paragraph(
         "We have received your media inquiry. We will respond with available public information when we can. Please rely only on materials published on our website unless we provide something further in writing.",
       ),
       button("Public site", siteUrl),
-      paragraph(`Contact: ${contactEmail}`),
     ].join(""),
   },
   {
@@ -109,6 +114,7 @@ export const EMAIL_TEMPLATES: readonly EmailTemplateDefinition[] = [
     preheader: "Occasional notes from SAVEN Core.",
     status: "Architecture",
     bodyHtml: [
+      headline("Notes from SAVEN Core"),
       paragraph("Hello,"),
       paragraph(
         "This is a newsletter template for occasional updates about how SAVEN Core thinks about human care, responsible technology, and systems meant for real environments.",
@@ -117,7 +123,9 @@ export const EMAIL_TEMPLATES: readonly EmailTemplateDefinition[] = [
         "Replace this paragraph with an approved update. Do not include invented metrics, customer logos, or operational claims.",
       ),
       button("Read more on the site", siteUrl),
-      paragraph("You received this because you opted in or were added by an administrator."),
+      paragraph(
+        "You received this because you opted in or were added by an administrator.",
+      ),
     ].join(""),
   },
   {
@@ -128,11 +136,10 @@ export const EMAIL_TEMPLATES: readonly EmailTemplateDefinition[] = [
     preheader: "You are invited to a SAVEN Core conversation.",
     status: "Architecture",
     bodyHtml: [
-      paragraph("You are invited to a conversation hosted by SAVEN Core."),
+      headline("You are invited to a SAVEN Core conversation."),
       paragraph(
         "Details (date, format, and access) should be filled in by the sender before this template is used. Do not publish unconfirmed venues or attendance figures.",
       ),
-      paragraph(`Questions: ${contactEmail}`),
     ].join(""),
   },
   {
@@ -143,11 +150,13 @@ export const EMAIL_TEMPLATES: readonly EmailTemplateDefinition[] = [
     preheader: "Security notice from SAVEN Core.",
     status: "In Development",
     bodyHtml: [
-      paragraph("This is a security notice related to your SAVEN Core account access."),
+      headline("Security notice"),
+      paragraph(
+        "This is a security notice related to your SAVEN Core account access.",
+      ),
       paragraph(
         "If you recently signed in or changed credentials and this was expected, no action is required. If you did not perform this action, contact us immediately and stop using the affected credentials.",
       ),
-      paragraph(`Contact: ${contactEmail}`),
       paragraph(
         "SAVEN Core does not ask for passwords by email. Never share your password in reply to a message.",
       ),
@@ -161,11 +170,12 @@ export const EMAIL_TEMPLATES: readonly EmailTemplateDefinition[] = [
     preheader: "Internal operations note.",
     status: "Architecture",
     bodyHtml: [
+      headline("Internal operations note"),
       paragraph("Internal operations note — not for external distribution."),
       paragraph(
         "Use this template for brief coordination among authorized operators. Keep facts precise. Do not invent status upgrades or claim systems are operational unless the Decisions Log authorizes that language.",
       ),
-      paragraph(`Admin platform: ${siteUrl}/en/admin/`),
+      button("Open admin", `${siteUrl}/en/admin/`),
     ].join(""),
   },
 ] as const;

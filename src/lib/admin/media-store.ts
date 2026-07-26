@@ -47,6 +47,17 @@ const SEED_ITEMS: readonly MediaItem[] = [
     description: "Default social share card — falcon mark + SAVEN Core name (1200×630).",
   },
   {
+    id: "seed-email-network",
+    name: "Email header network graphic",
+    mimeType: "image/png",
+    size: 0,
+    category: "image",
+    createdAt: "2026-07-26T00:00:00.000Z",
+    source: "seed",
+    publicPath: "/email/header-network.png",
+    description: "Subtle constellation graphic for branded email headers (D-0180).",
+  },
+  {
     id: "seed-favicon",
     name: "Favicon 32×32",
     mimeType: "image/png",

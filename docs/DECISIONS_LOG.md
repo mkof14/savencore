@@ -1593,6 +1593,15 @@
 - **Out of scope:** Invented falcon photography/stock; changing Purpose collage or home hero; inventing company facts; neon/glow decoration; CMS/analytics.
 - **Implications:** Extends D-0169 SEO/share surface. Social crawlers cache OG images — cache bust may take time after deploy.
 
+### D-0180 — Email templates restyled to owner example
+
+- **Date:** 2026-07-26
+- **Status:** Active
+- **Decision:** Owner requires admin email / newsletter HTML templates to match the provided design example: dark navy header with falcon mark + SAVEN (white) / CORE (gold) lockup + tagline **Turning Intelligence Into Human Care** + subtle network graphic; white centered body; navy CTA with gold thin border and **straight corners**; 2×2 feature pillar grid with line icons; cream quote band with gold left rule; contact row to `info@savencore.com`; footer lockup + www.savencore.com + copyright © 2026 SAVEN Core + LinkedIn / YouTube / Email icons. Shared chrome wraps all templates; per-template content is the middle body only. Copy must stay governance-safe: use Master Spec primary/positioning statements for the quote (do not invent “reduce suffering…” mission language); replace example “Built for Scale” with honest **Built for Continuity** / foundation framing; no fake metrics or customers. Absolute image URLs under `https://www.savencore.com/brand/…` and `/email/…`; admin preview continues to rewrite hosts to the current origin.
+- **In scope:** `src/content/admin/email-templates/brand.ts` + template bodies; `public/email/*` decorative icons/network; docs (`ADMIN_PLATFORM.md`, D-0180, AGENTS phase pointer); `tsc`; commit/push; production deploy.
+- **Out of scope:** Inventing mission claims, metrics, or social profile URLs; neon/glow; changing public Experience freeze (D-0175); SMTP/CRM beyond existing optional send.
+- **Implications:** Extends D-0176 / D-0178 branded email. Mailings that inject template HTML pick up the new chrome automatically. Owner should hard-refresh admin template preview after deploy.
+
 ## Pending Owner Decisions
 
 These are not decisions yet; they are tracked for future resolution:

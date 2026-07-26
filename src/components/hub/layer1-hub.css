@@ -67,6 +67,75 @@
   object-position: center;
 }
 
+/* Applications hub — keep robotic hand readable in the masthead crop */
+.hub-page--applications .hub-page__masthead-image {
+  object-position: 62% 48%;
+}
+
+/* Labs hub — keep trolley + humanoid both in the masthead crop */
+.hub-page--labs .hub-page__masthead-image {
+  object-position: 48% 42%;
+}
+
+/* Purpose hub — multi-tile care collage (diverse ages / care settings) */
+.hub-page__masthead-collage {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 2px;
+  background: #0a1018;
+}
+
+.hub-page__masthead-tile {
+  position: relative;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.hub-page__masthead-collage-image {
+  object-fit: cover;
+  object-position: center 40%;
+}
+
+/* Purpose: lighter scrim so collage faces stay readable (esp. bottom row) */
+.hub-page--purpose .hub-page__masthead-scrim {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(11, 18, 32, 0.22) 0%,
+      rgba(11, 18, 32, 0.4) 48%,
+      rgba(11, 18, 32, 0.78) 100%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(11, 18, 32, 0.7) 0%,
+      rgba(11, 18, 32, 0.18) 58%,
+      rgba(11, 18, 32, 0.26) 100%
+    );
+}
+
+/* home-care — elderly companion scene */
+.hub-page--purpose .hub-page__masthead-tile:nth-child(1) .hub-page__masthead-collage-image {
+  object-position: 28% 30%;
+}
+
+/* disaster-relief — multi-ethnic community response */
+.hub-page--purpose .hub-page__masthead-tile:nth-child(2) .hub-page__masthead-collage-image {
+  object-position: 35% 28%;
+}
+
+/* hospital-care — elder patient receiving support */
+.hub-page--purpose .hub-page__masthead-tile:nth-child(3) .hub-page__masthead-collage-image {
+  object-position: 55% 45%;
+}
+
+/* rural-remote — child, parent and caregiver */
+.hub-page--purpose .hub-page__masthead-tile:nth-child(4) .hub-page__masthead-collage-image {
+  object-position: 42% 35%;
+}
+
 .hub-page__masthead-scrim {
   position: absolute;
   inset: 0;

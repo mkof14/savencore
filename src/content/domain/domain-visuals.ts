@@ -19,6 +19,8 @@ export type DomainMastheadVisual = {
   theme: DomainVisualTheme;
   mastheadImage: string;
   mastheadAlt: string;
+  /** Optional multi-tile masthead (scoped; Purpose care collage). */
+  mastheadCollage?: readonly string[];
 };
 
 /** Canonical masthead assignment for every visual domain route. */
@@ -125,8 +127,9 @@ export const DOMAIN_MASTHEAD_BY_HREF: Record<string, DomainMastheadVisual> = {
   /* ——— Labs ——— */
   "/labs/": {
     theme: "labs",
-    mastheadImage: "/domain/labs/overview.webp",
-    mastheadAlt: "Assistive robot helping a person stand with caregiver oversight",
+    mastheadImage: "/home/hero-collage/05-mobile.webp",
+    mastheadAlt:
+      "Service trolley robot and humanoid assistant together in a care setting",
   },
   "/labs/saven-robotics-lab/": {
     theme: "labs",
@@ -142,8 +145,8 @@ export const DOMAIN_MASTHEAD_BY_HREF: Record<string, DomainMastheadVisual> = {
   /* ——— Applications (reuse care assets where thematically perfect) ——— */
   "/applications/": {
     theme: "applications",
-    mastheadImage: "/domain/applications/overview.webp",
-    mastheadAlt: "Human contexts where support may later matter",
+    mastheadImage: "/domain/technology/robotics.webp",
+    mastheadAlt: "Robotic hand in a careful engineering setting",
   },
   "/applications/healthcare/": {
     theme: "applications",
@@ -236,8 +239,17 @@ export const DOMAIN_MASTHEAD_BY_HREF: Record<string, DomainMastheadVisual> = {
   },
   "/purpose/": {
     theme: "purpose",
-    mastheadImage: "/domain/company/purpose.webp",
-    mastheadAlt: "People together — human purpose",
+    /* OG / path fallback — collage tiles carry the diverse care reading */
+    mastheadImage: "/home/care/hospital-care.webp",
+    mastheadAlt:
+      "People who need care across home, hospital, community and family settings",
+    /* Visible zones: right/top read clearest under masthead scrim */
+    mastheadCollage: [
+      "/home/care/home-care.webp",
+      "/home/care/disaster-relief.webp",
+      "/home/care/hospital-care.webp",
+      "/home/care/rural-remote.webp",
+    ],
   },
   "/foundation/": {
     theme: "foundation",
@@ -251,8 +263,8 @@ export const DOMAIN_MASTHEAD_BY_HREF: Record<string, DomainMastheadVisual> = {
   },
   "/contact/": {
     theme: "foundation",
-    mastheadImage: "/domain/company/purpose.webp",
-    mastheadAlt: "Calm atmosphere for human conversation with SAVEN Core",
+    mastheadImage: "/domain/company/scene-long-horizon.webp",
+    mastheadAlt: "Calm modern horizon atmosphere for human conversation with SAVEN Core",
   },
 };
 

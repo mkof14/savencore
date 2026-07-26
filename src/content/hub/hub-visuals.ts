@@ -24,6 +24,7 @@ export type HubMastheadVisual = {
   theme: HubVisualTheme;
   mastheadImage: string;
   mastheadAlt: string;
+  mastheadCollage?: readonly string[];
 };
 
 function hubFromDomain(
@@ -35,6 +36,9 @@ function hubFromDomain(
     theme,
     mastheadImage: visual.mastheadImage,
     mastheadAlt: visual.mastheadAlt,
+    ...(visual.mastheadCollage
+      ? { mastheadCollage: visual.mastheadCollage }
+      : {}),
   };
 }
 

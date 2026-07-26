@@ -112,6 +112,9 @@ function withVisual(
       theme: visual.theme,
       mastheadImage: visual.mastheadImage,
       mastheadAlt: visual.mastheadAlt,
+      ...(visual.mastheadCollage
+        ? { mastheadCollage: visual.mastheadCollage }
+        : {}),
     },
   };
 }

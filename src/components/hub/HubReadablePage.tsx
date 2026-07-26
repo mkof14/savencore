@@ -38,14 +38,32 @@ export function HubReadablePage({ locale, content }: HubReadablePageProps) {
       <header className="hub-page__masthead">
         {content.visual ? (
           <div className="hub-page__masthead-media" aria-hidden="true">
-            <Image
-              src={content.visual.mastheadImage}
-              alt=""
-              fill
-              priority
-              sizes="100vw"
-              className="hub-page__masthead-image"
-            />
+            {content.visual.mastheadCollage &&
+            content.visual.mastheadCollage.length > 0 ? (
+              <div className="hub-page__masthead-collage">
+                {content.visual.mastheadCollage.map((src, index) => (
+                  <div key={src} className="hub-page__masthead-tile">
+                    <Image
+                      src={src}
+                      alt=""
+                      fill
+                      priority={index === 0}
+                      sizes="50vw"
+                      className="hub-page__masthead-collage-image"
+                    />
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <Image
+                src={content.visual.mastheadImage}
+                alt=""
+                fill
+                priority
+                sizes="100vw"
+                className="hub-page__masthead-image"
+              />
+            )}
             <div className="hub-page__masthead-scrim" />
             <div className="hub-page__masthead-grain" />
           </div>

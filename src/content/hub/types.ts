@@ -54,6 +54,8 @@ export type HubPageContent = {
     theme: HubVisualTheme;
     mastheadImage: string;
     mastheadAlt: string;
+    /** Optional multi-tile masthead (Purpose care collage). */
+    mastheadCollage?: readonly string[];
   };
   /** Short editorial story beats for ordinary readers (D-0165). */
   highlights?: readonly HubHighlight[];

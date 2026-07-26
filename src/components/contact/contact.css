@@ -66,6 +66,8 @@
   letter-spacing: var(--tracking-heading);
   line-height: 1.08;
   text-wrap: balance;
+  /* Inherit masthead ink — global h1 theme color must not win (D-0170). */
+  color: inherit;
 }
 
 .contact-page__lede {
@@ -111,13 +113,13 @@
 .contact-page__email {
   justify-self: start;
   font-family: var(--font-sans);
-  font-size: clamp(1.45rem, 2.8vw, 1.9rem);
-  font-weight: var(--weight-semibold);
-  letter-spacing: var(--tracking-heading);
-  color: var(--color-text);
+  font-size: clamp(0.95rem, 1.4vw, 1.05rem);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.01em;
+  color: var(--color-text-secondary);
   text-decoration: none;
-  border-bottom: 2px solid color-mix(in srgb, var(--color-accent) 55%, transparent);
-  padding-block-end: 0.15rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--color-accent) 40%, transparent);
+  padding-block-end: 0.1rem;
   transition: border-color 160ms ease, color 160ms ease;
 }
 
@@ -216,7 +218,7 @@
   gap: var(--space-8);
 }
 
-.contact-page__label {
+.contact-page__field-label {
   font-size: var(--text-sm);
   font-weight: var(--weight-medium);
   color: var(--color-text);

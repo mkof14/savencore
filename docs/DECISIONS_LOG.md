@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-26 (D-0174 — Positioning: uses/advances AI, does not create AI)
+**Last updated:** 2026-07-26 (D-0175 — Experience Redesign UI freeze / completed snapshot)
 
 ## Rules
 
@@ -188,6 +188,9 @@
 | D-0161 | 2026-07-26 | Full page-body localization (10 locales) + cleanup + Vercel prep | Active |
 | D-0162 | 2026-07-26 | PWA + SEO / security headers / marketing surface prep | Active |
 | D-0163 | 2026-07-26 | Credentials sign-in form + show password + Google | Active |
+| D-0173 | 2026-07-26 | Investors visual + Contact page/form + About team narrative | Active |
+| D-0174 | 2026-07-26 | Positioning: uses/advances AI; does not claim to create AI | Active |
+| D-0175 | 2026-07-26 | Experience Redesign UI freeze — completed approved snapshot | Active |
 
 ---
 
@@ -1538,6 +1541,17 @@
 - **In scope:** Flagship EN + all locale dictionaries + `scripts/fl-translations/` sync copies; home physical-world oneBreath all locales; `docs/SITE_ASSIGNMENT.md`; AI technology page scan (reframe only if create-AI claims found); D-0174 + AGENTS phase pointer; `tsc`; commit/push; Vercel prod.
 - **Out of scope:** Inventing new product claims; changing robotics “builds engineering basis” language; SMTP/CMS; neon.
 - **Implications:** All future copy and translations must follow use/refine/advance framing for AI; dictionary keys that embed the old English must be renamed when EN changes.
+
+### D-0175 — Experience Redesign UI freeze — completed approved snapshot
+
+- **Date:** 2026-07-26
+- **Status:** Active
+- **Decision:** Owner pin/freeze: the public site state after this Experience Redesign UI pass is an **approved completed snapshot**. Do not casually regress Contact, Applications, Labs, or Purpose masthead treatments without a new decision. Prior AI positioning (D-0174) remains in force and is already on `main`.
+- **Freeze coverage:** (1) Contact — smaller secondary email link + company horizon hero (`scene-long-horizon`). (2) Applications hub — robotics hand masthead (distinct from care overview). (3) Labs hub — multi-robot / trolley+humanoid masthead crop. (4) Purpose hub — diverse multi-care collage (home / disaster / hospital / rural-remote; ages and need-help contexts). Hub collage rendering + masthead object-position tuning included.
+- **Freeze commit:** pending (recorded in follow-up note on same day after git SHA is known).
+- **In scope:** Contact form/CSS contrast; hub masthead collage path; `domain-visuals` / hub visual wiring; Layer-1 hub CSS; D-0175 + AGENTS phase pointer; commit/push; Vercel production deploy to `https://www.savencore.com`.
+- **Out of scope:** Legal dictionary WIP under `scripts/fl-translations/*-legal.mjs` and related legal locale churn; SMTP/CRM; inventing imagery beyond approved care/domain assets; neon.
+- **Implications:** This snapshot is the baseline for further Experience work; material visual regress of the frozen hubs/Contact requires owner approval / a new Decisions Log entry.
 
 ## Pending Owner Decisions
 

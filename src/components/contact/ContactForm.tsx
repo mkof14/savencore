@@ -73,7 +73,7 @@ export function ContactForm({
 
       <div className="contact-page__fields">
         <div className="contact-page__field">
-          <label className="contact-page__label" htmlFor={nameId}>
+          <label className="contact-page__field-label" htmlFor={nameId}>
             {labels.nameLabel}
           </label>
           <input
@@ -88,7 +88,7 @@ export function ContactForm({
         </div>
 
         <div className="contact-page__field">
-          <label className="contact-page__label" htmlFor={emailId}>
+          <label className="contact-page__field-label" htmlFor={emailId}>
             {labels.emailLabel}
           </label>
           <input
@@ -104,7 +104,7 @@ export function ContactForm({
         </div>
 
         <div className="contact-page__field contact-page__field--full">
-          <label className="contact-page__label" htmlFor={subjectId}>
+          <label className="contact-page__field-label" htmlFor={subjectId}>
             {labels.subjectLabel}
           </label>
           <input
@@ -118,7 +118,7 @@ export function ContactForm({
         </div>
 
         <div className="contact-page__field contact-page__field--full">
-          <label className="contact-page__label" htmlFor={messageId}>
+          <label className="contact-page__field-label" htmlFor={messageId}>
             {labels.messageLabel}
           </label>
           <textarea

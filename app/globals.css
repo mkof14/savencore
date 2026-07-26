@@ -261,7 +261,8 @@ p {
  * Inherit so global h1–h4 theme tokens cannot paint dark-on-dark in light theme (D-0170).
  */
 .pw-hero__title,
-.knowledge-hero__title {
+.knowledge-hero__title,
+.contact-page__title {
   color: inherit;
 }
 

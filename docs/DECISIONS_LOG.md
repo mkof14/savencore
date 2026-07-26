@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-26 (D-0163 — Credentials sign-in + show password + Google)
+**Last updated:** 2026-07-26 (D-0168 — Typography system, Apple-like clarity sitewide)
 
 ## Rules
 
@@ -180,6 +180,7 @@
 | D-0160 | 2026-07-25 | Unified visual domain-page system (hubs + leaves) | Active |
 | D-0166 | 2026-07-26 | Labs visual pages + SAVEN data/action loop diagram | Active |
 | D-0167 | 2026-07-26 | Labs data-loop diagram placement + visual enrichment | Active |
+| D-0168 | 2026-07-26 | Typography system — Apple-like clarity sitewide | Active |
 | D-0161 | 2026-07-26 | Full page-body localization (10 locales) + cleanup + Vercel prep | Active |
 | D-0162 | 2026-07-26 | PWA + SEO / security headers / marketing surface prep | Active |
 | D-0163 | 2026-07-26 | Credentials sign-in form + show password + Google | Active |
@@ -1469,6 +1470,15 @@
 - **In scope:** `HubReadablePage` diagram order; `LabsDataLoop` + `labs-data-loop.css` visual upgrade; D-0167 + AGENTS phase pointer; `tsc`; smoke `/en/labs/`; screenshots `tmp/labs-visual/diagram-high-*.png`; commit/push.
 - **Out of scope:** New UI copy strings (reuse D-0166 labels); invented traction; neon HUD; CMS; other hub pages.
 - **Implications:** Supersedes D-0166 placement of the diagram after story/body; visual language remains brand-atmospheric, not sci-fi chrome.
+
+### D-0168 — Typography system — Apple-like clarity sitewide
+
+- **Date:** 2026-07-26
+- **Status:** Active
+- **Decision:** Owner authorizes a sitewide typography system optimized for Apple-like clarity and readability on all pages. Primary body/UI face is the system SF-adjacent stack (`ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", …`) via CSS `--font-sans` — not IBM Plex Sans for Latin/Cyrillic. Source Serif remains loaded for large display titles only (hero / masthead H1 scale); mid-size section titles and UI chrome use sharp sans. Fluid type scale, body ~17px with line-height ~1.47–1.6, heading letter-spacing about `-0.015em` to `-0.022em`, body tracking near 0, weights 400 / 500–600 (no ultra-light body). Font smoothing: default/subpixel on light theme; antialiased on dark theme and dark chrome. Arabic keeps IBM Plex Sans Arabic; Hebrew keeps Heebo; BrandName/logo lockup structure and gold/ink colors stay (D-0164), lockup face inherits clearer sans. Supersedes D-0128 custom Latin sans (IBM Plex) for body/UI; does not invent content or change navigation.
+- **In scope:** `src/design/fonts.ts`, `src/design/typography.ts`, `app/globals.css` type tokens; hub/home/labs/auth/experience/engineering/technology/shell CSS inheritance sweep; D-0168 + AGENTS phase pointer; `tsc`; smoke `/en/`, `/en/labs/`, `/en/technology/`, `/ar/`; screenshots `tmp/type-clarity/`; commit/push.
+- **Out of scope:** New UI chrome strings; neon; inventing content; changing BrandName color/structure; final legal prose; CMS.
+- **Implications:** Single CSS-variable source updates all pages; RTL locales keep dedicated faces with improved sizing/smoothing; display serif is opt-in at large scale only.
 
 ## Pending Owner Decisions
 

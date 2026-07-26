@@ -153,18 +153,19 @@ html[dir="rtl"] .auth-sign-in__back-arrow {
 
 .auth-sign-in__title {
   margin: 0;
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: clamp(1.75rem, 3vw, 2.125rem);
-  font-weight: 600;
-  letter-spacing: -0.03em;
-  line-height: 1.15;
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-heading);
+  line-height: 1.18;
   color: #eef3f7;
 }
 
 .auth-sign-in__lead {
   margin: 0;
-  font-size: 1rem;
-  line-height: 1.55;
+  font-size: var(--text-base);
+  line-height: var(--leading-body);
+  letter-spacing: var(--tracking-body);
   color: color-mix(in srgb, #eef3f7 78%, transparent);
 }
 

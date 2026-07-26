@@ -1,26 +1,20 @@
 import {
   Heebo,
   IBM_Plex_Mono,
-  IBM_Plex_Sans,
   IBM_Plex_Sans_Arabic,
   Source_Serif_4,
 } from "next/font/google";
 
 /**
- * Experience typography — distinctive display + engineering sans.
- * Authorized by D-0128 (SAVEN Experience Redesign).
+ * Typography faces (D-0168) — Apple-like clarity sitewide.
+ * Body/UI uses the system SF-adjacent stack in CSS (`--font-sans`).
+ * Source Serif loads only for large display titles; Arabic/Hebrew keep
+ * dedicated readable faces; mono remains for engineering labels.
  */
 export const fontDisplay = Source_Serif_4({
   subsets: ["latin", "latin-ext", "cyrillic"],
   style: ["normal", "italic"],
   variable: "--font-display-face",
-  display: "swap",
-});
-
-export const fontSans = IBM_Plex_Sans({
-  subsets: ["latin", "latin-ext", "cyrillic"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-sans-face",
   display: "swap",
 });
 
@@ -47,7 +41,6 @@ export const fontMono = IBM_Plex_Mono({
 
 export const experienceFontVariables = [
   fontDisplay.variable,
-  fontSans.variable,
   fontSansArabic.variable,
   fontSansHebrew.variable,
   fontMono.variable,

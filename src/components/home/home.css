@@ -41,11 +41,11 @@
 
 .kx-section-header__title {
   margin: 0;
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: clamp(1.75rem, 3vw, 2.5rem);
-  font-weight: 600;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-heading);
+  line-height: 1.12;
   color: var(--color-text);
 }
 
@@ -103,9 +103,9 @@
   max-width: 12ch;
   font-family: var(--font-display);
   font-size: clamp(2.75rem, 7vw, 5rem);
-  font-weight: 600;
-  letter-spacing: -0.045em;
-  line-height: 0.98;
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-display);
+  line-height: 1.02;
   color: #f7fafc;
   animation: kx-enter 420ms cubic-bezier(0.2, 0, 0, 1) both;
 }
@@ -174,9 +174,10 @@
 }
 
 .kx-hero__diagram-kicker {
-  font-family: var(--font-display);
-  font-size: 1.0625rem;
-  font-weight: 600;
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-ui);
   color: #eef3f7;
 }
 
@@ -234,11 +235,11 @@
 }
 
 .kx-arch-journey__label {
-  font-family: var(--font-display);
-  font-size: 1.0625rem;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-ui);
+  line-height: 1.2;
 }
 
 .kx-arch-journey__connector {
@@ -427,10 +428,10 @@ html[data-theme="dark"] .kx-domain-card--research .kx-domain-card__action {
 
 .kx-domain-card__title {
   margin: 0;
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: clamp(1.75rem, 3vw, 2.25rem);
-  font-weight: 600;
-  letter-spacing: -0.03em;
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-heading);
 }
 
 .kx-domain-card__purpose {
@@ -566,10 +567,10 @@ html[data-theme="dark"] .kx-domain-card--research .kx-domain-card__action {
 }
 
 .kx-domain-map__label {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: 1.375rem;
-  font-weight: 600;
-  letter-spacing: -0.02em;
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-heading);
 }
 
 .kx-domain-map__bridge {
@@ -650,9 +651,10 @@ html[data-theme="dark"] .kx-domain-card--research .kx-domain-card__action {
 }
 
 .kx-status__label {
-  font-family: var(--font-display);
-  font-size: 1.125rem;
-  font-weight: 600;
+  font-family: var(--font-sans);
+  font-size: var(--text-md);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-ui);
 }
 
 .kx-status__state {
@@ -720,10 +722,10 @@ html[data-theme="dark"] .kx-domain-card--research .kx-domain-card__action {
 
 .kx-concept-card__title {
   margin: 0;
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: 1.375rem;
-  font-weight: 600;
-  letter-spacing: -0.02em;
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-heading);
 }
 
 .kx-concept-card__note {
@@ -772,10 +774,10 @@ html[data-theme="dark"] .kx-domain-card--research .kx-domain-card__action {
 }
 
 .kx-continue__title {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: 1.375rem;
-  font-weight: 600;
-  letter-spacing: -0.02em;
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-heading);
 }
 
 .kx-continue__detail {

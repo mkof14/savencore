@@ -704,7 +704,7 @@
   margin: 0 0 var(--space-16);
   font-size: clamp(1.5rem, 2.5vw, 2rem);
   font-weight: 600;
-  letter-spacing: -0.03em;
+  letter-spacing: var(--tracking-heading);
   line-height: 1.15;
   color: var(--color-text);
 }
@@ -1160,10 +1160,10 @@
 
 .knowledge-hero__domain {
   margin: var(--space-16) 0 var(--space-8);
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: 1rem;
   font-weight: 600;
-  letter-spacing: -0.02em;
+  letter-spacing: var(--tracking-heading);
   text-transform: none;
   color: inherit;
   opacity: 0.72;
@@ -1182,7 +1182,7 @@
 .knowledge-hero__title {
   margin: 0;
   max-width: 16ch;
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: clamp(2.5rem, 5.5vw, 3.75rem);
   font-weight: 600;
   letter-spacing: -0.035em;
@@ -1363,10 +1363,10 @@
 }
 
 .knowledge-hero--systems .signal-diagram__hub-label {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: 1.5rem;
   font-weight: 600;
-  letter-spacing: -0.03em;
+  letter-spacing: var(--tracking-heading);
   color: #172554;
 }
 
@@ -1480,10 +1480,10 @@
     rgba(255, 255, 255, 0.06),
     rgba(255, 255, 255, 0.14)
   );
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: 1.25rem;
   font-weight: 600;
-  letter-spacing: -0.02em;
+  letter-spacing: var(--tracking-heading);
   color: #eef6f1;
 }
 
@@ -1542,7 +1542,7 @@
   place-items: center;
   text-align: center;
   padding: var(--space-16);
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: 1.125rem;
   font-weight: 600;
 }
@@ -1615,7 +1615,7 @@
   flex-wrap: wrap;
   gap: var(--space-12);
   align-items: baseline;
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: 1.25rem;
 }
 
@@ -1940,7 +1940,7 @@
   margin: 0 0 var(--space-12);
   font-size: 1.25rem;
   font-weight: 600;
-  letter-spacing: -0.02em;
+  letter-spacing: var(--tracking-heading);
   color: var(--color-text);
 }
 

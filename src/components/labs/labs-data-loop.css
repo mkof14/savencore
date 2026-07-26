@@ -32,18 +32,19 @@
 }
 
 .ldl__title {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: clamp(1.35rem, 2.6vw, 1.75rem);
-  font-weight: 550;
-  letter-spacing: -0.02em;
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-heading);
   color: var(--color-text);
-  line-height: 1.2;
+  line-height: 1.22;
   margin-block-end: 0.5rem;
 }
 
 .ldl__lede {
-  font-size: 1.02rem;
-  line-height: 1.55;
+  font-size: var(--text-md);
+  line-height: var(--leading-body);
+  letter-spacing: var(--tracking-body);
   color: var(--color-text-secondary);
 }
 
@@ -169,6 +170,7 @@
   font-family: var(--font-sans);
   font-size: 14px;
   font-weight: 600;
+  letter-spacing: -0.01em;
   fill: var(--ldl-ink-lite);
 }
 
@@ -178,7 +180,7 @@
 
 .ldl__node-label--saven {
   font-size: 16px;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.02em;
   fill: #fff8e8;
   paint-order: stroke fill;
   stroke: color-mix(in srgb, #0b1220 55%, transparent);
@@ -187,7 +189,8 @@
 
 .ldl__node-sub {
   font-family: var(--font-sans);
-  font-size: 10.5px;
+  font-size: 11.5px;
+  letter-spacing: 0;
   fill: color-mix(in srgb, var(--ldl-ink-lite) 72%, var(--ldl-gold));
 }
 
@@ -226,9 +229,9 @@
 
 .ldl__cluster-title {
   font-family: var(--font-sans);
-  font-size: 12px;
+  font-size: 12.5px;
   font-weight: 600;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.01em;
   fill: color-mix(in srgb, var(--ldl-ink-lite) 78%, var(--ldl-gold));
 }
 
@@ -241,7 +244,8 @@
 .ldl__device-label {
   font-family: var(--font-sans);
   font-size: 13px;
-  font-weight: 550;
+  font-weight: 600;
+  letter-spacing: -0.01em;
   fill: var(--ldl-ink-lite);
 }
 
@@ -280,8 +284,9 @@
 
 .ldl__cue {
   font-family: var(--font-sans);
-  font-size: 11px;
+  font-size: 11.5px;
   font-weight: 500;
+  letter-spacing: 0;
   fill: color-mix(in srgb, var(--ldl-ink-lite) 82%, var(--ldl-blue-soft));
 }
 

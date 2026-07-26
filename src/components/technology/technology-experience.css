@@ -73,9 +73,9 @@
 }
 
 .tech-x-hero__domain {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-weight: 600;
-  letter-spacing: -0.02em;
+  letter-spacing: var(--tracking-heading);
 }
 
 .tech-x-hero__scope {
@@ -91,10 +91,10 @@
 
 .tech-x-hero__title {
   margin: 0;
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: clamp(2rem, 4.2vw, 3.35rem);
   font-weight: 600;
-  letter-spacing: -0.04em;
+  letter-spacing: var(--tracking-heading);
   line-height: 1.02;
   color: #f4fbfc;
   max-width: 18ch;
@@ -129,7 +129,7 @@
 }
 
 .tech-x-strata__caption strong {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-weight: 600;
   color: #e8f3f5;
 }
@@ -192,10 +192,10 @@
 }
 
 .tech-x-strata__name {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: clamp(1.5rem, 3vw, 2.25rem);
   font-weight: 600;
-  letter-spacing: -0.03em;
+  letter-spacing: var(--tracking-heading);
 }
 
 .tech-x-strata__role {
@@ -227,7 +227,7 @@
 }
 
 .tech-x-strata__outlet-mark {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: 1.125rem;
   font-weight: 600;
 }
@@ -248,7 +248,7 @@
 .tech-x-idea__text {
   margin: 0;
   max-width: 18ch;
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: clamp(1.75rem, 3.5vw, 2.75rem);
   font-weight: 600;
   letter-spacing: -0.035em;
@@ -287,10 +287,10 @@
 
 .tech-x-gallery__title {
   margin: 0;
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: clamp(1.75rem, 3vw, 2.5rem);
   font-weight: 600;
-  letter-spacing: -0.03em;
+  letter-spacing: var(--tracking-heading);
 }
 
 .tech-x-gallery__rail {
@@ -337,7 +337,7 @@
 
 .tech-x-gallery__name {
   margin: 0;
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: 1.5rem;
   font-weight: 600;
   letter-spacing: -0.025em;
@@ -366,10 +366,10 @@
 
 .tech-x-principles__title {
   margin: 0 0 var(--space-48);
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: clamp(1.75rem, 3vw, 2.25rem);
   font-weight: 600;
-  letter-spacing: -0.03em;
+  letter-spacing: var(--tracking-heading);
 }
 
 .tech-x-principles__list {
@@ -403,10 +403,10 @@
 
 .tech-x-principles__name {
   margin: 0 0 var(--space-8);
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: 1.25rem;
   font-weight: 600;
-  letter-spacing: -0.02em;
+  letter-spacing: var(--tracking-heading);
 }
 
 .tech-x-principles__text {
@@ -434,7 +434,7 @@
 .tech-x-next__title {
   margin: 0;
   max-width: 16ch;
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 600;
   letter-spacing: -0.035em;

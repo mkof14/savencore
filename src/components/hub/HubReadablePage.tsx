@@ -4,6 +4,7 @@ import Link from "next/link";
 import { HubStoryIcon } from "@/components/hub/HubStoryIcon";
 import { LabsDataLoop } from "@/components/labs/LabsDataLoop";
 import type { Locale } from "@/config/locales";
+import { SITE_FALCON_MARK_PATH } from "@/config/site";
 import type { HubPageContent } from "@/content/hub/types";
 import { getUi } from "@/i18n/ui";
 import { localizePath } from "@/navigation/locale-path";
@@ -70,6 +71,18 @@ export function HubReadablePage({ locale, content }: HubReadablePageProps) {
         ) : (
           <div className="hub-page__masthead-field" aria-hidden="true" />
         )}
+
+        {/* Approved brand falcon mark — quiet domain seal (D-0179); not a hero replacement */}
+        <div className="hub-page__falcon" aria-hidden="true">
+          <Image
+            src={SITE_FALCON_MARK_PATH}
+            alt=""
+            width={72}
+            height={97}
+            className="hub-page__falcon-mark"
+            draggable={false}
+          />
+        </div>
 
         <div className="hub-page__masthead-copy hub-page__inner">
           <p className="hub-page__label">{content.label}</p>

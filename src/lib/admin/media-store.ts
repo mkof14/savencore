@@ -22,7 +22,7 @@ const SEED_ITEMS: readonly MediaItem[] = [
     createdAt: "2026-07-26T00:00:00.000Z",
     source: "seed",
     publicPath: "/brand/saven-logo-mark.webp",
-    description: "Brand mark used in site chrome.",
+    description: "Falcon brand mark used in site chrome and domain mastheads.",
   },
   {
     id: "seed-logo-mark-png",
@@ -33,7 +33,7 @@ const SEED_ITEMS: readonly MediaItem[] = [
     createdAt: "2026-07-26T00:00:00.000Z",
     source: "seed",
     publicPath: "/brand/saven-logo-mark.png",
-    description: "Email-safe PNG brand mark for templates and mailings.",
+    description: "Email-safe PNG falcon brand mark for templates and mailings.",
   },
   {
     id: "seed-og-default",
@@ -44,7 +44,7 @@ const SEED_ITEMS: readonly MediaItem[] = [
     createdAt: "2026-07-26T00:00:00.000Z",
     source: "seed",
     publicPath: "/brand/og-default.png",
-    description: "Default social sharing image for the public site.",
+    description: "Default social share card — falcon mark + SAVEN Core name (1200×630).",
   },
   {
     id: "seed-favicon",

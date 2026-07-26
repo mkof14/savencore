@@ -163,8 +163,9 @@ export function createHubGenerateMetadata(
       path,
       title: content.title,
       description: description.slice(0, 320),
-      image: content.visual?.mastheadImage || SITE_OG_IMAGE_PATH,
-      imageAlt: content.visual?.mastheadAlt || content.title,
+      // Sitewide share card: logo + SAVEN Core (D-0179). Do not substitute mastheads.
+      image: SITE_OG_IMAGE_PATH,
+      imageAlt: SITE_OG_IMAGE_ALT,
       ...(options?.noIndex ? { noIndex: true } : {}),
     });
   };

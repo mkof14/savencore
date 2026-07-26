@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-26 (D-0178 — Admin Platform expansion + branded email templates)
+**Last updated:** 2026-07-26 (D-0179 — Falcon domain presence + OG share defaults)
 
 ## Rules
 
@@ -194,6 +194,7 @@
 | D-0176 | 2026-07-26 | Admin Platform / Social footer — first vertical slice | Active |
 | D-0177 | 2026-07-26 | Owner always super_admin via demo operator / dev defaults | Active |
 | D-0178 | 2026-07-26 | Admin Platform expansion + branded email templates | Active |
+| D-0179 | 2026-07-26 | Falcon domain presence + OG share defaults | Active |
 
 ---
 
@@ -1582,6 +1583,15 @@
 - **In scope:** Email brand chrome; admin pages/APIs/nav/i18n; permission matrix; operators/invitations/notifications/mailings stores; optional SMTP helper; `docs/ADMIN_PLATFORM.md`; D-0178 + AGENTS phase pointer; `tsc`/smoke; commit/push/deploy.
 - **Out of scope:** Inventing customers/metrics/ROI; neon; durable S3/DB; fabricating SMTP delivery success without SMTP; changing public IA/heroes; final legal prose.
 - **Implications:** On Vercel (read-only FS), JSON persistence may be unavailable until durable storage — UI must stay honest. SMTP is optional; simulated send must never claim real delivery.
+
+### D-0179 — Falcon domain presence + OG share defaults
+
+- **Date:** 2026-07-26
+- **Status:** Active
+- **Decision:** Owner authorizes (1) **Falcon brand presence on domain pages** — the approved SAVEN brand mark in `public/brand/saven-logo-mark.webp` (and PNG companion) is the project falcon mark; place it tastefully as a quiet seal on Layer-1 / domain visual mastheads (`HubReadablePage`), straight corners, no neon, without replacing Purpose collage or frozen heroes (D-0175). No invented stock falcon photography. (2) **Sitewide Open Graph / Twitter share defaults** — when any public URL is shared, previews must show the SAVEN falcon logo + site name **SAVEN Core**: `metadataBase` `https://www.savencore.com`, `og:site_name` = SAVEN Core, `og:title` / Twitter title from page title, `og:image` = absolute `/brand/og-default.png` (1200×630 branded canvas with mark + name), `twitter:card` = `summary_large_image`. Page-level metadata may override title/description but must keep the default share image and site name (do not substitute thematic mastheads as OG images).
+- **In scope:** Domain masthead falcon seal + CSS; regenerate `public/brand/og-default.png` (+ webp); SEO metadata helper defaults; media-store seed descriptions; D-0179 + AGENTS phase pointer; smoke `/en/` meta + OG image HTTP 200; commit/push; production deploy.
+- **Out of scope:** Invented falcon photography/stock; changing Purpose collage or home hero; inventing company facts; neon/glow decoration; CMS/analytics.
+- **Implications:** Extends D-0169 SEO/share surface. Social crawlers cache OG images — cache bust may take time after deploy.
 
 ## Pending Owner Decisions
 

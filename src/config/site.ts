@@ -14,8 +14,11 @@ export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
   "https://www.savencore.com";
 
+/** Default Open Graph / Twitter share image — logo + site name on brand canvas. */
 export const SITE_OG_IMAGE_PATH = "/brand/og-default.png";
 export const SITE_OG_IMAGE_ALT = "SAVEN Core";
+/** Approved falcon brand mark used in chrome and domain mastheads. */
+export const SITE_FALCON_MARK_PATH = "/brand/saven-logo-mark.webp";
 
 export const SITE_THEME_COLOR_LIGHT = "#f4f6f8";
 export const SITE_THEME_COLOR_DARK = "#0b1220";

@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-26 (D-0171 — Full light/dark theme coverage)
+**Last updated:** 2026-07-26 (D-0172 — Theme plane completion — unfreeze home/care/closing)
 
 ## Rules
 
@@ -183,7 +183,8 @@
 | D-0168 | 2026-07-26 | Typography system — Apple-like clarity sitewide | Active |
 | D-0169 | 2026-07-26 | Visible Apple-clean Inter webfont + sans titles | Active |
 | D-0170 | 2026-07-26 | Theme contrast fix — home hero/care + dark chrome | Superseded for chrome/care by D-0171 |
-| D-0171 | 2026-07-26 | Full light/dark theme coverage — chrome + content planes | Active |
+| D-0171 | 2026-07-26 | Full light/dark theme coverage — chrome + content planes | Partially superseded by D-0172 for home shell/closing |
+| D-0172 | 2026-07-26 | Theme plane completion — unfreeze home/care/closing/labs surround | Active |
 | D-0161 | 2026-07-26 | Full page-body localization (10 locales) + cleanup + Vercel prep | Active |
 | D-0162 | 2026-07-26 | PWA + SEO / security headers / marketing surface prep | Active |
 | D-0163 | 2026-07-26 | Credentials sign-in form + show password + Google | Active |
@@ -1504,11 +1505,20 @@
 ### D-0171 — Full light/dark theme coverage
 
 - **Date:** 2026-07-26
-- **Status:** Active
+- **Status:** Partially superseded by D-0172 for home shell / closing exceptions
 - **Decision:** Owner reports that not everything switches when toggling light/dark (D-0170 only repaired hero H1 contrast and kept care + header/footer locked). Authorize **full theme coverage**: (1) **Light theme** = light page backgrounds, surfaces, text, borders, cards/story-bands, care living plane, hub/domain bodies, labs surround chrome, auth (light paper card), and **light header/footer/menus** (Apple-like); logo ink navy on light chrome. (2) **Dark theme** = dark page + dark chrome (navy header/footer) with light ink / bright gold; logo white on dark chrome. (3) **Intentional exceptions** that stay atmospheric in both themes: photoreal home hero collage, domain/hub mastheads and other dark photo heroes, homepage closing meaning band, Labs diagram stage (navy canvas). Surrounding page chrome and body planes must still flip. (4) Prefer CSS variables (`--color-background`, `--color-surface`, `--color-surface-muted`, `--color-text`, `--color-text-secondary`, `--color-border`, footer-scoped `--footer-*`, auth-scoped `--auth-*`). (5) Bump service worker cache to `savencore-shell-v4`. Supersedes D-0170 items that forced care/header/footer to ignore theme.
 - **In scope:** `globals.css`, `site-shell.css`, `experience.css`, `physical-world-home.css`, `sign-in.css`, `saven-logo.css`, `layer1-hub.css`, `engineering.css` token sweep; `public/sw.js`; D-0171 + AGENTS phase pointer; Playwright screenshots `tmp/theme-full/`; `tsc`; smoke; commit/push; production deploy.
 - **Out of scope:** New theme palettes beyond existing tokens; neon; inventing content; changing BrandName structure; final legal prose; CMS; inventing leaf pages.
 - **Implications:** Theme toggle must visibly flip the whole site except documented atmospheric photo/diagram exceptions; light mode header/footer are no longer always-dark.
+
+### D-0172 — Theme plane completion (unfreeze home / care / closing)
+
+- **Date:** 2026-07-26
+- **Status:** Active
+- **Decision:** Owner reports D-0171 incomplete — not all backgrounds flip. Root cause: `.pw-home` forced `#0b1220` / light ink for the entire homepage shell, so care and closing could not read as theme surfaces. Authorize completion: (1) `.pw-home` uses `var(--color-background)` / `var(--color-text)`. (2) **Only** `.pw-hero` (+ collage) stays dark atmospheric with light copy in both themes. (3) Care living plane (`.pw-living-block`) and closing band (`.pw-closing`) follow theme surfaces; fades use `--color-surface` / `--color-background` (supersedes D-0171 closing-as-always-dark exception). Photo asset itself may remain. (4) Labs `.ldl` outer surround follows theme; only `.ldl__stage` stays navy canvas. (5) Auth page atmosphere + Google button use theme tokens. (6) Hub body/path placeholders use `--color-surface-muted` (mastheads stay dark photo). (7) Bump SW cache to `savencore-shell-v5`.
+- **In scope:** `physical-world-home.css`, `labs-data-loop.css`, `sign-in.css`, `layer1-hub.css`, `public/sw.js`, D-0172 + AGENTS phase pointer; Playwright full-page home light/dark under `tmp/theme-bg/`; `tsc`; local `npm run dev`; commit/push for sync (Vercel deploy optional this turn).
+- **Out of scope:** New palettes; neon; inventing content; final legal prose; CMS; changing masthead/hero collage atmospheric treatment.
+- **Implications:** Theme toggle must visibly flip home care + closing + page shell + labs surround; frozen light-care / black-home shells are prohibited.
 
 ## Pending Owner Decisions
 

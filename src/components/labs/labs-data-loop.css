@@ -13,17 +13,17 @@
 
   margin-block: 0.85rem clamp(1.75rem, 4vh, 2.75rem);
   padding: clamp(1.25rem, 3vw, 1.85rem);
-  background:
-    linear-gradient(
-      155deg,
-      color-mix(in srgb, var(--color-surface) 78%, #1a2f4a) 0%,
-      color-mix(in srgb, var(--color-surface) 90%, #152033) 42%,
-      color-mix(in srgb, var(--color-surface) 86%, var(--ldl-gold)) 100%
-    );
-  border: 1px solid color-mix(in srgb, var(--color-border) 55%, var(--ldl-gold));
+  /* Outer surround follows site theme; only .ldl__stage stays navy (D-0172). */
+  background: linear-gradient(
+    155deg,
+    var(--color-surface) 0%,
+    color-mix(in srgb, var(--color-surface) 92%, var(--color-background)) 48%,
+    color-mix(in srgb, var(--color-surface) 94%, var(--ldl-gold)) 100%
+  );
+  border: 1px solid color-mix(in srgb, var(--color-border) 70%, var(--ldl-gold));
   box-shadow:
-    0 1px 0 color-mix(in srgb, var(--ldl-gold) 22%, transparent),
-    0 12px 28px color-mix(in srgb, var(--ldl-navy) 8%, transparent);
+    0 1px 0 color-mix(in srgb, var(--ldl-gold) 18%, transparent),
+    0 12px 28px color-mix(in srgb, var(--color-ink-fixed) 6%, transparent);
 }
 
 .ldl__header {

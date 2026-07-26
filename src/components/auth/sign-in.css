@@ -338,8 +338,8 @@ html[dir="rtl"] .auth-sign-in__back-arrow {
   min-height: 3.25rem;
   padding: var(--space-12) var(--space-20);
   border: 1px solid var(--auth-field-border);
-  background: #ffffff;
-  color: #1f1f1f;
+  background: var(--color-surface);
+  color: var(--color-text);
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
@@ -351,7 +351,7 @@ html[dir="rtl"] .auth-sign-in__back-arrow {
 .auth-sign-in__google:hover:not(:disabled),
 .auth-sign-in__google:focus-visible:not(:disabled) {
   border-color: var(--color-accent);
-  background: #f7f7f7;
+  background: var(--color-surface-muted);
 }
 
 .auth-sign-in__google:disabled {
@@ -359,7 +359,7 @@ html[dir="rtl"] .auth-sign-in__back-arrow {
   cursor: not-allowed;
 }
 
-/* Dark theme — keep branded atmospheric panel */
+/* Dark theme — branded atmospheric panel on theme page background */
 html[data-theme="dark"] .auth-sign-in {
   --auth-ink: #eef3f7;
   --auth-ink-soft: color-mix(in srgb, #eef3f7 78%, transparent);
@@ -370,12 +370,12 @@ html[data-theme="dark"] .auth-sign-in {
     color-mix(in srgb, #1a2438 94%, var(--color-accent)) 0%,
     #121a2a 100%
   );
-  --auth-field-bg: color-mix(in srgb, #0b1220 70%, #152033);
+  --auth-field-bg: color-mix(in srgb, var(--color-background) 70%, #152033);
   --auth-field-border: color-mix(in srgb, #eef3f7 18%, transparent);
-  --auth-error-bg: color-mix(in srgb, #0b1220 55%, #2a1820);
+  --auth-error-bg: color-mix(in srgb, var(--color-background) 55%, #2a1820);
   --auth-error-ink: #f5e6e3;
-  --auth-atmosphere: #0b1220;
-  background: #0b1220;
+  --auth-atmosphere: var(--color-background);
+  background: var(--color-background);
   color: #eef3f7;
 }
 
@@ -391,7 +391,22 @@ html[data-theme="dark"] .auth-sign-in__glow {
       color-mix(in srgb, #3d5a80 35%, transparent) 0%,
       transparent 60%
     ),
-    linear-gradient(180deg, #0f1728 0%, #0b1220 55%, #080e18 100%);
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--color-surface) 80%, #0f1728) 0%,
+      var(--color-background) 55%,
+      color-mix(in srgb, var(--color-background) 88%, #080e18) 100%
+    );
+}
+
+html[data-theme="dark"] .auth-sign-in__google {
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+html[data-theme="dark"] .auth-sign-in__google:hover:not(:disabled),
+html[data-theme="dark"] .auth-sign-in__google:focus-visible:not(:disabled) {
+  background: var(--color-surface-muted);
 }
 
 html[data-theme="dark"] .auth-sign-in__grain {

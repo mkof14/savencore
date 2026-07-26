@@ -320,7 +320,7 @@
 }
 
 html[data-theme="dark"] .hub-page__scene-media {
-  background: #152033;
+  background: var(--color-surface-muted);
 }
 
 .hub-page__scene-image {
@@ -429,7 +429,7 @@ html[data-theme="dark"] .hub-page__scene-media {
 }
 
 html[data-theme="dark"] .hub-page__path-thumb {
-  background: #152033;
+  background: var(--color-surface-muted);
 }
 
 .hub-page__path-thumb-image {

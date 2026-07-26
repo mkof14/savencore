@@ -126,17 +126,17 @@ export const DOMAIN_MASTHEAD_BY_HREF: Record<string, DomainMastheadVisual> = {
   "/labs/": {
     theme: "labs",
     mastheadImage: "/domain/labs/overview.webp",
-    mastheadAlt: "Labs and engineering research atmosphere",
+    mastheadAlt: "Assistive robot helping a person stand with caregiver oversight",
   },
   "/labs/saven-robotics-lab/": {
     theme: "labs",
     mastheadImage: "/domain/labs/saven-robotics-lab.webp",
-    mastheadAlt: "SAVEN Robotics Lab engineering context",
+    mastheadAlt: "Robotic manipulator assisting with care while a person stays present",
   },
   "/labs/internal-future-lab/": {
     theme: "labs",
     mastheadImage: "/domain/labs/internal-future-lab.webp",
-    mastheadAlt: "Internal Future Lab research environment",
+    mastheadAlt: "Researchers exploring advanced robotics in a calm lab",
   },
 
   /* ——— Applications (reuse care assets where thematically perfect) ——— */

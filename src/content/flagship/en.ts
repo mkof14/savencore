@@ -32,10 +32,10 @@ export const roboticsLabPageEn: FlagshipBrochureContent = {
   kicker: "SAVEN Core",
   title: "SAVEN Robotics Lab",
   status: "In Development",
-  lede: "The primary engineering direction for robotic systems that sense, move, and act in the physical world — under clear human oversight.",
+  lede: "The primary engineering direction for robotic systems that sense, move, and act beside people — mobility, manipulators, and perception under clear human oversight.",
   body: [
-    "SAVEN Robotics Lab is where SAVEN Core builds the engineering basis for robots meant to support people in real environments: hospitals, homes, and everyday settings where life happens.",
-    "The Lab unites platforms, mobility, control, perception, and human–machine interaction as one coherent direction. Public status is In Development — architecture and systems work presented with confidence, not as commercial deployment.",
+    "SAVEN Robotics Lab builds the engineering basis for robots and manipulators meant to help people in real places: standing support, careful object handling, and calm assistance in homes and care settings — always with people remaining in authority.",
+    "Platforms, mobility, control, perception, and human–machine interaction advance as one direction. Public status is In Development: architecture and systems work presented honestly — not as operational hospital fleets or commercial products.",
   ],
   listHeading: "Focus areas",
   items: [
@@ -49,12 +49,12 @@ export const roboticsLabPageEn: FlagshipBrochureContent = {
     {
       id: "what",
       title: "What we build",
-      text: "Engineering for robotic systems, mobility, control, perception, and human–machine interaction.",
+      text: "Engineering for assistive robots, manipulators, mobility, control, perception, and human–machine interaction.",
     },
     {
       id: "why",
       title: "How it helps people",
-      text: "Physical assistance where care is hard: hospitals, homes, and everyday life — with oversight kept central.",
+      text: "Physical help where care is hard — standing, reaching, moving, and everyday tasks — with oversight kept central.",
     },
     {
       id: "next",
@@ -138,14 +138,14 @@ export const roboticsInterfacePageEn: FlagshipPageContent = {
   ],
 };
 
-export const futureLabPageEn: FlagshipPageContent = {
+export const futureLabPageEn: FlagshipBrochureContent = {
   kicker: "SAVEN Core",
   title: "Internal Future Lab",
   status: "Research",
-  lede: "The research environment of SAVEN Core — exploring advanced robotics, embodied AI, and non-standard engineering concepts.",
+  lede: "The research environment of SAVEN Core — exploring advanced robotics, embodied AI, and new ways machines might carefully support human life.",
   body: [
-    "Internal Future Lab looks ahead of near-term systems work: new forms of robotics, sensing, modeling, and human–machine collaboration.",
-    "Findings inform Lab and Interface directions. Research status means exploration and architecture — not product claims.",
+    "Internal Future Lab looks ahead of near-term systems work: new forms of robotics and manipulators, richer sensing, physical-environment modeling, and human–machine collaboration that could one day ease care in homes, clinics, and everyday places.",
+    "Findings inform Robotics Lab and Interface directions. Research status means exploration and architecture — open questions, not validated devices or deployed products.",
   ],
   listHeading: "Research directions",
   items: [
@@ -159,6 +159,48 @@ export const futureLabPageEn: FlagshipPageContent = {
     "Technologies for future infrastructure",
     "Non-standard engineering concepts",
   ],
+  highlights: [
+    {
+      id: "what",
+      title: "What this is",
+      text: "A research environment for advanced robotics, embodied AI, and non-standard engineering concepts.",
+    },
+    {
+      id: "why",
+      title: "Why it matters",
+      text: "Tomorrow’s physical assistance needs careful exploration before it can serve people with dignity.",
+    },
+    {
+      id: "next",
+      title: "Status",
+      text: "Research. Exploration and architecture — not product or clinical claims.",
+    },
+  ],
+  sections: [
+    {
+      id: "directions",
+      title: "Research directions",
+      items: [
+        "Advanced forms of robotics",
+        "Embodied AI",
+        "Autonomous decision-making",
+        "Human–machine interaction",
+        "New sensor systems",
+        "Modeling of physical environments",
+        "Robotics for medicine",
+        "Technologies for future infrastructure",
+        "Non-standard engineering concepts",
+      ],
+    },
+    {
+      id: "human-horizon",
+      title: "Human horizon",
+      paragraphs: [
+        "Future concepts are judged by whether they could later help people — caregivers, families, and individuals — without replacing human judgment or inventing deployment stories.",
+        "Work stays upstream of SAVEN Robotics Lab so promising ideas can mature into governable engineering directions.",
+      ],
+    },
+  ],
   note: "Research material describes open questions and directions. It does not claim validated medical devices or deployed infrastructure systems.",
   related: [
     { label: "Research", href: "/research/" },
@@ -171,10 +213,10 @@ export const labsHubPageEn: FlagshipBrochureContent = {
   kicker: "SAVEN Core",
   title: "Labs",
   status: "In Development",
-  lede: "Where SAVEN Core shapes robotics and future systems for the physical world — engineering labs beside a human command interface.",
+  lede: "Where SAVEN Core shapes robotics and future systems that help people in the physical world — engineering labs beside a human command interface.",
   body: [
-    "Labs are focused engineering and research environments. SAVEN Robotics Lab is the primary engineering direction; Internal Future Lab explores what comes next.",
-    "The SAVEN Robotics Interface sits alongside them so people stay in command of machines as capability grows.",
+    "Labs are focused engineering and research environments for machines that can sense, move, and assist. SAVEN Robotics Lab is the primary engineering direction; Internal Future Lab explores what comes next.",
+    "Human context from the Human Data Model flows into SAVEN, which prepares roles, events, and real actions for executive devices — robots, manipulators, sensors — then collects what happens and processes it again. When needed, understanding rises to BioMath Core. The SAVEN Robotics Interface keeps people in command as capability grows.",
   ],
   listHeading: "Labs",
   items: [
@@ -185,7 +227,7 @@ export const labsHubPageEn: FlagshipBrochureContent = {
     {
       id: "what",
       title: "What this is",
-      text: "Engineering and research labs for robotics and future physical systems.",
+      text: "Engineering and research labs for robotics that help people — and for future physical systems.",
     },
     {
       id: "why",

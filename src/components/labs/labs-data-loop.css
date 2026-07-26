@@ -1,0 +1,363 @@
+/* Labs data/action loop — modern composition, no neon HUD (D-0166) */
+
+.ldl {
+  margin-block: clamp(1.75rem, 4vh, 2.75rem) clamp(2rem, 5vh, 3.25rem);
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  background:
+    linear-gradient(
+      165deg,
+      color-mix(in srgb, var(--color-surface) 92%, #1e3a5f) 0%,
+      var(--color-surface) 48%,
+      color-mix(in srgb, var(--color-surface) 94%, var(--color-accent)) 100%
+    );
+  border: 1px solid color-mix(in srgb, var(--color-border) 80%, var(--color-accent));
+  box-shadow: 0 1px 0 color-mix(in srgb, var(--color-accent) 18%, transparent);
+}
+
+.ldl__header {
+  max-width: 42rem;
+  margin-block-end: 1.25rem;
+}
+
+.ldl__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2.6vw, 1.75rem);
+  font-weight: 550;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  line-height: 1.2;
+  margin-block-end: 0.5rem;
+}
+
+.ldl__lede {
+  font-size: 1.02rem;
+  line-height: 1.55;
+  color: var(--color-text-secondary);
+}
+
+.ldl__stage {
+  position: relative;
+  overflow: visible;
+  background:
+    radial-gradient(
+      70% 60% at 50% 45%,
+      color-mix(in srgb, #1e3a5f 10%, transparent) 0%,
+      transparent 70%
+    ),
+    color-mix(in srgb, var(--color-background) 70%, var(--color-surface));
+  border: 1px solid var(--color-border);
+}
+
+.ldl__svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.ldl__atmosphere {
+  fill: color-mix(in srgb, #1e3a5f 7%, transparent);
+}
+
+.ldl__atmosphere--b {
+  fill: color-mix(in srgb, var(--color-accent) 8%, transparent);
+}
+
+.ldl__path {
+  fill: none;
+  stroke: color-mix(in srgb, #1e3a5f 42%, var(--color-border));
+  stroke-width: 1.5;
+  stroke-linecap: square;
+}
+
+.ldl__path--ingress {
+  stroke: color-mix(in srgb, #0f4c5c 55%, var(--color-border));
+}
+
+.ldl__path--out,
+.ldl__path--fan {
+  stroke: color-mix(in srgb, var(--color-accent) 50%, #1e3a5f);
+}
+
+.ldl__path--return {
+  stroke: color-mix(in srgb, #0f4c5c 45%, var(--color-border));
+  stroke-dasharray: 5 4;
+}
+
+.ldl__path--ascent {
+  stroke: color-mix(in srgb, var(--color-accent-text) 55%, var(--color-border));
+  stroke-width: 1.25;
+  stroke-dasharray: 3 5;
+  opacity: 0.7;
+}
+
+.ldl__node-plate {
+  fill: var(--color-surface);
+  stroke: var(--color-border);
+  stroke-width: 1.25;
+}
+
+.ldl__node-plate--saven {
+  fill: color-mix(in srgb, var(--color-surface) 88%, #0b1220);
+  stroke: color-mix(in srgb, var(--color-accent) 55%, var(--color-border));
+  stroke-width: 1.5;
+}
+
+.ldl__node--biomath .ldl__node-plate {
+  fill: color-mix(in srgb, var(--color-surface) 92%, #1e3a5f);
+  stroke: color-mix(in srgb, #1e3a5f 35%, var(--color-border));
+}
+
+.ldl__node--hdm .ldl__node-plate {
+  fill: color-mix(in srgb, var(--color-surface) 90%, #0f4c5c);
+  stroke: color-mix(in srgb, #0f4c5c 40%, var(--color-border));
+}
+
+.ldl__node-label {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  fill: var(--color-text);
+}
+
+.ldl__node-label--saven {
+  font-size: 16px;
+  letter-spacing: 0.04em;
+  fill: #eef3f7;
+}
+
+.ldl__node-sub {
+  font-family: var(--font-sans);
+  font-size: 10.5px;
+  fill: var(--color-text-secondary);
+}
+
+.ldl__saven-ring {
+  fill: none;
+  stroke: color-mix(in srgb, var(--color-accent) 70%, transparent);
+  stroke-width: 1.5;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.ldl__saven-core {
+  fill: color-mix(in srgb, #0b1220 88%, var(--color-accent));
+}
+
+.ldl__cluster-plate {
+  fill: color-mix(in srgb, var(--color-surface) 85%, #152033);
+  stroke: color-mix(in srgb, var(--color-accent) 30%, var(--color-border));
+  stroke-width: 1.25;
+  opacity: 0.95;
+}
+
+.ldl__cluster-title {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  fill: var(--color-text-secondary);
+}
+
+.ldl__device-plate {
+  fill: var(--color-surface);
+  stroke: var(--color-border);
+  stroke-width: 1;
+}
+
+.ldl__device-dot {
+  fill: var(--color-accent);
+}
+
+.ldl__device-label {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 550;
+  fill: var(--color-text);
+}
+
+.ldl__cue {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  fill: var(--color-text-secondary);
+}
+
+.ldl__cue--ascent {
+  fill: var(--color-accent-text);
+  font-size: 10.5px;
+}
+
+.ldl__particle {
+  fill: var(--color-accent);
+  opacity: 0.9;
+}
+
+.ldl__particle--a,
+.ldl__particle--b,
+.ldl__particle--e,
+.ldl__particle--f {
+  fill: #0f4c5c;
+}
+
+.ldl__particle--ascent {
+  fill: var(--color-accent-text);
+  opacity: 0.85;
+}
+
+.ldl__note {
+  margin-block-start: 0.85rem;
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: var(--color-text-secondary);
+  max-width: 48rem;
+}
+
+/* Soft pulses when motion is allowed */
+@media (prefers-reduced-motion: no-preference) {
+  .ldl--motion .ldl__saven-ring {
+    animation: ldl-ring 3.6s ease-in-out infinite;
+  }
+
+  .ldl--motion .ldl__saven-core {
+    animation: ldl-core 3.6s ease-in-out infinite;
+  }
+
+  .ldl--motion .ldl__path--ingress,
+  .ldl--motion .ldl__path--out,
+  .ldl--motion .ldl__path--fan {
+    stroke-dasharray: 6 10;
+    animation: ldl-dash 14s linear infinite;
+  }
+
+  .ldl--motion .ldl__path--return {
+    animation: ldl-dash-rev 16s linear infinite;
+  }
+
+  .ldl--motion .ldl__path--ascent {
+    animation: ldl-ascent-path 10s ease-in-out infinite;
+  }
+
+  .ldl--motion .ldl__device-dot {
+    animation: ldl-dot 2.8s ease-in-out infinite;
+  }
+
+  .ldl--motion .ldl__device:nth-child(2) .ldl__device-dot {
+    animation-delay: 0.35s;
+  }
+
+  .ldl--motion .ldl__device:nth-child(3) .ldl__device-dot {
+    animation-delay: 0.7s;
+  }
+
+  .ldl--motion .ldl__device:nth-child(4) .ldl__device-dot {
+    animation-delay: 1.05s;
+  }
+
+  .ldl--motion .ldl__node--biomath .ldl__node-plate {
+    animation: ldl-biomath 10s ease-in-out infinite;
+  }
+}
+
+@keyframes ldl-ring {
+  0%,
+  100% {
+    stroke-opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    stroke-opacity: 1;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes ldl-core {
+  0%,
+  100% {
+    fill: color-mix(in srgb, #0b1220 88%, var(--color-accent));
+  }
+  50% {
+    fill: color-mix(in srgb, #0b1220 72%, var(--color-accent));
+  }
+}
+
+@keyframes ldl-dash {
+  to {
+    stroke-dashoffset: -160;
+  }
+}
+
+@keyframes ldl-dash-rev {
+  to {
+    stroke-dashoffset: 160;
+  }
+}
+
+@keyframes ldl-ascent-path {
+  0%,
+  40%,
+  100% {
+    opacity: 0.35;
+  }
+  55%,
+  70% {
+    opacity: 0.95;
+  }
+}
+
+@keyframes ldl-dot {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes ldl-biomath {
+  0%,
+  45%,
+  100% {
+    stroke: color-mix(in srgb, #1e3a5f 35%, var(--color-border));
+  }
+  55%,
+  70% {
+    stroke: color-mix(in srgb, var(--color-accent) 55%, #1e3a5f);
+  }
+}
+
+html[data-theme="dark"] .ldl {
+  background:
+    linear-gradient(
+      165deg,
+      color-mix(in srgb, var(--color-surface) 90%, #1e3a5f) 0%,
+      var(--color-surface) 50%,
+      color-mix(in srgb, var(--color-surface) 92%, var(--color-accent)) 100%
+    );
+}
+
+html[data-theme="dark"] .ldl__node-plate,
+html[data-theme="dark"] .ldl__device-plate {
+  fill: var(--color-surface);
+}
+
+html[data-theme="dark"] .ldl__node-label--saven {
+  fill: #eef3f7;
+}
+
+html[data-theme="dark"] .ldl__cluster-plate {
+  fill: color-mix(in srgb, var(--color-surface) 80%, #0b1220);
+}
+
+@media (max-width: 720px) {
+  .ldl {
+    padding: 1rem;
+  }
+
+  .ldl__cue {
+    font-size: 9.5px;
+  }
+
+  .ldl__node-sub {
+    font-size: 9px;
+  }
+}

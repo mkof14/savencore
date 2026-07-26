@@ -251,6 +251,7 @@ export const uiUk: UiMessages = {
     why: "Чому допомагає",
     next: "Далі",
     deeper: "Читати далі",
+    scenes: "Сцени",
   },
 
   pwa: {

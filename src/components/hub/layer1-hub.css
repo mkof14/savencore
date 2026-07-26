@@ -272,6 +272,80 @@
   color: var(--color-text-secondary);
 }
 
+/* ——— Visual scenes (Labs — D-0166) ——— */
+
+.hub-page__scenes {
+  margin-block: 0 clamp(2.25rem, 5vw, 3.5rem);
+}
+
+.hub-page__scene-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.hub-page__scene {
+  display: grid;
+  gap: var(--space-16);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  overflow: hidden;
+}
+
+@media (min-width: 800px) {
+  .hub-page__scene {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    align-items: stretch;
+    min-height: 16rem;
+  }
+
+  .hub-page__scene:nth-child(even) {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  }
+
+  .hub-page__scene:nth-child(even) .hub-page__scene-media {
+    order: 2;
+  }
+}
+
+.hub-page__scene-media {
+  position: relative;
+  min-height: 14rem;
+  background: #152033;
+}
+
+.hub-page__scene-image {
+  object-fit: cover;
+  object-position: center;
+}
+
+.hub-page__scene-copy {
+  display: grid;
+  align-content: center;
+  gap: var(--space-12);
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+}
+
+.hub-page__scene-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2.2vw, 1.45rem);
+  font-weight: 550;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+}
+
+.hub-page__scene-caption {
+  margin: 0;
+  font-size: 1.02rem;
+  line-height: 1.55;
+  color: var(--color-text-secondary);
+  text-wrap: pretty;
+  max-width: 36rem;
+}
+
 /* ——— Path grid ——— */
 
 .hub-page__paths {

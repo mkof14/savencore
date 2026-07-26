@@ -35,7 +35,7 @@ export const uiJa: UiMessages = {
   scope: { definition: "定義", "current-scope": "対象範囲", "future-scope": "次に進むこと", "human-oversight": "人による監督", "safety-boundary": "安全上の境界", "engineering-note": "注記", limitation: "限界" },
   callout: { information: "情報", definition: "定義", "engineering-note": "注記", important: "重要", "current-scope": "対象範囲", "future-scope": "次に進むこと", relationship: "つながり" },
   common: { openArrow: "開く", relatedDomains: "関連テーマ", referenceLinks: "さらに読む", keyPrinciples: "重要な原則", executiveSummary: "概要", whyItMatters: "重要な理由", purpose: "目的", futureExpansion: "関連テーマ" },
-  hub: { related: "続ける", explore: "見る", areas: "領域", what: "ひとこと", why: "なぜ役立つか", next: "これから", deeper: "もっと読む" },
+  hub: { related: "続ける", explore: "見る", areas: "領域", what: "ひとこと", why: "なぜ役立つか", next: "これから", deeper: "もっと読む", scenes: "場面" },
   pwa: {
     installApp: "アプリをインストール",
     iosTip:

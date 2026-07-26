@@ -20,6 +20,12 @@ import type {
   HubPathLink,
   HubSection,
 } from "@/content/hub/types";
+import {
+  getFutureLabScenes,
+  getLabsDataLoopLabels,
+  getLabsOverviewScenes,
+  getRoboticsLabScenes,
+} from "@/content/labs/get-labs-visual-content";
 import { getEntityById } from "@/content/knowledge/entity-registry";
 import type { ApplicationsPageContent } from "@/content/pages/en/applications";
 import type { TechnologyPageContent } from "@/content/pages/en/technology";
@@ -559,6 +565,11 @@ export function getLabsHubContent(locale: Locale): HubPageContent {
     label: ui.nav.labs,
     title: ui.nav.labs,
     visual: HUB_MASTHEAD.labs,
+    diagram: {
+      kind: "labs-data-loop",
+      labels: getLabsDataLoopLabels(locale),
+    },
+    scenes: getLabsOverviewScenes(locale),
     paths: {
       heading: ui.hub.explore,
       links: withPathImages([
@@ -620,6 +631,7 @@ export function getRoboticsLabHubContent(locale: Locale = "en"): HubPageContent 
   return {
     ...hub,
     label: ui.navEntries["footer-labs-saven-robotics-lab"],
+    scenes: getRoboticsLabScenes(locale),
   };
 }
 
@@ -639,12 +651,27 @@ export function getRoboticsInterfaceHubContent(
 
 export function getFutureLabHubContent(locale: Locale = "en"): HubPageContent {
   const visual = domainVisualForHref("/labs/internal-future-lab/");
+  const page = getFutureLabPageContent(locale);
+  const hub = buildFlagshipHub(page, "default");
   return {
-    ...buildFlagshipHub(getFutureLabPageContent(locale)),
+    ...hub,
+    ...(page.highlights ? { highlights: page.highlights } : {}),
+    ...(page.sections
+      ? {
+          sections: page.sections.map((section) => ({
+            id: section.id,
+            title: section.title,
+            ...(section.paragraphs ? { paragraphs: section.paragraphs } : {}),
+            ...(section.items ? { items: section.items } : {}),
+            ...(section.collapsed ? { collapsed: true } : {}),
+          })),
+        }
+      : {}),
     visual: {
       theme: "labs",
       mastheadImage: visual.mastheadImage,
       mastheadAlt: visual.mastheadAlt,
     },
+    scenes: getFutureLabScenes(locale),
   };
 }

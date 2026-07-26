@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { LabsDataLoop } from "@/components/labs/LabsDataLoop";
 import type { Locale } from "@/config/locales";
 import type { HubPageContent } from "@/content/hub/types";
 import { getUi } from "@/i18n/ui";
@@ -88,6 +89,37 @@ export function HubReadablePage({ locale, content }: HubReadablePageProps) {
               <p key={paragraph}>{paragraph}</p>
             ))}
           </div>
+        ) : null}
+
+        {content.diagram?.kind === "labs-data-loop" ? (
+          <LabsDataLoop labels={content.diagram.labels} />
+        ) : null}
+
+        {content.scenes && content.scenes.length > 0 ? (
+          <section
+            className="hub-page__scenes"
+            aria-label={ui.hub.scenes}
+          >
+            <ul className="hub-page__scene-list">
+              {content.scenes.map((scene) => (
+                <li key={scene.id} className="hub-page__scene">
+                  <div className="hub-page__scene-media">
+                    <Image
+                      src={scene.image}
+                      alt={scene.alt}
+                      fill
+                      sizes="(max-width: 720px) 100vw, 50vw"
+                      className="hub-page__scene-image"
+                    />
+                  </div>
+                  <div className="hub-page__scene-copy">
+                    <h3 className="hub-page__scene-title">{scene.title}</h3>
+                    <p className="hub-page__scene-caption">{scene.caption}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </section>
         ) : null}
 
         {content.paths && content.paths.links.length > 0 ? (

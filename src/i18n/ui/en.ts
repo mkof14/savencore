@@ -270,6 +270,7 @@ export const uiEn = {
     why: "Why it helps",
     next: "What's ahead",
     deeper: "Go deeper",
+    scenes: "Scenes",
   },
 
   pwa: {

@@ -1,4 +1,5 @@
 import type { HubVisualTheme } from "@/content/hub/hub-visuals";
+import type { LabsDataLoopLabels } from "@/content/labs/data-loop";
 
 /** Layer-1 hub page content — visual public entry, not docs chrome. */
 
@@ -25,6 +26,21 @@ export type HubSection = {
   collapsed?: boolean;
 };
 
+/** Editorial scene band — human-help / lab atmosphere imagery (D-0166). */
+export type HubScene = {
+  id: string;
+  image: string;
+  alt: string;
+  title: string;
+  caption: string;
+};
+
+export type HubDiagram =
+  | {
+      kind: "labs-data-loop";
+      labels: LabsDataLoopLabels;
+    };
+
 export type HubPageContent = {
   /** Short domain label shown above the title (e.g. Purpose). */
   label: string;
@@ -40,6 +56,10 @@ export type HubPageContent = {
   /** Short editorial story beats for ordinary readers (D-0165). */
   highlights?: readonly HubHighlight[];
   body?: readonly string[];
+  /** Animated or static architecture diagram (Labs overview — D-0166). */
+  diagram?: HubDiagram;
+  /** Visual scenes after the opening (Labs leaves / overview — D-0166). */
+  scenes?: readonly HubScene[];
   sections?: readonly HubSection[];
   paths?: {
     heading: string;

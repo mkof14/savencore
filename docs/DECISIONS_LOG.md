@@ -178,6 +178,7 @@
 | D-0158 | 2026-07-25 | Auth card polish + visual Layer-1 hubs | Active |
 | D-0159 | 2026-07-25 | Robotics Lab / Research hero / Investors brochure expansion | Active |
 | D-0160 | 2026-07-25 | Unified visual domain-page system (hubs + leaves) | Active |
+| D-0166 | 2026-07-26 | Labs visual pages + SAVEN data/action loop diagram | Active |
 | D-0161 | 2026-07-26 | Full page-body localization (10 locales) + cleanup + Vercel prep | Active |
 | D-0162 | 2026-07-26 | PWA + SEO / security headers / marketing surface prep | Active |
 | D-0163 | 2026-07-26 | Credentials sign-in form + show password + Google | Active |
@@ -1449,6 +1450,15 @@
 - **In scope:** `HubReadablePage` + `layer1-hub.css` opening/depth chrome; `hub.what` / `hub.why` / `hub.next` / `hub.deeper` UI strings across all 10 locales; D-0165 + AGENTS phase pointer; `tsc`; smoke hubs/leaves; screenshots under `tmp/hub-openings/`; commit/push for go-live.
 - **Out of scope:** Inventing metrics/claims; new marketing leaves; neon/glow; legal finals; changing masthead photography set.
 - **Implications:** Supersedes the D-0157–D-0160 “what/why/next cue cards” presentation grammar for the first post-hero body block. Hub/domain content adapters may keep the same three highlight texts; labels and layout are editorial, not docs chrome.
+
+### D-0166 — Labs visual pages + SAVEN data/action loop diagram
+
+- **Date:** 2026-07-26
+- **Status:** Active
+- **Decision:** Owner authorizes elevating Labs pages (`/labs/`, `/labs/saven-robotics-lab/`, `/labs/internal-future-lab/`) with real assistive robotics/human-help scene imagery (WebP under `public/domain/labs/`), richer honest descriptions, and a modern animated architecture diagram on the Labs overview: Human Data Model → SAVEN (analyze / roles / events / actions) → executive devices (robots, manipulators, sensors) → return telemetry → SAVEN, with optional ascent to BioMath Core when needed. Framing remains architecture / In Development / Research — no operational hospital deployment claims, no fake metrics/customers. Animation uses SVG + CSS / SMIL; `prefers-reduced-motion` shows a static labeled diagram. Straight corners; brand gold/blue accents; no neon HUD template look. Foundation sequence reminder: BioMath Life → BioMath Core → SAVEN → SAVEN Core.
+- **In scope:** `LabsDataLoop` client component; `HubPageContent.diagram` / `scenes`; Labs mastheads + scene bands; flagship Labs copy; flagship dictionaries + `hub.scenes` UI (10 locales); D-0166 + AGENTS phase pointer; `tsc`; smoke Labs routes; screenshots under `tmp/labs-visual/`; commit/push.
+- **Out of scope:** Invented traction/deployments; new marketing leaves beyond Labs set; neon/glow fireworks; CMS/database; final legal prose; graph CMS.
+- **Implications:** Extends D-0160 Labs visuals and D-0159 brochure depth with an interactive architecture narrative on `/labs/` only.
 
 ## Pending Owner Decisions
 

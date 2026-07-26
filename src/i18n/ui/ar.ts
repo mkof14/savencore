@@ -251,6 +251,7 @@ export const uiAr: UiMessages = {
     why: "لماذا يساعد",
     next: "ما التالي",
     deeper: "تابع القراءة",
+    scenes: "مشاهد",
   },
 
   pwa: {

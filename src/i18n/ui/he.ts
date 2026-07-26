@@ -249,6 +249,7 @@ export const uiHe: UiMessages = {
     why: "למה זה עוזר",
     next: "מה הלאה",
     deeper: "לקרוא עוד",
+    scenes: "סצנות",
   },
 
   pwa: {

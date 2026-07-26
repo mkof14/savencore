@@ -251,6 +251,7 @@ export const uiRu: UiMessages = {
     why: "Почему помогает",
     next: "Что дальше",
     deeper: "Читать дальше",
+    scenes: "Сцены",
   },
 
   pwa: {

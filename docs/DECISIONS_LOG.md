@@ -1432,6 +1432,15 @@
 - **Out of scope:** Full user database/Prisma; magic-link email; inventing accounts/metrics; investor portal beyond this sign-in entry; fake “account created” success.
 - **Implications:** Partially extends D-0156/D-0158. Production should prefer Google OAuth; demo credentials are optional and must never be committed as real secrets. Supersedes D-0162 note that `pages.signIn` remains EN-only fallback.
 
+### D-0164 — Public auth soft-degrade + Install in footer + BrandName lockup
+
+- **Date:** 2026-07-26
+- **Status:** Active
+- **Decision:** Owner polish before go-live: (1) remove public “Setup required” / env-var developer panels from `/[locale]/auth/sign-in/`; when credentials or Google are unset, disable controls and optionally show one short human soft line — no env names, no admin chrome, no “You are not signed in” status strip; (2) move **Install app** out of header/menu — footer only (near language/theme/copyright bar); (3) homepage hero (and sitewide company-name text) must use `BrandName` with the same sans / uppercase / SAVEN light + CORE gold language as `SavenLogo` wordmark — `BrandName` is the single source for “SAVEN Core” wordmark text.
+- **In scope:** Auth UI/CSS + `auth.*` soft strings (10 locales); header remove Install; footer Install remains; `BrandName` + logo CSS alignment; hero/auth title usage; D-0164 + AGENTS phase pointer; `tsc`; smoke screenshots; commit/push.
+- **Out of scope:** Full user DB; inventing auth success; new marketing leaves; neon/glow; legal finals.
+- **Implications:** Partially supersedes D-0163 public “not configured” panel wording and D-0162 header Install placement. Operator/env setup remains in `.env.example` / deploy docs only — not on the public page.
+
 ## Pending Owner Decisions
 
 These are not decisions yet; they are tracked for future resolution:

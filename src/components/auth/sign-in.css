@@ -275,11 +275,16 @@ html[dir="rtl"] .auth-sign-in__back-arrow {
   cursor: not-allowed;
 }
 
-.auth-sign-in__hint {
+.auth-sign-in__soft {
   margin: 0;
   font-size: 0.875rem;
   line-height: 1.5;
-  color: color-mix(in srgb, #eef3f7 62%, transparent);
+  color: color-mix(in srgb, #eef3f7 58%, transparent);
+}
+
+.auth-sign-in__title .brand-name {
+  font-size: 0.92em;
+  vertical-align: baseline;
 }
 
 .auth-sign-in__error {
@@ -342,36 +347,6 @@ html[dir="rtl"] .auth-sign-in__back-arrow {
 
 .auth-sign-in__google-mark {
   flex: 0 0 auto;
-}
-
-.auth-sign-in__notice {
-  display: grid;
-  gap: var(--space-12);
-  margin-block-start: var(--space-4);
-  padding: var(--space-20);
-  border: 1px solid color-mix(in srgb, var(--color-accent) 45%, transparent);
-  border-inline-start: 3px solid var(--color-accent);
-  background: color-mix(in srgb, #0b1220 55%, #152033);
-  font-size: 0.9375rem;
-  line-height: 1.55;
-  color: #eef3f7;
-}
-
-.auth-sign-in__notice-title {
-  margin: 0;
-  font-size: 0.8125rem;
-  font-weight: 650;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--color-accent);
-}
-
-.auth-sign-in__notice p {
-  margin: 0;
-}
-
-.auth-sign-in__notice-muted {
-  color: color-mix(in srgb, #eef3f7 68%, transparent);
 }
 
 @media (max-width: 480px) {

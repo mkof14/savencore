@@ -1,11 +1,12 @@
 type BrandNameProps = {
-  /** Visual casing for the lockup. */
+  /** Visual size for the lockup — typography matches the logo wordmark. */
   variant?: "title" | "inline";
   className?: string;
 };
 
 /**
- * Two-color brand name: SAVEN + Core (gold), matching the logo lockup.
+ * Two-color brand name matching SavenLogo wordmark:
+ * SAVEN (light/ink) + CORE (gold), sans, uppercase.
  */
 export function BrandName({
   variant = "inline",
@@ -22,7 +23,7 @@ export function BrandName({
   return (
     <span className={classes} dir="ltr" lang="en">
       <span className="brand-name__saven">SAVEN</span>{" "}
-      <span className="brand-name__core">Core</span>
+      <span className="brand-name__core">CORE</span>
     </span>
   );
 }

@@ -8,9 +8,10 @@ export const uiFr: UiMessages = {
   navEntries: { ...uiEn.navEntries, "technology-overview": "Technologie", "technology-human-data": "Données humaines", "technology-human-data-model": "Modèle de données humaines", "technology-data-infrastructure": "Infrastructure de données", "technology-interoperability": "Interopérabilité", "technology-privacy": "Confidentialité", "technology-security": "Sécurité", "technology-artificial-intelligence": "Intelligence artificielle", "technology-automation": "Automatisation", "technology-robotics": "Robotique", "systems-overview": "Systèmes", "systems-knowledge-engine": "Moteur de connaissances", "systems-ai-decision-support": "Aide à la décision par IA", "systems-safety-layer": "Couche de sécurité", "systems-communication-layer": "Couche de communication", "systems-clinical-interfaces": "Interfaces cliniques", "systems-robotics-layer": "Couche robotique", "systems-drone-systems": "Systèmes de drones", "applications-overview": "Applications", "applications-healthcare": "Santé", "applications-home": "Domicile", "applications-hospitals": "Hôpitaux", "applications-emergency": "Urgences", "applications-industrial": "Industrie", "applications-government": "Secteur public", "applications-agriculture": "Agriculture", "applications-research-applications": "Applications de recherche", "trust-overview": "Confiance", "trust-privacy": "Confidentialité", "trust-security": "Sécurité", "trust-safety": "Protection", "trust-human-oversight": "Supervision humaine", "trust-transparency": "Transparence", "trust-ethics": "Éthique et usage responsable", "trust-limitations": "Limites", "research-overview": "Recherche", "footer-technology-overview": "Aperçu", "footer-systems-overview": "Aperçu", "footer-applications-overview": "Aperçu", "footer-trust-overview": "Aperçu", "footer-research-overview": "Aperçu", "footer-applications-research": "Recherche", "footer-trust-ethics": "Éthique", "footer-company-about": "À propos", "footer-company-mission": "Mission" , "sign-in": "Connexion / Inscription", "footer-company-investors": "Investisseurs", "footer-labs-overview": "Aperçu", "footer-labs-saven-robotics-lab": "SAVEN Robotics Lab", "footer-labs-internal-future-lab": "Internal Future Lab", "footer-systems-saven-robotics-interface": "SAVEN Robotics Interface", "footer-legal-privacy-policy": "Politique de confidentialité", "footer-legal-terms-of-use": "Conditions d'utilisation", "footer-legal-cookie-policy": "Politique relative aux cookies", "footer-legal-cookie-preferences": "Préférences de cookies", "footer-legal-accessibility-statement": "Déclaration d'accessibilité", "footer-legal-security": "Sécurité", "footer-legal-responsible-ai": "IA responsable", "footer-legal-medical-disclaimer": "Avertissement médical", "footer-legal-research-disclaimer": "Avertissement recherche", "footer-legal-intellectual-property": "Propriété intellectuelle", "footer-legal-trademark-notice": "Avis sur les marques", "footer-legal-copyright": "Avis de copyright", "footer-legal-data-rights": "Droits relatifs aux données", "footer-legal-regional-privacy-rights": "Droits régionaux à la vie privée", "footer-legal-do-not-sell-or-share": "Ne pas vendre ni partager", "footer-legal-legal-notices": "Mentions légales"},
   footer: { ...uiEn.footer, copyrightLabel: "Copyright", themeToLight: "Passer au thème clair", themeToDark: "Passer au thème sombre", signIn: "Connexion / Inscription", technology: "Technologie", systems: "Systèmes", applications: "Applications", trust: "Confiance", research: "Recherche", about: "À propos de SAVEN Core", resources: "Ressources", company: "Entreprise", legal: "Mentions légales", contact: "Contact", plannedNote: "", comingSoon: "", copyright: "© 2026 SAVEN Core. Tous droits réservés.", copyrightShort: "© SAVEN Core", privacy: "Confidentialité", terms: "Conditions", cookies: "Cookies", theme: "Thème", themeLight: "Clair", themeDark: "Sombre", version: "Version", tagline: "Données humaines.\nSystèmes connectés.\nTechnologie responsable." },
   auth: {
-    signInTitle: "Connexion à SAVEN Core",
+    signInTitleBefore: "Connexion à ",
+    signInTitleAfter: "",
     signInLead:
-      "Connectez-vous avec e-mail et mot de passe, ou continuez avec Google. L’authentification est disponible lorsque les identifiants sont configurés.",
+      "Connectez-vous avec e-mail et mot de passe, ou continuez avec Google.",
     emailLabel: "E-mail",
     emailPlaceholder: "vous@exemple.com",
     passwordLabel: "Mot de passe",
@@ -21,17 +22,13 @@ export const uiFr: UiMessages = {
     orDivider: "ou",
     continueWithGoogle: "Continuer avec Google",
     back: "Retour",
-    configureTitle: "Configuration requise",
-    configureGoogle:
-      "La connexion Google n’est pas encore configurée. Ajoutez GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET et AUTH_SECRET à l’environnement.",
-    configurePassword:
-      "La connexion e-mail/mot de passe n’est pas encore configurée. Ajoutez AUTH_SECRET, AUTH_DEMO_EMAIL et AUTH_DEMO_PASSWORD pour un compte opérateur de staging. Une base utilisateurs complète viendra plus tard.",
-    configureCredentials:
-      "La connexion Google n’est pas encore configurée. Ajoutez GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET et AUTH_SECRET à l’environnement.",
     invalidCredentials: "E-mail ou mot de passe incorrect.",
-    operatorNote:
-      "La connexion par mot de passe utilise un seul compte opérateur basé sur l’environnement, uniquement pour les tests de lancement — pas un registre public d’utilisateurs.",
-    notSignedIn: "Vous n’êtes pas connecté.",
+    credentialsUnavailable:
+      "La connexion par e-mail n’est pas disponible pour le moment.",
+    googleUnavailable:
+      "La connexion Google n’est pas disponible pour le moment.",
+    signInUnavailable:
+      "La connexion n’est pas disponible pour le moment.",
   },
   legal: {"lastUpdated":"Dernière mise à jour","related":"Pages juridiques","draftNote":"Brouillon — en attente de revue juridique"},
   home: { developmentStatus: "Architecture", architectureOverview: "L’idée en un regard", architectureOverviewText: "Des personnes et de l’information aux systèmes qui aident dans la vie quotidienne — dans des limites claires.", knowledgeExplorer: "Explorer", majorDomains: "Sujets principaux", publishedPages: "Pages ici", relationships: "Comment cela se relie", domainMap: "Découvrir", architectureDependencies: "Comment les sujets s’articulent", currentStatus: "Avancement", platformProgress: "Sujets", featuredConcepts: "Découvrir", startWithCore: "Quelques idées pour commencer", continueExploring: "Continuer", chooseEntrance: "Choisissez un point de départ", knowledgeId: "ID du document", complete: "Terminé", inProgress: "Actif", planned: "Réservé", understand: "Comprendre", explore: "Explorer", discover: "Découvrir", continue: "Continuer", beatWhat: "Quoi", beatWho: "Qui", beatWhy: "Pourquoi", beatHow: "Comment", hourFramesLabel: "Une heure de soin" },

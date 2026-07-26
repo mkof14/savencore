@@ -107,9 +107,9 @@ export const uiHe: UiMessages = {
   },
 
   auth: {
-    signInTitle: "התחברות ל-SAVEN Core",
-    signInLead:
-      "התחברו עם אימייל וסיסמה, או המשיכו עם Google. האימות זמין כאשר פרטי ההתחברות מוגדרים.",
+    signInTitleBefore: "התחברות ל-",
+    signInTitleAfter: "",
+    signInLead: "התחברו עם אימייל וסיסמה, או המשיכו עם Google.",
     emailLabel: "אימייל",
     emailPlaceholder: "you@example.com",
     passwordLabel: "סיסמה",
@@ -120,17 +120,10 @@ export const uiHe: UiMessages = {
     orDivider: "או",
     continueWithGoogle: "המשך עם Google",
     back: "חזרה",
-    configureTitle: "נדרשת הגדרה",
-    configureGoogle:
-      "התחברות Google עדיין לא מוגדרת. הוסיפו GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET ו-AUTH_SECRET לסביבה כדי להפעיל אותה.",
-    configurePassword:
-      "התחברות באימייל/סיסמה עדיין לא מוגדרת. הוסיפו AUTH_SECRET, AUTH_DEMO_EMAIL ו-AUTH_DEMO_PASSWORD לחשבון מפעיל לבדיקות. מאגר משתמשים מלא יגיע בהמשך.",
-    configureCredentials:
-      "התחברות Google עדיין לא מוגדרת. הוסיפו GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET ו-AUTH_SECRET לסביבה כדי להפעיל אותה.",
     invalidCredentials: "אימייל או סיסמה שגויים.",
-    operatorNote:
-      "התחברות בסיסמה משתמשת בחשבון מפעיל יחיד מבוסס סביבה לבדיקות השקה בלבד — לא ברישום משתמשים ציבורי.",
-    notSignedIn: "אינכם מחוברים.",
+    credentialsUnavailable: "התחברות באימייל אינה זמינה כעת.",
+    googleUnavailable: "התחברות עם Google אינה זמינה כעת.",
+    signInUnavailable: "התחברות אינה זמינה כעת.",
   },
 
   legal: {

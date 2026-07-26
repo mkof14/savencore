@@ -90,15 +90,12 @@
 
 .kx-hero__brand {
   margin: 0 0 var(--space-24);
-  font-family: var(--font-display);
-  font-size: clamp(1.5rem, 2.5vw, 2rem);
-  font-weight: 600;
-  letter-spacing: -0.03em;
+  font-size: clamp(1.25rem, 2vw, 1.625rem);
   color: #eef3f7;
 }
 
 .kx-hero__brand .brand-name__saven {
-  color: #eef3f7;
+  color: #ffffff;
 }
 
 .kx-hero__sentence {

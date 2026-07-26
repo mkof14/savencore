@@ -128,9 +128,9 @@ export const uiEn = {
   },
 
   auth: {
-    signInTitle: "Sign in to SAVEN Core",
-    signInLead:
-      "Sign in with email and password, or continue with Google. Authentication is available when credentials are configured.",
+    signInTitleBefore: "Sign in to ",
+    signInTitleAfter: "",
+    signInLead: "Sign in with email and password, or continue with Google.",
     emailLabel: "Email",
     emailPlaceholder: "you@example.com",
     passwordLabel: "Password",
@@ -141,17 +141,10 @@ export const uiEn = {
     orDivider: "or",
     continueWithGoogle: "Continue with Google",
     back: "Back",
-    configureTitle: "Setup required",
-    configureGoogle:
-      "Google sign-in is not configured yet. Add GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, and AUTH_SECRET to the environment to enable it.",
-    configurePassword:
-      "Email/password sign-in is not configured yet. Add AUTH_SECRET, AUTH_DEMO_EMAIL, and AUTH_DEMO_PASSWORD for a staging operator account. A full user database comes later.",
-    configureCredentials:
-      "Google sign-in is not configured yet. Add GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, and AUTH_SECRET to the environment to enable it.",
     invalidCredentials: "Invalid email or password.",
-    operatorNote:
-      "Password sign-in uses a single env-based operator account for launch testing only — not a public user registry.",
-    notSignedIn: "You are not signed in.",
+    credentialsUnavailable: "Email sign-in is not available right now.",
+    googleUnavailable: "Google sign-in is not available right now.",
+    signInUnavailable: "Sign-in is not available right now.",
   },
 
   legal: {

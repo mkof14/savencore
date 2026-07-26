@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { isCredentialsAuthConfigured, isGoogleAuthConfigured } from "@/auth";
+import { BrandName } from "@/components/brand/BrandName";
 import { SavenLogo } from "@/components/brand/SavenLogo";
 import type { Locale } from "@/config/locales";
 import { getUi } from "@/i18n/ui";
@@ -21,6 +22,14 @@ export function SignInPage({ locale, error }: SignInPageProps) {
   const credentialsConfigured = isCredentialsAuthConfigured();
   const homeHref = localizePath(locale, "/");
   const errorMessage = resolveAuthErrorMessage(error, ui.auth);
+  const softUnavailable =
+    !credentialsConfigured && !googleConfigured
+      ? ui.auth.signInUnavailable
+      : !credentialsConfigured
+        ? ui.auth.credentialsUnavailable
+        : !googleConfigured
+          ? ui.auth.googleUnavailable
+          : null;
 
   return (
     <div className="auth-sign-in">
@@ -48,7 +57,11 @@ export function SignInPage({ locale, error }: SignInPageProps) {
         </div>
 
         <div className="auth-sign-in__copy">
-          <h1 className="auth-sign-in__title">{ui.auth.signInTitle}</h1>
+          <h1 className="auth-sign-in__title">
+            {ui.auth.signInTitleBefore}
+            <BrandName className="auth-sign-in__brand-inline" />
+            {ui.auth.signInTitleAfter}
+          </h1>
           <p className="auth-sign-in__lead">{ui.auth.signInLead}</p>
         </div>
 
@@ -65,20 +78,6 @@ export function SignInPage({ locale, error }: SignInPageProps) {
             labels={ui.auth}
           />
 
-          {!credentialsConfigured ? (
-            <div className="auth-sign-in__notice" role="status">
-              <p className="auth-sign-in__notice-title">
-                {ui.auth.configureTitle}
-              </p>
-              <p>{ui.auth.configurePassword}</p>
-              <p className="auth-sign-in__notice-muted">
-                {ui.auth.operatorNote}
-              </p>
-            </div>
-          ) : (
-            <p className="auth-sign-in__hint">{ui.auth.operatorNote}</p>
-          )}
-
           <div className="auth-sign-in__divider" role="separator">
             <span>{ui.auth.orDivider}</span>
           </div>
@@ -91,25 +90,22 @@ export function SignInPage({ locale, error }: SignInPageProps) {
               </button>
             </form>
           ) : (
-            <>
-              <button
-                type="button"
-                className="auth-sign-in__google"
-                disabled
-                aria-disabled="true"
-              >
-                <GoogleMark />
-                {ui.auth.continueWithGoogle}
-              </button>
-              <div className="auth-sign-in__notice" role="status">
-                <p className="auth-sign-in__notice-title">
-                  {ui.auth.configureTitle}
-                </p>
-                <p>{ui.auth.configureGoogle}</p>
-                <p className="auth-sign-in__notice-muted">{ui.auth.notSignedIn}</p>
-              </div>
-            </>
+            <button
+              type="button"
+              className="auth-sign-in__google"
+              disabled
+              aria-disabled="true"
+            >
+              <GoogleMark />
+              {ui.auth.continueWithGoogle}
+            </button>
           )}
+
+          {softUnavailable ? (
+            <p className="auth-sign-in__soft" role="status">
+              {softUnavailable}
+            </p>
+          ) : null}
         </div>
       </div>
     </div>
@@ -129,7 +125,7 @@ function resolveAuthErrorMessage(
     error === "Configuration" ||
     error === "AuthError"
   ) {
-    return auth.configurePassword;
+    return auth.signInUnavailable;
   }
   return auth.invalidCredentials;
 }

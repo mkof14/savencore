@@ -19,10 +19,11 @@ export async function generateMetadata({
   const { locale: localeParam } = await params;
   if (!isLocale(localeParam)) return {};
   const ui = getUi(localeParam);
+  const title = `${ui.auth.signInTitleBefore}SAVEN Core${ui.auth.signInTitleAfter}`;
   return buildPageMetadata({
     locale: localeParam,
     path: "/auth/sign-in/",
-    title: ui.auth.signInTitle,
+    title,
     description: ui.auth.signInLead,
     noIndex: true,
   });

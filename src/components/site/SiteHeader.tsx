@@ -1,7 +1,6 @@
 import Link from "next/link";
 
 import { SavenLogo } from "@/components/brand/SavenLogo";
-import { InstallAppControl } from "@/components/pwa/InstallAppControl";
 import type { Locale } from "@/config/locales";
 import { getUi } from "@/i18n/ui";
 import { localizePath } from "@/navigation/locale-path";
@@ -17,7 +16,7 @@ type SiteHeaderProps = {
 
 /**
  * Layer-1 chrome — logo, important hubs, Sign In/Up, theme, language (D-0153–D-0156).
- * Full leaf map remains in the footer.
+ * Full leaf map remains in the footer. Install app lives in the footer only (D-0164).
  */
 export function SiteHeader({ locale }: SiteHeaderProps) {
   const ui = getUi(locale);
@@ -37,7 +36,6 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
         </div>
 
         <div className="site-header__utilities">
-          <InstallAppControl locale={locale} placement="header" />
           <Link
             href={localizePath(locale, "/auth/sign-in/")}
             className="site-header__text-link"
@@ -53,7 +51,6 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
         </div>
 
         <div className="site-header__mobile-controls">
-          <InstallAppControl locale={locale} placement="header" />
           <ThemeSwitch locale={locale} placement="header" />
           <MobileNavigation locale={locale} />
         </div>

@@ -107,9 +107,10 @@ export const uiAr: UiMessages = {
   },
 
   auth: {
-    signInTitle: "تسجيل الدخول إلى SAVEN Core",
+    signInTitleBefore: "تسجيل الدخول إلى ",
+    signInTitleAfter: "",
     signInLead:
-      "سجّل الدخول بالبريد الإلكتروني وكلمة المرور، أو تابع مع Google. تتوفر المصادقة عند تهيئة بيانات الاعتماد.",
+      "سجّل الدخول بالبريد الإلكتروني وكلمة المرور، أو تابع مع Google.",
     emailLabel: "البريد الإلكتروني",
     emailPlaceholder: "you@example.com",
     passwordLabel: "كلمة المرور",
@@ -120,17 +121,11 @@ export const uiAr: UiMessages = {
     orDivider: "أو",
     continueWithGoogle: "المتابعة مع Google",
     back: "رجوع",
-    configureTitle: "يلزم الإعداد",
-    configureGoogle:
-      "تسجيل الدخول عبر Google غير مهيأ بعد. أضف GOOGLE_CLIENT_ID و GOOGLE_CLIENT_SECRET و AUTH_SECRET إلى البيئة لتفعيله.",
-    configurePassword:
-      "تسجيل الدخول بالبريد/كلمة المرور غير مهيأ بعد. أضف AUTH_SECRET و AUTH_DEMO_EMAIL و AUTH_DEMO_PASSWORD لحساب مشغّل تجريبي. قاعدة مستخدمين كاملة تأتي لاحقًا.",
-    configureCredentials:
-      "تسجيل الدخول عبر Google غير مهيأ بعد. أضف GOOGLE_CLIENT_ID و GOOGLE_CLIENT_SECRET و AUTH_SECRET إلى البيئة لتفعيله.",
     invalidCredentials: "البريد الإلكتروني أو كلمة المرور غير صحيحة.",
-    operatorNote:
-      "تسجيل الدخول بكلمة المرور يستخدم حساب مشغّل واحدًا مبنيًا على البيئة لاختبار الإطلاق فقط — وليس سجل مستخدمين عامًا.",
-    notSignedIn: "أنت غير مسجّل الدخول.",
+    credentialsUnavailable:
+      "تسجيل الدخول بالبريد الإلكتروني غير متاح الآن.",
+    googleUnavailable: "تسجيل الدخول عبر Google غير متاح الآن.",
+    signInUnavailable: "تسجيل الدخول غير متاح الآن.",
   },
 
   legal: {

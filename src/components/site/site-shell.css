@@ -923,8 +923,7 @@ html[dir="rtl"] a.site-footer__link:focus-visible {
   color: #9ec9e4;
 }
 
-/* PWA install — discreet text control (D-0162) */
-button.install-app.site-header__text-link,
+/* PWA install — discreet footer text control (D-0162 / D-0164) */
 button.install-app.site-footer__text-link {
   appearance: none;
   border: 0;
@@ -980,13 +979,6 @@ button.install-app.site-footer__text-link {
   cursor: pointer;
   margin-block-start: 0.5rem;
   padding: 0;
-}
-
-@media (max-width: 1023px) {
-  /* Keep header utilities lean on small screens; Install stays in footer. */
-  .site-header__mobile-controls .install-app {
-    display: none;
-  }
 }
 
 @media (max-width: 390px) {

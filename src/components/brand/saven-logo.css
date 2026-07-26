@@ -222,42 +222,59 @@ html[dir="rtl"] .saven-logo__mark {
   transform: none;
 }
 
-/* Two-color wordmark for titles and inline brand mentions */
+/* Two-color wordmark — same sans / uppercase / gold language as .saven-logo */
 .brand-name {
   display: inline;
   white-space: nowrap;
   direction: ltr;
   unicode-bidi: isolate;
+  font-family: var(--font-sans);
+  font-style: normal;
+  line-height: 1;
 }
 
 .brand-name__saven {
+  font-family: var(--font-sans);
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: inherit;
 }
 
 .brand-name__core {
+  font-family: var(--font-sans);
   font-weight: 600;
-  letter-spacing: 0.04em;
-  color: var(--color-accent-text);
-}
-
-.site-header .brand-name__core,
-.site-footer .brand-name__core,
-.kx-hero .brand-name__core {
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
   color: var(--color-accent);
 }
 
+.brand-name--inline .brand-name__saven {
+  letter-spacing: 0.12em;
+}
+
+.brand-name--inline .brand-name__core {
+  letter-spacing: 0.14em;
+}
+
 .brand-name--title .brand-name__saven {
-  font-family: var(--font-display);
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  text-transform: none;
+  letter-spacing: 0.2em;
 }
 
 .brand-name--title .brand-name__core {
-  font-family: var(--font-display);
-  font-weight: 600;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.22em;
+}
+
+/* Hero / dark surfaces: SAVEN reads as logo ink */
+.pw-hero__brand .brand-name__saven,
+.kx-hero__brand .brand-name__saven,
+.auth-sign-in__title .brand-name__saven {
+  color: #ffffff;
+}
+
+.pw-hero__brand .brand-name__core,
+.kx-hero__brand .brand-name__core,
+.auth-sign-in__title .brand-name__core,
+.site-footer .brand-name__core {
+  color: var(--color-accent);
 }

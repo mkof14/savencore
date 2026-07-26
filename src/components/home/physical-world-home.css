@@ -288,7 +288,8 @@
 }
 
 .pw-hero__brand .brand-name--title {
-  font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+  font-size: clamp(1.25rem, 2vw, 1.625rem);
+  letter-spacing: 0;
 }
 
 .pw-hero__title {

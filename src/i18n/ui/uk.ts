@@ -107,9 +107,10 @@ export const uiUk: UiMessages = {
   },
 
   auth: {
-    signInTitle: "Вхід до SAVEN Core",
+    signInTitleBefore: "Вхід до ",
+    signInTitleAfter: "",
     signInLead:
-      "Увійдіть за допомогою електронної пошти та пароля або продовжіть з Google. Автентифікація доступна після налаштування облікових даних.",
+      "Увійдіть за допомогою електронної пошти та пароля або продовжіть з Google.",
     emailLabel: "Електронна пошта",
     emailPlaceholder: "you@example.com",
     passwordLabel: "Пароль",
@@ -120,17 +121,11 @@ export const uiUk: UiMessages = {
     orDivider: "або",
     continueWithGoogle: "Продовжити з Google",
     back: "Назад",
-    configureTitle: "Потрібне налаштування",
-    configureGoogle:
-      "Вхід через Google ще не налаштовано. Додайте GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET і AUTH_SECRET у середовище.",
-    configurePassword:
-      "Вхід за електронною поштою/паролем ще не налаштовано. Додайте AUTH_SECRET, AUTH_DEMO_EMAIL і AUTH_DEMO_PASSWORD для тестового облікового запису оператора. Повна база користувачів з’явиться пізніше.",
-    configureCredentials:
-      "Вхід через Google ще не налаштовано. Додайте GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET і AUTH_SECRET у середовище.",
     invalidCredentials: "Неправильна електронна пошта або пароль.",
-    operatorNote:
-      "Вхід за паролем використовує один обліковий запис оператора на основі змінних середовища лише для тестів запуску — це не публічний реєстр користувачів.",
-    notSignedIn: "Ви не увійшли.",
+    credentialsUnavailable:
+      "Вхід за електронною поштою зараз недоступний.",
+    googleUnavailable: "Вхід через Google зараз недоступний.",
+    signInUnavailable: "Вхід зараз недоступний.",
   },
 
   legal: {

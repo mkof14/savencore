@@ -12,7 +12,8 @@ type BeforeInstallPromptEvent = Event & {
 
 type InstallAppControlProps = {
   locale: Locale;
-  placement?: "header" | "footer";
+  /** Install control is footer-only (D-0164). */
+  placement?: "footer";
 };
 
 function isIosDevice(): boolean {
@@ -38,7 +39,7 @@ function isStandalone(): boolean {
  */
 export function InstallAppControl({
   locale,
-  placement = "header",
+  placement = "footer",
 }: InstallAppControlProps) {
   const ui = getUi(locale);
   const [deferred, setDeferred] = useState<BeforeInstallPromptEvent | null>(
@@ -73,10 +74,7 @@ export function InstallAppControl({
     return null;
   }
 
-  const className =
-    placement === "footer"
-      ? "site-footer__text-link install-app"
-      : "site-header__text-link install-app";
+  const className = "site-footer__text-link install-app";
 
   if (deferred) {
     return (

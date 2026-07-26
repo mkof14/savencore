@@ -107,9 +107,10 @@ export const uiRu: UiMessages = {
   },
 
   auth: {
-    signInTitle: "Вход в SAVEN Core",
+    signInTitleBefore: "Вход в ",
+    signInTitleAfter: "",
     signInLead:
-      "Войдите по электронной почте и паролю или продолжите с Google. Авторизация доступна после настройки учётных данных.",
+      "Войдите по электронной почте и паролю или продолжите с Google.",
     emailLabel: "Электронная почта",
     emailPlaceholder: "you@example.com",
     passwordLabel: "Пароль",
@@ -120,17 +121,11 @@ export const uiRu: UiMessages = {
     orDivider: "или",
     continueWithGoogle: "Продолжить с Google",
     back: "Назад",
-    configureTitle: "Требуется настройка",
-    configureGoogle:
-      "Вход через Google ещё не настроен. Добавьте GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET и AUTH_SECRET в окружение.",
-    configurePassword:
-      "Вход по электронной почте/паролю ещё не настроен. Добавьте AUTH_SECRET, AUTH_DEMO_EMAIL и AUTH_DEMO_PASSWORD для тестовой учётной записи оператора. Полноценная база пользователей появится позже.",
-    configureCredentials:
-      "Вход через Google ещё не настроен. Добавьте GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET и AUTH_SECRET в окружение.",
     invalidCredentials: "Неверная электронная почта или пароль.",
-    operatorNote:
-      "Вход по паролю использует одну учётную запись оператора на основе переменных окружения только для тестов запуска — это не публичный реестр пользователей.",
-    notSignedIn: "Вы не вошли в систему.",
+    credentialsUnavailable:
+      "Вход по электронной почте сейчас недоступен.",
+    googleUnavailable: "Вход через Google сейчас недоступен.",
+    signInUnavailable: "Вход сейчас недоступен.",
   },
 
   legal: {

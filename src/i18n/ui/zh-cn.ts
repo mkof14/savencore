@@ -8,9 +8,9 @@ export const uiZhCn: UiMessages = {
   navEntries: { ...uiEn.navEntries, "technology-overview": "技术", "technology-human-data": "人的数据", "technology-human-data-model": "人的数据模型", "technology-data-infrastructure": "数据基础设施", "technology-interoperability": "互操作性", "technology-privacy": "隐私", "technology-security": "安全", "technology-artificial-intelligence": "人工智能", "technology-automation": "自动化", "technology-robotics": "机器人技术", "systems-overview": "系统", "systems-knowledge-engine": "知识引擎", "systems-ai-decision-support": "AI 决策支持", "systems-safety-layer": "安全层", "systems-communication-layer": "通信层", "systems-clinical-interfaces": "临床接口", "systems-robotics-layer": "机器人层", "systems-drone-systems": "无人机系统", "applications-overview": "应用领域", "applications-healthcare": "医疗健康", "applications-home": "家庭", "applications-hospitals": "医院", "applications-emergency": "紧急情况", "applications-industrial": "工业", "applications-government": "政府", "applications-agriculture": "农业", "applications-research-applications": "研究应用", "trust-overview": "信任", "trust-privacy": "隐私", "trust-security": "安全", "trust-safety": "保障", "trust-human-oversight": "人工监督", "trust-transparency": "透明度", "trust-ethics": "伦理与负责任使用", "trust-limitations": "局限", "research-overview": "研究", "footer-technology-overview": "概览", "footer-systems-overview": "概览", "footer-applications-overview": "概览", "footer-trust-overview": "概览", "footer-research-overview": "概览", "footer-applications-research": "研究", "footer-trust-ethics": "伦理", "footer-company-about": "关于", "footer-company-mission": "使命" , "sign-in": "登录 / 注册", "footer-company-investors": "投资者", "footer-labs-overview": "概览", "footer-labs-saven-robotics-lab": "SAVEN Robotics Lab", "footer-labs-internal-future-lab": "Internal Future Lab", "footer-systems-saven-robotics-interface": "SAVEN Robotics Interface", "footer-legal-privacy-policy": "隐私政策", "footer-legal-terms-of-use": "使用条款", "footer-legal-cookie-policy": "Cookie 政策", "footer-legal-cookie-preferences": "Cookie 偏好", "footer-legal-accessibility-statement": "无障碍声明", "footer-legal-security": "安全", "footer-legal-responsible-ai": "负责任的人工智能", "footer-legal-medical-disclaimer": "医疗免责声明", "footer-legal-research-disclaimer": "研究免责声明", "footer-legal-intellectual-property": "知识产权", "footer-legal-trademark-notice": "商标声明", "footer-legal-copyright": "版权声明", "footer-legal-data-rights": "数据权利", "footer-legal-regional-privacy-rights": "地区隐私权", "footer-legal-do-not-sell-or-share": "请勿出售或共享", "footer-legal-legal-notices": "法律声明"},
   footer: { ...uiEn.footer, copyrightLabel: "Copyright", themeToLight: "切换到浅色主题", themeToDark: "切换到深色主题", signIn: "登录 / 注册", technology: "技术", systems: "系统", applications: "应用领域", trust: "信任", research: "研究", about: "关于 SAVEN Core", resources: "资源", company: "公司", legal: "法律信息", contact: "联系我们", plannedNote: "", comingSoon: "", copyright: "© 2026 SAVEN Core. 保留所有权利。", copyrightShort: "© SAVEN Core", privacy: "隐私", terms: "条款", cookies: "Cookie", theme: "主题", themeLight: "浅色", themeDark: "深色", version: "版本", tagline: "人类数据。\n互联系统。\n负责任的技术。" },
   auth: {
-    signInTitle: "登录 SAVEN Core",
-    signInLead:
-      "使用电子邮件和密码登录，或继续使用 Google。配置凭证后即可使用身份验证。",
+    signInTitleBefore: "登录 ",
+    signInTitleAfter: "",
+    signInLead: "使用电子邮件和密码登录，或继续使用 Google。",
     emailLabel: "电子邮件",
     emailPlaceholder: "you@example.com",
     passwordLabel: "密码",
@@ -21,17 +21,10 @@ export const uiZhCn: UiMessages = {
     orDivider: "或",
     continueWithGoogle: "使用 Google 继续",
     back: "返回",
-    configureTitle: "需要配置",
-    configureGoogle:
-      "尚未配置 Google 登录。请在环境中添加 GOOGLE_CLIENT_ID、GOOGLE_CLIENT_SECRET 和 AUTH_SECRET。",
-    configurePassword:
-      "尚未配置电子邮件/密码登录。请添加 AUTH_SECRET、AUTH_DEMO_EMAIL 和 AUTH_DEMO_PASSWORD 以用于暂存操作员账户。完整用户数据库将稍后提供。",
-    configureCredentials:
-      "尚未配置 Google 登录。请在环境中添加 GOOGLE_CLIENT_ID、GOOGLE_CLIENT_SECRET 和 AUTH_SECRET。",
     invalidCredentials: "电子邮件或密码无效。",
-    operatorNote:
-      "密码登录仅使用基于环境变量的单个操作员账户进行上线测试——不是公开用户注册表。",
-    notSignedIn: "您尚未登录。",
+    credentialsUnavailable: "目前无法使用电子邮件登录。",
+    googleUnavailable: "目前无法使用 Google 登录。",
+    signInUnavailable: "目前无法登录。",
   },
   legal: {"lastUpdated":"最近更新","related":"法律页面","draftNote":"草案 — 待法律审阅"},
   home: { developmentStatus: "架构", architectureOverview: "一览核心理念", architectureOverviewText: "从人和信息到支持日常生活的系统——始终遵循明确的边界。", knowledgeExplorer: "探索", majorDomains: "主要主题", publishedPages: "这里的页面", relationships: "如何关联", domainMap: "发现", architectureDependencies: "主题如何衔接", currentStatus: "进展", platformProgress: "主题", featuredConcepts: "发现", startWithCore: "从几个核心理念开始", continueExploring: "继续", chooseEntrance: "选择起点", knowledgeId: "文档 ID", complete: "完成", inProgress: "活跃", planned: "保留", understand: "了解", explore: "探索", discover: "发现", continue: "继续", beatWhat: "是什么", beatWho: "为谁", beatWhy: "为什么", beatHow: "怎么做", hourFramesLabel: "一小时的照护" },

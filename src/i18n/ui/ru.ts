@@ -69,7 +69,7 @@ export const uiRu: UiMessages = {
     "footer-trust-ethics": "Этика",
     "footer-company-about": "О компании",
     "footer-company-mission": "Миссия",
-    "footer-company-investors": "Инвесторам",
+    "footer-company-contact": "Контакты", "footer-company-investors": "Инвесторам",
     "footer-labs-overview": "Обзор",
     "footer-labs-saven-robotics-lab": "SAVEN Robotics Lab",
     "footer-labs-internal-future-lab": "Internal Future Lab",
@@ -258,5 +258,16 @@ export const uiRu: UiMessages = {
     installApp: "Установить приложение",
     iosTip:
       "На iPhone или iPad: нажмите «Поделиться», затем «На экран „Домой“», чтобы установить SAVEN Core.",
+  },
+
+  contact: {
+    formHeading: "Сообщение",
+    nameLabel: "Имя",
+    emailLabel: "Электронная почта",
+    subjectLabel: "Тема (необязательно)",
+    messageLabel: "Сообщение",
+    submit: "Открыть в почтовом приложении",
+    success: "Должно открыться ваше почтовое приложение с готовым сообщением.",
+    error: "Пожалуйста, заполните имя, почту и сообщение.",
   },
 };

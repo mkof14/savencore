@@ -69,7 +69,7 @@ export const uiUk: UiMessages = {
     "footer-trust-ethics": "Етика",
     "footer-company-about": "Про компанію",
     "footer-company-mission": "Місія",
-    "footer-company-investors": "Інвесторам",
+    "footer-company-contact": "Контакти", "footer-company-investors": "Інвесторам",
     "footer-labs-overview": "Огляд",
     "footer-labs-saven-robotics-lab": "SAVEN Robotics Lab",
     "footer-labs-internal-future-lab": "Internal Future Lab",
@@ -258,5 +258,16 @@ export const uiUk: UiMessages = {
     installApp: "Встановити застосунок",
     iosTip:
       "На iPhone або iPad: натисніть «Поділитися», потім «На екран „Додому“», щоб установити SAVEN Core.",
+  },
+
+  contact: {
+    formHeading: "Повідомлення",
+    nameLabel: "Ім’я",
+    emailLabel: "Електронна пошта",
+    subjectLabel: "Тема (необов’язково)",
+    messageLabel: "Повідомлення",
+    submit: "Відкрити в поштовому застосунку",
+    success: "Має відкритися ваш поштовий застосунок із готовим повідомленням.",
+    error: "Будь ласка, заповніть ім’я, пошту та повідомлення.",
   },
 };

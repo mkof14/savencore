@@ -83,4 +83,8 @@ export const dictionary: Record<string, string> = {
   "Related research": "相关研究",
   "Related applications": "相关应用",
   "References": "参考文献",
+  "Who we are": "我们是谁",
+  "SAVEN Core is shaped by a professional team with deep experience across artificial intelligence, robotics, data systems, care-oriented engineering, and complex platforms meant for the physical world.": "SAVEN Core 由一支专业团队塑造，他们在人工智能、机器人、数据系统、面向照护的工程，以及面向物理世界的复杂平台方面拥有深厚经验。",
+  "For years, this work has been led by people who have built major projects in related domains — places where reliability, human consequence, and long horizons matter more than spectacle.": "多年来，这项工作由在相关领域建设过重大项目的人主导——在那些可靠性、对人的影响与长远视野比场面更重要的地方。",
+  "We are long-horizon builders: architects, engineers, and systems thinkers who treat intelligence as a means to human care, not as an end in itself. Individual names and biographies will be published when the company chooses to introduce people publicly; until then, the standards of the work come first.": "我们是长远视野的建设者：建筑师、工程师与系统思考者，将智能视为人类照护的手段，而非目的本身。个人姓名与履历将在公司决定公开介绍时发布；在此之前，工作标准优先。",
 };

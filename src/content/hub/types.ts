@@ -15,6 +15,8 @@ export type HubHighlight = {
   id: string;
   title: string;
   text: string;
+  /** Optional editorial icon key (e.g. potential, care, horizon, growth). */
+  icon?: string;
 };
 
 export type HubSection = {

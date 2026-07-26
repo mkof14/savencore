@@ -247,7 +247,12 @@ export const DOMAIN_MASTHEAD_BY_HREF: Record<string, DomainMastheadVisual> = {
   "/investors/": {
     theme: "investors",
     mastheadImage: "/domain/company/investors.webp",
-    mastheadAlt: "Long-horizon company atmosphere",
+    mastheadAlt: "Long-horizon engineering campus atmosphere for patient capital",
+  },
+  "/contact/": {
+    theme: "foundation",
+    mastheadImage: "/domain/company/purpose.webp",
+    mastheadAlt: "Calm atmosphere for human conversation with SAVEN Core",
   },
 };
 

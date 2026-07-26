@@ -24,6 +24,7 @@ export type FlagshipBrochureContent = FlagshipPageContent & {
     id: string;
     title: string;
     text: string;
+    icon?: string;
   }[];
   sections?: readonly FlagshipSection[];
 };
@@ -284,19 +285,28 @@ export const investorsPageEn: FlagshipBrochureContent = {
   ],
   highlights: [
     {
-      id: "what",
-      title: "Posture",
-      text: "Long-term capital for durable engineering — architecture first, evidence over hype.",
+      id: "potential",
+      icon: "potential",
+      title: "Platform potential",
+      text: "A coherent stack spanning human understanding, AI, robotics, and physical assistance across care and life domains.",
     },
     {
-      id: "why",
-      title: "Why it matters",
-      text: "Physical-world intelligence can ease human care burdens across hospitals, homes, and everyday life.",
+      id: "human-benefit",
+      icon: "care",
+      title: "Human benefit",
+      text: "Intelligence built to ease care burdens — for teams, families, and people across ages and stages of life.",
     },
     {
-      id: "next",
-      title: "How we engage",
-      text: "Public overview here; deeper materials when contact channels are approved. Sign In is available for authorized access paths.",
+      id: "long-term",
+      icon: "horizon",
+      title: "Long-term value",
+      text: "Patient capital for durable platforms where lasting human needs meet disciplined engineering — not return promises.",
+    },
+    {
+      id: "responsible",
+      icon: "growth",
+      title: "Responsible growth",
+      text: "Architecture first, staged evidence, and trust as structural requirements — growth without inventing traction.",
     },
   ],
   sections: [
@@ -360,11 +370,12 @@ export const investorsPageEn: FlagshipBrochureContent = {
       ],
     },
   ],
-  note: "This page is structural information only. It is not an offer to sell securities. Contact channels will be published when approved. Sign In/Up provides authorized access when credentials are configured — not a full investor portal.",
+  note: "This page is structural information only. It is not an offer to sell securities. For conversation, use Contact at info@savencore.com. Sign In/Up provides authorized access when credentials are configured — not a full investor portal.",
   related: [
     { label: "Home", href: "/" },
     { label: "SAVEN Robotics Lab", href: "/labs/saven-robotics-lab/" },
     { label: "About", href: "/foundation/" },
+    { label: "Contact", href: "/contact/" },
     { label: "Sign In/Up", href: "/auth/sign-in/" },
   ],
 };

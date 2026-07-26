@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-26 (D-0172 — Theme plane completion — unfreeze home/care/closing)
+**Last updated:** 2026-07-26 (D-0173 — Investors visual + Contact + About team)
 
 ## Rules
 
@@ -1520,6 +1520,15 @@
 - **Out of scope:** New palettes; neon; inventing content; final legal prose; CMS; changing masthead/hero collage atmospheric treatment.
 - **Implications:** Theme toggle must visibly flip home care + closing + page shell + labs surround; frozen light-care / black-home shells are prohibited.
 
+### D-0173 — Investors visual upgrade + Contact page/form + About team narrative
+
+- **Date:** 2026-07-26
+- **Status:** Active
+- **Decision:** Owner authorizes three company-surface upgrades: (1) **Investors** (`/investors/`) — richer visual brochure via DomainVisualPage / HubReadablePage: icon story beats (platform potential, human benefit, long-term value, responsible growth — no fake returns), thematic WebP scenes under `public/domain/company/`, visual path cards; honest D-0159 posture retained. (2) **Contact** — new published route `/contact/`, footer Company link, public address **`info@savencore.com`**, beautiful accessible form that composes a `mailto:` message (opens the visitor’s email app). Honest success copy — no CRM / SMTP claim; full mail API later. (3) **About / Foundation** (`/foundation/`) — open “Who we are” team narrative: professional team with deep experience across AI/robotics/data/care systems/engineering and years building major projects in related domains — **no names**, no invented headcount, customers, patents, valuations, or deployment claims. UI chrome + content strings translated across locales.
+- **In scope:** Investors content/visuals/CSS icons; Contact page + form + dictionaries; Foundation team section + dictionaries; `published-routes`, footer, sitemap; `src/i18n/ui/*`; D-0173 + AGENTS phase pointer; `tsc`; smoke `/en/investors/`, `/en/contact/`, `/en/foundation/`; screenshots `tmp/company-pages/`; commit/push; optional Vercel prod.
+- **Out of scope:** SMTP/CRM backend; named leadership bios; investor portal; inventing metrics/returns/clients; final legal prose; neon.
+- **Implications:** Contact email destination is approved for public use; Contact mailto form is authorized; team narrative without names is authorized; pending “Contact emails / forms destinations” item is resolved for this public channel.
+
 ## Pending Owner Decisions
 
 These are not decisions yet; they are tracked for future resolution:
@@ -1581,3 +1590,9 @@ Still open (owner decisions only):
 11. Authorization and exact scope for Phase 1B+ (design system / Home / navigation).
 
 When resolved, append new decision entries; do not edit this section’s historical meaning—update by adding dated resolutions below or as new D- IDs.
+
+### Pending list update — 2026-07-26 (D-0173)
+
+Resolved from the list above:
+
+- Item 4 — Contact emails / form destinations — resolved for the public channel by D-0173 (`info@savencore.com`, `/contact/` mailto form). SMTP/CRM remains future work. Named leadership bios remain unpublished; anonymous professional team narrative on Foundation is authorized.

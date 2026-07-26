@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { HubStoryIcon } from "@/components/hub/HubStoryIcon";
 import { LabsDataLoop } from "@/components/labs/LabsDataLoop";
 import type { Locale } from "@/config/locales";
 import type { HubPageContent } from "@/content/hub/types";
@@ -24,6 +25,9 @@ export function HubReadablePage({ locale, content }: HubReadablePageProps) {
   );
   const hasCollapsedSections = Boolean(
     content.sections?.some((section) => section.collapsed),
+  );
+  const hasIconHighlights = Boolean(
+    content.highlights?.some((item) => item.icon),
   );
 
   return (
@@ -72,14 +76,26 @@ export function HubReadablePage({ locale, content }: HubReadablePageProps) {
             className="hub-page__story"
             aria-label={ui.hub.explore}
           >
-            <div className="hub-page__story-band">
+            <div
+              className={
+                hasIconHighlights
+                  ? "hub-page__story-band hub-page__story-band--icons"
+                  : "hub-page__story-band"
+              }
+            >
               {content.highlights.map((item, index) => (
                 <div
                   key={item.id}
                   className="hub-page__story-beat"
                   style={{ ["--hub-stagger" as string]: String(index) }}
                 >
-                  <span className="hub-page__story-dot" aria-hidden="true" />
+                  {item.icon ? (
+                    <span className="hub-page__story-icon" aria-hidden="true">
+                      <HubStoryIcon name={item.icon} />
+                    </span>
+                  ) : (
+                    <span className="hub-page__story-dot" aria-hidden="true" />
+                  )}
                   <p className="hub-page__story-label">{item.title}</p>
                   <p className="hub-page__story-text">{item.text}</p>
                 </div>

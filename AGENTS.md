@@ -8,7 +8,7 @@ If you are a coding agent (Cursor or otherwise), read this file before making an
 
 ## Current Phase
 
-**Theme plane completion (D-0172)** — unfreezes home shell / care / closing / labs surround so light and dark actually flip (D-0171 was incomplete: `.pw-home` stayed navy); photo heroes/mastheads + Labs diagram stage stay atmospheric — on D-0171 full theme coverage, D-0170 contrast fix, D-0169 Visible Apple-clean Inter + sans titles, D-0168 system-stack baseline, Labs data-loop higher + visual enrichment (D-0167), Labs visual elevation + data/action loop (D-0166), editorial hub/domain openings (D-0165), public auth soft-degrade + Install in footer + BrandName lockup (D-0164), credentials sign-in (D-0163), PWA + SEO / security headers / marketing surface prep (D-0162), full 10-locale localization + Vercel prep (D-0161), and the unified visual domain-page system (D-0160) — read `docs/SITE_ASSIGNMENT.md`, `docs/SITE_AUDIT_REPORT.md`, and D-0134–D-0172.
+**Company pages upgrade (D-0173)** — Investors visual enrichment (icon beats, thematic scenes, path cards), Contact page `/contact/` with mailto form to `info@savencore.com`, Foundation “Who we are” team narrative (no names) — on D-0172 theme plane completion, D-0171 full theme coverage, D-0170 contrast fix, D-0169 Visible Apple-clean Inter + sans titles, Labs data-loop / visual elevation (D-0166–D-0167), editorial hub/domain openings (D-0165), auth soft-degrade (D-0164), credentials sign-in (D-0163), PWA + SEO (D-0162), 10-locale localization (D-0161), unified visual domain-page system (D-0160) — read `docs/SITE_ASSIGNMENT.md`, `docs/SITE_AUDIT_REPORT.md`, and D-0134–D-0173.
 
 Hero: **Intelligence for the Physical World.** + living photoreal **help collage** (D-0149/D-0151/D-0152). Post-hero: **one** care-focused living carousel (D-0150). **Page bodies + UI chrome for all 10 locales** (`en`/`es`/`de`/`fr`/`ja`/`zh-cn`/`ar`/`he`/`uk`/`ru`; English canonical). Header: logo + **important Layer-1 hubs** (≤7) + Sign In/Up text link + sun/moon theme + language with flags (D-0153/D-0155/D-0156; Install app is footer-only — D-0164). Hubs **and domain leaves** share one visual shell (`DomainVisualPage` / Layer-1 hub grammar) — thematic masthead, short human lead, editorial story-band cues (not bordered WHAT/WHY/NEXT boxes), progressive depth (D-0157–D-0160; opening restyle D-0165). Thematic WebP mastheads under `public/domain/` (+ reused care/home assets where perfect). **Robotics Lab / Labs / Investors** brochure depth expanded honestly (D-0159; no fake traction/returns). Footer: full depth map **including Legal** (draft pages — pending legal review; D-0154), Copyright line, Install app, upward language menu with flags, theme icons. Auth: `/[locale]/auth/sign-in/` substantial SAVEN card — email/password (env operator allowlist) + show/hide password + Google; public soft-degrade when unset — no env/setup panels (D-0156/D-0158/D-0163/D-0164; no fake logged-in state; full user DB later). Brand text: `BrandName` matches logo wordmark sitewide (D-0164). Tagline: Turning Intelligence Into Human Care. Deploy target: Vercel (App Router); see `docs/VERCEL_DEPLOY.md`.
 
@@ -20,11 +20,11 @@ Experience redesign grammar (D-0128) and human-first progressive disclosure (D-0
 
 - Returning Knowledge Passport / metadata to the first viewport;
 - Fabricating Knowledge Object owners, version history, Validated maturity, or evidence upgrades;
-- Publishing Contact destinations or inventing entity/registration details;
+- Publishing Contact destinations beyond the authorized `info@savencore.com` / `/contact/` channel (D-0173), or inventing entity/registration details;
 - Final binding legal/policy prose (structural drafts authorized under D-0154 — do not present as effective law; draft localization authorized under D-0161);
 - Entity Registry entity invention unless explicitly authorized;
 - logo asset / photography imagery beyond approved homepage living photoreal hero + care living carousel (D-0135–D-0152) and domain thematic mastheads under `public/domain/` / `public/hub/` (D-0159–D-0160; still no fake deployment photography or invented KPI dashboards);
-- CMS, database, working search, forms, analytics, cookie consent;
+- CMS, database, working search, analytics, cookie consent; SMTP / CRM-backed forms beyond the authorized Contact mailto UX (D-0173);
 - investor portal (Sign In/Up + Google page authorized; not a full portal);
 - inventing additional leaf marketing pages beyond the published visual domain set in D-0160;
 - graph visualization or knowledge CMS;

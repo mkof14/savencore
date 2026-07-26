@@ -82,5 +82,9 @@ export const dictionary: Record<string, string> = {
   "Related systems": "מערכות קשורות",
   "Related research": "מחקר בנושא",
   "Related applications": "יישומים קשורים",
-  "References": "הפניות"
+  "References": "הפניות",
+  "Who we are": "מי אנחנו",
+  "SAVEN Core is shaped by a professional team with deep experience across artificial intelligence, robotics, data systems, care-oriented engineering, and complex platforms meant for the physical world.": "SAVEN Core מעוצב על ידי צוות מקצועי עם ניסיון עמוק בבינה מלאכותית, רובוטיקה, מערכות נתונים, הנדסה מוכוונת טיפול ופלטפורמות מורכבות לעולם הפיזי.",
+  "For years, this work has been led by people who have built major projects in related domains — places where reliability, human consequence, and long horizons matter more than spectacle.": "במשך שנים מובילים את העבודה אנשים שבנו פרויקטים גדולים בתחומים קרובים — מקומות שבהם אמינות, השלכות אנושיות ואופקים ארוכים חשובים יותר ממופע.",
+  "We are long-horizon builders: architects, engineers, and systems thinkers who treat intelligence as a means to human care, not as an end in itself. Individual names and biographies will be published when the company chooses to introduce people publicly; until then, the standards of the work come first.": "אנחנו בונים לאופק ארוך: אדריכלים, מהנדסים והוגי מערכות שמתייחסים לאינטליגנציה כאמצעי לטיפול באדם, לא כמטרה בפני עצמה. שמות וביוגרפיות יפורסמו כאשר החברה תבחר להציג אנשים בפומבי; עד אז סטנדרטי העבודה באים קודם.",
 };

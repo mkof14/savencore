@@ -72,6 +72,7 @@ export const uiEn = {
     "footer-company-about": "About",
     "footer-company-mission": "Mission",
     "footer-company-investors": "Investors",
+    "footer-company-contact": "Contact",
     "footer-labs-overview": "Overview",
     "footer-labs-saven-robotics-lab": "SAVEN Robotics Lab",
     "footer-labs-internal-future-lab": "Internal Future Lab",
@@ -277,6 +278,17 @@ export const uiEn = {
     installApp: "Install app",
     iosTip:
       "On iPhone or iPad: tap Share, then Add to Home Screen to install SAVEN Core.",
+  },
+
+  contact: {
+    formHeading: "Message",
+    nameLabel: "Name",
+    emailLabel: "Email",
+    subjectLabel: "Subject (optional)",
+    messageLabel: "Message",
+    submit: "Open in email app",
+    success: "Your email app should open with the message ready to send.",
+    error: "Please complete name, email, and message.",
   },
 } as const;
 

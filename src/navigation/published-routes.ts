@@ -50,6 +50,7 @@ export const PUBLISHED_ROUTES = [
   "/labs/internal-future-lab/",
   "/systems/saven-robotics-interface/",
   "/investors/",
+  "/contact/",
   "/auth/sign-in/",
   "/legal/privacy-policy/",
   "/legal/terms-of-use/",

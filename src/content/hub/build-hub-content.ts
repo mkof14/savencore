@@ -20,12 +20,24 @@ import type {
   HubPathLink,
   HubSection,
 } from "@/content/hub/types";
+import { investorsScenesEn } from "@/content/investors/scenes";
 import {
   getFutureLabScenes,
   getLabsDataLoopLabels,
   getLabsOverviewScenes,
   getRoboticsLabScenes,
 } from "@/content/labs/get-labs-visual-content";
+import { deepLocalize } from "@/content/pages/localize-content";
+import { resolveContentLocale } from "@/i18n/types";
+import { dictionary as dictionaryAr } from "@/content/flagship/dictionaries/ar";
+import { dictionary as dictionaryDe } from "@/content/flagship/dictionaries/de";
+import { dictionary as dictionaryEs } from "@/content/flagship/dictionaries/es";
+import { dictionary as dictionaryFr } from "@/content/flagship/dictionaries/fr";
+import { dictionary as dictionaryHe } from "@/content/flagship/dictionaries/he";
+import { dictionary as dictionaryJa } from "@/content/flagship/dictionaries/ja";
+import { dictionary as dictionaryRu } from "@/content/flagship/dictionaries/ru";
+import { dictionary as dictionaryUk } from "@/content/flagship/dictionaries/uk";
+import { dictionary as dictionaryZhCn } from "@/content/flagship/dictionaries/zh-cn";
 import { getEntityById } from "@/content/knowledge/entity-registry";
 import type { ApplicationsPageContent } from "@/content/pages/en/applications";
 import type { TechnologyPageContent } from "@/content/pages/en/technology";
@@ -596,6 +608,24 @@ export function getLabsHubContent(locale: Locale): HubPageContent {
   };
 }
 
+const flagshipDictionaries = {
+  es: dictionaryEs,
+  de: dictionaryDe,
+  fr: dictionaryFr,
+  ja: dictionaryJa,
+  "zh-cn": dictionaryZhCn,
+  ar: dictionaryAr,
+  he: dictionaryHe,
+  ru: dictionaryRu,
+  uk: dictionaryUk,
+} as const;
+
+function localizeInvestorsScenes(locale: Locale) {
+  const contentLocale = resolveContentLocale(locale);
+  if (contentLocale === "en") return investorsScenesEn;
+  return deepLocalize(investorsScenesEn, flagshipDictionaries[contentLocale]);
+}
+
 export function getInvestorsHubContent(locale: Locale): HubPageContent {
   const hub = buildFlagshipHub(getInvestorsPageContent(locale), "investors");
   const ui = getUi(locale);
@@ -610,17 +640,52 @@ export function getInvestorsHubContent(locale: Locale): HubPageContent {
     if (link.href === "/foundation/") {
       return { ...link, label: ui.nav.foundation };
     }
+    if (link.href === "/contact/") {
+      return { ...link, label: ui.footer.contact };
+    }
     if (link.href === "/auth/sign-in/") {
       return { ...link, label: ui.nav.signIn };
     }
     return link;
   });
 
+  const pathLinks: HubPathLink[] = [
+    {
+      label: ui.nav.labs,
+      href: "/labs/",
+      note: ui.hub.explore,
+      image: pathImageForHref("/labs/", 0),
+    },
+    {
+      label: ui.navEntries["footer-company-about"],
+      href: "/foundation/",
+      note: ui.nav.foundation,
+      image: pathImageForHref("/foundation/", 1),
+    },
+    {
+      label: ui.nav.trust,
+      href: "/trust/",
+      note: ui.hub.deeper,
+      image: pathImageForHref("/trust/", 2),
+    },
+    {
+      label: ui.footer.contact,
+      href: "/contact/",
+      note: "info@savencore.com",
+      image: "/domain/company/scene-long-horizon.webp",
+    },
+  ];
+
   return {
     ...hub,
     label: ui.nav.investors,
     title: ui.nav.investors,
     visual: HUB_MASTHEAD.investors,
+    scenes: localizeInvestorsScenes(locale),
+    paths: {
+      heading: ui.hub.explore,
+      links: pathLinks,
+    },
     related,
   };
 }

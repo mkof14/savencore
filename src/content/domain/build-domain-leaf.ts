@@ -452,7 +452,24 @@ export function buildFoundationVisual(
       return purpose ? `${layer.title} — ${purpose}` : layer.title;
     }) ?? [];
 
+  const teamSection = content.architectureSections?.find(
+    (section) => section.id === "who-we-are",
+  );
+  const deeperArchitecture =
+    content.architectureSections?.filter(
+      (section) => section.id !== "who-we-are",
+    ) ?? [];
+
   const sections: HubSection[] = [
+    ...(teamSection
+      ? [
+          {
+            id: teamSection.id,
+            title: teamSection.title,
+            paragraphs: teamSection.paragraphs,
+          } satisfies HubSection,
+        ]
+      : []),
     ...(layerItems.length
       ? [
           {
@@ -463,7 +480,7 @@ export function buildFoundationVisual(
           } satisfies HubSection,
         ]
       : []),
-    ...(content.architectureSections?.map(
+    ...deeperArchitecture.map(
       (section) =>
         ({
           id: section.id,
@@ -471,7 +488,7 @@ export function buildFoundationVisual(
           paragraphs: section.paragraphs,
           collapsed: true,
         }) satisfies HubSection,
-    ) ?? []),
+    ),
   ];
 
   return withVisual("/foundation/", {

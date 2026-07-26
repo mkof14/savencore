@@ -171,6 +171,7 @@ export const foundationPageContent: TechnicalPageContent = {
       id: entity.id,
       label: entity.title,
     })),
+    { id: "who-we-are", label: "Who we are" },
     { id: "human-data-model", label: "Human Data Model" },
     { id: "system-relationships", label: "System relationships" },
     { id: "technology-relationships", label: "Technology relationships" },
@@ -237,6 +238,15 @@ export const foundationPageContent: TechnicalPageContent = {
     fields: foundationLayerDetails[entity.id]?.fields ?? [],
   })),
   architectureSections: [
+    {
+      id: "who-we-are",
+      title: "Who we are",
+      paragraphs: [
+        "SAVEN Core is shaped by a professional team with deep experience across artificial intelligence, robotics, data systems, care-oriented engineering, and complex platforms meant for the physical world.",
+        "For years, this work has been led by people who have built major projects in related domains — places where reliability, human consequence, and long horizons matter more than spectacle.",
+        "We are long-horizon builders: architects, engineers, and systems thinkers who treat intelligence as a means to human care, not as an end in itself. Individual names and biographies will be published when the company chooses to introduce people publicly; until then, the standards of the work come first.",
+      ],
+    },
     {
       id: "human-data-model",
       title: "Human Data Model",

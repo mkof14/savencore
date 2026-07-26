@@ -69,7 +69,7 @@ export const uiHe: UiMessages = {
     "footer-trust-ethics": "אתיקה",
     "footer-company-about": "אודות",
     "footer-company-mission": "ייעוד",
-    "footer-company-investors": "משקיעים",
+    "footer-company-contact": "יצירת קשר", "footer-company-investors": "משקיעים",
     "footer-labs-overview": "סקירה",
     "footer-labs-saven-robotics-lab": "SAVEN Robotics Lab",
     "footer-labs-internal-future-lab": "Internal Future Lab",
@@ -256,5 +256,16 @@ export const uiHe: UiMessages = {
     installApp: "התקנת האפליקציה",
     iosTip:
       "ב-iPhone או iPad: הקישו על שיתוף ואז על הוספה למסך הבית כדי להתקין את SAVEN Core.",
+  },
+
+  contact: {
+    formHeading: "הודעה",
+    nameLabel: "שם",
+    emailLabel: "דוא״ל",
+    subjectLabel: "נושא (אופציונלי)",
+    messageLabel: "הודעה",
+    submit: "פתיחה באפליקציית הדוא״ל",
+    success: "אפליקציית הדוא״ל אמורה להיפתח עם ההודעה מוכנה לשליחה.",
+    error: "נא למלא שם, דוא״ל והודעה.",
   },
 };

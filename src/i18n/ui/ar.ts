@@ -69,7 +69,7 @@ export const uiAr: UiMessages = {
     "footer-trust-ethics": "الأخلاق",
     "footer-company-about": "عن الشركة",
     "footer-company-mission": "المهمة",
-    "footer-company-investors": "المستثمرون",
+    "footer-company-contact": "اتصل بنا", "footer-company-investors": "المستثمرون",
     "footer-labs-overview": "نظرة عامة",
     "footer-labs-saven-robotics-lab": "SAVEN Robotics Lab",
     "footer-labs-internal-future-lab": "Internal Future Lab",
@@ -258,5 +258,16 @@ export const uiAr: UiMessages = {
     installApp: "تثبيت التطبيق",
     iosTip:
       "على iPhone أو iPad: اضغط مشاركة، ثم إضافة إلى الشاشة الرئيسية لتثبيت SAVEN Core.",
+  },
+
+  contact: {
+    formHeading: "رسالة",
+    nameLabel: "الاسم",
+    emailLabel: "البريد الإلكتروني",
+    subjectLabel: "الموضوع (اختياري)",
+    messageLabel: "الرسالة",
+    submit: "فتح في تطبيق البريد",
+    success: "يفترض أن يفتح تطبيق بريدك مع الرسالة جاهزة للإرسال.",
+    error: "يرجى إكمال الاسم والبريد والرسالة.",
   },
 };

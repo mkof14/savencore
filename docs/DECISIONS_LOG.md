@@ -1441,6 +1441,15 @@
 - **Out of scope:** Full user DB; inventing auth success; new marketing leaves; neon/glow; legal finals.
 - **Implications:** Partially supersedes D-0163 public “not configured” panel wording and D-0162 header Install placement. Operator/env setup remains in `.env.example` / deploy docs only — not on the public page.
 
+### D-0165 — Editorial hub/domain openings (no instruction-manual trio)
+
+- **Date:** 2026-07-26
+- **Status:** Active
+- **Decision:** Owner rejects the post-masthead bordered three-column **WHAT THIS IS / WHY IT MATTERS / WHERE TO GO NEXT** block and wiki-style **MORE DETAIL** accordion as looking like a technical instruction manual. All pages using `HubReadablePage` / `DomainVisualPage` must open with a friendlier, airy editorial composition in SAVEN spirit: soft story band with short readable beats (sentence-case labels, gold accent sparingly, no ALL-CAPS instruction headers), and progressive disclosure restyled as modern product UI (or clear readable hierarchy) — still progressive disclosure OK. Content facts stay; presentation changes. Straight corners; no neon; BrandName lockup (D-0164) unchanged.
+- **In scope:** `HubReadablePage` + `layer1-hub.css` opening/depth chrome; `hub.what` / `hub.why` / `hub.next` / `hub.deeper` UI strings across all 10 locales; D-0165 + AGENTS phase pointer; `tsc`; smoke hubs/leaves; screenshots under `tmp/hub-openings/`; commit/push for go-live.
+- **Out of scope:** Inventing metrics/claims; new marketing leaves; neon/glow; legal finals; changing masthead photography set.
+- **Implications:** Supersedes the D-0157–D-0160 “what/why/next cue cards” presentation grammar for the first post-hero body block. Hub/domain content adapters may keep the same three highlight texts; labels and layout are editorial, not docs chrome.
+
 ## Pending Owner Decisions
 
 These are not decisions yet; they are tracked for future resolution:

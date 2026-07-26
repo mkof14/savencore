@@ -247,10 +247,10 @@ export const uiAr: UiMessages = {
     related: "متابعة",
     explore: "استكشاف",
     areas: "المجالات",
-    what: "ما هذا",
-    why: "لماذا يهم",
-    next: "إلى أين بعد ذلك",
-    deeper: "المزيد من التفاصيل",
+    what: "باختصار",
+    why: "لماذا يساعد",
+    next: "ما التالي",
+    deeper: "تابع القراءة",
   },
 
   pwa: {

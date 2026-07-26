@@ -37,7 +37,7 @@ export type HubPageContent = {
     mastheadImage: string;
     mastheadAlt: string;
   };
-  /** Short what / why / next cards for ordinary readers. */
+  /** Short editorial story beats for ordinary readers (D-0165). */
   highlights?: readonly HubHighlight[];
   body?: readonly string[];
   sections?: readonly HubSection[];

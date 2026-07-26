@@ -35,7 +35,7 @@ export const uiDe: UiMessages = {
   scope: { definition: "Definition", "current-scope": "Was dies abdeckt", "future-scope": "Was als Nächstes kommt", "human-oversight": "Menschliche Aufsicht", "safety-boundary": "Sicherheitsgrenze", "engineering-note": "Hinweise", limitation: "Grenze" },
   callout: { information: "Information", definition: "Definition", "engineering-note": "Hinweise", important: "Wichtig", "current-scope": "Was dies abdeckt", "future-scope": "Was als Nächstes kommt", relationship: "Verbindung" },
   common: { openArrow: "Öffnen", relatedDomains: "Verwandte Themen", referenceLinks: "Weiterlesen", keyPrinciples: "Kernprinzipien", executiveSummary: "Zusammenfassung", whyItMatters: "Warum es wichtig ist", purpose: "Zweck", futureExpansion: "Verwandte Themen" },
-  hub: { related: "Weiter", explore: "Entdecken", areas: "Bereiche", what: "Was das ist", why: "Warum es zählt", next: "Wohin weiter", deeper: "Mehr Details" },
+  hub: { related: "Weiter", explore: "Entdecken", areas: "Bereiche", what: "Kurz gesagt", why: "Warum es hilft", next: "Was als Nächstes kommt", deeper: "Weiterlesen" },
   pwa: {
     installApp: "App installieren",
     iosTip:

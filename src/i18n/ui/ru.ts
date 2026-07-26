@@ -247,10 +247,10 @@ export const uiRu: UiMessages = {
     related: "Далее",
     explore: "Смотреть",
     areas: "Направления",
-    what: "Что это",
-    why: "Почему важно",
-    next: "Куда дальше",
-    deeper: "Подробнее",
+    what: "Коротко",
+    why: "Почему помогает",
+    next: "Что дальше",
+    deeper: "Читать дальше",
   },
 
   pwa: {

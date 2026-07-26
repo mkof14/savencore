@@ -245,10 +245,10 @@ export const uiHe: UiMessages = {
     related: "המשך",
     explore: "לגלות",
     areas: "תחומים",
-    what: "מה זה",
-    why: "למה זה חשוב",
-    next: "לאן הלאה",
-    deeper: "עוד פרטים",
+    what: "בקצרה",
+    why: "למה זה עוזר",
+    next: "מה הלאה",
+    deeper: "לקרוא עוד",
   },
 
   pwa: {

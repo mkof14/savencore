@@ -32,7 +32,7 @@ export const uiZhCn: UiMessages = {
   scope: { definition: "定义", "current-scope": "涵盖内容", "future-scope": "下一步内容", "human-oversight": "人工监督", "safety-boundary": "安全边界", "engineering-note": "说明", limitation: "限制" },
   callout: { information: "信息", definition: "定义", "engineering-note": "说明", important: "重要", "current-scope": "涵盖内容", "future-scope": "下一步内容", relationship: "关联" },
   common: { openArrow: "打开", relatedDomains: "相关主题", referenceLinks: "延伸阅读", keyPrinciples: "关键原则", executiveSummary: "摘要", whyItMatters: "重要原因", purpose: "宗旨", futureExpansion: "相关主题" },
-  hub: { related: "继续", explore: "探索", areas: "领域", what: "这是什么", why: "为何重要", next: "下一步去哪", deeper: "更多详情" },
+  hub: { related: "继续", explore: "探索", areas: "领域", what: "一句话", why: "为何有益", next: "接下来", deeper: "继续阅读" },
   pwa: {
     installApp: "安装应用",
     iosTip:

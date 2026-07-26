@@ -13,13 +13,16 @@ type HubReadablePageProps = {
   content: HubPageContent;
 };
 
-/** Shared Layer-1 / domain visual shell — masthead, short cues, clear paths (D-0160). */
+/** Shared Layer-1 / domain visual shell — masthead, editorial cues, clear paths (D-0165). */
 export function HubReadablePage({ locale, content }: HubReadablePageProps) {
   const ui = getUi(locale);
   const titleId = "hub-page-title";
   const theme = content.visual?.theme ?? "default";
   const hasVisualPaths = Boolean(
     content.paths?.links.some((link) => link.image),
+  );
+  const hasCollapsedSections = Boolean(
+    content.sections?.some((section) => section.collapsed),
   );
 
   return (
@@ -60,19 +63,22 @@ export function HubReadablePage({ locale, content }: HubReadablePageProps) {
       <div className="hub-page__inner hub-page__body-wrap">
         {content.highlights && content.highlights.length > 0 ? (
           <section
-            className="hub-page__highlights"
+            className="hub-page__story"
             aria-label={ui.hub.explore}
           >
-            {content.highlights.map((item, index) => (
-              <div
-                key={item.id}
-                className="hub-page__highlight"
-                style={{ ["--hub-stagger" as string]: String(index) }}
-              >
-                <p className="hub-page__highlight-label">{item.title}</p>
-                <p className="hub-page__highlight-text">{item.text}</p>
-              </div>
-            ))}
+            <div className="hub-page__story-band">
+              {content.highlights.map((item, index) => (
+                <div
+                  key={item.id}
+                  className="hub-page__story-beat"
+                  style={{ ["--hub-stagger" as string]: String(index) }}
+                >
+                  <span className="hub-page__story-dot" aria-hidden="true" />
+                  <p className="hub-page__story-label">{item.title}</p>
+                  <p className="hub-page__story-text">{item.text}</p>
+                </div>
+              ))}
+            </div>
           </section>
         ) : null}
 
@@ -137,8 +143,14 @@ export function HubReadablePage({ locale, content }: HubReadablePageProps) {
         ) : null}
 
         {content.sections && content.sections.length > 0 ? (
-          <div className="hub-page__sections">
-            {content.sections.some((section) => section.collapsed) ? (
+          <div
+            className={
+              hasCollapsedSections
+                ? "hub-page__sections hub-page__sections--depth"
+                : "hub-page__sections"
+            }
+          >
+            {hasCollapsedSections ? (
               <p className="hub-page__sections-kicker">{ui.hub.deeper}</p>
             ) : null}
             {content.sections.map((section) => {
@@ -163,7 +175,13 @@ export function HubReadablePage({ locale, content }: HubReadablePageProps) {
                 return (
                   <details key={section.id} className="hub-page__disclose">
                     <summary className="hub-page__disclose-summary">
-                      {section.title}
+                      <span className="hub-page__disclose-title">
+                        {section.title}
+                      </span>
+                      <span
+                        className="hub-page__disclose-chevron"
+                        aria-hidden="true"
+                      />
                     </summary>
                     <div className="hub-page__disclose-body">{body}</div>
                   </details>

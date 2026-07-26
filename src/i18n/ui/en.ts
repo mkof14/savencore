@@ -266,10 +266,10 @@ export const uiEn = {
     related: "Continue",
     explore: "Explore",
     areas: "Areas",
-    what: "What this is",
-    why: "Why it matters",
-    next: "Where to go next",
-    deeper: "More detail",
+    what: "In short",
+    why: "Why it helps",
+    next: "What's ahead",
+    deeper: "Go deeper",
   },
 
   pwa: {

@@ -247,10 +247,10 @@ export const uiUk: UiMessages = {
     related: "Далі",
     explore: "Дивитися",
     areas: "Напрями",
-    what: "Що це",
-    why: "Чому важливо",
-    next: "Куди далі",
-    deeper: "Детальніше",
+    what: "Коротко",
+    why: "Чому допомагає",
+    next: "Далі",
+    deeper: "Читати далі",
   },
 
   pwa: {

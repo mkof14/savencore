@@ -55,3 +55,7 @@ yarn-error.log*
 /storage/admin-media/files/*
 !/storage/admin-media/files/.gitkeep
 /storage/admin-media/index.json
+
+# admin platform JSON runtime store (D-0178) — seed defaults live in code
+/storage/admin/*
+!/storage/admin/.gitkeep

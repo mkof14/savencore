@@ -10,6 +10,10 @@ import { EMAIL_TEMPLATES } from "@/content/admin/email-templates";
 import { listMediaItems } from "@/lib/admin/media-store";
 import { getSiteHealthSnapshot } from "@/lib/admin/site-health";
 import { LOCALES } from "@/config/locales";
+import { listInvitations } from "@/lib/admin/invitations-store";
+import { listMailings } from "@/lib/admin/mailings-store";
+import { listNotifications } from "@/lib/admin/notifications-store";
+import { listOperators } from "@/lib/admin/operators-store";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -29,6 +33,17 @@ export default async function AdminDashboardPage({ params }: PageProps) {
 
   const health = getSiteHealthSnapshot();
   const mediaCount = (await listMediaItems()).length;
+  const unread = (await listNotifications(gate.email)).filter((n) => n.unread)
+    .length;
+  const pendingInvites = canPerform(gate.role, "invitations")
+    ? (await listInvitations()).filter((i) => i.status === "pending").length
+    : 0;
+  const mailingCount = canPerform(gate.role, "mailings")
+    ? (await listMailings()).length
+    : 0;
+  const operatorCount = canPerform(gate.role, "users")
+    ? (await listOperators()).length
+    : 0;
 
   const cards = [
     {
@@ -41,16 +56,43 @@ export default async function AdminDashboardPage({ params }: PageProps) {
       show: canPerform(gate.role, "email_templates"),
     },
     {
+      href: localizePath(locale, "/admin/mailings/"),
+      title: ui.admin.navMailings,
+      text: ui.admin.dashMailingsText.replace("{count}", String(mailingCount)),
+      show: canPerform(gate.role, "mailings"),
+    },
+    {
+      href: localizePath(locale, "/admin/invitations/"),
+      title: ui.admin.navInvitations,
+      text: ui.admin.dashInvitationsText.replace(
+        "{count}",
+        String(pendingInvites),
+      ),
+      show: canPerform(gate.role, "invitations"),
+    },
+    {
+      href: localizePath(locale, "/admin/users/"),
+      title: ui.admin.navUsers,
+      text: ui.admin.dashUsersText.replace("{count}", String(operatorCount)),
+      show: canPerform(gate.role, "users"),
+    },
+    {
+      href: localizePath(locale, "/admin/permissions/"),
+      title: ui.admin.navPermissions,
+      text: ui.admin.dashPermissionsText,
+      show: canPerform(gate.role, "permissions"),
+    },
+    {
+      href: localizePath(locale, "/admin/notifications/"),
+      title: ui.admin.navNotifications,
+      text: ui.admin.dashNotificationsText.replace("{count}", String(unread)),
+      show: canPerform(gate.role, "notifications"),
+    },
+    {
       href: localizePath(locale, "/admin/media/"),
       title: ui.admin.navMedia,
       text: ui.admin.dashMediaText.replace("{count}", String(mediaCount)),
       show: canPerform(gate.role, "media_view"),
-    },
-    {
-      href: localizePath(locale, "/admin/marketing/"),
-      title: ui.admin.navMarketing,
-      text: ui.admin.dashMarketingText,
-      show: canPerform(gate.role, "marketing"),
     },
     {
       href: localizePath(locale, "/admin/monitoring/"),
@@ -60,6 +102,12 @@ export default async function AdminDashboardPage({ params }: PageProps) {
         String(health.publishedRouteCount),
       ),
       show: canPerform(gate.role, "monitoring"),
+    },
+    {
+      href: localizePath(locale, "/admin/marketing/"),
+      title: ui.admin.navMarketing,
+      text: ui.admin.dashMarketingText,
+      show: canPerform(gate.role, "marketing"),
     },
   ].filter((card) => card.show);
 

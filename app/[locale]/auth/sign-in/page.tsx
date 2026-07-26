@@ -1,14 +1,19 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 
+import { auth } from "@/auth";
 import { SignInPage } from "@/components/auth/SignInPage";
 import { isLocale } from "@/config/locales";
 import { getUi } from "@/i18n/ui";
 import { buildPageMetadata } from "@/lib/seo/metadata";
+import { localizePath } from "@/navigation/locale-path";
 
 type SignInRouteProps = {
   params: Promise<{ locale: string }>;
-  searchParams: Promise<{ error?: string | string[] }>;
+  searchParams: Promise<{
+    error?: string | string[];
+    invite?: string | string[];
+  }>;
 };
 
 export async function generateMetadata({
@@ -45,5 +50,25 @@ export default async function SignInRoute({
     ? (errorParam[0] ?? null)
     : (errorParam ?? null);
 
-  return <SignInPage locale={localeParam} error={error} />;
+  const inviteParam = query.invite;
+  const invite = Array.isArray(inviteParam)
+    ? (inviteParam[0] ?? null)
+    : (inviteParam ?? null);
+
+  // Already signed in with an invite token → finish acceptance.
+  if (invite) {
+    const session = await auth();
+    if (session?.user?.email) {
+      redirect(
+        localizePath(
+          localeParam,
+          `/auth/accept-invite/?token=${encodeURIComponent(invite)}`,
+        ),
+      );
+    }
+  }
+
+  return (
+    <SignInPage locale={localeParam} error={error} inviteToken={invite} />
+  );
 }

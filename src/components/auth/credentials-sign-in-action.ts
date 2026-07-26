@@ -12,6 +12,13 @@ export async function credentialsSignInAction(
   formData: FormData,
 ) {
   const signInPath = localizePath(locale, "/auth/sign-in/");
+  const invite = String(formData.get("invite") ?? "").trim();
+  const redirectTo = invite
+    ? localizePath(
+        locale,
+        `/auth/accept-invite/?token=${encodeURIComponent(invite)}`,
+      )
+    : localizePath(locale, "/");
 
   if (!isCredentialsAuthConfigured()) {
     redirect(`${signInPath}?error=CredentialsNotConfigured`);
@@ -24,14 +31,18 @@ export async function credentialsSignInAction(
     await signIn("credentials", {
       email,
       password,
-      redirectTo: localizePath(locale, "/"),
+      redirectTo,
     });
   } catch (error) {
     if (error instanceof CredentialsSignin) {
-      redirect(`${signInPath}?error=CredentialsSignin`);
+      redirect(
+        `${signInPath}?error=CredentialsSignin${invite ? `&invite=${encodeURIComponent(invite)}` : ""}`,
+      );
     }
     if (error instanceof AuthError) {
-      redirect(`${signInPath}?error=AuthError`);
+      redirect(
+        `${signInPath}?error=AuthError${invite ? `&invite=${encodeURIComponent(invite)}` : ""}`,
+      );
     }
     throw error;
   }

@@ -11,12 +11,14 @@ type CredentialsSignInFormProps = {
   locale: Locale;
   configured: boolean;
   labels: UiMessages["auth"];
+  inviteToken?: string | null | undefined;
 };
 
 export function CredentialsSignInForm({
   locale,
   configured,
   labels,
+  inviteToken,
 }: CredentialsSignInFormProps) {
   const emailId = useId();
   const passwordId = useId();
@@ -27,6 +29,9 @@ export function CredentialsSignInForm({
       className="auth-sign-in__form"
       action={credentialsSignInAction.bind(null, locale)}
     >
+      {inviteToken ? (
+        <input type="hidden" name="invite" value={inviteToken} />
+      ) : null}
       <div className="auth-sign-in__field">
         <label className="auth-sign-in__label" htmlFor={emailId}>
           {labels.emailLabel}

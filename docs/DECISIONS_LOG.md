@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-26 (D-0177 — Owner always super_admin via demo operator / dev defaults)
+**Last updated:** 2026-07-26 (D-0178 — Admin Platform expansion + branded email templates)
 
 ## Rules
 
@@ -193,6 +193,7 @@
 | D-0175 | 2026-07-26 | Experience Redesign UI freeze — completed approved snapshot | Active |
 | D-0176 | 2026-07-26 | Admin Platform / Social footer — first vertical slice | Active |
 | D-0177 | 2026-07-26 | Owner always super_admin via demo operator / dev defaults | Active |
+| D-0178 | 2026-07-26 | Admin Platform expansion + branded email templates | Active |
 
 ---
 
@@ -1572,6 +1573,15 @@
 - **In scope:** `src/admin/demo-operator.ts`; auth credentials resolution; role mapping; `.env.example`; gitignored `.env.local` for local; `docs/ADMIN_PLATFORM.md` / `docs/VERCEL_DEPLOY.md`; D-0177 + AGENTS phase pointer; local smoke; commit/push so prod can use `AUTH_DEMO_*` once set.
 - **Out of scope:** Unauthenticated admin access; inventing a full user DB; committing production secrets; changing public Experience freeze (D-0175).
 - **Implications:** Extends D-0163 / D-0176. Owner must set Vercel env for production email/password login; local example password must be changed for any shared or production use.
+
+### D-0178 — Admin Platform expansion + branded email templates
+
+- **Date:** 2026-07-26
+- **Status:** Active
+- **Decision:** Owner authorizes Admin Platform expansion after feedback that email template preview showed a broken logo / plain brand text, admin UI needed SAVEN polish, and working modules were missing. (1) **Branded email HTML** — email-safe PNG mark (`/brand/saven-logo-mark.png`) with absolute production URL; admin preview rewrites host to the current origin; header uses SAVEN (light) + CORE (gold `#d4a84b`) lockup matching `BrandName`, navy header, gold accent rule, tagline, site, `info@savencore.com`, © 2026. (2) **Admin UI polish** — clearer nav hierarchy, brand lockup in shell, straight-corner cards/sections, no neon. (3) **Working modules** (JSON store under `storage/admin/`, gitignored runtime writes; seed defaults in code): roles/permissions matrix; operator assignments; invitations with token links; in-app notifications; mailings compose/preview/send with SMTP when `SMTP_*` set otherwise honest **simulated** send + outbox. (4) Demo/owner Credentials operator remains always `super_admin` (D-0177). Public Experience Redesign freeze (D-0175) and public IA unchanged.
+- **In scope:** Email brand chrome; admin pages/APIs/nav/i18n; permission matrix; operators/invitations/notifications/mailings stores; optional SMTP helper; `docs/ADMIN_PLATFORM.md`; D-0178 + AGENTS phase pointer; `tsc`/smoke; commit/push/deploy.
+- **Out of scope:** Inventing customers/metrics/ROI; neon; durable S3/DB; fabricating SMTP delivery success without SMTP; changing public IA/heroes; final legal prose.
+- **Implications:** On Vercel (read-only FS), JSON persistence may be unavailable until durable storage — UI must stay honest. SMTP is optional; simulated send must never claim real delivery.
 
 ## Pending Owner Decisions
 

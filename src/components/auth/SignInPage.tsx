@@ -14,9 +14,10 @@ import "./sign-in.css";
 type SignInPageProps = {
   locale: Locale;
   error?: string | null;
+  inviteToken?: string | null | undefined;
 };
 
-export function SignInPage({ locale, error }: SignInPageProps) {
+export function SignInPage({ locale, error, inviteToken }: SignInPageProps) {
   const ui = getUi(locale);
   const googleConfigured = isGoogleAuthConfigured();
   const credentialsConfigured = isCredentialsAuthConfigured();
@@ -63,6 +64,9 @@ export function SignInPage({ locale, error }: SignInPageProps) {
             {ui.auth.signInTitleAfter}
           </h1>
           <p className="auth-sign-in__lead">{ui.auth.signInLead}</p>
+          {inviteToken ? (
+            <p className="auth-sign-in__lead">{ui.admin.inviteSignInHint}</p>
+          ) : null}
         </div>
 
         <div className="auth-sign-in__actions">
@@ -76,6 +80,7 @@ export function SignInPage({ locale, error }: SignInPageProps) {
             locale={locale}
             configured={credentialsConfigured}
             labels={ui.auth}
+            inviteToken={inviteToken}
           />
 
           <div className="auth-sign-in__divider" role="separator">
@@ -84,6 +89,9 @@ export function SignInPage({ locale, error }: SignInPageProps) {
 
           {googleConfigured ? (
             <form action={googleSignInAction.bind(null, locale)}>
+              {inviteToken ? (
+                <input type="hidden" name="invite" value={inviteToken} />
+              ) : null}
               <button type="submit" className="auth-sign-in__google">
                 <GoogleMark />
                 {ui.auth.continueWithGoogle}

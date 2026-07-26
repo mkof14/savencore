@@ -1,6 +1,9 @@
 /**
- * Admin platform RBAC (D-0176 / D-0177).
+ * Admin platform RBAC (D-0176 / D-0177 / D-0178).
  * Hierarchy: super_admin > admin > editor > marketer > viewer.
+ *
+ * Client-safe: no node:fs. Persisted role assignments are resolved in
+ * `resolveRoleForEmailAsync` (server / Auth.js jwt callback).
  */
 
 import {
@@ -55,6 +58,11 @@ export function roleAtLeast(
 export type AdminPermission =
   | "dashboard"
   | "email_templates"
+  | "mailings"
+  | "invitations"
+  | "users"
+  | "permissions"
+  | "notifications"
   | "media_view"
   | "media_upload"
   | "media_actions"
@@ -65,6 +73,11 @@ export type AdminPermission =
 const PERMISSION_MINIMUM: Record<AdminPermission, AdminRole> = {
   dashboard: "viewer",
   email_templates: "viewer",
+  mailings: "marketer",
+  invitations: "admin",
+  users: "admin",
+  permissions: "super_admin",
+  notifications: "viewer",
   media_view: "viewer",
   media_actions: "viewer",
   media_upload: "editor",
@@ -80,11 +93,28 @@ export function canPerform(
   return roleAtLeast(role, PERMISSION_MINIMUM[permission]);
 }
 
+function roleFromAllowlist(normalizedEmail: string): AdminRole | null {
+  const allowlist = process.env.AUTH_ADMIN_ALLOWLIST ?? "";
+  for (const entry of allowlist.split(",")) {
+    const trimmed = entry.trim();
+    if (!trimmed) {
+      continue;
+    }
+    const [rawEmail, rawRole] = trimmed.split(":");
+    if (!rawEmail) {
+      continue;
+    }
+    if (rawEmail.trim().toLowerCase() === normalizedEmail) {
+      return parseAdminRole(rawRole) ?? "viewer";
+    }
+  }
+  return null;
+}
+
 /**
- * Resolve role for an authenticated email.
- * - Demo credentials email → always `super_admin` (D-0177)
- * - AUTH_ADMIN_ALLOWLIST → `email:role,email2:role`
- * - Otherwise → null (signed in, no admin access)
+ * Sync role resolve: demo operator + AUTH_ADMIN_ALLOWLIST.
+ * For persisted assignments use `resolveRoleForEmailAsync` from
+ * `@/admin/resolve-role-server` (server-only).
  */
 export function resolveRoleForEmail(
   email: string | null | undefined,
@@ -101,22 +131,7 @@ export function resolveRoleForEmail(
     return demoOperatorRole();
   }
 
-  const allowlist = process.env.AUTH_ADMIN_ALLOWLIST ?? "";
-  for (const entry of allowlist.split(",")) {
-    const trimmed = entry.trim();
-    if (!trimmed) {
-      continue;
-    }
-    const [rawEmail, rawRole] = trimmed.split(":");
-    if (!rawEmail) {
-      continue;
-    }
-    if (rawEmail.trim().toLowerCase() === normalized) {
-      return parseAdminRole(rawRole) ?? "viewer";
-    }
-  }
-
-  return null;
+  return roleFromAllowlist(normalized);
 }
 
 export function roleLabel(role: AdminRole): string {

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
 
-import type { AdminRole } from "@/admin/roles";
+import type { AdminPermission, AdminRole } from "@/admin/roles";
 import { canPerform, roleLabel } from "@/admin/roles";
 import type { Locale } from "@/config/locales";
 import { getUi } from "@/i18n/ui";
@@ -23,12 +23,7 @@ type AdminShellProps = {
 type NavItem = {
   href: string;
   label: string;
-  permission:
-    | "dashboard"
-    | "email_templates"
-    | "media_view"
-    | "marketing"
-    | "monitoring";
+  permission: AdminPermission;
 };
 
 export function AdminShell({
@@ -53,19 +48,44 @@ export function AdminShell({
       permission: "email_templates",
     },
     {
+      href: localizePath(locale, "/admin/mailings/"),
+      label: ui.admin.navMailings,
+      permission: "mailings",
+    },
+    {
+      href: localizePath(locale, "/admin/invitations/"),
+      label: ui.admin.navInvitations,
+      permission: "invitations",
+    },
+    {
+      href: localizePath(locale, "/admin/users/"),
+      label: ui.admin.navUsers,
+      permission: "users",
+    },
+    {
+      href: localizePath(locale, "/admin/permissions/"),
+      label: ui.admin.navPermissions,
+      permission: "permissions",
+    },
+    {
+      href: localizePath(locale, "/admin/notifications/"),
+      label: ui.admin.navNotifications,
+      permission: "notifications",
+    },
+    {
       href: localizePath(locale, "/admin/media/"),
       label: ui.admin.navMedia,
       permission: "media_view",
     },
     {
-      href: localizePath(locale, "/admin/marketing/"),
-      label: ui.admin.navMarketing,
-      permission: "marketing",
-    },
-    {
       href: localizePath(locale, "/admin/monitoring/"),
       label: ui.admin.navMonitoring,
       permission: "monitoring",
+    },
+    {
+      href: localizePath(locale, "/admin/marketing/"),
+      label: ui.admin.navMarketing,
+      permission: "marketing",
     },
   ];
 
@@ -73,6 +93,10 @@ export function AdminShell({
     <div className="admin-shell">
       <aside className="admin-shell__nav" aria-label={ui.admin.navLabel}>
         <div className="admin-shell__brand">
+          <div className="admin-shell__brand-lockup" dir="ltr" lang="en">
+            <span className="admin-shell__brand-saven">SAVEN</span>{" "}
+            <span className="admin-shell__brand-core">CORE</span>
+          </div>
           <div className="admin-shell__brand-name">{ui.admin.brandTitle}</div>
           <div className="admin-shell__brand-meta">
             {email}

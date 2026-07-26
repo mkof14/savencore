@@ -1,7 +1,7 @@
-# Admin Platform (D-0176 / D-0177)
+# Admin Platform (D-0176 / D-0177 / D-0178)
 
 **Status:** In Development / Architecture  
-**Authority:** `docs/DECISIONS_LOG.md` D-0176, D-0177  
+**Authority:** `docs/DECISIONS_LOG.md` D-0176, D-0177, D-0178  
 **Public site freeze:** D-0175 Experience Redesign UI remains the approved public snapshot; this platform is a restricted vertical slice and does not invent metrics, customers, or live social profiles.
 
 ## Access
@@ -18,13 +18,13 @@ Hierarchy (highest first):
 
 | Role | Typical access |
 |------|----------------|
-| `super_admin` | Full admin surface |
-| `admin` | Administration + all operator tools |
-| `editor` | Email templates, media view + upload, monitoring |
-| `marketer` | Marketing checklists + media actions + templates + monitoring |
-| `viewer` | Dashboard, templates preview, media view/actions, monitoring |
+| `super_admin` | Full admin surface + permission matrix edit |
+| `admin` | Users, invitations, mailings, templates, media, monitoring |
+| `editor` | Templates, media upload, monitoring |
+| `marketer` | Mailings, templates, marketing checklists, media, monitoring |
+| `viewer` | Dashboard, templates preview, notifications, media view, monitoring |
 
-Enforcement: `src/admin/roles.ts` + `src/admin/require-role.ts` on pages and `/api/admin/*`.
+Enforcement: `src/admin/roles.ts` (section gates) + `src/admin/permissions.ts` (granular matrix) + `src/admin/require-role.ts` on pages and `/api/admin/*`.
 
 ### Owner / demo operator → always `super_admin` (D-0177)
 
@@ -32,7 +32,7 @@ The Credentials provider accepts a single env-based operator account. That ident
 
 #### Local development
 
-1. Prefer a gitignored `.env.local` (created for local `npm run dev`):
+1. Prefer a gitignored `.env.local`:
 
 ```bash
 AUTH_SECRET=<openssl rand -base64 32>
@@ -41,56 +41,65 @@ AUTH_DEMO_PASSWORD=SavenCore-Dev-Admin!
 AUTH_DEMO_ROLE=super_admin
 ```
 
-2. If `AUTH_DEMO_EMAIL` / `AUTH_DEMO_PASSWORD` are unset and `NODE_ENV === "development"`, the same documented defaults apply in code (`admin@savencore.com` / `SavenCore-Dev-Admin!` → `super_admin`). Prefer setting them explicitly in `.env.local`. Change the password for any shared machine.
+2. If `AUTH_DEMO_EMAIL` / `AUTH_DEMO_PASSWORD` are unset and `NODE_ENV === "development"`, documented defaults apply. Prefer explicit `.env.local`.
 
-3. Sign in at `/en/auth/sign-in/` with that email/password → open `/en/admin/` (footer **Admin** link appears when signed in).
+3. Sign in at `/en/auth/sign-in/` → open `/en/admin/`.
 
 #### Production (Vercel)
 
-Set env vars explicitly — **no silent default password on production**:
-
 ```bash
-AUTH_SECRET=<strong secret from openssl rand -base64 32>
-AUTH_DEMO_EMAIL=admin@savencore.com
-AUTH_DEMO_PASSWORD=<choose a strong password; do not reuse the local example>
+AUTH_SECRET=<strong secret>
+AUTH_DEMO_EMAIL=<owner email>
+AUTH_DEMO_PASSWORD=<strong password>
 AUTH_DEMO_ROLE=super_admin
 AUTH_URL=https://www.savencore.com
 ```
 
-Optional Google admins:
+Optional Google / allowlist admins:
 
 ```bash
 AUTH_ADMIN_ALLOWLIST=you@example.com:super_admin,editor@example.com:editor
 ```
 
-Format: `email:role` comma-separated. Unknown emails can sign in publicly but receive no admin role.
+Persisted role assignments (Users & roles / accepted invitations) are checked after the demo operator rule and before the allowlist (`resolveRoleForEmailAsync`).
 
-## Modules in this slice
+## Modules (D-0178)
 
-1. **Dashboard** — entry cards; honest “In Development” labeling.
-2. **Email templates** — EN content modules under `src/content/admin/email-templates/`; branded HTML (logo, SAVEN Core, site URL, `info@savencore.com`, © 2026); admin preview via `srcDoc` iframe. SMTP send is **not** configured.
-3. **Media library** — seed brand assets + local upload store at `storage/admin-media/` (dev). Actions: Preview, Copy, Print, Share, Download, PDF (native PDF download or print→Save as PDF). Durable object storage is next phase.
-4. **Marketing tools** — promotion + SEO checklists only; no fabricated traffic/ROI.
-5. **Technical monitoring** — package version, locale count, published-route inventory, commit SHA when Vercel provides it; explicit notes about missing analytics/SMTP/S3.
+Nav: **Dashboard · Templates · Mailings · Invitations · Users & roles · Permissions · Notifications · Media · Monitoring · Marketing tools**
+
+1. **Dashboard** — entry cards with honest counts; In Development labeling.
+2. **Email templates** — EN modules under `src/content/admin/email-templates/`. Branded HTML: PNG mark (`/brand/saven-logo-mark.png`), SAVEN (light) + CORE (gold `#d4a84b`) lockup, navy header, gold accent, tagline, site, `info@savencore.com`, © 2026. Preview iframe rewrites absolute production asset URLs to the current origin so local preview works.
+3. **Mailings** — compose from template, manual recipient list, preview, send. If `SMTP_*` configured → real SMTP attempt; otherwise **simulated** send + outbox JSONL (`storage/admin/outbox.jsonl`) — never claims real delivery without SMTP.
+4. **Invitations** — create (email, role, token, expiry); pending/accepted/revoked; copy link `/{locale}/auth/sign-in/?invite=TOKEN` → accept at `/{locale}/auth/accept-invite/?token=TOKEN`.
+5. **Users & roles** — directory of demo + allowlist + assignments; assign/remove persisted roles (demo operator fixed).
+6. **Permissions** — role × permission matrix UI; super_admin can save overrides to `storage/admin/permissions.json`.
+7. **Notifications** — in-app create/list/mark read; seed system notices.
+8. **Media library** — seed brand assets + local upload store at `storage/admin-media/` (dev).
+9. **Marketing tools** — promotion + SEO checklists only; no fabricated traffic/ROI.
+10. **Technical monitoring** — package version, locales, published routes, commit SHA when available.
+
+### JSON store
+
+Runtime files under `storage/admin/` (gitignored). Seed defaults live in code. On read-only hosts (typical Vercel), writes return an honest “storage unavailable” error — durable DB/object storage is a later phase.
+
+### Optional SMTP
+
+```bash
+SMTP_HOST=
+SMTP_PORT=587
+SMTP_USER=
+SMTP_PASS=
+SMTP_FROM=info@savencore.com
+SMTP_SECURE=false
+```
 
 ## Footer socials
 
-Icons for Facebook, YouTube, X, LinkedIn, Instagram always render. Links activate only when configured:
+Icons for Facebook, YouTube, X, LinkedIn, Instagram always render. Links activate only when `NEXT_PUBLIC_SOCIAL_*` is set. Empty / `#` → disabled (`aria-disabled`).
 
-```bash
-NEXT_PUBLIC_SOCIAL_FACEBOOK=
-NEXT_PUBLIC_SOCIAL_YOUTUBE=
-NEXT_PUBLIC_SOCIAL_X=
-NEXT_PUBLIC_SOCIAL_LINKEDIN=
-NEXT_PUBLIC_SOCIAL_INSTAGRAM=
-```
+## Out of scope (later)
 
-Empty / `#` → visible disabled control with `aria-disabled` (no invented profile URLs).
-
-## Out of scope (next phases)
-
-- Real SMTP / CRM send and invitation delivery
-- Durable S3 (or equivalent) media storage on Vercel
+- Durable S3 / database for admin stores on Vercel
 - Google Analytics / cookie consent / ROI dashboards
-- Full multi-user database and invitation workflow UI beyond templates
 - Inventing official social profile URLs
+- Claiming SMTP delivery success when SMTP is unset

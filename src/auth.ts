@@ -9,11 +9,8 @@ import {
   demoOperatorRole,
   resolveDemoOperatorCredentials,
 } from "@/admin/demo-operator";
-import {
-  isAdminRole,
-  resolveRoleForEmail,
-  type AdminRole,
-} from "@/admin/roles";
+import { resolveRoleForEmailAsync } from "@/admin/resolve-role-server";
+import { isAdminRole, type AdminRole } from "@/admin/roles";
 
 export function isGoogleAuthConfigured(): boolean {
   return Boolean(
@@ -139,10 +136,11 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     async jwt({ token, user }) {
       if (user) {
         const fromUser = isAdminRole(user.role) ? user.role : null;
-        token.role = fromUser ?? resolveRoleForEmail(user.email);
+        token.role =
+          fromUser ?? (await resolveRoleForEmailAsync(user.email));
       } else if (typeof token.email === "string") {
-        // Re-resolve on each token refresh so allowlist env changes apply.
-        token.role = resolveRoleForEmail(token.email);
+        // Re-resolve so allowlist / assignment store changes apply.
+        token.role = await resolveRoleForEmailAsync(token.email);
       }
       return token;
     },

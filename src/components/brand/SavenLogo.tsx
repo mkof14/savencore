@@ -20,8 +20,8 @@ type SavenLogoProps = {
   linked?: boolean;
 };
 
-/** Cropped mark (padding removed) — fills header without empty plate. */
-const MARK_SRC = "/brand/saven-logo-mark.png";
+/** Cropped mark (padding removed) — WebP for fast load. */
+const MARK_SRC = "/brand/saven-logo-mark.webp";
 /** Native cropped asset ratio (479×647). */
 const MARK_ASPECT = 479 / 647;
 

@@ -71,6 +71,24 @@ export const LOCALE_LABELS: Record<Locale, string> = {
   ru: "Russian",
 };
 
+/** Country / region flag emoji for language menus (D-0155). */
+export const LOCALE_FLAGS: Record<Locale, string> = {
+  en: "🇺🇸",
+  es: "🇪🇸",
+  de: "🇩🇪",
+  fr: "🇫🇷",
+  ja: "🇯🇵",
+  "zh-cn": "🇨🇳",
+  ar: "🇸🇦",
+  he: "🇮🇱",
+  uk: "🇺🇦",
+  ru: "🇷🇺",
+};
+
 export function getLocaleLabel(locale: Locale): string {
   return LOCALE_LABELS[locale];
+}
+
+export function getLocaleFlag(locale: Locale): string {
+  return LOCALE_FLAGS[locale];
 }

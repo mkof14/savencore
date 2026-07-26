@@ -1,25 +1,26 @@
 import { notFound } from "next/navigation";
 
-import "@/components/knowledge/knowledge.css";
-import { TechnologyPage } from "@/components/pages/TechnologyPage";
-import "@/components/pages/pages.css";
+import { DomainVisualPage } from "@/components/domain/DomainVisualPage";
 import { isLocale } from "@/config/locales";
-import { getTechnologyPageContent } from "@/content/pages/get-localized-page";
+import { getTechnologyHubContent } from "@/content/hub/build-hub-content";
+import { createHubGenerateMetadata } from "@/lib/seo/metadata";
 
-type TechnologyPageRouteProps = {
-  params: Promise<{ locale: string }>;
-};
+type Props = { params: Promise<{ locale: string }> };
 
-export default async function TechnologyRoutePage({
-  params,
-}: TechnologyPageRouteProps) {
+export const generateMetadata = createHubGenerateMetadata(
+  "/technology/",
+  getTechnologyHubContent,
+);
+
+export default async function Page({ params }: Props) {
   const { locale: localeParam } = await params;
-
   if (!isLocale(localeParam)) {
     notFound();
   }
-
   return (
-    <TechnologyPage locale={localeParam} content={getTechnologyPageContent(localeParam)} />
+    <DomainVisualPage
+      locale={localeParam}
+      content={getTechnologyHubContent(localeParam)}
+    />
   );
 }

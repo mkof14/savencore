@@ -4,12 +4,45 @@ import { uiEn, type UiMessages } from "@/i18n/ui/en";
 export const uiJa: UiMessages = {
   ...uiEn,
   language: "言語", menu: "メニュー", close: "閉じる", open: "開く", skipToContent: "本文へ移動",
-  nav: { home: "ホーム", technology: "技術", systems: "システム", applications: "活用分野", trust: "信頼", research: "研究", purpose: "目的", foundation: "基盤" },
-  navEntries: { ...uiEn.navEntries, "technology-overview": "技術", "technology-human-data": "人に関するデータ", "technology-human-data-model": "人に関するデータのモデル", "technology-data-infrastructure": "データ基盤", "technology-interoperability": "相互運用性", "technology-privacy": "プライバシー", "technology-security": "セキュリティ", "technology-artificial-intelligence": "人工知能", "technology-automation": "自動化", "technology-robotics": "ロボティクス", "systems-overview": "システム", "systems-knowledge-engine": "知識エンジン", "systems-ai-decision-support": "AIによる意思決定支援", "systems-safety-layer": "安全レイヤー", "systems-communication-layer": "通信レイヤー", "systems-clinical-interfaces": "臨床インターフェース", "systems-robotics-layer": "ロボティクス・レイヤー", "systems-drone-systems": "ドローンシステム", "applications-overview": "活用分野", "applications-healthcare": "医療", "applications-home": "家庭", "applications-hospitals": "病院", "applications-emergency": "緊急時", "applications-industrial": "産業", "applications-government": "公共部門", "applications-agriculture": "農業", "applications-research-applications": "研究分野での活用", "trust-overview": "信頼", "trust-privacy": "プライバシー", "trust-security": "セキュリティ", "trust-safety": "安全", "trust-human-oversight": "人による監督", "trust-transparency": "透明性", "trust-ethics": "倫理と責任ある利用", "trust-limitations": "限界", "research-overview": "研究", "footer-purpose": "目的", "footer-foundation": "基盤", "footer-research": "研究", "footer-resources-purpose": "目的", "footer-resources-foundation": "基盤", "footer-resources-research": "研究", "footer-resources-home": "ホーム" },
-  footer: { ...uiEn.footer, technology: "技術", systems: "システム", applications: "活用分野", trust: "信頼", research: "研究", about: "SAVEN Coreについて", resources: "リソース", company: "会社情報", legal: "法的情報", contact: "お問い合わせ", plannedNote: "", comingSoon: "", copyright: "© 2026 SAVEN Core. All rights reserved.", copyrightShort: "© SAVEN Core", privacy: "プライバシー", terms: "利用規約", cookies: "Cookie", theme: "テーマ", themeLight: "ライト", themeDark: "ダーク", version: "バージョン", tagline: "人のデータ。\nつながるシステム。\n責任あるテクノロジー。" },
-  home: { developmentStatus: "アーキテクチャ", architectureOverview: "ひと目でわかる考え方", architectureOverviewText: "人と情報から、日常の生活を支えるシステムへ。明確な範囲のもとで進めます。", knowledgeExplorer: "見る", majorDomains: "主なテーマ", publishedPages: "このページ群", relationships: "つながり", domainMap: "見つける", architectureDependencies: "テーマのつながり", currentStatus: "進捗", platformProgress: "テーマ", featuredConcepts: "見つける", startWithCore: "はじめに読む考え方", continueExploring: "続ける", chooseEntrance: "始める場所を選ぶ", knowledgeId: "文書ID", complete: "完了", inProgress: "進行中", planned: "対象範囲", understand: "理解する", explore: "見る", discover: "見つける", continue: "続ける" },
+  nav: { home: "ホーム", technology: "技術", systems: "システム", applications: "活用分野", trust: "信頼", research: "研究", purpose: "目的", foundation: "基盤", labs: "ラボ", investors: "投資家", signIn: "サインイン / 登録" },
+  navEntries: { ...uiEn.navEntries, "technology-overview": "技術", "technology-human-data": "人に関するデータ", "technology-human-data-model": "人に関するデータのモデル", "technology-data-infrastructure": "データ基盤", "technology-interoperability": "相互運用性", "technology-privacy": "プライバシー", "technology-security": "セキュリティ", "technology-artificial-intelligence": "人工知能", "technology-automation": "自動化", "technology-robotics": "ロボティクス", "systems-overview": "システム", "systems-knowledge-engine": "知識エンジン", "systems-ai-decision-support": "AIによる意思決定支援", "systems-safety-layer": "安全レイヤー", "systems-communication-layer": "通信レイヤー", "systems-clinical-interfaces": "臨床インターフェース", "systems-robotics-layer": "ロボティクス・レイヤー", "systems-drone-systems": "ドローンシステム", "applications-overview": "活用分野", "applications-healthcare": "医療", "applications-home": "家庭", "applications-hospitals": "病院", "applications-emergency": "緊急時", "applications-industrial": "産業", "applications-government": "公共部門", "applications-agriculture": "農業", "applications-research-applications": "研究分野での活用", "trust-overview": "信頼", "trust-privacy": "プライバシー", "trust-security": "セキュリティ", "trust-safety": "安全", "trust-human-oversight": "人による監督", "trust-transparency": "透明性", "trust-ethics": "倫理と責任ある利用", "trust-limitations": "限界", "research-overview": "研究", "footer-technology-overview": "概要", "footer-systems-overview": "概要", "footer-applications-overview": "概要", "footer-trust-overview": "概要", "footer-research-overview": "概要", "footer-applications-research": "研究", "footer-trust-ethics": "倫理", "footer-company-about": "会社概要", "footer-company-mission": "ミッション" , "sign-in": "サインイン / 登録", "footer-company-investors": "投資家", "footer-labs-overview": "概要", "footer-labs-saven-robotics-lab": "SAVEN Robotics Lab", "footer-labs-internal-future-lab": "Internal Future Lab", "footer-systems-saven-robotics-interface": "SAVEN Robotics Interface", "footer-legal-privacy-policy": "プライバシーポリシー", "footer-legal-terms-of-use": "利用規約", "footer-legal-cookie-policy": "クッキーポリシー", "footer-legal-cookie-preferences": "クッキー設定", "footer-legal-accessibility-statement": "アクセシビリティ声明", "footer-legal-security": "セキュリティ", "footer-legal-responsible-ai": "責任あるAI", "footer-legal-medical-disclaimer": "医療に関する免責事項", "footer-legal-research-disclaimer": "研究に関する免責事項", "footer-legal-intellectual-property": "知的財産", "footer-legal-trademark-notice": "商標に関する通知", "footer-legal-copyright": "著作権表示", "footer-legal-data-rights": "データに関する権利", "footer-legal-regional-privacy-rights": "地域のプライバシー権", "footer-legal-do-not-sell-or-share": "販売・共有の拒否", "footer-legal-legal-notices": "法的通知"},
+  footer: { ...uiEn.footer, copyrightLabel: "Copyright", themeToLight: "ライトテーマに切り替え", themeToDark: "ダークテーマに切り替え", signIn: "サインイン / 登録", technology: "技術", systems: "システム", applications: "活用分野", trust: "信頼", research: "研究", about: "SAVEN Coreについて", resources: "リソース", company: "会社情報", legal: "法的情報", contact: "お問い合わせ", plannedNote: "", comingSoon: "", copyright: "© 2026 SAVEN Core. All rights reserved.", copyrightShort: "© SAVEN Core", privacy: "プライバシー", terms: "利用規約", cookies: "Cookie", theme: "テーマ", themeLight: "ライト", themeDark: "ダーク", version: "バージョン", tagline: "人のデータ。\nつながるシステム。\n責任あるテクノロジー。" },
+  auth: {
+    signInTitle: "SAVEN Coreにサインイン",
+    signInLead:
+      "メールとパスワードでサインインするか、Googleで続行できます。認証は認証情報が設定されている場合に利用できます。",
+    emailLabel: "メール",
+    emailPlaceholder: "you@example.com",
+    passwordLabel: "パスワード",
+    passwordPlaceholder: "パスワード",
+    showPassword: "パスワードを表示",
+    hidePassword: "パスワードを隠す",
+    signInSubmit: "サインイン",
+    orDivider: "または",
+    continueWithGoogle: "Googleで続行",
+    back: "戻る",
+    configureTitle: "設定が必要です",
+    configureGoogle:
+      "Googleサインインはまだ設定されていません。GOOGLE_CLIENT_ID、GOOGLE_CLIENT_SECRET、AUTH_SECRETを環境に追加してください。",
+    configurePassword:
+      "メール/パスワードのサインインはまだ設定されていません。ステージング用オペレーターアカウントのために AUTH_SECRET、AUTH_DEMO_EMAIL、AUTH_DEMO_PASSWORD を追加してください。本格的なユーザーデータベースは後日です。",
+    configureCredentials:
+      "Googleサインインはまだ設定されていません。GOOGLE_CLIENT_ID、GOOGLE_CLIENT_SECRET、AUTH_SECRETを環境に追加してください。",
+    invalidCredentials: "メールまたはパスワードが正しくありません。",
+    operatorNote:
+      "パスワードサインインはローンチテスト専用の環境変数ベースの単一オペレーターアカウントです。公開ユーザー登録ではありません。",
+    notSignedIn: "サインインしていません。",
+  },
+  legal: {"lastUpdated":"最終更新","related":"法務ページ","draftNote":"草案 — 法務レビュー待ち"},
+  home: { developmentStatus: "アーキテクチャ", architectureOverview: "ひと目でわかる考え方", architectureOverviewText: "人と情報から、日常の生活を支えるシステムへ。明確な範囲のもとで進めます。", knowledgeExplorer: "見る", majorDomains: "主なテーマ", publishedPages: "このページ群", relationships: "つながり", domainMap: "見つける", architectureDependencies: "テーマのつながり", currentStatus: "進捗", platformProgress: "テーマ", featuredConcepts: "見つける", startWithCore: "はじめに読む考え方", continueExploring: "続ける", chooseEntrance: "始める場所を選ぶ", knowledgeId: "文書ID", complete: "完了", inProgress: "進行中", planned: "対象範囲", understand: "理解する", explore: "見る", discover: "見つける", continue: "続ける", beatWhat: "何を", beatWho: "誰に", beatWhy: "なぜ", beatHow: "どう", hourFramesLabel: "ケアの一時間" },
   ko: { ...uiEn.ko, document: "文書", passport: "文書情報", knowledgeId: "文書ID", domain: "テーマ領域", type: "文書の種類", status: "ステータス", version: "バージョン", evidence: "根拠", maturity: "ステータス", readingTime: "読了時間", lastReview: "最終確認", owner: "担当者", engineeringObject: "ページ情報", currentPosition: "現在地", nextReading: "次に読む内容", notYetAssigned: "未指定", dependencies: "関連する概念", dependencyGraph: "関連する概念", incoming: "利用するもの", outgoing: "依存するもの", nonePublished: "なし", knowledgeGraph: "つながり", parents: "より広いテーマ", children: "含まれるテーマ", consumers: "利用するもの", providers: "基盤となるもの", lifecycle: "文書の履歴", created: "作成", reviewed: "確認", published: "公開", updated: "更新", nextReview: "次回確認", deprecated: "非推奨", futureRevision: "改訂", versionHistory: "バージョン", previousVersion: "前のバージョン", summaryOfChanges: "変更内容", date: "日付", readingPaths: "おすすめの読み方", level2Kicker: "次に", level2Title: "関連する文書と概念", level3Kicker: "詳細", level3Title: "専門家向けの文書情報" },
   scope: { definition: "定義", "current-scope": "対象範囲", "future-scope": "次に進むこと", "human-oversight": "人による監督", "safety-boundary": "安全上の境界", "engineering-note": "注記", limitation: "限界" },
   callout: { information: "情報", definition: "定義", "engineering-note": "注記", important: "重要", "current-scope": "対象範囲", "future-scope": "次に進むこと", relationship: "つながり" },
   common: { openArrow: "開く", relatedDomains: "関連テーマ", referenceLinks: "さらに読む", keyPrinciples: "重要な原則", executiveSummary: "概要", whyItMatters: "重要な理由", purpose: "目的", futureExpansion: "関連テーマ" },
+  hub: { related: "続ける", explore: "見る", areas: "領域", what: "これは何か", why: "なぜ重要か", next: "次に進む先", deeper: "詳細" },
+  pwa: {
+    installApp: "アプリをインストール",
+    iosTip:
+      "iPhoneまたはiPadでは、「共有」→「ホーム画面に追加」でSAVEN Coreをインストールできます。",
+  },
 };

@@ -1,28 +1,26 @@
 import { notFound } from "next/navigation";
 
-import "@/components/knowledge/knowledge.css";
-import { DataInfrastructurePage } from "@/components/pages/DataInfrastructurePage";
-import "@/components/pages/pages.css";
+import { DomainVisualPage } from "@/components/domain/DomainVisualPage";
 import { isLocale } from "@/config/locales";
-import { getDataInfrastructurePageContent } from "@/content/pages/get-localized-page";
+import { getDataInfrastructureDomainContent } from "@/content/domain/build-domain-leaf";
+import { createHubGenerateMetadata } from "@/lib/seo/metadata";
 
-type DataInfrastructureRouteProps = {
-  params: Promise<{ locale: string }>;
-};
+type Props = { params: Promise<{ locale: string }> };
 
-export default async function DataInfrastructureRoutePage({
-  params,
-}: DataInfrastructureRouteProps) {
+export const generateMetadata = createHubGenerateMetadata(
+  "/technology/data-infrastructure/",
+  getDataInfrastructureDomainContent,
+);
+
+export default async function Page({ params }: Props) {
   const { locale: localeParam } = await params;
-
   if (!isLocale(localeParam)) {
     notFound();
   }
-
   return (
-    <DataInfrastructurePage
+    <DomainVisualPage
       locale={localeParam}
-      content={getDataInfrastructurePageContent(localeParam)}
+      content={getDataInfrastructureDomainContent(localeParam)}
     />
   );
 }

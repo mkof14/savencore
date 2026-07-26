@@ -1,10 +1,17 @@
 import type { ReactNode } from "react";
+import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
 
+import { RegisterServiceWorker } from "@/components/pwa/RegisterServiceWorker";
+import { OrganizationJsonLd } from "@/components/seo/OrganizationJsonLd";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import "@/components/site/site-shell.css";
 import "@/components/experience/experience.css";
+import {
+  SITE_THEME_COLOR_DARK,
+  SITE_THEME_COLOR_LIGHT,
+} from "@/config/site";
 import {
   getHtmlLang,
   getTextDirection,
@@ -13,6 +20,7 @@ import {
   type Locale,
 } from "@/config/locales";
 import { experienceFontVariables } from "@/design/fonts";
+import { buildLocaleLayoutMetadata } from "@/lib/seo/metadata";
 
 type LocaleLayoutProps = {
   children: ReactNode;
@@ -25,6 +33,27 @@ export function generateStaticParams() {
 
 /** Reject unsupported locale segments instead of treating them as valid routes. */
 export const dynamicParams = false;
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale: localeParam } = await params;
+  if (!isLocale(localeParam)) {
+    return {};
+  }
+  return buildLocaleLayoutMetadata(localeParam);
+}
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: SITE_THEME_COLOR_LIGHT },
+    { media: "(prefers-color-scheme: dark)", color: SITE_THEME_COLOR_DARK },
+  ],
+  width: "device-width",
+  initialScale: 1,
+};
 
 export default async function LocaleLayout({
   children,
@@ -43,13 +72,25 @@ export default async function LocaleLayout({
       lang={getHtmlLang(locale)}
       dir={getTextDirection(locale)}
       className={experienceFontVariables}
+      suppressHydrationWarning
     >
+      <head>
+        <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+        <meta name="apple-mobile-web-app-title" content="SAVEN Core" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem("savencore-theme");if(t==="dark"||t==="light"){document.documentElement.setAttribute("data-theme",t);}}catch(e){}})();`,
+          }}
+        />
+        <OrganizationJsonLd />
+      </head>
       <body>
         <div className="site-shell">
           <SiteHeader locale={locale} />
           <main className="site-shell__main">{children}</main>
           <SiteFooter locale={locale} />
         </div>
+        <RegisterServiceWorker />
       </body>
     </html>
   );

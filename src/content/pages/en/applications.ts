@@ -48,9 +48,9 @@ export const applicationsPageContent: ApplicationsPageContent = {
     relatedDomain: "Technology, Systems, Trust",
   },
   label: "Applications Overview",
-  title: "Where Technology and Systems meet real environments.",
+  title: "Where intelligent systems may support real life.",
   introduction:
-    "Applications describe intended operating contexts. They begin with human environments and keep industrial extensions secondary.",
+    "Applications describe the places SAVEN Core systems are intended to help — starting with care and everyday life. These pages explain contexts and architecture, not products already in use.",
   developmentNote: APPLICATIONS_DEVELOPMENT_NOTE,
   definitionTerm: "Application",
   definition:

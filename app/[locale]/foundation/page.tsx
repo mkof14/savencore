@@ -1,33 +1,26 @@
 import { notFound } from "next/navigation";
 
-import { TechnicalPage } from "@/components/pages/TechnicalPage";
-import "@/components/pages/pages.css";
+import { DomainVisualPage } from "@/components/domain/DomainVisualPage";
 import { isLocale } from "@/config/locales";
-import { getFoundationPageContent } from "@/content/pages/get-localized-page";
+import { getFoundationDomainContent } from "@/content/domain/build-domain-leaf";
+import { createHubGenerateMetadata } from "@/lib/seo/metadata";
 
-type FoundationPageProps = {
-  params: Promise<{ locale: string }>;
-};
+type Props = { params: Promise<{ locale: string }> };
 
-export default async function FoundationPage({ params }: FoundationPageProps) {
+export const generateMetadata = createHubGenerateMetadata(
+  "/foundation/",
+  getFoundationDomainContent,
+);
+
+export default async function Page({ params }: Props) {
   const { locale: localeParam } = await params;
-
   if (!isLocale(localeParam)) {
     notFound();
   }
-
   return (
-    <TechnicalPage
+    <DomainVisualPage
       locale={localeParam}
-      content={getFoundationPageContent(localeParam)}
-      knowledge={{
-        knowledgeId: "page-foundation",
-        href: "/foundation/",
-        title: "Foundation",
-        domain: "Foundation",
-        entityId: "saven-core",
-        typeOverride: "Foundation",
-      }}
+      content={getFoundationDomainContent(localeParam)}
     />
   );
 }

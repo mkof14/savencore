@@ -47,15 +47,15 @@ export const trustPageContent: TrustPageContent = {
     relatedDomain: "Technology, Systems, Applications",
   },
   label: "Trust Overview",
-  title: "Commitments, controls, oversight and limits.",
+  title: "How we govern purpose, oversight, and limits.",
   introduction:
-    "Trust explains the reader-facing governance model for SAVEN Core. It is not a legal policy set and not a guarantee of complete safety, privacy or compliance.",
+    "Trust explains how SAVEN Core talks about responsibility — commitments, oversight, and what we do not claim. It is not a legal policy set and not a guarantee of complete safety, privacy, or compliance.",
   developmentNote: TRUST_DEVELOPMENT_NOTE,
   definitionTerm: "Trust",
   definition:
-    "The organizational commitments, oversight expectations and limitations that govern how SAVEN Core work may be described and constrained.",
+    "The commitments, oversight expectations, and limitations that govern how SAVEN Core work may be described and constrained.",
   boundaryNote:
-    "Technology Privacy and Security document engineering foundations. The Systems Safety Layer documents system-wide safeguards. Trust documents governance, responsibility and limits for readers.",
+    "Technology pages cover engineering privacy and security. Systems covers safety mechanisms. Trust covers governance and public limits for readers.",
   principlesHeading: "Principles",
   principles: [
     {

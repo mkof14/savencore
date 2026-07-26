@@ -1,8 +1,12 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-import { DEFAULT_LOCALE } from "@/config/locales";
+import { DEFAULT_LOCALE, isLocale } from "@/config/locales";
 
+/**
+ * Next.js 16 proxy (request edge) — locale root redirect + auth noindex hint.
+ * Static security headers are applied in next.config.ts (D-0162).
+ */
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
@@ -10,7 +14,21 @@ export function proxy(request: NextRequest) {
     return NextResponse.redirect(new URL(`/${DEFAULT_LOCALE}/`, request.url));
   }
 
-  return NextResponse.next();
+  const response = NextResponse.next();
+
+  // Auth and preview surfaces should not be indexed.
+  const segments = pathname.split("/").filter(Boolean);
+  const locale = segments[0];
+  const rest = segments.slice(1).join("/");
+  if (pathname === "/auth/sign-in" || pathname === "/auth/sign-in/") {
+    response.headers.set("X-Robots-Tag", "noindex, nofollow");
+  } else if (locale && isLocale(locale)) {
+    if (rest.startsWith("auth/") || rest.startsWith("preview/")) {
+      response.headers.set("X-Robots-Tag", "noindex, nofollow");
+    }
+  }
+
+  return response;
 }
 
 export const config = {

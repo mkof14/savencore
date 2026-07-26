@@ -19,10 +19,7 @@ import {
 import { getUi } from "@/i18n/ui";
 import { isPathActive, localizePath } from "@/navigation/locale-path";
 import { isNavGroup } from "@/navigation/navigation-types";
-import {
-  primaryNavigation,
-  utilityNavigation,
-} from "@/navigation/site-navigation";
+import { primaryNavigation } from "@/navigation/site-navigation";
 
 type DesktopNavigationProps = {
   locale: Locale;
@@ -92,104 +89,82 @@ export function DesktopNavigation({ locale }: DesktopNavigationProps) {
   const ui = getUi(locale);
 
   return (
-    <>
-      <nav ref={navRef} className="desktop-nav" aria-label={ui.nav.home}>
-        {primaryNavigation.map((item) => {
-          const itemLabel = getPrimaryNavLabel(locale, item.id, item.label);
+    <nav ref={navRef} className="desktop-nav" aria-label={ui.menu}>
+      {primaryNavigation.map((item) => {
+        const itemLabel = getPrimaryNavLabel(locale, item.id, item.label);
 
-          if (!isNavGroup(item)) {
-            const href = localizePath(locale, item.href);
-            const active = isPathActive(pathname, locale, item.href);
-
-            return (
-              <Link
-                key={item.id}
-                href={href}
-                className={`desktop-nav__link${active ? " is-active" : ""}`}
-                aria-current={active ? "page" : undefined}
-              >
-                {itemLabel}
-              </Link>
-            );
-          }
-
-          const groupActive =
-            isPathActive(pathname, locale, item.href) ||
-            item.children.some((child) =>
-              isPathActive(pathname, locale, child.href),
-            );
-          const isOpen = openGroupId === item.id;
-          const panelId = `${baseId}-${item.id}-panel`;
+        if (!isNavGroup(item)) {
+          const href = localizePath(locale, item.href);
+          const active = isPathActive(pathname, locale, item.href);
 
           return (
-            <div
+            <Link
               key={item.id}
-              className="desktop-nav__item"
-              onMouseEnter={() => setOpenGroupId(item.id)}
-              onMouseLeave={closeMenus}
+              href={href}
+              className={`desktop-nav__link${active ? " is-active" : ""}`}
+              aria-current={active ? "page" : undefined}
             >
-              <button
-                type="button"
-                className={`desktop-nav__trigger${groupActive ? " is-active" : ""}`}
-                aria-expanded={isOpen}
-                aria-controls={panelId}
-                aria-haspopup="true"
-                aria-current={groupActive ? "page" : undefined}
-                onClick={() =>
-                  setOpenGroupId((current) =>
-                    current === item.id ? null : item.id,
-                  )
-                }
-                onKeyDown={(event) => onTriggerKeyDown(event, item.id)}
-              >
-                {itemLabel}
-              </button>
-              <div
-                id={panelId}
-                className="desktop-nav__panel"
-                hidden={!isOpen}
-              >
-                {item.children.map((child) => {
-                  const href = localizePath(locale, child.href);
-                  const active = isPathActive(pathname, locale, child.href);
-
-                  return (
-                    <Link
-                      key={child.id}
-                      href={href}
-                      className="desktop-nav__panel-link"
-                      aria-current={active ? "page" : undefined}
-                      onClick={closeMenus}
-                    >
-                      {getNavEntryLabel(locale, child.id, child.label)}
-                    </Link>
-                  );
-                })}
-              </div>
-            </div>
+              {itemLabel}
+            </Link>
           );
-        })}
-      </nav>
+        }
 
-      {utilityNavigation.length > 0 ? (
-        <nav className="utility-nav" aria-label="Utility">
-          {utilityNavigation.map((item) => {
-            const href = localizePath(locale, item.href);
-            const active = isPathActive(pathname, locale, item.href);
+        const groupActive =
+          isPathActive(pathname, locale, item.href) ||
+          item.children.some((child) =>
+            isPathActive(pathname, locale, child.href),
+          );
+        const isOpen = openGroupId === item.id;
+        const panelId = `${baseId}-${item.id}-panel`;
 
-            return (
-              <Link
-                key={item.id}
-                href={href}
-                className="utility-nav__link"
-                aria-current={active ? "page" : undefined}
-              >
-                {getNavEntryLabel(locale, item.id, item.label)}
-              </Link>
-            );
-          })}
-        </nav>
-      ) : null}
-    </>
+        return (
+          <div
+            key={item.id}
+            className="desktop-nav__item"
+            onMouseEnter={() => setOpenGroupId(item.id)}
+            onMouseLeave={closeMenus}
+          >
+            <button
+              type="button"
+              className={`desktop-nav__trigger${groupActive ? " is-active" : ""}`}
+              aria-expanded={isOpen}
+              aria-controls={panelId}
+              aria-haspopup="true"
+              aria-current={groupActive ? "page" : undefined}
+              onClick={() =>
+                setOpenGroupId((current) =>
+                  current === item.id ? null : item.id,
+                )
+              }
+              onKeyDown={(event) => onTriggerKeyDown(event, item.id)}
+            >
+              {itemLabel}
+            </button>
+            <div
+              id={panelId}
+              className="desktop-nav__panel"
+              hidden={!isOpen}
+            >
+              {item.children.map((child) => {
+                const href = localizePath(locale, child.href);
+                const active = isPathActive(pathname, locale, child.href);
+
+                return (
+                  <Link
+                    key={child.id}
+                    href={href}
+                    className="desktop-nav__panel-link"
+                    aria-current={active ? "page" : undefined}
+                    onClick={closeMenus}
+                  >
+                    {getNavEntryLabel(locale, child.id, child.label)}
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        );
+      })}
+    </nav>
   );
 }

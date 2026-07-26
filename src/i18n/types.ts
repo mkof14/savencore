@@ -1,7 +1,18 @@
 import type { Locale } from "@/config/locales";
 
-/** Locales with approved full-site translations in this sprint. */
-export const CONTENT_LOCALES = ["en", "ar", "he", "ru", "uk"] as const;
+/** Locales with approved full-site page-body translations (D-0161). */
+export const CONTENT_LOCALES = [
+  "en",
+  "es",
+  "de",
+  "fr",
+  "ja",
+  "zh-cn",
+  "ar",
+  "he",
+  "uk",
+  "ru",
+] as const;
 
 export type ContentLocale = (typeof CONTENT_LOCALES)[number];
 

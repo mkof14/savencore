@@ -1,16 +1,26 @@
 import { notFound } from "next/navigation";
 
-import { ApplicationDisciplinePage } from "@/components/pages/ApplicationDisciplinePage";
-import "@/components/pages/pages.css";
+import { DomainVisualPage } from "@/components/domain/DomainVisualPage";
 import { isLocale } from "@/config/locales";
-import { getAgriculturePageContent } from "@/content/pages/get-localized-page";
+import { getAgricultureDomainContent } from "@/content/domain/build-domain-leaf";
+import { createHubGenerateMetadata } from "@/lib/seo/metadata";
 
 type Props = { params: Promise<{ locale: string }> };
+
+export const generateMetadata = createHubGenerateMetadata(
+  "/applications/agriculture/",
+  getAgricultureDomainContent,
+);
 
 export default async function Page({ params }: Props) {
   const { locale: localeParam } = await params;
   if (!isLocale(localeParam)) {
     notFound();
   }
-  return <ApplicationDisciplinePage locale={localeParam} content={getAgriculturePageContent(localeParam)} />;
+  return (
+    <DomainVisualPage
+      locale={localeParam}
+      content={getAgricultureDomainContent(localeParam)}
+    />
+  );
 }

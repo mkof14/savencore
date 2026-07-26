@@ -46,15 +46,15 @@ export const technologyPageContent: TechnologyPageContent = {
     relatedDomain: "Foundation, Research, Applications",
   },
   label: "Technology",
-  title: "Technical capabilities used to build SAVEN Core systems.",
+  title: "Engineering foundations for physical intelligence.",
   introduction:
-    "Technology is the set of technical capabilities and engineering foundations used to build SAVEN Core systems. This index explains those disciplines and how they connect to later systems and applications.",
+    "Technology is the shared engineering base for SAVEN Core — the disciplines needed before systems can assist people under clear limits.",
   overviewHeading: "Executive Summary",
   overview: [
-    "Technology is the set of technical capabilities and engineering foundations used to build SAVEN Core systems. It matters because shared disciplines—such as Human Data, privacy and artificial intelligence—must be defined before systems can assist people under clear limits.",
-    "This index lists those disciplines and how they connect to systems and applications. Continue with Human Data, then the Human Data Model.",
+    "Shared disciplines such as Human Data, privacy, and artificial intelligence must be clear before systems can help people safely.",
+    "Choose a discipline below to go deeper, or continue into Systems when you are ready.",
   ],
-  categoriesHeading: "Technology Categories",
+  categoriesHeading: "Disciplines",
   relationshipsHeading: "Technology Relationships",
   relationshipsIntro:
     "Technology feeds systems, research topics, application contexts and trust constraints. The view below summarizes those links from the shared registry. It is a reading aid, not a live system map.",

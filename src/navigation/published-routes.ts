@@ -1,7 +1,8 @@
 /**
  * Canonical list of published locale-relative routes.
  * Keep in sync with App Router page files under app/[locale].
- * Navigation and footer may only link destinations listed here.
+ * Navigation and footer may only link destinations listed here
+ * (auth sign-in is linked from chrome utilities; see assert exception).
  */
 
 export const PUBLISHED_ROUTES = [
@@ -44,6 +45,28 @@ export const PUBLISHED_ROUTES = [
   "/trust/ethics-and-responsible-use/",
   "/trust/limitations/",
   "/research/",
+  "/labs/",
+  "/labs/saven-robotics-lab/",
+  "/labs/internal-future-lab/",
+  "/systems/saven-robotics-interface/",
+  "/investors/",
+  "/auth/sign-in/",
+  "/legal/privacy-policy/",
+  "/legal/terms-of-use/",
+  "/legal/cookie-policy/",
+  "/legal/cookie-preferences/",
+  "/legal/accessibility-statement/",
+  "/legal/security/",
+  "/legal/responsible-ai/",
+  "/legal/medical-disclaimer/",
+  "/legal/research-disclaimer/",
+  "/legal/intellectual-property/",
+  "/legal/trademark-notice/",
+  "/legal/copyright/",
+  "/legal/data-rights/",
+  "/legal/regional-privacy-rights/",
+  "/legal/do-not-sell-or-share/",
+  "/legal/legal-notices/",
 ] as const;
 
 export type PublishedRoute = (typeof PUBLISHED_ROUTES)[number];

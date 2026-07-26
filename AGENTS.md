@@ -8,9 +8,11 @@ If you are a coding agent (Cursor or otherwise), read this file before making an
 
 ## Current Phase
 
-**SAVEN Experience Redesign active (D-0128)**
+**Credentials sign-in + show password (D-0163)** on PWA + SEO / security headers / marketing surface prep (D-0162), full 10-locale localization + Vercel prep (D-0161), and the unified visual domain-page system (D-0160) — read `docs/SITE_ASSIGNMENT.md`, `docs/SITE_AUDIT_REPORT.md`, and D-0134–D-0163.
 
-Domain-distinct visual languages; memorable first screens; human-first progressive disclosure (D-0127). UI chrome localized for all 10 locales; page bodies for en/ar/he/ru/uk.
+Hero: **Intelligence for the Physical World.** + living photoreal **help collage** (D-0149/D-0151/D-0152). Post-hero: **one** care-focused living carousel (D-0150). **Page bodies + UI chrome for all 10 locales** (`en`/`es`/`de`/`fr`/`ja`/`zh-cn`/`ar`/`he`/`uk`/`ru`; English canonical). Header: logo + **important Layer-1 hubs** (≤7) + Sign In/Up text link + sun/moon theme + language with flags (D-0153/D-0155/D-0156). Hubs **and domain leaves** share one visual shell (`DomainVisualPage` / Layer-1 hub grammar) — thematic masthead, short human lead, what/why/next cues, progressive depth (D-0157–D-0160). Thematic WebP mastheads under `public/domain/` (+ reused care/home assets where perfect). **Robotics Lab / Labs / Investors** brochure depth expanded honestly (D-0159; no fake traction/returns). Footer: full depth map **including Legal** (draft pages — pending legal review; D-0154), Copyright line, upward language menu with flags, theme icons. Auth: `/[locale]/auth/sign-in/` substantial SAVEN card — email/password (env operator allowlist) + show/hide password + Google (D-0156/D-0158/D-0163; no fake logged-in state; full user DB later). Tagline: Turning Intelligence Into Human Care. Deploy target: Vercel (App Router); see `docs/VERCEL_DEPLOY.md`.
+
+Experience redesign grammar (D-0128) and human-first progressive disclosure (D-0127) remain relevant for domain pages.
 
 **Always translate UI updates** across every file in `src/i18n/ui/`.
 
@@ -18,14 +20,13 @@ Domain-distinct visual languages; memorable first screens; human-first progressi
 
 - Returning Knowledge Passport / metadata to the first viewport;
 - Fabricating Knowledge Object owners, version history, Validated maturity, or evidence upgrades;
-- Publishing Legal / Company / Contact destinations;
-- Full page-body localization for es/de/fr/ja/zh-cn without approval;
-- `/legal/*` policy page publication;
+- Publishing Contact destinations or inventing entity/registration details;
+- Final binding legal/policy prose (structural drafts authorized under D-0154 — do not present as effective law; draft localization authorized under D-0161);
 - Entity Registry entity invention unless explicitly authorized;
-- logo asset / photography imagery beyond approved diagram language;
+- logo asset / photography imagery beyond approved homepage living photoreal hero + care living carousel (D-0135–D-0152) and domain thematic mastheads under `public/domain/` / `public/hub/` (D-0159–D-0160; still no fake deployment photography or invented KPI dashboards);
 - CMS, database, working search, forms, analytics, cookie consent;
-- authentication or investor portal;
-- leaf marketing pages across the sitemap;
+- investor portal (Sign In/Up + Google page authorized; not a full portal);
+- inventing additional leaf marketing pages beyond the published visual domain set in D-0160;
 - graph visualization or knowledge CMS;
 - neon, glow, or futuristic decoration outside the approved experience grammar.
 

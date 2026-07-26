@@ -1,0 +1,212 @@
+import Image from "next/image";
+import Link from "next/link";
+
+import type { Locale } from "@/config/locales";
+import type { HubPageContent } from "@/content/hub/types";
+import { getUi } from "@/i18n/ui";
+import { localizePath } from "@/navigation/locale-path";
+
+import "./layer1-hub.css";
+
+type HubReadablePageProps = {
+  locale: Locale;
+  content: HubPageContent;
+};
+
+/** Shared Layer-1 / domain visual shell — masthead, short cues, clear paths (D-0160). */
+export function HubReadablePage({ locale, content }: HubReadablePageProps) {
+  const ui = getUi(locale);
+  const titleId = "hub-page-title";
+  const theme = content.visual?.theme ?? "default";
+  const hasVisualPaths = Boolean(
+    content.paths?.links.some((link) => link.image),
+  );
+
+  return (
+    <article
+      className={`hub-page hub-page--${theme}`}
+      aria-labelledby={titleId}
+    >
+      <header className="hub-page__masthead">
+        {content.visual ? (
+          <div className="hub-page__masthead-media" aria-hidden="true">
+            <Image
+              src={content.visual.mastheadImage}
+              alt=""
+              fill
+              priority
+              sizes="100vw"
+              className="hub-page__masthead-image"
+            />
+            <div className="hub-page__masthead-scrim" />
+            <div className="hub-page__masthead-grain" />
+          </div>
+        ) : (
+          <div className="hub-page__masthead-field" aria-hidden="true" />
+        )}
+
+        <div className="hub-page__masthead-copy hub-page__inner">
+          <p className="hub-page__label">{content.label}</p>
+          {content.status ? (
+            <p className="hub-page__status">{content.status}</p>
+          ) : null}
+          <h1 id={titleId} className="hub-page__title">
+            {content.title}
+          </h1>
+          <p className="hub-page__lede">{content.lede}</p>
+        </div>
+      </header>
+
+      <div className="hub-page__inner hub-page__body-wrap">
+        {content.highlights && content.highlights.length > 0 ? (
+          <section
+            className="hub-page__highlights"
+            aria-label={ui.hub.explore}
+          >
+            {content.highlights.map((item, index) => (
+              <div
+                key={item.id}
+                className="hub-page__highlight"
+                style={{ ["--hub-stagger" as string]: String(index) }}
+              >
+                <p className="hub-page__highlight-label">{item.title}</p>
+                <p className="hub-page__highlight-text">{item.text}</p>
+              </div>
+            ))}
+          </section>
+        ) : null}
+
+        {content.body && content.body.length > 0 ? (
+          <div className="hub-page__body">
+            {content.body.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
+        ) : null}
+
+        {content.paths && content.paths.links.length > 0 ? (
+          <section
+            className="hub-page__paths"
+            aria-labelledby="hub-paths-heading"
+          >
+            <h2 id="hub-paths-heading" className="hub-page__paths-heading">
+              {content.paths.heading}
+            </h2>
+            <ul
+              className={
+                hasVisualPaths
+                  ? "hub-page__path-grid"
+                  : "hub-page__path-list"
+              }
+            >
+              {content.paths.links.map((link) => (
+                <li key={link.href + link.label}>
+                  <Link
+                    className={
+                      link.image
+                        ? "hub-page__path-card"
+                        : "hub-page__path-link"
+                    }
+                    href={localizePath(locale, link.href)}
+                  >
+                    {link.image ? (
+                      <span className="hub-page__path-thumb">
+                        <Image
+                          src={link.image}
+                          alt=""
+                          fill
+                          sizes="(max-width: 720px) 100vw, 33vw"
+                          className="hub-page__path-thumb-image"
+                        />
+                      </span>
+                    ) : null}
+                    <span className="hub-page__path-copy">
+                      <span className="hub-page__path-label">
+                        {link.label}
+                        <span aria-hidden="true"> →</span>
+                      </span>
+                      {link.note ? (
+                        <span className="hub-page__path-note">{link.note}</span>
+                      ) : null}
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ) : null}
+
+        {content.sections && content.sections.length > 0 ? (
+          <div className="hub-page__sections">
+            {content.sections.some((section) => section.collapsed) ? (
+              <p className="hub-page__sections-kicker">{ui.hub.deeper}</p>
+            ) : null}
+            {content.sections.map((section) => {
+              const body = (
+                <>
+                  {section.paragraphs?.map((paragraph) => (
+                    <p key={paragraph} className="hub-page__section-text">
+                      {paragraph}
+                    </p>
+                  ))}
+                  {section.items && section.items.length > 0 ? (
+                    <ul className="hub-page__plain-list">
+                      {section.items.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  ) : null}
+                </>
+              );
+
+              if (section.collapsed) {
+                return (
+                  <details key={section.id} className="hub-page__disclose">
+                    <summary className="hub-page__disclose-summary">
+                      {section.title}
+                    </summary>
+                    <div className="hub-page__disclose-body">{body}</div>
+                  </details>
+                );
+              }
+
+              return (
+                <section
+                  key={section.id}
+                  id={section.id}
+                  aria-labelledby={`${section.id}-heading`}
+                >
+                  <h2
+                    id={`${section.id}-heading`}
+                    className="hub-page__section-title"
+                  >
+                    {section.title}
+                  </h2>
+                  {body}
+                </section>
+              );
+            })}
+          </div>
+        ) : null}
+
+        {content.note ? <p className="hub-page__note">{content.note}</p> : null}
+
+        {content.related && content.related.length > 0 ? (
+          <nav className="hub-page__related" aria-label={ui.hub.related}>
+            <p className="hub-page__related-heading">{ui.hub.related}</p>
+            {content.related.map((link) => (
+              <Link
+                key={link.href}
+                className="hub-page__related-link"
+                href={localizePath(locale, link.href)}
+              >
+                {link.label}
+                <span aria-hidden="true"> →</span>
+              </Link>
+            ))}
+          </nav>
+        ) : null}
+      </div>
+    </article>
+  );
+}

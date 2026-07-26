@@ -1,24 +1,26 @@
 import { notFound } from "next/navigation";
 
-import { ApplicationsPage } from "@/components/pages/ApplicationsPage";
-import "@/components/pages/pages.css";
+import { DomainVisualPage } from "@/components/domain/DomainVisualPage";
 import { isLocale } from "@/config/locales";
-import { getApplicationsPageContent } from "@/content/pages/get-localized-page";
+import { getApplicationsHubContent } from "@/content/hub/build-hub-content";
+import { createHubGenerateMetadata } from "@/lib/seo/metadata";
 
-type ApplicationsRouteProps = {
-  params: Promise<{ locale: string }>;
-};
+type Props = { params: Promise<{ locale: string }> };
 
-export default async function ApplicationsRoute({
-  params,
-}: ApplicationsRouteProps) {
+export const generateMetadata = createHubGenerateMetadata(
+  "/applications/",
+  getApplicationsHubContent,
+);
+
+export default async function Page({ params }: Props) {
   const { locale: localeParam } = await params;
-
   if (!isLocale(localeParam)) {
     notFound();
   }
-
   return (
-    <ApplicationsPage locale={localeParam} content={getApplicationsPageContent(localeParam)} />
+    <DomainVisualPage
+      locale={localeParam}
+      content={getApplicationsHubContent(localeParam)}
+    />
   );
 }

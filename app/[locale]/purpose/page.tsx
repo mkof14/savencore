@@ -1,32 +1,26 @@
 import { notFound } from "next/navigation";
 
-import { EditorialPage } from "@/components/pages/EditorialPage";
-import "@/components/pages/pages.css";
+import { DomainVisualPage } from "@/components/domain/DomainVisualPage";
 import { isLocale } from "@/config/locales";
-import { getPurposePageContent } from "@/content/pages/get-localized-page";
+import { getPurposeDomainContent } from "@/content/domain/build-domain-leaf";
+import { createHubGenerateMetadata } from "@/lib/seo/metadata";
 
-type PurposePageProps = {
-  params: Promise<{ locale: string }>;
-};
+type Props = { params: Promise<{ locale: string }> };
 
-export default async function PurposePage({ params }: PurposePageProps) {
+export const generateMetadata = createHubGenerateMetadata(
+  "/purpose/",
+  getPurposeDomainContent,
+);
+
+export default async function Page({ params }: Props) {
   const { locale: localeParam } = await params;
-
   if (!isLocale(localeParam)) {
     notFound();
   }
-
   return (
-    <EditorialPage
+    <DomainVisualPage
       locale={localeParam}
-      content={getPurposePageContent(localeParam)}
-      knowledge={{
-        knowledgeId: "page-purpose",
-        href: "/purpose/",
-        title: "Purpose",
-        domain: "Purpose",
-        typeOverride: "Foundation",
-      }}
+      content={getPurposeDomainContent(localeParam)}
     />
   );
 }

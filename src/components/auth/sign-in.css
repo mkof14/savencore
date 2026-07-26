@@ -1,0 +1,393 @@
+.auth-sign-in {
+  position: relative;
+  isolation: isolate;
+  min-height: calc(100vh - 5.5rem);
+  display: grid;
+  place-items: center;
+  padding: clamp(2.5rem, 6vw, 4.5rem) var(--container-padding-x);
+  overflow: hidden;
+  background: #0b1220;
+  color: #eef3f7;
+}
+
+.auth-sign-in__atmosphere {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.auth-sign-in__glow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      70% 55% at 18% 0%,
+      color-mix(in srgb, var(--color-accent) 22%, transparent) 0%,
+      transparent 58%
+    ),
+    radial-gradient(
+      55% 45% at 88% 85%,
+      color-mix(in srgb, #3d5a80 35%, transparent) 0%,
+      transparent 60%
+    ),
+    linear-gradient(180deg, #0f1728 0%, #0b1220 55%, #080e18 100%);
+}
+
+.auth-sign-in__grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.11;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E");
+  mix-blend-mode: soft-light;
+}
+
+.auth-sign-in__panel {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 46rem);
+  display: grid;
+  gap: clamp(1.5rem, 3.5vw, 2.25rem);
+  padding: clamp(2.75rem, 7vw, 4.25rem) clamp(2rem, 5.5vw, 3.75rem);
+  border: 1px solid color-mix(in srgb, #eef3f7 16%, transparent);
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, #1a2438 94%, var(--color-accent)) 0%,
+      #121a2a 100%
+    );
+  box-shadow: 0 28px 72px rgba(0, 0, 0, 0.4);
+  box-sizing: border-box;
+}
+
+@media (max-width: 480px) {
+  .auth-sign-in {
+    min-height: calc(100vh - 4.75rem);
+    padding: 1.5rem var(--container-padding-x) 2.5rem;
+    align-items: start;
+  }
+
+  .auth-sign-in__panel {
+    width: 100%;
+    gap: 1.25rem;
+    padding: 1.75rem 1.25rem 2rem;
+  }
+
+  .auth-sign-in__logo.saven-logo--footer .saven-logo__mark {
+    height: 4.5rem;
+  }
+
+  .auth-sign-in__logo.saven-logo--footer .saven-logo__saven {
+    font-size: 2rem;
+  }
+
+  .auth-sign-in__title {
+    font-size: 1.5rem;
+  }
+}
+
+.auth-sign-in__back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+  width: fit-content;
+  min-height: 2.5rem;
+  color: color-mix(in srgb, #eef3f7 72%, transparent);
+  text-decoration: none;
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+
+.auth-sign-in__back:hover,
+.auth-sign-in__back:focus-visible {
+  color: #eef3f7;
+}
+
+.auth-sign-in__back-arrow {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+html[dir="rtl"] .auth-sign-in__back-arrow {
+  display: inline-block;
+  transform: scaleX(-1);
+}
+
+.auth-sign-in__brand {
+  display: flex;
+  justify-content: center;
+  padding-block: var(--space-12) var(--space-8);
+}
+
+.auth-sign-in__logo.saven-logo--footer .saven-logo__mark {
+  height: 6rem;
+}
+
+.auth-sign-in__logo.saven-logo--footer .saven-logo__saven {
+  font-size: 2.5rem;
+}
+
+.auth-sign-in__logo.saven-logo--footer .saven-logo__core {
+  font-size: 1.0625rem;
+}
+
+@media (min-width: 768px) {
+  .auth-sign-in__logo.saven-logo--footer .saven-logo__mark {
+    height: 7rem;
+  }
+
+  .auth-sign-in__logo.saven-logo--footer .saven-logo__saven {
+    font-size: 3rem;
+  }
+
+  .auth-sign-in__logo.saven-logo--footer .saven-logo__core {
+    font-size: 1.25rem;
+  }
+}
+
+.auth-sign-in__copy {
+  display: grid;
+  gap: var(--space-12);
+  text-align: center;
+}
+
+.auth-sign-in__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3vw, 2.125rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: #eef3f7;
+}
+
+.auth-sign-in__lead {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: color-mix(in srgb, #eef3f7 78%, transparent);
+}
+
+.auth-sign-in__actions {
+  display: grid;
+  gap: var(--space-16);
+  margin-block-start: var(--space-4);
+}
+
+.auth-sign-in__form {
+  display: grid;
+  gap: var(--space-16);
+}
+
+.auth-sign-in__field {
+  display: grid;
+  gap: var(--space-8);
+}
+
+.auth-sign-in__label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: color-mix(in srgb, #eef3f7 88%, transparent);
+}
+
+.auth-sign-in__input {
+  width: 100%;
+  min-height: 3rem;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid color-mix(in srgb, #eef3f7 18%, transparent);
+  background: color-mix(in srgb, #0b1220 70%, #152033);
+  color: #eef3f7;
+  font-size: 1rem;
+  line-height: 1.4;
+  box-sizing: border-box;
+}
+
+.auth-sign-in__input::placeholder {
+  color: color-mix(in srgb, #eef3f7 42%, transparent);
+}
+
+.auth-sign-in__input:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 1px;
+  border-color: var(--color-accent);
+}
+
+.auth-sign-in__input:disabled {
+  opacity: 0.72;
+  cursor: not-allowed;
+}
+
+.auth-sign-in__password-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-8);
+  align-items: stretch;
+}
+
+.auth-sign-in__password-toggle {
+  min-height: 3rem;
+  padding: 0 0.9rem;
+  border: 1px solid color-mix(in srgb, #eef3f7 18%, transparent);
+  background: transparent;
+  color: color-mix(in srgb, #eef3f7 88%, transparent);
+  font-size: 0.875rem;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.auth-sign-in__password-toggle:hover:not(:disabled),
+.auth-sign-in__password-toggle:focus-visible:not(:disabled) {
+  color: #eef3f7;
+  border-color: var(--color-accent);
+}
+
+.auth-sign-in__password-toggle:disabled {
+  opacity: 0.72;
+  cursor: not-allowed;
+}
+
+.auth-sign-in__submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.25rem;
+  padding: var(--space-12) var(--space-20);
+  border: 1px solid color-mix(in srgb, var(--color-accent) 55%, transparent);
+  background: var(--color-accent);
+  color: #0b1220;
+  font-size: 1rem;
+  font-weight: 650;
+  cursor: pointer;
+  transition:
+    border-color 140ms ease,
+    filter 140ms ease;
+}
+
+.auth-sign-in__submit:hover:not(:disabled),
+.auth-sign-in__submit:focus-visible:not(:disabled) {
+  filter: brightness(1.05);
+}
+
+.auth-sign-in__submit:disabled {
+  opacity: 0.72;
+  cursor: not-allowed;
+}
+
+.auth-sign-in__hint {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: color-mix(in srgb, #eef3f7 62%, transparent);
+}
+
+.auth-sign-in__error {
+  padding: var(--space-16) var(--space-20);
+  border: 1px solid color-mix(in srgb, #e07a6a 55%, transparent);
+  border-inline-start: 3px solid #e07a6a;
+  background: color-mix(in srgb, #0b1220 55%, #2a1820);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: #f5e6e3;
+}
+
+.auth-sign-in__divider {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: var(--space-12);
+  color: color-mix(in srgb, #eef3f7 55%, transparent);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.auth-sign-in__divider::before,
+.auth-sign-in__divider::after {
+  content: "";
+  height: 1px;
+  background: color-mix(in srgb, #eef3f7 16%, transparent);
+}
+
+.auth-sign-in__google {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-12);
+  min-height: 3.25rem;
+  padding: var(--space-12) var(--space-20);
+  border: 1px solid color-mix(in srgb, #eef3f7 18%, transparent);
+  background: #ffffff;
+  color: #1f1f1f;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    border-color 140ms ease,
+    background-color 140ms ease;
+}
+
+.auth-sign-in__google:hover:not(:disabled),
+.auth-sign-in__google:focus-visible:not(:disabled) {
+  border-color: var(--color-accent);
+  background: #f7f7f7;
+}
+
+.auth-sign-in__google:disabled {
+  opacity: 0.72;
+  cursor: not-allowed;
+}
+
+.auth-sign-in__google-mark {
+  flex: 0 0 auto;
+}
+
+.auth-sign-in__notice {
+  display: grid;
+  gap: var(--space-12);
+  margin-block-start: var(--space-4);
+  padding: var(--space-20);
+  border: 1px solid color-mix(in srgb, var(--color-accent) 45%, transparent);
+  border-inline-start: 3px solid var(--color-accent);
+  background: color-mix(in srgb, #0b1220 55%, #152033);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: #eef3f7;
+}
+
+.auth-sign-in__notice-title {
+  margin: 0;
+  font-size: 0.8125rem;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.auth-sign-in__notice p {
+  margin: 0;
+}
+
+.auth-sign-in__notice-muted {
+  color: color-mix(in srgb, #eef3f7 68%, transparent);
+}
+
+@media (max-width: 480px) {
+  .auth-sign-in__panel {
+    width: 100%;
+  }
+
+  .auth-sign-in__logo.saven-logo--footer .saven-logo__mark {
+    height: 4.75rem;
+  }
+
+  .auth-sign-in__logo.saven-logo--footer .saven-logo__saven {
+    font-size: 1.875rem;
+  }
+
+  .auth-sign-in__logo.saven-logo--footer .saven-logo__core {
+    font-size: 0.8125rem;
+  }
+}

@@ -8,7 +8,7 @@ export const purposePageContent: EditorialPageContent = {
   label: "Purpose",
   title: "Intelligent systems built to support human life.",
   introduction:
-    "SAVEN Core builds physical and digital systems that support people in hospitals, at home and in everyday life. The work begins with human purpose, then proceeds to architecture, engineering and governed assistance.",
+    "SAVEN Core builds systems that support people in hospitals, at home, and in everyday life. Human purpose comes first — then architecture, engineering, and careful assistance.",
   status: "Reference architecture",
   sectionNav: [
     { id: "purpose", label: "Purpose" },
@@ -20,21 +20,7 @@ export const purposePageContent: EditorialPageContent = {
     { id: "responsible-intelligence", label: "Responsible intelligence" },
     { id: "long-term-vision", label: "Long-term vision" },
   ],
-  diagrams: [
-    {
-      id: "purpose-orientation",
-      kind: "flow",
-      title: "Purpose orientation",
-      description:
-        "Flow from human purpose through foundation architecture to governed systems and applications.",
-      nodes: [
-        { id: "human-purpose", label: "Human purpose" },
-        { id: "foundation", label: "Foundation" },
-        { id: "systems", label: "Systems" },
-        { id: "applications", label: "Applications" },
-      ],
-    },
-  ],
+  diagrams: [],
   sections: [
     {
       id: "purpose",

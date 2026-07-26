@@ -1,28 +1,48 @@
 import {
-  isNavGroup,
+  isFooterLinkPublished,
   type FooterGroup,
   type FooterLinkItem,
+  type FooterLinkPublished,
   type NavHref,
   type NavLinkItem,
   type PrimaryNavItem,
 } from "./navigation-types";
+import { PUBLISHED_ROUTES } from "./published-routes";
 
 function published(
   id: string,
   label: string,
   href: NavHref,
-): FooterLinkItem {
+): FooterLinkPublished {
   return { id, label, status: "published", href };
 }
 
-function comingSoon(id: string, label: string): FooterLinkItem {
-  return { id, label, status: "coming-soon" };
-}
-
 /**
- * Centralized site navigation — single source for Header, mobile nav, and Footer.
- * Header dropdowns stay short. Footer holds the complete published sitemap.
+ * Centralized site navigation — Layer 1 header hubs + footer depth map.
+ *
+ * D-0153: Important Layer-1 hubs restored to the header (short list).
+ * D-0132 / D-0154: Footer remains the complete published depth map, including Legal.
  */
+
+/** Build footer links from a domain nav list. Hub → "Overview"; leaves keep domain labels. */
+function footerLinksFromDomain(
+  domainId: string,
+  children: readonly NavLinkItem[],
+): FooterLinkItem[] {
+  return children.map((child, index) => {
+    if (index === 0) {
+      return published(`footer-${domainId}-overview`, "Overview", child.href);
+    }
+    // Preserve stable footer id used in locale catalogs for this leaf.
+    if (child.id === "applications-research-applications") {
+      return published("footer-applications-research", "Research", child.href);
+    }
+    if (child.id === "trust-ethics") {
+      return published("footer-trust-ethics", "Ethics", child.href);
+    }
+    return published(`footer-${child.id}`, child.label, child.href);
+  });
+}
 
 /** Full Technology pages — footer + domain sequences. */
 export const technologyNavChildren: readonly NavLinkItem[] = [
@@ -156,177 +176,145 @@ export const trustMenuEntries: readonly NavLinkItem[] = [
 ] as const;
 
 /**
- * Primary header navigation.
- * Home + five domains. Company omitted until published.
- * Dropdowns stay short; full lists live in the footer.
+ * Primary header navigation — important Layer-1 hubs only (D-0153).
+ * Flat hub links; full leaf lists stay in the footer.
  */
 export const primaryNavigation: readonly PrimaryNavItem[] = [
-  { id: "home", label: "Home", href: "/" },
-  {
-    id: "technology",
-    label: "Technology",
-    href: "/technology/",
-    children: technologyMenuEntries,
-  },
-  {
-    id: "systems",
-    label: "Systems",
-    href: "/systems/",
-    children: systemsMenuEntries,
-  },
-  {
-    id: "applications",
-    label: "Applications",
-    href: "/applications/",
-    children: applicationsMenuEntries,
-  },
-  {
-    id: "trust",
-    label: "Trust",
-    href: "/trust/",
-    children: trustMenuEntries,
-  },
+  { id: "purpose", label: "Purpose", href: "/purpose/" },
+  { id: "labs", label: "Labs", href: "/labs/" },
+  { id: "applications", label: "Applications", href: "/applications/" },
+  { id: "technology", label: "Technology", href: "/technology/" },
   { id: "research", label: "Research", href: "/research/" },
+  { id: "trust", label: "Trust", href: "/trust/" },
+  { id: "investors", label: "Investors", href: "/investors/" },
 ] as const;
 
-export const utilityNavigation: readonly NavLinkItem[] = [] as const;
+/** Utility chrome links (Sign In/Up). */
+export const utilityNavigation: readonly NavLinkItem[] = [
+  { id: "sign-in", label: "Sign In/Up", href: "/auth/sign-in/" },
+] as const;
+
+/** Legal destinations — structural drafts until counsel review (D-0154). */
+export const legalNavChildren: readonly NavLinkItem[] = [
+  {
+    id: "legal-privacy-policy",
+    label: "Privacy Policy",
+    href: "/legal/privacy-policy/",
+  },
+  { id: "legal-terms-of-use", label: "Terms of Use", href: "/legal/terms-of-use/" },
+  {
+    id: "legal-cookie-policy",
+    label: "Cookie Policy",
+    href: "/legal/cookie-policy/",
+  },
+  {
+    id: "legal-cookie-preferences",
+    label: "Cookie Preferences",
+    href: "/legal/cookie-preferences/",
+  },
+  {
+    id: "legal-accessibility-statement",
+    label: "Accessibility Statement",
+    href: "/legal/accessibility-statement/",
+  },
+  { id: "legal-security", label: "Security", href: "/legal/security/" },
+  {
+    id: "legal-responsible-ai",
+    label: "Responsible AI",
+    href: "/legal/responsible-ai/",
+  },
+  {
+    id: "legal-medical-disclaimer",
+    label: "Medical Disclaimer",
+    href: "/legal/medical-disclaimer/",
+  },
+  {
+    id: "legal-research-disclaimer",
+    label: "Research Disclaimer",
+    href: "/legal/research-disclaimer/",
+  },
+  {
+    id: "legal-intellectual-property",
+    label: "Intellectual Property",
+    href: "/legal/intellectual-property/",
+  },
+  {
+    id: "legal-trademark-notice",
+    label: "Trademark Notice",
+    href: "/legal/trademark-notice/",
+  },
+  { id: "legal-copyright", label: "Copyright Notice", href: "/legal/copyright/" },
+  { id: "legal-data-rights", label: "Data Rights", href: "/legal/data-rights/" },
+  {
+    id: "legal-regional-privacy-rights",
+    label: "Regional Privacy Rights",
+    href: "/legal/regional-privacy-rights/",
+  },
+  {
+    id: "legal-do-not-sell-or-share",
+    label: "Do Not Sell or Share",
+    href: "/legal/do-not-sell-or-share/",
+  },
+  {
+    id: "legal-legal-notices",
+    label: "Legal Notices",
+    href: "/legal/legal-notices/",
+  },
+] as const;
 
 /**
- * Footer — complete navigation hub.
- * Published routes link through; unpublished destinations are omitted from the visitor footer.
+ * Footer — public site map + Layer 2 depth (D-0132 / D-0154).
+ * Published destinations only, grouped by domain. Legal column restored.
  */
 export const footerNavigation: readonly FooterGroup[] = [
   {
     id: "technology",
     title: "Technology",
-    links: [
-      published("footer-technology-overview", "Overview", "/technology/"),
-      published("footer-technology-human-data", "Human Data", "/technology/human-data/"),
-      published(
-        "footer-technology-human-data-model",
-        "Human Data Model",
-        "/technology/human-data-model/",
-      ),
-      published(
-        "footer-technology-data-infrastructure",
-        "Data Infrastructure",
-        "/technology/data-infrastructure/",
-      ),
-      published(
-        "footer-technology-knowledge-engine",
-        "Knowledge Engine",
-        "/systems/knowledge-engine/",
-      ),
-      published(
-        "footer-technology-ai-decision-support",
-        "AI Decision Support",
-        "/systems/ai-decision-support/",
-      ),
-      published(
-        "footer-technology-safety-layer",
-        "Safety Layer",
-        "/systems/safety-layer/",
-      ),
-    ],
+    links: footerLinksFromDomain("technology", technologyNavChildren),
   },
   {
     id: "systems",
     title: "Systems",
     links: [
-      published("footer-systems-overview", "Overview", "/systems/"),
-      comingSoon("footer-systems-architecture", "Architecture"),
-      comingSoon("footer-systems-core-services", "Core Services"),
-      comingSoon("footer-systems-decision-engine", "Decision Engine"),
-      comingSoon("footer-systems-monitoring", "Monitoring"),
-      comingSoon("footer-systems-integration", "Integration"),
+      ...footerLinksFromDomain("systems", systemsNavChildren),
+      published(
+        "footer-systems-saven-robotics-interface",
+        "SAVEN Robotics Interface",
+        "/systems/saven-robotics-interface/",
+      ),
+    ],
+  },
+  {
+    id: "labs",
+    title: "Labs",
+    links: [
+      published("footer-labs-overview", "Overview", "/labs/"),
+      published(
+        "footer-labs-saven-robotics-lab",
+        "SAVEN Robotics Lab",
+        "/labs/saven-robotics-lab/",
+      ),
+      published(
+        "footer-labs-internal-future-lab",
+        "Internal Future Lab",
+        "/labs/internal-future-lab/",
+      ),
     ],
   },
   {
     id: "applications",
     title: "Applications",
-    links: [
-      published("footer-applications-overview", "Overview", "/applications/"),
-      published(
-        "footer-applications-healthcare",
-        "Healthcare",
-        "/applications/healthcare/",
-      ),
-      published("footer-applications-home", "Home", "/applications/home/"),
-      published(
-        "footer-applications-hospitals",
-        "Hospitals",
-        "/applications/hospitals/",
-      ),
-      published(
-        "footer-applications-emergency",
-        "Emergency",
-        "/applications/emergency/",
-      ),
-      published(
-        "footer-applications-industrial",
-        "Industrial",
-        "/applications/industrial/",
-      ),
-      published(
-        "footer-applications-government",
-        "Government",
-        "/applications/government/",
-      ),
-      published(
-        "footer-applications-agriculture",
-        "Agriculture",
-        "/applications/agriculture/",
-      ),
-      published(
-        "footer-applications-research",
-        "Research",
-        "/applications/research-applications/",
-      ),
-    ],
+    links: footerLinksFromDomain("applications", applicationsNavChildren),
   },
   {
     id: "trust",
     title: "Trust",
-    links: [
-      published("footer-trust-overview", "Overview", "/trust/"),
-      published("footer-trust-privacy", "Privacy", "/trust/privacy/"),
-      published("footer-trust-security", "Security", "/trust/security/"),
-      published(
-        "footer-trust-transparency",
-        "Transparency",
-        "/trust/transparency/",
-      ),
-      published(
-        "footer-trust-human-oversight",
-        "Human Oversight",
-        "/trust/human-oversight/",
-      ),
-      published(
-        "footer-trust-ethics",
-        "Ethics",
-        "/trust/ethics-and-responsible-use/",
-      ),
-      published("footer-trust-limitations", "Limitations", "/trust/limitations/"),
-    ],
+    links: footerLinksFromDomain("trust", trustNavChildren),
   },
   {
     id: "research",
     title: "Research",
-    links: [
-      published("footer-research-overview", "Overview", "/research/"),
-      comingSoon("footer-research-publications", "Publications"),
-      comingSoon("footer-research-future-directions", "Future Directions"),
-    ],
-  },
-  {
-    id: "resources",
-    title: "Resources",
-    links: [
-      comingSoon("footer-resources-glossary", "Glossary"),
-      comingSoon("footer-resources-suggested-reading", "Suggested Reading"),
-      comingSoon("footer-resources-faq", "FAQ"),
-      comingSoon("footer-resources-contact", "Contact"),
-    ],
+    links: [published("footer-research-overview", "Overview", "/research/")],
   },
   {
     id: "company",
@@ -334,50 +322,58 @@ export const footerNavigation: readonly FooterGroup[] = [
     links: [
       published("footer-company-about", "About", "/foundation/"),
       published("footer-company-mission", "Mission", "/purpose/"),
-      comingSoon("footer-company-roadmap", "Roadmap"),
-      comingSoon("footer-company-careers", "Careers"),
-      comingSoon("footer-company-news", "News"),
+      published("footer-company-investors", "Investors", "/investors/"),
     ],
   },
   {
     id: "legal",
     title: "Legal",
-    links: [
-      comingSoon("footer-legal-privacy-policy", "Privacy Policy"),
-      comingSoon("footer-legal-terms", "Terms of Use"),
-      comingSoon("footer-legal-cookies", "Cookie Policy"),
-      comingSoon("footer-legal-accessibility", "Accessibility"),
-    ],
+    links: legalNavChildren.map((item) =>
+      published(`footer-${item.id}`, item.label, item.href),
+    ),
   },
 ] as const;
 
-export const FOOTER_VERSION = "0.1.0";
+export const FOOTER_VERSION = "0.2.0";
 
-export const FOOTER_COPYRIGHT = "© 2026 SAVEN Core. All rights reserved.";
+export const FOOTER_COPYRIGHT = "Copyright © 2026 SAVEN Core. All rights reserved.";
 
-function assertTechnologyDropdownSource(): void {
-  const technology = primaryNavigation.find((item) => item.id === "technology");
-  if (!technology || !isNavGroup(technology)) {
-    throw new Error("Technology primary nav group is missing.");
+const HEADER_HUB_LIMIT = 7;
+
+function assertPrimaryNavigation(): void {
+  if (primaryNavigation.length === 0) {
+    throw new Error("Primary header navigation must include important hubs (D-0153).");
   }
-  if (technology.children !== technologyMenuEntries) {
+  if (primaryNavigation.length > HEADER_HUB_LIMIT) {
     throw new Error(
-      "Technology dropdown must use technologyMenuEntries as its only children source.",
+      `Primary header navigation must stay ≤${HEADER_HUB_LIMIT} items (D-0153).`,
     );
   }
-  if (technology.children.length > 5) {
-    throw new Error("Technology dropdown must stay short (key entry points only).");
+  if (technologyMenuEntries.length > 5) {
+    throw new Error("technologyMenuEntries must stay short if used in a dropdown.");
   }
-  for (const child of technology.children) {
-    if (
-      child.href !== "/technology/" &&
-      !child.href.startsWith("/technology/")
-    ) {
-      throw new Error(
-        `Technology dropdown child must be a Technology route (found ${child.href}).`,
-      );
+}
+
+/** Every published route except Home and auth utilities must appear in the footer depth map. */
+function assertFooterCoversPublishedRoutes(): void {
+  const footerHrefs = new Set(
+    footerNavigation.flatMap((group) =>
+      group.links.filter(isFooterLinkPublished).map((link) => link.href),
+    ),
+  );
+  for (const route of PUBLISHED_ROUTES) {
+    if (route === "/") continue;
+    if (route.startsWith("/auth/")) continue;
+    if (!footerHrefs.has(route)) {
+      throw new Error(`Published route missing from footer depth map: ${route}`);
+    }
+  }
+  for (const href of footerHrefs) {
+    if (!(PUBLISHED_ROUTES as readonly string[]).includes(href)) {
+      throw new Error(`Footer links to unpublished route: ${href}`);
     }
   }
 }
 
-assertTechnologyDropdownSource();
+assertPrimaryNavigation();
+assertFooterCoversPublishedRoutes();

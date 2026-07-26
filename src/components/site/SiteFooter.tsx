@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 
 import { BrandName } from "@/components/brand/BrandName";
 import { SavenLogo } from "@/components/brand/SavenLogo";
+import { InstallAppControl } from "@/components/pwa/InstallAppControl";
 import type { Locale } from "@/config/locales";
 import {
   getFooterGroupTitle,
@@ -22,7 +23,7 @@ type SiteFooterProps = {
   locale: Locale;
 };
 
-/** Professional footer — published destinations only. */
+/** Layer 2 depth map — published domain destinations + Legal (D-0132 / D-0154). */
 export function SiteFooter({ locale }: SiteFooterProps) {
   const ui = getUi(locale);
   const [isCompact, setIsCompact] = useState(false);
@@ -113,12 +114,27 @@ export function SiteFooter({ locale }: SiteFooterProps) {
 
         <div className="site-footer__bar">
           <p className="site-footer__copyright">
-            © 2026 <BrandName />. {ui.footer.rightsReserved}
+            {ui.footer.copyrightLabel} © 2026 <BrandName />.{" "}
+            {ui.footer.rightsReserved}
           </p>
 
+          <div className="site-footer__bar-links">
+            <InstallAppControl locale={locale} placement="footer" />
+            <Link
+              href={localizePath(locale, "/auth/sign-in/")}
+              className="site-footer__text-link"
+            >
+              {ui.footer.signIn}
+            </Link>
+          </div>
+
           <div className="site-footer__utilities">
-            <LanguageSelector locale={locale} idPrefix="footer-language" />
-            <ThemeSwitch locale={locale} />
+            <LanguageSelector
+              locale={locale}
+              idPrefix="footer-language"
+              direction="up"
+            />
+            <ThemeSwitch locale={locale} placement="footer" />
           </div>
         </div>
       </div>

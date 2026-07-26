@@ -1,23 +1,26 @@
 import { notFound } from "next/navigation";
 
-import "@/components/knowledge/knowledge.css";
-import { HumanDataPage } from "@/components/pages/HumanDataPage";
-import "@/components/pages/pages.css";
+import { DomainVisualPage } from "@/components/domain/DomainVisualPage";
 import { isLocale } from "@/config/locales";
-import { getHumanDataPageContent } from "@/content/pages/get-localized-page";
+import { getHumanDataDomainContent } from "@/content/domain/build-domain-leaf";
+import { createHubGenerateMetadata } from "@/lib/seo/metadata";
 
-type HumanDataRouteProps = {
-  params: Promise<{ locale: string }>;
-};
+type Props = { params: Promise<{ locale: string }> };
 
-export default async function HumanDataRoutePage({
-  params,
-}: HumanDataRouteProps) {
+export const generateMetadata = createHubGenerateMetadata(
+  "/technology/human-data/",
+  getHumanDataDomainContent,
+);
+
+export default async function Page({ params }: Props) {
   const { locale: localeParam } = await params;
-
   if (!isLocale(localeParam)) {
     notFound();
   }
-
-  return <HumanDataPage locale={localeParam} content={getHumanDataPageContent(localeParam)} />;
+  return (
+    <DomainVisualPage
+      locale={localeParam}
+      content={getHumanDataDomainContent(localeParam)}
+    />
+  );
 }

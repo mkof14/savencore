@@ -1,0 +1,173 @@
+import type { Metadata } from "next";
+
+import {
+  SITE_DEFAULT_DESCRIPTION,
+  SITE_DEFAULT_TITLE,
+  SITE_NAME,
+  SITE_OG_IMAGE_ALT,
+  SITE_OG_IMAGE_PATH,
+  SITE_URL,
+} from "@/config/site";
+import {
+  getHtmlLang,
+  isLocale,
+  LOCALES,
+  type Locale,
+} from "@/config/locales";
+import type { HubPageContent } from "@/content/hub/types";
+import { localizePath } from "@/navigation/locale-path";
+
+export type BuildPageMetadataInput = {
+  locale: Locale;
+  /** Locale-relative path with trailing slash, e.g. `/technology/`. */
+  path: string;
+  title: string;
+  description: string;
+  /** Absolute or site-relative OG image path. */
+  image?: string;
+  imageAlt?: string;
+  noIndex?: boolean;
+  /**
+   * When true (default), `title` is a segment for the layout `%s | SAVEN Core` template.
+   * When false, `title` is used as an absolute document title (home).
+   */
+  absoluteTitle?: boolean;
+};
+
+function absoluteUrl(path: string): string {
+  if (path.startsWith("http://") || path.startsWith("https://")) {
+    return path;
+  }
+  const normalized = path.startsWith("/") ? path : `/${path}`;
+  return `${SITE_URL}${normalized}`;
+}
+
+export function buildLanguageAlternates(
+  path: string,
+): NonNullable<Metadata["alternates"]>["languages"] {
+  const languages: Record<string, string> = {};
+  for (const locale of LOCALES) {
+    languages[getHtmlLang(locale)] = absoluteUrl(localizePath(locale, path));
+  }
+  languages["x-default"] = absoluteUrl(localizePath("en", path));
+  return languages;
+}
+
+export function buildPageMetadata(input: BuildPageMetadataInput): Metadata {
+  const {
+    locale,
+    path,
+    title,
+    description,
+    image = SITE_OG_IMAGE_PATH,
+    imageAlt = SITE_OG_IMAGE_ALT,
+    noIndex = false,
+    absoluteTitle = false,
+  } = input;
+
+  const displayTitle = absoluteTitle ? title : `${title} | ${SITE_NAME}`;
+  const canonical = absoluteUrl(localizePath(locale, path));
+  const ogImage = absoluteUrl(image);
+
+  return {
+    title: absoluteTitle ? { absolute: title } : title,
+    description,
+    metadataBase: new URL(SITE_URL),
+    alternates: {
+      canonical,
+      languages: buildLanguageAlternates(path),
+    },
+    openGraph: {
+      type: "website",
+      url: canonical,
+      siteName: SITE_NAME,
+      title: displayTitle,
+      description,
+      locale: getHtmlLang(locale),
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: imageAlt,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: displayTitle,
+      description,
+      images: [ogImage],
+    },
+    robots: noIndex
+      ? { index: false, follow: false, nocache: true }
+      : { index: true, follow: true },
+  };
+}
+
+type LocaleParams = { params: Promise<{ locale: string }> };
+
+/** Default locale-layout metadata (home-level share defaults). */
+export function buildLocaleLayoutMetadata(locale: Locale): Metadata {
+  const home = buildPageMetadata({
+    locale,
+    path: "/",
+    title: SITE_DEFAULT_TITLE,
+    description: SITE_DEFAULT_DESCRIPTION,
+    absoluteTitle: true,
+  });
+
+  return {
+    ...home,
+    title: {
+      default: SITE_DEFAULT_TITLE,
+      template: `%s | ${SITE_NAME}`,
+    },
+    applicationName: SITE_NAME,
+    appleWebApp: {
+      capable: true,
+      title: SITE_NAME,
+      statusBarStyle: "default",
+    },
+    formatDetection: {
+      telephone: false,
+      email: false,
+      address: false,
+    },
+    other: {
+      "mobile-web-app-capable": "yes",
+    },
+  };
+}
+
+export function createHubGenerateMetadata(
+  path: string,
+  getContent: (locale: Locale) => HubPageContent,
+  options?: { noIndex?: boolean },
+) {
+  return async function generateMetadata({
+    params,
+  }: LocaleParams): Promise<Metadata> {
+    const { locale: localeParam } = await params;
+    if (!isLocale(localeParam)) {
+      return {};
+    }
+    const content = getContent(localeParam);
+    const description =
+      content.lede?.trim() ||
+      content.body?.[0]?.trim() ||
+      SITE_DEFAULT_DESCRIPTION;
+
+    return buildPageMetadata({
+      locale: localeParam,
+      path,
+      title: content.title,
+      description: description.slice(0, 320),
+      image: content.visual?.mastheadImage || SITE_OG_IMAGE_PATH,
+      imageAlt: content.visual?.mastheadAlt || content.title,
+      ...(options?.noIndex ? { noIndex: true } : {}),
+    });
+  };
+}
+
+export { SITE_DEFAULT_DESCRIPTION, SITE_DEFAULT_TITLE, SITE_URL };

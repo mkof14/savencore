@@ -45,176 +45,113 @@ import { ethicsResponsibleUsePageContent } from "@/content/pages/en/ethics-respo
 import { limitationsPageContent } from "@/content/pages/en/limitations";
 
 import * as ar from "@/content/pages/dictionaries/ar";
+import * as de from "@/content/pages/dictionaries/de";
+import * as es from "@/content/pages/dictionaries/es";
+import * as fr from "@/content/pages/dictionaries/fr";
 import * as he from "@/content/pages/dictionaries/he";
+import * as ja from "@/content/pages/dictionaries/ja";
 import * as ru from "@/content/pages/dictionaries/ru";
 import * as uk from "@/content/pages/dictionaries/uk";
+import * as zhCn from "@/content/pages/dictionaries/zh-cn";
 
 export const PAGE_CONTENT_KEYS = ['purpose', 'foundation', 'research', 'technology', 'systems', 'applications', 'trust', 'human-data', 'human-data-model', 'data-infrastructure', 'interoperability', 'privacy', 'security', 'artificial-intelligence', 'automation', 'robotics', 'knowledge-engine', 'ai-decision-support', 'safety-layer', 'communication-layer', 'clinical-interfaces', 'robotics-layer', 'drone-systems', 'healthcare', 'home-application', 'hospitals', 'emergency', 'industrial', 'government', 'agriculture', 'research-applications', 'trust-privacy', 'trust-security', 'trust-safety', 'human-oversight', 'transparency', 'ethics-responsible-use', 'limitations'] as const;
 type PageKey = (typeof PAGE_CONTENT_KEYS)[number];
 type LocalizedDictionaries = Record<PageKey, Record<string, string>>;
 
+function mapDictionaryModule(mod: {
+  purpose: Record<string, string>;
+  foundation: Record<string, string>;
+  research: Record<string, string>;
+  technology: Record<string, string>;
+  systems: Record<string, string>;
+  applications: Record<string, string>;
+  trust: Record<string, string>;
+  human_data: Record<string, string>;
+  human_data_model: Record<string, string>;
+  data_infrastructure: Record<string, string>;
+  interoperability: Record<string, string>;
+  privacy: Record<string, string>;
+  security: Record<string, string>;
+  artificial_intelligence: Record<string, string>;
+  automation: Record<string, string>;
+  robotics: Record<string, string>;
+  knowledge_engine: Record<string, string>;
+  ai_decision_support: Record<string, string>;
+  safety_layer: Record<string, string>;
+  communication_layer: Record<string, string>;
+  clinical_interfaces: Record<string, string>;
+  robotics_layer: Record<string, string>;
+  drone_systems: Record<string, string>;
+  healthcare: Record<string, string>;
+  home_application: Record<string, string>;
+  hospitals: Record<string, string>;
+  emergency: Record<string, string>;
+  industrial: Record<string, string>;
+  government: Record<string, string>;
+  agriculture: Record<string, string>;
+  research_applications: Record<string, string>;
+  trust_privacy: Record<string, string>;
+  trust_security: Record<string, string>;
+  trust_safety: Record<string, string>;
+  human_oversight: Record<string, string>;
+  transparency: Record<string, string>;
+  ethics_responsible_use: Record<string, string>;
+  limitations: Record<string, string>;
+}): LocalizedDictionaries {
+  return {
+    purpose: mod.purpose,
+    foundation: mod.foundation,
+    research: mod.research,
+    technology: mod.technology,
+    systems: mod.systems,
+    applications: mod.applications,
+    trust: mod.trust,
+    "human-data": mod.human_data,
+    "human-data-model": mod.human_data_model,
+    "data-infrastructure": mod.data_infrastructure,
+    interoperability: mod.interoperability,
+    privacy: mod.privacy,
+    security: mod.security,
+    "artificial-intelligence": mod.artificial_intelligence,
+    automation: mod.automation,
+    robotics: mod.robotics,
+    "knowledge-engine": mod.knowledge_engine,
+    "ai-decision-support": mod.ai_decision_support,
+    "safety-layer": mod.safety_layer,
+    "communication-layer": mod.communication_layer,
+    "clinical-interfaces": mod.clinical_interfaces,
+    "robotics-layer": mod.robotics_layer,
+    "drone-systems": mod.drone_systems,
+    healthcare: mod.healthcare,
+    "home-application": mod.home_application,
+    hospitals: mod.hospitals,
+    emergency: mod.emergency,
+    industrial: mod.industrial,
+    government: mod.government,
+    agriculture: mod.agriculture,
+    "research-applications": mod.research_applications,
+    "trust-privacy": mod.trust_privacy,
+    "trust-security": mod.trust_security,
+    "trust-safety": mod.trust_safety,
+    "human-oversight": mod.human_oversight,
+    transparency: mod.transparency,
+    "ethics-responsible-use": mod.ethics_responsible_use,
+    limitations: mod.limitations,
+  };
+}
+
 const dictionariesByLocale: Record<Exclude<ContentLocale, "en">, LocalizedDictionaries> = {
-  ar: {
-    "purpose": ar.purpose,
-    "foundation": ar.foundation,
-    "research": ar.research,
-    "technology": ar.technology,
-    "systems": ar.systems,
-    "applications": ar.applications,
-    "trust": ar.trust,
-    "human-data": ar.human_data,
-    "human-data-model": ar.human_data_model,
-    "data-infrastructure": ar.data_infrastructure,
-    "interoperability": ar.interoperability,
-    "privacy": ar.privacy,
-    "security": ar.security,
-    "artificial-intelligence": ar.artificial_intelligence,
-    "automation": ar.automation,
-    "robotics": ar.robotics,
-    "knowledge-engine": ar.knowledge_engine,
-    "ai-decision-support": ar.ai_decision_support,
-    "safety-layer": ar.safety_layer,
-    "communication-layer": ar.communication_layer,
-    "clinical-interfaces": ar.clinical_interfaces,
-    "robotics-layer": ar.robotics_layer,
-    "drone-systems": ar.drone_systems,
-    "healthcare": ar.healthcare,
-    "home-application": ar.home_application,
-    "hospitals": ar.hospitals,
-    "emergency": ar.emergency,
-    "industrial": ar.industrial,
-    "government": ar.government,
-    "agriculture": ar.agriculture,
-    "research-applications": ar.research_applications,
-    "trust-privacy": ar.trust_privacy,
-    "trust-security": ar.trust_security,
-    "trust-safety": ar.trust_safety,
-    "human-oversight": ar.human_oversight,
-    "transparency": ar.transparency,
-    "ethics-responsible-use": ar.ethics_responsible_use,
-    "limitations": ar.limitations,
-  },
-  he: {
-    "purpose": he.purpose,
-    "foundation": he.foundation,
-    "research": he.research,
-    "technology": he.technology,
-    "systems": he.systems,
-    "applications": he.applications,
-    "trust": he.trust,
-    "human-data": he.human_data,
-    "human-data-model": he.human_data_model,
-    "data-infrastructure": he.data_infrastructure,
-    "interoperability": he.interoperability,
-    "privacy": he.privacy,
-    "security": he.security,
-    "artificial-intelligence": he.artificial_intelligence,
-    "automation": he.automation,
-    "robotics": he.robotics,
-    "knowledge-engine": he.knowledge_engine,
-    "ai-decision-support": he.ai_decision_support,
-    "safety-layer": he.safety_layer,
-    "communication-layer": he.communication_layer,
-    "clinical-interfaces": he.clinical_interfaces,
-    "robotics-layer": he.robotics_layer,
-    "drone-systems": he.drone_systems,
-    "healthcare": he.healthcare,
-    "home-application": he.home_application,
-    "hospitals": he.hospitals,
-    "emergency": he.emergency,
-    "industrial": he.industrial,
-    "government": he.government,
-    "agriculture": he.agriculture,
-    "research-applications": he.research_applications,
-    "trust-privacy": he.trust_privacy,
-    "trust-security": he.trust_security,
-    "trust-safety": he.trust_safety,
-    "human-oversight": he.human_oversight,
-    "transparency": he.transparency,
-    "ethics-responsible-use": he.ethics_responsible_use,
-    "limitations": he.limitations,
-  },
-  ru: {
-    "purpose": ru.purpose,
-    "foundation": ru.foundation,
-    "research": ru.research,
-    "technology": ru.technology,
-    "systems": ru.systems,
-    "applications": ru.applications,
-    "trust": ru.trust,
-    "human-data": ru.human_data,
-    "human-data-model": ru.human_data_model,
-    "data-infrastructure": ru.data_infrastructure,
-    "interoperability": ru.interoperability,
-    "privacy": ru.privacy,
-    "security": ru.security,
-    "artificial-intelligence": ru.artificial_intelligence,
-    "automation": ru.automation,
-    "robotics": ru.robotics,
-    "knowledge-engine": ru.knowledge_engine,
-    "ai-decision-support": ru.ai_decision_support,
-    "safety-layer": ru.safety_layer,
-    "communication-layer": ru.communication_layer,
-    "clinical-interfaces": ru.clinical_interfaces,
-    "robotics-layer": ru.robotics_layer,
-    "drone-systems": ru.drone_systems,
-    "healthcare": ru.healthcare,
-    "home-application": ru.home_application,
-    "hospitals": ru.hospitals,
-    "emergency": ru.emergency,
-    "industrial": ru.industrial,
-    "government": ru.government,
-    "agriculture": ru.agriculture,
-    "research-applications": ru.research_applications,
-    "trust-privacy": ru.trust_privacy,
-    "trust-security": ru.trust_security,
-    "trust-safety": ru.trust_safety,
-    "human-oversight": ru.human_oversight,
-    "transparency": ru.transparency,
-    "ethics-responsible-use": ru.ethics_responsible_use,
-    "limitations": ru.limitations,
-  },
-  uk: {
-    "purpose": uk.purpose,
-    "foundation": uk.foundation,
-    "research": uk.research,
-    "technology": uk.technology,
-    "systems": uk.systems,
-    "applications": uk.applications,
-    "trust": uk.trust,
-    "human-data": uk.human_data,
-    "human-data-model": uk.human_data_model,
-    "data-infrastructure": uk.data_infrastructure,
-    "interoperability": uk.interoperability,
-    "privacy": uk.privacy,
-    "security": uk.security,
-    "artificial-intelligence": uk.artificial_intelligence,
-    "automation": uk.automation,
-    "robotics": uk.robotics,
-    "knowledge-engine": uk.knowledge_engine,
-    "ai-decision-support": uk.ai_decision_support,
-    "safety-layer": uk.safety_layer,
-    "communication-layer": uk.communication_layer,
-    "clinical-interfaces": uk.clinical_interfaces,
-    "robotics-layer": uk.robotics_layer,
-    "drone-systems": uk.drone_systems,
-    "healthcare": uk.healthcare,
-    "home-application": uk.home_application,
-    "hospitals": uk.hospitals,
-    "emergency": uk.emergency,
-    "industrial": uk.industrial,
-    "government": uk.government,
-    "agriculture": uk.agriculture,
-    "research-applications": uk.research_applications,
-    "trust-privacy": uk.trust_privacy,
-    "trust-security": uk.trust_security,
-    "trust-safety": uk.trust_safety,
-    "human-oversight": uk.human_oversight,
-    "transparency": uk.transparency,
-    "ethics-responsible-use": uk.ethics_responsible_use,
-    "limitations": uk.limitations,
-  },
+  es: mapDictionaryModule(es),
+  de: mapDictionaryModule(de),
+  fr: mapDictionaryModule(fr),
+  ja: mapDictionaryModule(ja),
+  "zh-cn": mapDictionaryModule(zhCn),
+  ar: mapDictionaryModule(ar),
+  he: mapDictionaryModule(he),
+  ru: mapDictionaryModule(ru),
+  uk: mapDictionaryModule(uk),
 };
+
 
 function getLocalizedPageContent<T>(
   pageKey: PageKey,

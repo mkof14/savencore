@@ -1,0 +1,650 @@
+import type { EditorialPageContent } from "@/components/pages/page-types";
+import type { ResearchPageContent } from "@/components/pages/page-types";
+import type { Locale } from "@/config/locales";
+import type {
+  FlagshipBrochureContent,
+  FlagshipPageContent,
+} from "@/content/flagship/en";
+import {
+  getFutureLabPageContent,
+  getInvestorsPageContent,
+  getLabsHubPageContent,
+  getRoboticsInterfacePageContent,
+  getRoboticsLabPageContent,
+} from "@/content/flagship/get-flagship-content";
+import { domainVisualForHref } from "@/content/domain/domain-visuals";
+import { HUB_MASTHEAD, pathImageForHref } from "@/content/hub/hub-visuals";
+import type {
+  HubHighlight,
+  HubPageContent,
+  HubPathLink,
+  HubSection,
+} from "@/content/hub/types";
+import { getEntityById } from "@/content/knowledge/entity-registry";
+import type { ApplicationsPageContent } from "@/content/pages/en/applications";
+import type { TechnologyPageContent } from "@/content/pages/en/technology";
+import type { TrustPageContent } from "@/content/pages/en/trust";
+import {
+  getApplicationsPageContent,
+  getPurposePageContent,
+  getResearchPageContent,
+  getTechnologyPageContent,
+  getTrustPageContent,
+} from "@/content/pages/get-localized-page";
+import { getUi } from "@/i18n/ui";
+import { technologyNavChildren } from "@/navigation/site-navigation";
+
+export type FlagshipHubVariant =
+  | "labs-hub"
+  | "investors"
+  | "robotics-lab"
+  | "default";
+
+function firstSentence(text: string, max = 140): string {
+  const trimmed = text.trim();
+  const match = trimmed.match(/^[^.!?]+[.!?]/);
+  const sentence = (match?.[0] ?? trimmed).trim();
+  if (sentence.length <= max) return sentence;
+  const cut = sentence.slice(0, max - 1);
+  const boundary = cut.lastIndexOf(" ");
+  return `${(boundary > 40 ? cut.slice(0, boundary) : cut).trimEnd()}…`;
+}
+
+function sectionFromEditorial(
+  section: EditorialPageContent["sections"][number],
+  collapsed?: boolean,
+): HubSection {
+  const items = section.subsections?.map(
+    (sub) => `${sub.title} — ${sub.paragraphs[0] ?? ""}`.trim(),
+  );
+  return {
+    id: section.id,
+    title: section.title,
+    ...(section.paragraphs ? { paragraphs: section.paragraphs } : {}),
+    ...(items && items.length > 0 ? { items } : {}),
+    ...(collapsed ? { collapsed: true } : {}),
+  };
+}
+
+function withPathImages(links: readonly HubPathLink[]): HubPathLink[] {
+  return links.map((link, index) => ({
+    ...link,
+    image: link.image ?? pathImageForHref(link.href, index),
+    imageAlt: link.imageAlt ?? link.label,
+  }));
+}
+
+function brochureSections(
+  content: FlagshipBrochureContent,
+): HubSection[] | undefined {
+  if (content.sections && content.sections.length > 0) {
+    return content.sections.map((section) => ({
+      id: section.id,
+      title: section.title,
+      ...(section.paragraphs ? { paragraphs: section.paragraphs } : {}),
+      ...(section.items ? { items: section.items } : {}),
+      ...(section.collapsed ? { collapsed: true } : {}),
+    }));
+  }
+  return undefined;
+}
+
+/** Labs / Investors / flagship leaves share FlagshipPageContent. */
+export function buildFlagshipHub(
+  content: FlagshipPageContent | FlagshipBrochureContent,
+  variant: FlagshipHubVariant = "default",
+): HubPageContent {
+  const brochure = content as FlagshipBrochureContent;
+
+  if (variant === "labs-hub") {
+    const sections = brochureSections(brochure);
+    return {
+      label: content.title,
+      title: content.title,
+      status: content.status,
+      lede: content.lede,
+      visual: HUB_MASTHEAD.labs,
+      body: content.body,
+      ...(brochure.highlights ? { highlights: brochure.highlights } : {}),
+      paths: {
+        heading: content.listHeading,
+        links: withPathImages([
+          {
+            label: "SAVEN Robotics Lab",
+            href: "/labs/saven-robotics-lab/",
+            note: "Primary engineering direction for robotic systems.",
+          },
+          {
+            label: "Internal Future Lab",
+            href: "/labs/internal-future-lab/",
+            note: "Research environment for advanced concepts.",
+          },
+          {
+            label: "SAVEN Robotics Interface",
+            href: "/systems/saven-robotics-interface/",
+            note: "Human command and oversight for machines.",
+          },
+        ]),
+      },
+      ...(sections ? { sections } : {}),
+      note: content.note,
+      related: [
+        { label: "Technology", href: "/technology/" },
+        { label: "Research", href: "/research/" },
+      ],
+    };
+  }
+
+  if (variant === "investors") {
+    return {
+      label: content.title,
+      title: content.title,
+      status: content.status,
+      lede: content.lede,
+      visual: HUB_MASTHEAD.investors,
+      body: content.body,
+      ...(brochure.highlights ? { highlights: brochure.highlights } : {}),
+      sections:
+        brochureSections(brochure) ??
+        [
+          {
+            id: "share",
+            title: content.listHeading,
+            items: content.items,
+          },
+        ],
+      note: content.note,
+      related: content.related,
+    };
+  }
+
+  if (variant === "robotics-lab") {
+    const visual = domainVisualForHref("/labs/saven-robotics-lab/");
+    return {
+      label: content.kicker,
+      title: content.title,
+      status: content.status,
+      lede: content.lede,
+      visual: {
+        theme: "labs",
+        mastheadImage: visual.mastheadImage,
+        mastheadAlt: visual.mastheadAlt,
+      },
+      body: content.body,
+      ...(brochure.highlights ? { highlights: brochure.highlights } : {}),
+      sections:
+        brochureSections(brochure) ??
+        [
+          {
+            id: "focus",
+            title: content.listHeading,
+            items: content.items,
+          },
+        ],
+      note: content.note,
+      related: content.related,
+    };
+  }
+
+  return {
+    label: content.kicker,
+    title: content.title,
+    status: content.status,
+    lede: content.lede,
+    body: content.body,
+    sections: [
+      {
+        id: "focus",
+        title: content.listHeading,
+        items: content.items,
+      },
+    ],
+    note: content.note,
+    related: content.related,
+  };
+}
+
+export function buildPurposeHub(
+  content: EditorialPageContent,
+  locale: Locale,
+): HubPageContent {
+  const ui = getUi(locale);
+  const byId = (id: string) =>
+    content.sections.find((section) => section.id === id);
+
+  const purpose = byId("purpose");
+  const mission = byId("mission");
+  const forWhom = byId("who-we-build-for");
+
+  const highlights: HubHighlight[] = [
+    {
+      id: "what",
+      title: ui.hub.what,
+      text: firstSentence(purpose?.paragraphs?.[0] ?? content.introduction),
+    },
+    {
+      id: "why",
+      title: ui.hub.why,
+      text: firstSentence(mission?.paragraphs?.[0] ?? content.introduction),
+    },
+    {
+      id: "next",
+      title: ui.hub.next,
+      text: firstSentence(forWhom?.paragraphs?.[0] ?? content.introduction),
+    },
+  ];
+
+  return {
+    label: content.label,
+    title: content.title,
+    ...(content.status ? { status: content.status } : {}),
+    lede: content.introduction,
+    visual: HUB_MASTHEAD.purpose,
+    highlights,
+    sections: content.sections.map((section) =>
+      sectionFromEditorial(section, true),
+    ),
+    ...(content.relatedLinks ? { related: content.relatedLinks } : {}),
+  };
+}
+
+export function buildApplicationsHub(
+  content: ApplicationsPageContent,
+  locale: Locale,
+): HubPageContent {
+  const ui = getUi(locale);
+  return {
+    label: ui.nav.applications,
+    title: content.title,
+    ...(content.metadata.status ? { status: content.metadata.status } : {}),
+    lede: content.introduction,
+    visual: HUB_MASTHEAD.applications,
+    highlights: [
+      {
+        id: "what",
+        title: ui.hub.what,
+        text: firstSentence(content.definition),
+      },
+      {
+        id: "why",
+        title: ui.hub.why,
+        text: firstSentence(
+          content.principles[0]
+            ? `${content.principles[0].title}: ${content.principles[0].text}`
+            : content.introduction,
+        ),
+      },
+      {
+        id: "next",
+        title: ui.hub.next,
+        text: firstSentence(content.developmentNote),
+      },
+    ],
+    sections: [
+      {
+        id: "principles",
+        title: content.principlesHeading,
+        items: content.principles.map((p) => `${p.title} — ${p.text}`),
+        collapsed: true,
+      },
+      {
+        id: "scope",
+        title: content.scopeHeading,
+        paragraphs: content.scope,
+        collapsed: true,
+      },
+    ],
+    paths: {
+      heading: content.cardsHeading,
+      links: withPathImages(
+        content.cards.map((card) => ({
+          label: card.title,
+          href: card.href,
+          note: card.responsibility,
+        })),
+      ),
+    },
+    note: content.developmentNote,
+    related: [
+      { label: ui.nav.technology, href: "/technology/" },
+      { label: ui.nav.systems, href: "/systems/" },
+      { label: ui.nav.trust, href: "/trust/" },
+    ],
+  };
+}
+
+export function buildTechnologyHub(
+  content: TechnologyPageContent,
+  locale: Locale,
+): HubPageContent {
+  const ui = getUi(locale);
+  const navEntries = ui.navEntries;
+  const disciplineLinks: HubPathLink[] = technologyNavChildren
+    .filter((item) => item.href !== "/technology/")
+    .map((item, index) => {
+      const entityId = item.id.replace(/^technology-/, "");
+      const entity = getEntityById(entityId);
+      const localizedLabel =
+        navEntries[item.id as keyof typeof navEntries] ?? item.label;
+      return {
+        label: localizedLabel,
+        href: item.href,
+        ...(entity?.summary ? { note: firstSentence(entity.summary, 110) } : {}),
+        image: pathImageForHref(item.href, index),
+        imageAlt: localizedLabel,
+      };
+    });
+
+  return {
+    label: content.label,
+    title: content.title,
+    ...(content.metadata.status ? { status: content.metadata.status } : {}),
+    lede: content.introduction,
+    visual: HUB_MASTHEAD.technology,
+    highlights: [
+      {
+        id: "what",
+        title: ui.hub.what,
+        text: firstSentence(content.overview[0] ?? content.introduction),
+      },
+      {
+        id: "why",
+        title: ui.hub.why,
+        text: firstSentence(
+          content.principles[0]
+            ? `${content.principles[0].title}: ${content.principles[0].text}`
+            : content.introduction,
+        ),
+      },
+      {
+        id: "next",
+        title: ui.hub.next,
+        text: firstSentence(
+          content.overview[1] ??
+            "Choose a discipline below, or continue into Systems when ready.",
+        ),
+      },
+    ],
+    sections: [
+      {
+        id: "principles",
+        title: content.principlesHeading,
+        items: content.principles.map((p) => `${p.title} — ${p.text}`),
+        collapsed: true,
+      },
+      {
+        id: "scope",
+        title: content.scopeHeading,
+        paragraphs: content.scope,
+        collapsed: true,
+      },
+    ],
+    paths: {
+      heading: content.categoriesHeading,
+      links: disciplineLinks,
+    },
+    note: content.developmentNote,
+    related: content.relatedDomainLinks.map((link) => ({
+      label: link.label,
+      href: link.href,
+    })),
+  };
+}
+
+export function buildResearchHub(
+  content: ResearchPageContent,
+  locale: Locale,
+): HubPageContent {
+  const ui = getUi(locale);
+  const sections: HubSection[] = [
+    {
+      id: "research-areas",
+      title: content.sectionNav?.[0]?.label ?? ui.hub.areas,
+      items: content.areas.map((area) => `${area.title} — ${area.summary}`),
+      collapsed: true,
+    },
+  ];
+
+  if (content.entries && content.entries.length > 0) {
+    sections.push({
+      id: "research-notes",
+      title: content.entriesHeading ?? "Research notes",
+      items: content.entries.map(
+        (entry) => `${entry.title} — ${entry.summary}`,
+      ),
+      collapsed: true,
+    });
+  }
+
+  const topArea = content.areas[0];
+
+  return {
+    label: content.label,
+    title: content.title,
+    ...(content.status ? { status: content.status } : {}),
+    lede: content.introduction,
+    visual: HUB_MASTHEAD.research,
+    highlights: [
+      {
+        id: "what",
+        title: ui.hub.what,
+        text: firstSentence(content.introduction),
+      },
+      {
+        id: "why",
+        title: ui.hub.why,
+        text: firstSentence(
+          topArea
+            ? `${topArea.title}: ${topArea.summary}`
+            : content.introduction,
+        ),
+      },
+      {
+        id: "next",
+        title: ui.hub.next,
+        text: firstSentence(
+          content.areas[1]
+            ? `${content.areas[1].title}: ${content.areas[1].summary}`
+            : content.introduction,
+        ),
+      },
+    ],
+    sections,
+    related: [
+      { label: ui.nav.labs, href: "/labs/" },
+      {
+        label: ui.navEntries["footer-labs-internal-future-lab"],
+        href: "/labs/internal-future-lab/",
+      },
+      { label: ui.nav.technology, href: "/technology/" },
+      ...(content.relatedLinks ?? []),
+    ],
+  };
+}
+
+export function buildTrustHub(
+  content: TrustPageContent,
+  locale: Locale,
+): HubPageContent {
+  const ui = getUi(locale);
+  return {
+    label: ui.nav.trust,
+    title: content.title,
+    ...(content.metadata.status ? { status: content.metadata.status } : {}),
+    lede: content.introduction,
+    visual: HUB_MASTHEAD.trust,
+    highlights: [
+      {
+        id: "what",
+        title: ui.hub.what,
+        text: firstSentence(content.definition),
+      },
+      {
+        id: "why",
+        title: ui.hub.why,
+        text: firstSentence(content.boundaryNote),
+      },
+      {
+        id: "next",
+        title: ui.hub.next,
+        text: firstSentence(content.developmentNote),
+      },
+    ],
+    sections: [
+      {
+        id: "principles",
+        title: content.principlesHeading,
+        items: content.principles.map((p) => `${p.title} — ${p.text}`),
+        collapsed: true,
+      },
+      {
+        id: "scope",
+        title: content.scopeHeading,
+        paragraphs: content.scope,
+        collapsed: true,
+      },
+    ],
+    paths: {
+      heading: content.cardsHeading,
+      links: withPathImages(
+        content.cards.map((card) => ({
+          label: card.title,
+          href: card.href,
+          note: card.responsibility,
+        })),
+      ),
+    },
+    note: content.developmentNote,
+    related: [
+      { label: ui.nav.technology, href: "/technology/" },
+      { label: ui.nav.applications, href: "/applications/" },
+      { label: ui.nav.purpose, href: "/purpose/" },
+    ],
+  };
+}
+
+export function getPurposeHubContent(locale: Locale): HubPageContent {
+  return buildPurposeHub(getPurposePageContent(locale), locale);
+}
+
+export function getApplicationsHubContent(locale: Locale): HubPageContent {
+  return buildApplicationsHub(getApplicationsPageContent(locale), locale);
+}
+
+export function getTechnologyHubContent(locale: Locale): HubPageContent {
+  return buildTechnologyHub(getTechnologyPageContent(locale), locale);
+}
+
+export function getResearchHubContent(locale: Locale): HubPageContent {
+  return buildResearchHub(getResearchPageContent(locale), locale);
+}
+
+export function getTrustHubContent(locale: Locale): HubPageContent {
+  return buildTrustHub(getTrustPageContent(locale), locale);
+}
+
+export function getLabsHubContent(locale: Locale): HubPageContent {
+  const page = getLabsHubPageContent(locale);
+  const hub = buildFlagshipHub(page, "labs-hub");
+  const ui = getUi(locale);
+  const labNote = page.items[0]
+    ?.replace(/^SAVEN Robotics Lab — /, "")
+    .replace(/^SAVEN Robotics Lab – /, "");
+  const futureNote = page.items[1]
+    ?.replace(/^Internal Future Lab — /, "")
+    .replace(/^Internal Future Lab – /, "");
+
+  return {
+    ...hub,
+    label: ui.nav.labs,
+    title: ui.nav.labs,
+    visual: HUB_MASTHEAD.labs,
+    paths: {
+      heading: ui.hub.explore,
+      links: withPathImages([
+        {
+          label: ui.navEntries["footer-labs-saven-robotics-lab"],
+          href: "/labs/saven-robotics-lab/",
+          ...(labNote ? { note: labNote } : {}),
+        },
+        {
+          label: ui.navEntries["footer-labs-internal-future-lab"],
+          href: "/labs/internal-future-lab/",
+          ...(futureNote ? { note: futureNote } : {}),
+        },
+        {
+          label: ui.navEntries["footer-systems-saven-robotics-interface"],
+          href: "/systems/saven-robotics-interface/",
+        },
+      ]),
+    },
+    related: [
+      { label: ui.nav.technology, href: "/technology/" },
+      { label: ui.nav.research, href: "/research/" },
+    ],
+  };
+}
+
+export function getInvestorsHubContent(locale: Locale): HubPageContent {
+  const hub = buildFlagshipHub(getInvestorsPageContent(locale), "investors");
+  const ui = getUi(locale);
+  const related = (hub.related ?? []).map((link) => {
+    if (link.href === "/") return { ...link, label: ui.nav.home };
+    if (link.href === "/labs/saven-robotics-lab/") {
+      return {
+        ...link,
+        label: ui.navEntries["footer-labs-saven-robotics-lab"],
+      };
+    }
+    if (link.href === "/foundation/") {
+      return { ...link, label: ui.nav.foundation };
+    }
+    if (link.href === "/auth/sign-in/") {
+      return { ...link, label: ui.nav.signIn };
+    }
+    return link;
+  });
+
+  return {
+    ...hub,
+    label: ui.nav.investors,
+    title: ui.nav.investors,
+    visual: HUB_MASTHEAD.investors,
+    related,
+  };
+}
+
+export function getRoboticsLabHubContent(locale: Locale = "en"): HubPageContent {
+  const hub = buildFlagshipHub(getRoboticsLabPageContent(locale), "robotics-lab");
+  const ui = getUi(locale);
+  return {
+    ...hub,
+    label: ui.navEntries["footer-labs-saven-robotics-lab"],
+  };
+}
+
+export function getRoboticsInterfaceHubContent(
+  locale: Locale = "en",
+): HubPageContent {
+  const visual = domainVisualForHref("/systems/saven-robotics-interface/");
+  return {
+    ...buildFlagshipHub(getRoboticsInterfacePageContent(locale)),
+    visual: {
+      theme: "systems",
+      mastheadImage: visual.mastheadImage,
+      mastheadAlt: visual.mastheadAlt,
+    },
+  };
+}
+
+export function getFutureLabHubContent(locale: Locale = "en"): HubPageContent {
+  const visual = domainVisualForHref("/labs/internal-future-lab/");
+  return {
+    ...buildFlagshipHub(getFutureLabPageContent(locale)),
+    visual: {
+      theme: "labs",
+      mastheadImage: visual.mastheadImage,
+      mastheadAlt: visual.mastheadAlt,
+    },
+  };
+}

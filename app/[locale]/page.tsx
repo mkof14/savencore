@@ -1,20 +1,37 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import { ContinueExploring } from "@/components/home/ContinueExploring";
-import { DomainMap } from "@/components/home/DomainMap";
-import { FeaturedConcepts } from "@/components/home/FeaturedConcepts";
-import { HomeHero } from "@/components/home/HomeHero";
-import { KnowledgeExplorer } from "@/components/home/KnowledgeExplorer";
-import { PlatformStatus } from "@/components/home/PlatformStatus";
-import "@/components/home/home.css";
+import { PhysicalWorldHome } from "@/components/home/PhysicalWorldHome";
 import { isLocale } from "@/config/locales";
+import { getPhysicalWorldHomeContent } from "@/content/home/physical-world/get-physical-world-content";
+import {
+  buildPageMetadata,
+  SITE_DEFAULT_TITLE,
+} from "@/lib/seo/metadata";
 
 type LocalePageProps = {
   params: Promise<{ locale: string }>;
 };
 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale: localeParam } = await params;
+  if (!isLocale(localeParam)) return {};
+  const content = getPhysicalWorldHomeContent(localeParam);
+  return buildPageMetadata({
+    locale: localeParam,
+    path: "/",
+    title: SITE_DEFAULT_TITLE,
+    description: content.oneBreath,
+    absoluteTitle: true,
+  });
+}
+
 /**
- * Home — Knowledge Explorer entrance to SAVEN Core.
+ * Home — Layer 1: Intelligence for the Physical World (SITE_ASSIGNMENT Phase 1 / D-0133).
  */
 export default async function LocaleHomePage({ params }: LocalePageProps) {
   const { locale: localeParam } = await params;
@@ -23,16 +40,5 @@ export default async function LocaleHomePage({ params }: LocalePageProps) {
     notFound();
   }
 
-  const locale = localeParam;
-
-  return (
-    <div className="home">
-      <HomeHero locale={locale} />
-      <KnowledgeExplorer locale={locale} />
-      <DomainMap locale={locale} />
-      <PlatformStatus locale={locale} />
-      <FeaturedConcepts locale={locale} />
-      <ContinueExploring locale={locale} />
-    </div>
-  );
+  return <PhysicalWorldHome locale={localeParam} />;
 }

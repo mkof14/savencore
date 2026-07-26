@@ -1,16 +1,26 @@
 import { notFound } from "next/navigation";
 
-import { TrustDisciplinePage } from "@/components/pages/TrustDisciplinePage";
-import "@/components/pages/pages.css";
+import { DomainVisualPage } from "@/components/domain/DomainVisualPage";
 import { isLocale } from "@/config/locales";
-import { getTrustSafetyPageContent } from "@/content/pages/get-localized-page";
+import { getTrustSafetyDomainContent } from "@/content/domain/build-domain-leaf";
+import { createHubGenerateMetadata } from "@/lib/seo/metadata";
 
 type Props = { params: Promise<{ locale: string }> };
+
+export const generateMetadata = createHubGenerateMetadata(
+  "/trust/safety/",
+  getTrustSafetyDomainContent,
+);
 
 export default async function Page({ params }: Props) {
   const { locale: localeParam } = await params;
   if (!isLocale(localeParam)) {
     notFound();
   }
-  return <TrustDisciplinePage locale={localeParam} content={getTrustSafetyPageContent(localeParam)} />;
+  return (
+    <DomainVisualPage
+      locale={localeParam}
+      content={getTrustSafetyDomainContent(localeParam)}
+    />
+  );
 }

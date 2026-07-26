@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useId, useRef } from "react";
 
 import {
+  getLocaleFlag,
   getLocaleLabel,
   LOCALES,
   type Locale,
@@ -15,11 +16,14 @@ import { swapLocaleInPathname } from "@/navigation/locale-path";
 type LanguageSelectorProps = {
   locale: Locale;
   idPrefix?: string;
+  /** Header opens downward; footer opens upward (D-0155). */
+  direction?: "down" | "up";
 };
 
 export function LanguageSelector({
   locale,
   idPrefix = "language",
+  direction = "down",
 }: LanguageSelectorProps) {
   const pathname = usePathname() ?? `/${locale}/`;
   const detailsRef = useRef<HTMLDetailsElement>(null);
@@ -46,12 +50,18 @@ export function LanguageSelector({
   const ui = getUi(locale);
 
   return (
-    <details ref={detailsRef} className="language-selector">
+    <details
+      ref={detailsRef}
+      className={`language-selector language-selector--${direction}`}
+    >
       <summary
         id={summaryId}
         className="language-selector__summary"
         aria-controls={panelId}
       >
+        <span className="language-selector__flag" aria-hidden="true">
+          {getLocaleFlag(locale)}
+        </span>
         {ui.language}
         <span className="language-selector__code" aria-hidden="true">
           {locale}
@@ -80,7 +90,12 @@ export function LanguageSelector({
                 }
               }}
             >
-              {getLocaleLabel(code)}
+              <span className="language-selector__option-main">
+                <span className="language-selector__flag" aria-hidden="true">
+                  {getLocaleFlag(code)}
+                </span>
+                {getLocaleLabel(code)}
+              </span>
               <span className="language-selector__code">{code}</span>
             </Link>
           );

@@ -1,0 +1,6 @@
+{
+  "A device should not act in a person\u2019s environment without approved purpose and authority.": "未经批准的目的与授权，设备不应在人的环境中行动。",
+  "Account for surroundings that may change how a person\u2019s situation should be understood.": "纳入可能改变对人处境理解方式的周围环境。",
+  "Privacy limits exposure of human context. Broad secondary use is outside the model\u2019s purpose.": "隐私限制人类上下文的暴露。广泛二次使用超出模型目的。",
+  "When a system is allowed to use information for a defined purpose, that information should be reachable under the architecture\u2019s limits.": "当系统获准为已定义目的使用信息时，该信息应在架构边界内可访问。"
+}

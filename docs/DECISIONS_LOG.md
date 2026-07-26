@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-24 (Content + Design Sprint 2 — Applications and Trust append)
+**Last updated:** 2026-07-26 (D-0163 — Credentials sign-in + show password + Google)
 
 ## Rules
 
@@ -141,6 +141,46 @@
 | D-0121 | 2026-07-24 | Content + Design Sprint 2 Applications and Trust authorized and completed | Active |
 | D-0122 | 2026-07-24 | Trust published as primary knowledge domain distinct from /legal | Active |
 | D-0123 | 2026-07-24 | Trust vs Technology Privacy/Security vs Systems Safety Layer boundaries | Active |
+| D-0124 | 2026-07-24 | Home Knowledge Explorer entrance authorized and completed | Active |
+| D-0125 | 2026-07-24 | Knowledge Object Architecture authorized and completed | Active |
+| D-0126 | 2026-07-24 | Language, navigation and footer refinement authorized and completed | Active |
+| D-0127 | 2026-07-25 | Human-first design philosophy correction (v1.1) | Active |
+| D-0128 | 2026-07-25 | SAVEN Experience Redesign authorized | Active |
+| D-0129 | 2026-07-25 | Homepage Direction B + Robotics Lab care purpose approved | Superseded for homepage primacy by D-0130 |
+| D-0130 | 2026-07-25 | Official site assignment — engineering showcase; A+B home; Physical World hero | Active |
+| D-0131 | 2026-07-25 | Owner canonical scopes for Robotics Lab / Interface / Future Lab | Active |
+| D-0132 | 2026-07-25 | Two-layer UX — keep technical pages; footer is depth map; public surface stays simple | Active |
+| D-0133 | 2026-07-25 | Phase 1 Layer-1 homepage — Intelligence for the Physical World | Active |
+| D-0134 | 2026-07-25 | Header emptied; homepage clarity-only; site map in footer | Active |
+| D-0135 | 2026-07-25 | Homepage hero imagery + living atmosphere + visual essence section | Active |
+| D-0136 | 2026-07-25 | Photoreal home hero required; labeled wireframe diagrams rejected | Active |
+| D-0137 | 2026-07-25 | Multi-robot assistive hero scene + highly visible living motion | Active |
+| D-0138 | 2026-07-25 | Homepage hero uses living photoreal video of multi-robot assistance | Active |
+| D-0139 | 2026-07-25 | Smooth living assistive multi-robot hero motion required | Active |
+| D-0140 | 2026-07-25 | Hero loop must show smooth assistive robot action, not camera-only motion | Active |
+| D-0141 | 2026-07-25 | Multi-domain living assistive scenes on home authorized from owner references | Active |
+| D-0142 | 2026-07-25 | Expanded medical/care living scenes on home authorized from owner reference | Active |
+| D-0143 | 2026-07-25 | Homepage closing SAVEN what-we-do graphic with owner acronym + tagline | Superseded by D-0144 |
+| D-0144 | 2026-07-25 | Owner withdrew homepage closing what-we-do graphic | Superseded by D-0145 |
+| D-0145 | 2026-07-25 | Closing SAVEN meaning graphic as blended homepage bottom background | Active |
+| D-0146 | 2026-07-25 | Closing graphic must be full-bleed (no side bars); WebP optimized | Superseded by D-0147 |
+| D-0147 | 2026-07-25 | Closing graphic: responsive natural-aspect banner on full-bleed dark band | Active |
+| D-0148 | 2026-07-25 | Care→closing bridge full-bleed; no letterboxed light strip | Active |
+| D-0149 | 2026-07-25 | Localize home Layer-1 content to body locales + living help collage hero | Active |
+| D-0150 | 2026-07-25 | Single home living carousel; industrial/agriculture/teamwork removed | Active |
+| D-0151 | 2026-07-25 | Living collage motion + hero copy clear of photos | Active |
+| D-0152 | 2026-07-25 | Hero collage: tighter gap + unmistakable living motion | Active |
+| D-0153 | 2026-07-25 | Header important-pages menu restored (short hubs) | Active |
+| D-0154 | 2026-07-25 | Legal pages returned to footer + draft/approved content rules | Active |
+| D-0155 | 2026-07-25 | Theme sun/moon + language flags + upward footer language | Active |
+| D-0156 | 2026-07-25 | Sign In/Up + Google auth page | Active |
+| D-0157 | 2026-07-25 | Unified readable Layer-1 hub visual system + image optimization | Active |
+| D-0158 | 2026-07-25 | Auth card polish + visual Layer-1 hubs | Active |
+| D-0159 | 2026-07-25 | Robotics Lab / Research hero / Investors brochure expansion | Active |
+| D-0160 | 2026-07-25 | Unified visual domain-page system (hubs + leaves) | Active |
+| D-0161 | 2026-07-26 | Full page-body localization (10 locales) + cleanup + Vercel prep | Active |
+| D-0162 | 2026-07-26 | PWA + SEO / security headers / marketing surface prep | Active |
+| D-0163 | 2026-07-26 | Credentials sign-in form + show password + Google | Active |
 
 ---
 
@@ -1077,7 +1117,320 @@
 - **Decision:** Owner-authorized experience redesign. Priority is memorable, domain-distinct visual composition — not documentation aesthetics. Distinctive display/sans typography (Newsreader + IBM Plex family, Arabic/Hebrew faces), cool-paper atmosphere, full-bleed home monument, domain-specific hero languages (Technology strata, Systems constellation, Applications places, Trust rings, Research open field), and a permanent visual footer map are approved. Straight corners remain. No neon/glow marketing effects. Labels and Knowledge Object placement rules from D-0127 remain.
 - **Implications:** Pages must remain visually non-interchangeable across domains. Future UI work should preserve domain composition languages.
 
+### D-0129 — Homepage Direction B + Robotics Lab care purpose approved
+
+- **Date:** 2026-07-25
+- **Status:** Active
+- **Decision:** Owner approved («ок на homepage») promoting Direction B (One Human Hour) and the SAVEN Robotics Lab human-care purpose from the creative preview onto the public homepage. First viewport states what SAVEN is, who it is for, why care, and what becomes easier; the scroll hour is visual proof. Closing energy: Turning Intelligence Into Human Care. Creating / designed to / helping language only — no invented customers, metrics, approvals, or deployment claims.
+- **Implications:** Locale home routes (`/[locale]/`) render the Human Hour experience inside the existing site shell. Preview route `/[locale]/preview/human-hour/` permanently redirects to the locale home. Page bodies localized for en/ar/he/ru/uk; UI chrome for beat labels across all ten locales. Technology / Systems / Trust / Applications interior redesigns are out of scope for this decision.
+
+### D-0130 — Official site assignment: engineering/technology showcase (public + investors)
+
+- **Date:** 2026-07-25
+- **Status:** Active
+- **Decision:** Owner course-correction for `www.savencore.com`. The site is an **engineering and technology showcase** for public visitors and investors — not a documentary care-film as the whole brand, and not Human Hour as the entire homepage identity. Canonical first-screen hero: **Intelligence for the Physical World.** Supporting and explanation copy as recorded in `docs/SITE_ASSIGNMENT.md` §3. Homepage model is **A + B** (directions showcase + flagship paths into Labs / Interface / Future Lab and related approved workstreams). Tagline retained: **Turning Intelligence Into Human Care.** Official naming: SAVEN Core / SAVEN Robotics Lab / logo lockup. Everything remains in development; public status language stays Research / Architecture / In Development (honest; never commercially deployed or approved unless later true). Investors require a separate structural section/path without invented metrics (D-0062 still applies). Visuals: use repo/public assets; otherwise diagrammatic/engineering visuals — no fake photography claims. Human Hour preview/home pivot (D-0129) is **superseded as primary homepage direction**; Human Hour may be demoted to optional later proof or removed from home primacy. Full site redesign is **not** authorized by this entry alone — `docs/SITE_ASSIGNMENT.md` is the executive assignment; implementation proceeds in small phases with separate authorization.
+- **In scope:** `docs/SITE_ASSIGNMENT.md`; this decision; agent brief for later phased execution.
+- **Out of scope:** Immediate full homepage rewrite; inventing partners/customers/metrics/patents/approvals; auth investor portal; CMS; legal final text; new product lines beyond approved taxonomy.
+- **Implications:** Agents must read `docs/SITE_ASSIGNMENT.md` before homepage or IA presentation work. On homepage identity and first-screen copy, D-0130 + SITE_ASSIGNMENT win over D-0129 and `CREATIVE_DIRECTION.md` until revised. Conflicts with Master Spec primary statement, Phase 0 IA primary nav, and as-built `site-navigation.ts` are flagged in SITE_ASSIGNMENT §5.3 — do not silently change navigation or Master Spec without further owner approval.
+
+### D-0131 — Owner canonical scopes: Robotics Lab / Interface / Future Lab
+
+- **Date:** 2026-07-25
+- **Status:** Active
+- **Decision:** Owner supplied canonical definitions for the three primary flagship workstreams. (1) **SAVEN Robotics Lab** — primary engineering direction (**In Development**): robotic systems; autonomous mobility; robot control; sensors and machine perception; human–machine interaction. (2) **SAVEN Robotics Interface** — system for interacting with robots and autonomous machines (**In Development**); capability list is **possible components** only (command and control, visual interface, mission planning, real-time telemetry, fleet management, human–robot interaction, remote operations, AI-assisted decision support, system diagnostics, role-based access, digital mission environment) — not shipped products. (3) **Internal Future Lab** — research environment of SAVEN Core (**Research**): advanced robotics forms; embodied AI; autonomous decision-making; human–machine interaction; new sensor systems; physical-environment modeling; robotics for medicine; future infrastructure technologies; non-standard engineering concepts. English is the canonical public brief; recorded in `docs/SITE_ASSIGNMENT.md` §5.0 and noted in `docs/INFORMATION_ARCHITECTURE.md` §§5.4–5.5.
+- **In scope:** Documentation updates to SITE_ASSIGNMENT and IA notes; this decision entry.
+- **Out of scope:** Building flagship pages; changing live routes/nav; homepage rewrite; inventing shipped Interface modules or Operational status.
+- **Implications:** Home A+B and future Lab/Interface pages must use these scopes and statuses. Route choice among IA slugs vs shorter `/robotics-lab/` / `/robotics-interface/` / `/future-lab/` remains open (SITE_ASSIGNMENT §5.0.4 / §11). As-built `/systems/robotics-layer/` is not automatically the Robotics Interface page.
+
+### D-0132 — Two-layer UX: simple public surface + footer depth map
+
+- **Date:** 2026-07-25
+- **Status:** Active
+- **Decision:** Owner critical UX/IA direction for `www.savencore.com`. (1) **Keep all existing technical pages** already built — do not delete routes or page components to simplify. (2) Place them in **proper footer sections by domain** so depth is available. (3) **Do not load ordinary visitors with technical information** — primary experience stays simple, clear, visual, big-company spirit. (4) Technical/engineering content is **for those who want it** (engineers, digging investors, specialists) — never scare people; never make the site feel like a documentation manual / instruction wiki. (5) Priorities: simplicity, convenience, understanding, simple navigation, strong UX/UI. (6) **Two-layer model:** Layer 1 = Home A+B, flagship workstreams, Investors path, short human header, hero *Intelligence for the Physical World.*; Layer 2 = existing Technology / Systems / Applications / Trust / Research technical pages, reachable mainly via **footer** (and contextual Learn more), not as the default mental model. (7) Primary header stays short — not a documentation index. (8) Visitor footer links are **published only** — no Coming Soon badges. (9) Phase 1 homepage (when authorized) follows SITE_ASSIGNMENT A+B; Human Hour is not the public default identity.
+- **In scope:** `docs/SITE_ASSIGNMENT.md` §2.1; `src/navigation/site-navigation.ts` footer reorganization to published domain groups; UI chrome label sync in `src/i18n/ui/`; this decision; AGENTS.md Current Phase note.
+- **Out of scope:** Homepage redesign; deleting technical pages; expanding primary header into a full docs index; publishing unpublished Labs / Investors / Legal / Resources leaves; inventing new product lines.
+- **Implications:** Agents treat the footer as the complete published depth map. Do not dump full technical leaf lists into the primary header for casual users. Do not remove published technical destinations. Further primary-nav alignment to SITE_ASSIGNMENT §5.2 still requires a separate authorizing phase.
+
 ---
+
+
+
+### D-0133 — Phase 1 Layer-1 homepage: Intelligence for the Physical World
+
+- **Date:** 2026-07-25
+- **Status:** Active
+- **Decision:** Owner authorized Phase 1 homepage rebuild per `docs/SITE_ASSIGNMENT.md`. Replace Human Hour as the public home identity with Layer 1: hero **Intelligence for the Physical World.**; directions showcase (A); flagship paths (B) for SAVEN Robotics Lab, SAVEN Robotics Interface, and Internal Future Lab; Investors structural page; closing tagline **Turning Intelligence Into Human Care**. Publish Scheme A flagship routes (`/labs/`, `/labs/saven-robotics-lab/`, `/labs/internal-future-lab/`, `/systems/saven-robotics-interface/`) and `/investors/` as simple Layer-1 pages. Keep all existing technical pages; footer remains the depth map (Labs + Interface + Investors added). Status language: In Development / Research — no deployment claims.
+- **In scope:** Homepage component; flagship + investors pages; published-routes; footer groups; this decision.
+- **Out of scope:** Full redesign of Technology/Systems interiors; inventing metrics/partners; primary-nav mega expansion into a docs index.
+- **Implications:** D-0129 Human Hour homepage primacy is superseded for the public home. Human Hour assets may remain in repo as optional later proof, not the default home.
+
+
+
+### D-0134 — Header emptied; homepage clarity-only; site map in footer
+
+- **Date:** 2026-07-25
+- **Status:** Active
+- **Decision:** Owner feedback: primary menu content moves entirely to the footer; homepage must communicate what SAVEN is in a few seconds without inventory dumps or template diagrams. (1) Primary header navigation is empty — logo + language only. (2) Homepage is a single clarity composition: brand, *Intelligence for the Physical World.*, one breath sentence, three build pillars, tagline, footer cue — no SVG node diagram, no directions list, no flagship grid on home. (3) Flagship and technical pages remain published; discovery is via footer.
+- **In scope:** SiteHeader; primaryNavigation; PhysicalWorldHome; this decision.
+- **Out of scope:** Deleting technical/flagship pages; inventing photography.
+- **Implications:** Agents must not restore a documentation-style header mega-menu without a new decision. Home must not become a sitemap.
+
+### D-0135 — Homepage hero imagery + living atmosphere + visual essence section
+
+- **Date:** 2026-07-25
+- **Status:** Active
+- **Decision:** Owner authorized homepage visual enrichment beyond the D-0134 diagram-freeze for the first screen. (1) Hero gains edge-to-edge thematic imagery and a living/animated atmosphere (CSS motion + original diagrammatic illustration language) themed around AI/robotics/physical world/human care — cool-paper engineering grammar (D-0128), straight corners, no neon/glow/purple-AI aesthetics. (2) Immediately after the hero, add one simple visual essence section explaining that SAVEN builds systems so robots, manipulators, and devices can help people — tangible in seconds, not a technical inventory. (3) Header remains logo + language only; full map stays in the footer (D-0134). (4) No fake stock “hospital robot” deployment photography; no invented customers, metrics, partners, or operational claims. Status language remains in development / research — confident, not WIP-apology. (5) English remains canonical for this home content module.
+- **In scope:** `PhysicalWorldHome` + CSS; `src/content/home/physical-world/`; optional original assets under `public/home/`; AGENTS current-phase pointer; this decision.
+- **Out of scope:** Restoring header mega-menu; putting A+B inventory back on home; deleting flagship/technical pages; CMS; photography claiming real deployments; full page-body localization beyond existing en-first home pattern.
+- **Implications:** Homepage region order is now Hero (clarity + living visual) → Essence (simple visual explanation) → Footer map. Prior “no imagery on home” freeze from D-0134 is superseded for this authorized hero/essence work only.
+
+### D-0136 — Photoreal home hero required; labeled wireframe diagrams rejected
+
+- **Date:** 2026-07-25
+- **Status:** Active
+- **Decision:** Owner rejected the labeled Human→Systems→Physical stick-figure / wireframe hero as primitive. Home hero must use **photoreal / real-world** imagery (cinematic, grounded robotics assisting humans) with a living CSS atmosphere (ken-burns / slow drift). Essence Assist / Move / Sense / Support must use tangible scene imagery, not clip-art icons. No deployment claims, partner logos, or “already in hospitals” captions. Atmospheric product-direction photography is authorized for the homepage; labeled flowchart hero language is forbidden.
+- **In scope:** `public/home/` photoreal assets; `PhysicalWorldHome` hero/essence markup + CSS; this decision.
+- **Out of scope:** Restoring header mega-menu; inventory dump on home; inventing customers/metrics/deployments.
+- **Implications:** D-0135’s “diagrammatic illustration language” for the hero is superseded by photoreal visual language. Agents must not return labeled stick-figure hero compositions.
+
+### D-0137 — Multi-robot assistive hero scene + highly visible living motion
+
+- **Date:** 2026-07-25
+- **Status:** Active
+- **Decision:** Owner required the homepage hero main image to make the SAVEN idea unmistakable at a glance: (1) one photoreal frame showing a human helped/supervised in a real physical space with **at least two robots/devices** (e.g. manipulator + mobile assistive platform); (2) readable real-world lighting preferred over pure silhouette mystery; (3) living motion on that one picture must be **highly visible** (stronger ken-burns / layered parallax / soft light + gentle arm-path cues) without neon, glow, HUD, or labeled flowchart overlays; (4) brand + *Intelligence for the Physical World.* remain readable via scrim; (5) no deployment claims; stick-figure diagrams stay forbidden (D-0136).
+- **In scope:** `public/home/hero-multi-robot-assist-v2.png` (and related hero assets); `PhysicalWorldHome` layered media + CSS motion; this decision.
+- **Out of scope:** Restoring header mega-menu; inventory dump on home; inventing customers/metrics/deployments; neon/sci-fi decoration.
+- **Implications:** Hero success test = ~2 seconds: people + multiple robots/devices + movement → physical-world assistance systems. Prefer multi-device assistive composition over single-arm silhouette.
+
+### D-0138 — Homepage hero uses living photoreal video of multi-robot assistance
+
+- **Date:** 2026-07-25
+- **Status:** Active
+- **Decision:** Owner required the homepage hero to feel truly live — real photoreal photo/video of help to people with robots, devices, and systems — not a static concept mockup animated only by CSS ken-burns/ghosting. (1) Hero uses a short looping muted autoplay video (`hero-assist-loop`) showing clear assistive action: human present, robotic manipulator, and at least one other device/mobile system, real-world interior lighting. (2) Static labeled wireframe / stick-figure diagrams remain forbidden (D-0136). (3) `prefers-reduced-motion: reduce` shows a strong still poster only — no video autoplay / no decorative motion. (4) Brand + *Intelligence for the Physical World.* stay hero-level and readable via gradient scrim. (5) Essence Assist / Move / Sense / Support stay in the same living photoreal language. (6) No deployment claims, partners, or metrics.
+- **In scope:** `public/home/hero-assist-loop.mp4` (+ `.webm`), `hero-assist-poster.png`, essence stills from the sequence; `HeroLivingMedia` + `PhysicalWorldHome` + CSS; AGENTS current-phase pointer; this decision.
+- **Out of scope:** Restoring header mega-menu; inventing customers/metrics/deployments; neon/HUD/sci-fi decoration; CMS.
+- **Implications:** D-0137’s CSS ken-burns-as-primary-motion approach is superseded for the hero: **video carries the motion**. Success test without reading copy: visitor instantly sees living real-world assistance via actual video (or undeniable multi-frame living photo sequence).
+
+### D-0139 — Smooth living assistive multi-robot hero motion required
+
+- **Date:** 2026-07-25
+- **Status:** Active
+- **Decision:** Owner rejected jerky / stuttering hero motion and asked for clearer automation, robots, and help. (1) Hero loop must feel **smooth**: dense near-pose keyframes with crossfade/morph blending (not hard slideshow cuts), ~24–30 fps, ~8–12s ease cycle; no competing CSS ken-burns on the video layer. (2) Scene must show **richer assistive automation** in one living picture: human clearly helped, multiple robots/devices (manipulator + mobile service robot + optional third sensor/device cue), visible helpful actions. (3) `prefers-reduced-motion: reduce` remains static poster only (D-0138). (4) Essence stills stay aligned to the same assistive photoreal language. (5) No neon/HUD; no deployment claims.
+- **In scope:** Regenerated `public/home/hero-assist-loop.mp4` (+ `.webm`), poster, essence stills; `HeroLivingMedia` playback attributes; CSS (no layout thrash / no transform fight); AGENTS phase pointer; this decision.
+- **Out of scope:** Fake deployment photography; inventing customers/metrics; header mega-menu restore; CMS.
+- **Implications:** Supersedes acceptance of jump-cut slideshow-as-video for the homepage hero. Smooth morph/crossfade (or equivalent) is required; richer multi-device assist story is required at a glance.
+
+### D-0140 — Hero loop must show smooth assistive robot action, not camera-only motion
+
+- **Date:** 2026-07-25
+- **Status:** Active
+- **Decision:** Hero living media must show **pose change** (manipulator / mobile robot assisting) via smooth crossfade of near-pose keyframes — not camera zoom/pan on a single still. CSS opacity crossfade of `public/home/hero-frames/01–06.png` is an accepted delivery; reduced-motion stays poster-only.
+- **Implications:** Supersedes ken-burns-only / single-still “video” as the homepage living signal.
+
+### D-0141 — Multi-domain living assistive scenes on home
+
+- **Date:** 2026-07-25
+- **Status:** Active
+- **Decision:** Homepage may present a **multi-domain living gallery** of assistive robot–human scenes (healthcare, home, industrial, research, education vision, agriculture, communities, teamwork), inspired by owner-supplied reference collages. Auto-advancing crossfade theater with domain rail is authorized. Scene art must not present invented KPI dashboards or fake deployment metrics as company data.
+- **Implications:** Replaces the prior four-up essence strip as the primary post-hero visual story. Light photoreal assist hero (D-0140) may remain above. Vision-of-help language OK; no commercial deployment claims.
+
+### D-0142 — Expanded medical/care living scenes on home
+
+- **Date:** 2026-07-25
+- **Status:** Active
+- **Decision:** Owner authorized a dedicated **care / medical living theater** on the homepage (second theater under multi-domain scenes), inspired by a new medical-cluster reference. Scenes may include hospital care, home care for elders, children/family care, emergency response vision, surgical support vision, rural/remote care, and tasteful mental-health / disaster-relief support visions. Auto crossfade + rail; `prefers-reduced-motion` stays on the first care scene. Vision imagery OK; no fake KPI dashboards as company metrics; no commercial deployment or “Crisis Help 24/7” live-product claims.
+- **In scope:** `public/home/care/*` scene art; home care section content/CSS; reference copy under `public/home/refs/`; this decision.
+- **Out of scope:** Fake deployment photography; inventing clinical products/metrics; header mega-menu restore; CMS.
+- **Implications:** Extends D-0141 with a focused care cluster without collapsing 16 thumbs into one rail.
+
+### D-0143 — Homepage closing SAVEN what-we-do graphic
+
+- **Date:** 2026-07-25
+- **Status:** Active
+- **Decision:** Owner authorized a homepage **closing graphic** (above the site footer) showing what SAVEN does. The asset may present the SAVEN wordmark, body-form icons (human, robotic arm, phone, humanoid, wheelchair), the acronym expansion **Support · Action · Verification · Environment · Network**, and the tagline **One Intelligence. Many Bodies. Real-World Action.** Do not invent extra product, deployment, or metric claims beyond the image.
+- **In scope:** `public/home/saven-what-we-do.png` (+ optional ref copy); home closing section content/CSS; this decision.
+- **Out of scope:** Header mega-menu restore; inventing claims beyond the supplied graphic; CMS.
+- **Implications:** Extends the Layer 1 home story with a final “what we do” visual after multi-domain and care living sections.
+
+### D-0144 — Owner withdrew homepage closing what-we-do graphic
+
+- **Date:** 2026-07-25
+- **Status:** Active
+- **Decision:** Owner withdrew the homepage closing SAVEN “what we do” / acronym graphic authorized in D-0143. Remove the section from the homepage; do not show `saven-what-we-do.png` (or equivalent) at the bottom of home.
+- **In scope:** Home closing section removal; asset cleanup; this decision.
+- **Out of scope:** Rewriting D-0143; header mega-menu restore.
+- **Implications:** Supersedes D-0143 for publication. Homepage ends after multi-domain + care living sections (and deepen link), then the site footer.
+
+### D-0145 — Closing SAVEN meaning graphic as blended homepage background
+
+- **Date:** 2026-07-25
+- **Status:** Active
+- **Decision:** Owner authorized a new closing SAVEN meaning graphic as an **atmospheric blended homepage bottom background** (after all home content, before the site footer). Asset may present the SAVEN logo mark + wordmark, pillars **Support · Action · Verification · Environment · Network**, and tagline **One Intelligence. Many Bodies. Real-World Action.** Integrate with smooth transitions from the preceding light care/deepen region into near-black (#0a0a0a) and softly into the dark footer — not a hard-placed card. Optional subtle ambient motion must respect `prefers-reduced-motion`. Do not invent extra product, deployment, or metric claims beyond the image.
+- **In scope:** `public/home/saven-closing-bg.png` (+ optional ref copy); home closing band in `PhysicalWorldHome` / CSS / EN content; this decision.
+- **Out of scope:** Header mega-menu restore; inventing claims beyond the supplied graphic; CMS; restoring the prior hard-card placement from D-0143.
+- **Implications:** Supersedes the withdrawal posture of D-0144 for publication by authorizing a **new blended-background approach** with a new asset. Prior hard-placed graphic approach remains withdrawn.
+
+### D-0146 — Closing graphic full-bleed; WebP optimized
+
+- **Date:** 2026-07-25
+- **Status:** Superseded by D-0147
+- **Decision:** The homepage closing SAVEN meaning graphic (D-0145) must render **full-bleed / edge-to-edge** — no black vertical side pillars / letterboxing. Prefer `object-fit: cover` (or equivalent background cover) with centered focal point on a full-width canvas. Ship an optimized **WebP** primary (`public/home/saven-closing-bg.webp`, sensible max width, stripped metadata, target roughly under 300–500KB) with PNG fallback as needed. Keep smooth blend into the prior section and footer; subtle living motion optional; `prefers-reduced-motion` stays static.
+- **In scope:** Closing band CSS/markup; `saven-closing-bg.webp` (+ PNG fallback); this decision.
+- **Out of scope:** New claims beyond the graphic; header mega-menu; CMS.
+- **Implications:** Clarifies presentation and media efficiency for D-0145 without changing authorized content.
+
+### D-0147 — Closing graphic: natural-aspect banner on full-bleed dark band
+
+- **Date:** 2026-07-25
+- **Status:** Active
+- **Decision:** Redo the homepage closing SAVEN meaning graphic as a **responsive natural-aspect banner** on a matching **full-bleed dark band** (`#0a0a0a` / image-edge charcoal). Display the full original composition (logo, wordmark, five labeled icons, tagline) with `width: 100%`, `height: auto`, optional centered `max-width` (~1200–1400px) — **no `object-fit: cover`**, no forced min-height crop, no cover-zoom. Soft page blends are CSS overlays only (care/white → transparent at top; transparent → footer navy at bottom). Encode optimized WebP (+ PNG fallback) from the **full original** asset. No scale/drift enlargement animation.
+- **In scope:** `public/home/saven-closing-bg.webp` (+ PNG); closing markup/CSS in `PhysicalWorldHome`; this decision.
+- **Out of scope:** New claims beyond the graphic; header mega-menu; CMS; inventing deployment photography.
+- **Implications:** Supersedes the cover/contain-canvas approaches of D-0146 and the interim padded-ultrawide attempt; readable complete graphic is required.
+
+### D-0148 — Care→closing bridge full-bleed; no letterboxed light strip
+
+- **Date:** 2026-07-25
+- **Status:** Active
+- **Decision:** The care→closing transition must be **full-bleed**. Care + deepen share one full-width light plane (`.pw-care-block`); background must not live on a max-width `.pw-home__inner` while `.pw-home` navy shows as vertical side pillars. Soften into closing `#0a0a0a` with a short full-bleed bottom veil — do not leave a letterboxed light strip (полоса) above the closing graphic. Closing top fade stays dark-to-transparent (no reintroduced light band).
+- **In scope:** `PhysicalWorldHome` care-block markup; `.pw-care-block` / deepen-row / `.pw-closing__fade-top` CSS; this decision.
+- **Out of scope:** Changing closing graphic asset crop; header mega-menu; CMS.
+- **Implications:** Clarifies D-0145 / D-0147 blend presentation — backgrounds edge-to-edge; copy may remain in `.pw-home__inner`.
+
+### D-0149 — Localize home Layer-1 content + living help collage hero
+
+- **Date:** 2026-07-25
+- **Status:** Active
+- **Decision:** (1) Localize the Layer-1 Physical World homepage content module to approved body locales **en / ar / he / ru / uk** (English remains canonical; es/de/fr/ja/zh-cn continue to fall back to English via `resolveContentLocale`). Aria labels that were hardcoded English move into the content module. (2) Replace the single-scene wheelchair pose-step hero as the primary living hero with an elegant **living photoreal help collage** of several clear assist scenes (manipulator / hospital / home elder / family / mobile delivery), under `public/home/hero-collage/`, with staggered panel emphasis animation. `prefers-reduced-motion` shows a static collage. Brand + *Intelligence for the Physical World.* remain readable via scrim. Vision tone only — no fake deployment claims, KPI overlays, or neon HUD.
+- **In scope:** `src/content/home/physical-world/locales/*`; getter; `HeroLivingMedia` collage; hero CSS; collage WebP/JPEG assets; this decision; AGENTS current-phase one-liner.
+- **Out of scope:** Full page-body localization for es/de/fr/ja/zh-cn; header mega-menu restore; inventing deployment photography or metrics; CMS.
+- **Implications:** Supersedes D-0140 single-scene pose-step crossfade as the **primary** homepage hero living signal. Prior `hero-frames` assets may remain unused/retired. Multi-domain and care theaters (D-0141 / D-0142) stay post-hero.
+
+### D-0150 — Single home living carousel; industrial / agriculture / teamwork removed
+
+- **Date:** 2026-07-25
+- **Status:** Active
+- **Decision:** Collapse the two post-hero home theaters (multi-domain D-0141 + care D-0142) into **one** large living carousel of care/help scenes only. Curated scenes: hospital care, home care, children & family, emergency, surgical support, rural & remote, mental health, disaster relief. **Remove** industrial, agriculture, and teamwork (and similar non-care domain panels) from home galleries. Keep living crossfade + thumb rail + `prefers-reduced-motion` first-scene behavior. Hero collage (D-0149) remains separate and unchanged unless it contains those removed themes.
+- **In scope:** `PhysicalWorldHome` / `LivingDomains` single theater; `src/content/home/physical-world/` locales en/ar/he/ru/uk; theater CSS stage sizing; unused industrial/agriculture/teamwork domain assets; this decision; AGENTS current-phase one-liner.
+- **Out of scope:** Applications sitemap leaves for industrial/agriculture; inventing new photography; CMS; header mega-menu.
+- **Implications:** Supersedes dual-theater presentation of D-0141 / D-0142 on the homepage. Care-focused Layer 1 story after the hero.
+
+### D-0151 — Living collage motion + hero copy clear of photos
+
+- **Date:** 2026-07-25
+- **Status:** Active
+- **Decision:** (1) Hero help collage must feel **alive**: soft panel emphasis cycle plus subtle per-panel ken-burns / opacity crossfade (long easings; not jerky). `prefers-reduced-motion` remains a static collage. (2) Hero layout is a true **two-column** composition — copy on the start side, collage on the end side (stacked on small viewports) — with **no text over photos**. Scrim/grain stay behind the text column only (soft seam into the collage), not a full-bleed wash over help scenes. RTL mirrors via document direction.
+- **In scope:** `HeroLivingMedia`, `PhysicalWorldHome` hero markup, `physical-world-home.css` hero grid/motion; this decision; AGENTS phase pointer.
+- **Out of scope:** New photography; inventing deployment claims; header mega-menu; CMS.
+- **Implications:** Clarifies D-0149 living-collage acceptance: motion must be perceptible; readability must not rely on text stacked over collage panels.
+
+### D-0152 — Hero collage: tighter gap + unmistakable living motion
+
+- **Date:** 2026-07-25
+- **Status:** Active
+- **Decision:** Owner feedback on D-0151: (1) Reduce the empty middle between hero copy and collage — tighten grid ratio, end-align copy toward the collage, narrower end padding / shorter seam — while keeping two columns and **no text over photos**. (2) Living collage motion must be **unmistakable**: stronger inactive/active opacity contrast, ~3.2s featured-panel cycle, soft brand gold/teal inset rim on the active panel, slight active scale-up, and clearer ken-burns (scale ~1→1.09 over ~8–12s, staggered). `prefers-reduced-motion` stays static (no cycle, no ken-burns, even emphasis).
+- **In scope:** `HeroLivingMedia` step timing; `physical-world-home.css` hero grid/padding/motion; this decision; AGENTS phase pointer.
+- **Out of scope:** New photography; inventing claims; header mega-menu; CMS; commit.
+- **Implications:** Supersedes D-0151 acceptance for gap size and motion strength only; two-column no-overlay rule from D-0151 remains.
+
+### D-0153 — Header important-pages menu restored
+
+- **Date:** 2026-07-25
+- **Status:** Active
+- **Decision:** Owner restores a short primary header menu of important Layer-1 hubs (≤7): Purpose, Labs, Applications, Technology, Research, Trust, Investors. Logo remains Home. Full leaf lists stay in the footer depth map. This is not a docs mega-menu.
+- **In scope:** `primaryNavigation`, SiteHeader / DesktopNavigation / MobileNavigation, UI chrome labels, SITE_ASSIGNMENT Layer-1 header note.
+- **Out of scope:** Restoring every leaf in header dropdowns; inventing unpublished destinations.
+- **Implications:** Partially supersedes D-0134 empty-header rule. Footer remains the complete published map (D-0132).
+
+### D-0154 — Legal pages returned to footer + draft content rules
+
+- **Date:** 2026-07-25
+- **Status:** Active
+- **Decision:** Publish structural `/legal/*` destinations from `TRUST_LEGAL_STRUCTURE.md` and return a Legal column to the footer. Bodies use clear **Draft — pending legal review** framing and honest section outlines. Do not invent registration numbers, counsel names, or present drafts as binding effective policy. Prefer any existing approved copy when available; otherwise structural drafts only.
+- **In scope:** Legal routes in `published-routes.ts`, footer Legal group, legal page components/content, UI labels.
+- **Out of scope:** Final counsel-approved policies; cookie consent UI; invented contact emails.
+- **Implications:** Partially supersedes D-0122 / D-0126 “legal unpublished” posture for structural draft publication only. D-0009 invention prohibitions remain.
+
+### D-0155 — Theme sun/moon + language flags + upward footer language
+
+- **Date:** 2026-07-25
+- **Status:** Active
+- **Decision:** Theme control is a sun (light) / moon (dark) icon toggle with two distinct colors, placed in header utilities and synced in the footer. Language menus show country/region flags; the footer language popover opens upward.
+- **In scope:** ThemeSwitch, LanguageSelector, site-shell / experience chrome CSS, locale flag map, UI strings.
+- **Out of scope:** New theme palettes beyond existing light/dark tokens; neon decoration.
+- **Implications:** Footer Copyright line includes the word “Copyright” with © year and SAVEN Core.
+
+### D-0156 — Sign In/Up + Google auth page
+
+- **Date:** 2026-07-25
+- **Status:** Active
+- **Decision:** Add a neat text link **Sign In/Up** (not a filled button) in header and footer. Publish `/[locale]/auth/sign-in/` with SAVEN logo, site styling, back control, and Google sign-in via Auth.js. Use env vars `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `AUTH_SECRET` (documented in `.env.example`). If credentials are missing, show a graceful configure path — do not fake a logged-in user. This is not a full investor portal.
+- **In scope:** Auth.js Google provider, sign-in page UI, chrome links, package dependency, env example.
+- **Out of scope:** CMS accounts database; role-based portal; inventing user profiles; committing secrets.
+- **Implications:** Partially supersedes D-0021 authentication deferral for this public sign-in entry only.
+
+### D-0157 — Unified readable Layer-1 hub visual system + image optimization
+
+- **Date:** 2026-07-25
+- **Status:** Active
+- **Decision:** The seven header Layer-1 hubs (Purpose, Labs, Applications, Technology, Research, Trust, Investors) share one calm readable public shell (`HubReadablePage` / `layer1-hub.css`): clear masthead (label, title, short lead, optional status), generous spacing, short sections, progressive disclosure for depth, and path lists — not Knowledge Passport / dense engineering chrome on first viewport. Technology and Trust **hub entry** pages use this light readable style; leaf technical pages may keep deeper experience grammar. English hub copy may be clarified for ordinary readers without inventing products, metrics, or operational claims. Optimize critical imagery (care carousel, brand mark, closing band) to WebP (+ JPEG/PNG fallbacks) for faster load; unused heavy refs remain off the critical path.
+- **In scope:** Hub shell component/CSS; seven hub routes; flagship leaf pages aligned to the same shell; EN readability edits; UI chrome `hub.*` strings across `src/i18n/ui/*`; image optimization for in-use assets; this decision; AGENTS phase pointer.
+- **Out of scope:** Full es/de/fr/ja/zh-cn page bodies; inventing claims; neon/glow; returning passport chrome to Layer-1 hubs; deleting published leaf routes.
+- **Implications:** Hub destinations supersede prior EditorialPage / ApplicationsPage / TechnologyExperience / ResearchPage / TrustPage / FlagshipSimplePage presentation for those seven menu URLs only. Leaf discipline pages unchanged in route inventory.
+
+### D-0158 — Auth card polish + visual Layer-1 hubs
+
+- **Date:** 2026-07-25
+- **Status:** Active
+- **Decision:** Polish `/[locale]/auth/sign-in/` into a substantial SAVEN-styled card (larger logo, larger panel, brand atmosphere, clear back / title / Google or configure state). Upgrade the shared Layer-1 hub shell from text-led readable pages to visual hubs: atmospheric masthead using approved `public/home/` imagery, short what/why/next cues, visual path grids with image thumbs where destinations exist, calm motion with `prefers-reduced-motion` respect, and progressive disclosure for depth. No invented metrics, customers, or deployment claims; straight corners; no neon.
+- **In scope:** Auth sign-in component/CSS; `HubReadablePage` / `layer1-hub.css`; hub content builders + visual asset map; UI strings `auth.*` / `hub.*` across `src/i18n/ui/*`; this decision; AGENTS phase pointer.
+- **Out of scope:** Full investor portal; inventing product photography; leaf marketing pages; passport chrome return; final legal prose; commit.
+- **Implications:** Supersedes the text-primary first-viewport presentation of D-0157 for the seven Layer-1 hubs while keeping the shared shell and honest status language. Auth remains Google-via-env only (D-0156).
+
+### D-0159 — Robotics Lab / Research hero / Investors brochure expansion
+
+- **Date:** 2026-07-25
+- **Status:** Active
+- **Decision:** Owner-authorized content expansion on Layer-1 visual hubs. (1) **SAVEN Robotics Lab** (+ Labs hub) gain richer honest brochure sections from D-0131 scope: what we build, how it helps people, workstreams (robotic systems, mobility, control, perception, HMI), and In Development status — no fake deployments. (2) **Research** hub masthead replaced with a dedicated photoreal research atmosphere asset (`public/hub/research-masthead.webp`, JPEG fallback), Research-only. (3) **Investors** expands to brochure structure: posture, perspectives, platform potential, development progress (architecture/status framing — not financial results), human benefit, and long-term value-creation thesis in careful language — no promised returns, IRR/ROI, valuations, revenue, customers, or traction metrics (D-0062 remains). Sign In remains existing auth entry, not a full portal.
+- **In scope:** `src/content/flagship/en.ts`; hub builders / visuals; Robotics Lab route wiring; Research masthead asset; `docs/DECISIONS_LOG.md` / AGENTS phase pointer; smoke + screenshots.
+- **Out of scope:** Invented lab results/publications; financial claims; full es/de/fr/ja/zh-cn page bodies; investor portal; commit.
+- **Implications:** EN flagship/brochure bodies are the canonical expansion; flagship content remains EN-first (no parallel ar/he/ru/uk flagship modules yet). UI chrome unchanged unless new `hub.*` keys are added. Category opportunity language for capital must stay aspirational and non-promissory.
+
+### D-0160 — Unified visual domain-page system (hubs + leaves)
+
+- **Date:** 2026-07-25
+- **Status:** Active
+- **Decision:** Extend the Layer-1 visual hub language (D-0157/D-0158) into a shared **DomainVisualPage** shell for all listed Technology, Systems, Labs, Applications, Trust, Research, and Company destinations (hubs and leaves). Every covered route gets a thematic photoreal / cinematic documentary-tech masthead (WebP under `public/domain/` organized by domain, plus reuse of approved home/care/research assets where thematically perfect), a clear title + short human lead, what/why/next cues where appropriate, and progressive disclosure for engineering depth. One image language family; no neon; straight corners; no fake KPI dashboards or invented deployment photography. Status language remains Research / Architecture / In Development. English remains canonical; structural visual wrap must not break locale getters.
+- **In scope:** `DomainVisualPage` / `HubReadablePage` shell; `src/content/domain/*` visual map + leaf adapters; route wiring for listed destinations including Systems hub and Foundation; thematic assets; path thumbs from leaf mastheads; AGENTS phase pointer; this decision; verification smoke + sample screenshots.
+- **Out of scope:** Invented products/metrics/customers/returns; final legal prose; full es/de/fr/ja/zh-cn page bodies; CMS; investor portal; commit.
+- **Implications:** Supersedes bare KnowledgeHero-first presentation for listed Technology/Systems/Applications/Trust leaves and TechnicalPage-first Foundation / Systems overview in favor of the shared visual chrome. Depth content may remain below the first screen. Legal routes unchanged.
+
+### D-0161 — Full page-body localization (10 locales) + cleanup + Vercel prep
+
+- **Date:** 2026-07-26
+- **Status:** Active
+- **Decision:** Owner authorizes **full page-body localization** for all ten system locales (`en`, `es`, `de`, `fr`, `ja`, `zh-cn`, `ar`, `he`, `uk`, `ru`), superseding prior limits that left `es`/`de`/`fr`/`ja`/`zh-cn` on English body fallback. English remains the canonical source. Existing patterns apply: `src/content/**` locale modules and page dictionaries, getters with `CONTENT_LOCALES`, and `src/i18n/ui/*` for chrome. Also authorized in the same prep pass: retire unused Human Hour / orphaned homepage assets; performance hygiene (WebP, `next/image` sizes, drop unreferenced multi‑MB public files); mobile pass on header/hubs/home/auth/footer; and Vercel deploy readiness (`next build`, env documentation, concise deploy notes). Legal pages: translate draft banners and structural draft copy only — meaning of “Draft — pending legal review” must stay accurate; do not present as effective law (D-0154 remains). Do not invent company facts, metrics, customers, partners, returns, or traction while translating. RTL (`ar`/`he`) must remain intact. Commit/push only if the owner separately requests.
+- **In scope:** Extend `CONTENT_LOCALES`; page dictionaries for `es`/`de`/`fr`/`ja`/`zh-cn`; sync/complete `ar`/`he`/`ru`/`uk` with latest EN where drifted; Physical World home locale modules; flagship (Labs / Investors / Robotics Lab / Future Lab / Robotics Interface) localized bodies; legal draft localization; UI chrome gap fill; unused asset/code cleanup; image/`next.config` performance; mobile fixes + screenshots under `tmp/vercel-prep/`; `.env.example` Auth/Google/URL vars; `docs/VERCEL_DEPLOY.md`; `npm run build` / `tsc --noEmit` green; AGENTS Current Phase pointer; this decision.
+- **Out of scope:** Invented facts/metrics; final binding legal prose; CMS/database/analytics/cookie consent; investor portal beyond existing Sign In; new leaf marketing pages beyond D-0160 set; commit/push unless owner asks.
+- **Implications:** `resolveContentLocale` no longer falls `es`/`de`/`fr`/`ja`/`zh-cn` to English for authorized body modules. Prior “Home body locales: en/ar/he/ru/uk” and “full es/de/fr/ja/zh-cn page bodies without approval” gates in AGENTS are superseded by this entry. Translation quality may be professionalized later by a vendor (pending list item); structural completeness for all published routes is the bar for this phase.
+
+### D-0162 — PWA + SEO / security headers / marketing surface prep
+
+- **Date:** 2026-07-26
+- **Status:** Active
+- **Decision:** Owner authorizes a production-readiness pass covering: (1) **security headers** (CSP pragmatic for Next.js + Auth.js, `X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy`, `X-Frame-Options` / `frame-ancestors`, production HSTS via Vercel env); (2) **SEO** root/locale metadata, per-locale `hreflang` alternates, canonicals, App Router `sitemap.xml` + `robots.txt`, Open Graph / Twitter cards, default OG image from brand, honest Organization JSON-LD (no invented addresses); (3) **marketing share surface** for home + hubs without fake testimonials/metrics; (4) **performance** hygiene (dynamic import for heavy home clients, LCP preload where safe); (5) **mobile** polish at ~390px for header/home/footer/auth; (6) **PWA installability** via Web App Manifest, icons, apple-mobile-web-app meta, discreet Install app UI chrome (translated), and a lightweight offline-shell service worker when stable. Auth routes remain `noindex`. Legal meta must keep draft framing. Manual security review required when automated security-review tooling cannot compute diffs. Durable audit written to `docs/SITE_AUDIT_REPORT.md` + `tmp/audit/summary.json`. Commit/push only if the owner separately requests.
+- **In scope:** `next.config.ts` headers; `proxy.ts` auth/preview `X-Robots-Tag`; SEO helpers + page `generateMetadata`; `app/sitemap.ts` / `app/robots.ts` / `app/manifest.ts`; brand OG + PWA icons; Install UI + i18n `pwa.*`; SW shell; mobile CSS; auth secret production hardening; `.env.example` / deploy notes; D-0162 + AGENTS phase pointer; audit artifacts; `tsc` / `build` green.
+- **Out of scope:** Invented metrics/customers/legal finals; nonce-strict CSP hardening; full offline domain content; analytics/cookie consent; CMS; new leaf marketing pages; commit/push unless owner asks.
+- **Implications:** Marketing = meta/OG/sitemap/sharing only. PWA is installable brochure shell, not an app product claim. CSP still allows `'unsafe-inline'` / `'unsafe-eval'` for Next pragmatism — track as backlog. Auth.js `pages.signIn` remains EN fallback path.
+
+### D-0163 — Credentials sign-in form + show password + Google
+
+- **Date:** 2026-07-26
+- **Status:** Active
+- **Decision:** Owner authorizes a simple authorization UI on `/[locale]/auth/sign-in/`: email + password fields, accessible show/hide password control, primary Sign in action, divider, then Continue with Google. Credentials provider validates against optional env allowlist (`AUTH_DEMO_EMAIL` / `AUTH_DEMO_PASSWORD` + `AUTH_SECRET`) for staging/launch operator testing only — not a full user database. When credentials or Google are unset, show honest “not configured” state; do not invent logged-in success. Auth.js `pages.signIn` uses locale-neutral `/auth/sign-in/` which redirects to the localized page (fixes SEC-003 EN-only hardcode). Google remains the primary public path when configured; real user store/DB is explicitly later.
+- **In scope:** Auth.js Credentials + Google providers; sign-in form UI/CSS; show password toggle; credentials server action; locale redirect route; `auth.*` UI strings across `src/i18n/ui/*`; `.env.example` / `docs/VERCEL_DEPLOY.md`; D-0163 + AGENTS phase pointer; `tsc` / `build` green; owner-authorized commit/push for go-live.
+- **Out of scope:** Full user database/Prisma; magic-link email; inventing accounts/metrics; investor portal beyond this sign-in entry; fake “account created” success.
+- **Implications:** Partially extends D-0156/D-0158. Production should prefer Google OAuth; demo credentials are optional and must never be committed as real secrets. Supersedes D-0162 note that `pages.signIn` remains EN-only fallback.
 
 ## Pending Owner Decisions
 

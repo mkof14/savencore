@@ -252,9 +252,9 @@ export const systemsOverviewContent = {
 /** Future Research / Labs pages. */
 export const researchLabsContent = {
   label: "Research & Labs",
-  heading: "Research translated into engineering practice.",
+  heading: "From open questions to careful engineering.",
   introduction:
-    "Research defines questions, models and evidence. Labs turn that work into testable systems, interfaces and engineering methods.",
+    "Research defines the questions, models, and evidence that shape SAVEN Core. Labs then turn that work into testable systems — always under clear limits.",
   layers: [
     {
       id: "research",

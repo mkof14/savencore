@@ -2,10 +2,12 @@
 
 **Document status:** Approved for Phase 0  
 **Authority:** Derived from `SAVEN_CORE_MASTER_SPEC.md`  
-**Last updated:** 2026-07-24  
+**Last updated:** 2026-07-25  
 **Canonical language:** English (United States)
 
 This document defines primary navigation, utility navigation, page hierarchy, footer structure, and routing patterns. Page implementation is out of scope for Phase 0.
+
+**Owner scope note (D-0131):** Canonical public scopes for the three primary flagship workstreams — SAVEN Robotics Lab, SAVEN Robotics Interface, Internal Future Lab — are recorded in `docs/SITE_ASSIGNMENT.md` §5.0. Use those definitions for Home A+B and future lab/interface pages. Route tree below remains the Phase 0 IA baseline; alternate shorter flagship URLs are **proposals only** (SITE_ASSIGNMENT §5.0.4) until a decision selects a scheme.
 
 ---
 
@@ -128,6 +130,8 @@ Must present the sequence BioMath Life → BioMath Core → SAVEN → SAVEN Core
 
 Every system page must support status fields defined in the content model.
 
+**SAVEN Robotics Interface (owner scope, D-0131):** Interaction system for robots and autonomous machines. Public status: **In Development**. List capability areas as **possible components** only (command and control, visual interface, mission planning, real-time telemetry, fleet management, human–robot interaction, remote operations, AI-assisted decision support, system diagnostics, role-based access, digital mission environment) — not shipped product modules. Full brief: `SITE_ASSIGNMENT.md` §5.0.2. As-built published Systems routes use different leaf names (e.g. `/systems/robotics-layer/`); do not silently merge without a bridge decision.
+
 ### 5.5 Labs
 
 ```
@@ -136,6 +140,11 @@ Every system page must support status fields defined in the content model.
 /labs/internal-future-lab
 ```
 
+**SAVEN Robotics Lab (owner scope, D-0131):** Primary engineering direction. Public status: **In Development**. Focus: robotic systems; autonomous mobility; robot control; sensors and machine perception; human–machine interaction. Full brief: `SITE_ASSIGNMENT.md` §5.0.1.
+
+**Internal Future Lab (owner scope, D-0131):** Research environment of SAVEN Core. Public status: **Research**. Directions include advanced robotics forms, embodied AI, autonomous decision-making, human–machine interaction, new sensor systems, physical-environment modeling, robotics for medicine, future infrastructure technologies, and non-standard engineering concepts. Full brief: `SITE_ASSIGNMENT.md` §5.0.3.
+
+**Route proposal (not adopted):** Shorter public flagships `/robotics-lab/`, `/robotics-interface/`, `/future-lab/` (plus `/labs/` hub) are options in SITE_ASSIGNMENT §5.0.4 Scheme B. Until chosen, prefer the Phase 0 paths in this section for IA continuity.
 ### 5.6 Applications
 
 Primary human applications first:
@@ -257,6 +266,8 @@ Draft legal structures are defined in `TRUST_LEGAL_STRUCTURE.md`.
 
 ## 6. Footer Information Architecture
 
+**As-built visitor footer (D-0132):** published destinations only, grouped by domain — Technology, Systems, Applications, Trust, Research, Company (About → `/foundation/`, Mission → `/purpose/`). Full technical leaf lists live here as the Layer 2 depth map; primary header stays short. No Coming Soon badges in the visitor footer. Target taxonomy below remains the longer-term IA inventory; do not invent unpublished leaves as live links.
+
 Large multi-column footer. Columns and links:
 
 ### SAVEN CORE
@@ -283,13 +294,15 @@ Large multi-column footer. Columns and links:
 
 ### SYSTEMS AND LABS
 
-- SAVEN Robotics Interface → `/systems/saven-robotics-interface`
+- SAVEN Robotics Interface → `/systems/saven-robotics-interface` *(In Development; possible components only — D-0131 / SITE_ASSIGNMENT §5.0.2)*
 - SAVEN Systems Architecture → `/systems/saven-systems-architecture`
 - SAVEN AI → `/systems/saven-ai`
 - SAVEN Drone Platform → `/systems/saven-drone-platform`
-- SAVEN Robotics Lab → `/labs/saven-robotics-lab`
-- Internal Future Lab → `/labs/internal-future-lab`
+- SAVEN Robotics Lab → `/labs/saven-robotics-lab` *(In Development — D-0131 / SITE_ASSIGNMENT §5.0.1)*
+- Internal Future Lab → `/labs/internal-future-lab` *(Research — D-0131 / SITE_ASSIGNMENT §5.0.3)*
 - System Status → `/systems/status`
+
+Alternate shorter flagship URLs (proposal only): `/robotics-lab/`, `/robotics-interface/`, `/future-lab/` — see SITE_ASSIGNMENT §5.0.4.
 
 ### APPLICATIONS
 

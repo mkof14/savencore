@@ -74,7 +74,7 @@ export const uiHe: UiMessages = {
     "footer-labs-saven-robotics-lab": "SAVEN Robotics Lab",
     "footer-labs-internal-future-lab": "Internal Future Lab",
     "footer-systems-saven-robotics-interface": "SAVEN Robotics Interface",
-   "sign-in": "התחברות / הרשמה", "footer-legal-privacy-policy": "מדיניות פרטיות", "footer-legal-terms-of-use": "תנאי שימוש", "footer-legal-cookie-policy": "מדיניות עוגיות", "footer-legal-cookie-preferences": "העדפות עוגיות", "footer-legal-accessibility-statement": "הצהרת נגישות", "footer-legal-security": "אבטחה", "footer-legal-responsible-ai": "בינה מלאכותית אחראית", "footer-legal-medical-disclaimer": "כתב ויתור רפואי", "footer-legal-research-disclaimer": "כתב ויתור מחקרי", "footer-legal-intellectual-property": "קניין רוחני", "footer-legal-trademark-notice": "הודעת סימן מסחרי", "footer-legal-copyright": "הודעת זכויות יוצרים", "footer-legal-data-rights": "זכויות מידע", "footer-legal-regional-privacy-rights": "זכויות פרטיות אזוריות", "footer-legal-do-not-sell-or-share": "אל תמכרו או תשתפו", "footer-legal-legal-notices": "הודעות משפטיות"},
+   "sign-in": "התחברות / הרשמה", "footer-legal-privacy-policy": "מדיניות פרטיות", "footer-legal-terms-of-use": "תנאי שימוש", "footer-legal-cookie-policy": "מדיניות עוגיות", "footer-legal-cookie-preferences": "העדפות עוגיות", "footer-legal-accessibility-statement": "הצהרת נגישות", "footer-legal-security": "אבטחה", "footer-legal-responsible-ai": "בינה מלאכותית אחראית", "footer-legal-medical-disclaimer": "כתב ויתור רפואי", "footer-legal-research-disclaimer": "כתב ויתור מחקרי", "footer-legal-intellectual-property": "קניין רוחני", "footer-legal-trademark-notice": "הודעת סימן מסחרי", "footer-legal-copyright": "הודעת זכויות יוצרים", "footer-legal-data-rights": "זכויות מידע", "footer-legal-regional-privacy-rights": "זכויות פרטיות אזוריות", "footer-legal-do-not-sell-or-share": "אל תמכרו או תשתפו", "footer-legal-legal-notices": "הודעות משפטיות", "footer-legal-more": "עוד"},
   footer: {
     technology: "טכנולוגיה",
     systems: "מערכות",
@@ -86,6 +86,7 @@ export const uiHe: UiMessages = {
     resources: "משאבים",
     company: "החברה",
     legal: "משפטי",
+    more: "עוד",
     contact: "יצירת קשר",
     plannedNote: "",
     comingSoon: "",
@@ -178,6 +179,9 @@ export const uiHe: UiMessages = {
     lastUpdated: "עודכן לאחרונה",
     related: "דפים משפטיים",
     draftNote: "טיוטה — ממתין לסקירה משפטית",
+    indexTitle: "משפטי",
+    indexLead:
+      "דפי טיוטה מבניים לאתר הציבורי. אינם טקסט משפטי סופי — ממתינים לסקירה משפטית.",
   },
 
   home: {

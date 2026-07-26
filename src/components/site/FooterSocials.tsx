@@ -34,10 +34,11 @@ export function FooterSocials({ locale }: FooterSocialsProps) {
               <li key={link.id}>
                 <a
                   href={link.href}
-                  className="site-footer__social-link"
+                  className={`site-footer__social-link site-footer__social-link--${link.id}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   title={title}
+                  aria-label={label}
                 >
                   <SocialIcon network={link.id} />
                   <span className="visually-hidden">{label}</span>
@@ -49,10 +50,11 @@ export function FooterSocials({ locale }: FooterSocialsProps) {
           return (
             <li key={link.id}>
               <span
-                className="site-footer__social-link site-footer__social-link--disabled"
+                className={`site-footer__social-link site-footer__social-link--${link.id} site-footer__social-link--disabled`}
                 role="link"
                 aria-disabled="true"
                 title={title}
+                aria-label={title}
               >
                 <SocialIcon network={link.id} />
                 <span className="visually-hidden">{title}</span>
@@ -68,8 +70,8 @@ export function FooterSocials({ locale }: FooterSocialsProps) {
 function SocialIcon({ network }: { network: SocialNetwork }) {
   const common = {
     viewBox: "0 0 24 24",
-    width: 18,
-    height: 18,
+    width: 20,
+    height: 20,
     "aria-hidden": true as const,
     focusable: false as const,
   };

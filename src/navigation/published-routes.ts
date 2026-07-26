@@ -52,6 +52,7 @@ export const PUBLISHED_ROUTES = [
   "/investors/",
   "/contact/",
   "/auth/sign-in/",
+  "/legal/",
   "/legal/privacy-policy/",
   "/legal/terms-of-use/",
   "/legal/cookie-policy/",

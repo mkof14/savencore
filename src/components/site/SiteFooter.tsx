@@ -26,7 +26,7 @@ type SiteFooterProps = {
   showAdminLink?: boolean;
 };
 
-/** Layer 2 depth map — published domain destinations + Legal (D-0132 / D-0154). */
+/** Layer 2 depth map — published domain destinations + Legal (D-0132 / D-0154 / D-0181). */
 export function SiteFooter({
   locale,
   showAdminLink = false,
@@ -60,17 +60,20 @@ export function SiteFooter({
             className="site-footer__brand"
           />
           <p className="site-footer__tagline">{ui.footer.tagline}</p>
-          <FooterSocials locale={locale} />
         </div>
 
         <div className="site-footer__grid">
           {groups.map((group) => {
             const title = getFooterGroupTitle(locale, group.id, group.title);
             const headingId = `footer-${group.id}`;
+            const isLegal = group.id === "legal";
 
             if (isCompact) {
               return (
-                <details key={group.id} className="site-footer__group">
+                <details
+                  key={group.id}
+                  className={`site-footer__group${isLegal ? " site-footer__group--legal" : ""}`}
+                >
                   <summary
                     className="site-footer__group-title"
                     id={headingId}
@@ -82,7 +85,11 @@ export function SiteFooter({
                       <li key={link.id}>
                         <Link
                           href={localizePath(locale, link.href)}
-                          className="site-footer__link"
+                          className={
+                            link.id === "footer-legal-more"
+                              ? "site-footer__link site-footer__link--more"
+                              : "site-footer__link"
+                          }
                         >
                           {getNavEntryLabel(locale, link.id, link.label)}
                         </Link>
@@ -96,7 +103,7 @@ export function SiteFooter({
             return (
               <section
                 key={group.id}
-                className="site-footer__group"
+                className={`site-footer__group${isLegal ? " site-footer__group--legal" : ""}`}
                 aria-labelledby={headingId}
               >
                 <h2 className="site-footer__group-title" id={headingId}>
@@ -107,7 +114,11 @@ export function SiteFooter({
                     <li key={link.id}>
                       <Link
                         href={localizePath(locale, link.href)}
-                        className="site-footer__link"
+                        className={
+                          link.id === "footer-legal-more"
+                            ? "site-footer__link site-footer__link--more"
+                            : "site-footer__link"
+                        }
                       >
                         {getNavEntryLabel(locale, link.id, link.label)}
                       </Link>
@@ -117,6 +128,10 @@ export function SiteFooter({
               </section>
             );
           })}
+        </div>
+
+        <div className="site-footer__social-row">
+          <FooterSocials locale={locale} />
         </div>
 
         <div className="site-footer__bar">

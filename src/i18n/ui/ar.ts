@@ -74,7 +74,7 @@ export const uiAr: UiMessages = {
     "footer-labs-saven-robotics-lab": "SAVEN Robotics Lab",
     "footer-labs-internal-future-lab": "Internal Future Lab",
     "footer-systems-saven-robotics-interface": "SAVEN Robotics Interface",
-   "sign-in": "تسجيل الدخول / الاشتراك", "footer-legal-privacy-policy": "سياسة الخصوصية", "footer-legal-terms-of-use": "شروط الاستخدام", "footer-legal-cookie-policy": "سياسة ملفات تعريف الارتباط", "footer-legal-cookie-preferences": "تفضيلات ملفات تعريف الارتباط", "footer-legal-accessibility-statement": "بيان إمكانية الوصول", "footer-legal-security": "الأمان", "footer-legal-responsible-ai": "الذكاء الاصطناعي المسؤول", "footer-legal-medical-disclaimer": "إخلاء مسؤولية طبية", "footer-legal-research-disclaimer": "إخلاء مسؤولية بحثية", "footer-legal-intellectual-property": "الملكية الفكرية", "footer-legal-trademark-notice": "إشعار العلامة التجارية", "footer-legal-copyright": "إشعار حقوق النشر", "footer-legal-data-rights": "حقوق البيانات", "footer-legal-regional-privacy-rights": "حقوق الخصوصية الإقليمية", "footer-legal-do-not-sell-or-share": "عدم البيع أو المشاركة", "footer-legal-legal-notices": "إشعارات قانونية"},
+   "sign-in": "تسجيل الدخول / الاشتراك", "footer-legal-privacy-policy": "سياسة الخصوصية", "footer-legal-terms-of-use": "شروط الاستخدام", "footer-legal-cookie-policy": "سياسة ملفات تعريف الارتباط", "footer-legal-cookie-preferences": "تفضيلات ملفات تعريف الارتباط", "footer-legal-accessibility-statement": "بيان إمكانية الوصول", "footer-legal-security": "الأمان", "footer-legal-responsible-ai": "الذكاء الاصطناعي المسؤول", "footer-legal-medical-disclaimer": "إخلاء مسؤولية طبية", "footer-legal-research-disclaimer": "إخلاء مسؤولية بحثية", "footer-legal-intellectual-property": "الملكية الفكرية", "footer-legal-trademark-notice": "إشعار العلامة التجارية", "footer-legal-copyright": "إشعار حقوق النشر", "footer-legal-data-rights": "حقوق البيانات", "footer-legal-regional-privacy-rights": "حقوق الخصوصية الإقليمية", "footer-legal-do-not-sell-or-share": "عدم البيع أو المشاركة", "footer-legal-legal-notices": "إشعارات قانونية", "footer-legal-more": "المزيد"},
   footer: {
     technology: "التقنية",
     systems: "الأنظمة",
@@ -86,6 +86,7 @@ export const uiAr: UiMessages = {
     resources: "مصادر",
     company: "الشركة",
     legal: "قانوني",
+    more: "المزيد",
     contact: "اتصل بنا",
     plannedNote: "",
     comingSoon: "",
@@ -180,6 +181,9 @@ export const uiAr: UiMessages = {
     lastUpdated: "آخر تحديث",
     related: "الصفحات القانونية",
     draftNote: "مسودة — بانتظار المراجعة القانونية",
+    indexTitle: "قانوني",
+    indexLead:
+      "صفحات مسودة هيكلية للموقع العام. ليست نصًا قانونيًا نهائيًا — بانتظار المراجعة القانونية.",
   },
 
   home: {

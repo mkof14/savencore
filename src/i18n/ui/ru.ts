@@ -74,7 +74,7 @@ export const uiRu: UiMessages = {
     "footer-labs-saven-robotics-lab": "SAVEN Robotics Lab",
     "footer-labs-internal-future-lab": "Internal Future Lab",
     "footer-systems-saven-robotics-interface": "SAVEN Robotics Interface",
-   "sign-in": "Вход / Регистрация", "footer-legal-privacy-policy": "Политика конфиденциальности", "footer-legal-terms-of-use": "Условия использования", "footer-legal-cookie-policy": "Политика cookie", "footer-legal-cookie-preferences": "Настройки cookie", "footer-legal-accessibility-statement": "Заявление о доступности", "footer-legal-security": "Безопасность", "footer-legal-responsible-ai": "Ответственный ИИ", "footer-legal-medical-disclaimer": "Медицинский отказ от ответственности", "footer-legal-research-disclaimer": "Исследовательский отказ от ответственности", "footer-legal-intellectual-property": "Интеллектуальная собственность", "footer-legal-trademark-notice": "Уведомление о товарных знаках", "footer-legal-copyright": "Уведомление об авторских правах", "footer-legal-data-rights": "Права на данные", "footer-legal-regional-privacy-rights": "Региональные права на конфиденциальность", "footer-legal-do-not-sell-or-share": "Не продавать и не передавать", "footer-legal-legal-notices": "Юридические уведомления"},
+   "sign-in": "Вход / Регистрация", "footer-legal-privacy-policy": "Политика конфиденциальности", "footer-legal-terms-of-use": "Условия использования", "footer-legal-cookie-policy": "Политика cookie", "footer-legal-cookie-preferences": "Настройки cookie", "footer-legal-accessibility-statement": "Заявление о доступности", "footer-legal-security": "Безопасность", "footer-legal-responsible-ai": "Ответственный ИИ", "footer-legal-medical-disclaimer": "Медицинский отказ от ответственности", "footer-legal-research-disclaimer": "Исследовательский отказ от ответственности", "footer-legal-intellectual-property": "Интеллектуальная собственность", "footer-legal-trademark-notice": "Уведомление о товарных знаках", "footer-legal-copyright": "Уведомление об авторских правах", "footer-legal-data-rights": "Права на данные", "footer-legal-regional-privacy-rights": "Региональные права на конфиденциальность", "footer-legal-do-not-sell-or-share": "Не продавать и не передавать", "footer-legal-legal-notices": "Юридические уведомления", "footer-legal-more": "Ещё"},
   footer: {
     technology: "Технологии",
     systems: "Системы",
@@ -86,6 +86,7 @@ export const uiRu: UiMessages = {
     resources: "Ресурсы",
     company: "Компания",
     legal: "Правовая информация",
+    more: "Ещё",
     contact: "Контакты",
     plannedNote: "",
     comingSoon: "",
@@ -297,6 +298,9 @@ export const uiRu: UiMessages = {
     lastUpdated: "Последнее обновление",
     related: "Правовые страницы",
     draftNote: "Черновик — ожидает юридической проверки",
+    indexTitle: "Правовая информация",
+    indexLead:
+      "Структурные черновики страниц публичного сайта. Не окончательный юридический текст — ожидает юридической проверки.",
   },
 
   home: {

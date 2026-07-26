@@ -263,6 +263,19 @@ export const legalNavChildren: readonly NavLinkItem[] = [
 ] as const;
 
 /**
+ * Primary Legal column links (D-0181) — overflow lives on `/legal/` via More.
+ * Keep count aligned with other footer columns for visual balance.
+ */
+export const FOOTER_LEGAL_PRIMARY_IDS = [
+  "legal-privacy-policy",
+  "legal-terms-of-use",
+  "legal-cookie-policy",
+  "legal-accessibility-statement",
+  "legal-security",
+  "legal-responsible-ai",
+] as const;
+
+/**
  * Footer — public site map + Layer 2 depth (D-0132 / D-0154).
  * Published destinations only, grouped by domain. Legal column restored.
  */
@@ -329,9 +342,16 @@ export const footerNavigation: readonly FooterGroup[] = [
   {
     id: "legal",
     title: "Legal",
-    links: legalNavChildren.map((item) =>
-      published(`footer-${item.id}`, item.label, item.href),
-    ),
+    links: [
+      ...FOOTER_LEGAL_PRIMARY_IDS.map((id) => {
+        const item = legalNavChildren.find((child) => child.id === id);
+        if (!item) {
+          throw new Error(`Unknown primary legal footer id: ${id}`);
+        }
+        return published(`footer-${item.id}`, item.label, item.href);
+      }),
+      published("footer-legal-more", "More", "/legal/"),
+    ],
   },
 ] as const;
 
@@ -355,16 +375,27 @@ function assertPrimaryNavigation(): void {
   }
 }
 
-/** Every published route except Home and auth utilities must appear in the footer depth map. */
+/**
+ * Every published route except Home and auth utilities must appear in the footer
+ * depth map. Legal leaf pages may be covered by the `/legal/` hub + More (D-0181).
+ */
 function assertFooterCoversPublishedRoutes(): void {
   const footerHrefs = new Set(
     footerNavigation.flatMap((group) =>
       group.links.filter(isFooterLinkPublished).map((link) => link.href),
     ),
   );
+  const legalHubCoversLeaves = footerHrefs.has("/legal/");
   for (const route of PUBLISHED_ROUTES) {
     if (route === "/") continue;
     if (route.startsWith("/auth/")) continue;
+    if (
+      legalHubCoversLeaves &&
+      route.startsWith("/legal/") &&
+      route !== "/legal/"
+    ) {
+      continue;
+    }
     if (!footerHrefs.has(route)) {
       throw new Error(`Published route missing from footer depth map: ${route}`);
     }

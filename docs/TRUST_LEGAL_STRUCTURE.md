@@ -38,6 +38,7 @@ All routes are relative to `/{locale}`.
 
 | Page | Route | Draft until legal approval |
 |------|-------|----------------------------|
+| Legal index (hub / More) | `/legal/` | yes (navigation list only; D-0181) |
 | Privacy Policy | `/legal/privacy-policy` | yes |
 | Terms of Use | `/legal/terms-of-use` | yes |
 | Cookie Policy | `/legal/cookie-policy` | yes |

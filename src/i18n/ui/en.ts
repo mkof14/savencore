@@ -94,6 +94,7 @@ export const uiEn = {
     "footer-legal-regional-privacy-rights": "Regional Privacy Rights",
     "footer-legal-do-not-sell-or-share": "Do Not Sell or Share",
     "footer-legal-legal-notices": "Legal Notices",
+    "footer-legal-more": "More",
   },
 
   footer: {
@@ -107,6 +108,7 @@ export const uiEn = {
     resources: "Resources",
     company: "Company",
     legal: "Legal",
+    more: "More",
     contact: "Contact",
     plannedNote: "",
     comingSoon: "",
@@ -316,6 +318,9 @@ export const uiEn = {
     lastUpdated: "Last updated",
     related: "Legal pages",
     draftNote: "Draft — pending legal review",
+    indexTitle: "Legal",
+    indexLead:
+      "Structural draft pages for the public website. Not final legal text — pending legal review.",
   },
 
   home: {

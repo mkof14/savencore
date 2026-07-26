@@ -6,8 +6,11 @@ import Credentials from "next-auth/providers/credentials";
 import Google from "next-auth/providers/google";
 
 import {
+  demoOperatorRole,
+  resolveDemoOperatorCredentials,
+} from "@/admin/demo-operator";
+import {
   isAdminRole,
-  parseAdminRole,
   resolveRoleForEmail,
   type AdminRole,
 } from "@/admin/roles";
@@ -20,13 +23,16 @@ export function isGoogleAuthConfigured(): boolean {
   );
 }
 
-/** Staging/launch-test operator account via env — not a full user store. */
+/**
+ * Staging/launch-test operator account via env — not a full user store.
+ * In development, documented defaults apply when AUTH_DEMO_* are unset
+ * (D-0177). Prefer `.env.local` for explicit local values. Production never
+ * uses silent defaults.
+ */
 export function isCredentialsAuthConfigured(): boolean {
-  return Boolean(
-    process.env.AUTH_SECRET &&
-      process.env.AUTH_DEMO_EMAIL &&
-      process.env.AUTH_DEMO_PASSWORD,
-  );
+  const hasSecret =
+    Boolean(process.env.AUTH_SECRET) || process.env.NODE_ENV !== "production";
+  return hasSecret && resolveDemoOperatorCredentials().configured;
 }
 
 const isProduction = process.env.NODE_ENV === "production";
@@ -86,14 +92,14 @@ function buildProviders(): Provider[] {
               ? credentials.password
               : "";
 
-          const expectedEmail = (process.env.AUTH_DEMO_EMAIL ?? "")
-            .trim()
-            .toLowerCase();
-          const expectedPassword = process.env.AUTH_DEMO_PASSWORD ?? "";
+          const demo = resolveDemoOperatorCredentials();
+          const expectedEmail = demo.email;
+          const expectedPassword = demo.password;
 
           if (
             !email ||
             !password ||
+            !demo.configured ||
             !expectedEmail ||
             !expectedPassword ||
             !safeEqualString(email, expectedEmail) ||
@@ -102,14 +108,11 @@ function buildProviders(): Provider[] {
             return null;
           }
 
-          const role =
-            parseAdminRole(process.env.AUTH_DEMO_ROLE) ?? "super_admin";
-
           return {
             id: "demo-operator",
             email: expectedEmail,
             name: "Operator",
-            role,
+            role: demoOperatorRole(),
           };
         },
       }),

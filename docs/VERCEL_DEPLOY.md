@@ -20,16 +20,16 @@ Set in Vercel → Project → Settings → Environment Variables (Production + P
 | `AUTH_SECRET` | Yes for auth | `openssl rand -base64 32` |
 | `GOOGLE_CLIENT_ID` | Yes for Google sign-in | Google Cloud OAuth client (primary public path) |
 | `GOOGLE_CLIENT_SECRET` | Yes for Google sign-in | Google Cloud OAuth client |
-| `AUTH_DEMO_EMAIL` | Optional | Staging/launch operator email for Credentials provider (D-0163) |
-| `AUTH_DEMO_PASSWORD` | Optional | Staging/launch operator password — never commit real values |
-| `AUTH_DEMO_ROLE` | Optional | Admin role for demo operator (default `super_admin`) — D-0176 |
+| `AUTH_DEMO_EMAIL` | Optional* | Operator email for Credentials provider (D-0163 / D-0177). *Required on Vercel for email/password admin login |
+| `AUTH_DEMO_PASSWORD` | Optional* | Operator password — never commit real values; change from local example on prod |
+| `AUTH_DEMO_ROLE` | Optional | Document as `super_admin`; demo identity always maps to `super_admin` (D-0177) |
 | `AUTH_ADMIN_ALLOWLIST` | Optional | `email:role,...` for Google/other signed-in admins — D-0176 |
 | `AUTH_URL` | Recommended in production | Public origin, e.g. `https://www.savencore.com` |
 | `NEXTAUTH_URL` | Optional alias | Same origin if your Auth.js version expects it |
 | `NEXT_PUBLIC_SITE_URL` | Recommended | Canonical origin for sitemap, robots, Open Graph (defaults to `https://www.savencore.com`) |
 | `NEXT_PUBLIC_SOCIAL_*` | Optional | Facebook / YouTube / X / LinkedIn / Instagram URLs — empty = disabled icons (D-0176) |
 
-See `.env.example`. Without Google or demo credentials the Sign In page still renders and explains that setup is required — it does not invent a logged-in state. Email/password is a single env-based operator account for launch testing only; a real user store/DB comes later.
+See `.env.example` and `docs/ADMIN_PLATFORM.md`. Without Google or demo credentials the Sign In page still renders with controls disabled — it does not invent a logged-in state. Email/password is a single env-based operator account (always `super_admin`) for owner/operator access; a real user store/DB comes later. Local/dev may use documented defaults when env is unset; **production never uses a silent default password** — set `AUTH_DEMO_*` in Vercel for prod demo login.
 
 Production security headers (CSP, framing, nosniff, referrer, permissions-policy) are set in `next.config.ts`. HSTS is added when `VERCEL_ENV=production`. PWA manifest is at `/manifest.webmanifest`; service worker `/sw.js` registers in production only.
 

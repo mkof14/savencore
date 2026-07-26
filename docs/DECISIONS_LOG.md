@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-26 (D-0176 — Admin Platform / Social footer first vertical slice)
+**Last updated:** 2026-07-26 (D-0177 — Owner always super_admin via demo operator / dev defaults)
 
 ## Rules
 
@@ -192,6 +192,7 @@
 | D-0174 | 2026-07-26 | Positioning: uses/advances AI; does not claim to create AI | Active |
 | D-0175 | 2026-07-26 | Experience Redesign UI freeze — completed approved snapshot | Active |
 | D-0176 | 2026-07-26 | Admin Platform / Social footer — first vertical slice | Active |
+| D-0177 | 2026-07-26 | Owner always super_admin via demo operator / dev defaults | Active |
 
 ---
 
@@ -1562,6 +1563,15 @@
 - **In scope:** Social config + footer icons + i18n; auth role claims; admin layout/pages/API; email template modules; media store; marketing checklist; site-health monitoring; `docs/ADMIN_PLATFORM.md`; D-0176 + AGENTS phase pointer; `tsc`/smoke; commit/push; Vercel production deploy.
 - **Out of scope:** Invented social URLs as live profiles; fake metrics/customers/partners; SMTP/CRM; S3/durable media; Google Analytics / cookie consent; full multi-user DB; regressing D-0175 frozen public mastheads; final legal prose.
 - **Implications:** Official social account URLs remain a pending owner decision for real values, but the UI shell and env wiring are authorized. Admin is a real restricted surface, not a decorative fake dashboard. See `docs/ADMIN_PLATFORM.md`.
+
+### D-0177 — Owner always super_admin via demo operator / dev defaults
+
+- **Date:** 2026-07-26
+- **Status:** Active
+- **Decision:** Owner requires a reliable path to enter `/[locale]/admin/` as `super_admin` without friction, without an unauthenticated public backdoor. (1) The Credentials demo/operator identity **always** resolves to role `super_admin`. (2) Local/dev: when `AUTH_DEMO_EMAIL` / `AUTH_DEMO_PASSWORD` are unset, documented development defaults (`admin@savencore.com` / `SavenCore-Dev-Admin!`) apply only if `NODE_ENV === "development"` — never as a silent production password. (3) Gitignored `.env.local` holds working `AUTH_SECRET` + `AUTH_DEMO_*` for immediate `npm run dev`. (4) Production (Vercel) requires explicit `AUTH_DEMO_*` (+ `AUTH_SECRET`) env; owner sets them in the Vercel project. No open `/admin` without auth.
+- **In scope:** `src/admin/demo-operator.ts`; auth credentials resolution; role mapping; `.env.example`; gitignored `.env.local` for local; `docs/ADMIN_PLATFORM.md` / `docs/VERCEL_DEPLOY.md`; D-0177 + AGENTS phase pointer; local smoke; commit/push so prod can use `AUTH_DEMO_*` once set.
+- **Out of scope:** Unauthenticated admin access; inventing a full user DB; committing production secrets; changing public Experience freeze (D-0175).
+- **Implications:** Extends D-0163 / D-0176. Owner must set Vercel env for production email/password login; local example password must be changed for any shared or production use.
 
 ## Pending Owner Decisions
 

@@ -1,7 +1,7 @@
-# Admin Platform (D-0176)
+# Admin Platform (D-0176 / D-0177)
 
 **Status:** In Development / Architecture  
-**Authority:** `docs/DECISIONS_LOG.md` D-0176  
+**Authority:** `docs/DECISIONS_LOG.md` D-0176, D-0177  
 **Public site freeze:** D-0175 Experience Redesign UI remains the approved public snapshot; this platform is a restricted vertical slice and does not invent metrics, customers, or live social profiles.
 
 ## Access
@@ -10,6 +10,7 @@
 - Not listed in public primary navigation or sitemap.
 - Footer shows **Admin** only when the signed-in user has an admin role ≥ `viewer`.
 - Unauthenticated visitors are redirected to sign-in; authenticated users without a role are redirected home.
+- There is **no** unauthenticated public `/admin` backdoor.
 
 ## Roles
 
@@ -25,20 +26,38 @@ Hierarchy (highest first):
 
 Enforcement: `src/admin/roles.ts` + `src/admin/require-role.ts` on pages and `/api/admin/*`.
 
-### Configuring a super admin
+### Owner / demo operator → always `super_admin` (D-0177)
 
-1. Keep existing Auth.js setup (`AUTH_SECRET`, optional Google, optional demo credentials).
-2. For the demo credentials operator:
+The Credentials provider accepts a single env-based operator account. That identity **always** maps to `super_admin` (hard to misconfigure).
+
+#### Local development
+
+1. Prefer a gitignored `.env.local` (created for local `npm run dev`):
 
 ```bash
-AUTH_DEMO_EMAIL=operator@example.com
-AUTH_DEMO_PASSWORD=...
+AUTH_SECRET=<openssl rand -base64 32>
+AUTH_DEMO_EMAIL=admin@savencore.com
+AUTH_DEMO_PASSWORD=SavenCore-Dev-Admin!
 AUTH_DEMO_ROLE=super_admin
 ```
 
-If `AUTH_DEMO_ROLE` is omitted, the demo operator defaults to `super_admin`.
+2. If `AUTH_DEMO_EMAIL` / `AUTH_DEMO_PASSWORD` are unset and `NODE_ENV === "development"`, the same documented defaults apply in code (`admin@savencore.com` / `SavenCore-Dev-Admin!` → `super_admin`). Prefer setting them explicitly in `.env.local`. Change the password for any shared machine.
 
-3. For Google (or any Auth.js) emails, use an allowlist:
+3. Sign in at `/en/auth/sign-in/` with that email/password → open `/en/admin/` (footer **Admin** link appears when signed in).
+
+#### Production (Vercel)
+
+Set env vars explicitly — **no silent default password on production**:
+
+```bash
+AUTH_SECRET=<strong secret from openssl rand -base64 32>
+AUTH_DEMO_EMAIL=admin@savencore.com
+AUTH_DEMO_PASSWORD=<choose a strong password; do not reuse the local example>
+AUTH_DEMO_ROLE=super_admin
+AUTH_URL=https://www.savencore.com
+```
+
+Optional Google admins:
 
 ```bash
 AUTH_ADMIN_ALLOWLIST=you@example.com:super_admin,editor@example.com:editor

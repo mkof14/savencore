@@ -1,7 +1,12 @@
 /**
- * Admin platform RBAC (D-0176).
+ * Admin platform RBAC (D-0176 / D-0177).
  * Hierarchy: super_admin > admin > editor > marketer > viewer.
  */
+
+import {
+  demoOperatorRole,
+  isDemoOperatorEmail,
+} from "@/admin/demo-operator";
 
 export const ADMIN_ROLES = [
   "super_admin",
@@ -77,7 +82,7 @@ export function canPerform(
 
 /**
  * Resolve role for an authenticated email.
- * - Demo credentials email → AUTH_DEMO_ROLE (default super_admin)
+ * - Demo credentials email → always `super_admin` (D-0177)
  * - AUTH_ADMIN_ALLOWLIST → `email:role,email2:role`
  * - Otherwise → null (signed in, no admin access)
  */
@@ -92,9 +97,8 @@ export function resolveRoleForEmail(
     return null;
   }
 
-  const demoEmail = (process.env.AUTH_DEMO_EMAIL ?? "").trim().toLowerCase();
-  if (demoEmail && normalized === demoEmail) {
-    return parseAdminRole(process.env.AUTH_DEMO_ROLE) ?? "super_admin";
+  if (isDemoOperatorEmail(normalized)) {
+    return demoOperatorRole();
   }
 
   const allowlist = process.env.AUTH_ADMIN_ALLOWLIST ?? "";

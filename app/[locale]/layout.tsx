@@ -2,6 +2,8 @@ import type { ReactNode } from "react";
 import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
 
+import { roleAtLeast } from "@/admin/roles";
+import { auth } from "@/auth";
 import { RegisterServiceWorker } from "@/components/pwa/RegisterServiceWorker";
 import { OrganizationJsonLd } from "@/components/seo/OrganizationJsonLd";
 import { SiteFooter } from "@/components/site/SiteFooter";
@@ -66,6 +68,8 @@ export default async function LocaleLayout({
   }
 
   const locale: Locale = localeParam;
+  const session = await auth();
+  const showAdminLink = roleAtLeast(session?.user?.role, "viewer");
 
   return (
     <html
@@ -88,7 +92,7 @@ export default async function LocaleLayout({
         <div className="site-shell">
           <SiteHeader locale={locale} />
           <main className="site-shell__main">{children}</main>
-          <SiteFooter locale={locale} />
+          <SiteFooter locale={locale} showAdminLink={showAdminLink} />
         </div>
         <RegisterServiceWorker />
       </body>

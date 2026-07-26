@@ -22,9 +22,12 @@ Set in Vercel → Project → Settings → Environment Variables (Production + P
 | `GOOGLE_CLIENT_SECRET` | Yes for Google sign-in | Google Cloud OAuth client |
 | `AUTH_DEMO_EMAIL` | Optional | Staging/launch operator email for Credentials provider (D-0163) |
 | `AUTH_DEMO_PASSWORD` | Optional | Staging/launch operator password — never commit real values |
+| `AUTH_DEMO_ROLE` | Optional | Admin role for demo operator (default `super_admin`) — D-0176 |
+| `AUTH_ADMIN_ALLOWLIST` | Optional | `email:role,...` for Google/other signed-in admins — D-0176 |
 | `AUTH_URL` | Recommended in production | Public origin, e.g. `https://www.savencore.com` |
 | `NEXTAUTH_URL` | Optional alias | Same origin if your Auth.js version expects it |
 | `NEXT_PUBLIC_SITE_URL` | Recommended | Canonical origin for sitemap, robots, Open Graph (defaults to `https://www.savencore.com`) |
+| `NEXT_PUBLIC_SOCIAL_*` | Optional | Facebook / YouTube / X / LinkedIn / Instagram URLs — empty = disabled icons (D-0176) |
 
 See `.env.example`. Without Google or demo credentials the Sign In page still renders and explains that setup is required — it does not invent a logged-in state. Email/password is a single env-based operator account for launch testing only; a real user store/DB comes later.
 

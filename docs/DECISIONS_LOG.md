@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-26 (D-0175 — Experience Redesign UI freeze / completed snapshot)
+**Last updated:** 2026-07-26 (D-0176 — Admin Platform / Social footer first vertical slice)
 
 ## Rules
 
@@ -191,6 +191,7 @@
 | D-0173 | 2026-07-26 | Investors visual + Contact page/form + About team narrative | Active |
 | D-0174 | 2026-07-26 | Positioning: uses/advances AI; does not claim to create AI | Active |
 | D-0175 | 2026-07-26 | Experience Redesign UI freeze — completed approved snapshot | Active |
+| D-0176 | 2026-07-26 | Admin Platform / Social footer — first vertical slice | Active |
 
 ---
 
@@ -1552,6 +1553,15 @@
 - **In scope:** Contact form/CSS contrast; hub masthead collage path; `domain-visuals` / hub visual wiring; Layer-1 hub CSS; D-0175 + AGENTS phase pointer; commit/push; Vercel production deploy to `https://www.savencore.com`.
 - **Out of scope:** Legal dictionary WIP under `scripts/fl-translations/*-legal.mjs` and related legal locale churn; SMTP/CRM; inventing imagery beyond approved care/domain assets; neon.
 - **Implications:** This snapshot is the baseline for further Experience work; material visual regress of the frozen hubs/Contact requires owner approval / a new Decisions Log entry.
+
+### D-0176 — Admin Platform / Social footer — first vertical slice
+
+- **Date:** 2026-07-26
+- **Status:** Active
+- **Decision:** Owner authorizes the next development block after the D-0175 public UI freeze: (1) **Footer socials** — Facebook, YouTube, X, LinkedIn, Instagram icons always visible; links activate only via `NEXT_PUBLIC_SOCIAL_*` env (empty/`#` = disabled with `aria-disabled`; no invented live profile URLs). (2) **Admin platform** under `/[locale]/admin/` — restricted, not in public primary nav or sitemap; footer **Admin** link only for signed-in role ≥ `viewer`. RBAC hierarchy `super_admin` > `admin` > `editor` > `marketer` > `viewer` via `AUTH_DEMO_ROLE` + `AUTH_ADMIN_ALLOWLIST`. (3) **Email templates** — English content modules with branded HTML (logo, SAVEN Core, https://www.savencore.com, `info@savencore.com`, © 2026) and admin preview; categories cover welcome/invite, careful investor intro (no fake claims), partnership ack, press, newsletter, event, security notice, internal ops. SMTP send not included. (4) **Media library** — seed brand assets + local `storage/admin-media/` uploads in development; actions Copy / Print / Share / Download / PDF + preview. Durable object storage later. (5) **Marketing / technical monitoring** — honest structural tools only (checklists, published-route inventory, version/locale/commit health) — **no fabricated traffic/ROI/analytics**. Status labels: Architecture / In Development. Public Experience freeze heroes/IA remain unchanged.
+- **In scope:** Social config + footer icons + i18n; auth role claims; admin layout/pages/API; email template modules; media store; marketing checklist; site-health monitoring; `docs/ADMIN_PLATFORM.md`; D-0176 + AGENTS phase pointer; `tsc`/smoke; commit/push; Vercel production deploy.
+- **Out of scope:** Invented social URLs as live profiles; fake metrics/customers/partners; SMTP/CRM; S3/durable media; Google Analytics / cookie consent; full multi-user DB; regressing D-0175 frozen public mastheads; final legal prose.
+- **Implications:** Official social account URLs remain a pending owner decision for real values, but the UI shell and env wiring are authorized. Admin is a real restricted surface, not a decorative fake dashboard. See `docs/ADMIN_PLATFORM.md`.
 
 ## Pending Owner Decisions
 

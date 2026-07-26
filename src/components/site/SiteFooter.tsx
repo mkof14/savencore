@@ -16,15 +16,21 @@ import { localizePath } from "@/navigation/locale-path";
 import { isFooterLinkPublished } from "@/navigation/navigation-types";
 import { footerNavigation } from "@/navigation/site-navigation";
 
+import { FooterSocials } from "./FooterSocials";
 import { LanguageSelector } from "./LanguageSelector";
 import { ThemeSwitch } from "./ThemeSwitch";
 
 type SiteFooterProps = {
   locale: Locale;
+  /** When true, show restricted Admin link (signed-in role ≥ viewer). */
+  showAdminLink?: boolean;
 };
 
 /** Layer 2 depth map — published domain destinations + Legal (D-0132 / D-0154). */
-export function SiteFooter({ locale }: SiteFooterProps) {
+export function SiteFooter({
+  locale,
+  showAdminLink = false,
+}: SiteFooterProps) {
   const ui = getUi(locale);
   const [isCompact, setIsCompact] = useState(false);
 
@@ -54,6 +60,7 @@ export function SiteFooter({ locale }: SiteFooterProps) {
             className="site-footer__brand"
           />
           <p className="site-footer__tagline">{ui.footer.tagline}</p>
+          <FooterSocials locale={locale} />
         </div>
 
         <div className="site-footer__grid">
@@ -126,6 +133,14 @@ export function SiteFooter({ locale }: SiteFooterProps) {
             >
               {ui.footer.signIn}
             </Link>
+            {showAdminLink ? (
+              <Link
+                href={localizePath(locale, "/admin/")}
+                className="site-footer__text-link"
+              >
+                {ui.footer.admin}
+              </Link>
+            ) : null}
           </div>
 
           <div className="site-footer__utilities">

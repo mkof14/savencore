@@ -50,3 +50,8 @@ yarn-error.log*
 
 # local verification artifacts
 /tmp/
+
+# admin media uploads (keep directory markers)
+/storage/admin-media/files/*
+!/storage/admin-media/files/.gitkeep
+/storage/admin-media/index.json

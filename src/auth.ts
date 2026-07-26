@@ -5,6 +5,13 @@ import type { Provider } from "next-auth/providers";
 import Credentials from "next-auth/providers/credentials";
 import Google from "next-auth/providers/google";
 
+import {
+  isAdminRole,
+  parseAdminRole,
+  resolveRoleForEmail,
+  type AdminRole,
+} from "@/admin/roles";
+
 export function isGoogleAuthConfigured(): boolean {
   return Boolean(
     process.env.GOOGLE_CLIENT_ID &&
@@ -95,10 +102,14 @@ function buildProviders(): Provider[] {
             return null;
           }
 
+          const role =
+            parseAdminRole(process.env.AUTH_DEMO_ROLE) ?? "super_admin";
+
           return {
             id: "demo-operator",
             email: expectedEmail,
             name: "Operator",
+            role,
           };
         },
       }),
@@ -119,7 +130,27 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   callbacks: {
     authorized() {
       // Public site — auth is optional; do not gate routes by default.
+      // Admin routes enforce RBAC via requireAdminRole.
       return true;
+    },
+    async jwt({ token, user }) {
+      if (user) {
+        const fromUser = isAdminRole(user.role) ? user.role : null;
+        token.role = fromUser ?? resolveRoleForEmail(user.email);
+      } else if (typeof token.email === "string") {
+        // Re-resolve on each token refresh so allowlist env changes apply.
+        token.role = resolveRoleForEmail(token.email);
+      }
+      return token;
+    },
+    async session({ session, token }) {
+      if (session.user) {
+        const role: AdminRole | null = isAdminRole(token.role)
+          ? token.role
+          : null;
+        session.user.role = role;
+      }
+      return session;
     },
   },
 });

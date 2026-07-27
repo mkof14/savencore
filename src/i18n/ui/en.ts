@@ -101,6 +101,7 @@ export const uiEn = {
   footer: {
     technology: "Technology",
     systems: "Systems",
+    architecture: "Architecture",
     applications: "Applications",
     trust: "Trust",
     research: "Research",

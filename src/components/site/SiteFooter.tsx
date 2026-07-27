@@ -26,7 +26,7 @@ type SiteFooterProps = {
   showAdminLink?: boolean;
 };
 
-/** Layer 2 depth map — published domain destinations + Legal (D-0132 / D-0154 / D-0181). */
+/** Layer 2 depth map — published domain destinations + Architecture + Legal (D-0132 / D-0154 / D-0181 / D-0188). */
 export function SiteFooter({
   locale,
   showAdminLink = false,

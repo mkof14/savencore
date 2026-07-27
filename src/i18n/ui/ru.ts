@@ -78,6 +78,7 @@ export const uiRu: UiMessages = {
   footer: {
     technology: "Технологии",
     systems: "Системы",
+    architecture: "Архитектура",
     applications: "Применения",
     trust: "Доверие",
     research: "Исследования",

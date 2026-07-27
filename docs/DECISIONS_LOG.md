@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-26 (D-0187 — Admin Media library filter chip contrast)
+**Last updated:** 2026-07-27 (D-0188 — Footer Architecture column restored)
 
 ## Rules
 
@@ -203,6 +203,7 @@
 | D-0185 | 2026-07-26 | Admin Media traditional CMS UX + video/delete fixes | Active |
 | D-0186 | 2026-07-26 | Admin Media delete-all + upload CTAs + public Media viewer | Active |
 | D-0187 | 2026-07-26 | Admin Media library filter chip contrast (light/dark) | Active |
+| D-0188 | 2026-07-27 | Footer Architecture column — Systems depth map | Active |
 
 ---
 
@@ -1672,6 +1673,15 @@
 - **In scope:** `src/components/admin/admin.css` tab/chip styles; D-0187 + brief ADMIN_PLATFORM / AGENTS pointer; commit/push; production deploy.
 - **Out of scope:** Public `/media/` filters; Upload CTA redesign; storage/RBAC changes.
 - **Implications:** Follow-up polish on D-0186 library chrome only.
+
+### D-0188 — Footer Architecture column (Systems depth map)
+
+- **Date:** 2026-07-27
+- **Status:** Active
+- **Decision:** Owner requires a visible footer section named **Architecture** listing all Architecture / Systems pages. Root cause: “Architecture” is primarily a maturity status and was never a footer domain column; a Coming Soon stub “Architecture” briefly lived under Systems and was removed when the visitor footer became published-routes-only (D-0132). Systems pages document architecture (“systems are architecture”). Restore a first-class footer column **Architecture** that carries the full published Systems depth map (Overview + Knowledge Engine, AI Decision Support, Safety Layer, Communication Layer, Clinical Interfaces, Robotics Layer, Drone Systems, SAVEN Robotics Interface). Domain routes remain `/systems/*`; page bodies and primary naming stay Systems. Equal column weight with sibling footer sections (D-0181 eight-track grid unchanged — Systems column retitled). Localize the Architecture title across all ten UI locales. Do not invent unpublished IA leaves (e.g. `/technology/safety-architecture`).
+- **In scope:** `site-navigation` footer group id/title; `SiteFooter` comment; `src/i18n/ui/*` `footer.architecture`; `INFORMATION_ARCHITECTURE` as-built note; D-0188 + AGENTS phase pointer; commit/push; production deploy.
+- **Out of scope:** Renaming `/systems/` routes; inventing architecture leaf pages; changing Technology/Trust/Legal/Media/Home Application; neon/glow; Experience Redesign hero freeze (D-0175).
+- **Implications:** Visitors see Architecture in the footer with all published Systems architecture pages. Agents treat Architecture as the footer label for the Systems Layer-2 depth map.
 
 ## Pending Owner Decisions
 

@@ -78,6 +78,7 @@ export const uiAr: UiMessages = {
   footer: {
     technology: "التقنية",
     systems: "الأنظمة",
+    architecture: "الهندسة المعمارية",
     applications: "التطبيقات",
     trust: "الثقة",
     research: "البحث",

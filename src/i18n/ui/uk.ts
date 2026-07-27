@@ -78,6 +78,7 @@ export const uiUk: UiMessages = {
   footer: {
     technology: "Технології",
     systems: "Системи",
+    architecture: "Архітектура",
     applications: "Застосування",
     trust: "Довіра",
     research: "Дослідження",

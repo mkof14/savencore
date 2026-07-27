@@ -78,6 +78,7 @@ export const uiHe: UiMessages = {
   footer: {
     technology: "טכנולוגיה",
     systems: "מערכות",
+    architecture: "ארכיטקטורה",
     applications: "יישומים",
     trust: "אמון",
     research: "מחקר",

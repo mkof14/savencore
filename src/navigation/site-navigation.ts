@@ -276,8 +276,9 @@ export const FOOTER_LEGAL_PRIMARY_IDS = [
 ] as const;
 
 /**
- * Footer — public site map + Layer 2 depth (D-0132 / D-0154).
+ * Footer — public site map + Layer 2 depth (D-0132 / D-0154 / D-0188).
  * Published destinations only, grouped by domain. Legal column restored.
+ * Architecture = Systems domain depth map (pages document architecture; routes stay /systems/*).
  */
 export const footerNavigation: readonly FooterGroup[] = [
   {
@@ -286,8 +287,8 @@ export const footerNavigation: readonly FooterGroup[] = [
     links: footerLinksFromDomain("technology", technologyNavChildren),
   },
   {
-    id: "systems",
-    title: "Systems",
+    id: "architecture",
+    title: "Architecture",
     links: [
       ...footerLinksFromDomain("systems", systemsNavChildren),
       published(

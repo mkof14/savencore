@@ -1,15 +1,26 @@
-/* SAVEN Robotics Interface hub diagram — navy/gold/blue (D-0189); match LabsDataLoop quality */
+/* SAVEN Robotics Interface hub diagram — navy/gold/blue/teal (D-0189 / D-0190) */
 
 .rid {
   --rid-navy: #0c1628;
   --rid-navy-mid: #152033;
   --rid-blue: #5b8db8;
   --rid-blue-soft: #7eb8c9;
-  --rid-teal: #3d7a86;
+  --rid-teal: #5ec4b8;
+  --rid-teal-deep: #3d7a86;
   --rid-gold: #d4a84b;
   --rid-gold-deep: #c9a24a;
+  --rid-amber: #e0b060;
   --rid-warm: #c4a882;
+  --rid-warm-deep: #a88860;
+  --rid-cyan: #6ec8e0;
   --rid-ink-lite: #e8eef4;
+
+  /* Per-device accents */
+  --rid-manip: #d4a84b;
+  --rid-mobile: #5b8db8;
+  --rid-trolley: #5ec4b8;
+  --rid-assist: #c4a882;
+  --rid-sensor: #6ec8e0;
 
   margin-block: 0.85rem clamp(1.75rem, 4vh, 2.75rem);
   padding: clamp(1.25rem, 3vw, 1.85rem);
@@ -51,8 +62,8 @@
   position: relative;
   overflow: hidden;
   background: var(--rid-navy);
-  border: 1px solid color-mix(in srgb, var(--rid-gold) 35%, #2a3a52);
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--rid-blue) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--rid-gold) 40%, #2a3a52);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--rid-blue) 14%, transparent);
 }
 
 .rid__svg {
@@ -62,100 +73,182 @@
 }
 
 .rid__atmosphere--a {
-  fill: color-mix(in srgb, var(--rid-blue) 12%, transparent);
+  fill: color-mix(in srgb, var(--rid-blue) 14%, transparent);
+}
+
+.rid__atmosphere--teal {
+  fill: color-mix(in srgb, var(--rid-teal) 8%, transparent);
 }
 
 .rid__atmosphere--gold {
-  fill: color-mix(in srgb, var(--rid-gold) 11%, transparent);
+  fill: color-mix(in srgb, var(--rid-gold) 14%, transparent);
 }
 
+/* —— Links —— */
 .rid__path-glow {
   fill: none;
-  stroke: color-mix(in srgb, var(--rid-gold) 55%, var(--rid-blue));
-  stroke-width: 5;
+  stroke-width: 6;
   stroke-linecap: square;
-  opacity: 0.18;
+  opacity: 0.22;
+}
+
+.rid__path-glow--manipulators {
+  stroke: var(--rid-manip);
+}
+
+.rid__path-glow--mobileRobots {
+  stroke: var(--rid-mobile);
+}
+
+.rid__path-glow--trolleyRobots {
+  stroke: var(--rid-trolley);
+}
+
+.rid__path-glow--assistiveForms {
+  stroke: var(--rid-assist);
+}
+
+.rid__path-glow--sensors {
+  stroke: var(--rid-sensor);
 }
 
 .rid__path {
   fill: none;
-  stroke: color-mix(in srgb, var(--rid-blue) 72%, #2a3a52);
-  stroke-width: 1.75;
+  stroke-width: 1.85;
   stroke-linecap: square;
+}
+
+.rid__path--manipulators {
+  stroke: color-mix(in srgb, var(--rid-manip) 65%, #2a3a52);
+}
+
+.rid__path--mobileRobots {
+  stroke: color-mix(in srgb, var(--rid-mobile) 72%, #2a3a52);
+}
+
+.rid__path--trolleyRobots {
+  stroke: color-mix(in srgb, var(--rid-trolley) 68%, #2a3a52);
+}
+
+.rid__path--assistiveForms {
+  stroke: color-mix(in srgb, var(--rid-assist) 70%, #2a3a52);
+}
+
+.rid__path--sensors {
+  stroke: color-mix(in srgb, var(--rid-sensor) 72%, #2a3a52);
 }
 
 .rid__path-pulse {
   fill: none;
-  stroke-width: 2.4;
+  stroke-width: 2.6;
   stroke-linecap: square;
-  stroke-dasharray: 12 40;
+  stroke-dasharray: 14 36;
   opacity: 0;
 }
 
+/* —— Interface ring —— */
 .rid__ring-orbit {
   fill: none;
-  stroke: color-mix(in srgb, var(--rid-gold) 70%, var(--rid-blue));
-  stroke-width: 1.5;
-  stroke-dasharray: 6 8;
+  stroke-linecap: square;
+}
+
+.rid__ring-orbit--halo {
+  stroke: color-mix(in srgb, var(--rid-gold) 35%, var(--rid-teal));
+  stroke-width: 1;
+  opacity: 0.28;
+  stroke-dasharray: 2 14;
 }
 
 .rid__ring-orbit--outer {
-  stroke: color-mix(in srgb, var(--rid-blue) 50%, var(--rid-gold));
-  stroke-width: 1.1;
-  opacity: 0.45;
-  stroke-dasharray: 3 10;
+  stroke: color-mix(in srgb, var(--rid-blue) 55%, var(--rid-gold));
+  stroke-width: 1.35;
+  opacity: 0.55;
+  stroke-dasharray: 4 9;
+}
+
+.rid__ring-orbit--main {
+  stroke-width: 2.2;
+  stroke-dasharray: 8 7;
 }
 
 .rid__ring-orbit--inner {
-  stroke: color-mix(in srgb, var(--rid-gold) 55%, transparent);
-  stroke-width: 1;
-  opacity: 0.5;
+  stroke: color-mix(in srgb, var(--rid-gold) 70%, transparent);
+  stroke-width: 1.25;
+  opacity: 0.65;
   stroke-dasharray: none;
+}
+
+.rid__ring-bead {
+  fill: var(--rid-gold);
+  opacity: 0.85;
+}
+
+.rid__ring-bead--1,
+.rid__ring-bead--3 {
+  fill: var(--rid-teal);
+}
+
+.rid__ring-bead--2 {
+  fill: var(--rid-blue-soft);
 }
 
 .rid__ring-label {
   font-family: var(--font-sans);
-  font-size: 12px;
+  font-size: 12.5px;
   font-weight: 600;
-  letter-spacing: 0.02em;
-  fill: color-mix(in srgb, var(--rid-ink-lite) 82%, var(--rid-gold));
+  letter-spacing: 0.03em;
+  fill: color-mix(in srgb, var(--rid-ink-lite) 78%, var(--rid-gold));
 }
 
+/* —— SAVEN center —— */
 .rid__node-plate--saven {
-  stroke: color-mix(in srgb, var(--rid-gold) 70%, #4a5a40);
-  stroke-width: 1.6;
+  stroke: color-mix(in srgb, var(--rid-gold) 82%, #4a5a40);
+  stroke-width: 2;
 }
 
 .rid__saven-frame {
   fill: none;
-  stroke: color-mix(in srgb, var(--rid-gold) 40%, transparent);
+  stroke: color-mix(in srgb, var(--rid-gold) 45%, transparent);
   stroke-width: 1;
-  opacity: 0.55;
+  opacity: 0.6;
+}
+
+.rid__saven-corner {
+  stroke: var(--rid-gold);
+  stroke-width: 1.8;
+  opacity: 0.9;
 }
 
 .rid__node-label--saven {
   font-family: var(--font-sans);
-  font-size: 15px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
   fill: #fff8e8;
   paint-order: stroke fill;
-  stroke: color-mix(in srgb, #0b1220 55%, transparent);
-  stroke-width: 2.5px;
+  stroke: color-mix(in srgb, #0b1220 60%, transparent);
+  stroke-width: 2.8px;
 }
 
 .rid__saven-ring {
   fill: none;
-  stroke: color-mix(in srgb, var(--rid-gold) 85%, transparent);
-  stroke-width: 1.5;
+  stroke: color-mix(in srgb, var(--rid-gold) 90%, transparent);
+  stroke-width: 1.65;
   transform-box: fill-box;
   transform-origin: center;
 }
 
 .rid__saven-ring--outer {
-  stroke: color-mix(in srgb, var(--rid-blue) 55%, var(--rid-gold));
-  stroke-width: 1.1;
-  opacity: 0.55;
+  stroke: color-mix(in srgb, var(--rid-blue) 60%, var(--rid-gold));
+  stroke-width: 1.25;
+  opacity: 0.6;
+}
+
+.rid__saven-ring--halo {
+  stroke: color-mix(in srgb, var(--rid-teal) 45%, var(--rid-gold));
+  stroke-width: 1;
+  opacity: 0.4;
+  stroke-dasharray: 3 5;
 }
 
 .rid__saven-core-glow,
@@ -164,12 +257,56 @@
 }
 
 .rid__saven-core-shine {
-  fill: color-mix(in srgb, #fff6d6 40%, transparent);
+  fill: color-mix(in srgb, #fff6d6 48%, transparent);
 }
 
+/* —— Device nodes —— */
 .rid__device-plate {
-  stroke: color-mix(in srgb, var(--rid-blue) 42%, #3a4a60);
-  stroke-width: 1.15;
+  stroke-width: 1.35;
+}
+
+.rid__device-plate--manipulators {
+  stroke: color-mix(in srgb, var(--rid-manip) 55%, #3a4a30);
+}
+
+.rid__device-plate--mobileRobots {
+  stroke: color-mix(in srgb, var(--rid-mobile) 55%, #3a4a60);
+}
+
+.rid__device-plate--trolleyRobots {
+  stroke: color-mix(in srgb, var(--rid-trolley) 55%, #2a4a48);
+}
+
+.rid__device-plate--assistiveForms {
+  stroke: color-mix(in srgb, var(--rid-assist) 55%, #4a4030);
+}
+
+.rid__device-plate--sensors {
+  stroke: color-mix(in srgb, var(--rid-sensor) 55%, #2a4050);
+}
+
+.rid__device-accent-bar {
+  opacity: 0.95;
+}
+
+.rid__device-accent-bar--manipulators {
+  fill: var(--rid-manip);
+}
+
+.rid__device-accent-bar--mobileRobots {
+  fill: var(--rid-mobile);
+}
+
+.rid__device-accent-bar--trolleyRobots {
+  fill: var(--rid-trolley);
+}
+
+.rid__device-accent-bar--assistiveForms {
+  fill: var(--rid-assist);
+}
+
+.rid__device-accent-bar--sensors {
+  fill: var(--rid-sensor);
 }
 
 .rid__device-label {
@@ -180,44 +317,165 @@
   fill: var(--rid-ink-lite);
 }
 
-.rid__icon-fill {
-  fill: color-mix(in srgb, var(--rid-blue-soft) 70%, #9ab);
+/* —— Device icons (illustrated silhouettes) —— */
+.rid__icon-body {
+  fill: color-mix(in srgb, var(--rid-blue-soft) 55%, #8ab);
 }
 
-.rid__icon-fill--gold {
+.rid__icon--manipulators .rid__icon-body {
+  fill: color-mix(in srgb, var(--rid-manip) 45%, #6a7);
+}
+
+.rid__icon--mobile .rid__icon-body {
+  fill: color-mix(in srgb, var(--rid-mobile) 55%, #7ab);
+}
+
+.rid__icon--trolley .rid__icon-body {
+  fill: color-mix(in srgb, var(--rid-trolley) 50%, #6a9);
+}
+
+.rid__icon--assist .rid__icon-body-path {
+  fill: color-mix(in srgb, var(--rid-assist) 55%, #9a8);
+}
+
+.rid__icon--sensors .rid__icon-body {
+  fill: color-mix(in srgb, var(--rid-sensor) 50%, #7ab);
+}
+
+.rid__icon-accent {
   fill: var(--rid-gold);
 }
 
-.rid__icon-fill--warm {
-  fill: var(--rid-warm);
+.rid__icon--mobile .rid__icon-accent {
+  fill: color-mix(in srgb, var(--rid-mobile) 70%, #abc);
 }
 
-.rid__icon-stroke {
-  stroke: color-mix(in srgb, var(--rid-blue-soft) 75%, #cde);
-  stroke-width: 1.4;
+.rid__icon--trolley .rid__icon-accent {
+  fill: color-mix(in srgb, var(--rid-trolley) 65%, #8bc);
+}
+
+.rid__icon--trolley .rid__icon-cargo {
+  fill: color-mix(in srgb, var(--rid-gold) 70%, var(--rid-trolley));
+}
+
+.rid__icon--assist .rid__icon-accent {
+  fill: color-mix(in srgb, var(--rid-warm) 80%, var(--rid-gold));
+}
+
+.rid__icon--sensors .rid__icon-accent {
+  fill: color-mix(in srgb, var(--rid-sensor) 60%, #89a);
+}
+
+.rid__icon-joint {
+  fill: var(--rid-gold);
+}
+
+.rid__icon-joint--mid {
+  fill: var(--rid-amber);
+}
+
+.rid__icon-limb {
+  stroke: color-mix(in srgb, var(--rid-blue-soft) 80%, #cde);
+  stroke-width: 1.5;
   stroke-linecap: square;
   fill: none;
 }
 
-.rid__icon-stroke--thick {
-  stroke-width: 2.2;
+.rid__icon-limb--thick {
+  stroke-width: 2.4;
 }
 
-.rid__icon-stroke--warm {
+.rid__icon--manipulators .rid__icon-limb {
+  stroke: color-mix(in srgb, var(--rid-manip) 75%, #edc);
+}
+
+.rid__icon--trolley .rid__icon-limb {
+  stroke: color-mix(in srgb, var(--rid-trolley) 70%, #cde);
+}
+
+.rid__icon-limb--warm {
   stroke: var(--rid-warm);
-  stroke-width: 1.6;
+  stroke-width: 1.8;
 }
 
-.rid__icon-stroke--blue {
-  stroke: var(--rid-blue-soft);
-  stroke-width: 1.5;
-}
-
-.rid__icon-stroke--gold {
+.rid__icon-grip {
   stroke: var(--rid-gold);
+  stroke-width: 1.6;
+  stroke-linecap: square;
+}
+
+.rid__icon-dot {
+  fill: var(--rid-gold);
+}
+
+.rid__icon-dot--warm {
+  fill: var(--rid-warm-deep);
+}
+
+.rid__icon-lens {
+  fill: var(--rid-cyan);
+}
+
+.rid__icon-lens--alt {
+  fill: var(--rid-blue-soft);
+}
+
+.rid__icon-lens--core {
+  fill: color-mix(in srgb, var(--rid-sensor) 55%, #2a4050);
+  stroke: var(--rid-sensor);
+  stroke-width: 1.2;
+}
+
+.rid__icon-head {
+  fill: color-mix(in srgb, var(--rid-assist) 60%, #ba9);
+}
+
+.rid__icon-wheel-rim {
+  fill: none;
+  stroke: color-mix(in srgb, var(--rid-blue-soft) 70%, #cde);
   stroke-width: 1.5;
 }
 
+.rid__icon--mobile .rid__icon-wheel-rim {
+  stroke: color-mix(in srgb, var(--rid-mobile) 75%, #cde);
+}
+
+.rid__icon--trolley .rid__icon-wheel-rim {
+  stroke: color-mix(in srgb, var(--rid-trolley) 75%, #cde);
+}
+
+.rid__icon-wheel-hub {
+  fill: var(--rid-gold);
+}
+
+.rid__icon-spoke {
+  stroke: color-mix(in srgb, var(--rid-gold) 70%, transparent);
+  stroke-width: 1;
+}
+
+.rid__icon-divider {
+  stroke: color-mix(in srgb, var(--rid-trolley) 50%, transparent);
+  stroke-width: 1;
+}
+
+.rid__icon-arc {
+  stroke: var(--rid-sensor);
+  stroke-width: 1.4;
+  stroke-linecap: square;
+  opacity: 0.85;
+}
+
+.rid__icon-arc--b {
+  stroke: var(--rid-blue-soft);
+  opacity: 0.7;
+}
+
+.rid__icon-arc--c {
+  stroke: var(--rid-teal);
+  opacity: 0.6;
+}
+
+/* —— Cue + particles —— */
 .rid__cue {
   font-family: var(--font-sans);
   font-size: 12px;
@@ -225,14 +483,32 @@
   fill: color-mix(in srgb, var(--rid-ink-lite) 80%, var(--rid-gold));
 }
 
-.rid__particle--gold {
-  fill: var(--rid-gold);
+.rid__particle--manipulators {
+  fill: var(--rid-manip);
+}
+
+.rid__particle--mobileRobots {
+  fill: var(--rid-mobile);
+}
+
+.rid__particle--trolleyRobots {
+  fill: var(--rid-trolley);
+}
+
+.rid__particle--assistiveForms {
+  fill: var(--rid-assist);
+}
+
+.rid__particle--sensors {
+  fill: var(--rid-sensor);
+}
+
+.rid__particle--out {
   opacity: 0.95;
 }
 
-.rid__particle--blue {
-  fill: var(--rid-blue-soft);
-  opacity: 0.9;
+.rid__particle--in {
+  opacity: 0.7;
 }
 
 .rid__note {
@@ -243,79 +519,222 @@
   max-width: 48rem;
 }
 
+/* —— Motion (honors prefers-reduced-motion via .rid--motion gate) —— */
 @media (prefers-reduced-motion: no-preference) {
-  .rid--motion .rid__saven-ring {
-    animation: rid-ring 3.2s ease-in-out infinite;
+  .rid--motion .rid__device {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: rid-pop-in 0.7s ease-out both;
   }
 
-  .rid--motion .rid__saven-ring--outer {
-    animation: rid-ring-outer 4.2s ease-in-out infinite;
+  .rid--motion .rid__device--0 {
+    animation-delay: 0.05s;
   }
 
-  .rid--motion .rid__saven-core {
-    animation: rid-core 3.2s ease-in-out infinite;
+  .rid--motion .rid__device--1 {
+    animation-delay: 0.15s;
   }
 
-  .rid--motion .rid__atmosphere--gold {
-    animation: rid-breathe 5.5s ease-in-out infinite;
+  .rid--motion .rid__device--2 {
+    animation-delay: 0.25s;
   }
 
-  .rid--motion .rid__ring-orbit {
-    animation: rid-orbit 18s linear infinite;
+  .rid--motion .rid__device--3 {
+    animation-delay: 0.35s;
   }
 
-  .rid--motion .rid__ring-orbit--outer {
-    animation: rid-orbit-rev 28s linear infinite;
-  }
-
-  .rid--motion .rid__path {
-    stroke-dasharray: 6 10;
-    animation: rid-dash 14s linear infinite;
-  }
-
-  .rid--motion .rid__path-pulse {
-    opacity: 0.55;
-    animation: rid-pulse-flow 3.6s linear infinite;
-  }
-
-  .rid--motion .rid__path-pulse--1 {
-    animation-delay: 0.55s;
-  }
-
-  .rid--motion .rid__path-pulse--2 {
-    animation-delay: 1.1s;
-  }
-
-  .rid--motion .rid__path-pulse--3 {
-    animation-delay: 1.65s;
-  }
-
-  .rid--motion .rid__path-pulse--4 {
-    animation-delay: 2.2s;
-  }
-
-  .rid--motion .rid__device-plate {
-    animation: rid-device 3.6s ease-in-out infinite;
-  }
-
-  .rid--motion .rid__device--1 .rid__device-plate {
+  .rid--motion .rid__device--4 {
     animation-delay: 0.45s;
   }
 
-  .rid--motion .rid__device--2 .rid__device-plate {
-    animation-delay: 0.9s;
+  .rid--motion .rid__node--saven {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: rid-saven-in 0.55s ease-out both;
   }
 
-  .rid--motion .rid__device--3 .rid__device-plate {
-    animation-delay: 1.35s;
+  .rid--motion .rid__saven-ring {
+    animation: rid-ring 3s ease-in-out infinite;
   }
 
-  .rid--motion .rid__device--4 .rid__device-plate {
-    animation-delay: 1.8s;
+  .rid--motion .rid__saven-ring--outer {
+    animation: rid-ring-outer 4s ease-in-out infinite;
   }
 
-  .rid--motion .rid__icon-fill--gold {
-    animation: rid-dot 2.4s ease-in-out infinite;
+  .rid--motion .rid__saven-ring--halo {
+    animation: rid-orbit 22s linear infinite;
+  }
+
+  .rid--motion .rid__saven-core {
+    animation: rid-core 2.8s ease-in-out infinite;
+  }
+
+  .rid--motion .rid__saven-core-glow {
+    animation: rid-core-glow 2.8s ease-in-out infinite;
+  }
+
+  .rid--motion .rid__atmosphere--gold {
+    animation: rid-breathe 5s ease-in-out infinite;
+  }
+
+  .rid--motion .rid__atmosphere--teal {
+    animation: rid-breathe 7s ease-in-out infinite reverse;
+  }
+
+  .rid--motion .rid__ring-orbit--main {
+    animation: rid-orbit 16s linear infinite;
+  }
+
+  .rid--motion .rid__ring-orbit--outer {
+    animation: rid-orbit-rev 26s linear infinite;
+  }
+
+  .rid--motion .rid__ring-orbit--halo {
+    animation: rid-orbit 36s linear infinite;
+  }
+
+  .rid--motion .rid__ring-bead {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: rid-bead-pulse 2.4s ease-in-out infinite;
+  }
+
+  .rid--motion .rid__ring-bead--1 {
+    animation-delay: 0.4s;
+  }
+
+  .rid--motion .rid__ring-bead--2 {
+    animation-delay: 0.8s;
+  }
+
+  .rid--motion .rid__ring-bead--3 {
+    animation-delay: 1.2s;
+  }
+
+  .rid--motion .rid__ring-bead--4 {
+    animation-delay: 1.6s;
+  }
+
+  .rid--motion .rid__path {
+    stroke-dasharray: 7 9;
+    animation: rid-dash 12s linear infinite;
+  }
+
+  .rid--motion .rid__path-pulse {
+    opacity: 0.65;
+    animation: rid-pulse-flow 3.2s linear infinite;
+  }
+
+  .rid--motion .rid__path-pulse--1 {
+    animation-delay: 0.5s;
+  }
+
+  .rid--motion .rid__path-pulse--2 {
+    animation-delay: 1s;
+  }
+
+  .rid--motion .rid__path-pulse--3 {
+    animation-delay: 1.5s;
+  }
+
+  .rid--motion .rid__path-pulse--4 {
+    animation-delay: 2s;
+  }
+
+  .rid--motion .rid__device-plate--manipulators {
+    animation: rid-device-manip 3.4s ease-in-out infinite;
+  }
+
+  .rid--motion .rid__device-plate--mobileRobots {
+    animation: rid-device-mobile 3.4s ease-in-out infinite 0.4s;
+  }
+
+  .rid--motion .rid__device-plate--trolleyRobots {
+    animation: rid-device-trolley 3.4s ease-in-out infinite 0.8s;
+  }
+
+  .rid--motion .rid__device-plate--assistiveForms {
+    animation: rid-device-assist 3.4s ease-in-out infinite 1.2s;
+  }
+
+  .rid--motion .rid__device-plate--sensors {
+    animation: rid-device-sensor 3.4s ease-in-out infinite 1.6s;
+  }
+
+  .rid--motion .rid__device-accent-bar {
+    animation: rid-accent-pulse 2.8s ease-in-out infinite;
+  }
+
+  .rid--motion .rid__device--1 .rid__device-accent-bar {
+    animation-delay: 0.35s;
+  }
+
+  .rid--motion .rid__device--2 .rid__device-accent-bar {
+    animation-delay: 0.7s;
+  }
+
+  .rid--motion .rid__device--3 .rid__device-accent-bar {
+    animation-delay: 1.05s;
+  }
+
+  .rid--motion .rid__device--4 .rid__device-accent-bar {
+    animation-delay: 1.4s;
+  }
+
+  /* Icon micro-motion */
+  .rid--motion .rid__icon-arm {
+    transform-origin: -2px 0px;
+    animation: rid-arm-swing 3.6s ease-in-out infinite;
+  }
+
+  .rid--motion .rid__icon-wheel--l,
+  .rid--motion .rid__icon-wheel--r {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: rid-wheel-spin 2.8s linear infinite;
+  }
+
+  .rid--motion .rid__icon-wheel--r {
+    animation-direction: reverse;
+  }
+
+  .rid--motion .rid__icon-arc--a {
+    animation: rid-arc-pulse 2.2s ease-in-out infinite;
+  }
+
+  .rid--motion .rid__icon-arc--b {
+    animation: rid-arc-pulse 2.2s ease-in-out infinite 0.35s;
+  }
+
+  .rid--motion .rid__icon-arc--c {
+    animation: rid-arc-pulse 2.2s ease-in-out infinite 0.7s;
+  }
+
+  .rid--motion .rid__icon-dot,
+  .rid--motion .rid__icon-joint {
+    animation: rid-dot 2.2s ease-in-out infinite;
+  }
+}
+
+@keyframes rid-pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.86);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes rid-saven-in {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
@@ -327,19 +746,19 @@
   }
   50% {
     opacity: 1;
-    transform: scale(1.04);
+    transform: scale(1.05);
   }
 }
 
 @keyframes rid-ring-outer {
   0%,
   100% {
-    opacity: 0.45;
+    opacity: 0.5;
     transform: scale(1);
   }
   50% {
-    opacity: 0.7;
-    transform: scale(1.06);
+    opacity: 0.75;
+    transform: scale(1.07);
   }
 }
 
@@ -349,14 +768,24 @@
     opacity: 1;
   }
   50% {
-    opacity: 0.88;
+    opacity: 0.86;
+  }
+}
+
+@keyframes rid-core-glow {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 0.9;
   }
 }
 
 @keyframes rid-breathe {
   0%,
   100% {
-    opacity: 0.85;
+    opacity: 0.8;
   }
   50% {
     opacity: 1;
@@ -365,13 +794,13 @@
 
 @keyframes rid-orbit {
   to {
-    stroke-dashoffset: -140;
+    stroke-dashoffset: -150;
   }
 }
 
 @keyframes rid-orbit-rev {
   to {
-    stroke-dashoffset: 160;
+    stroke-dashoffset: 170;
   }
 }
 
@@ -383,24 +812,112 @@
 
 @keyframes rid-pulse-flow {
   to {
-    stroke-dashoffset: -52;
+    stroke-dashoffset: -50;
   }
 }
 
-@keyframes rid-device {
+@keyframes rid-bead-pulse {
   0%,
   100% {
-    stroke: color-mix(in srgb, var(--rid-blue) 42%, #3a4a60);
+    opacity: 0.5;
+    transform: scale(0.85);
   }
   50% {
-    stroke: color-mix(in srgb, var(--rid-gold) 55%, var(--rid-blue));
+    opacity: 1;
+    transform: scale(1.25);
+  }
+}
+
+@keyframes rid-device-manip {
+  0%,
+  100% {
+    stroke: color-mix(in srgb, var(--rid-manip) 55%, #3a4a30);
+  }
+  50% {
+    stroke: color-mix(in srgb, var(--rid-manip) 90%, #fff);
+  }
+}
+
+@keyframes rid-device-mobile {
+  0%,
+  100% {
+    stroke: color-mix(in srgb, var(--rid-mobile) 55%, #3a4a60);
+  }
+  50% {
+    stroke: color-mix(in srgb, var(--rid-mobile) 90%, #fff);
+  }
+}
+
+@keyframes rid-device-trolley {
+  0%,
+  100% {
+    stroke: color-mix(in srgb, var(--rid-trolley) 55%, #2a4a48);
+  }
+  50% {
+    stroke: color-mix(in srgb, var(--rid-trolley) 90%, #fff);
+  }
+}
+
+@keyframes rid-device-assist {
+  0%,
+  100% {
+    stroke: color-mix(in srgb, var(--rid-assist) 55%, #4a4030);
+  }
+  50% {
+    stroke: color-mix(in srgb, var(--rid-assist) 90%, #fff);
+  }
+}
+
+@keyframes rid-device-sensor {
+  0%,
+  100% {
+    stroke: color-mix(in srgb, var(--rid-sensor) 55%, #2a4050);
+  }
+  50% {
+    stroke: color-mix(in srgb, var(--rid-sensor) 90%, #fff);
+  }
+}
+
+@keyframes rid-accent-pulse {
+  0%,
+  100% {
+    opacity: 0.75;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes rid-arm-swing {
+  0%,
+  100% {
+    transform: rotate(-6deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+}
+
+@keyframes rid-wheel-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rid-arc-pulse {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
   }
 }
 
 @keyframes rid-dot {
   0%,
   100% {
-    opacity: 0.75;
+    opacity: 0.7;
   }
   50% {
     opacity: 1;

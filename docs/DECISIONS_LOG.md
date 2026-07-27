@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-27 (D-0189 — Robotics Interface content + hub diagram)
+**Last updated:** 2026-07-27 (D-0190 — Robotics Interface diagram visual enrichment)
 
 ## Rules
 
@@ -205,6 +205,7 @@
 | D-0187 | 2026-07-26 | Admin Media library filter chip contrast (light/dark) | Active |
 | D-0188 | 2026-07-27 | Footer Architecture column — Systems depth map | Active |
 | D-0189 | 2026-07-27 | SAVEN Robotics Interface — interoperability copy + hub diagram | Active |
+| D-0190 | 2026-07-27 | Robotics Interface diagram — color, motion, device illustration | Active |
 
 ---
 
@@ -1692,6 +1693,15 @@
 - **In scope:** Flagship Robotics Interface brochure copy; `RoboticsInterfaceDiagram` + CSS; hub `diagram` kind wiring; diagram labels + flagship dictionary patch; D-0189 + AGENTS / IA brief pointer; `tsc`/smoke; commit/push; production deploy.
 - **Out of scope:** Invented photography/logo assets; claiming Operational/commercial availability; neon/glow excess; merging `/systems/robotics-layer/` with the Interface workstream; Labs diagram redesign; CMS.
 - **Implications:** Robotics Interface page teaches interoperability and common-task coordination visually and in copy; agents treat the diagram as architecture storytelling only.
+
+### D-0190 — Robotics Interface diagram visual enrichment
+
+- **Date:** 2026-07-27
+- **Status:** Active
+- **Decision:** Owner requests richer color differentiation, more dynamism, and clearer robot/device visuals on the SAVEN Robotics Interface hub diagram (`RoboticsInterfaceDiagram`). Enrich within approved navy/gold/blue/teal palette — no neon/glow excess. Per-device accent colors and illustrated SVG silhouettes (manipulator arm, mobile base, trolley, assistive care form, sensor array). Stronger SAVEN center and more visible interface ring. Intentional motion: staggered node pop-in, ring orbit beads, bidirectional link traffic, icon micro-motion; respect `prefers-reduced-motion`. Architecture claims remain **In Development**; device classes stay concepts, not products.
+- **In scope:** `RoboticsInterfaceDiagram` + CSS; D-0190 + AGENTS / IA brief pointer; type-check; commit/push; production deploy.
+- **Out of scope:** Copy/localization changes; inventing products/fleets/metrics; neon excess; Labs diagram redesign; CMS.
+- **Implications:** Diagram remains architecture storytelling with clearer visual device types and motion hierarchy.
 
 ## Pending Owner Decisions
 

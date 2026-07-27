@@ -270,6 +270,7 @@ export const uiRu: UiMessages = {
     mediaFilterAll: "Все",
     mediaFilterAllFiles: "Все файлы",
     mediaFilterVideos: "Видео",
+    mediaFilterDocs: "Документы",
     mediaFilterLinks: "Ссылки",
     mediaEmptyFilter: "В этом фильтре нет элементов.",
     mediaEmptyLibrary: "Пока пусто. Загрузите файл или добавьте URL видео выше.",
@@ -284,7 +285,7 @@ export const uiRu: UiMessages = {
     mediaCatLink: "Ссылка",
     mediaCatOther: "Другое",
     mediaDeleteConfirm:
-      "Удалить этот элемент из библиотеки? Встроенные брендовые ассеты удалить нельзя.",
+      "Удалить этот элемент из библиотеки? Встроенные записи скрываются из списков (файлы сайта в /public сохраняются).",
     mediaDeleteSuccess: "Удалено.",
     mediaDeleteError: "Не удалось удалить этот элемент.",
     actionDelete: "Удалить",
@@ -510,10 +511,19 @@ export const uiRu: UiMessages = {
   },
 
   media: {
+    galleryTitle: "Библиотека",
+    galleryLead:
+      "Смотрите одобренные видео, документы и ссылки. Откройте для просмотра или скачайте файлы.",
+    filterAll: "Все",
+    filterVideos: "Видео",
+    filterDocs: "Документы",
+    filterLinks: "Ссылки",
     sectionVideos: "Видео",
     sectionDocuments: "Документы и презентации",
     sectionLinks: "Ссылки",
     sectionBrand: "Брендовые материалы",
+    emptyAll:
+      "Публичная библиотека сейчас пуста. Одобренные материалы появятся здесь после добавления.",
     emptyVideos:
       "В публичной библиотеке пока нет видео. Одобренные загрузки появятся здесь.",
     emptyDocuments:
@@ -522,6 +532,7 @@ export const uiRu: UiMessages = {
       "Отобранные ссылки появятся здесь, когда их добавят в общую медиатеку.",
     emptyBrand: "Брендовые материалы загружаются из библиотеки сайта.",
     preview: "Просмотр",
+    view: "Смотреть",
     download: "Скачать",
     copy: "Копировать ссылку",
     share: "Поделиться",
@@ -530,5 +541,11 @@ export const uiRu: UiMessages = {
     shared: "Открыто окно «Поделиться».",
     downloadStarted: "Скачивание начато.",
     actionFailed: "Не удалось выполнить действие.",
+    badgeImage: "Изображение",
+    badgeVideo: "Видео",
+    badgeDocument: "Документ",
+    badgePresentation: "Презентация",
+    badgeLink: "Ссылка",
+    badgeOther: "Файл",
   },
 };

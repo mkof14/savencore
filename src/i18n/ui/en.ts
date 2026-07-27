@@ -294,6 +294,7 @@ export const uiEn = {
     mediaFilterAll: "All",
     mediaFilterAllFiles: "All files",
     mediaFilterVideos: "Videos",
+    mediaFilterDocs: "Docs",
     mediaFilterLinks: "Links",
     mediaEmptyFilter: "No items in this filter.",
     mediaEmptyLibrary: "No items yet. Upload a file or add a video URL above.",
@@ -308,7 +309,7 @@ export const uiEn = {
     mediaCatLink: "Link",
     mediaCatOther: "Other",
     mediaDeleteConfirm:
-      "Delete this item from the library? Built-in brand assets cannot be deleted.",
+      "Delete this item from the library? Built-in catalog rows are hidden from lists (site files under /public are kept).",
     mediaDeleteSuccess: "Deleted.",
     mediaDeleteError: "Could not delete this item.",
     colName: "Name",
@@ -531,10 +532,19 @@ export const uiEn = {
   },
 
   media: {
+    galleryTitle: "Library",
+    galleryLead:
+      "Browse approved videos, documents, and links. Open to view, or download files for offline use.",
+    filterAll: "All",
+    filterVideos: "Videos",
+    filterDocs: "Docs",
+    filterLinks: "Links",
     sectionVideos: "Videos",
     sectionDocuments: "Documents & presentations",
     sectionLinks: "Links",
     sectionBrand: "Brand assets",
+    emptyAll:
+      "The public library is empty right now. Approved materials will appear here when added.",
     emptyVideos:
       "No videos in the public library yet. Approved uploads will appear here.",
     emptyDocuments:
@@ -543,6 +553,7 @@ export const uiEn = {
       "Curated links will appear here when added to the shared media library.",
     emptyBrand: "Brand assets are loading from the site library.",
     preview: "Preview",
+    view: "View",
     download: "Download",
     copy: "Copy link",
     share: "Share",
@@ -551,6 +562,12 @@ export const uiEn = {
     shared: "Share sheet opened.",
     downloadStarted: "Download started.",
     actionFailed: "Action could not be completed.",
+    badgeImage: "Image",
+    badgeVideo: "Video",
+    badgeDocument: "Document",
+    badgePresentation: "Presentation",
+    badgeLink: "Link",
+    badgeOther: "File",
   },
 } as const;
 

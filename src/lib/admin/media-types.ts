@@ -34,9 +34,17 @@ export function mediaVisibility(item: MediaItem): MediaVisibility {
   return item.visibility ?? "public";
 }
 
-/** Seed catalog rows (brand assets + curated site links) — not deletable. */
-export function isProtectedMediaItem(item: MediaItem): boolean {
+/**
+ * Built-in catalog rows (brand assets + curated site links).
+ * D-0186: deletable via soft-hide (files under /public are not removed).
+ */
+export function isSeedMediaItem(item: MediaItem): boolean {
   return item.source === "seed" || item.id.startsWith("seed-");
+}
+
+/** @deprecated Use isSeedMediaItem — seeds are no longer hard-protected from delete (D-0186). */
+export function isProtectedMediaItem(item: MediaItem): boolean {
+  return isSeedMediaItem(item);
 }
 
 export function mediaPreviewKind(

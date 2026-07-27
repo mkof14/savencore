@@ -19,7 +19,7 @@ import {
   titleFromFilename,
 } from "@/lib/admin/media-embed";
 import {
-  isProtectedMediaItem,
+  isSeedMediaItem,
   MEDIA_MAX_UPLOAD_BYTES,
   MEDIA_UPLOAD_ACCEPT,
   MEDIA_VERCEL_BODY_LIMIT_BYTES,
@@ -31,7 +31,7 @@ import {
 } from "@/lib/admin/media-types";
 
 type AddTab = "file" | "video" | "link";
-type LibraryTab = "all" | "video" | "link";
+type LibraryTab = "all" | "video" | "docs" | "link";
 
 type MediaLibraryClientProps = {
   locale: Locale;
@@ -78,13 +78,19 @@ export function MediaLibraryClient({
   const [pending, startTransition] = useTransition();
   const canUpload =
     canPerform(role, "media_upload") && canManageMedia && storageWritable;
-  const canDelete =
-    canPerform(role, "media_upload") && canManageMedia && storageWritable;
+  /** Delete control always visible for operators with manage_media (D-0186). */
+  const canDelete = canPerform(role, "media_upload") && canManageMedia;
   const showUploadChrome = canPerform(role, "media_upload") && canManageMedia;
 
   const filtered = useMemo(() => {
     if (libraryTab === "all") {
       return items;
+    }
+    if (libraryTab === "docs") {
+      return items.filter(
+        (item) =>
+          item.category === "document" || item.category === "presentation",
+      );
     }
     return items.filter((item) => item.category === libraryTab);
   }, [items, libraryTab]);
@@ -323,7 +329,7 @@ export function MediaLibraryClient({
   }
 
   async function onDelete(item: MediaItem) {
-    if (!canDelete || isProtectedMediaItem(item)) {
+    if (!canDelete) {
       return;
     }
     if (!window.confirm(ui.admin.mediaDeleteConfirm)) {
@@ -496,7 +502,7 @@ export function MediaLibraryClient({
               ) : null}
               <button
                 type="submit"
-                className="admin-btn admin-btn--primary"
+                className="admin-btn admin-btn--media-cta"
                 disabled={pending || !canUpload || !pendingFile}
               >
                 {pending ? ui.admin.mediaUploading : ui.admin.mediaUploadNow}
@@ -554,7 +560,7 @@ export function MediaLibraryClient({
                 ) : null}
                 <button
                   type="submit"
-                  className="admin-btn admin-btn--primary"
+                  className="admin-btn admin-btn--media-cta"
                   disabled={pending || !canUpload || !videoUrl.trim()}
                 >
                   {pending ? ui.admin.mediaUploading : ui.admin.mediaSaveVideo}
@@ -610,7 +616,7 @@ export function MediaLibraryClient({
                 ) : null}
                 <button
                   type="submit"
-                  className="admin-btn"
+                  className="admin-btn admin-btn--media-cta admin-btn--media-cta-secondary"
                   disabled={pending || !canUpload || !videoFile}
                 >
                   {pending ? ui.admin.mediaUploading : ui.admin.mediaUploadNow}
@@ -657,7 +663,7 @@ export function MediaLibraryClient({
               />
               <button
                 type="submit"
-                className="admin-btn admin-btn--primary"
+                className="admin-btn admin-btn--media-cta"
                 disabled={pending || !canUpload || !linkUrl.trim()}
               >
                 {pending ? ui.admin.mediaUploading : ui.admin.mediaSaveLink}
@@ -683,6 +689,7 @@ export function MediaLibraryClient({
               [
                 ["all", ui.admin.mediaFilterAllFiles],
                 ["video", ui.admin.mediaFilterVideos],
+                ["docs", ui.admin.mediaFilterDocs],
                 ["link", ui.admin.mediaFilterLinks],
               ] as const
             ).map(([id, label]) => (
@@ -716,9 +723,7 @@ export function MediaLibraryClient({
                 </tr>
               </thead>
               <tbody>
-                {filtered.map((item) => {
-                  const deletable = canDelete && !isProtectedMediaItem(item);
-                  return (
+                {filtered.map((item) => (
                     <tr key={item.id}>
                       <td>
                         <div className="admin-media-table__name">
@@ -732,7 +737,7 @@ export function MediaLibraryClient({
                             ) : null}
                             <p className="admin-card__meta">
                               {mediaVisibility(item)}
-                              {isProtectedMediaItem(item)
+                              {isSeedMediaItem(item)
                                 ? ` · ${ui.admin.mediaSourceSeed}`
                                 : ""}
                             </p>
@@ -764,7 +769,7 @@ export function MediaLibraryClient({
                           >
                             {ui.admin.mediaCopyLink}
                           </button>
-                          {deletable ? (
+                          {canDelete ? (
                             <button
                               type="button"
                               className="admin-btn admin-btn--danger"
@@ -777,8 +782,7 @@ export function MediaLibraryClient({
                         </div>
                       </td>
                     </tr>
-                  );
-                })}
+                  ))}
               </tbody>
             </table>
           </div>
@@ -821,7 +825,7 @@ export function MediaLibraryClient({
               >
                 {ui.admin.mediaOpen}
               </button>
-              {canDelete && !isProtectedMediaItem(preview) ? (
+              {canDelete ? (
                 <button
                   type="button"
                   className="admin-btn admin-btn--danger"

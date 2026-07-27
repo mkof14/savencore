@@ -207,6 +207,7 @@ export const uiUk: UiMessages = {
     mediaFilterAll: "Усі",
     mediaFilterAllFiles: "Усі файли",
     mediaFilterVideos: "Відео",
+    mediaFilterDocs: "Документи",
     mediaFilterLinks: "Посилання",
     mediaEmptyFilter: "У цьому фільтрі немає елементів.",
     mediaEmptyLibrary: "Поки порожньо. Завантажте файл або додайте URL відео вище.",
@@ -221,7 +222,7 @@ export const uiUk: UiMessages = {
     mediaCatLink: "Посилання",
     mediaCatOther: "Інше",
     mediaDeleteConfirm:
-      "Видалити цей елемент з бібліотеки? Вбудовані брендові ассети видалити не можна.",
+      "Видалити цей елемент з бібліотеки? Вбудовані записи ховаються зі списків (файли сайту в /public зберігаються).",
     mediaDeleteSuccess: "Видалено.",
     mediaDeleteError: "Не вдалося видалити цей елемент.",
     colDate: "Дата",
@@ -405,10 +406,19 @@ export const uiUk: UiMessages = {
   },
 
   media: {
+    galleryTitle: "Бібліотека",
+    galleryLead:
+      "Переглядайте схвалені відео, документи та посилання. Відкрийте для перегляду або завантажте файли.",
+    filterAll: "Усі",
+    filterVideos: "Відео",
+    filterDocs: "Документи",
+    filterLinks: "Посилання",
     sectionVideos: "Відео",
     sectionDocuments: "Документи та презентації",
     sectionLinks: "Посилання",
     sectionBrand: "Брендові матеріали",
+    emptyAll:
+      "Публічна бібліотека зараз порожня. Схвалені матеріали з’являться тут після додавання.",
     emptyVideos:
       "У публічній бібліотеці ще немає відео. Схвалені завантаження з’являться тут.",
     emptyDocuments:
@@ -417,6 +427,7 @@ export const uiUk: UiMessages = {
       "Відібрані посилання з’являться тут, коли їх додадуть до спільної медіатеки.",
     emptyBrand: "Брендові матеріали завантажуються з бібліотеки сайту.",
     preview: "Перегляд",
+    view: "Дивитися",
     download: "Завантажити",
     copy: "Копіювати посилання",
     share: "Поділитися",
@@ -425,5 +436,11 @@ export const uiUk: UiMessages = {
     shared: "Відкрито вікно «Поділитися».",
     downloadStarted: "Завантаження розпочато.",
     actionFailed: "Не вдалося виконати дію.",
+    badgeImage: "Зображення",
+    badgeVideo: "Відео",
+    badgeDocument: "Документ",
+    badgePresentation: "Презентація",
+    badgeLink: "Посилання",
+    badgeOther: "Файл",
   },
 };

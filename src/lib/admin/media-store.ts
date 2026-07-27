@@ -11,7 +11,6 @@ import type {
 import {
   inferMimeType,
   isAllowedUpload,
-  isProtectedMediaItem,
   MEDIA_MAX_UPLOAD_BYTES,
   mediaVisibility,
 } from "@/lib/admin/media-types";
@@ -21,6 +20,7 @@ export {
   inferMimeType,
   isAllowedUpload,
   isProtectedMediaItem,
+  isSeedMediaItem,
   mediaPreviewKind,
   mediaVisibility,
   MEDIA_FILTER_CATEGORIES,
@@ -33,6 +33,8 @@ export {
 const STORAGE_ROOT = path.join(process.cwd(), "storage", "admin-media");
 const FILES_DIR = path.join(STORAGE_ROOT, "files");
 const INDEX_PATH = path.join(STORAGE_ROOT, "index.json");
+/** Soft-hidden seed / curated catalog IDs (D-0186) — does not delete /public files. */
+const HIDDEN_PATH = path.join(STORAGE_ROOT, "hidden.json");
 
 /** Seed catalog — real brand / site assets already in the repo (not invented KPIs). */
 const SEED_ITEMS: readonly MediaItem[] = [
@@ -166,6 +168,28 @@ async function writeUploadIndex(items: MediaItem[]): Promise<void> {
   await fs.writeFile(INDEX_PATH, `${JSON.stringify(items, null, 2)}\n`, "utf8");
 }
 
+async function readHiddenIds(): Promise<Set<string>> {
+  await ensureStorage();
+  try {
+    const raw = await fs.readFile(HIDDEN_PATH, "utf8");
+    const parsed = JSON.parse(raw) as unknown;
+    if (!Array.isArray(parsed)) {
+      return new Set();
+    }
+    return new Set(
+      parsed.filter((value): value is string => typeof value === "string"),
+    );
+  } catch {
+    return new Set();
+  }
+}
+
+async function writeHiddenIds(ids: Set<string>): Promise<void> {
+  await ensureStorage();
+  const sorted = [...ids].sort();
+  await fs.writeFile(HIDDEN_PATH, `${JSON.stringify(sorted, null, 2)}\n`, "utf8");
+}
+
 export function guessCategory(mimeType: string, name: string): MediaCategory {
   const mime = inferMimeType(name, mimeType).toLowerCase();
   if (mime.startsWith("image/") || /\.(png|jpe?g|webp|gif|svg)$/i.test(name)) {
@@ -221,9 +245,13 @@ async function withSeedSizes(seeds: readonly MediaItem[]): Promise<MediaItem[]> 
 }
 
 export async function listMediaItems(): Promise<MediaItem[]> {
-  const uploads = await readUploadIndex();
-  const seeds = await withSeedSizes(SEED_ITEMS);
-  return [...seeds, ...uploads].sort((a, b) =>
+  const [uploads, seeds, hidden] = await Promise.all([
+    readUploadIndex(),
+    withSeedSizes(SEED_ITEMS),
+    readHiddenIds(),
+  ]);
+  const visibleSeeds = seeds.filter((item) => !hidden.has(item.id));
+  return [...visibleSeeds, ...uploads].sort((a, b) =>
     b.createdAt.localeCompare(a.createdAt),
   );
 }
@@ -451,14 +479,6 @@ export type DeleteResult =
   | { ok: false; error: string; code: "not_found" | "forbidden" | "storage_unavailable" };
 
 export async function deleteMediaItem(id: string): Promise<DeleteResult> {
-  if (id.startsWith("seed-")) {
-    return {
-      ok: false,
-      error: "Seed brand assets and curated catalog links cannot be deleted.",
-      code: "forbidden",
-    };
-  }
-
   if (!mediaStoreIsWritableHost()) {
     return {
       ok: false,
@@ -469,17 +489,25 @@ export async function deleteMediaItem(id: string): Promise<DeleteResult> {
   }
 
   try {
+    // Built-in catalog: soft-hide from admin + public lists (keep /public files).
+    if (id.startsWith("seed-") || SEED_ITEMS.some((item) => item.id === id)) {
+      const known = SEED_ITEMS.some((item) => item.id === id);
+      if (!known) {
+        return { ok: false, error: "Not found.", code: "not_found" };
+      }
+      const hidden = await readHiddenIds();
+      if (hidden.has(id)) {
+        return { ok: false, error: "Not found.", code: "not_found" };
+      }
+      hidden.add(id);
+      await writeHiddenIds(hidden);
+      return { ok: true };
+    }
+
     const index = await readUploadIndex();
     const existing = index.find((item) => item.id === id);
     if (!existing) {
       return { ok: false, error: "Not found.", code: "not_found" };
-    }
-    if (isProtectedMediaItem(existing)) {
-      return {
-        ok: false,
-        error: "Seed brand assets and curated catalog links cannot be deleted.",
-        code: "forbidden",
-      };
     }
 
     if (existing.storageKey) {

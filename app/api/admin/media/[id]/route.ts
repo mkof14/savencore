@@ -52,7 +52,7 @@ export async function DELETE(_request: Request, context: RouteContext) {
     );
   }
 
-  // editor+ rank and granular manage_media (D-0183 / D-0185).
+  // editor+ rank and granular manage_media (D-0183 / D-0186 — all rows including seed soft-hide).
   if (
     !canPerform(gate.role, "media_upload") ||
     !(await roleHasPermission(gate.role, "manage_media"))

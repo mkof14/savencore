@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-26 (D-0185 — Admin Media traditional CMS UX + video/delete fixes)
+**Last updated:** 2026-07-26 (D-0186 — Admin Media delete-all + upload CTAs + public Media viewer)
 
 ## Rules
 
@@ -201,6 +201,7 @@
 | D-0183 | 2026-07-26 | Expanded email templates + public/admin Media library | Active |
 | D-0184 | 2026-07-26 | Admin Media simplified Add content UX (File / Video / Link) | Active |
 | D-0185 | 2026-07-26 | Admin Media traditional CMS UX + video/delete fixes | Active |
+| D-0186 | 2026-07-26 | Admin Media delete-all + upload CTAs + public Media viewer | Active |
 
 ---
 
@@ -1652,6 +1653,15 @@
 - **In scope:** `MediaLibraryClient` + admin CSS; media types/store/API; CSP in `next.config.ts`; admin media page props; `src/i18n/ui/*`; `docs/ADMIN_PLATFORM.md` + D-0185 + AGENTS phase pointer; `tsc`; commit/push; production deploy.
 - **Out of scope:** S3/Blob object storage; inventing catalog videos; public Media delete; neon/glow; Experience Redesign hero freeze (D-0175); auth/RBAC hierarchy redesign.
 - **Implications:** Supersedes D-0184 UX presentation (same library, clearer CMS grammar). Production Vercel still cannot persist new library rows until object storage; local `storage/admin-media/` remains the writable path.
+
+### D-0186 — Admin Media delete-all + upload CTAs + public Media viewer
+
+- **Date:** 2026-07-26
+- **Status:** Active
+- **Decision:** Owner authorizes (1) **Delete for every library row** managed by operators with `manage_media` / editor+ — including seed/`seed-*` catalog rows — via confirm dialog; seed deletes **soft-hide** from admin + public lists (`storage/admin-media/hidden.json`) without removing `/public` brand files; upload/link rows hard-delete as before; Delete always visible when permitted (honest storage errors on Vercel); (2) **visible Upload CTAs** — navy/gold elevated panels, tab chrome, large primary buttons with subtle shadows, straight corners; (3) **public `/[locale]/media/` viewer redesign** — gallery hero context, filters All / Videos / Docs / Links, card grid with thumbnails, large play affordance for video, prominent View + Download, type badges, polished empty states. Keep honest Vercel FS durability note. No invented media titles/metrics.
+- **In scope:** `MediaLibraryClient` + admin CSS; media types/store/API delete; public `MediaPage` + CSS; `src/i18n/ui/*`; `docs/ADMIN_PLATFORM.md` + D-0186 + AGENTS phase pointer; `tsc`; commit/push; production deploy.
+- **Out of scope:** S3/Blob object storage; inventing catalog content; neon/glow; Experience Redesign hero freeze (D-0175); auth/RBAC hierarchy redesign.
+- **Implications:** Supersedes D-0185 seed delete protection. Soft-hidden seeds can be restored later by clearing `hidden.json` (operator tooling may follow). Production mutations still require writable FS (local) until durable storage.
 
 ## Pending Owner Decisions
 

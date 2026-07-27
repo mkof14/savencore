@@ -3,7 +3,13 @@ export type MediaCategory =
   | "video"
   | "document"
   | "presentation"
+  | "link"
   | "other";
+
+export type MediaSource = "seed" | "upload" | "link";
+
+/** Public Media page may list public items; internal stays admin-only. */
+export type MediaVisibility = "public" | "internal";
 
 export type MediaItem = {
   id: string;
@@ -12,17 +18,28 @@ export type MediaItem = {
   size: number;
   category: MediaCategory;
   createdAt: string;
-  source: "seed" | "upload";
+  source: MediaSource;
   /** Public URL path for seed assets under /public. */
   publicPath?: string;
   /** Relative filename under storage/admin-media/files for uploads. */
   storageKey?: string;
+  /** External or site URL for link entries. */
+  externalUrl?: string;
   description?: string;
+  /** Defaults to public for seeds/links; uploads default public for shared library. */
+  visibility?: MediaVisibility;
 };
+
+export function mediaVisibility(item: MediaItem): MediaVisibility {
+  return item.visibility ?? "public";
+}
 
 export function mediaPreviewKind(
   item: MediaItem,
-): "image" | "video" | "pdf" | "text" | "other" {
+): "image" | "video" | "pdf" | "text" | "link" | "other" {
+  if (item.category === "link" || item.source === "link" || item.externalUrl) {
+    return "link";
+  }
   if (item.mimeType.startsWith("image/")) {
     return "image";
   }
@@ -44,3 +61,16 @@ export function mediaPreviewKind(
   }
   return "other";
 }
+
+/** Accept attribute for the admin file input (honest supported types). */
+export const MEDIA_UPLOAD_ACCEPT =
+  "image/*,video/*,.pdf,.doc,.docx,.ppt,.pptx,.key,.txt,.md,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.ms-powerpoint,application/vnd.openxmlformats-officedocument.presentationml.presentation";
+
+export const MEDIA_FILTER_CATEGORIES: readonly MediaCategory[] = [
+  "image",
+  "video",
+  "document",
+  "presentation",
+  "link",
+  "other",
+] as const;

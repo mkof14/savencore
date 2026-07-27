@@ -266,6 +266,11 @@ export const DOMAIN_MASTHEAD_BY_HREF: Record<string, DomainMastheadVisual> = {
     mastheadImage: "/domain/company/scene-long-horizon.webp",
     mastheadAlt: "Calm modern horizon atmosphere for human conversation with SAVEN Core",
   },
+  "/media/": {
+    theme: "foundation",
+    mastheadImage: "/domain/company/scene-platform-craft.webp",
+    mastheadAlt: "Quiet platform craft atmosphere for SAVEN Core media materials",
+  },
 };
 
 const FALLBACK: DomainMastheadVisual = {

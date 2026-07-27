@@ -51,6 +51,7 @@ export const PUBLISHED_ROUTES = [
   "/systems/saven-robotics-interface/",
   "/investors/",
   "/contact/",
+  "/media/",
   "/auth/sign-in/",
   "/legal/",
   "/legal/privacy-policy/",

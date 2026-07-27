@@ -336,6 +336,7 @@ export const footerNavigation: readonly FooterGroup[] = [
       published("footer-company-about", "About", "/foundation/"),
       published("footer-company-mission", "Mission", "/purpose/"),
       published("footer-company-investors", "Investors", "/investors/"),
+      published("footer-company-media", "Media", "/media/"),
       published("footer-company-contact", "Contact", "/contact/"),
     ],
   },

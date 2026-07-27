@@ -69,7 +69,7 @@ export const uiHe: UiMessages = {
     "footer-trust-ethics": "אתיקה",
     "footer-company-about": "אודות",
     "footer-company-mission": "ייעוד",
-    "footer-company-contact": "יצירת קשר", "footer-company-investors": "משקיעים",
+    "footer-company-contact": "יצירת קשר", "footer-company-investors": "משקיעים", "footer-company-media": "מדיה",
     "footer-labs-overview": "סקירה",
     "footer-labs-saven-robotics-lab": "SAVEN Robotics Lab",
     "footer-labs-internal-future-lab": "Internal Future Lab",
@@ -145,6 +145,24 @@ export const uiHe: UiMessages = {
       "מחוברים כ-{role}. האתר הציבורי: {locales} שפות. סטטוס הניהול: בפיתוח.",
     emailTitle: "תבניות אימייל",
     mediaTitle: "ספריית מדיה",
+    mediaLead:
+      "העלאת וידאו, מסמכים, מצגות וקישורים. נכסי מותג בסיסיים מגיעים עם האתר; פריטים ציבוריים מופיעים ב־/media/.",
+    mediaNote:
+      "אחסון ענן עמיד הוא שלב מאוחר יותר. ב־Vercel מערכת הקבצים אינה עמידה — העלאות ואינדקס קישורים עלולים להיות לא זמינים או זמניים. מקומית: storage/admin-media/.",
+    mediaUploadHint:
+      "עורכים ומעלה · וידאו, PDF, Word, PowerPoint/Keynote · עד 40 מגה־בייט · אחסון מקומי",
+    mediaLinkHeading: "הוספת קישור",
+    mediaLinkTitle: "כותרת",
+    mediaLinkUrl: "https://…",
+    mediaLinkHint: "כתובת חיצונית או של האתר עם כותרת ברורה — בלי יעדים מומצאים.",
+    mediaLinkAdd: "הוסף קישור",
+    mediaLinkSuccess: "הקישור נוסף לספריית המדיה.",
+    mediaLinkError: "לא ניתן להוסיף קישור.",
+    mediaFilterAll: "הכול",
+    mediaEmptyFilter: "אין פריטים במסנן זה.",
+    mediaDeleteConfirm: "למחוק את פריט המדיה? לא ניתן למחוק נכסי מותג בסיסיים.",
+    mediaDeleteSuccess: "פריט המדיה נמחק.",
+    mediaDeleteError: "לא ניתן למחוק את פריט המדיה.",
     marketingTitle: "כלי שיווק",
     monitoringTitle: "ניטור טכני",
     actionPreview: "תצוגה מקדימה",
@@ -153,6 +171,7 @@ export const uiHe: UiMessages = {
     actionShare: "שיתוף",
     actionDownload: "הורדה",
     actionPdf: "PDF",
+    actionDelete: "מחיקה",
   },
 
   auth: {
@@ -319,5 +338,26 @@ export const uiHe: UiMessages = {
     submit: "פתיחה באפליקציית הדוא״ל",
     success: "אפליקציית הדוא״ל אמורה להיפתח עם ההודעה מוכנה לשליחה.",
     error: "נא למלא שם, דוא״ל והודעה.",
+  },
+
+  media: {
+    sectionVideos: "סרטונים",
+    sectionDocuments: "מסמכים ומצגות",
+    sectionLinks: "קישורים",
+    sectionBrand: "נכסי מותג",
+    emptyVideos: "אין עדיין סרטונים בספרייה הציבורית. העלאות מאושרות יופיעו כאן.",
+    emptyDocuments:
+      "אין עדיין מסמכים או מצגות. מפעילים יכולים להוסיף PDF ומצגות ב־Admin → מדיה.",
+    emptyLinks: "קישורים נבחרים יופיעו כאן כשיוספו לספריית המדיה המשותפת.",
+    emptyBrand: "נכסי המותג נטענים מספריית האתר.",
+    preview: "תצוגה מקדימה",
+    download: "הורדה",
+    copy: "העתקת קישור",
+    share: "שיתוף",
+    open: "פתיחה",
+    copied: "הקישור הועתק.",
+    shared: "גיליון השיתוף נפתח.",
+    downloadStarted: "ההורדה החלה.",
+    actionFailed: "לא ניתן להשלים את הפעולה.",
   },
 };

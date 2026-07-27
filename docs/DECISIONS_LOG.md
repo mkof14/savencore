@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-26 (D-0179 — Falcon domain presence + OG share defaults)
+**Last updated:** 2026-07-26 (D-0183 — Email templates + public Media + admin Media)
 
 ## Rules
 
@@ -195,6 +195,10 @@
 | D-0177 | 2026-07-26 | Owner always super_admin via demo operator / dev defaults | Active |
 | D-0178 | 2026-07-26 | Admin Platform expansion + branded email templates | Active |
 | D-0179 | 2026-07-26 | Falcon domain presence + OG share defaults | Active |
+| D-0180 | 2026-07-26 | Email templates restyled to owner example | Active |
+| D-0181 | 2026-07-26 | Footer Legal equal columns, More hub, socials bottom row | Active |
+| D-0182 | 2026-07-26 | Rename Applications “Home” leaf to Home Application | Active |
+| D-0183 | 2026-07-26 | Expanded email templates + public/admin Media library | Active |
 
 ---
 
@@ -1619,6 +1623,15 @@
   - **In scope:** `site-navigation` applications-home label; `src/i18n/ui/*` `applications-home`; EN page/entity/hub titles; locale page dictionaries; D-0182 note; commit/push/deploy when clean relative to concurrent D-0181 footer WIP.
   - **Out of scope:** URL slug change; inventing product/deployment claims; renaming the website homepage.
   - **Implications:** Footer/Applications hub cards, domain leaf label, and related-application entity title show Home Application in all ten locales.
+
+### D-0183 — Expanded email templates + public/admin Media library
+
+- **Date:** 2026-07-26
+- **Status:** Active
+- **Decision:** Owner authorizes (1) **additional English email templates** for business-life cases (event follow-up, research update, partnership follow-up, press-kit invite, care-domain newsletter variant, meeting thank-you, soft re-engagement, internal briefing), all wrapped in the D-0180 branded chrome and wired into Admin Templates + Mailings. Copy stays governance-safe (approved positioning; Research / Architecture / In Development status language only; no fake metrics, customers, or operational claims). (2) **Public Media hub** at `/[locale]/media/` — footer Company column link “Media”; marketing-polished Layer-1 visual grammar (navy/gold, falcon seal, atmospheric company masthead, straight corners); sections for Videos, Documents & presentations, Links, and Brand assets; preview / download / copy / share actions; premium empty states; content from the shared media library (seed brand assets + public uploads/links) without inventing press quotes or partner logos. (3) **Admin Media enhancement** — upload video/documents/presentations; add link entries (URL + title + type); filter by type; preview/download/copy/share/delete (mutations require editor+ / `media_upload`; seed assets not deletable); persist under `storage/admin-media/` with honest Vercel filesystem durability note; public file access for `visibility=public` items via `/api/media/[id]/`.
+- **In scope:** Email template modules; media types/store/API; Admin Media UI; public Media page + CSS + content dictionaries; footer / published-routes / sitemap; `src/i18n/ui/*`; `docs/ADMIN_PLATFORM.md` + D-0183 + AGENTS phase pointer; `tsc`/smoke; commit/push; production deploy.
+- **Out of scope:** Durable S3/DB media on Vercel; inventing press quotes, partner logos, operational product videos; final legal/policy prose; neon/glow; Experience Redesign hero freeze changes (D-0175).
+- **Implications:** Extends D-0176 / D-0178 / D-0180 admin media and email surfaces. Public `/media/` is a marketing content library, not a legal policy. Footer Company gains Media without disturbing Legal/More/socials layout (D-0181).
 
 ## Pending Owner Decisions
 

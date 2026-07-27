@@ -69,7 +69,7 @@ export const uiUk: UiMessages = {
     "footer-trust-ethics": "Етика",
     "footer-company-about": "Про компанію",
     "footer-company-mission": "Місія",
-    "footer-company-contact": "Контакти", "footer-company-investors": "Інвесторам",
+    "footer-company-contact": "Контакти", "footer-company-investors": "Інвесторам", "footer-company-media": "Медіа",
     "footer-labs-overview": "Огляд",
     "footer-labs-saven-robotics-lab": "SAVEN Robotics Lab",
     "footer-labs-internal-future-lab": "Internal Future Lab",
@@ -151,6 +151,24 @@ export const uiUk: UiMessages = {
     emailLead:
       "Шаблони для ділових сценаріїв у стилі SAVEN. Англійська канонічна; SMTP у цій фазі не налаштовано.",
     mediaTitle: "Медіатека",
+    mediaLead:
+      "Завантаження відео, документів, презентацій і посилань. Базові брендові файли йдуть із сайтом; публічні елементи видно на /media/.",
+    mediaNote:
+      "Хмарне сховище (S3 тощо) — наступна фаза. На Vercel файлова система недовговічна — завантаження й індекс посилань можуть бути недоступні або ефемерні. Локально: storage/admin-media/.",
+    mediaUploadHint:
+      "Редактор і вище · відео, PDF, Word, PowerPoint/Keynote · до 40 МБ · локальне сховище",
+    mediaLinkHeading: "Додати посилання",
+    mediaLinkTitle: "Назва",
+    mediaLinkUrl: "https://…",
+    mediaLinkHint: "Зовнішній або сайтний URL з зрозумілою назвою — без вигаданих адрес.",
+    mediaLinkAdd: "Додати посилання",
+    mediaLinkSuccess: "Посилання додано до медіатеки.",
+    mediaLinkError: "Не вдалося додати посилання.",
+    mediaFilterAll: "Усі",
+    mediaEmptyFilter: "У цьому фільтрі немає елементів.",
+    mediaDeleteConfirm: "Видалити цей медіафайл? Базові брендові ассети видалити не можна.",
+    mediaDeleteSuccess: "Медіафайл видалено.",
+    mediaDeleteError: "Не вдалося видалити медіафайл.",
     marketingTitle: "Маркетингові інструменти",
     monitoringTitle: "Технічний моніторинг",
     actionPreview: "Перегляд",
@@ -159,6 +177,7 @@ export const uiUk: UiMessages = {
     actionShare: "Поділитися",
     actionDownload: "Завантажити",
     actionPdf: "PDF",
+    actionDelete: "Видалити",
   },
 
   auth: {
@@ -327,5 +346,28 @@ export const uiUk: UiMessages = {
     submit: "Відкрити в поштовому застосунку",
     success: "Має відкритися ваш поштовий застосунок із готовим повідомленням.",
     error: "Будь ласка, заповніть ім’я, пошту та повідомлення.",
+  },
+
+  media: {
+    sectionVideos: "Відео",
+    sectionDocuments: "Документи та презентації",
+    sectionLinks: "Посилання",
+    sectionBrand: "Брендові матеріали",
+    emptyVideos:
+      "У публічній бібліотеці ще немає відео. Схвалені завантаження з’являться тут.",
+    emptyDocuments:
+      "Документів чи презентацій ще немає. Оператори можуть додати PDF і слайди в Admin → Медіа.",
+    emptyLinks:
+      "Відібрані посилання з’являться тут, коли їх додадуть до спільної медіатеки.",
+    emptyBrand: "Брендові матеріали завантажуються з бібліотеки сайту.",
+    preview: "Перегляд",
+    download: "Завантажити",
+    copy: "Копіювати посилання",
+    share: "Поділитися",
+    open: "Відкрити",
+    copied: "Посилання скопійовано.",
+    shared: "Відкрито вікно «Поділитися».",
+    downloadStarted: "Завантаження розпочато.",
+    actionFailed: "Не вдалося виконати дію.",
   },
 };

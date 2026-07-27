@@ -69,7 +69,7 @@ export const uiAr: UiMessages = {
     "footer-trust-ethics": "الأخلاق",
     "footer-company-about": "عن الشركة",
     "footer-company-mission": "المهمة",
-    "footer-company-contact": "اتصل بنا", "footer-company-investors": "المستثمرون",
+    "footer-company-contact": "اتصل بنا", "footer-company-investors": "المستثمرون", "footer-company-media": "الوسائط",
     "footer-labs-overview": "نظرة عامة",
     "footer-labs-saven-robotics-lab": "SAVEN Robotics Lab",
     "footer-labs-internal-future-lab": "Internal Future Lab",
@@ -145,6 +145,24 @@ export const uiAr: UiMessages = {
       "تسجيل الدخول بصلاحية {role}. الموقع العام: {locales} لغات. حالة الإدارة: قيد التطوير.",
     emailTitle: "قوالب البريد",
     mediaTitle: "مكتبة الوسائط",
+    mediaLead:
+      "رفع فيديو ومستندات وعروض وروابط. أصول العلامة الأساسية تأتي مع الموقع؛ العناصر العامة تظهر في /media/.",
+    mediaNote:
+      "التخزين السحابي الدائم مرحلة لاحقة. على Vercel نظام الملفات غير دائم — قد تكون الرفوعات وفهرس الروابط غير متاحة أو مؤقتة. محليًا: storage/admin-media/.",
+    mediaUploadHint:
+      "المحررون فأعلى · فيديو وPDF وWord وPowerPoint/Keynote · حتى 40 ميجابايت · تخزين محلي",
+    mediaLinkHeading: "إضافة رابط",
+    mediaLinkTitle: "العنوان",
+    mediaLinkUrl: "https://…",
+    mediaLinkHint: "عنوان URL خارجي أو للموقع مع عنوان واضح — دون وجهات مختلقة.",
+    mediaLinkAdd: "إضافة رابط",
+    mediaLinkSuccess: "أُضيف الرابط إلى مكتبة الوسائط.",
+    mediaLinkError: "تعذّرت إضافة الرابط.",
+    mediaFilterAll: "الكل",
+    mediaEmptyFilter: "لا عناصر في هذا التصفية.",
+    mediaDeleteConfirm: "حذف عنصر الوسائط هذا؟ لا يمكن حذف أصول العلامة الأساسية.",
+    mediaDeleteSuccess: "حُذف عنصر الوسائط.",
+    mediaDeleteError: "تعذّر حذف عنصر الوسائط.",
     marketingTitle: "أدوات التسويق",
     monitoringTitle: "المراقبة التقنية",
     actionPreview: "معاينة",
@@ -153,6 +171,7 @@ export const uiAr: UiMessages = {
     actionShare: "مشاركة",
     actionDownload: "تنزيل",
     actionPdf: "PDF",
+    actionDelete: "حذف",
   },
 
   auth: {
@@ -321,5 +340,26 @@ export const uiAr: UiMessages = {
     submit: "فتح في تطبيق البريد",
     success: "يفترض أن يفتح تطبيق بريدك مع الرسالة جاهزة للإرسال.",
     error: "يرجى إكمال الاسم والبريد والرسالة.",
+  },
+
+  media: {
+    sectionVideos: "مقاطع الفيديو",
+    sectionDocuments: "المستندات والعروض",
+    sectionLinks: "الروابط",
+    sectionBrand: "أصول العلامة",
+    emptyVideos: "لا توجد مقاطع فيديو بعد في المكتبة العامة. ستظهر التحميلات المعتمدة هنا.",
+    emptyDocuments:
+      "لا توجد مستندات أو عروض بعد. يمكن للمشغّلين إضافة PDF وشرائح من الإدارة → الوسائط.",
+    emptyLinks: "ستظهر الروابط المختارة هنا عند إضافتها إلى مكتبة الوسائط المشتركة.",
+    emptyBrand: "يتم تحميل أصول العلامة من مكتبة الموقع.",
+    preview: "معاينة",
+    download: "تنزيل",
+    copy: "نسخ الرابط",
+    share: "مشاركة",
+    open: "فتح",
+    copied: "تم نسخ الرابط.",
+    shared: "فُتحت ورقة المشاركة.",
+    downloadStarted: "بدأ التنزيل.",
+    actionFailed: "تعذّر إكمال الإجراء.",
   },
 };

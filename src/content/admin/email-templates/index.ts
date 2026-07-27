@@ -178,6 +178,178 @@ export const EMAIL_TEMPLATES: readonly EmailTemplateDefinition[] = [
       button("Open admin", `${siteUrl}/en/admin/`),
     ].join(""),
   },
+  {
+    id: "event-followup",
+    category: "event",
+    subject: `Thank you for joining a ${name} conversation`,
+    description:
+      "Webinar / event follow-up — no invented attendance figures or venues.",
+    preheader: "Thank you for your time with SAVEN Core.",
+    status: "In Development",
+    bodyHtml: [
+      headline("Thank you for joining the conversation."),
+      paragraph(
+        "Thank you for attending a SAVEN Core conversation or webinar. We appreciate your time and interest.",
+      ),
+      paragraph(
+        "If useful next steps were discussed, fill them in before sending. Public materials remain on the website; principal systems remain in development.",
+      ),
+      button("Explore SAVEN Core", siteUrl),
+      paragraph(
+        `Questions are welcome at ${contactEmail}. This note is a courtesy follow-up, not an offer or commitment.`,
+      ),
+    ].join(""),
+  },
+  {
+    id: "research-update",
+    category: "research",
+    subject: `${name} — research and architecture update`,
+    description:
+      "Research update shell — Research / Architecture / In Development only.",
+    preheader: "A careful update on SAVEN Core research direction.",
+    status: "Architecture",
+    bodyHtml: [
+      headline("A careful research update"),
+      paragraph("Hello,"),
+      paragraph(
+        "This template is for occasional updates on research direction and architecture work at SAVEN Core. Use only approved status language: Research, Architecture, or In Development.",
+      ),
+      paragraph(
+        "Replace this paragraph with an authorized summary. Do not claim operational products, validated clinical outcomes, customer counts, or commercial availability.",
+      ),
+      button("Research overview", `${siteUrl}/en/research/`),
+    ].join(""),
+  },
+  {
+    id: "partnership-followup",
+    category: "partnership",
+    subject: `Following up on your partnership inquiry — ${name}`,
+    description:
+      "Partnership follow-up after acknowledgement — no invented agreements.",
+    preheader: "A follow-up from SAVEN Core.",
+    status: "In Development",
+    bodyHtml: [
+      headline("Following up on your inquiry"),
+      paragraph(
+        "Thank you again for your interest in a possible partnership with SAVEN Core.",
+      ),
+      paragraph(
+        "We are following up on your earlier message. Please reply with any clarifying detail that would help us review the inquiry. This note does not create an agreement, evaluation outcome, or commitment.",
+      ),
+      button("Contact SAVEN Core", `${siteUrl}/en/contact/`),
+      paragraph(`You can also write directly to ${contactEmail}.`),
+    ].join(""),
+  },
+  {
+    id: "press-kit-invite",
+    category: "press",
+    subject: `${name} — media materials invitation`,
+    description:
+      "Invite press contacts to public Media / brand materials — no fake quotes.",
+    preheader: "Public media materials from SAVEN Core.",
+    status: "Architecture",
+    bodyHtml: [
+      headline("Public media materials"),
+      paragraph(
+        "Thank you for your interest in SAVEN Core. You are invited to review public brand and media materials on our website.",
+      ),
+      paragraph(
+        "Please rely only on materials we publish or provide in writing. Do not invent spokespeople, partner logos, deployment photography, or operational claims.",
+      ),
+      button("Open Media", `${siteUrl}/en/media/`),
+      paragraph(
+        `For further questions, contact ${contactEmail}.`,
+      ),
+    ].join(""),
+  },
+  {
+    id: "newsletter-care-domain",
+    category: "newsletter",
+    subject: `${name} — care, home, and human support`,
+    description:
+      "Care-domain newsletter variant — hospitals, home, and everyday support framing.",
+    preheader: "Notes on human care and responsible technology.",
+    status: "Architecture",
+    bodyHtml: [
+      headline("Care across everyday life"),
+      paragraph("Hello,"),
+      paragraph(
+        "SAVEN Core develops intelligent systems meant to help people in hospitals, at home, and wherever life happens — across every age and stage of life. AI and robotics are tools; human support is the purpose.",
+      ),
+      paragraph(
+        "Replace this paragraph with an approved care-domain note. Keep status honest. Do not invent metrics, customer stories, or operational product claims.",
+      ),
+      button("Applications overview", `${siteUrl}/en/applications/`),
+      paragraph(
+        "You received this because you opted in or were added by an administrator.",
+      ),
+    ].join(""),
+  },
+  {
+    id: "meeting-thankyou",
+    category: "meeting",
+    subject: `Thank you for meeting with ${name}`,
+    description: "Post-meeting thank-you — no invented commitments or timelines.",
+    preheader: "Thank you for the conversation.",
+    status: "In Development",
+    bodyHtml: [
+      headline("Thank you for the conversation."),
+      paragraph(
+        "Thank you for meeting with SAVEN Core. We appreciated the discussion.",
+      ),
+      paragraph(
+        "If we agreed on next steps, add them here before sending. Until then, the public site remains the best place for published orientation materials.",
+      ),
+      button("Visit the site", siteUrl),
+      paragraph(
+        `If anything was unclear, reply to this message or write to ${contactEmail}.`,
+      ),
+    ].join(""),
+  },
+  {
+    id: "reengage-explore",
+    category: "reengage",
+    subject: `Explore ${name} when you have a moment`,
+    description:
+      "Soft re-engagement — invite people back to the public site without pressure.",
+    preheader: "A quiet invitation to explore SAVEN Core.",
+    status: "In Development",
+    bodyHtml: [
+      headline("Whenever you are ready to explore"),
+      paragraph(
+        "We are writing with a brief invitation to revisit SAVEN Core when it is useful to you.",
+      ),
+      paragraph(
+        "The public site shares how we think about human data, responsible technology, and physical-world assistance. There is no obligation to respond.",
+      ),
+      button("Explore the site", siteUrl),
+      paragraph(
+        `If you prefer not to receive occasional notes, reply to ${contactEmail} and we will respect that request.`,
+      ),
+    ].join(""),
+  },
+  {
+    id: "internal-briefing",
+    category: "ops",
+    subject: `[Internal] ${name} briefing`,
+    description:
+      "Internal ops briefing shell — coordination among authorized operators only.",
+    preheader: "Internal briefing — not for external distribution.",
+    status: "Architecture",
+    bodyHtml: [
+      headline("Internal briefing"),
+      paragraph(
+        "Internal briefing — not for external distribution or public mailings.",
+      ),
+      paragraph(
+        "Use this shell for a short operator update: context, owners, and open questions. Keep facts precise. Do not invent status upgrades, customers, or operational claims.",
+      ),
+      button("Open admin platform", `${siteUrl}/en/admin/`),
+      paragraph(
+        "Share only with authorized operators. Prefer Decisions Log language for any status wording.",
+      ),
+    ].join(""),
+  },
 ] as const;
 
 export function getEmailTemplate(

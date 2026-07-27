@@ -1,16 +1,20 @@
 "use client";
 
-import { useMemo, useState, useTransition } from "react";
+import { useMemo, useState, useTransition, type FormEvent } from "react";
 
 import type { AdminRole } from "@/admin/roles";
 import { canPerform } from "@/admin/roles";
 import type { Locale } from "@/config/locales";
+import { SITE_URL } from "@/config/site";
 import { getUi } from "@/i18n/ui";
 import {
+  MEDIA_FILTER_CATEGORIES,
+  MEDIA_UPLOAD_ACCEPT,
   mediaPreviewKind,
+  mediaVisibility,
+  type MediaCategory,
   type MediaItem,
 } from "@/lib/admin/media-types";
-import { SITE_URL } from "@/config/site";
 
 type MediaLibraryClientProps = {
   locale: Locale;
@@ -28,17 +32,26 @@ export function MediaLibraryClient({
   const [message, setMessage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [preview, setPreview] = useState<MediaItem | null>(null);
+  const [filter, setFilter] = useState<"all" | MediaCategory>("all");
+  const [linkTitle, setLinkTitle] = useState("");
+  const [linkUrl, setLinkUrl] = useState("");
+  const [linkCategory, setLinkCategory] = useState<MediaCategory>("link");
   const [pending, startTransition] = useTransition();
   const canUpload = canPerform(role, "media_upload");
+  const canManage = canUpload;
+
+  const filtered = useMemo(() => {
+    if (filter === "all") {
+      return items;
+    }
+    return items.filter((item) => item.category === filter);
+  }, [filter, items]);
 
   const previewUrl = useMemo(() => {
     if (!preview) {
       return null;
     }
-    if (preview.source === "seed" && preview.publicPath) {
-      return preview.publicPath;
-    }
-    return `/api/admin/media/${preview.id}/`;
+    return resolveItemUrl(preview, { absolute: false });
   }, [preview]);
 
   function flash(ok: string | null, err: string | null) {
@@ -53,6 +66,7 @@ export function MediaLibraryClient({
     const file = fileList[0];
     const body = new FormData();
     body.append("file", file);
+    body.append("visibility", "public");
     startTransition(async () => {
       flash(null, null);
       const res = await fetch("/api/admin/media/", {
@@ -72,6 +86,65 @@ export function MediaLibraryClient({
     });
   }
 
+  async function onAddLink(event: FormEvent) {
+    event.preventDefault();
+    if (!canUpload) {
+      return;
+    }
+    startTransition(async () => {
+      flash(null, null);
+      const res = await fetch("/api/admin/media/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          kind: "link",
+          name: linkTitle,
+          url: linkUrl,
+          category: linkCategory,
+          visibility: "public",
+        }),
+      });
+      const data = (await res.json()) as {
+        item?: MediaItem;
+        error?: string;
+      };
+      if (!res.ok || !data.item) {
+        flash(null, data.error ?? ui.admin.mediaLinkError);
+        return;
+      }
+      setItems((prev) => [data.item!, ...prev]);
+      setLinkTitle("");
+      setLinkUrl("");
+      setLinkCategory("link");
+      flash(ui.admin.mediaLinkSuccess, null);
+    });
+  }
+
+  async function onDelete(item: MediaItem) {
+    if (!canManage || item.source === "seed") {
+      return;
+    }
+    if (!window.confirm(ui.admin.mediaDeleteConfirm)) {
+      return;
+    }
+    startTransition(async () => {
+      flash(null, null);
+      const res = await fetch(`/api/admin/media/${item.id}/`, {
+        method: "DELETE",
+      });
+      const data = (await res.json()) as { error?: string };
+      if (!res.ok) {
+        flash(null, data.error ?? ui.admin.mediaDeleteError);
+        return;
+      }
+      setItems((prev) => prev.filter((row) => row.id !== item.id));
+      if (preview?.id === item.id) {
+        setPreview(null);
+      }
+      flash(ui.admin.mediaDeleteSuccess, null);
+    });
+  }
+
   async function copyText(text: string) {
     try {
       await navigator.clipboard.writeText(text);
@@ -82,10 +155,7 @@ export function MediaLibraryClient({
   }
 
   function absoluteUrl(item: MediaItem): string {
-    if (item.source === "seed" && item.publicPath) {
-      return `${SITE_URL}${item.publicPath}`;
-    }
-    return `${SITE_URL}/api/admin/media/${item.id}/`;
+    return resolveItemUrl(item, { absolute: true });
   }
 
   async function shareItem(item: MediaItem) {
@@ -103,10 +173,12 @@ export function MediaLibraryClient({
   }
 
   function printItem(item: MediaItem) {
-    const url =
-      item.source === "seed" && item.publicPath
-        ? item.publicPath
-        : `/api/admin/media/${item.id}/`;
+    const url = resolveItemUrl(item, { absolute: false });
+    if (url.startsWith("http") && item.externalUrl) {
+      window.open(url, "_blank", "noopener,noreferrer");
+      flash(ui.admin.actionPrintReady, null);
+      return;
+    }
     const win = window.open(url, "_blank", "noopener,noreferrer");
     if (!win) {
       flash(null, ui.admin.actionFailed);
@@ -124,7 +196,15 @@ export function MediaLibraryClient({
   }
 
   function downloadItem(item: MediaItem) {
-    const url = `/api/admin/media/${item.id}/`;
+    if (item.externalUrl) {
+      window.open(item.externalUrl, "_blank", "noopener,noreferrer");
+      flash(ui.admin.actionDownloadStarted, null);
+      return;
+    }
+    const url =
+      item.source === "seed" && item.publicPath
+        ? item.publicPath
+        : `/api/admin/media/${item.id}/`;
     const a = document.createElement("a");
     a.href = url;
     a.download = item.name;
@@ -141,7 +221,6 @@ export function MediaLibraryClient({
       downloadItem(item);
       return;
     }
-    // Honest path: open print dialog so the operator can Save as PDF.
     printItem(item);
     flash(ui.admin.actionPdfHint, null);
   }
@@ -158,19 +237,91 @@ export function MediaLibraryClient({
       <p className="admin-note">{ui.admin.mediaNote}</p>
 
       {canUpload ? (
-        <div className="admin-upload">
-          <input
-            type="file"
-            onChange={(event) => {
-              void onUpload(event.target.files);
-              event.target.value = "";
-            }}
-            disabled={pending}
-            aria-label={ui.admin.mediaUploadLabel}
-          />
-          <span className="admin-card__meta">{ui.admin.mediaUploadHint}</span>
+        <div className="admin-media-tools">
+          <div className="admin-upload">
+            <label className="admin-field__label" htmlFor="admin-media-file">
+              {ui.admin.mediaUploadLabel}
+            </label>
+            <input
+              id="admin-media-file"
+              type="file"
+              accept={MEDIA_UPLOAD_ACCEPT}
+              onChange={(event) => {
+                void onUpload(event.target.files);
+                event.target.value = "";
+              }}
+              disabled={pending}
+              aria-label={ui.admin.mediaUploadLabel}
+            />
+            <span className="admin-card__meta">{ui.admin.mediaUploadHint}</span>
+          </div>
+
+          <form className="admin-media-link" onSubmit={onAddLink}>
+            <p className="admin-field__label">{ui.admin.mediaLinkHeading}</p>
+            <div className="admin-media-link__row">
+              <input
+                type="text"
+                value={linkTitle}
+                onChange={(event) => setLinkTitle(event.target.value)}
+                placeholder={ui.admin.mediaLinkTitle}
+                aria-label={ui.admin.mediaLinkTitle}
+                disabled={pending}
+                required
+              />
+              <input
+                type="url"
+                value={linkUrl}
+                onChange={(event) => setLinkUrl(event.target.value)}
+                placeholder={ui.admin.mediaLinkUrl}
+                aria-label={ui.admin.mediaLinkUrl}
+                disabled={pending}
+                required
+              />
+              <select
+                value={linkCategory}
+                onChange={(event) =>
+                  setLinkCategory(event.target.value as MediaCategory)
+                }
+                aria-label={ui.admin.colType}
+                disabled={pending}
+              >
+                <option value="link">link</option>
+                <option value="video">video</option>
+                <option value="document">document</option>
+                <option value="presentation">presentation</option>
+              </select>
+              <button
+                type="submit"
+                className="admin-btn admin-btn--primary"
+                disabled={pending}
+              >
+                {ui.admin.mediaLinkAdd}
+              </button>
+            </div>
+            <span className="admin-card__meta">{ui.admin.mediaLinkHint}</span>
+          </form>
         </div>
       ) : null}
+
+      <div className="admin-media-filters" role="group" aria-label={ui.admin.colType}>
+        <button
+          type="button"
+          className={`admin-btn${filter === "all" ? " admin-btn--primary" : ""}`}
+          onClick={() => setFilter("all")}
+        >
+          {ui.admin.mediaFilterAll}
+        </button>
+        {MEDIA_FILTER_CATEGORIES.map((category) => (
+          <button
+            key={category}
+            type="button"
+            className={`admin-btn${filter === category ? " admin-btn--primary" : ""}`}
+            onClick={() => setFilter(category)}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
 
       <div className="admin-table-wrap">
         <table className="admin-table">
@@ -183,67 +334,91 @@ export function MediaLibraryClient({
             </tr>
           </thead>
           <tbody>
-            {items.map((item) => (
-              <tr key={item.id}>
-                <td>
-                  <strong>{item.name}</strong>
-                  {item.description ? (
-                    <div className="admin-card__meta">{item.description}</div>
-                  ) : null}
-                </td>
-                <td>
-                  <span className="admin-badge">{item.category}</span>
-                  <div className="admin-card__meta">{item.mimeType}</div>
-                </td>
-                <td>{item.source}</td>
-                <td>
-                  <div className="admin-actions">
-                    <button
-                      type="button"
-                      className="admin-btn"
-                      onClick={() => setPreview(item)}
-                    >
-                      {ui.admin.actionPreview}
-                    </button>
-                    <button
-                      type="button"
-                      className="admin-btn"
-                      onClick={() => void copyText(absoluteUrl(item))}
-                    >
-                      {ui.admin.actionCopy}
-                    </button>
-                    <button
-                      type="button"
-                      className="admin-btn"
-                      onClick={() => printItem(item)}
-                    >
-                      {ui.admin.actionPrint}
-                    </button>
-                    <button
-                      type="button"
-                      className="admin-btn"
-                      onClick={() => void shareItem(item)}
-                    >
-                      {ui.admin.actionShare}
-                    </button>
-                    <button
-                      type="button"
-                      className="admin-btn"
-                      onClick={() => downloadItem(item)}
-                    >
-                      {ui.admin.actionDownload}
-                    </button>
-                    <button
-                      type="button"
-                      className="admin-btn"
-                      onClick={() => pdfAction(item)}
-                    >
-                      {ui.admin.actionPdf}
-                    </button>
-                  </div>
+            {filtered.length === 0 ? (
+              <tr>
+                <td colSpan={4}>
+                  <p className="admin-card__meta">{ui.admin.mediaEmptyFilter}</p>
                 </td>
               </tr>
-            ))}
+            ) : (
+              filtered.map((item) => (
+                <tr key={item.id}>
+                  <td>
+                    <strong>{item.name}</strong>
+                    {item.description ? (
+                      <div className="admin-card__meta">{item.description}</div>
+                    ) : null}
+                    {item.externalUrl ? (
+                      <div className="admin-card__meta">{item.externalUrl}</div>
+                    ) : null}
+                    <div className="admin-card__meta">
+                      {mediaVisibility(item)}
+                    </div>
+                  </td>
+                  <td>
+                    <span className="admin-badge">{item.category}</span>
+                    <div className="admin-card__meta">{item.mimeType}</div>
+                  </td>
+                  <td>{item.source}</td>
+                  <td>
+                    <div className="admin-actions">
+                      <button
+                        type="button"
+                        className="admin-btn"
+                        onClick={() => setPreview(item)}
+                      >
+                        {ui.admin.actionPreview}
+                      </button>
+                      <button
+                        type="button"
+                        className="admin-btn"
+                        onClick={() => void copyText(absoluteUrl(item))}
+                      >
+                        {ui.admin.actionCopy}
+                      </button>
+                      <button
+                        type="button"
+                        className="admin-btn"
+                        onClick={() => printItem(item)}
+                      >
+                        {ui.admin.actionPrint}
+                      </button>
+                      <button
+                        type="button"
+                        className="admin-btn"
+                        onClick={() => void shareItem(item)}
+                      >
+                        {ui.admin.actionShare}
+                      </button>
+                      <button
+                        type="button"
+                        className="admin-btn"
+                        onClick={() => downloadItem(item)}
+                      >
+                        {ui.admin.actionDownload}
+                      </button>
+                      <button
+                        type="button"
+                        className="admin-btn"
+                        onClick={() => pdfAction(item)}
+                      >
+                        {ui.admin.actionPdf}
+                      </button>
+                      {canManage && item.source !== "seed" ? (
+                        <button
+                          type="button"
+                          className="admin-btn"
+                          onClick={() => void onDelete(item)}
+                          disabled={pending}
+                        >
+                          {ui.admin.actionDelete}
+                        </button>
+                      ) : null}
+                    </div>
+                  </td>
+                </tr>
+              ))
+            )}
           </tbody>
         </table>
       </div>
@@ -276,8 +451,33 @@ export function MediaLibraryClient({
   );
 }
 
+function resolveItemUrl(
+  item: MediaItem,
+  options: { absolute: boolean },
+): string {
+  if (item.externalUrl) {
+    return item.externalUrl;
+  }
+  if (item.source === "seed" && item.publicPath) {
+    return options.absolute
+      ? `${SITE_URL}${item.publicPath}`
+      : item.publicPath;
+  }
+  const path = `/api/admin/media/${item.id}/`;
+  return options.absolute ? `${SITE_URL}${path}` : path;
+}
+
 function PreviewBody({ item, url }: { item: MediaItem; url: string }) {
   const kind = mediaPreviewKind(item);
+  if (kind === "link") {
+    return (
+      <p>
+        <a href={url} target="_blank" rel="noreferrer">
+          {item.name}
+        </a>
+      </p>
+    );
+  }
   if (kind === "image") {
     // eslint-disable-next-line @next/next/no-img-element
     return <img src={url} alt={item.name} />;

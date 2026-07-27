@@ -6,6 +6,9 @@ export type EmailTemplateCategory =
   | "press"
   | "newsletter"
   | "event"
+  | "research"
+  | "meeting"
+  | "reengage"
   | "security"
   | "ops";
 

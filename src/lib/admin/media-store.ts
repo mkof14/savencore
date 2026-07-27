@@ -2,10 +2,20 @@ import { randomUUID } from "node:crypto";
 import { promises as fs } from "node:fs";
 import path from "node:path";
 
-import type { MediaCategory, MediaItem } from "@/lib/admin/media-types";
+import type {
+  MediaCategory,
+  MediaItem,
+  MediaVisibility,
+} from "@/lib/admin/media-types";
+import { mediaVisibility } from "@/lib/admin/media-types";
 
-export type { MediaCategory, MediaItem } from "@/lib/admin/media-types";
-export { mediaPreviewKind } from "@/lib/admin/media-types";
+export type { MediaCategory, MediaItem, MediaVisibility } from "@/lib/admin/media-types";
+export {
+  mediaPreviewKind,
+  mediaVisibility,
+  MEDIA_UPLOAD_ACCEPT,
+  MEDIA_FILTER_CATEGORIES,
+} from "@/lib/admin/media-types";
 
 const STORAGE_ROOT = path.join(process.cwd(), "storage", "admin-media");
 const FILES_DIR = path.join(STORAGE_ROOT, "files");
@@ -23,6 +33,7 @@ const SEED_ITEMS: readonly MediaItem[] = [
     source: "seed",
     publicPath: "/brand/saven-logo-mark.webp",
     description: "Falcon brand mark used in site chrome and domain mastheads.",
+    visibility: "public",
   },
   {
     id: "seed-logo-mark-png",
@@ -34,6 +45,7 @@ const SEED_ITEMS: readonly MediaItem[] = [
     source: "seed",
     publicPath: "/brand/saven-logo-mark.png",
     description: "Email-safe PNG falcon brand mark for templates and mailings.",
+    visibility: "public",
   },
   {
     id: "seed-og-default",
@@ -45,6 +57,7 @@ const SEED_ITEMS: readonly MediaItem[] = [
     source: "seed",
     publicPath: "/brand/og-default.png",
     description: "Default social share card — falcon mark + SAVEN Core name (1200×630).",
+    visibility: "public",
   },
   {
     id: "seed-email-network",
@@ -56,6 +69,7 @@ const SEED_ITEMS: readonly MediaItem[] = [
     source: "seed",
     publicPath: "/email/header-network.png",
     description: "Subtle constellation graphic for branded email headers (D-0180).",
+    visibility: "public",
   },
   {
     id: "seed-favicon",
@@ -67,6 +81,31 @@ const SEED_ITEMS: readonly MediaItem[] = [
     source: "seed",
     publicPath: "/favicon-32x32.png",
     description: "Site favicon asset.",
+    visibility: "public",
+  },
+  {
+    id: "seed-site-home",
+    name: "SAVEN Core website",
+    mimeType: "text/uri-list",
+    size: 0,
+    category: "link",
+    createdAt: "2026-07-26T00:00:00.000Z",
+    source: "link",
+    externalUrl: "https://www.savencore.com/",
+    description: "Public website — approved orientation materials.",
+    visibility: "public",
+  },
+  {
+    id: "seed-site-contact",
+    name: "Contact SAVEN Core",
+    mimeType: "text/uri-list",
+    size: 0,
+    category: "link",
+    createdAt: "2026-07-26T00:00:00.000Z",
+    source: "link",
+    externalUrl: "https://www.savencore.com/en/contact/",
+    description: "Authorized contact channel — info@savencore.com via Contact.",
+    visibility: "public",
   },
 ];
 
@@ -105,7 +144,7 @@ function isMediaItem(value: unknown): value is MediaItem {
     typeof item.size === "number" &&
     typeof item.category === "string" &&
     typeof item.createdAt === "string" &&
-    (item.source === "seed" || item.source === "upload")
+    (item.source === "seed" || item.source === "upload" || item.source === "link")
   );
 }
 
@@ -114,7 +153,7 @@ async function writeUploadIndex(items: MediaItem[]): Promise<void> {
   await fs.writeFile(INDEX_PATH, `${JSON.stringify(items, null, 2)}\n`, "utf8");
 }
 
-function guessCategory(mimeType: string, name: string): MediaCategory {
+export function guessCategory(mimeType: string, name: string): MediaCategory {
   if (mimeType.startsWith("image/")) {
     return "image";
   }
@@ -124,6 +163,7 @@ function guessCategory(mimeType: string, name: string): MediaCategory {
   if (
     mimeType.includes("presentation") ||
     mimeType.includes("powerpoint") ||
+    mimeType.includes("keynote") ||
     /\.(ppt|pptx|key)$/i.test(name)
   ) {
     return "presentation";
@@ -131,6 +171,8 @@ function guessCategory(mimeType: string, name: string): MediaCategory {
   if (
     mimeType.includes("pdf") ||
     mimeType.includes("document") ||
+    mimeType.includes("msword") ||
+    mimeType.includes("wordprocessing") ||
     mimeType.includes("text") ||
     /\.(pdf|doc|docx|txt|md)$/i.test(name)
   ) {
@@ -139,10 +181,9 @@ function guessCategory(mimeType: string, name: string): MediaCategory {
   return "other";
 }
 
-export async function listMediaItems(): Promise<MediaItem[]> {
-  const uploads = await readUploadIndex();
-  const seeds = await Promise.all(
-    SEED_ITEMS.map(async (item) => {
+async function withSeedSizes(seeds: readonly MediaItem[]): Promise<MediaItem[]> {
+  return Promise.all(
+    seeds.map(async (item) => {
       if (!item.publicPath) {
         return item;
       }
@@ -155,9 +196,20 @@ export async function listMediaItems(): Promise<MediaItem[]> {
       }
     }),
   );
+}
+
+export async function listMediaItems(): Promise<MediaItem[]> {
+  const uploads = await readUploadIndex();
+  const seeds = await withSeedSizes(SEED_ITEMS);
   return [...seeds, ...uploads].sort((a, b) =>
     b.createdAt.localeCompare(a.createdAt),
   );
+}
+
+/** Public Media page — only visibility=public items (default public). */
+export async function listPublicMediaItems(): Promise<MediaItem[]> {
+  const items = await listMediaItems();
+  return items.filter((item) => mediaVisibility(item) === "public");
 }
 
 export async function getMediaItem(id: string): Promise<MediaItem | null> {
@@ -176,6 +228,10 @@ export async function readMediaFile(
 ): Promise<MediaFilePayload | null> {
   const item = await getMediaItem(id);
   if (!item) {
+    return null;
+  }
+
+  if (item.source === "link" || item.externalUrl) {
     return null;
   }
 
@@ -206,12 +262,13 @@ export type UploadResult =
   | { ok: true; item: MediaItem }
   | { ok: false; error: string; code: "storage_unavailable" | "invalid" };
 
-const MAX_UPLOAD_BYTES = 15 * 1024 * 1024;
+const MAX_UPLOAD_BYTES = 40 * 1024 * 1024;
 
 export async function saveUploadedMedia(input: {
   name: string;
   mimeType: string;
   buffer: Buffer;
+  visibility?: MediaVisibility;
 }): Promise<UploadResult> {
   const name = input.name.trim().slice(0, 180) || "upload.bin";
   if (!input.buffer.length) {
@@ -220,7 +277,7 @@ export async function saveUploadedMedia(input: {
   if (input.buffer.length > MAX_UPLOAD_BYTES) {
     return {
       ok: false,
-      error: "File exceeds 15 MB limit for this development store.",
+      error: "File exceeds 40 MB limit for this development store.",
       code: "invalid",
     };
   }
@@ -241,6 +298,7 @@ export async function saveUploadedMedia(input: {
       createdAt: new Date().toISOString(),
       source: "upload",
       storageKey,
+      visibility: input.visibility ?? "public",
     };
 
     const index = await readUploadIndex();
@@ -251,7 +309,121 @@ export async function saveUploadedMedia(input: {
     return {
       ok: false,
       error:
-        "Durable upload storage is not available in this environment. Local development writes to storage/admin-media/; production needs configured object storage (next phase).",
+        "Durable upload storage is not available in this environment. Local development writes to storage/admin-media/; production on Vercel typically cannot persist filesystem uploads — configure object storage in a later phase.",
+      code: "storage_unavailable",
+    };
+  }
+}
+
+function normalizeUrl(raw: string): string | null {
+  const trimmed = raw.trim();
+  if (!trimmed) {
+    return null;
+  }
+  try {
+    const url = new URL(trimmed);
+    if (url.protocol !== "http:" && url.protocol !== "https:") {
+      return null;
+    }
+    return url.toString();
+  } catch {
+    return null;
+  }
+}
+
+export async function saveMediaLink(input: {
+  name: string;
+  url: string;
+  category?: MediaCategory;
+  description?: string;
+  visibility?: MediaVisibility;
+}): Promise<UploadResult> {
+  const name = input.name.trim().slice(0, 180);
+  const externalUrl = normalizeUrl(input.url);
+  if (!name) {
+    return { ok: false, error: "Title is required.", code: "invalid" };
+  }
+  if (!externalUrl) {
+    return {
+      ok: false,
+      error: "Enter a valid http(s) URL.",
+      code: "invalid",
+    };
+  }
+
+  const category =
+    input.category === "video" ||
+    input.category === "document" ||
+    input.category === "presentation" ||
+    input.category === "link"
+      ? input.category
+      : "link";
+
+  try {
+    await ensureStorage();
+    const description = input.description?.trim().slice(0, 400);
+    const item: MediaItem = {
+      id: randomUUID(),
+      name,
+      mimeType: "text/uri-list",
+      size: 0,
+      category,
+      createdAt: new Date().toISOString(),
+      source: "link",
+      externalUrl,
+      ...(description ? { description } : {}),
+      visibility: input.visibility ?? "public",
+    };
+
+    const index = await readUploadIndex();
+    index.push(item);
+    await writeUploadIndex(index);
+    return { ok: true, item };
+  } catch {
+    return {
+      ok: false,
+      error:
+        "Durable media storage is not available in this environment. Local development writes to storage/admin-media/; production on Vercel typically cannot persist filesystem writes — configure object storage in a later phase.",
+      code: "storage_unavailable",
+    };
+  }
+}
+
+export type DeleteResult =
+  | { ok: true }
+  | { ok: false; error: string; code: "not_found" | "forbidden" | "storage_unavailable" };
+
+export async function deleteMediaItem(id: string): Promise<DeleteResult> {
+  if (id.startsWith("seed-")) {
+    return {
+      ok: false,
+      error: "Seed brand assets cannot be deleted.",
+      code: "forbidden",
+    };
+  }
+
+  try {
+    const index = await readUploadIndex();
+    const existing = index.find((item) => item.id === id);
+    if (!existing) {
+      return { ok: false, error: "Not found.", code: "not_found" };
+    }
+
+    if (existing.storageKey) {
+      try {
+        await fs.unlink(path.join(FILES_DIR, existing.storageKey));
+      } catch {
+        // Index removal still proceeds if file already missing.
+      }
+    }
+
+    await writeUploadIndex(index.filter((item) => item.id !== id));
+    return { ok: true };
+  } catch {
+    return {
+      ok: false,
+      error:
+        "Could not delete media in this environment. Filesystem storage may be read-only (typical on Vercel).",
       code: "storage_unavailable",
     };
   }

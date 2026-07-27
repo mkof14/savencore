@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-26 (D-0186 — Admin Media delete-all + upload CTAs + public Media viewer)
+**Last updated:** 2026-07-26 (D-0187 — Admin Media library filter chip contrast)
 
 ## Rules
 
@@ -202,6 +202,7 @@
 | D-0184 | 2026-07-26 | Admin Media simplified Add content UX (File / Video / Link) | Active |
 | D-0185 | 2026-07-26 | Admin Media traditional CMS UX + video/delete fixes | Active |
 | D-0186 | 2026-07-26 | Admin Media delete-all + upload CTAs + public Media viewer | Active |
+| D-0187 | 2026-07-26 | Admin Media library filter chip contrast (light/dark) | Active |
 
 ---
 
@@ -1662,6 +1663,15 @@
 - **In scope:** `MediaLibraryClient` + admin CSS; media types/store/API delete; public `MediaPage` + CSS; `src/i18n/ui/*`; `docs/ADMIN_PLATFORM.md` + D-0186 + AGENTS phase pointer; `tsc`; commit/push; production deploy.
 - **Out of scope:** S3/Blob object storage; inventing catalog content; neon/glow; Experience Redesign hero freeze (D-0175); auth/RBAC hierarchy redesign.
 - **Implications:** Supersedes D-0185 seed delete protection. Soft-hidden seeds can be restored later by clearing `hidden.json` (operator tooling may follow). Production mutations still require writable FS (local) until durable storage.
+
+### D-0187 — Admin Media library filter chip contrast
+
+- **Date:** 2026-07-26
+- **Status:** Active
+- **Decision:** Owner authorizes a small Admin Media UI fix: Library / Videos / Docs / Links filter chips must have clear contrast vs the library panel in both light and dark admin themes (border, distinct background, stronger text via theme ink, navy/gold active + visible hover). Straight corners; no neon. Upload CTAs from D-0186 remain unchanged.
+- **In scope:** `src/components/admin/admin.css` tab/chip styles; D-0187 + brief ADMIN_PLATFORM / AGENTS pointer; commit/push; production deploy.
+- **Out of scope:** Public `/media/` filters; Upload CTA redesign; storage/RBAC changes.
+- **Implications:** Follow-up polish on D-0186 library chrome only.
 
 ## Pending Owner Decisions
 

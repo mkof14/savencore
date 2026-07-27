@@ -1,4 +1,4 @@
-/* SAVEN Robotics Interface hub diagram — navy/gold/blue/teal (D-0189 / D-0190 / D-0191) */
+/* SAVEN Robotics Interface hub diagram — navy/gold/blue/teal (D-0189–D-0192) */
 
 .rid {
   --rid-navy: #0c1628;
@@ -14,6 +14,7 @@
   --rid-warm-deep: #a88860;
   --rid-cyan: #6ec8e0;
   --rid-ink-lite: #e8eef4;
+  --rid-rim: #f2e6c4;
 
   /* Per-device accents */
   --rid-manip: #d4a84b;
@@ -22,33 +23,89 @@
   --rid-assist: #c4a882;
   --rid-sensor: #6ec8e0;
 
-  margin-block: 0.85rem clamp(1.75rem, 4vh, 2.75rem);
-  padding: clamp(1.25rem, 3vw, 1.85rem);
-  background: linear-gradient(
-    155deg,
-    var(--color-surface) 0%,
-    color-mix(in srgb, var(--color-surface) 92%, var(--color-background)) 48%,
-    color-mix(in srgb, var(--color-surface) 94%, var(--rid-gold)) 100%
-  );
-  border: 1px solid color-mix(in srgb, var(--color-border) 70%, var(--rid-gold));
+  position: relative;
+  isolation: isolate;
+  margin-block: 1rem clamp(2rem, 4.5vh, 3.25rem);
+  padding: clamp(1.5rem, 3.5vw, 2.35rem) clamp(1.25rem, 3vw, 2rem);
+  background:
+    radial-gradient(
+      ellipse 90% 55% at 12% 0%,
+      color-mix(in srgb, var(--rid-gold) 14%, transparent) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse 70% 50% at 92% 8%,
+      color-mix(in srgb, var(--rid-blue) 12%, transparent) 0%,
+      transparent 50%
+    ),
+    linear-gradient(
+      158deg,
+      color-mix(in srgb, var(--color-surface) 88%, var(--rid-navy)) 0%,
+      var(--color-surface) 42%,
+      color-mix(in srgb, var(--color-surface) 94%, var(--rid-gold)) 100%
+    );
+  border: 1px solid color-mix(in srgb, var(--color-border) 55%, var(--rid-gold));
   box-shadow:
-    0 1px 0 color-mix(in srgb, var(--rid-gold) 18%, transparent),
-    0 12px 28px color-mix(in srgb, var(--color-ink-fixed) 6%, transparent);
+    0 1px 0 color-mix(in srgb, var(--rid-gold) 22%, transparent),
+    0 18px 40px color-mix(in srgb, var(--color-ink-fixed) 7%, transparent);
+}
+
+.rid::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: 0;
+  inset-block-end: 0;
+  width: 3px;
+  background: linear-gradient(
+    180deg,
+    var(--rid-gold) 0%,
+    color-mix(in srgb, var(--rid-blue) 70%, var(--rid-gold)) 48%,
+    var(--rid-teal) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
 }
 
 .rid__header {
-  max-width: 44rem;
-  margin-block-end: 1.15rem;
+  position: relative;
+  max-width: 46rem;
+  margin-block-end: clamp(1.25rem, 2.8vw, 1.75rem);
+  padding-block-end: 1.1rem;
+}
+
+.rid__header::after {
+  content: "";
+  display: block;
+  width: min(12rem, 42%);
+  height: 2px;
+  margin-block-start: 1rem;
+  background: linear-gradient(
+    90deg,
+    var(--rid-gold) 0%,
+    color-mix(in srgb, var(--rid-blue) 55%, var(--rid-gold)) 55%,
+    transparent 100%
+  );
 }
 
 .rid__title {
   font-family: var(--font-sans);
-  font-size: clamp(1.35rem, 2.6vw, 1.75rem);
+  font-size: clamp(1.85rem, 4.2vw, 2.65rem);
   font-weight: var(--weight-semibold);
   letter-spacing: var(--tracking-heading);
   color: var(--color-text);
-  line-height: 1.22;
-  margin-block-end: 0.5rem;
+  line-height: 1.12;
+  margin-block-end: 0.45rem;
+}
+
+.rid__subtitle {
+  font-family: var(--font-sans);
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-heading);
+  color: color-mix(in srgb, var(--color-text) 78%, var(--rid-gold));
+  line-height: 1.3;
+  margin-block-end: 0.55rem;
 }
 
 .rid__lede {
@@ -56,32 +113,58 @@
   line-height: var(--leading-body);
   letter-spacing: var(--tracking-body);
   color: var(--color-text-secondary);
+  max-width: 42rem;
 }
 
 .rid__stage {
   position: relative;
   overflow: hidden;
   background: var(--rid-navy);
-  border: 1px solid color-mix(in srgb, var(--rid-gold) 40%, #2a3a52);
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--rid-blue) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--rid-gold) 48%, #2a3a52);
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--rid-blue) 16%, transparent),
+    0 10px 28px color-mix(in srgb, var(--rid-navy) 35%, transparent);
+}
+
+.rid__stage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse 55% 45% at 50% 48%,
+      color-mix(in srgb, var(--rid-gold) 10%, transparent) 0%,
+      transparent 70%
+    ),
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, #fff 4%, transparent) 0%,
+      transparent 18%,
+      transparent 82%,
+      color-mix(in srgb, #000 18%, transparent) 100%
+    );
+  z-index: 1;
 }
 
 .rid__svg {
+  position: relative;
+  z-index: 0;
   width: 100%;
   height: auto;
   display: block;
 }
 
 .rid__atmosphere--a {
-  fill: color-mix(in srgb, var(--rid-blue) 14%, transparent);
+  fill: color-mix(in srgb, var(--rid-blue) 16%, transparent);
 }
 
 .rid__atmosphere--teal {
-  fill: color-mix(in srgb, var(--rid-teal) 8%, transparent);
+  fill: color-mix(in srgb, var(--rid-teal) 10%, transparent);
 }
 
 .rid__atmosphere--gold {
-  fill: color-mix(in srgb, var(--rid-gold) 14%, transparent);
+  fill: color-mix(in srgb, var(--rid-gold) 16%, transparent);
 }
 
 /* —— Links —— */
@@ -225,7 +308,7 @@
 
 .rid__node-label--saven {
   font-family: var(--font-sans);
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 700;
   letter-spacing: 0.06em;
   fill: #fff8e8;
@@ -306,21 +389,48 @@
 
 .rid__device-label {
   font-family: var(--font-sans);
-  font-size: 12.5px;
+  font-size: 13px;
   font-weight: 600;
   letter-spacing: -0.01em;
   fill: var(--rid-ink-lite);
 }
 
-/* —— Photoreal device thumbs (D-0191) —— */
+/* —— Photoreal device thumbs (D-0191 / D-0192) —— */
 .rid__device-thumb-halo {
-  fill: color-mix(in srgb, #0a1220 55%, transparent);
-  opacity: 0.55;
+  fill: color-mix(in srgb, #0a1220 40%, transparent);
+  opacity: 0.7;
+}
+
+.rid__device-thumb-rim {
+  fill: none;
+  stroke-width: 2.4;
+  stroke: color-mix(in srgb, var(--rid-rim) 88%, #fff);
+  opacity: 0.95;
+}
+
+.rid__device-thumb-rim--manipulators {
+  stroke: color-mix(in srgb, var(--rid-rim) 55%, var(--rid-manip));
+}
+
+.rid__device-thumb-rim--mobileRobots {
+  stroke: color-mix(in srgb, var(--rid-rim) 50%, var(--rid-mobile));
+}
+
+.rid__device-thumb-rim--trolleyRobots {
+  stroke: color-mix(in srgb, var(--rid-rim) 50%, var(--rid-trolley));
+}
+
+.rid__device-thumb-rim--assistiveForms {
+  stroke: color-mix(in srgb, var(--rid-rim) 55%, var(--rid-assist));
+}
+
+.rid__device-thumb-rim--sensors {
+  stroke: color-mix(in srgb, var(--rid-rim) 50%, var(--rid-sensor));
 }
 
 .rid__device-thumb-ring {
   fill: none;
-  stroke-width: 1.6;
+  stroke-width: 2.15;
 }
 
 .rid__device-thumb-ring--manipulators {
@@ -384,7 +494,7 @@
 }
 
 .rid__note {
-  margin-block-start: 0.85rem;
+  margin-block-start: 1rem;
   font-size: 0.875rem;
   line-height: 1.45;
   color: var(--color-text-secondary);
@@ -574,6 +684,28 @@
     animation-delay: 1.4s;
   }
 
+  .rid--motion .rid__device-thumb-rim {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: rid-thumb-rim 3.2s ease-in-out infinite;
+  }
+
+  .rid--motion .rid__device--1 .rid__device-thumb-rim {
+    animation-delay: 0.35s;
+  }
+
+  .rid--motion .rid__device--2 .rid__device-thumb-rim {
+    animation-delay: 0.7s;
+  }
+
+  .rid--motion .rid__device--3 .rid__device-thumb-rim {
+    animation-delay: 1.05s;
+  }
+
+  .rid--motion .rid__device--4 .rid__device-thumb-rim {
+    animation-delay: 1.4s;
+  }
+
   .rid--motion .rid__device-thumb-img {
     transform-box: fill-box;
     transform-origin: center;
@@ -746,19 +878,29 @@
 @keyframes rid-thumb-ring {
   0%,
   100% {
-    opacity: 0.75;
+    opacity: 0.85;
     transform: scale(1);
   }
   50% {
     opacity: 1;
-    transform: scale(1.06);
+    transform: scale(1.05);
+  }
+}
+
+@keyframes rid-thumb-rim {
+  0%,
+  100% {
+    opacity: 0.88;
+  }
+  50% {
+    opacity: 1;
   }
 }
 
 @keyframes rid-thumb-soft {
   0%,
   100% {
-    opacity: 0.94;
+    opacity: 0.96;
   }
   50% {
     opacity: 1;
@@ -767,7 +909,11 @@
 
 @media (max-width: 640px) {
   .rid {
-    padding: 1rem;
+    padding: 1.15rem 1rem 1.25rem;
+  }
+
+  .rid__title {
+    font-size: clamp(1.55rem, 7vw, 1.95rem);
   }
 
   .rid__ring-label {

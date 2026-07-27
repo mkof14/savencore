@@ -17,6 +17,18 @@ type DeviceKey =
   | "assistiveForms"
   | "sensors";
 
+/** Visible circular thumb radius in SVG units (D-0192). */
+const THUMB_R = 30;
+
+type ThumbCrop = {
+  /** Zoom into the face / distinctive feature (>1 = tighter crop). */
+  zoom: number;
+  /** Shift image right (+) / left (−) within the clip. */
+  ox: number;
+  /** Shift image down (+) / up (−) within the clip. */
+  oy: number;
+};
+
 const DEVICES: ReadonlyArray<{
   key: DeviceKey;
   /** Angle in degrees; 0 = right, -90 = top */
@@ -24,36 +36,43 @@ const DEVICES: ReadonlyArray<{
   radius: number;
   /** Cropped WebP from approved domain / hero assets (architecture concepts). */
   imageSrc: string;
+  /** Per-device face/feature crop via zoom + offset (CSS object-position analog). */
+  crop: ThumbCrop;
 }> = [
   {
     key: "manipulators",
     angle: -90,
-    radius: 198,
+    radius: 214,
     imageSrc: "/domain/systems/diagram/node-manipulators.webp",
+    crop: { zoom: 1.42, ox: 7, oy: -3 },
   },
   {
     key: "mobileRobots",
     angle: -18,
-    radius: 198,
+    radius: 214,
     imageSrc: "/domain/systems/diagram/node-mobile-robots.webp",
+    crop: { zoom: 1.38, ox: 2, oy: -11 },
   },
   {
     key: "trolleyRobots",
     angle: 54,
-    radius: 198,
+    radius: 214,
     imageSrc: "/domain/systems/diagram/node-trolley-robots.webp",
+    crop: { zoom: 1.58, ox: 14, oy: -17 },
   },
   {
     key: "assistiveForms",
     angle: 126,
-    radius: 198,
+    radius: 214,
     imageSrc: "/domain/systems/diagram/node-assistive-forms.webp",
+    crop: { zoom: 1.62, ox: 16, oy: -18 },
   },
   {
     key: "sensors",
     angle: 198,
-    radius: 198,
+    radius: 214,
     imageSrc: "/domain/systems/diagram/node-sensors.webp",
+    crop: { zoom: 1.52, ox: -7, oy: -4 },
   },
 ];
 
@@ -77,7 +96,7 @@ function polar(angleDeg: number, radius: number) {
 }
 
 /**
- * Animated SAVEN Robotics Interface hub diagram (D-0189 / D-0190 / D-0191).
+ * Animated SAVEN Robotics Interface hub diagram (D-0189 / D-0190 / D-0191 / D-0192).
  * Center SAVEN brand mark · interface ring · photoreal device node thumbs.
  * Static under prefers-reduced-motion.
  */
@@ -120,7 +139,7 @@ export function RoboticsInterfaceDiagram({
 
   const pathIds = DEVICES.map((_, i) => `rid-p-${uid}-${i}`);
 
-  const markH = 36;
+  const markH = 42;
   const markW = Math.round(markH * SAVEN_MARK_ASPECT);
 
   const a11yDescription = [
@@ -138,8 +157,9 @@ export function RoboticsInterfaceDiagram({
     >
       <header className="rid__header">
         <h2 id={titleId} className="rid__title">
-          {labels.title}
+          {labels.interfaceRing}
         </h2>
+        <p className="rid__subtitle">{labels.title}</p>
         <p className="rid__lede">{labels.lede}</p>
       </header>
 
@@ -156,10 +176,10 @@ export function RoboticsInterfaceDiagram({
         >
           <defs>
             <linearGradient id={fieldGrad} x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#091220" />
-              <stop offset="35%" stopColor="#12233a" />
-              <stop offset="70%" stopColor="#1a3050" />
-              <stop offset="100%" stopColor="#1a2e28" />
+              <stop offset="0%" stopColor="#08101c" />
+              <stop offset="32%" stopColor="#12233a" />
+              <stop offset="68%" stopColor="#1a3050" />
+              <stop offset="100%" stopColor="#162a28" />
             </linearGradient>
             <radialGradient id={savenGrad} cx="38%" cy="32%" r="72%">
               <stop offset="0%" stopColor="#3a5578" />
@@ -201,12 +221,12 @@ export function RoboticsInterfaceDiagram({
             </linearGradient>
 
             <clipPath id={thumbClip}>
-              <circle cx="0" cy="0" r="20" />
+              <circle cx="0" cy="0" r={THUMB_R} />
             </clipPath>
 
             {DEVICES.map((device, index) => {
-              const outer = polar(device.angle, device.radius - 52);
-              const inner = polar(device.angle, 78);
+              const outer = polar(device.angle, device.radius - 64);
+              const inner = polar(device.angle, 86);
               return (
                 <path
                   key={pathIds[index]}
@@ -231,22 +251,22 @@ export function RoboticsInterfaceDiagram({
             className="rid__atmosphere rid__atmosphere--a"
             cx={CX}
             cy={CY}
-            rx="265"
-            ry="220"
+            rx="280"
+            ry="230"
           />
           <ellipse
             className="rid__atmosphere rid__atmosphere--teal"
             cx={CX + 40}
             cy={CY + 20}
-            rx="160"
-            ry="140"
+            rx="170"
+            ry="148"
           />
           <ellipse
             className="rid__atmosphere rid__atmosphere--gold"
             cx={CX}
             cy={CY}
-            rx="120"
-            ry="100"
+            rx="128"
+            ry="108"
           />
 
           {DEVICES.map((device, index) => (
@@ -275,29 +295,29 @@ export function RoboticsInterfaceDiagram({
           ))}
 
           <g className="rid__ring" transform={`translate(${CX} ${CY})`}>
-            <circle className="rid__ring-orbit rid__ring-orbit--halo" r="128" />
-            <circle className="rid__ring-orbit rid__ring-orbit--outer" r="118" />
+            <circle className="rid__ring-orbit rid__ring-orbit--halo" r="136" />
+            <circle className="rid__ring-orbit rid__ring-orbit--outer" r="124" />
             <circle
               className="rid__ring-orbit rid__ring-orbit--main"
-              r="102"
+              r="108"
               stroke={`url(#${ringGrad})`}
             />
-            <circle className="rid__ring-orbit rid__ring-orbit--inner" r="86" />
+            <circle className="rid__ring-orbit rid__ring-orbit--inner" r="90" />
             {RING_BEADS.map((angle, i) => {
               const rad = (angle * Math.PI) / 180;
-              const bx = Math.cos(rad) * 102;
-              const by = Math.sin(rad) * 102;
+              const bx = Math.cos(rad) * 108;
+              const by = Math.sin(rad) * 108;
               return (
                 <circle
                   key={`bead-${i}`}
                   className={`rid__ring-bead rid__ring-bead--${i}`}
                   cx={bx}
                   cy={by}
-                  r={i % 2 === 0 ? 3.2 : 2.4}
+                  r={i % 2 === 0 ? 3.4 : 2.6}
                 />
               );
             })}
-            <text className="rid__ring-label" textAnchor="middle" y="-124">
+            <text className="rid__ring-label" textAnchor="middle" y="-130">
               {labels.interfaceRing}
             </text>
           </g>
@@ -307,32 +327,32 @@ export function RoboticsInterfaceDiagram({
             <g className="rid__node rid__node--saven">
               <rect
                 className="rid__node-plate rid__node-plate--saven"
-                x="-78"
-                y="-50"
-                width="156"
-                height="100"
+                x="-84"
+                y="-54"
+                width="168"
+                height="108"
                 fill={`url(#${savenGrad})`}
               />
-              <rect className="rid__saven-frame" x="-78" y="-50" width="156" height="100" />
-              <path className="rid__saven-corner" d="M -78 -40 L -78 -50 L -68 -50" fill="none" />
-              <path className="rid__saven-corner" d="M 78 -40 L 78 -50 L 68 -50" fill="none" />
-              <path className="rid__saven-corner" d="M -78 40 L -78 50 L -68 50" fill="none" />
-              <path className="rid__saven-corner" d="M 78 40 L 78 50 L 68 50" fill="none" />
-              <circle className="rid__saven-ring rid__saven-ring--halo" r="40" />
-              <circle className="rid__saven-ring rid__saven-ring--outer" r="34" />
-              <circle className="rid__saven-ring" r="26" />
+              <rect className="rid__saven-frame" x="-84" y="-54" width="168" height="108" />
+              <path className="rid__saven-corner" d="M -84 -42 L -84 -54 L -72 -54" fill="none" />
+              <path className="rid__saven-corner" d="M 84 -42 L 84 -54 L 72 -54" fill="none" />
+              <path className="rid__saven-corner" d="M -84 42 L -84 54 L -72 54" fill="none" />
+              <path className="rid__saven-corner" d="M 84 42 L 84 54 L 72 54" fill="none" />
+              <circle className="rid__saven-ring rid__saven-ring--halo" r="46" />
+              <circle className="rid__saven-ring rid__saven-ring--outer" r="38" />
+              <circle className="rid__saven-ring" r="30" />
               <image
                 className="rid__saven-mark"
                 href={SAVEN_MARK_SRC}
                 x={-markW / 2}
-                y={-markH / 2 - 8}
+                y={-markH / 2 - 9}
                 width={markW}
                 height={markH}
                 preserveAspectRatio="xMidYMid meet"
               >
                 <title>SAVEN Core</title>
               </image>
-              <text className="rid__node-label rid__node-label--saven" textAnchor="middle" y="38">
+              <text className="rid__node-label rid__node-label--saven" textAnchor="middle" y="42">
                 {labels.saven}
               </text>
             </g>
@@ -340,6 +360,9 @@ export function RoboticsInterfaceDiagram({
 
           {DEVICES.map((device, index) => {
             const pos = polar(device.angle, device.radius);
+            const imgSize = THUMB_R * 2 * device.crop.zoom;
+            const imgX = -imgSize / 2 + device.crop.ox;
+            const imgY = -imgSize / 2 + device.crop.oy;
             return (
               <g
                 key={device.key}
@@ -350,42 +373,46 @@ export function RoboticsInterfaceDiagram({
                 >
                   <rect
                     className={`rid__device-plate rid__device-plate--${device.key}`}
-                    x="-82"
-                    y="-32"
-                    width="164"
-                    height="64"
+                    x="-92"
+                    y="-40"
+                    width="184"
+                    height="80"
                     fill={`url(#${deviceGrads[device.key]})`}
                   />
                   <rect
                     className={`rid__device-accent-bar rid__device-accent-bar--${device.key}`}
-                    x="-82"
-                    y="-32"
+                    x="-92"
+                    y="-40"
                     width="5"
-                    height="64"
+                    height="80"
                   />
-                  <g className="rid__device-thumb" transform="translate(-48 0)">
+                  <g className="rid__device-thumb" transform="translate(-50 0)">
                     <circle
                       className={`rid__device-thumb-halo rid__device-thumb-halo--${device.key}`}
-                      r="23"
+                      r={THUMB_R + 5.5}
+                    />
+                    <circle
+                      className={`rid__device-thumb-rim rid__device-thumb-rim--${device.key}`}
+                      r={THUMB_R + 2.8}
                     />
                     <circle
                       className={`rid__device-thumb-ring rid__device-thumb-ring--${device.key}`}
-                      r="21.2"
+                      r={THUMB_R + 1.2}
                     />
                     <image
-                      className="rid__device-thumb-img"
+                      className={`rid__device-thumb-img rid__device-thumb-img--${device.key}`}
                       href={device.imageSrc}
-                      x="-20"
-                      y="-20"
-                      width="40"
-                      height="40"
+                      x={imgX}
+                      y={imgY}
+                      width={imgSize}
+                      height={imgSize}
                       preserveAspectRatio="xMidYMid slice"
                       clipPath={`url(#${thumbClip})`}
                     >
                       <title>{deviceLabels[device.key]}</title>
                     </image>
                   </g>
-                  <text className="rid__device-label" textAnchor="start" x="-20" y="5">
+                  <text className="rid__device-label" textAnchor="start" x="-10" y="5">
                     {deviceLabels[device.key]}
                   </text>
                 </g>
@@ -393,7 +420,7 @@ export function RoboticsInterfaceDiagram({
             );
           })}
 
-          <text className="rid__cue" x={CX} y="508" textAnchor="middle">
+          <text className="rid__cue" x={CX} y="514" textAnchor="middle">
             {labels.cue}
           </text>
 

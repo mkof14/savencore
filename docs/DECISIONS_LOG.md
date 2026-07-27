@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-27 (D-0191 — Robotics Interface diagram brand mark + photoreal node thumbs)
+**Last updated:** 2026-07-27 (D-0192 — Robotics Interface diagram thumb visibility + section polish)
 
 ## Rules
 
@@ -207,6 +207,7 @@
 | D-0189 | 2026-07-27 | SAVEN Robotics Interface — interoperability copy + hub diagram | Active |
 | D-0190 | 2026-07-27 | Robotics Interface diagram — color, motion, device illustration | Active |
 | D-0191 | 2026-07-27 | Robotics Interface diagram — SAVEN logo + photoreal device thumbs | Active |
+| D-0192 | 2026-07-27 | Robotics Interface diagram — thumb visibility + section polish | Active |
 
 ---
 
@@ -1712,6 +1713,15 @@
 - **In scope:** `RoboticsInterfaceDiagram` + CSS; cropped thumbs under `public/domain/systems/diagram/`; D-0191 + AGENTS / IA brief pointer; type-check; smoke; commit/push; production deploy.
 - **Out of scope:** Inventing photography; copy/localization changes; claiming Operational fleets; Labs diagram redesign; CMS.
 - **Implications:** Diagram center reads as branded SAVEN; device nodes use premium photoreal crops from existing approved imagery only.
+
+### D-0192 — Robotics Interface diagram thumb visibility + section polish
+
+- **Date:** 2026-07-27
+- **Status:** Active
+- **Decision:** Owner requests circular photoreal device thumbs that remain **clearly visible at small size**, a larger **“SAVEN Robotics Interface”** title above the diagram, and a more modern/attractive diagram section within brand grammar (navy/gold, straight corners, no neon excess). Enlarge node diameter; per-device zoom/offset crops on robot faces and distinctive features (CSS/SVG crop, not new photography); stronger rim/ring contrast; slightly larger center brand mark; refined section masthead, spacing, and subtle atmosphere. Preserve D-0190/D-0191 motion and `prefers-reduced-motion`. Architecture framing unchanged (**In Development**; device classes remain concepts, not products).
+- **In scope:** `RoboticsInterfaceDiagram` + CSS; D-0192 + AGENTS / IA brief pointer; type-check; commit/push; production deploy; Russian brief for owner.
+- **Out of scope:** Regenerating asset photography; inventing products/fleets/metrics; neon excess; Labs diagram redesign; CMS; copy invention beyond title hierarchy (existing localized strings).
+- **Implications:** Diagram thumbs read clearly when small; section title hierarchy leads with SAVEN Robotics Interface; visual polish stays within approved experience grammar.
 
 ## Pending Owner Decisions
 

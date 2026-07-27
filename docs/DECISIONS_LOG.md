@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-26 (D-0183 — Email templates + public Media + admin Media)
+**Last updated:** 2026-07-26 (D-0184 — Admin Media simplified upload UX)
 
 ## Rules
 
@@ -199,6 +199,7 @@
 | D-0181 | 2026-07-26 | Footer Legal equal columns, More hub, socials bottom row | Active |
 | D-0182 | 2026-07-26 | Rename Applications “Home” leaf to Home Application | Active |
 | D-0183 | 2026-07-26 | Expanded email templates + public/admin Media library | Active |
+| D-0184 | 2026-07-26 | Admin Media simplified Add content UX (File / Video / Link) | Active |
 
 ---
 
@@ -1632,6 +1633,15 @@
 - **In scope:** Email template modules; media types/store/API; Admin Media UI; public Media page + CSS + content dictionaries; footer / published-routes / sitemap; `src/i18n/ui/*`; `docs/ADMIN_PLATFORM.md` + D-0183 + AGENTS phase pointer; `tsc`/smoke; commit/push; production deploy.
 - **Out of scope:** Durable S3/DB media on Vercel; inventing press quotes, partner logos, operational product videos; final legal/policy prose; neon/glow; Experience Redesign hero freeze changes (D-0175).
 - **Implications:** Extends D-0176 / D-0178 / D-0180 admin media and email surfaces. Public `/media/` is a marketing content library, not a legal policy. Footer Company gains Media without disturbing Legal/More/socials layout (D-0181).
+
+### D-0184 — Admin Media simplified Add content UX
+
+- **Date:** 2026-07-26
+- **Status:** Active
+- **Decision:** Owner authorizes a **simpler Admin Media upload UX** so operators can place video and SAVEN content with fewer fields and clicks. Primary flow: **Add content** with segmented control **File | Video | Link**; large drag-and-drop + browse with plain accepted types; Video tab accepts YouTube/Vimeo/direct URL (live embed preview when valid) or file upload; Link tab is title + URL + optional note with one-click save; post-add success strip with thumbnail and Copy link / Open / Delete; default titles from filename/URL; clear empty state; storage durability note demoted (not the hero); mutations remain editor+ via `media_upload` / `manage_media` matrix. Public `/media/` preview gains honest YouTube/Vimeo iframe embeds for video link entries. No invented press/partner content; no durable S3 in this phase.
+- **In scope:** `MediaLibraryClient` + admin CSS; `media-embed` helper; media types/store/API optional display name; public Media preview embeds; `src/i18n/ui/*`; `docs/ADMIN_PLATFORM.md` + D-0184 + AGENTS phase pointer; `tsc`/smoke; commit/push; production deploy.
+- **Out of scope:** Object storage on Vercel; inventing media catalog content; neon/glow; Experience Redesign hero freeze (D-0175).
+- **Implications:** Extends D-0183 Admin Media. Same RBAC and storage honesty; UX only (plus embed preview).
 
 ## Pending Owner Decisions
 

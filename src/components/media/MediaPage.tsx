@@ -9,6 +9,7 @@ import { SITE_FALCON_MARK_PATH, SITE_URL } from "@/config/site";
 import type { MediaPageContent } from "@/content/media/en";
 import { domainVisualForHref } from "@/content/domain/domain-visuals";
 import { getUi } from "@/i18n/ui";
+import { parseVideoEmbedUrl } from "@/lib/admin/media-embed";
 import {
   mediaPreviewKind,
   type MediaItem,
@@ -345,9 +346,23 @@ function PublicPreview({ item }: { item: MediaItem }) {
     );
   }
   if (kind === "video") {
+    const embed = item.externalUrl
+      ? parseVideoEmbedUrl(item.externalUrl)
+      : null;
+    if (embed?.provider === "youtube" || embed?.provider === "vimeo") {
+      return (
+        <iframe
+          title={item.name}
+          src={embed.embedUrl}
+          className="media-page__preview-frame"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+      );
+    }
     return (
       <video
-        src={href}
+        src={embed?.embedUrl ?? href}
         controls
         playsInline
         className="media-page__preview-media"

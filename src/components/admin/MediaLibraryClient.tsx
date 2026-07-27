@@ -1,12 +1,25 @@
 "use client";
 
-import { useMemo, useState, useTransition, type FormEvent } from "react";
+import {
+  useMemo,
+  useRef,
+  useState,
+  useTransition,
+  type ChangeEvent,
+  type DragEvent,
+  type FormEvent,
+} from "react";
 
 import type { AdminRole } from "@/admin/roles";
 import { canPerform } from "@/admin/roles";
 import type { Locale } from "@/config/locales";
 import { SITE_URL } from "@/config/site";
 import { getUi } from "@/i18n/ui";
+import {
+  looksLikeHttpUrl,
+  parseVideoEmbedUrl,
+  titleFromFilename,
+} from "@/lib/admin/media-embed";
 import {
   MEDIA_FILTER_CATEGORIES,
   MEDIA_UPLOAD_ACCEPT,
@@ -15,6 +28,8 @@ import {
   type MediaCategory,
   type MediaItem,
 } from "@/lib/admin/media-types";
+
+type AddTab = "file" | "video" | "link";
 
 type MediaLibraryClientProps = {
   locale: Locale;
@@ -28,14 +43,28 @@ export function MediaLibraryClient({
   initialItems,
 }: MediaLibraryClientProps) {
   const ui = getUi(locale);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const videoFileInputRef = useRef<HTMLInputElement>(null);
+
   const [items, setItems] = useState(initialItems);
   const [message, setMessage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [preview, setPreview] = useState<MediaItem | null>(null);
+  const [justAdded, setJustAdded] = useState<MediaItem | null>(null);
   const [filter, setFilter] = useState<"all" | MediaCategory>("all");
+  const [addTab, setAddTab] = useState<AddTab>("file");
+  const [dragOver, setDragOver] = useState(false);
+
+  const [fileTitle, setFileTitle] = useState("");
+  const [pendingFile, setPendingFile] = useState<File | null>(null);
+
+  const [videoUrl, setVideoUrl] = useState("");
+  const [videoTitle, setVideoTitle] = useState("");
+
   const [linkTitle, setLinkTitle] = useState("");
   const [linkUrl, setLinkUrl] = useState("");
-  const [linkCategory, setLinkCategory] = useState<MediaCategory>("link");
+  const [linkNote, setLinkNote] = useState("");
+
   const [pending, startTransition] = useTransition();
   const canUpload = canPerform(role, "media_upload");
   const canManage = canUpload;
@@ -54,19 +83,33 @@ export function MediaLibraryClient({
     return resolveItemUrl(preview, { absolute: false });
   }, [preview]);
 
+  const videoEmbed = useMemo(
+    () => (videoUrl.trim() ? parseVideoEmbedUrl(videoUrl) : null),
+    [videoUrl],
+  );
+
   function flash(ok: string | null, err: string | null) {
     setMessage(ok);
     setError(err);
   }
 
-  async function onUpload(fileList: FileList | null) {
-    if (!fileList?.[0] || !canUpload) {
+  function onAdded(item: MediaItem, successMessage: string) {
+    setItems((prev) => [item, ...prev]);
+    setJustAdded(item);
+    setPreview(item);
+    flash(successMessage, null);
+  }
+
+  async function uploadFile(file: File, titleHint?: string) {
+    if (!canUpload) {
       return;
     }
-    const file = fileList[0];
     const body = new FormData();
     body.append("file", file);
     body.append("visibility", "public");
+    const title = (titleHint ?? fileTitle).trim() || titleFromFilename(file.name);
+    body.append("name", title);
+
     startTransition(async () => {
       flash(null, null);
       const res = await fetch("/api/admin/media/", {
@@ -81,16 +124,84 @@ export function MediaLibraryClient({
         flash(null, data.error ?? ui.admin.mediaUploadError);
         return;
       }
-      setItems((prev) => [data.item!, ...prev]);
-      flash(ui.admin.mediaUploadSuccess, null);
+      setPendingFile(null);
+      setFileTitle("");
+      onAdded(data.item, ui.admin.mediaUploadSuccess);
     });
   }
 
-  async function onAddLink(event: FormEvent) {
+  function selectFile(file: File | null) {
+    if (!file) {
+      return;
+    }
+    setPendingFile(file);
+    setFileTitle((current) => current.trim() || titleFromFilename(file.name));
+    setAddTab(file.type.startsWith("video/") ? "video" : "file");
+  }
+
+  function onFileInputChange(event: ChangeEvent<HTMLInputElement>) {
+    const file = event.target.files?.[0] ?? null;
+    selectFile(file);
+    event.target.value = "";
+  }
+
+  function onDrop(event: DragEvent<HTMLDivElement>) {
+    event.preventDefault();
+    setDragOver(false);
+    if (!canUpload || pending) {
+      return;
+    }
+    const file = event.dataTransfer.files?.[0];
+    if (file) {
+      selectFile(file);
+      return;
+    }
+    const text = event.dataTransfer.getData("text/uri-list")
+      || event.dataTransfer.getData("text/plain");
+    if (text && looksLikeHttpUrl(text)) {
+      applyPastedUrl(text.trim());
+    }
+  }
+
+  function applyPastedUrl(raw: string) {
+    if (parseVideoEmbedUrl(raw)) {
+      setAddTab("video");
+      setVideoUrl(raw);
+      if (!videoTitle.trim()) {
+        setVideoTitle(guessTitleFromUrl(raw));
+      }
+      return;
+    }
+    setAddTab("link");
+    setLinkUrl(raw);
+    if (!linkTitle.trim()) {
+      setLinkTitle(guessTitleFromUrl(raw));
+    }
+  }
+
+  function onPasteUrl(raw: string) {
+    if (!looksLikeHttpUrl(raw)) {
+      return;
+    }
+    applyPastedUrl(raw.trim());
+  }
+
+  async function onSaveVideoUrl(event: FormEvent) {
     event.preventDefault();
     if (!canUpload) {
       return;
     }
+    const url = videoUrl.trim();
+    const embed = parseVideoEmbedUrl(url);
+    if (!embed && !looksLikeHttpUrl(url)) {
+      flash(null, ui.admin.mediaLinkError);
+      return;
+    }
+    const name =
+      videoTitle.trim() ||
+      guessTitleFromUrl(url) ||
+      ui.admin.mediaTabVideo;
+
     startTransition(async () => {
       flash(null, null);
       const res = await fetch("/api/admin/media/", {
@@ -98,9 +209,9 @@ export function MediaLibraryClient({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           kind: "link",
-          name: linkTitle,
-          url: linkUrl,
-          category: linkCategory,
+          name,
+          url,
+          category: "video",
           visibility: "public",
         }),
       });
@@ -112,11 +223,48 @@ export function MediaLibraryClient({
         flash(null, data.error ?? ui.admin.mediaLinkError);
         return;
       }
-      setItems((prev) => [data.item!, ...prev]);
+      setVideoUrl("");
+      setVideoTitle("");
+      onAdded(data.item, ui.admin.mediaLinkSuccess);
+    });
+  }
+
+  async function onAddLink(event: FormEvent) {
+    event.preventDefault();
+    if (!canUpload) {
+      return;
+    }
+    const name =
+      linkTitle.trim() ||
+      guessTitleFromUrl(linkUrl) ||
+      ui.admin.mediaTabLink;
+
+    startTransition(async () => {
+      flash(null, null);
+      const res = await fetch("/api/admin/media/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          kind: "link",
+          name,
+          url: linkUrl,
+          category: "link",
+          description: linkNote.trim() || undefined,
+          visibility: "public",
+        }),
+      });
+      const data = (await res.json()) as {
+        item?: MediaItem;
+        error?: string;
+      };
+      if (!res.ok || !data.item) {
+        flash(null, data.error ?? ui.admin.mediaLinkError);
+        return;
+      }
       setLinkTitle("");
       setLinkUrl("");
-      setLinkCategory("link");
-      flash(ui.admin.mediaLinkSuccess, null);
+      setLinkNote("");
+      onAdded(data.item, ui.admin.mediaLinkSuccess);
     });
   }
 
@@ -141,6 +289,9 @@ export function MediaLibraryClient({
       if (preview?.id === item.id) {
         setPreview(null);
       }
+      if (justAdded?.id === item.id) {
+        setJustAdded(null);
+      }
       flash(ui.admin.mediaDeleteSuccess, null);
     });
   }
@@ -158,75 +309,29 @@ export function MediaLibraryClient({
     return resolveItemUrl(item, { absolute: true });
   }
 
-  async function shareItem(item: MediaItem) {
-    const url = absoluteUrl(item);
-    if (navigator.share) {
-      try {
-        await navigator.share({ title: item.name, url });
-        flash(ui.admin.actionShared, null);
-        return;
-      } catch {
-        // fall through to copy
-      }
-    }
-    await copyText(url);
+  function openItem(item: MediaItem) {
+    window.open(absoluteUrl(item), "_blank", "noopener,noreferrer");
   }
 
-  function printItem(item: MediaItem) {
-    const url = resolveItemUrl(item, { absolute: false });
-    if (url.startsWith("http") && item.externalUrl) {
-      window.open(url, "_blank", "noopener,noreferrer");
-      flash(ui.admin.actionPrintReady, null);
-      return;
+  const categoryLabel = (category: MediaCategory): string => {
+    switch (category) {
+      case "image":
+        return ui.admin.mediaCatImage;
+      case "video":
+        return ui.admin.mediaCatVideo;
+      case "document":
+        return ui.admin.mediaCatDocument;
+      case "presentation":
+        return ui.admin.mediaCatPresentation;
+      case "link":
+        return ui.admin.mediaCatLink;
+      default:
+        return ui.admin.mediaCatOther;
     }
-    const win = window.open(url, "_blank", "noopener,noreferrer");
-    if (!win) {
-      flash(null, ui.admin.actionFailed);
-      return;
-    }
-    win.addEventListener("load", () => {
-      try {
-        win.focus();
-        win.print();
-      } catch {
-        // user can print manually
-      }
-    });
-    flash(ui.admin.actionPrintReady, null);
-  }
-
-  function downloadItem(item: MediaItem) {
-    if (item.externalUrl) {
-      window.open(item.externalUrl, "_blank", "noopener,noreferrer");
-      flash(ui.admin.actionDownloadStarted, null);
-      return;
-    }
-    const url =
-      item.source === "seed" && item.publicPath
-        ? item.publicPath
-        : `/api/admin/media/${item.id}/`;
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = item.name;
-    a.rel = "noopener";
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-    flash(ui.admin.actionDownloadStarted, null);
-  }
-
-  function pdfAction(item: MediaItem) {
-    const kind = mediaPreviewKind(item);
-    if (kind === "pdf") {
-      downloadItem(item);
-      return;
-    }
-    printItem(item);
-    flash(ui.admin.actionPdfHint, null);
-  }
+  };
 
   return (
-    <div>
+    <div className="admin-media">
       {message ? <p className="admin-toast" role="status">{message}</p> : null}
       {error ? (
         <p className="admin-toast admin-toast--error" role="alert">
@@ -234,72 +339,314 @@ export function MediaLibraryClient({
         </p>
       ) : null}
 
-      <p className="admin-note">{ui.admin.mediaNote}</p>
-
       {canUpload ? (
-        <div className="admin-media-tools">
-          <div className="admin-upload">
-            <label className="admin-field__label" htmlFor="admin-media-file">
-              {ui.admin.mediaUploadLabel}
-            </label>
-            <input
-              id="admin-media-file"
-              type="file"
-              accept={MEDIA_UPLOAD_ACCEPT}
-              onChange={(event) => {
-                void onUpload(event.target.files);
-                event.target.value = "";
-              }}
-              disabled={pending}
-              aria-label={ui.admin.mediaUploadLabel}
-            />
-            <span className="admin-card__meta">{ui.admin.mediaUploadHint}</span>
+        <section className="admin-media-add" aria-labelledby="admin-media-add-title">
+          <div className="admin-media-add__head">
+            <h2 id="admin-media-add-title" className="admin-media-add__title">
+              {ui.admin.mediaAddHeading}
+            </h2>
+            <p className="admin-media-add__lead">{ui.admin.mediaAddLead}</p>
           </div>
 
-          <form className="admin-media-link" onSubmit={onAddLink}>
-            <p className="admin-field__label">{ui.admin.mediaLinkHeading}</p>
-            <div className="admin-media-link__row">
+          <div
+            className="admin-media-tabs"
+            role="tablist"
+            aria-label={ui.admin.mediaAddHeading}
+          >
+            {(
+              [
+                ["file", ui.admin.mediaTabFile],
+                ["video", ui.admin.mediaTabVideo],
+                ["link", ui.admin.mediaTabLink],
+              ] as const
+            ).map(([id, label]) => (
+              <button
+                key={id}
+                type="button"
+                role="tab"
+                aria-selected={addTab === id}
+                className={`admin-media-tabs__btn${addTab === id ? " is-active" : ""}`}
+                onClick={() => setAddTab(id)}
+                disabled={pending}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+
+          {addTab === "file" ? (
+            <div className="admin-media-panel">
+              <div
+                className={`admin-media-drop${dragOver ? " is-dragover" : ""}`}
+                onDragEnter={(event) => {
+                  event.preventDefault();
+                  setDragOver(true);
+                }}
+                onDragOver={(event) => {
+                  event.preventDefault();
+                  setDragOver(true);
+                }}
+                onDragLeave={(event) => {
+                  event.preventDefault();
+                  setDragOver(false);
+                }}
+                onDrop={onDrop}
+                onPaste={(event) => {
+                  const text = event.clipboardData.getData("text/plain");
+                  if (text && looksLikeHttpUrl(text)) {
+                    event.preventDefault();
+                    onPasteUrl(text);
+                  }
+                }}
+              >
+                <p className="admin-media-drop__title">{ui.admin.mediaDropTitle}</p>
+                <p className="admin-media-drop__hint">{ui.admin.mediaDropHint}</p>
+                <p className="admin-media-drop__types">{ui.admin.mediaAcceptedTypes}</p>
+                <button
+                  type="button"
+                  className="admin-btn admin-btn--primary"
+                  disabled={pending}
+                  onClick={() => fileInputRef.current?.click()}
+                >
+                  {ui.admin.mediaBrowse}
+                </button>
+                <input
+                  ref={fileInputRef}
+                  type="file"
+                  accept={MEDIA_UPLOAD_ACCEPT}
+                  className="admin-media-drop__input"
+                  onChange={onFileInputChange}
+                  disabled={pending}
+                  aria-label={ui.admin.mediaBrowse}
+                />
+              </div>
+
+              {pendingFile ? (
+                <div className="admin-media-ready">
+                  <label className="admin-field__label" htmlFor="admin-media-file-title">
+                    {ui.admin.mediaLinkTitle}
+                  </label>
+                  <input
+                    id="admin-media-file-title"
+                    type="text"
+                    value={fileTitle}
+                    onChange={(event) => setFileTitle(event.target.value)}
+                    disabled={pending}
+                  />
+                  <p className="admin-card__meta">
+                    {pendingFile.name} · {formatBytes(pendingFile.size)}
+                  </p>
+                  <div className="admin-media-ready__actions">
+                    <button
+                      type="button"
+                      className="admin-btn admin-btn--primary"
+                      disabled={pending}
+                      onClick={() => void uploadFile(pendingFile)}
+                    >
+                      {pending ? ui.admin.mediaUploading : ui.admin.mediaUploadNow}
+                    </button>
+                    <button
+                      type="button"
+                      className="admin-btn"
+                      disabled={pending}
+                      onClick={() => {
+                        setPendingFile(null);
+                        setFileTitle("");
+                      }}
+                    >
+                      {ui.close}
+                    </button>
+                  </div>
+                </div>
+              ) : null}
+            </div>
+          ) : null}
+
+          {addTab === "video" ? (
+            <div className="admin-media-panel">
+              <form className="admin-media-form" onSubmit={onSaveVideoUrl}>
+                <label className="admin-field__label" htmlFor="admin-media-video-url">
+                  {ui.admin.mediaVideoUrlLabel}
+                </label>
+                <input
+                  id="admin-media-video-url"
+                  type="url"
+                  value={videoUrl}
+                  onChange={(event) => setVideoUrl(event.target.value)}
+                  onPaste={(event) => {
+                    const text = event.clipboardData.getData("text/plain");
+                    if (text && looksLikeHttpUrl(text)) {
+                      window.setTimeout(() => onPasteUrl(text), 0);
+                    }
+                  }}
+                  placeholder={ui.admin.mediaVideoUrlPlaceholder}
+                  disabled={pending}
+                  required
+                />
+                <label className="admin-field__label" htmlFor="admin-media-video-title">
+                  {ui.admin.mediaLinkTitle}
+                </label>
+                <input
+                  id="admin-media-video-title"
+                  type="text"
+                  value={videoTitle}
+                  onChange={(event) => setVideoTitle(event.target.value)}
+                  placeholder={ui.admin.mediaVideoTitlePlaceholder}
+                  disabled={pending}
+                />
+                {videoEmbed ? (
+                  <div className="admin-media-embed-preview">
+                    <p className="admin-field__label">{ui.admin.mediaVideoPreview}</p>
+                    {videoEmbed.provider === "direct" ? (
+                      <video
+                        src={videoEmbed.embedUrl}
+                        controls
+                        playsInline
+                        className="admin-media-embed-preview__video"
+                      />
+                    ) : (
+                      <iframe
+                        title={ui.admin.mediaVideoPreview}
+                        src={videoEmbed.embedUrl}
+                        className="admin-media-embed-preview__frame"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      />
+                    )}
+                  </div>
+                ) : null}
+                <button
+                  type="submit"
+                  className="admin-btn admin-btn--primary"
+                  disabled={pending || !videoUrl.trim()}
+                >
+                  {pending ? ui.admin.mediaUploading : ui.admin.mediaSaveVideo}
+                </button>
+              </form>
+
+              <div className="admin-media-or">
+                <span>{ui.admin.mediaVideoOrUpload}</span>
+              </div>
+              <div className="admin-media-ready__actions">
+                <button
+                  type="button"
+                  className="admin-btn"
+                  disabled={pending}
+                  onClick={() => videoFileInputRef.current?.click()}
+                >
+                  {ui.admin.mediaBrowse}
+                </button>
+                <input
+                  ref={videoFileInputRef}
+                  type="file"
+                  accept="video/*,.mp4,.webm,.ogg"
+                  className="admin-media-drop__input"
+                  disabled={pending}
+                  onChange={(event) => {
+                    const file = event.target.files?.[0];
+                    if (file) {
+                      void uploadFile(file, titleFromFilename(file.name));
+                    }
+                    event.target.value = "";
+                  }}
+                  aria-label={ui.admin.mediaBrowse}
+                />
+              </div>
+            </div>
+          ) : null}
+
+          {addTab === "link" ? (
+            <form className="admin-media-panel admin-media-form" onSubmit={onAddLink}>
+              <label className="admin-field__label" htmlFor="admin-media-link-title">
+                {ui.admin.mediaLinkTitle}
+              </label>
               <input
+                id="admin-media-link-title"
                 type="text"
                 value={linkTitle}
                 onChange={(event) => setLinkTitle(event.target.value)}
                 placeholder={ui.admin.mediaLinkTitle}
-                aria-label={ui.admin.mediaLinkTitle}
                 disabled={pending}
-                required
               />
+              <label className="admin-field__label" htmlFor="admin-media-link-url">
+                {ui.admin.mediaLinkUrlLabel}
+              </label>
               <input
+                id="admin-media-link-url"
                 type="url"
                 value={linkUrl}
                 onChange={(event) => setLinkUrl(event.target.value)}
                 placeholder={ui.admin.mediaLinkUrl}
-                aria-label={ui.admin.mediaLinkUrl}
                 disabled={pending}
                 required
               />
-              <select
-                value={linkCategory}
-                onChange={(event) =>
-                  setLinkCategory(event.target.value as MediaCategory)
-                }
-                aria-label={ui.admin.colType}
+              <label className="admin-field__label" htmlFor="admin-media-link-note">
+                {ui.admin.mediaLinkNote}
+              </label>
+              <input
+                id="admin-media-link-note"
+                type="text"
+                value={linkNote}
+                onChange={(event) => setLinkNote(event.target.value)}
+                placeholder={ui.admin.mediaLinkNotePlaceholder}
                 disabled={pending}
-              >
-                <option value="link">link</option>
-                <option value="video">video</option>
-                <option value="document">document</option>
-                <option value="presentation">presentation</option>
-              </select>
+              />
               <button
                 type="submit"
                 className="admin-btn admin-btn--primary"
-                disabled={pending}
+                disabled={pending || !linkUrl.trim()}
               >
-                {ui.admin.mediaLinkAdd}
+                {pending ? ui.admin.mediaUploading : ui.admin.mediaSaveLink}
               </button>
+            </form>
+          ) : null}
+
+          <p className="admin-media-storage-note">{ui.admin.mediaNote}</p>
+        </section>
+      ) : null}
+
+      {justAdded ? (
+        <div className="admin-media-success" role="status">
+          <div className="admin-media-success__preview">
+            <ItemThumb item={justAdded} />
+          </div>
+          <div className="admin-media-success__body">
+            <p className="admin-media-success__label">{ui.admin.mediaJustAdded}</p>
+            <p className="admin-media-success__name">{justAdded.name}</p>
+            <div className="admin-media-success__actions">
+              <button
+                type="button"
+                className="admin-btn admin-btn--primary"
+                onClick={() => void copyText(absoluteUrl(justAdded))}
+              >
+                {ui.admin.mediaCopyLink}
+              </button>
+              <button
+                type="button"
+                className="admin-btn"
+                onClick={() => openItem(justAdded)}
+              >
+                {ui.admin.mediaOpen}
+              </button>
+              <button
+                type="button"
+                className="admin-btn"
+                onClick={() => setPreview(justAdded)}
+              >
+                {ui.admin.actionPreview}
+              </button>
+              {canManage && justAdded.source !== "seed" ? (
+                <button
+                  type="button"
+                  className="admin-btn"
+                  disabled={pending}
+                  onClick={() => void onDelete(justAdded)}
+                >
+                  {ui.admin.actionDelete}
+                </button>
+              ) : null}
             </div>
-            <span className="admin-card__meta">{ui.admin.mediaLinkHint}</span>
-          </form>
+          </div>
         </div>
       ) : null}
 
@@ -318,110 +665,74 @@ export function MediaLibraryClient({
             className={`admin-btn${filter === category ? " admin-btn--primary" : ""}`}
             onClick={() => setFilter(category)}
           >
-            {category}
+            {categoryLabel(category)}
           </button>
         ))}
       </div>
 
-      <div className="admin-table-wrap">
-        <table className="admin-table">
-          <thead>
-            <tr>
-              <th>{ui.admin.colName}</th>
-              <th>{ui.admin.colType}</th>
-              <th>{ui.admin.colSource}</th>
-              <th>{ui.admin.colActions}</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filtered.length === 0 ? (
-              <tr>
-                <td colSpan={4}>
-                  <p className="admin-card__meta">{ui.admin.mediaEmptyFilter}</p>
-                </td>
-              </tr>
-            ) : (
-              filtered.map((item) => (
-                <tr key={item.id}>
-                  <td>
-                    <strong>{item.name}</strong>
-                    {item.description ? (
-                      <div className="admin-card__meta">{item.description}</div>
-                    ) : null}
-                    {item.externalUrl ? (
-                      <div className="admin-card__meta">{item.externalUrl}</div>
-                    ) : null}
-                    <div className="admin-card__meta">
-                      {mediaVisibility(item)}
-                    </div>
-                  </td>
-                  <td>
-                    <span className="admin-badge">{item.category}</span>
-                    <div className="admin-card__meta">{item.mimeType}</div>
-                  </td>
-                  <td>{item.source}</td>
-                  <td>
-                    <div className="admin-actions">
-                      <button
-                        type="button"
-                        className="admin-btn"
-                        onClick={() => setPreview(item)}
-                      >
-                        {ui.admin.actionPreview}
-                      </button>
-                      <button
-                        type="button"
-                        className="admin-btn"
-                        onClick={() => void copyText(absoluteUrl(item))}
-                      >
-                        {ui.admin.actionCopy}
-                      </button>
-                      <button
-                        type="button"
-                        className="admin-btn"
-                        onClick={() => printItem(item)}
-                      >
-                        {ui.admin.actionPrint}
-                      </button>
-                      <button
-                        type="button"
-                        className="admin-btn"
-                        onClick={() => void shareItem(item)}
-                      >
-                        {ui.admin.actionShare}
-                      </button>
-                      <button
-                        type="button"
-                        className="admin-btn"
-                        onClick={() => downloadItem(item)}
-                      >
-                        {ui.admin.actionDownload}
-                      </button>
-                      <button
-                        type="button"
-                        className="admin-btn"
-                        onClick={() => pdfAction(item)}
-                      >
-                        {ui.admin.actionPdf}
-                      </button>
-                      {canManage && item.source !== "seed" ? (
-                        <button
-                          type="button"
-                          className="admin-btn"
-                          onClick={() => void onDelete(item)}
-                          disabled={pending}
-                        >
-                          {ui.admin.actionDelete}
-                        </button>
-                      ) : null}
-                    </div>
-                  </td>
-                </tr>
-              ))
-            )}
-          </tbody>
-        </table>
-      </div>
+      {filtered.length === 0 ? (
+        <div className="admin-media-empty">
+          <p>{ui.admin.mediaEmptyLibrary}</p>
+        </div>
+      ) : (
+        <ul className="admin-media-list">
+          {filtered.map((item) => (
+            <li key={item.id} className="admin-media-card">
+              <div className="admin-media-card__thumb">
+                <ItemThumb item={item} />
+              </div>
+              <div className="admin-media-card__body">
+                <div className="admin-media-card__meta-row">
+                  <span className="admin-badge">{categoryLabel(item.category)}</span>
+                  <span className="admin-card__meta">{mediaVisibility(item)}</span>
+                </div>
+                <h3 className="admin-media-card__title">{item.name}</h3>
+                {item.description ? (
+                  <p className="admin-card__meta">{item.description}</p>
+                ) : null}
+                {item.externalUrl ? (
+                  <p className="admin-card__meta admin-media-card__url">
+                    {item.externalUrl}
+                  </p>
+                ) : null}
+                <div className="admin-media-card__actions">
+                  <button
+                    type="button"
+                    className="admin-btn"
+                    onClick={() => setPreview(item)}
+                  >
+                    {ui.admin.actionPreview}
+                  </button>
+                  <button
+                    type="button"
+                    className="admin-btn"
+                    onClick={() => void copyText(absoluteUrl(item))}
+                  >
+                    {ui.admin.mediaCopyLink}
+                  </button>
+                  <button
+                    type="button"
+                    className="admin-btn"
+                    onClick={() => openItem(item)}
+                  >
+                    {ui.admin.mediaOpen}
+                  </button>
+                  {canManage && item.source !== "seed" ? (
+                    <button
+                      type="button"
+                      className="admin-btn"
+                      onClick={() => void onDelete(item)}
+                      disabled={pending}
+                    >
+                      {ui.admin.actionDelete}
+                    </button>
+                  ) : null}
+                </div>
+              </div>
+            </li>
+          ))}
+        </ul>
+      )}
 
       {preview && previewUrl ? (
         <div
@@ -444,11 +755,61 @@ export function MediaLibraryClient({
             <div className="admin-preview__media">
               <PreviewBody item={preview} url={previewUrl} />
             </div>
+            <div className="admin-media-success__actions">
+              <button
+                type="button"
+                className="admin-btn admin-btn--primary"
+                onClick={() => void copyText(absoluteUrl(preview))}
+              >
+                {ui.admin.mediaCopyLink}
+              </button>
+              <button
+                type="button"
+                className="admin-btn"
+                onClick={() => openItem(preview)}
+              >
+                {ui.admin.mediaOpen}
+              </button>
+              {canManage && preview.source !== "seed" ? (
+                <button
+                  type="button"
+                  className="admin-btn"
+                  disabled={pending}
+                  onClick={() => void onDelete(preview)}
+                >
+                  {ui.admin.actionDelete}
+                </button>
+              ) : null}
+            </div>
           </div>
         </div>
       ) : null}
     </div>
   );
+}
+
+function guessTitleFromUrl(raw: string): string {
+  try {
+    const url = new URL(raw.trim());
+    const host = url.hostname.replace(/^www\./i, "");
+    const last = url.pathname.split("/").filter(Boolean).pop();
+    if (last) {
+      return titleFromFilename(decodeURIComponent(last));
+    }
+    return host;
+  } catch {
+    return "";
+  }
+}
+
+function formatBytes(size: number): string {
+  if (size < 1024) {
+    return `${size} B`;
+  }
+  if (size < 1024 * 1024) {
+    return `${(size / 1024).toFixed(1)} KB`;
+  }
+  return `${(size / (1024 * 1024)).toFixed(1)} MB`;
 }
 
 function resolveItemUrl(
@@ -467,8 +828,53 @@ function resolveItemUrl(
   return options.absolute ? `${SITE_URL}${path}` : path;
 }
 
+function ItemThumb({ item }: { item: MediaItem }) {
+  const kind = mediaPreviewKind(item);
+  const url = resolveItemUrl(item, { absolute: false });
+  if (kind === "image") {
+    // eslint-disable-next-line @next/next/no-img-element
+    return <img src={url} alt="" className="admin-media-thumb__img" />;
+  }
+  if (kind === "video") {
+    const embed = item.externalUrl ? parseVideoEmbedUrl(item.externalUrl) : null;
+    if (embed?.provider === "youtube") {
+      return (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={`https://i.ytimg.com/vi/${embed.id}/hqdefault.jpg`}
+          alt=""
+          className="admin-media-thumb__img"
+        />
+      );
+    }
+    return <span className="admin-media-thumb__glyph">▶</span>;
+  }
+  if (kind === "pdf" || item.category === "document" || item.category === "presentation") {
+    return <span className="admin-media-thumb__glyph">DOC</span>;
+  }
+  if (kind === "link") {
+    return <span className="admin-media-thumb__glyph">URL</span>;
+  }
+  return <span className="admin-media-thumb__glyph">•</span>;
+}
+
 function PreviewBody({ item, url }: { item: MediaItem; url: string }) {
   const kind = mediaPreviewKind(item);
+  if (kind === "video") {
+    const embed = item.externalUrl ? parseVideoEmbedUrl(item.externalUrl) : null;
+    if (embed?.provider === "youtube" || embed?.provider === "vimeo") {
+      return (
+        <iframe
+          title={item.name}
+          src={embed.embedUrl}
+          className="admin-media-embed-preview__frame"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+      );
+    }
+    return <video src={embed?.embedUrl ?? url} controls playsInline />;
+  }
   if (kind === "link") {
     return (
       <p>
@@ -481,9 +887,6 @@ function PreviewBody({ item, url }: { item: MediaItem; url: string }) {
   if (kind === "image") {
     // eslint-disable-next-line @next/next/no-img-element
     return <img src={url} alt={item.name} />;
-  }
-  if (kind === "video") {
-    return <video src={url} controls playsInline />;
   }
   if (kind === "pdf") {
     return <iframe title={item.name} src={url} />;

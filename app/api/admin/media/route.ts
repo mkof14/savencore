@@ -86,9 +86,22 @@ export async function POST(request: Request) {
       ? visibilityRaw
       : undefined;
 
+  const nameRaw = form.get("name");
+  const fileExt = file.name.includes(".")
+    ? file.name.slice(file.name.lastIndexOf("."))
+    : "";
+  let displayName = file.name;
+  if (typeof nameRaw === "string" && nameRaw.trim()) {
+    const trimmed = nameRaw.trim().slice(0, 180);
+    displayName =
+      fileExt && !trimmed.toLowerCase().endsWith(fileExt.toLowerCase())
+        ? `${trimmed}${fileExt}`
+        : trimmed;
+  }
+
   const buffer = Buffer.from(await file.arrayBuffer());
   const result = await saveUploadedMedia({
-    name: file.name,
+    name: displayName,
     mimeType: file.type || "application/octet-stream",
     buffer,
     ...(visibility ? { visibility } : {}),

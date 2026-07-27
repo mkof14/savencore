@@ -37,20 +37,27 @@ export function mediaVisibility(item: MediaItem): MediaVisibility {
 export function mediaPreviewKind(
   item: MediaItem,
 ): "image" | "video" | "pdf" | "text" | "link" | "other" {
-  if (item.category === "link" || item.source === "link" || item.externalUrl) {
-    return "link";
-  }
-  if (item.mimeType.startsWith("image/")) {
-    return "image";
+  if (item.category === "video") {
+    return "video";
   }
   if (item.mimeType.startsWith("video/")) {
     return "video";
+  }
+  if (item.mimeType.startsWith("image/")) {
+    return "image";
   }
   if (
     item.mimeType === "application/pdf" ||
     item.name.toLowerCase().endsWith(".pdf")
   ) {
     return "pdf";
+  }
+  if (
+    item.category === "link" ||
+    item.source === "link" ||
+    Boolean(item.externalUrl)
+  ) {
+    return "link";
   }
   if (
     item.mimeType.startsWith("text/") ||

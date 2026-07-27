@@ -2,6 +2,7 @@ import { randomUUID } from "node:crypto";
 import { promises as fs } from "node:fs";
 import path from "node:path";
 
+import { parseVideoEmbedUrl } from "@/lib/admin/media-embed";
 import type {
   MediaCategory,
   MediaItem,
@@ -357,7 +358,9 @@ export async function saveMediaLink(input: {
     input.category === "presentation" ||
     input.category === "link"
       ? input.category
-      : "link";
+      : parseVideoEmbedUrl(externalUrl)
+        ? "video"
+        : "link";
 
   try {
     await ensureStorage();

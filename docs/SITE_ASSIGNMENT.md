@@ -55,7 +55,7 @@ The site must feel like a **confident, simple, large-company product surface** �
 
 **Homepage note (D-0134 / D-0136–D-0139):** First screen = clarity + living **smooth photoreal video** of multi-robot assistive help (human + manipulator + mobile service + optional third device cue; morph/crossfade motion, not jump-cut slideshow or ken-burns-only — not labeled wireframe diagrams, not inventory, not fake deployment claims). Section 2 = simple tangible essence scenes (Assist / Move / Sense / Support). A+B and all technical inventory live **off-home** (footer + section pages). **One Human Hour is not the public default identity.**
 
-**As-built footer:** Technology · Systems · Labs · Applications · Trust · Research · Company (About → `/foundation/`, Mission → `/purpose/`, Investors) · Legal (draft structural pages). Full published leaf lists under domains; Research hub only until further research leaves publish.
+**As-built footer (D-0181–D-0194):** Technology · **Architecture** (Systems leaves + SAVEN Robotics Interface; routes stay `/systems/*`) · Labs · Applications · Trust · Research (Overview + Areas + Notes) · Company (About → `/foundation/`, Mission → `/purpose/`, Investors, Investor Contact, Media → `/media/`, Contact → `/contact/`, Roadmap → `/roadmap/`) · Resources (Report a Security Issue) · Legal (primary links + More → `/legal/` hub; draft framing). Header hubs (≤7): Labs, **Systems**, Applications, Technology, Research, Trust, Investors (Purpose remains via footer Mission).
 
 ---
 
@@ -98,13 +98,15 @@ Prominent paths into the three primary workstreams (canonical scopes in §5.0):
 3. **Internal Future Lab** → proposed destination when published (see §5.0.4)
 4. Optional engineering deep path already strong in repo: **Technology** / Human Data Model (flagship engineering reference per D-0107) — only if it does not crowd the three above
 
-### Homepage region order (as-built, D-0135)
+### Homepage region order (as-built, D-0135 / D-0150 / D-0194)
 
 1. **Hero** — brand, hero line, one breath sentence, three build pillars, tagline, footer cue, plus living atmosphere + thematic illustration plane
-2. **Essence** — one short headline + support + simple visual scenes (Assist / Move / Sense / Support); quiet deepen link only
-3. **Footer** — complete published site map by domain
+2. **Care living carousel** — one care-focused living band (hospitals / home / family / emergency / …)
+3. **Flagship Gateway** — compact paths: Robotics Lab, Robotics Interface, Internal Future Lab (+ optional Investors) with honest statuses
+4. **Closing** — SAVEN meaning band
+5. **Footer** — complete published site map by domain
 
-A + B (directions showcase + flagship paths) remain **valid content architecture** for section pages and footer discovery — **not** dumped on the homepage first screen.
+A + B remain valid for section pages; Flagship Gateway is the authorized compact home B path (D-0194) — still not a first-viewport inventory dump.
 
 ### Out of homepage primacy
 
@@ -192,32 +194,19 @@ Do **not** present any of the above as shipped features, SKUs, or deployed capab
 
 ---
 
-#### 5.0.4 Route map — as-built vs proposal (docs only; not implemented this turn)
+#### 5.0.4 Route map — as-built (Scheme A published; D-0133 / D-0194)
 
 **As-built today** (`src/navigation/published-routes.ts` / `site-navigation.ts`):
 
-| Workstream | In primary nav? | Published leaf? | Closest live routes |
-|------------|-----------------|-----------------|---------------------|
-| SAVEN Robotics Lab | No (`Labs` not in D-0126 header) | **No** — `/labs/` not published | Soft references in home content may point at `/labs/` (Planned / unpublished) |
-| SAVEN Robotics Interface | Under **Systems** only by related layers | **No** Master Spec slug | Closest: `/systems/robotics-layer/`, `/systems/ai-decision-support/`, `/technology/robotics/` — **not** the Interface workstream page |
-| Internal Future Lab | No | **No** | None |
+| Workstream | In primary nav? | Published leaf? | Live routes |
+|------------|-----------------|-----------------|-------------|
+| SAVEN Robotics Lab | Via **Labs** hub | **Yes** | `/labs/`, `/labs/saven-robotics-lab/` |
+| SAVEN Robotics Interface | Via **Systems** hub + Architecture footer | **Yes** | `/systems/saven-robotics-interface/` (distinct from `/systems/robotics-layer/`) |
+| Internal Future Lab | Via **Labs** hub | **Yes** | `/labs/internal-future-lab/` |
 
-**IA Phase 0 routes** (still in `INFORMATION_ARCHITECTURE.md`; also not published as leaves):
+**Also published (D-0194):** `/roadmap/` (Direction — no fake years), `/research/areas/`, `/research/notes/`, `/investors/contact/`, `/resources/report-a-security-issue/`, `/media/`, `/contact/`, `/company/about/` → redirect to `/foundation/`.
 
-- Labs hub: `/labs`
-- SAVEN Robotics Lab: `/labs/saven-robotics-lab`
-- Internal Future Lab: `/labs/internal-future-lab`
-- SAVEN Robotics Interface: `/systems/saven-robotics-interface`
-
-**Proposed route options for later authorization** (choose one scheme; do not implement until a phase says so):
-
-| Scheme | Labs hub | Robotics Lab | Robotics Interface | Future Lab |
-|--------|----------|--------------|--------------------|------------|
-| **A — IA / Master Spec (existing proposal)** | `/labs/` | `/labs/saven-robotics-lab/` | `/systems/saven-robotics-interface/` | `/labs/internal-future-lab/` |
-| **B — Shorter top-level flagships** | `/labs/` | `/robotics-lab/` | `/robotics-interface/` | `/future-lab/` |
-| **C — Hybrid** | `/labs/` | `/labs/robotics-lab/` | `/systems/robotics-interface/` *or* `/robotics-interface/` | `/labs/future-lab/` |
-
-**Recommendation for agents until owner picks a scheme:** Prefer **Scheme A** for continuity with Master Spec / IA; treat Scheme B as the owner-suggested shorter URLs if public flagship URLs should be memorable. Document the choice in Decisions Log before building pages.
+**Scheme A is the live scheme** (IA / Master Spec slugs). Schemes B/C remain historical alternatives only — do not implement alternate short URLs without a new decision.
 
 ---
 
@@ -245,7 +234,10 @@ Do **not** present any of the above as shipped features, SKUs, or deployed capab
 | Applications | Healthcare; Home; Hospitals; Emergency; Industrial; Government; Agriculture; Research Applications |
 | Trust | Privacy; Security; Safety; Human Oversight; Transparency; Ethics; Limitations |
 | Research | Overview (publications / future directions still coming-soon in footer) |
-| Labs / Investors / Flagship Interface page | **Not published** as primary-nav destinations or dedicated leaves (see §5.0.4) |
+| Labs | Overview; SAVEN Robotics Lab; Internal Future Lab |
+| Flagship Interface | SAVEN Robotics Interface (`/systems/saven-robotics-interface/`) — also listed under footer Architecture |
+| Investors / Contact / Media / Roadmap | `/investors/`, `/investors/contact/`, `/contact/`, `/media/`, `/roadmap/` |
+| Research | Overview; Research Areas; Research Notes |
 
 **Not inventing:** Do not add new product lines beyond the lists above. When Master Spec names and as-built Systems names differ, prefer **Master Spec / IA names for public flagship storytelling**, and map to published routes that actually exist (or mark destinations Planned until published). Do not equate `/systems/robotics-layer/` with **SAVEN Robotics Interface** without an explicit bridge decision.
 
@@ -275,7 +267,7 @@ Proposed clean top-level grouping for the showcase site. **Changing live primary
 |-------|----------|-----------------|------------------------|
 | Homepage identity | D-0129 + `CREATIVE_DIRECTION.md`: One Human Hour as public homepage | A+B engineering showcase; hero *Intelligence for the Physical World.* | **D-0130 supersedes D-0129 for homepage primacy.** Treat Human Hour as demoted (optional later proof). |
 | Primary public statement | Master Spec / AGENTS: *Intelligent systems built to support human life.* | Hero line: *Intelligence for the Physical World.*; supporting copy as in §3 | **Coexist for now:** hero = first screen; Master Spec purpose statement remains purpose/foundation truth until owner formally revises Master Spec. Tagline retained. |
-| Primary nav | IA Phase 0: Purpose, Foundation, Technology, Systems, Labs, Applications, Research, Roadmap, Company, Investors | D-0126 as-built: Home + Technology, Systems, Applications, Trust, Research (short dropdowns) | **Target table in §5.2** is the intended showcase IA. Do not expand header into a docs index. Full technical leaves live in **footer** (D-0132). Do not rewrite primary nav until a phase authorizes it. Surface Labs + Investors via Home A+B + footer first if needed. |
+| Primary nav | IA Phase 0 long list | As-built (D-0153 / D-0194): Labs, Systems, Applications, Technology, Research, Trust, Investors (≤7 hubs). Purpose/Foundation/Roadmap/Media/Contact via footer | Keep ≤7 hubs. Full technical leaves stay in footer (D-0132). |
 | Technical pages vs simplicity | Dense knowledge domains already published | Owner: keep pages; do not scare ordinary visitors | **Two-layer model §2.1 / D-0132.** Keep pages; footer is the depth map; Layer 1 stays simple. |
 | Systems naming | Master Spec: Robotics Interface, Systems Architecture, SAVEN AI, Drone Platform | As-built: Knowledge Engine, layers, Clinical Interfaces, etc. | Do not invent a merge. Flagship storytelling uses Master Spec names; links use published routes or Planned states. |
 | Investors | Present in IA; D-0062 rules; often unpublished in shell | Required structural section/path | Keep D-0062 claim rules. Publish structure when a phase authorizes Investors pages. |

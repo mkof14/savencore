@@ -3,6 +3,15 @@ import { promises as fs } from "node:fs";
 import path from "node:path";
 
 import { parseVideoEmbedUrl } from "@/lib/admin/media-embed";
+import {
+  blobDeleteMediaFile,
+  blobPutMediaFile,
+  blobReadHiddenIds,
+  blobReadUploadIndex,
+  blobWriteHiddenIds,
+  blobWriteUploadIndex,
+  isBlobMediaConfigured,
+} from "@/lib/admin/media-blob";
 import type {
   MediaCategory,
   MediaItem,
@@ -134,6 +143,10 @@ async function ensureStorage(): Promise<void> {
 }
 
 async function readUploadIndex(): Promise<MediaItem[]> {
+  if (shouldUseBlobBackend()) {
+    const parsed = await blobReadUploadIndex<unknown>();
+    return parsed.filter(isMediaItem);
+  }
   await ensureStorage();
   try {
     const raw = await fs.readFile(INDEX_PATH, "utf8");
@@ -164,11 +177,18 @@ function isMediaItem(value: unknown): value is MediaItem {
 }
 
 async function writeUploadIndex(items: MediaItem[]): Promise<void> {
+  if (shouldUseBlobBackend()) {
+    await blobWriteUploadIndex(items);
+    return;
+  }
   await ensureStorage();
   await fs.writeFile(INDEX_PATH, `${JSON.stringify(items, null, 2)}\n`, "utf8");
 }
 
 async function readHiddenIds(): Promise<Set<string>> {
+  if (shouldUseBlobBackend()) {
+    return blobReadHiddenIds();
+  }
   await ensureStorage();
   try {
     const raw = await fs.readFile(HIDDEN_PATH, "utf8");
@@ -185,6 +205,10 @@ async function readHiddenIds(): Promise<Set<string>> {
 }
 
 async function writeHiddenIds(ids: Set<string>): Promise<void> {
+  if (shouldUseBlobBackend()) {
+    await blobWriteHiddenIds(ids);
+    return;
+  }
   await ensureStorage();
   const sorted = [...ids].sort();
   await fs.writeFile(HIDDEN_PATH, `${JSON.stringify(sorted, null, 2)}\n`, "utf8");
@@ -222,9 +246,17 @@ export function guessCategory(mimeType: string, name: string): MediaCategory {
   return "other";
 }
 
-/** True when local filesystem media store can accept writes (not typical Vercel). */
+/**
+ * True when media mutations can persist:
+ * - local filesystem (non-Vercel), or
+ * - Vercel Blob when BLOB_READ_WRITE_TOKEN is set (D-0194).
+ */
 export function mediaStoreIsWritableHost(): boolean {
-  return !process.env.VERCEL;
+  return isBlobMediaConfigured() || !process.env.VERCEL;
+}
+
+function shouldUseBlobBackend(): boolean {
+  return isBlobMediaConfigured();
 }
 
 async function withSeedSizes(seeds: readonly MediaItem[]): Promise<MediaItem[]> {
@@ -351,17 +383,27 @@ export async function saveUploadedMedia(input: {
     return {
       ok: false,
       error:
-        "File uploads cannot persist on Vercel (read-only / ephemeral filesystem). Use a YouTube or Vimeo URL under Upload video, or upload files in local development. Durable object storage is a later phase.",
+        "File uploads cannot persist on Vercel without BLOB_READ_WRITE_TOKEN (ephemeral filesystem). Set Vercel Blob token for durable uploads, use a YouTube/Vimeo URL under Upload video, or upload files in local development.",
       code: "storage_unavailable",
     };
   }
 
   try {
-    await ensureStorage();
     const id = randomUUID();
     const safeExt = path.extname(name).slice(0, 12) || "";
     const storageKey = `${id}${safeExt}`;
-    await fs.writeFile(path.join(FILES_DIR, storageKey), input.buffer);
+    let externalUrl: string | undefined;
+
+    if (shouldUseBlobBackend()) {
+      externalUrl = await blobPutMediaFile({
+        storageKey,
+        buffer: input.buffer,
+        mimeType,
+      });
+    } else {
+      await ensureStorage();
+      await fs.writeFile(path.join(FILES_DIR, storageKey), input.buffer);
+    }
 
     const item: MediaItem = {
       id,
@@ -372,6 +414,7 @@ export async function saveUploadedMedia(input: {
       createdAt: new Date().toISOString(),
       source: "upload",
       storageKey,
+      ...(externalUrl ? { externalUrl } : {}),
       visibility: input.visibility ?? "public",
     };
 
@@ -383,7 +426,7 @@ export async function saveUploadedMedia(input: {
     return {
       ok: false,
       error:
-        "Durable upload storage is not available in this environment. Local development writes to storage/admin-media/; production on Vercel typically cannot persist filesystem uploads — configure object storage in a later phase.",
+        "Durable upload storage is not available in this environment. Configure BLOB_READ_WRITE_TOKEN for Vercel Blob, or use local development (storage/admin-media/).",
       code: "storage_unavailable",
     };
   }
@@ -439,13 +482,15 @@ export async function saveMediaLink(input: {
     return {
       ok: false,
       error:
-        "Media library entries cannot persist on Vercel (read-only / ephemeral filesystem). Add video URLs and links in local development, or wait for durable object storage. Seed brand assets remain available.",
+        "Media library entries cannot persist on Vercel without BLOB_READ_WRITE_TOKEN. Set the Blob token for durable links, or add entries in local development. Seed brand assets remain available.",
       code: "storage_unavailable",
     };
   }
 
   try {
-    await ensureStorage();
+    if (!shouldUseBlobBackend()) {
+      await ensureStorage();
+    }
     const description = input.description?.trim().slice(0, 400);
     const item: MediaItem = {
       id: randomUUID(),
@@ -468,7 +513,7 @@ export async function saveMediaLink(input: {
     return {
       ok: false,
       error:
-        "Durable media storage is not available in this environment. Local development writes to storage/admin-media/; production on Vercel typically cannot persist filesystem writes — configure object storage in a later phase.",
+        "Durable media storage is not available in this environment. Configure BLOB_READ_WRITE_TOKEN for Vercel Blob, or use local development.",
       code: "storage_unavailable",
     };
   }
@@ -483,7 +528,7 @@ export async function deleteMediaItem(id: string): Promise<DeleteResult> {
     return {
       ok: false,
       error:
-        "Could not delete media on Vercel (read-only / ephemeral filesystem). Delete locally, or wait for durable object storage.",
+        "Could not delete media on Vercel without BLOB_READ_WRITE_TOKEN. Delete locally, or configure Vercel Blob.",
       code: "storage_unavailable",
     };
   }
@@ -511,10 +556,14 @@ export async function deleteMediaItem(id: string): Promise<DeleteResult> {
     }
 
     if (existing.storageKey) {
-      try {
-        await fs.unlink(path.join(FILES_DIR, existing.storageKey));
-      } catch {
-        // Index removal still proceeds if file already missing.
+      if (shouldUseBlobBackend()) {
+        await blobDeleteMediaFile(existing.storageKey);
+      } else {
+        try {
+          await fs.unlink(path.join(FILES_DIR, existing.storageKey));
+        } catch {
+          // Index removal still proceeds if file already missing.
+        }
       }
     }
 
@@ -524,7 +573,7 @@ export async function deleteMediaItem(id: string): Promise<DeleteResult> {
     return {
       ok: false,
       error:
-        "Could not delete media in this environment. Filesystem storage may be read-only (typical on Vercel).",
+        "Could not delete media in this environment. Configure BLOB_READ_WRITE_TOKEN or use a writable local filesystem.",
       code: "storage_unavailable",
     };
   }

@@ -27,9 +27,13 @@ Set in Vercel → Project → Settings → Environment Variables (Production + P
 | `AUTH_URL` | Recommended in production | Public origin, e.g. `https://www.savencore.com` |
 | `NEXTAUTH_URL` | Optional alias | Same origin if your Auth.js version expects it |
 | `NEXT_PUBLIC_SITE_URL` | Recommended | Canonical origin for sitemap, robots, Open Graph (defaults to `https://www.savencore.com`) |
-| `NEXT_PUBLIC_SOCIAL_*` | Optional | Facebook / YouTube / X / LinkedIn / Instagram URLs — empty = disabled icons (D-0176) |
+| `NEXT_PUBLIC_SOCIAL_*` | Optional | Facebook / YouTube / X / LinkedIn / Instagram URLs — empty = icons hidden on public footer (D-0194) |
+| `SMTP_*` | Optional | Admin mailings + public Contact form; unset → simulated admin send / Contact mailto fallback |
+| `BLOB_READ_WRITE_TOKEN` | Optional | Vercel Blob read/write token for durable Admin Media on production (D-0194) |
 
 See `.env.example` and `docs/ADMIN_PLATFORM.md`. Without Google or demo credentials the Sign In page still renders with controls disabled — it does not invent a logged-in state. Email/password is a single env-based operator account (always `super_admin`) for owner/operator access; a real user store/DB comes later. Local/dev may use documented defaults when env is unset; **production never uses a silent default password** — set `AUTH_DEMO_*` in Vercel for prod demo login.
+
+**Owner ops (not automated in repo):** Google Search Console property verification for `www.savencore.com`; do not enable Google Analytics until counsel + CMP decision (cookie prefs remain draft-only).
 
 Production security headers (CSP, framing, nosniff, referrer, permissions-policy) are set in `next.config.ts`. HSTS is added when `VERCEL_ENV=production`. PWA manifest is at `/manifest.webmanifest`; service worker `/sw.js` registers in production only.
 

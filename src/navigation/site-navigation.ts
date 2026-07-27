@@ -176,12 +176,13 @@ export const trustMenuEntries: readonly NavLinkItem[] = [
 ] as const;
 
 /**
- * Primary header navigation — important Layer-1 hubs only (D-0153).
+ * Primary header navigation — important Layer-1 hubs only (D-0153 / D-0194).
  * Flat hub links; full leaf lists stay in the footer.
+ * Systems restored for Architecture discovery; Purpose remains in footer Company → Mission.
  */
 export const primaryNavigation: readonly PrimaryNavItem[] = [
-  { id: "purpose", label: "Purpose", href: "/purpose/" },
   { id: "labs", label: "Labs", href: "/labs/" },
+  { id: "systems", label: "Systems", href: "/systems/" },
   { id: "applications", label: "Applications", href: "/applications/" },
   { id: "technology", label: "Technology", href: "/technology/" },
   { id: "research", label: "Research", href: "/research/" },
@@ -328,7 +329,11 @@ export const footerNavigation: readonly FooterGroup[] = [
   {
     id: "research",
     title: "Research",
-    links: [published("footer-research-overview", "Overview", "/research/")],
+    links: [
+      published("footer-research-overview", "Overview", "/research/"),
+      published("footer-research-areas", "Research Areas", "/research/areas/"),
+      published("footer-research-notes", "Research Notes", "/research/notes/"),
+    ],
   },
   {
     id: "company",
@@ -337,8 +342,25 @@ export const footerNavigation: readonly FooterGroup[] = [
       published("footer-company-about", "About", "/foundation/"),
       published("footer-company-mission", "Mission", "/purpose/"),
       published("footer-company-investors", "Investors", "/investors/"),
+      published(
+        "footer-company-investors-contact",
+        "Investor Contact",
+        "/investors/contact/",
+      ),
       published("footer-company-media", "Media", "/media/"),
       published("footer-company-contact", "Contact", "/contact/"),
+      published("footer-company-roadmap", "Roadmap", "/roadmap/"),
+    ],
+  },
+  {
+    id: "resources",
+    title: "Resources",
+    links: [
+      published(
+        "footer-resources-security-issue",
+        "Report a Security Issue",
+        "/resources/report-a-security-issue/",
+      ),
     ],
   },
   {
@@ -391,6 +413,8 @@ function assertFooterCoversPublishedRoutes(): void {
   for (const route of PUBLISHED_ROUTES) {
     if (route === "/") continue;
     if (route.startsWith("/auth/")) continue;
+    // Thin aliases / redirects covered by primary destinations.
+    if (route === "/company/about/") continue;
     if (
       legalHubCoversLeaves &&
       route.startsWith("/legal/") &&

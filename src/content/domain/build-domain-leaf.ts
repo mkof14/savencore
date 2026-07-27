@@ -409,6 +409,14 @@ export function buildSystemsHubVisual(
     ),
     sections: [
       {
+        id: "naming-bridge",
+        title: "Robotics Layer vs. SAVEN Robotics Interface",
+        paragraphs: [
+          "These are related but distinct: Robotics Layer is the knowledge and architecture entry documenting how physical interaction fits the Systems index — roles, limits, and coordination points. SAVEN Robotics Interface is the flagship shared communication and control workstream (In Development) where diverse robots and devices actually connect to SAVEN under human command.",
+          "Read Robotics Layer for the architecture placement; read SAVEN Robotics Interface for the working direction of the interface itself.",
+        ],
+      },
+      {
         id: "principles",
         title: content.principlesHeading,
         items: content.principles.map((p) => `${p.title} — ${p.text}`),
@@ -423,18 +431,31 @@ export function buildSystemsHubVisual(
     ],
     paths: {
       heading: content.categoriesHeading,
-      links: systemsNavChildren
-        .filter((item) => item.href !== "/systems/")
-        .map((item, index) => {
-          const localizedLabel =
-            navEntries[item.id as keyof typeof navEntries] ?? item.label;
-          return {
-            label: localizedLabel,
-            href: item.href,
-            image: domainPathImageForHref(item.href, index),
-            imageAlt: localizedLabel,
-          };
-        }),
+      links: [
+        ...systemsNavChildren
+          .filter((item) => item.href !== "/systems/")
+          .map((item, index) => {
+            const localizedLabel =
+              navEntries[item.id as keyof typeof navEntries] ?? item.label;
+            return {
+              label: localizedLabel,
+              href: item.href,
+              image: domainPathImageForHref(item.href, index),
+              imageAlt: localizedLabel,
+            };
+          }),
+        {
+          label:
+            navEntries["footer-systems-saven-robotics-interface"] ??
+            "SAVEN Robotics Interface",
+          href: "/systems/saven-robotics-interface/",
+          note: "Flagship shared communication and control workstream — not the same as the Robotics Layer architecture entry.",
+          image: domainPathImageForHref("/systems/saven-robotics-interface/", 7),
+          imageAlt:
+            navEntries["footer-systems-saven-robotics-interface"] ??
+            "SAVEN Robotics Interface",
+        },
+      ],
     },
     note: content.developmentNote,
     related: content.relatedDomainLinks.map((link) => ({

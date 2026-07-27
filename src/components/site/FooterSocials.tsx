@@ -18,47 +18,31 @@ const LABELS: Record<SocialNetwork, keyof ReturnType<typeof getUi>["social"]> = 
 
 export function FooterSocials({ locale }: FooterSocialsProps) {
   const ui = getUi(locale);
-  const links = getSocialLinks();
+  const links = getSocialLinks().filter((link) => link.configured);
+
+  if (links.length === 0) {
+    return null;
+  }
 
   return (
     <nav className="site-footer__socials" aria-label={ui.social.navLabel}>
       <ul className="site-footer__social-list">
         {links.map((link) => {
           const label = ui.social[LABELS[link.id]];
-          const title = link.configured
-            ? label
-            : `${label} — ${ui.social.notConfigured}`;
-
-          if (link.configured) {
-            return (
-              <li key={link.id}>
-                <a
-                  href={link.href}
-                  className={`site-footer__social-link site-footer__social-link--${link.id}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title={title}
-                  aria-label={label}
-                >
-                  <SocialIcon network={link.id} />
-                  <span className="visually-hidden">{label}</span>
-                </a>
-              </li>
-            );
-          }
 
           return (
             <li key={link.id}>
-              <span
-                className={`site-footer__social-link site-footer__social-link--${link.id} site-footer__social-link--disabled`}
-                role="link"
-                aria-disabled="true"
-                title={title}
-                aria-label={title}
+              <a
+                href={link.href}
+                className={`site-footer__social-link site-footer__social-link--${link.id}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={label}
+                aria-label={label}
               >
                 <SocialIcon network={link.id} />
-                <span className="visually-hidden">{title}</span>
-              </span>
+                <span className="visually-hidden">{label}</span>
+              </a>
             </li>
           );
         })}

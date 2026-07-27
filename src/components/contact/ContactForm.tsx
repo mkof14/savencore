@@ -8,9 +8,10 @@ type ContactFormProps = {
   labels: UiMessages["contact"];
   emailAddress: string;
   formNote: string;
+  smtpConfigured: boolean;
 };
 
-type FormStatus = "idle" | "ready" | "error";
+type FormStatus = "idle" | "sending" | "success" | "mailto" | "error";
 
 function buildMailto(
   to: string,
@@ -39,6 +40,7 @@ export function ContactForm({
   labels,
   emailAddress,
   formNote,
+  smtpConfigured,
 }: ContactFormProps) {
   const nameId = useId();
   const emailId = useId();
@@ -48,7 +50,7 @@ export function ContactForm({
 
   const [status, setStatus] = useState<FormStatus>("idle");
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
     const data = new FormData(form);
@@ -62,14 +64,47 @@ export function ContactForm({
       return;
     }
 
-    const href = buildMailto(emailAddress, name, email, subject, message);
-    setStatus("ready");
-    window.location.href = href;
+    const mailtoHref = buildMailto(
+      emailAddress,
+      name,
+      email,
+      subject,
+      message,
+    );
+
+    if (!smtpConfigured) {
+      setStatus("mailto");
+      window.location.href = mailtoHref;
+      return;
+    }
+
+    setStatus("sending");
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, subject, message }),
+      });
+      const result = (await response.json().catch(() => null)) as
+        | { ok?: boolean }
+        | null;
+      if (response.ok && result?.ok) {
+        setStatus("success");
+        return;
+      }
+    } catch {
+      /* fall through to mailto */
+    }
+
+    setStatus("mailto");
+    window.location.href = mailtoHref;
   }
 
   return (
     <form className="contact-page__form" onSubmit={handleSubmit} noValidate>
-      <p className="contact-page__form-note">{formNote}</p>
+      <p className="contact-page__form-note">
+        {smtpConfigured ? formNote : labels.fallbackNote}
+      </p>
 
       <div className="contact-page__fields">
         <div className="contact-page__field">
@@ -133,8 +168,12 @@ export function ContactForm({
       </div>
 
       <div className="contact-page__actions">
-        <button type="submit" className="contact-page__submit">
-          {labels.submit}
+        <button
+          type="submit"
+          className="contact-page__submit"
+          disabled={status === "sending"}
+        >
+          {smtpConfigured ? labels.submit : labels.submitMailto}
         </button>
         <p
           id={statusId}
@@ -142,7 +181,8 @@ export function ContactForm({
           role="status"
           aria-live="polite"
         >
-          {status === "ready" ? labels.success : null}
+          {status === "success" ? labels.success : null}
+          {status === "mailto" ? labels.successMailto : null}
           {status === "error" ? labels.error : null}
         </p>
       </div>

@@ -60,6 +60,37 @@ export const physicalWorldHomeJa: PhysicalWorldHomeContent = {
     deepenLabel: "SAVEN Robotics Lab",
     deepenHref: "/labs/saven-robotics-lab/",
   },
+  flagships: {
+    headline: "方向性が向かう先",
+    support:
+      "そのビジョンに向けて構築を進めるフラッグシップの取り組みを簡単にご紹介します — それぞれ現在の正直な状況で表示しています。",
+    items: [
+      {
+        label: "SAVEN Robotics Lab",
+        href: "/labs/saven-robotics-lab/",
+        status: "開発中",
+        note: "支援ロボットシステム — 移動、マニピュレーター、知覚。",
+      },
+      {
+        label: "SAVEN Robotics Interface",
+        href: "/systems/saven-robotics-interface/",
+        status: "開発中",
+        note: "人が指揮を保つための共有の通信・制御。",
+      },
+      {
+        label: "Internal Future Lab",
+        href: "/labs/internal-future-lab/",
+        status: "研究",
+        note: "現在のアーキテクチャを超えた概念の初期探索。",
+      },
+      {
+        label: "投資家の皆様へ",
+        href: "/investors/",
+        status: "アーキテクチャ",
+        note: "使命に沿った長期志向の資本のための構造的な姿勢。",
+      },
+    ],
+  },
   closing: {
     heading: "SAVEN",
     pillars: "Support · Action · Verification · Environment · Network",

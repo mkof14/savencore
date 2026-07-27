@@ -15,11 +15,11 @@ export const contactPageEn: ContactPageContent = {
   title: "Start a conversation",
   lede: "Write to SAVEN Core about partnerships, research dialogue, investor inquiry, or general questions. We read carefully and respond when we can.",
   body: [
-    "This form prepares a message in your email app addressed to info@savencore.com. A full mail server will come later — for now, your own mail client sends the message.",
+    "When direct send is configured on this server, this form sends your message straight to info@savencore.com. Otherwise, it prepares the message in your own email app instead — either way, the message reaches the same public address.",
     "Please do not send urgent medical, emergency, or personal health information through this channel.",
   ],
   email: "info@savencore.com",
   emailNote: "Primary public address",
   formNote:
-    "Required fields help us reply. Subject is optional. Submitting opens your email app with the message ready to send — it does not post to a CRM.",
+    "Required fields help us reply. Subject is optional. This form does not post to a CRM — it either sends directly or opens your email app with the message ready to send.",
 };

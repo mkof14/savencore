@@ -9,6 +9,13 @@ export type PhysicalWorldDomainScene = {
   line: string;
 };
 
+export type PhysicalWorldFlagshipItem = {
+  label: string;
+  href: string;
+  status: string;
+  note: string;
+};
+
 export type PhysicalWorldHomeContent = {
   brand: string;
   heroLine: string;
@@ -25,6 +32,12 @@ export type PhysicalWorldHomeContent = {
     railLabel: string;
     deepenLabel: string;
     deepenHref: string;
+  };
+  /** Optional compact gateway to flagship workstreams (D-0194 / H-2). */
+  flagships?: {
+    headline: string;
+    support: string;
+    items: readonly PhysicalWorldFlagshipItem[];
   };
   closing: {
     heading: string;

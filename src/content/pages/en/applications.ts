@@ -82,11 +82,11 @@ export const applicationsPageContent: ApplicationsPageContent = {
   scope: [
     "This domain documents intended contexts and architecture relationships.",
     "It does not claim clinical use, emergency service, regulatory approval or autonomous operation.",
-    "Industrial, government and agriculture pages remain future-extension contexts.",
+    "Human-care contexts — healthcare, home, hospitals, and emergency — come first. Industrial, government and agriculture pages describe possible future extensions of the same architecture, considered only after human-care contexts, not parallel priorities.",
   ],
   futureHeading: "Related topics",
   futureIntro:
-    "Related topics provide additional context for each application architecture.",
+    "Related topics provide additional context for each application architecture. Ordering above is intentional: human-care contexts anchor the work; industrial, government, and agriculture remain longer-horizon extensions.",
   cardsHeading: "Operating contexts",
   cards: [
     {

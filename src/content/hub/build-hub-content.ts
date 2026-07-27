@@ -7,10 +7,13 @@ import type {
 } from "@/content/flagship/en";
 import {
   getFutureLabPageContent,
+  getInvestorsContactPageContent,
   getInvestorsPageContent,
   getLabsHubPageContent,
+  getRoadmapPageContent,
   getRoboticsInterfacePageContent,
   getRoboticsLabPageContent,
+  getSecurityIssuePageContent,
 } from "@/content/flagship/get-flagship-content";
 import { domainVisualForHref } from "@/content/domain/domain-visuals";
 import { HUB_MASTHEAD, pathImageForHref } from "@/content/hub/hub-visuals";
@@ -469,6 +472,19 @@ export function buildResearchHub(
       },
     ],
     sections,
+    paths: {
+      heading: ui.hub.explore,
+      links: withPathImages([
+        {
+          label: ui.navEntries["footer-research-areas"],
+          href: "/research/areas/",
+        },
+        {
+          label: ui.navEntries["footer-research-notes"],
+          href: "/research/notes/",
+        },
+      ]),
+    },
     related: [
       { label: ui.nav.labs, href: "/labs/" },
       {
@@ -556,6 +572,72 @@ export function getTechnologyHubContent(locale: Locale): HubPageContent {
 
 export function getResearchHubContent(locale: Locale): HubPageContent {
   return buildResearchHub(getResearchPageContent(locale), locale);
+}
+
+/** Research → Areas leaf — reuses the already-localized Research page content (D-0194). */
+export function getResearchAreasHubContent(locale: Locale): HubPageContent {
+  const content = getResearchPageContent(locale);
+  const ui = getUi(locale);
+  const visual = domainVisualForHref("/research/areas/");
+  return {
+    label: ui.navEntries["footer-research-areas"],
+    title: ui.navEntries["footer-research-areas"],
+    ...(content.status ? { status: content.status } : {}),
+    lede: content.introduction,
+    visual: {
+      theme: "research",
+      mastheadImage: visual.mastheadImage,
+      mastheadAlt: visual.mastheadAlt,
+    },
+    sections: [
+      {
+        id: "research-areas",
+        title: content.sectionNav?.[0]?.label ?? ui.hub.areas,
+        items: content.areas.map((area) => `${area.title} — ${area.summary}`),
+      },
+    ],
+    related: [
+      { label: ui.nav.research, href: "/research/" },
+      { label: ui.navEntries["footer-research-notes"], href: "/research/notes/" },
+      ...(content.relatedLinks ?? []),
+    ],
+  };
+}
+
+/** Research → Notes leaf — reuses the already-localized Research page content (D-0194). */
+export function getResearchNotesHubContent(locale: Locale): HubPageContent {
+  const content = getResearchPageContent(locale);
+  const ui = getUi(locale);
+  const visual = domainVisualForHref("/research/notes/");
+  const entries = content.entries ?? [];
+  return {
+    label: ui.navEntries["footer-research-notes"],
+    title: ui.navEntries["footer-research-notes"],
+    ...(content.status ? { status: content.status } : {}),
+    lede: content.introduction,
+    visual: {
+      theme: "research",
+      mastheadImage: visual.mastheadImage,
+      mastheadAlt: visual.mastheadAlt,
+    },
+    sections: [
+      {
+        id: "research-notes",
+        title: content.entriesHeading ?? "Research notes",
+        items: entries.map((entry) => `${entry.title} — ${entry.summary}`),
+      },
+    ],
+    ...(entries.length === 0
+      ? {
+          note: "No research notes are published yet. This section grows as orientation material is prepared.",
+        }
+      : {}),
+    related: [
+      { label: ui.nav.research, href: "/research/" },
+      { label: ui.navEntries["footer-research-areas"], href: "/research/areas/" },
+      ...(content.relatedLinks ?? []),
+    ],
+  };
 }
 
 export function getTrustHubContent(locale: Locale): HubPageContent {
@@ -675,6 +757,12 @@ export function getInvestorsHubContent(locale: Locale): HubPageContent {
       note: "info@savencore.com",
       image: "/domain/company/scene-long-horizon.webp",
     },
+    {
+      label: ui.navEntries["footer-company-investors-contact"],
+      href: "/investors/contact/",
+      note: ui.hub.explore,
+      image: pathImageForHref("/investors/contact/", 3),
+    },
   ];
 
   return {
@@ -688,6 +776,94 @@ export function getInvestorsHubContent(locale: Locale): HubPageContent {
       links: pathLinks,
     },
     related,
+  };
+}
+
+export function getInvestorsContactHubContent(
+  locale: Locale = "en",
+): HubPageContent {
+  const content = getInvestorsContactPageContent(locale);
+  const hub = buildFlagshipHub(content, "default");
+  const visual = domainVisualForHref("/investors/contact/");
+  const ui = getUi(locale);
+  return {
+    ...hub,
+    label: ui.navEntries["footer-company-investors-contact"] ?? content.kicker,
+    visual: {
+      theme: "investors",
+      mastheadImage: visual.mastheadImage,
+      mastheadAlt: visual.mastheadAlt,
+    },
+    paths: {
+      heading: content.listHeading,
+      links: content.related.map((link) => ({
+        label: link.label,
+        href: link.href,
+      })),
+    },
+  };
+}
+
+export function getSecurityIssueHubContent(
+  locale: Locale = "en",
+): HubPageContent {
+  const content = getSecurityIssuePageContent(locale);
+  const hub = buildFlagshipHub(content, "default");
+  const visual = domainVisualForHref("/resources/report-a-security-issue/");
+  const ui = getUi(locale);
+  return {
+    ...hub,
+    label:
+      ui.navEntries["footer-resources-security-issue"] ?? content.kicker,
+    visual: {
+      theme: "trust",
+      mastheadImage: visual.mastheadImage,
+      mastheadAlt: visual.mastheadAlt,
+    },
+    paths: {
+      heading: content.listHeading,
+      links: content.related.map((link) => ({
+        label: link.label,
+        href: link.href,
+      })),
+    },
+  };
+}
+
+/** Roadmap Direction page — three honest horizons, no dates or guarantees (D-0194). */
+export function getRoadmapHubContent(locale: Locale = "en"): HubPageContent {
+  const content = getRoadmapPageContent(locale);
+  const hub = buildFlagshipHub(content, "default");
+  const visual = domainVisualForHref("/roadmap/");
+  const ui = getUi(locale);
+  return {
+    ...hub,
+    label: ui.navEntries["footer-company-roadmap"] ?? content.title,
+    visual: {
+      theme: "research",
+      mastheadImage: visual.mastheadImage,
+      mastheadAlt: visual.mastheadAlt,
+    },
+    ...(content.sections
+      ? {
+          sections: content.sections.map((section) => ({
+            id: section.id,
+            title: section.title,
+            ...(section.paragraphs ? { paragraphs: section.paragraphs } : {}),
+            ...(section.items ? { items: section.items } : {}),
+            ...(section.collapsed ? { collapsed: true } : {}),
+          })),
+        }
+      : {}),
+    paths: {
+      heading: content.listHeading,
+      links: withPathImages(
+        content.related.map((link) => ({
+          label: link.label,
+          href: link.href,
+        })),
+      ),
+    },
   };
 }
 

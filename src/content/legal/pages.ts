@@ -237,8 +237,15 @@ export const LEGAL_PAGES: readonly LegalPageContent[] = [
     slug: "cookie-preferences",
     title: "Cookie Preferences",
     summary:
-      "Structural preference controls for cookies. Functional consent UI is not yet active; this page explains the intended model.",
+      "Draft preference model only. No live consent management platform (CMP) or analytics opt-in UI is active on this site.",
     sections: [
+      {
+        title: "Not an active consent UI",
+        paragraphs: [
+          "This page does not collect, save, or enforce cookie choices. There is no live consent banner, preference center, or CMP connected to analytics or advertising.",
+          "Draft structural copy below describes an intended future model only — pending legal review and an authorized vendor decision.",
+        ],
+      },
       {
         title: "Preference summary",
         paragraphs: [
@@ -267,7 +274,7 @@ export const LEGAL_PAGES: readonly LegalPageContent[] = [
       {
         title: "Save / update controls",
         paragraphs: [
-          "Save and update controls will appear when a consent management design is approved. No dark patterns will be used.",
+          "Save and update controls will appear when a consent management design is approved. No dark patterns will be used. Controls shown in drafts are not functional.",
         ],
       },
       {

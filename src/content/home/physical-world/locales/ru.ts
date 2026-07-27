@@ -60,6 +60,37 @@ export const physicalWorldHomeRu: PhysicalWorldHomeContent = {
     deepenLabel: "SAVEN Robotics Lab",
     deepenHref: "/labs/saven-robotics-lab/",
   },
+  flagships: {
+    headline: "Куда движется это направление",
+    support:
+      "Краткий обзор флагманских направлений работы, которые продвигают это видение — каждое показано в его честном, текущем статусе.",
+    items: [
+      {
+        label: "SAVEN Robotics Lab",
+        href: "/labs/saven-robotics-lab/",
+        status: "В разработке",
+        note: "Вспомогательные робототехнические системы — мобильность, манипуляторы и восприятие.",
+      },
+      {
+        label: "SAVEN Robotics Interface",
+        href: "/systems/saven-robotics-interface/",
+        status: "В разработке",
+        note: "Общая связь и управление, чтобы люди оставались у руля.",
+      },
+      {
+        label: "Internal Future Lab",
+        href: "/labs/internal-future-lab/",
+        status: "Исследование",
+        note: "Раннее исследование концепций за пределами текущей архитектуры.",
+      },
+      {
+        label: "Инвесторам",
+        href: "/investors/",
+        status: "Архитектура",
+        note: "Структурная позиция для долгосрочного капитала, согласованного с миссией.",
+      },
+    ],
+  },
   closing: {
     heading: "SAVEN",
     pillars: "Support · Action · Verification · Environment · Network",

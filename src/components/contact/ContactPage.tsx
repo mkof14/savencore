@@ -6,6 +6,7 @@ import type { Locale } from "@/config/locales";
 import { getContactPageContent } from "@/content/contact/get-contact-content";
 import { domainVisualForHref } from "@/content/domain/domain-visuals";
 import { getUi } from "@/i18n/ui";
+import { isSmtpConfigured } from "@/lib/admin/smtp";
 import { localizePath } from "@/navigation/locale-path";
 
 import "./contact.css";
@@ -78,6 +79,7 @@ export function ContactPage({ locale }: ContactPageProps) {
             labels={ui.contact}
             emailAddress={content.email}
             formNote={content.formNote}
+            smtpConfigured={isSmtpConfigured()}
           />
         </section>
       </div>

@@ -74,7 +74,7 @@ Nav: **Dashboard · Templates · Mailings · Invitations · Users & roles · Per
 5. **Users & roles** — directory of demo + allowlist + assignments; assign/remove persisted roles (demo operator fixed).
 6. **Permissions** — role × permission matrix UI; super_admin can save overrides to `storage/admin/permissions.json`.
 7. **Notifications** — in-app create/list/mark read; seed system notices.
-8. **Media library** (D-0183 / D-0184 / D-0185 / D-0186 / D-0187) — seed brand assets + curated site links + local upload/link store at `storage/admin-media/` (dev). **Traditional CMS UX:** tabs **Upload file | Upload video | Add link** with elevated navy/gold Upload CTAs; visible Choose file / Choose video inputs; upload progress; Video URL form with YouTube/Vimeo embed preview (CSP `frame-src` / `img-src` allowlisted); library table (Name / Type / Date / Open · Copy · **Delete**) with All files · Videos · Docs · Links filters (high-contrast chips in light/dark — D-0187). Mutations: editor+ and granular `manage_media`. **Delete on every row** (confirm dialog): upload/link hard-delete; seed/`seed-*` **soft-hide** via `hidden.json` (keeps `/public` files). Clear errors for size (40 MB local; ~4.5 MB Vercel body), type, and storage. On Vercel, filesystem mutations are blocked honestly (banner) — add media locally; large videos should use URL embeds once durable object storage ships. Public `/[locale]/media/` viewer gallery (All / Videos / Docs / Links, View + Download cards); public file route `/api/media/[id]/`.
+8. **Media library** (D-0183 / D-0184 / D-0185 / D-0186 / D-0187 / D-0194) — seed brand assets + curated site links + local upload/link store at `storage/admin-media/` (dev). **Durable production path:** when `BLOB_READ_WRITE_TOKEN` is set, uploads, links, index, and seed soft-hide persist via **Vercel Blob** (`src/lib/admin/media-blob.ts`). When the token is unset on Vercel, mutations stay blocked with an honest banner (no fake persistence). **Traditional CMS UX:** tabs **Upload file | Upload video | Add link** with elevated navy/gold Upload CTAs; visible Choose file / Choose video inputs; upload progress; Video URL form with YouTube/Vimeo embed preview (CSP `frame-src` / `img-src` allowlisted); library table (Name / Type / Date / Open · Copy · **Delete**) with All files · Videos · Docs · Links filters (high-contrast chips in light/dark — D-0187). Mutations: editor+ and granular `manage_media`. **Delete on every row** (confirm dialog): upload/link hard-delete; seed/`seed-*` **soft-hide** via `hidden.json` (or Blob equivalent). Clear errors for size (40 MB local; ~4.5 MB Vercel body), type, and storage. Public `/[locale]/media/` viewer gallery (All / Videos / Docs / Links, View + Download cards); public file route `/api/media/[id]/`.
 9. **Marketing tools** — promotion + SEO checklists only; no fabricated traffic/ROI.
 10. **Technical monitoring** — package version, locales, published routes, commit SHA when available.
 
@@ -95,11 +95,13 @@ SMTP_SECURE=false
 
 ## Footer socials
 
-Icons for Facebook, YouTube, X, LinkedIn, Instagram always render. Links activate only when `NEXT_PUBLIC_SOCIAL_*` is set. Empty / `#` → disabled (`aria-disabled`).
+Icons for Facebook, YouTube, X, LinkedIn, Instagram render **only when** the matching `NEXT_PUBLIC_SOCIAL_*` URL is set (D-0194). Unset / `#` → icon hidden on the public footer (no disabled placeholders). Do not invent profile URLs.
 
 ## Out of scope (later)
 
-- Durable S3 / database for admin stores on Vercel
-- Google Analytics / cookie consent / ROI dashboards
+- Full relational DB for all admin stores (invitations, roles, outbox) — Blob covers Media first
+- Google Analytics / cookie consent CMP / ROI dashboards
 - Inventing official social profile URLs
 - Claiming SMTP delivery success when SMTP is unset
+- Investor portal / data room
+- Final counsel-approved legal text

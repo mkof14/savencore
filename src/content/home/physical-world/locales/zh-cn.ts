@@ -60,6 +60,37 @@ export const physicalWorldHomeZhCn: PhysicalWorldHomeContent = {
     deepenLabel: "SAVEN Robotics Lab",
     deepenHref: "/labs/saven-robotics-lab/",
   },
+  flagships: {
+    headline: "方向所指之处",
+    support:
+      "简要了解正朝这一愿景推进的旗舰工作线——每一项均以其真实的当前状态呈现。",
+    items: [
+      {
+        label: "SAVEN Robotics Lab",
+        href: "/labs/saven-robotics-lab/",
+        status: "开发中",
+        note: "辅助机器人系统——移动、机械臂与感知。",
+      },
+      {
+        label: "SAVEN Robotics Interface",
+        href: "/systems/saven-robotics-interface/",
+        status: "开发中",
+        note: "共享的通信与控制，让人始终掌握主导权。",
+      },
+      {
+        label: "Internal Future Lab",
+        href: "/labs/internal-future-lab/",
+        status: "研究",
+        note: "对当前架构之外概念的早期探索。",
+      },
+      {
+        label: "投资者",
+        href: "/investors/",
+        status: "架构",
+        note: "面向与使命一致的长期资本的结构性立场。",
+      },
+    ],
+  },
   closing: {
     heading: "SAVEN",
     pillars: "Support · Action · Verification · Environment · Network",

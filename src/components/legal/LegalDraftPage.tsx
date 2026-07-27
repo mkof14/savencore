@@ -25,9 +25,12 @@ function legalNavEntryKey(href: string): string | undefined {
 
 export function LegalDraftPage({ locale, content }: LegalDraftPageProps) {
   const ui = getUi(locale);
+  const cookiePrefs = content.slug === "cookie-preferences";
 
   return (
-    <article className="legal-page page page--legal">
+    <article
+      className={`legal-page page page--legal${cookiePrefs ? " legal-page--cookie-preferences" : ""}`}
+    >
       <header className="legal-page__masthead">
         <div className="page-shell__inner">
           <p className="legal-page__eyebrow">{ui.footer.legal}</p>

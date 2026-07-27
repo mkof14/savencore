@@ -60,6 +60,37 @@ export const physicalWorldHomeFr: PhysicalWorldHomeContent = {
     deepenLabel: "SAVEN Robotics Lab",
     deepenHref: "/labs/saven-robotics-lab/",
   },
+  flagships: {
+    headline: "Vers où la direction se dirige",
+    support:
+      "Un bref aperçu des chantiers phares qui construisent vers cette vision — chacun présenté avec son statut actuel et honnête.",
+    items: [
+      {
+        label: "SAVEN Robotics Lab",
+        href: "/labs/saven-robotics-lab/",
+        status: "En développement",
+        note: "Systèmes robotiques d'assistance — mobilité, manipulateurs et perception.",
+      },
+      {
+        label: "SAVEN Robotics Interface",
+        href: "/systems/saven-robotics-interface/",
+        status: "En développement",
+        note: "Communication et contrôle partagés pour que les personnes gardent le commandement.",
+      },
+      {
+        label: "Internal Future Lab",
+        href: "/labs/internal-future-lab/",
+        status: "Recherche",
+        note: "Exploration précoce de concepts au-delà de l'architecture actuelle.",
+      },
+      {
+        label: "Investisseurs",
+        href: "/investors/",
+        status: "Architecture",
+        note: "Posture structurelle pour un capital à long horizon aligné sur la mission.",
+      },
+    ],
+  },
   closing: {
     heading: "SAVEN",
     pillars: "Support · Action · Verification · Environment · Network",

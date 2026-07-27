@@ -60,6 +60,37 @@ export const physicalWorldHomeDe: PhysicalWorldHomeContent = {
     deepenLabel: "SAVEN Robotics Lab",
     deepenHref: "/labs/saven-robotics-lab/",
   },
+  flagships: {
+    headline: "Wohin die Richtung führt",
+    support:
+      "Ein kurzer Blick auf die Leuchtturm-Arbeitsstränge, die auf diese Vision hinarbeiten — jeweils mit ehrlichem, aktuellem Status.",
+    items: [
+      {
+        label: "SAVEN Robotics Lab",
+        href: "/labs/saven-robotics-lab/",
+        status: "In Entwicklung",
+        note: "Unterstützende Robotersysteme — Mobilität, Manipulatoren und Wahrnehmung.",
+      },
+      {
+        label: "SAVEN Robotics Interface",
+        href: "/systems/saven-robotics-interface/",
+        status: "In Entwicklung",
+        note: "Gemeinsame Kommunikation und Steuerung, damit Menschen die Kontrolle behalten.",
+      },
+      {
+        label: "Internal Future Lab",
+        href: "/labs/internal-future-lab/",
+        status: "Forschung",
+        note: "Frühe Erkundung von Konzepten jenseits der aktuellen Architektur.",
+      },
+      {
+        label: "Investoren",
+        href: "/investors/",
+        status: "Architektur",
+        note: "Strukturelle Haltung für langfristig ausgerichtetes, missionskonformes Kapital.",
+      },
+    ],
+  },
   closing: {
     heading: "SAVEN",
     pillars: "Support · Action · Verification · Environment · Network",

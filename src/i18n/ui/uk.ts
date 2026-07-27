@@ -65,15 +65,23 @@ export const uiUk: UiMessages = {
     "footer-applications-overview": "Огляд",
     "footer-trust-overview": "Огляд",
     "footer-research-overview": "Огляд",
+    "footer-research-areas": "Напрями досліджень",
+    "footer-research-notes": "Дослідницькі нотатки",
     "footer-applications-research": "Дослідження",
     "footer-trust-ethics": "Етика",
     "footer-company-about": "Про компанію",
     "footer-company-mission": "Місія",
-    "footer-company-contact": "Контакти", "footer-company-investors": "Інвесторам", "footer-company-media": "Медіа",
+    "footer-company-contact": "Контакти",
+    "footer-company-investors": "Інвесторам",
+    "footer-company-investors-contact": "Контакт для інвесторів",
+    "footer-company-media": "Медіа",
+    "footer-company-roadmap": "Дорожня карта",
+    "footer-resources-security-issue": "Повідомити про проблему безпеки",
     "footer-labs-overview": "Огляд",
     "footer-labs-saven-robotics-lab": "SAVEN Robotics Lab",
     "footer-labs-internal-future-lab": "Internal Future Lab",
     "footer-systems-saven-robotics-interface": "SAVEN Robotics Interface",
+    "systems-saven-robotics-interface": "SAVEN Robotics Interface",
    "sign-in": "Увійти / Зареєструватися", "footer-legal-privacy-policy": "Політика конфіденційності", "footer-legal-terms-of-use": "Умови використання", "footer-legal-cookie-policy": "Політика файлів cookie", "footer-legal-cookie-preferences": "Налаштування файлів cookie", "footer-legal-accessibility-statement": "Заява про доступність", "footer-legal-security": "Безпека", "footer-legal-responsible-ai": "Відповідальний ШІ", "footer-legal-medical-disclaimer": "Медичне застереження", "footer-legal-research-disclaimer": "Дослідницьке застереження", "footer-legal-intellectual-property": "Інтелектуальна власність", "footer-legal-trademark-notice": "Повідомлення про торговельну марку", "footer-legal-copyright": "Повідомлення про авторське право", "footer-legal-data-rights": "Права на дані", "footer-legal-regional-privacy-rights": "Регіональні права на конфіденційність", "footer-legal-do-not-sell-or-share": "Не продавати й не передавати", "footer-legal-legal-notices": "Юридичні повідомлення", "footer-legal-more": "Ще"},
   footer: {
     technology: "Технології",
@@ -157,7 +165,7 @@ export const uiUk: UiMessages = {
     mediaNote:
       "Локально: storage/admin-media/. Хмарне сховище (S3 / Blob) — наступна фаза. На Vercel файлова система не зберігає нові записи бібліотеки.",
     mediaVercelLimit:
-      "На цьому хості не можна зберегти зміни медіатеки (типово для Vercel). Додавайте файли та посилання YouTube/Vimeo в локальній розробці. Для великих відео краще URL-вбудовування (ліміт тіла запиту Vercel ≈ 4,5 МБ).",
+      "На цьому хості не можна зберегти зміни медіатеки без BLOB_READ_WRITE_TOKEN (типово для Vercel). Налаштуйте Vercel Blob для стійкого сховища, додавайте файли та посилання YouTube/Vimeo в локальній розробці, або використовуйте URL-вбудовування для великих відео (ліміт тіла запиту Vercel ≈ 4,5 МБ).",
     mediaAddHeading: "Завантаження",
     mediaAddLead:
       "Класичні інструменти: завантажити файл, додати URL відео або зберегти посилання. Далі керуйте рядками в таблиці нижче.",
@@ -184,7 +192,7 @@ export const uiUk: UiMessages = {
     mediaErrorInvalidType:
       "Непідтримуваний тип файлу. Використовуйте PDF, Office, зображення або відео (MP4, WebM, OGG, MOV).",
     mediaErrorStorage:
-      "Сховище тут недоступне для запису. Використовуйте локальну розробку або зачекайте на object storage.",
+      "Сховище тут недоступне для запису. Налаштуйте BLOB_READ_WRITE_TOKEN для стійкого сховища Vercel Blob, або використовуйте локальну розробку.",
     mediaVideoUrlLabel: "URL відео",
     mediaVideoUrlHint:
       "Рекомендовано для великих відео: вставте посилання YouTube або Vimeo (нижче — попередній перегляд).",
@@ -401,9 +409,14 @@ export const uiUk: UiMessages = {
     emailLabel: "Електронна пошта",
     subjectLabel: "Тема (необов’язково)",
     messageLabel: "Повідомлення",
-    submit: "Відкрити в поштовому застосунку",
-    success: "Має відкритися ваш поштовий застосунок із готовим повідомленням.",
+    submit: "Надіслати повідомлення",
+    submitMailto: "Відкрити в поштовому застосунку",
+    success: "Повідомлення надіслано. Ми відповімо, щойно зможемо.",
+    successMailto:
+      "Має відкритися ваш поштовий застосунок із готовим повідомленням.",
     error: "Будь ласка, заповніть ім’я, пошту та повідомлення.",
+    fallbackNote:
+      "Пряме надсилання не налаштоване на цьому сервері. Натомість відкриється ваш поштовий застосунок, щоб повідомлення все одно дійшло до info@savencore.com.",
   },
 
   media: {

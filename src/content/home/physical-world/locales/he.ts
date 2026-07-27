@@ -60,6 +60,37 @@ export const physicalWorldHomeHe: PhysicalWorldHomeContent = {
     deepenLabel: "SAVEN Robotics Lab",
     deepenHref: "/labs/saven-robotics-lab/",
   },
+  flagships: {
+    headline: "לאן הכיוון פונה",
+    support:
+      "מבט קצר על קווי העבודה המובילים שבונים לקראת החזון הזה — כל אחד מוצג במצבו הכן והנוכחי.",
+    items: [
+      {
+        label: "SAVEN Robotics Lab",
+        href: "/labs/saven-robotics-lab/",
+        status: "בפיתוח",
+        note: "מערכות רובוטיות מסייעות — ניידות, מניפולטורים ותפיסה.",
+      },
+      {
+        label: "SAVEN Robotics Interface",
+        href: "/systems/saven-robotics-interface/",
+        status: "בפיתוח",
+        note: "תקשורת ובקרה משותפות כדי שאנשים יישארו בעמדת הפיקוד.",
+      },
+      {
+        label: "Internal Future Lab",
+        href: "/labs/internal-future-lab/",
+        status: "מחקר",
+        note: "חקירה מוקדמת של רעיונות מעבר לארכיטקטורה הנוכחית.",
+      },
+      {
+        label: "משקיעים",
+        href: "/investors/",
+        status: "ארכיטקטורה",
+        note: "עמדה מבנית עבור הון ארוך טווח המותאם לשליחות.",
+      },
+    ],
+  },
   closing: {
     heading: "SAVEN",
     pillars: "Support · Action · Verification · Environment · Network",

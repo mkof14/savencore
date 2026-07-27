@@ -230,12 +230,32 @@ export const DOMAIN_MASTHEAD_BY_HREF: Record<string, DomainMastheadVisual> = {
     mastheadImage: "/domain/trust/limitations.webp",
     mastheadAlt: "Honest limits and what systems cannot do",
   },
+  "/resources/report-a-security-issue/": {
+    theme: "trust",
+    mastheadImage: "/domain/trust/security.webp",
+    mastheadAlt: "Security as responsible protection",
+  },
 
   /* ——— Research / Company ——— */
   "/research/": {
     theme: "research",
     mastheadImage: "/hub/research-masthead.webp",
     mastheadAlt: "Human and robotic collaboration in a research setting",
+  },
+  "/research/areas/": {
+    theme: "research",
+    mastheadImage: "/hub/research-masthead.webp",
+    mastheadAlt: "Research areas informing SAVEN Core architecture",
+  },
+  "/research/notes/": {
+    theme: "research",
+    mastheadImage: "/hub/research-masthead.webp",
+    mastheadAlt: "Research notes and orientation for SAVEN Core",
+  },
+  "/roadmap/": {
+    theme: "research",
+    mastheadImage: "/hub/research-masthead.webp",
+    mastheadAlt: "Directional research and architecture horizon atmosphere",
   },
   "/purpose/": {
     theme: "purpose",
@@ -260,6 +280,11 @@ export const DOMAIN_MASTHEAD_BY_HREF: Record<string, DomainMastheadVisual> = {
     theme: "investors",
     mastheadImage: "/domain/company/investors.webp",
     mastheadAlt: "Long-horizon engineering campus atmosphere for patient capital",
+  },
+  "/investors/contact/": {
+    theme: "investors",
+    mastheadImage: "/domain/company/investors.webp",
+    mastheadAlt: "Long-horizon engineering campus atmosphere for investor conversation",
   },
   "/contact/": {
     theme: "foundation",

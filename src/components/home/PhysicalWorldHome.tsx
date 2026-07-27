@@ -123,6 +123,42 @@ export function PhysicalWorldHome({ locale }: PhysicalWorldHomeProps) {
         </div>
       </div>
 
+      {c.flagships ? (
+        <section className="pw-flagships" aria-labelledby="pw-flagships-title">
+          <div className="pw-home__inner pw-flagships__inner">
+            <div className="pw-flagships__intro">
+              <h2 id="pw-flagships-title" className="pw-flagships__title">
+                {c.flagships.headline}
+              </h2>
+              <p className="pw-flagships__support">{c.flagships.support}</p>
+            </div>
+            <ul className="pw-flagships__list">
+              {c.flagships.items.map((item) => (
+                <li key={item.href} className="pw-flagships__item">
+                  <Link
+                    href={localizePath(locale, item.href)}
+                    className="pw-flagships__link"
+                  >
+                    <span className="pw-flagships__top">
+                      <span className="pw-flagships__label">
+                        {item.label}
+                      </span>
+                      <span className="pw-flagships__status">
+                        {item.status}
+                      </span>
+                    </span>
+                    <span className="pw-flagships__note">{item.note}</span>
+                    <span className="pw-flagships__arrow" aria-hidden="true">
+                      →
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      ) : null}
+
       <section className="pw-closing" aria-labelledby="pw-closing-title">
         {/* Soft top overlay only — never crops the graphic */}
         <div className="pw-closing__fade-top" aria-hidden="true" />

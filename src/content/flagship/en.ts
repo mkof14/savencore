@@ -439,3 +439,98 @@ export const investorsPageEn: FlagshipBrochureContent = {
     { label: "Sign In/Up", href: "/auth/sign-in/" },
   ],
 };
+
+export const investorsContactPageEn: FlagshipBrochureContent = {
+  kicker: "SAVEN Core",
+  title: "Investor Contact",
+  status: "Architecture",
+  lede: "Investor conversations start the same way every conversation with SAVEN Core starts — through Contact. There is no separate investor portal, data room, or scheduling system on this site.",
+  body: [
+    "Write to info@savencore.com with “Investor inquiry” in the subject line, or use the Contact form and note that context in your message. Investor conversations are read from that same public address.",
+    "For structural context before writing — posture, platform potential, and what we share publicly — see the Investors overview.",
+  ],
+  listHeading: "Continue",
+  items: [
+    "Contact — start a conversation and mention Investor inquiry in the subject",
+    "Investors — structural overview and public posture",
+    "Sign In/Up — authorized access when credentials are configured, not a full investor portal",
+  ],
+  note: "This page is structural information only. It is not an offer to sell securities. Investor materials beyond this public site are shared only through direct, authorized conversation at info@savencore.com.",
+  related: [
+    { label: "Contact", href: "/contact/" },
+    { label: "Investors", href: "/investors/" },
+    { label: "Sign In/Up", href: "/auth/sign-in/" },
+  ],
+};
+
+export const securityIssuePageEn: FlagshipBrochureContent = {
+  kicker: "SAVEN Core",
+  title: "Report a Security Issue",
+  status: "Architecture",
+  lede: "If you believe you have found a security issue affecting SAVEN Core, tell us directly. Reports go through the same authorized Contact channel as every other conversation.",
+  body: [
+    "Email info@savencore.com with “Security issue” in the subject line. Describe what you found, how to reproduce it, and any evidence you can share responsibly. We read reports carefully and respond when we can.",
+    "Please do not include exploit code or sensitive personal or medical information in your initial message. Do not test against production systems in ways that could disrupt service for other people.",
+    "SAVEN Core does not currently operate a paid bug bounty program. This page does not create a legal safe-harbor commitment; it describes the honest reporting channel available today.",
+  ],
+  listHeading: "Continue",
+  items: [
+    "Contact — general conversation channel",
+    "Trust · Security — how security fits the SAVEN Core approach",
+    "Legal · Security — structural security policy (draft, pending legal review)",
+  ],
+  note: "Reports are read by the SAVEN Core team at info@savencore.com. This page does not claim a dedicated security team, bounty rewards, or guaranteed response times.",
+  related: [
+    { label: "Contact", href: "/contact/" },
+    { label: "Trust · Security", href: "/trust/security/" },
+    { label: "Legal · Security", href: "/legal/security/" },
+  ],
+};
+
+export const roadmapPageEn: FlagshipBrochureContent = {
+  kicker: "SAVEN Core",
+  title: "Direction",
+  status: "Architecture",
+  lede: "SAVEN Core moves through three broad horizons rather than a fixed calendar. This page describes the shape of that direction — not delivery dates, product launches, or guarantees.",
+  body: [
+    "Work advances through Research, Architecture, and In Development at once, across Labs, Systems, and Research — one workstream can sit in an earlier horizon while a related one moves ahead. The status shown on any individual page always reflects that page's current, honest state.",
+    "This is a directional summary, not a dated roadmap. It will be updated as work matures; updates do not imply a commitment, offer, or availability claim.",
+  ],
+  listHeading: "Continue",
+  items: [
+    "SAVEN Robotics Lab — engineering direction for assistive robotic systems",
+    "SAVEN Robotics Interface — shared communication and control workstream",
+    "Research — the areas and notes informing current direction",
+    "Contact — ask a direct question about current status",
+  ],
+  sections: [
+    {
+      id: "research",
+      title: "Research",
+      paragraphs: [
+        "Early-stage exploration: understanding human needs, surveying approaches, and testing concepts before any architecture commitment is made.",
+      ],
+    },
+    {
+      id: "architecture",
+      title: "Architecture",
+      paragraphs: [
+        "Shared structure taking shape: the systems, standards, and interfaces that let separate workstreams connect and stay coherent as they grow.",
+      ],
+    },
+    {
+      id: "in-development",
+      title: "In Development",
+      paragraphs: [
+        "Architecture becoming engineering: active build work toward something that can eventually be tested — not yet Prototype, Pilot, or Operational.",
+      ],
+    },
+  ],
+  note: "This roadmap describes a development horizon and may change. It is not a guarantee of delivery, performance, availability, or regulatory approval.",
+  related: [
+    { label: "Labs", href: "/labs/" },
+    { label: "SAVEN Robotics Interface", href: "/systems/saven-robotics-interface/" },
+    { label: "Research", href: "/research/" },
+    { label: "Contact", href: "/contact/" },
+  ],
+};

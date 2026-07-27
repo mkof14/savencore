@@ -4,10 +4,13 @@ import { deepLocalize } from "@/content/pages/localize-content";
 
 import {
   futureLabPageEn,
+  investorsContactPageEn,
   investorsPageEn,
   labsHubPageEn,
+  roadmapPageEn,
   roboticsInterfacePageEn,
   roboticsLabPageEn,
+  securityIssuePageEn,
   type FlagshipBrochureContent,
   type FlagshipPageContent,
 } from "@/content/flagship/en";
@@ -70,6 +73,18 @@ export function getLabsHubPageContent(locale: Locale): FlagshipBrochureContent {
 
 export function getInvestorsPageContent(locale: Locale): FlagshipBrochureContent {
   return localizeFlagship(investorsPageEn, locale);
+}
+
+export function getInvestorsContactPageContent(locale: Locale): FlagshipBrochureContent {
+  return localizeFlagship(investorsContactPageEn, locale);
+}
+
+export function getSecurityIssuePageContent(locale: Locale): FlagshipBrochureContent {
+  return localizeFlagship(securityIssuePageEn, locale);
+}
+
+export function getRoadmapPageContent(locale: Locale): FlagshipBrochureContent {
+  return localizeFlagship(roadmapPageEn, locale);
 }
 
 export function getFlagshipPageContent(

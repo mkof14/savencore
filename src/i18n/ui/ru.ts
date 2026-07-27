@@ -65,15 +65,23 @@ export const uiRu: UiMessages = {
     "footer-applications-overview": "Обзор",
     "footer-trust-overview": "Обзор",
     "footer-research-overview": "Обзор",
+    "footer-research-areas": "Направления исследований",
+    "footer-research-notes": "Исследовательские заметки",
     "footer-applications-research": "Исследования",
     "footer-trust-ethics": "Этика",
     "footer-company-about": "О компании",
     "footer-company-mission": "Миссия",
-    "footer-company-contact": "Контакты", "footer-company-investors": "Инвесторам", "footer-company-media": "Медиа",
+    "footer-company-contact": "Контакты",
+    "footer-company-investors": "Инвесторам",
+    "footer-company-investors-contact": "Контакт для инвесторов",
+    "footer-company-media": "Медиа",
+    "footer-company-roadmap": "Дорожная карта",
+    "footer-resources-security-issue": "Сообщить о проблеме безопасности",
     "footer-labs-overview": "Обзор",
     "footer-labs-saven-robotics-lab": "SAVEN Robotics Lab",
     "footer-labs-internal-future-lab": "Internal Future Lab",
     "footer-systems-saven-robotics-interface": "SAVEN Robotics Interface",
+    "systems-saven-robotics-interface": "SAVEN Robotics Interface",
    "sign-in": "Вход / Регистрация", "footer-legal-privacy-policy": "Политика конфиденциальности", "footer-legal-terms-of-use": "Условия использования", "footer-legal-cookie-policy": "Политика cookie", "footer-legal-cookie-preferences": "Настройки cookie", "footer-legal-accessibility-statement": "Заявление о доступности", "footer-legal-security": "Безопасность", "footer-legal-responsible-ai": "Ответственный ИИ", "footer-legal-medical-disclaimer": "Медицинский отказ от ответственности", "footer-legal-research-disclaimer": "Исследовательский отказ от ответственности", "footer-legal-intellectual-property": "Интеллектуальная собственность", "footer-legal-trademark-notice": "Уведомление о товарных знаках", "footer-legal-copyright": "Уведомление об авторских правах", "footer-legal-data-rights": "Права на данные", "footer-legal-regional-privacy-rights": "Региональные права на конфиденциальность", "footer-legal-do-not-sell-or-share": "Не продавать и не передавать", "footer-legal-legal-notices": "Юридические уведомления", "footer-legal-more": "Ещё"},
   footer: {
     technology: "Технологии",
@@ -218,7 +226,7 @@ export const uiRu: UiMessages = {
     mediaNote:
       "Локально: storage/admin-media/. Облачное хранилище (S3 / Blob) — следующая фаза. На Vercel файловая система не сохраняет новые записи библиотеки.",
     mediaVercelLimit:
-      "На этом хосте нельзя сохранить изменения медиатеки (типично для Vercel). Добавляйте файлы и ссылки YouTube/Vimeo в локальной разработке. Для больших видео лучше URL-встраивание, а не загрузка файла (лимит тела запроса Vercel ≈ 4,5 МБ).",
+      "На этом хосте нельзя сохранить изменения медиатеки без BLOB_READ_WRITE_TOKEN (типично для Vercel). Настройте Vercel Blob для устойчивого хранения, добавляйте файлы и ссылки YouTube/Vimeo в локальной разработке, либо используйте URL-встраивание для больших видео (лимит тела запроса Vercel ≈ 4,5 МБ).",
     mediaAddHeading: "Загрузка",
     mediaAddLead:
       "Классические инструменты: загрузить файл, добавить URL видео или сохранить ссылку. Затем управляйте строками в таблице ниже.",
@@ -247,7 +255,7 @@ export const uiRu: UiMessages = {
     mediaErrorInvalidType:
       "Неподдерживаемый тип файла. Используйте PDF, Office, изображения или видео (MP4, WebM, OGG, MOV).",
     mediaErrorStorage:
-      "Хранилище здесь недоступно для записи. Используйте локальную разработку или дождитесь облачного object storage.",
+      "Хранилище здесь недоступно для записи. Настройте BLOB_READ_WRITE_TOKEN для устойчивого хранения Vercel Blob, либо используйте локальную разработку.",
     mediaVideoUrlLabel: "URL видео",
     mediaVideoUrlHint:
       "Рекомендуется для крупных видео: вставьте ссылку YouTube или Vimeo (ниже — превью встраивания).",
@@ -506,9 +514,14 @@ export const uiRu: UiMessages = {
     emailLabel: "Электронная почта",
     subjectLabel: "Тема (необязательно)",
     messageLabel: "Сообщение",
-    submit: "Открыть в почтовом приложении",
-    success: "Должно открыться ваше почтовое приложение с готовым сообщением.",
+    submit: "Отправить сообщение",
+    submitMailto: "Открыть в почтовом приложении",
+    success: "Сообщение отправлено. Мы ответим, как только сможем.",
+    successMailto:
+      "Должно открыться ваше почтовое приложение с готовым сообщением.",
     error: "Пожалуйста, заполните имя, почту и сообщение.",
+    fallbackNote:
+      "Прямая отправка не настроена на этом сервере. Вместо этого откроется ваше почтовое приложение, чтобы сообщение всё равно дошло до info@savencore.com.",
   },
 
   media: {

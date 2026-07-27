@@ -67,17 +67,23 @@ export const uiEn = {
     "footer-applications-overview": "Overview",
     "footer-trust-overview": "Overview",
     "footer-research-overview": "Overview",
+    "footer-research-areas": "Research Areas",
+    "footer-research-notes": "Research Notes",
     "footer-applications-research": "Research",
     "footer-trust-ethics": "Ethics",
     "footer-company-about": "About",
     "footer-company-mission": "Mission",
     "footer-company-investors": "Investors",
+    "footer-company-investors-contact": "Investor Contact",
     "footer-company-media": "Media",
     "footer-company-contact": "Contact",
+    "footer-company-roadmap": "Roadmap",
+    "footer-resources-security-issue": "Report a Security Issue",
     "footer-labs-overview": "Overview",
     "footer-labs-saven-robotics-lab": "SAVEN Robotics Lab",
     "footer-labs-internal-future-lab": "Internal Future Lab",
     "footer-systems-saven-robotics-interface": "SAVEN Robotics Interface",
+    "systems-saven-robotics-interface": "SAVEN Robotics Interface",
     "sign-in": "Sign In/Up",
     "footer-legal-privacy-policy": "Privacy Policy",
     "footer-legal-terms-of-use": "Terms of Use",
@@ -240,9 +246,9 @@ export const uiEn = {
     mediaLead:
       "Add video, documents, and links in one place. Seed brand assets ship with the site; public items appear on /media/.",
     mediaNote:
-      "Local store: storage/admin-media/. Durable cloud object storage (S3 / Blob) is a later phase. On Vercel, the filesystem cannot persist new library entries.",
+      "Local store: storage/admin-media/. On Vercel, set BLOB_READ_WRITE_TOKEN (Vercel Blob) for durable cloud storage — without it, the filesystem cannot persist new library entries.",
     mediaVercelLimit:
-      "This host cannot persist media library changes (typical on Vercel). Add files and YouTube/Vimeo links in local development. For large videos, prefer a URL embed rather than uploading the file (Vercel request body ≈ 4.5 MB).",
+      "This host cannot persist media library changes without BLOB_READ_WRITE_TOKEN (typical on Vercel). Configure Vercel Blob for durable uploads, add files and YouTube/Vimeo links in local development, or prefer a URL embed for large videos (Vercel request body ≈ 4.5 MB).",
     mediaAddHeading: "Upload",
     mediaAddLead:
       "Classic library tools: upload a file, add a video URL, or save a link. Then manage rows in the table below.",
@@ -271,7 +277,7 @@ export const uiEn = {
     mediaErrorInvalidType:
       "Unsupported file type. Use PDF, Office docs, images, or video (MP4, WebM, OGG, MOV).",
     mediaErrorStorage:
-      "Storage is not writable here. Use local development, or wait for durable object storage.",
+      "Storage is not writable here. Set BLOB_READ_WRITE_TOKEN for durable Vercel Blob storage, or use local development.",
     mediaVideoUrlLabel: "Video URL",
     mediaVideoUrlHint:
       "Recommended for production-sized video: paste a YouTube or Vimeo link (embed preview below).",
@@ -389,10 +395,11 @@ export const uiEn = {
   legal: {
     lastUpdated: "Last updated",
     related: "Legal pages",
-    draftNote: "Draft — pending legal review",
+    draftNote:
+      "Draft — pending legal review. Not active privacy / terms / consent UI.",
     indexTitle: "Legal",
     indexLead:
-      "Structural draft pages for the public website. Not final legal text — pending legal review.",
+      "Structural draft pages for the public website. Not final legal text — pending legal review. Cookie Preferences is a draft model only (no live CMP).",
   },
 
   home: {
@@ -527,9 +534,13 @@ export const uiEn = {
     emailLabel: "Email",
     subjectLabel: "Subject (optional)",
     messageLabel: "Message",
-    submit: "Open in email app",
-    success: "Your email app should open with the message ready to send.",
+    submit: "Send message",
+    submitMailto: "Open in email app",
+    success: "Message sent. We will reply when we can.",
+    successMailto: "Your email app should open with the message ready to send.",
     error: "Please complete name, email, and message.",
+    fallbackNote:
+      "Direct send is not configured on this server. Your email app will open instead so the message still goes to info@savencore.com.",
   },
 
   media: {

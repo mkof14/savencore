@@ -150,7 +150,6 @@ export const knowledgeEntities: readonly KnowledgeEntity[] = [
     relatedTrustIds: ["trust-architecture"],
     relatedPageLinks: [
       { label: "Foundation", href: "/foundation/" },
-      { label: "Company", href: "/company/" },
       { label: "Applications", href: "/applications/" },
     ],
     futureTopics: [
@@ -826,7 +825,7 @@ export const knowledgeEntities: readonly KnowledgeEntity[] = [
     relatedTrustIds: [],
     relatedPageLinks: [
       { label: "Research", href: "/research/" },
-      { label: "Company", href: "/company/" },
+      { label: "Foundation", href: "/foundation/" },
     ],
     futureTopics: [
       "Citation fields",
@@ -1089,7 +1088,7 @@ export const knowledgeEntities: readonly KnowledgeEntity[] = [
     relatedTrustIds: ["trust-architecture"],
     relatedPageLinks: [
       { label: "Applications", href: "/applications/" },
-      { label: "Company", href: "/company/" },
+      { label: "Foundation", href: "/foundation/" },
     ],
     futureTopics: [
       "Institutional access models",
@@ -1434,7 +1433,7 @@ export const knowledgeEntities: readonly KnowledgeEntity[] = [
     relatedApplicationIds: ["government", "research"],
     relatedTrustIds: ["trust-architecture"],
     relatedPageLinks: [
-      { label: "Company", href: "/company/" },
+      { label: "Foundation", href: "/foundation/" },
       { label: "Purpose", href: "/purpose/" },
       { label: "Research", href: "/research/" },
     ],

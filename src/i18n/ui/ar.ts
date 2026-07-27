@@ -65,15 +65,23 @@ export const uiAr: UiMessages = {
     "footer-applications-overview": "نظرة عامة",
     "footer-trust-overview": "نظرة عامة",
     "footer-research-overview": "نظرة عامة",
+    "footer-research-areas": "مجالات البحث",
+    "footer-research-notes": "ملاحظات بحثية",
     "footer-applications-research": "البحث",
     "footer-trust-ethics": "الأخلاق",
     "footer-company-about": "عن الشركة",
     "footer-company-mission": "المهمة",
-    "footer-company-contact": "اتصل بنا", "footer-company-investors": "المستثمرون", "footer-company-media": "الوسائط",
+    "footer-company-contact": "اتصل بنا",
+    "footer-company-investors": "المستثمرون",
+    "footer-company-investors-contact": "تواصل للمستثمرين",
+    "footer-company-media": "الوسائط",
+    "footer-company-roadmap": "خارطة الطريق",
+    "footer-resources-security-issue": "الإبلاغ عن مشكلة أمنية",
     "footer-labs-overview": "نظرة عامة",
     "footer-labs-saven-robotics-lab": "SAVEN Robotics Lab",
     "footer-labs-internal-future-lab": "Internal Future Lab",
     "footer-systems-saven-robotics-interface": "SAVEN Robotics Interface",
+    "systems-saven-robotics-interface": "SAVEN Robotics Interface",
    "sign-in": "تسجيل الدخول / الاشتراك", "footer-legal-privacy-policy": "سياسة الخصوصية", "footer-legal-terms-of-use": "شروط الاستخدام", "footer-legal-cookie-policy": "سياسة ملفات تعريف الارتباط", "footer-legal-cookie-preferences": "تفضيلات ملفات تعريف الارتباط", "footer-legal-accessibility-statement": "بيان إمكانية الوصول", "footer-legal-security": "الأمان", "footer-legal-responsible-ai": "الذكاء الاصطناعي المسؤول", "footer-legal-medical-disclaimer": "إخلاء مسؤولية طبية", "footer-legal-research-disclaimer": "إخلاء مسؤولية بحثية", "footer-legal-intellectual-property": "الملكية الفكرية", "footer-legal-trademark-notice": "إشعار العلامة التجارية", "footer-legal-copyright": "إشعار حقوق النشر", "footer-legal-data-rights": "حقوق البيانات", "footer-legal-regional-privacy-rights": "حقوق الخصوصية الإقليمية", "footer-legal-do-not-sell-or-share": "عدم البيع أو المشاركة", "footer-legal-legal-notices": "إشعارات قانونية", "footer-legal-more": "المزيد"},
   footer: {
     technology: "التقنية",
@@ -151,7 +159,7 @@ export const uiAr: UiMessages = {
     mediaNote:
       "محليًا: storage/admin-media/. التخزين السحابي الدائم (S3 / Blob) مرحلة لاحقة. على Vercel لا تُحفظ إدخالات المكتبة الجديدة.",
     mediaVercelLimit:
-      "لا يمكن حفظ تغييرات مكتبة الوسائط على هذا المضيف (شائع على Vercel). أضف الملفات وروابط YouTube/Vimeo في التطوير المحلي. للفيديو الكبير فضّل تضمين الرابط (حد جسم الطلب على Vercel ≈ 4.5 ميجابايت).",
+      "لا يمكن حفظ تغييرات مكتبة الوسائط على هذا المضيف بدون BLOB_READ_WRITE_TOKEN (شائع على Vercel). فعّل Vercel Blob للتخزين الدائم، أضف الملفات وروابط YouTube/Vimeo في التطوير المحلي، أو فضّل تضمين الرابط للفيديو الكبير (حد جسم الطلب على Vercel ≈ 4.5 ميجابايت).",
     mediaAddHeading: "رفع",
     mediaAddLead:
       "أدوات كلاسيكية: ارفع ملفًا أو أضف رابط فيديو أو احفظ رابطًا. ثم أدر الصفوف في الجدول أدناه.",
@@ -178,7 +186,7 @@ export const uiAr: UiMessages = {
     mediaErrorInvalidType:
       "نوع ملف غير مدعوم. استخدم PDF أو Office أو صورًا أو فيديو (MP4 وWebM وOGG وMOV).",
     mediaErrorStorage:
-      "التخزين غير قابل للكتابة هنا. استخدم التطوير المحلي أو انتظر تخزين الكائنات الدائم.",
+      "التخزين غير قابل للكتابة هنا. فعّل BLOB_READ_WRITE_TOKEN لتخزين Vercel Blob الدائم، أو استخدم التطوير المحلي.",
     mediaVideoUrlLabel: "رابط الفيديو",
     mediaVideoUrlHint:
       "موصى به للفيديو الكبير: الصق رابط YouTube أو Vimeo (المعاينة بالأسفل).",
@@ -395,9 +403,13 @@ export const uiAr: UiMessages = {
     emailLabel: "البريد الإلكتروني",
     subjectLabel: "الموضوع (اختياري)",
     messageLabel: "الرسالة",
-    submit: "فتح في تطبيق البريد",
-    success: "يفترض أن يفتح تطبيق بريدك مع الرسالة جاهزة للإرسال.",
+    submit: "إرسال الرسالة",
+    submitMailto: "فتح في تطبيق البريد",
+    success: "تم إرسال الرسالة. سنرد عندما نتمكن من ذلك.",
+    successMailto: "يفترض أن يفتح تطبيق بريدك مع الرسالة جاهزة للإرسال.",
     error: "يرجى إكمال الاسم والبريد والرسالة.",
+    fallbackNote:
+      "الإرسال المباشر غير مُفعَّل على هذا الخادم. سيفتح تطبيق البريد لديك بدلاً من ذلك حتى تصل الرسالة إلى info@savencore.com.",
   },
 
   media: {

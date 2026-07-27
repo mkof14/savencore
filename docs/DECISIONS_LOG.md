@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-27 (D-0193 — Robotics Interface diagram large SVG device illustrations)
+**Last updated:** 2026-07-27 (D-0194 — Gap backlog execution pass)
 
 ## Rules
 
@@ -209,6 +209,7 @@
 | D-0191 | 2026-07-27 | Robotics Interface diagram — SAVEN logo + photoreal device thumbs | Active |
 | D-0192 | 2026-07-27 | Robotics Interface diagram — thumb visibility + section polish | Active; device photo approach superseded by D-0193 |
 | D-0193 | 2026-07-27 | Robotics Interface diagram — large SVG device illustrations | Active |
+| D-0194 | 2026-07-27 | Gap backlog execution pass (docs, legal UX, Blob, Systems, Roadmap, …) | Active |
 
 ---
 
@@ -1732,6 +1733,31 @@
 - **In scope:** `RoboticsInterfaceDiagram` + CSS; remove unused diagram WebP thumbs under `public/domain/systems/diagram/`; D-0193 + AGENTS / IA brief pointer; type-check; commit/push; production deploy; Russian brief for owner.
 - **Out of scope:** Reintroducing photo circles; inventing products/fleets/metrics; neon excess; Labs diagram redesign; CMS; inventing new marketing copy.
 - **Implications:** Device nodes are diagrammatic and obvious at a glance; photography is no longer used for Robotics Interface hub device icons.
+
+### D-0194 — Gap backlog execution pass
+
+- **Date:** 2026-07-27
+- **Status:** Active
+- **Decision:** Owner authorizes executing the site gap-analysis backlog in priority order (agent brief / canvas `site-gap-analysis`), shipping everything agents can do **without** inventing company facts, final legal/medical text, social profile URLs, Operational claims, analytics, or investor portal. One decision covers the full pass.
+- **Shipped in this pass:**
+  1. **D-DOC** — `SITE_ASSIGNMENT.md` as-built sync (Labs / Interface / Media / Architecture footer / Contact / Systems header / Roadmap).
+  2. **Legal trust UX** — stronger draft banners; Cookie Preferences clearly “no live CMP / not active consent UI”.
+  3. **Admin durable readiness** — optional **Vercel Blob** (`BLOB_READ_WRITE_TOKEN`) with graceful local-FS / honest-unavailable fallback; docs + env documented.
+  4. **S-1** — Systems hub naming bridge: Robotics Layer ≠ SAVEN Robotics Interface; Interface on Systems paths.
+  5. **N-1** — Systems added to primary header (≤7 hubs; Purpose remains via footer Mission).
+  6. **H-2** — Home Flagship Gateway after care carousel (Lab / Interface / Future Lab / Investors; honest statuses).
+  7. **R-1** — Public `/roadmap/` Direction page (Research / Architecture / In Development horizons; not a guarantee; no fake years).
+  8. **C-1** — `/company/` registry hrefs → `/foundation/`; `/company/about/` redirect; Foundation sequence remains on `/foundation/`.
+  9. **SO-1** — Public footer social icons **hidden** until `NEXT_PUBLIC_SOCIAL_*` configured.
+  10. **I-1** — `/investors/contact/` thin CTA to Contact / mailto.
+  11. **TR-1** — `/resources/report-a-security-issue/` → `info@savencore.com` pattern.
+  12. **RE-1** — `/research/areas/` + `/research/notes/` honest leaves (no fake publications list).
+  13. **AP-1** — Applications human-care-first order confirmed; future-extension copy clarified.
+  14. **CT-1** — Contact form: SMTP send when configured, else mailto fallback + honest UX (same inbox).
+  15. **L10N-1** — `%2F` artifacts fixed; FR legal dictionary regenerated (quality pass).
+  16. **SEC/SEO/AN** — CSP left pragmatic (safe); GA not enabled; Search Console documented as owner ops.
+- **Out of scope / blocked for owner:** Final counsel legal text; inventing social URLs / metrics / Operational / Inc. / leadership bios; investor portal; fake analytics dashboards; Knowledge Passport in first viewport; roadmap baseline year / dated entries; full admin DB for non-media stores.
+- **Implications:** Agents treat this entry as authorization for the listed ships. Do not present draft legal as effective law. Do not claim Blob or SMTP persistence/delivery without the env tokens configured. Append further work as new D-IDs.
 
 ## Pending Owner Decisions
 

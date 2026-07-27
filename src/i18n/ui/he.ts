@@ -65,15 +65,23 @@ export const uiHe: UiMessages = {
     "footer-applications-overview": "סקירה",
     "footer-trust-overview": "סקירה",
     "footer-research-overview": "סקירה",
+    "footer-research-areas": "תחומי מחקר",
+    "footer-research-notes": "הערות מחקר",
     "footer-applications-research": "מחקר",
     "footer-trust-ethics": "אתיקה",
     "footer-company-about": "אודות",
     "footer-company-mission": "ייעוד",
-    "footer-company-contact": "יצירת קשר", "footer-company-investors": "משקיעים", "footer-company-media": "מדיה",
+    "footer-company-contact": "יצירת קשר",
+    "footer-company-investors": "משקיעים",
+    "footer-company-investors-contact": "יצירת קשר למשקיעים",
+    "footer-company-media": "מדיה",
+    "footer-company-roadmap": "מפת דרכים",
+    "footer-resources-security-issue": "דיווח על בעיית אבטחה",
     "footer-labs-overview": "סקירה",
     "footer-labs-saven-robotics-lab": "SAVEN Robotics Lab",
     "footer-labs-internal-future-lab": "Internal Future Lab",
     "footer-systems-saven-robotics-interface": "SAVEN Robotics Interface",
+    "systems-saven-robotics-interface": "SAVEN Robotics Interface",
    "sign-in": "התחברות / הרשמה", "footer-legal-privacy-policy": "מדיניות פרטיות", "footer-legal-terms-of-use": "תנאי שימוש", "footer-legal-cookie-policy": "מדיניות עוגיות", "footer-legal-cookie-preferences": "העדפות עוגיות", "footer-legal-accessibility-statement": "הצהרת נגישות", "footer-legal-security": "אבטחה", "footer-legal-responsible-ai": "בינה מלאכותית אחראית", "footer-legal-medical-disclaimer": "כתב ויתור רפואי", "footer-legal-research-disclaimer": "כתב ויתור מחקרי", "footer-legal-intellectual-property": "קניין רוחני", "footer-legal-trademark-notice": "הודעת סימן מסחרי", "footer-legal-copyright": "הודעת זכויות יוצרים", "footer-legal-data-rights": "זכויות מידע", "footer-legal-regional-privacy-rights": "זכויות פרטיות אזוריות", "footer-legal-do-not-sell-or-share": "אל תמכרו או תשתפו", "footer-legal-legal-notices": "הודעות משפטיות", "footer-legal-more": "עוד"},
   footer: {
     technology: "טכנולוגיה",
@@ -151,7 +159,7 @@ export const uiHe: UiMessages = {
     mediaNote:
       "מקומית: storage/admin-media/. אחסון ענן עמיד (S3 / Blob) הוא שלב מאוחר יותר. ב־Vercel לא נשמרות רשומות ספרייה חדשות.",
     mediaVercelLimit:
-      "לא ניתן לשמור שינויים בספריית המדיה על מארח זה (טיפוסי ל־Vercel). הוסיפו קבצים וקישורי YouTube/Vimeo בפיתוח מקומי. לסרטונים גדולים העדיפו הטמעת URL (מגבלת גוף הבקשה ב־Vercel ≈ 4.5 מגה־בייט).",
+      "לא ניתן לשמור שינויים בספריית המדיה על מארח זה ללא BLOB_READ_WRITE_TOKEN (טיפוסי ל־Vercel). הגדירו Vercel Blob לאחסון עמיד, הוסיפו קבצים וקישורי YouTube/Vimeo בפיתוח מקומי, או העדיפו הטמעת URL לסרטונים גדולים (מגבלת גוף הבקשה ב־Vercel ≈ 4.5 מגה־בייט).",
     mediaAddHeading: "העלאה",
     mediaAddLead:
       "כלים קלאסיים: העלאת קובץ, הוספת כתובת וידאו או שמירת קישור. אחר כך נהלו שורות בטבלה למטה.",
@@ -178,7 +186,7 @@ export const uiHe: UiMessages = {
     mediaErrorInvalidType:
       "סוג קובץ לא נתמך. השתמשו ב־PDF, Office, תמונות או וידאו (MP4, WebM, OGG, MOV).",
     mediaErrorStorage:
-      "האחסון אינו ניתן לכתיבה כאן. השתמשו בפיתוח מקומי או המתינו לאחסון אובייקטים עמיד.",
+      "האחסון אינו ניתן לכתיבה כאן. הגדירו BLOB_READ_WRITE_TOKEN לאחסון עמיד ב־Vercel Blob, או השתמשו בפיתוח מקומי.",
     mediaVideoUrlLabel: "כתובת וידאו",
     mediaVideoUrlHint:
       "מומלץ לסרטונים גדולים: הדביקו קישור YouTube או Vimeo (תצוגה מקדימה למטה).",
@@ -393,9 +401,13 @@ export const uiHe: UiMessages = {
     emailLabel: "דוא״ל",
     subjectLabel: "נושא (אופציונלי)",
     messageLabel: "הודעה",
-    submit: "פתיחה באפליקציית הדוא״ל",
-    success: "אפליקציית הדוא״ל אמורה להיפתח עם ההודעה מוכנה לשליחה.",
+    submit: "שליחת הודעה",
+    submitMailto: "פתיחה באפליקציית הדוא״ל",
+    success: "ההודעה נשלחה. נשיב כשנוכל.",
+    successMailto: "אפליקציית הדוא״ל אמורה להיפתח עם ההודעה מוכנה לשליחה.",
     error: "נא למלא שם, דוא״ל והודעה.",
+    fallbackNote:
+      "שליחה ישירה אינה מוגדרת בשרת זה. במקום זאת תיפתח אפליקציית הדוא״ל שלך כדי שההודעה עדיין תגיע אל info@savencore.com.",
   },
 
   media: {

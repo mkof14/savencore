@@ -187,7 +187,7 @@ export const knowledgeDomains: readonly KnowledgeDomain[] = [
   {
     id: "company",
     title: "Company",
-    href: "/company/",
+    href: "/foundation/",
     purpose:
       "Describe the engineering organization that develops and governs SAVEN Core.",
     scope:

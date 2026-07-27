@@ -1,10 +1,14 @@
 import { notFound } from "next/navigation";
 
+import { roleHasPermission } from "@/admin/permissions";
 import { requireAdminRole } from "@/admin/require-role";
 import { MediaLibraryClient } from "@/components/admin/MediaLibraryClient";
 import { isLocale, type Locale } from "@/config/locales";
 import { getUi } from "@/i18n/ui";
-import { listMediaItems } from "@/lib/admin/media-store";
+import {
+  listMediaItems,
+  mediaStoreIsWritableHost,
+} from "@/lib/admin/media-store";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -23,6 +27,7 @@ export default async function AdminMediaPage({ params }: PageProps) {
   }
 
   const items = await listMediaItems();
+  const canManageMedia = await roleHasPermission(gate.role, "manage_media");
 
   return (
     <div>
@@ -33,6 +38,8 @@ export default async function AdminMediaPage({ params }: PageProps) {
         locale={locale}
         role={gate.role}
         initialItems={items}
+        storageWritable={mediaStoreIsWritableHost()}
+        canManageMedia={canManageMedia}
       />
     </div>
   );

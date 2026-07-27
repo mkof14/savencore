@@ -67,7 +67,8 @@ export const DEFAULT_PERMISSION_MATRIX: PermissionMatrix = {
     manage_roles: false,
     manage_templates: true,
     send_mail: false,
-    manage_media: true,
+    // View-only: mutations still require editor+ via media_upload (D-0185).
+    manage_media: false,
     view_monitoring: true,
     manage_invitations: false,
     manage_notifications: false,

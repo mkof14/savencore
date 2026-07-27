@@ -8,14 +8,26 @@ import type {
   MediaItem,
   MediaVisibility,
 } from "@/lib/admin/media-types";
-import { mediaVisibility } from "@/lib/admin/media-types";
+import {
+  inferMimeType,
+  isAllowedUpload,
+  isProtectedMediaItem,
+  MEDIA_MAX_UPLOAD_BYTES,
+  mediaVisibility,
+} from "@/lib/admin/media-types";
 
 export type { MediaCategory, MediaItem, MediaVisibility } from "@/lib/admin/media-types";
 export {
+  inferMimeType,
+  isAllowedUpload,
+  isProtectedMediaItem,
   mediaPreviewKind,
   mediaVisibility,
-  MEDIA_UPLOAD_ACCEPT,
   MEDIA_FILTER_CATEGORIES,
+  MEDIA_MAX_UPLOAD_BYTES,
+  MEDIA_UPLOAD_ACCEPT,
+  MEDIA_VERCEL_BODY_LIMIT_BYTES,
+  MEDIA_VIDEO_ACCEPT,
 } from "@/lib/admin/media-types";
 
 const STORAGE_ROOT = path.join(process.cwd(), "storage", "admin-media");
@@ -155,31 +167,40 @@ async function writeUploadIndex(items: MediaItem[]): Promise<void> {
 }
 
 export function guessCategory(mimeType: string, name: string): MediaCategory {
-  if (mimeType.startsWith("image/")) {
+  const mime = inferMimeType(name, mimeType).toLowerCase();
+  if (mime.startsWith("image/") || /\.(png|jpe?g|webp|gif|svg)$/i.test(name)) {
     return "image";
   }
-  if (mimeType.startsWith("video/")) {
+  if (
+    mime.startsWith("video/") ||
+    /\.(mp4|webm|ogg|ogv|mov|m4v)$/i.test(name)
+  ) {
     return "video";
   }
   if (
-    mimeType.includes("presentation") ||
-    mimeType.includes("powerpoint") ||
-    mimeType.includes("keynote") ||
+    mime.includes("presentation") ||
+    mime.includes("powerpoint") ||
+    mime.includes("keynote") ||
     /\.(ppt|pptx|key)$/i.test(name)
   ) {
     return "presentation";
   }
   if (
-    mimeType.includes("pdf") ||
-    mimeType.includes("document") ||
-    mimeType.includes("msword") ||
-    mimeType.includes("wordprocessing") ||
-    mimeType.includes("text") ||
+    mime.includes("pdf") ||
+    mime.includes("document") ||
+    mime.includes("msword") ||
+    mime.includes("wordprocessing") ||
+    mime.startsWith("text/") ||
     /\.(pdf|doc|docx|txt|md)$/i.test(name)
   ) {
     return "document";
   }
   return "other";
+}
+
+/** True when local filesystem media store can accept writes (not typical Vercel). */
+export function mediaStoreIsWritableHost(): boolean {
+  return !process.env.VERCEL;
 }
 
 async function withSeedSizes(seeds: readonly MediaItem[]): Promise<MediaItem[]> {
@@ -259,11 +280,15 @@ export async function readMediaFile(
   return null;
 }
 
+export type MediaMutationCode =
+  | "storage_unavailable"
+  | "invalid"
+  | "too_large"
+  | "invalid_type";
+
 export type UploadResult =
   | { ok: true; item: MediaItem }
-  | { ok: false; error: string; code: "storage_unavailable" | "invalid" };
-
-const MAX_UPLOAD_BYTES = 40 * 1024 * 1024;
+  | { ok: false; error: string; code: MediaMutationCode };
 
 export async function saveUploadedMedia(input: {
   name: string;
@@ -272,14 +297,34 @@ export async function saveUploadedMedia(input: {
   visibility?: MediaVisibility;
 }): Promise<UploadResult> {
   const name = input.name.trim().slice(0, 180) || "upload.bin";
+  const mimeType = inferMimeType(name, input.mimeType);
+
   if (!input.buffer.length) {
     return { ok: false, error: "Empty file.", code: "invalid" };
   }
-  if (input.buffer.length > MAX_UPLOAD_BYTES) {
+  if (!isAllowedUpload(name, mimeType)) {
     return {
       ok: false,
-      error: "File exceeds 40 MB limit for this development store.",
-      code: "invalid",
+      error:
+        "Unsupported file type. Use PDF, DOC/DOCX, PPT/PPTX, KEY, images, or video (MP4/WebM/OGG/MOV).",
+      code: "invalid_type",
+    };
+  }
+  if (input.buffer.length > MEDIA_MAX_UPLOAD_BYTES) {
+    return {
+      ok: false,
+      error:
+        "File exceeds the 40 MB limit for this store. For large videos, use a YouTube/Vimeo URL embed instead of uploading the file.",
+      code: "too_large",
+    };
+  }
+
+  if (!mediaStoreIsWritableHost()) {
+    return {
+      ok: false,
+      error:
+        "File uploads cannot persist on Vercel (read-only / ephemeral filesystem). Use a YouTube or Vimeo URL under Upload video, or upload files in local development. Durable object storage is a later phase.",
+      code: "storage_unavailable",
     };
   }
 
@@ -293,9 +338,9 @@ export async function saveUploadedMedia(input: {
     const item: MediaItem = {
       id,
       name,
-      mimeType: input.mimeType || "application/octet-stream",
+      mimeType,
       size: input.buffer.length,
-      category: guessCategory(input.mimeType, name),
+      category: guessCategory(mimeType, name),
       createdAt: new Date().toISOString(),
       source: "upload",
       storageKey,
@@ -362,6 +407,15 @@ export async function saveMediaLink(input: {
         ? "video"
         : "link";
 
+  if (!mediaStoreIsWritableHost()) {
+    return {
+      ok: false,
+      error:
+        "Media library entries cannot persist on Vercel (read-only / ephemeral filesystem). Add video URLs and links in local development, or wait for durable object storage. Seed brand assets remain available.",
+      code: "storage_unavailable",
+    };
+  }
+
   try {
     await ensureStorage();
     const description = input.description?.trim().slice(0, 400);
@@ -400,8 +454,17 @@ export async function deleteMediaItem(id: string): Promise<DeleteResult> {
   if (id.startsWith("seed-")) {
     return {
       ok: false,
-      error: "Seed brand assets cannot be deleted.",
+      error: "Seed brand assets and curated catalog links cannot be deleted.",
       code: "forbidden",
+    };
+  }
+
+  if (!mediaStoreIsWritableHost()) {
+    return {
+      ok: false,
+      error:
+        "Could not delete media on Vercel (read-only / ephemeral filesystem). Delete locally, or wait for durable object storage.",
+      code: "storage_unavailable",
     };
   }
 
@@ -410,6 +473,13 @@ export async function deleteMediaItem(id: string): Promise<DeleteResult> {
     const existing = index.find((item) => item.id === id);
     if (!existing) {
       return { ok: false, error: "Not found.", code: "not_found" };
+    }
+    if (isProtectedMediaItem(existing)) {
+      return {
+        ok: false,
+        error: "Seed brand assets and curated catalog links cannot be deleted.",
+        code: "forbidden",
+      };
     }
 
     if (existing.storageKey) {

@@ -2,11 +2,9 @@
 
 import {
   useMemo,
-  useRef,
   useState,
   useTransition,
   type ChangeEvent,
-  type DragEvent,
   type FormEvent,
 } from "react";
 
@@ -21,8 +19,11 @@ import {
   titleFromFilename,
 } from "@/lib/admin/media-embed";
 import {
-  MEDIA_FILTER_CATEGORIES,
+  isProtectedMediaItem,
+  MEDIA_MAX_UPLOAD_BYTES,
   MEDIA_UPLOAD_ACCEPT,
+  MEDIA_VERCEL_BODY_LIMIT_BYTES,
+  MEDIA_VIDEO_ACCEPT,
   mediaPreviewKind,
   mediaVisibility,
   type MediaCategory,
@@ -30,51 +31,63 @@ import {
 } from "@/lib/admin/media-types";
 
 type AddTab = "file" | "video" | "link";
+type LibraryTab = "all" | "video" | "link";
 
 type MediaLibraryClientProps = {
   locale: Locale;
   role: AdminRole;
   initialItems: MediaItem[];
+  storageWritable: boolean;
+  canManageMedia: boolean;
+};
+
+type ApiErrorBody = {
+  item?: MediaItem;
+  error?: string;
+  code?: string;
 };
 
 export function MediaLibraryClient({
   locale,
   role,
   initialItems,
+  storageWritable,
+  canManageMedia,
 }: MediaLibraryClientProps) {
   const ui = getUi(locale);
-  const fileInputRef = useRef<HTMLInputElement>(null);
-  const videoFileInputRef = useRef<HTMLInputElement>(null);
 
   const [items, setItems] = useState(initialItems);
   const [message, setMessage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [preview, setPreview] = useState<MediaItem | null>(null);
-  const [justAdded, setJustAdded] = useState<MediaItem | null>(null);
-  const [filter, setFilter] = useState<"all" | MediaCategory>("all");
   const [addTab, setAddTab] = useState<AddTab>("file");
-  const [dragOver, setDragOver] = useState(false);
+  const [libraryTab, setLibraryTab] = useState<LibraryTab>("all");
 
   const [fileTitle, setFileTitle] = useState("");
   const [pendingFile, setPendingFile] = useState<File | null>(null);
+  const [uploadProgress, setUploadProgress] = useState<number | null>(null);
 
   const [videoUrl, setVideoUrl] = useState("");
   const [videoTitle, setVideoTitle] = useState("");
+  const [videoFile, setVideoFile] = useState<File | null>(null);
 
   const [linkTitle, setLinkTitle] = useState("");
   const [linkUrl, setLinkUrl] = useState("");
   const [linkNote, setLinkNote] = useState("");
 
   const [pending, startTransition] = useTransition();
-  const canUpload = canPerform(role, "media_upload");
-  const canManage = canUpload;
+  const canUpload =
+    canPerform(role, "media_upload") && canManageMedia && storageWritable;
+  const canDelete =
+    canPerform(role, "media_upload") && canManageMedia && storageWritable;
+  const showUploadChrome = canPerform(role, "media_upload") && canManageMedia;
 
   const filtered = useMemo(() => {
-    if (filter === "all") {
+    if (libraryTab === "all") {
       return items;
     }
-    return items.filter((item) => item.category === filter);
-  }, [filter, items]);
+    return items.filter((item) => item.category === libraryTab);
+  }, [items, libraryTab]);
 
   const previewUrl = useMemo(() => {
     if (!preview) {
@@ -93,102 +106,148 @@ export function MediaLibraryClient({
     setError(err);
   }
 
+  function mapError(data: ApiErrorBody, fallback: string): string {
+    if (data.code === "too_large") {
+      return ui.admin.mediaErrorTooLarge;
+    }
+    if (data.code === "invalid_type") {
+      return ui.admin.mediaErrorInvalidType;
+    }
+    if (data.code === "storage_unavailable") {
+      return ui.admin.mediaErrorStorage;
+    }
+    return data.error ?? fallback;
+  }
+
   function onAdded(item: MediaItem, successMessage: string) {
     setItems((prev) => [item, ...prev]);
-    setJustAdded(item);
     setPreview(item);
+    if (item.category === "video") {
+      setLibraryTab("video");
+    } else if (item.category === "link") {
+      setLibraryTab("link");
+    } else {
+      setLibraryTab("all");
+    }
     flash(successMessage, null);
   }
 
-  async function uploadFile(file: File, titleHint?: string) {
-    if (!canUpload) {
-      return;
+  function validateFile(file: File, videoOnly: boolean): string | null {
+    if (!file.size) {
+      return ui.admin.mediaErrorInvalidType;
     }
-    const body = new FormData();
-    body.append("file", file);
-    body.append("visibility", "public");
-    const title = (titleHint ?? fileTitle).trim() || titleFromFilename(file.name);
-    body.append("name", title);
+    if (videoOnly && !file.type.startsWith("video/") && !/\.(mp4|webm|ogg|ogv|mov|m4v)$/i.test(file.name)) {
+      return ui.admin.mediaErrorInvalidType;
+    }
+    if (file.size > MEDIA_MAX_UPLOAD_BYTES) {
+      return ui.admin.mediaErrorTooLarge;
+    }
+    if (!storageWritable && file.size > MEDIA_VERCEL_BODY_LIMIT_BYTES) {
+      return ui.admin.mediaErrorTooLarge;
+    }
+    return null;
+  }
 
-    startTransition(async () => {
-      flash(null, null);
-      const res = await fetch("/api/admin/media/", {
-        method: "POST",
-        body,
-      });
-      const data = (await res.json()) as {
-        item?: MediaItem;
-        error?: string;
+  function uploadFileWithProgress(
+    file: File,
+    titleHint: string,
+  ): Promise<ApiErrorBody & { ok: boolean; status: number }> {
+    return new Promise((resolve) => {
+      const body = new FormData();
+      body.append("file", file);
+      body.append("visibility", "public");
+      body.append("name", titleHint);
+
+      const xhr = new XMLHttpRequest();
+      xhr.open("POST", "/api/admin/media/");
+      xhr.withCredentials = true;
+      xhr.upload.onprogress = (event) => {
+        if (event.lengthComputable && event.total > 0) {
+          setUploadProgress(Math.round((event.loaded / event.total) * 100));
+        }
       };
-      if (!res.ok || !data.item) {
-        flash(null, data.error ?? ui.admin.mediaUploadError);
-        return;
-      }
-      setPendingFile(null);
-      setFileTitle("");
-      onAdded(data.item, ui.admin.mediaUploadSuccess);
+      xhr.onload = () => {
+        let data: ApiErrorBody = {};
+        try {
+          data = JSON.parse(xhr.responseText) as ApiErrorBody;
+        } catch {
+          data =
+            xhr.status === 413
+              ? { error: ui.admin.mediaErrorTooLarge, code: "too_large" }
+              : { error: ui.admin.mediaUploadError };
+        }
+        resolve({
+          ...data,
+          ok: xhr.status >= 200 && xhr.status < 300 && Boolean(data.item),
+          status: xhr.status,
+        });
+      };
+      xhr.onerror = () => {
+        resolve({
+          ok: false,
+          status: 0,
+          error: ui.admin.mediaUploadError,
+        });
+      };
+      setUploadProgress(0);
+      xhr.send(body);
     });
   }
 
-  function selectFile(file: File | null) {
+  function runUpload(file: File, titleHint: string) {
+    if (!canUpload) {
+      flash(null, ui.admin.mediaErrorStorage);
+      return;
+    }
+    const validation = validateFile(file, false);
+    if (validation) {
+      flash(null, validation);
+      return;
+    }
+
+    startTransition(async () => {
+      flash(null, null);
+      const result = await uploadFileWithProgress(file, titleHint);
+      setUploadProgress(null);
+      if (!result.ok || !result.item) {
+        flash(null, mapError(result, ui.admin.mediaUploadError));
+        return;
+      }
+      setPendingFile(null);
+      setVideoFile(null);
+      setFileTitle("");
+      onAdded(result.item, ui.admin.mediaUploadSuccess);
+    });
+  }
+
+  function onFileChosen(event: ChangeEvent<HTMLInputElement>) {
+    const file = event.target.files?.[0] ?? null;
+    event.target.value = "";
     if (!file) {
       return;
     }
     setPendingFile(file);
     setFileTitle((current) => current.trim() || titleFromFilename(file.name));
-    setAddTab(file.type.startsWith("video/") ? "video" : "file");
   }
 
-  function onFileInputChange(event: ChangeEvent<HTMLInputElement>) {
+  function onVideoFileChosen(event: ChangeEvent<HTMLInputElement>) {
     const file = event.target.files?.[0] ?? null;
-    selectFile(file);
     event.target.value = "";
-  }
-
-  function onDrop(event: DragEvent<HTMLDivElement>) {
-    event.preventDefault();
-    setDragOver(false);
-    if (!canUpload || pending) {
+    if (!file) {
       return;
     }
-    const file = event.dataTransfer.files?.[0];
-    if (file) {
-      selectFile(file);
+    const validation = validateFile(file, true);
+    if (validation) {
+      flash(null, validation);
       return;
     }
-    const text = event.dataTransfer.getData("text/uri-list")
-      || event.dataTransfer.getData("text/plain");
-    if (text && looksLikeHttpUrl(text)) {
-      applyPastedUrl(text.trim());
-    }
-  }
-
-  function applyPastedUrl(raw: string) {
-    if (parseVideoEmbedUrl(raw)) {
-      setAddTab("video");
-      setVideoUrl(raw);
-      if (!videoTitle.trim()) {
-        setVideoTitle(guessTitleFromUrl(raw));
-      }
-      return;
-    }
-    setAddTab("link");
-    setLinkUrl(raw);
-    if (!linkTitle.trim()) {
-      setLinkTitle(guessTitleFromUrl(raw));
-    }
-  }
-
-  function onPasteUrl(raw: string) {
-    if (!looksLikeHttpUrl(raw)) {
-      return;
-    }
-    applyPastedUrl(raw.trim());
+    setVideoFile(file);
   }
 
   async function onSaveVideoUrl(event: FormEvent) {
     event.preventDefault();
     if (!canUpload) {
+      flash(null, ui.admin.mediaErrorStorage);
       return;
     }
     const url = videoUrl.trim();
@@ -215,12 +274,9 @@ export function MediaLibraryClient({
           visibility: "public",
         }),
       });
-      const data = (await res.json()) as {
-        item?: MediaItem;
-        error?: string;
-      };
+      const data = (await res.json()) as ApiErrorBody;
       if (!res.ok || !data.item) {
-        flash(null, data.error ?? ui.admin.mediaLinkError);
+        flash(null, mapError(data, ui.admin.mediaLinkError));
         return;
       }
       setVideoUrl("");
@@ -232,6 +288,7 @@ export function MediaLibraryClient({
   async function onAddLink(event: FormEvent) {
     event.preventDefault();
     if (!canUpload) {
+      flash(null, ui.admin.mediaErrorStorage);
       return;
     }
     const name =
@@ -253,12 +310,9 @@ export function MediaLibraryClient({
           visibility: "public",
         }),
       });
-      const data = (await res.json()) as {
-        item?: MediaItem;
-        error?: string;
-      };
+      const data = (await res.json()) as ApiErrorBody;
       if (!res.ok || !data.item) {
-        flash(null, data.error ?? ui.admin.mediaLinkError);
+        flash(null, mapError(data, ui.admin.mediaLinkError));
         return;
       }
       setLinkTitle("");
@@ -269,28 +323,29 @@ export function MediaLibraryClient({
   }
 
   async function onDelete(item: MediaItem) {
-    if (!canManage || item.source === "seed") {
+    if (!canDelete || isProtectedMediaItem(item)) {
       return;
     }
     if (!window.confirm(ui.admin.mediaDeleteConfirm)) {
       return;
     }
+
+    const previous = items;
+    setItems((prev) => prev.filter((row) => row.id !== item.id));
+    if (preview?.id === item.id) {
+      setPreview(null);
+    }
+
     startTransition(async () => {
       flash(null, null);
       const res = await fetch(`/api/admin/media/${item.id}/`, {
         method: "DELETE",
       });
-      const data = (await res.json()) as { error?: string };
+      const data = (await res.json()) as ApiErrorBody;
       if (!res.ok) {
-        flash(null, data.error ?? ui.admin.mediaDeleteError);
+        setItems(previous);
+        flash(null, mapError(data, ui.admin.mediaDeleteError));
         return;
-      }
-      setItems((prev) => prev.filter((row) => row.id !== item.id));
-      if (preview?.id === item.id) {
-        setPreview(null);
-      }
-      if (justAdded?.id === item.id) {
-        setJustAdded(null);
       }
       flash(ui.admin.mediaDeleteSuccess, null);
     });
@@ -339,7 +394,13 @@ export function MediaLibraryClient({
         </p>
       ) : null}
 
-      {canUpload ? (
+      {!storageWritable ? (
+        <p className="admin-media-banner" role="note">
+          {ui.admin.mediaVercelLimit}
+        </p>
+      ) : null}
+
+      {showUploadChrome ? (
         <section className="admin-media-add" aria-labelledby="admin-media-add-title">
           <div className="admin-media-add__head">
             <h2 id="admin-media-add-title" className="admin-media-add__title">
@@ -355,9 +416,9 @@ export function MediaLibraryClient({
           >
             {(
               [
-                ["file", ui.admin.mediaTabFile],
-                ["video", ui.admin.mediaTabVideo],
-                ["link", ui.admin.mediaTabLink],
+                ["file", ui.admin.mediaTabUploadFile],
+                ["video", ui.admin.mediaTabUploadVideo],
+                ["link", ui.admin.mediaTabAddLink],
               ] as const
             ).map(([id, label]) => (
               <button
@@ -375,96 +436,78 @@ export function MediaLibraryClient({
           </div>
 
           {addTab === "file" ? (
-            <div className="admin-media-panel">
-              <div
-                className={`admin-media-drop${dragOver ? " is-dragover" : ""}`}
-                onDragEnter={(event) => {
-                  event.preventDefault();
-                  setDragOver(true);
-                }}
-                onDragOver={(event) => {
-                  event.preventDefault();
-                  setDragOver(true);
-                }}
-                onDragLeave={(event) => {
-                  event.preventDefault();
-                  setDragOver(false);
-                }}
-                onDrop={onDrop}
-                onPaste={(event) => {
-                  const text = event.clipboardData.getData("text/plain");
-                  if (text && looksLikeHttpUrl(text)) {
-                    event.preventDefault();
-                    onPasteUrl(text);
-                  }
-                }}
-              >
-                <p className="admin-media-drop__title">{ui.admin.mediaDropTitle}</p>
-                <p className="admin-media-drop__hint">{ui.admin.mediaDropHint}</p>
-                <p className="admin-media-drop__types">{ui.admin.mediaAcceptedTypes}</p>
-                <button
-                  type="button"
-                  className="admin-btn admin-btn--primary"
-                  disabled={pending}
-                  onClick={() => fileInputRef.current?.click()}
-                >
-                  {ui.admin.mediaBrowse}
-                </button>
-                <input
-                  ref={fileInputRef}
-                  type="file"
-                  accept={MEDIA_UPLOAD_ACCEPT}
-                  className="admin-media-drop__input"
-                  onChange={onFileInputChange}
-                  disabled={pending}
-                  aria-label={ui.admin.mediaBrowse}
-                />
-              </div>
-
+            <form
+              className="admin-media-panel admin-media-form"
+              onSubmit={(event) => {
+                event.preventDefault();
+                if (pendingFile) {
+                  runUpload(
+                    pendingFile,
+                    fileTitle.trim() || titleFromFilename(pendingFile.name),
+                  );
+                }
+              }}
+            >
+              <label className="admin-field__label" htmlFor="admin-media-choose-file">
+                {ui.admin.mediaChooseFile}
+              </label>
+              <input
+                id="admin-media-choose-file"
+                type="file"
+                accept={MEDIA_UPLOAD_ACCEPT}
+                className="admin-media-file-input"
+                onChange={onFileChosen}
+                disabled={pending || !canUpload}
+              />
+              <p className="admin-card__meta">{ui.admin.mediaAcceptedTypes}</p>
+              <label className="admin-field__label" htmlFor="admin-media-file-title">
+                {ui.admin.mediaLinkTitle}
+              </label>
+              <input
+                id="admin-media-file-title"
+                type="text"
+                value={fileTitle}
+                onChange={(event) => setFileTitle(event.target.value)}
+                disabled={pending || !canUpload}
+                placeholder={ui.admin.mediaLinkTitle}
+              />
               {pendingFile ? (
-                <div className="admin-media-ready">
-                  <label className="admin-field__label" htmlFor="admin-media-file-title">
-                    {ui.admin.mediaLinkTitle}
-                  </label>
-                  <input
-                    id="admin-media-file-title"
-                    type="text"
-                    value={fileTitle}
-                    onChange={(event) => setFileTitle(event.target.value)}
-                    disabled={pending}
+                <p className="admin-card__meta">
+                  {pendingFile.name} · {formatBytes(pendingFile.size)}
+                </p>
+              ) : null}
+              {uploadProgress !== null ? (
+                <div
+                  className="admin-media-progress"
+                  role="progressbar"
+                  aria-valuenow={uploadProgress}
+                  aria-valuemin={0}
+                  aria-valuemax={100}
+                  aria-label={ui.admin.mediaUploading}
+                >
+                  <div
+                    className="admin-media-progress__bar"
+                    style={{ width: `${uploadProgress}%` }}
                   />
-                  <p className="admin-card__meta">
-                    {pendingFile.name} · {formatBytes(pendingFile.size)}
-                  </p>
-                  <div className="admin-media-ready__actions">
-                    <button
-                      type="button"
-                      className="admin-btn admin-btn--primary"
-                      disabled={pending}
-                      onClick={() => void uploadFile(pendingFile)}
-                    >
-                      {pending ? ui.admin.mediaUploading : ui.admin.mediaUploadNow}
-                    </button>
-                    <button
-                      type="button"
-                      className="admin-btn"
-                      disabled={pending}
-                      onClick={() => {
-                        setPendingFile(null);
-                        setFileTitle("");
-                      }}
-                    >
-                      {ui.close}
-                    </button>
-                  </div>
+                  <span className="admin-media-progress__label">
+                    {uploadProgress}%
+                  </span>
                 </div>
               ) : null}
-            </div>
+              <button
+                type="submit"
+                className="admin-btn admin-btn--primary"
+                disabled={pending || !canUpload || !pendingFile}
+              >
+                {pending ? ui.admin.mediaUploading : ui.admin.mediaUploadNow}
+              </button>
+            </form>
           ) : null}
 
           {addTab === "video" ? (
             <div className="admin-media-panel">
               <form className="admin-media-form" onSubmit={onSaveVideoUrl}>
+                <p className="admin-card__meta">{ui.admin.mediaVideoUrlHint}</p>
                 <label className="admin-field__label" htmlFor="admin-media-video-url">
                   {ui.admin.mediaVideoUrlLabel}
                 </label>
@@ -473,14 +516,8 @@ export function MediaLibraryClient({
                   type="url"
                   value={videoUrl}
                   onChange={(event) => setVideoUrl(event.target.value)}
-                  onPaste={(event) => {
-                    const text = event.clipboardData.getData("text/plain");
-                    if (text && looksLikeHttpUrl(text)) {
-                      window.setTimeout(() => onPasteUrl(text), 0);
-                    }
-                  }}
                   placeholder={ui.admin.mediaVideoUrlPlaceholder}
-                  disabled={pending}
+                  disabled={pending || !canUpload}
                   required
                 />
                 <label className="admin-field__label" htmlFor="admin-media-video-title">
@@ -492,7 +529,7 @@ export function MediaLibraryClient({
                   value={videoTitle}
                   onChange={(event) => setVideoTitle(event.target.value)}
                   placeholder={ui.admin.mediaVideoTitlePlaceholder}
-                  disabled={pending}
+                  disabled={pending || !canUpload}
                 />
                 {videoEmbed ? (
                   <div className="admin-media-embed-preview">
@@ -518,7 +555,7 @@ export function MediaLibraryClient({
                 <button
                   type="submit"
                   className="admin-btn admin-btn--primary"
-                  disabled={pending || !videoUrl.trim()}
+                  disabled={pending || !canUpload || !videoUrl.trim()}
                 >
                   {pending ? ui.admin.mediaUploading : ui.admin.mediaSaveVideo}
                 </button>
@@ -527,31 +564,58 @@ export function MediaLibraryClient({
               <div className="admin-media-or">
                 <span>{ui.admin.mediaVideoOrUpload}</span>
               </div>
-              <div className="admin-media-ready__actions">
-                <button
-                  type="button"
-                  className="admin-btn"
-                  disabled={pending}
-                  onClick={() => videoFileInputRef.current?.click()}
-                >
-                  {ui.admin.mediaBrowse}
-                </button>
+
+              <form
+                className="admin-media-form"
+                onSubmit={(event) => {
+                  event.preventDefault();
+                  if (videoFile) {
+                    runUpload(videoFile, titleFromFilename(videoFile.name));
+                  }
+                }}
+              >
+                <label className="admin-field__label" htmlFor="admin-media-choose-video">
+                  {ui.admin.mediaChooseVideo}
+                </label>
                 <input
-                  ref={videoFileInputRef}
+                  id="admin-media-choose-video"
                   type="file"
-                  accept="video/*,.mp4,.webm,.ogg"
-                  className="admin-media-drop__input"
-                  disabled={pending}
-                  onChange={(event) => {
-                    const file = event.target.files?.[0];
-                    if (file) {
-                      void uploadFile(file, titleFromFilename(file.name));
-                    }
-                    event.target.value = "";
-                  }}
-                  aria-label={ui.admin.mediaBrowse}
+                  accept={MEDIA_VIDEO_ACCEPT}
+                  className="admin-media-file-input"
+                  onChange={onVideoFileChosen}
+                  disabled={pending || !canUpload}
                 />
-              </div>
+                {videoFile ? (
+                  <p className="admin-card__meta">
+                    {videoFile.name} · {formatBytes(videoFile.size)}
+                  </p>
+                ) : null}
+                {uploadProgress !== null && addTab === "video" ? (
+                  <div
+                    className="admin-media-progress"
+                    role="progressbar"
+                    aria-valuenow={uploadProgress}
+                    aria-valuemin={0}
+                    aria-valuemax={100}
+                    aria-label={ui.admin.mediaUploading}
+                  >
+                    <div
+                      className="admin-media-progress__bar"
+                      style={{ width: `${uploadProgress}%` }}
+                    />
+                    <span className="admin-media-progress__label">
+                      {uploadProgress}%
+                    </span>
+                  </div>
+                ) : null}
+                <button
+                  type="submit"
+                  className="admin-btn"
+                  disabled={pending || !canUpload || !videoFile}
+                >
+                  {pending ? ui.admin.mediaUploading : ui.admin.mediaUploadNow}
+                </button>
+              </form>
             </div>
           ) : null}
 
@@ -566,7 +630,7 @@ export function MediaLibraryClient({
                 value={linkTitle}
                 onChange={(event) => setLinkTitle(event.target.value)}
                 placeholder={ui.admin.mediaLinkTitle}
-                disabled={pending}
+                disabled={pending || !canUpload}
               />
               <label className="admin-field__label" htmlFor="admin-media-link-url">
                 {ui.admin.mediaLinkUrlLabel}
@@ -577,7 +641,7 @@ export function MediaLibraryClient({
                 value={linkUrl}
                 onChange={(event) => setLinkUrl(event.target.value)}
                 placeholder={ui.admin.mediaLinkUrl}
-                disabled={pending}
+                disabled={pending || !canUpload}
                 required
               />
               <label className="admin-field__label" htmlFor="admin-media-link-note">
@@ -589,12 +653,12 @@ export function MediaLibraryClient({
                 value={linkNote}
                 onChange={(event) => setLinkNote(event.target.value)}
                 placeholder={ui.admin.mediaLinkNotePlaceholder}
-                disabled={pending}
+                disabled={pending || !canUpload}
               />
               <button
                 type="submit"
                 className="admin-btn admin-btn--primary"
-                disabled={pending || !linkUrl.trim()}
+                disabled={pending || !canUpload || !linkUrl.trim()}
               >
                 {pending ? ui.admin.mediaUploading : ui.admin.mediaSaveLink}
               </button>
@@ -605,134 +669,121 @@ export function MediaLibraryClient({
         </section>
       ) : null}
 
-      {justAdded ? (
-        <div className="admin-media-success" role="status">
-          <div className="admin-media-success__preview">
-            <ItemThumb item={justAdded} />
-          </div>
-          <div className="admin-media-success__body">
-            <p className="admin-media-success__label">{ui.admin.mediaJustAdded}</p>
-            <p className="admin-media-success__name">{justAdded.name}</p>
-            <div className="admin-media-success__actions">
-              <button
-                type="button"
-                className="admin-btn admin-btn--primary"
-                onClick={() => void copyText(absoluteUrl(justAdded))}
-              >
-                {ui.admin.mediaCopyLink}
-              </button>
-              <button
-                type="button"
-                className="admin-btn"
-                onClick={() => openItem(justAdded)}
-              >
-                {ui.admin.mediaOpen}
-              </button>
-              <button
-                type="button"
-                className="admin-btn"
-                onClick={() => setPreview(justAdded)}
-              >
-                {ui.admin.actionPreview}
-              </button>
-              {canManage && justAdded.source !== "seed" ? (
-                <button
-                  type="button"
-                  className="admin-btn"
-                  disabled={pending}
-                  onClick={() => void onDelete(justAdded)}
-                >
-                  {ui.admin.actionDelete}
-                </button>
-              ) : null}
-            </div>
-          </div>
-        </div>
-      ) : null}
-
-      <div className="admin-media-filters" role="group" aria-label={ui.admin.colType}>
-        <button
-          type="button"
-          className={`admin-btn${filter === "all" ? " admin-btn--primary" : ""}`}
-          onClick={() => setFilter("all")}
-        >
-          {ui.admin.mediaFilterAll}
-        </button>
-        {MEDIA_FILTER_CATEGORIES.map((category) => (
-          <button
-            key={category}
-            type="button"
-            className={`admin-btn${filter === category ? " admin-btn--primary" : ""}`}
-            onClick={() => setFilter(category)}
+      <section className="admin-media-library" aria-labelledby="admin-media-library-title">
+        <div className="admin-media-library__head">
+          <h2 id="admin-media-library-title" className="admin-media-add__title">
+            {ui.admin.mediaLibraryHeading}
+          </h2>
+          <div
+            className="admin-media-tabs admin-media-tabs--secondary"
+            role="tablist"
+            aria-label={ui.admin.mediaLibraryHeading}
           >
-            {categoryLabel(category)}
-          </button>
-        ))}
-      </div>
-
-      {filtered.length === 0 ? (
-        <div className="admin-media-empty">
-          <p>{ui.admin.mediaEmptyLibrary}</p>
+            {(
+              [
+                ["all", ui.admin.mediaFilterAllFiles],
+                ["video", ui.admin.mediaFilterVideos],
+                ["link", ui.admin.mediaFilterLinks],
+              ] as const
+            ).map(([id, label]) => (
+              <button
+                key={id}
+                type="button"
+                role="tab"
+                aria-selected={libraryTab === id}
+                className={`admin-media-tabs__btn${libraryTab === id ? " is-active" : ""}`}
+                onClick={() => setLibraryTab(id)}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
         </div>
-      ) : (
-        <ul className="admin-media-list">
-          {filtered.map((item) => (
-            <li key={item.id} className="admin-media-card">
-              <div className="admin-media-card__thumb">
-                <ItemThumb item={item} />
-              </div>
-              <div className="admin-media-card__body">
-                <div className="admin-media-card__meta-row">
-                  <span className="admin-badge">{categoryLabel(item.category)}</span>
-                  <span className="admin-card__meta">{mediaVisibility(item)}</span>
-                </div>
-                <h3 className="admin-media-card__title">{item.name}</h3>
-                {item.description ? (
-                  <p className="admin-card__meta">{item.description}</p>
-                ) : null}
-                {item.externalUrl ? (
-                  <p className="admin-card__meta admin-media-card__url">
-                    {item.externalUrl}
-                  </p>
-                ) : null}
-                <div className="admin-media-card__actions">
-                  <button
-                    type="button"
-                    className="admin-btn"
-                    onClick={() => setPreview(item)}
-                  >
-                    {ui.admin.actionPreview}
-                  </button>
-                  <button
-                    type="button"
-                    className="admin-btn"
-                    onClick={() => void copyText(absoluteUrl(item))}
-                  >
-                    {ui.admin.mediaCopyLink}
-                  </button>
-                  <button
-                    type="button"
-                    className="admin-btn"
-                    onClick={() => openItem(item)}
-                  >
-                    {ui.admin.mediaOpen}
-                  </button>
-                  {canManage && item.source !== "seed" ? (
-                    <button
-                      type="button"
-                      className="admin-btn"
-                      onClick={() => void onDelete(item)}
-                      disabled={pending}
-                    >
-                      {ui.admin.actionDelete}
-                    </button>
-                  ) : null}
-                </div>
-              </div>
-            </li>
-          ))}
-        </ul>
-      )}
+
+        {filtered.length === 0 ? (
+          <div className="admin-media-empty">
+            <p>{ui.admin.mediaEmptyLibrary}</p>
+          </div>
+        ) : (
+          <div className="admin-table-wrap">
+            <table className="admin-table admin-media-table">
+              <thead>
+                <tr>
+                  <th scope="col">{ui.admin.colName}</th>
+                  <th scope="col">{ui.admin.colType}</th>
+                  <th scope="col">{ui.admin.colDate}</th>
+                  <th scope="col">{ui.admin.colActions}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {filtered.map((item) => {
+                  const deletable = canDelete && !isProtectedMediaItem(item);
+                  return (
+                    <tr key={item.id}>
+                      <td>
+                        <div className="admin-media-table__name">
+                          <ItemThumb item={item} />
+                          <div>
+                            <strong>{item.name}</strong>
+                            {item.externalUrl ? (
+                              <p className="admin-card__meta admin-media-card__url">
+                                {item.externalUrl}
+                              </p>
+                            ) : null}
+                            <p className="admin-card__meta">
+                              {mediaVisibility(item)}
+                              {isProtectedMediaItem(item)
+                                ? ` · ${ui.admin.mediaSourceSeed}`
+                                : ""}
+                            </p>
+                          </div>
+                        </div>
+                      </td>
+                      <td>{categoryLabel(item.category)}</td>
+                      <td>{formatDate(item.createdAt, locale)}</td>
+                      <td>
+                        <div className="admin-media-table__actions">
+                          <button
+                            type="button"
+                            className="admin-btn"
+                            onClick={() => setPreview(item)}
+                          >
+                            {ui.admin.actionPreview}
+                          </button>
+                          <button
+                            type="button"
+                            className="admin-btn"
+                            onClick={() => openItem(item)}
+                          >
+                            {ui.admin.mediaOpen}
+                          </button>
+                          <button
+                            type="button"
+                            className="admin-btn"
+                            onClick={() => void copyText(absoluteUrl(item))}
+                          >
+                            {ui.admin.mediaCopyLink}
+                          </button>
+                          {deletable ? (
+                            <button
+                              type="button"
+                              className="admin-btn admin-btn--danger"
+                              onClick={() => void onDelete(item)}
+                              disabled={pending}
+                            >
+                              {ui.admin.actionDelete}
+                            </button>
+                          ) : null}
+                        </div>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </section>
 
       {preview && previewUrl ? (
         <div
@@ -755,7 +806,7 @@ export function MediaLibraryClient({
             <div className="admin-preview__media">
               <PreviewBody item={preview} url={previewUrl} />
             </div>
-            <div className="admin-media-success__actions">
+            <div className="admin-media-table__actions">
               <button
                 type="button"
                 className="admin-btn admin-btn--primary"
@@ -770,10 +821,10 @@ export function MediaLibraryClient({
               >
                 {ui.admin.mediaOpen}
               </button>
-              {canManage && preview.source !== "seed" ? (
+              {canDelete && !isProtectedMediaItem(preview) ? (
                 <button
                   type="button"
-                  className="admin-btn"
+                  className="admin-btn admin-btn--danger"
                   disabled={pending}
                   onClick={() => void onDelete(preview)}
                 >
@@ -812,6 +863,18 @@ function formatBytes(size: number): string {
   return `${(size / (1024 * 1024)).toFixed(1)} MB`;
 }
 
+function formatDate(iso: string, locale: Locale): string {
+  try {
+    return new Intl.DateTimeFormat(locale === "zh-cn" ? "zh-CN" : locale, {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    }).format(new Date(iso));
+  } catch {
+    return iso.slice(0, 10);
+  }
+}
+
 function resolveItemUrl(
   item: MediaItem,
   options: { absolute: boolean },
@@ -833,7 +896,7 @@ function ItemThumb({ item }: { item: MediaItem }) {
   const url = resolveItemUrl(item, { absolute: false });
   if (kind === "image") {
     // eslint-disable-next-line @next/next/no-img-element
-    return <img src={url} alt="" className="admin-media-thumb__img" />;
+    return <img src={url} alt="" className="admin-media-table__thumb-img" />;
   }
   if (kind === "video") {
     const embed = item.externalUrl ? parseVideoEmbedUrl(item.externalUrl) : null;
@@ -843,7 +906,7 @@ function ItemThumb({ item }: { item: MediaItem }) {
         <img
           src={`https://i.ytimg.com/vi/${embed.id}/hqdefault.jpg`}
           alt=""
-          className="admin-media-thumb__img"
+          className="admin-media-table__thumb-img"
         />
       );
     }

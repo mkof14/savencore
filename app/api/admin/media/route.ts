@@ -1,9 +1,11 @@
 import { NextResponse } from "next/server";
 
+import { roleHasPermission } from "@/admin/permissions";
 import { canPerform } from "@/admin/roles";
 import { requireAdminRole } from "@/admin/require-role";
 import {
   listMediaItems,
+  mediaStoreIsWritableHost,
   saveMediaLink,
   saveUploadedMedia,
 } from "@/lib/admin/media-store";
@@ -21,7 +23,10 @@ export async function GET() {
   }
 
   const items = await listMediaItems();
-  return NextResponse.json({ items });
+  return NextResponse.json({
+    items,
+    writable: mediaStoreIsWritableHost(),
+  });
 }
 
 export async function POST(request: Request) {
@@ -33,7 +38,10 @@ export async function POST(request: Request) {
     );
   }
 
-  if (!canPerform(gate.role, "media_upload")) {
+  if (
+    !canPerform(gate.role, "media_upload") ||
+    !(await roleHasPermission(gate.role, "manage_media"))
+  ) {
     return NextResponse.json({ error: "forbidden" }, { status: 403 });
   }
 
@@ -74,10 +82,26 @@ export async function POST(request: Request) {
     return NextResponse.json({ item: result.item }, { status: 201 });
   }
 
-  const form = await request.formData();
+  let form: FormData;
+  try {
+    form = await request.formData();
+  } catch {
+    return NextResponse.json(
+      {
+        error:
+          "Could not read the upload body. On Vercel, requests over ~4.5 MB usually fail — use a YouTube/Vimeo URL embed for large videos.",
+        code: "too_large",
+      },
+      { status: 413 },
+    );
+  }
+
   const file = form.get("file");
   if (!(file instanceof File)) {
-    return NextResponse.json({ error: "Missing file." }, { status: 400 });
+    return NextResponse.json(
+      { error: "Missing file.", code: "invalid" },
+      { status: 400 },
+    );
   }
 
   const visibilityRaw = form.get("visibility");
@@ -108,9 +132,15 @@ export async function POST(request: Request) {
   });
 
   if (!result.ok) {
+    const status =
+      result.code === "storage_unavailable"
+        ? 503
+        : result.code === "too_large"
+          ? 413
+          : 400;
     return NextResponse.json(
       { error: result.error, code: result.code },
-      { status: result.code === "storage_unavailable" ? 503 : 400 },
+      { status },
     );
   }
 

@@ -26,12 +26,16 @@ const securityHeaders: { key: string; value: string }[] = [
       "object-src 'none'",
       "frame-ancestors 'none'",
       "form-action 'self' https://accounts.google.com",
-      "img-src 'self' data: blob:",
+      // Brand assets + YouTube thumbnails for Media library embeds (D-0185).
+      "img-src 'self' data: blob: https://i.ytimg.com https://i.vimeocdn.com",
       "font-src 'self' data:",
       "style-src 'self' 'unsafe-inline'",
       // Next.js runtime + Auth.js; tighten with nonces in a later hardening pass.
       "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
       "connect-src 'self' https://accounts.google.com https://oauth2.googleapis.com",
+      // Admin + public Media YouTube/Vimeo previews (D-0184 / D-0185).
+      "frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://player.vimeo.com",
+      "media-src 'self' blob:",
       "worker-src 'self' blob:",
       "manifest-src 'self'",
     ].join("; "),

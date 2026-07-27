@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-26 (D-0184 — Admin Media simplified upload UX)
+**Last updated:** 2026-07-26 (D-0185 — Admin Media traditional CMS UX + video/delete fixes)
 
 ## Rules
 
@@ -200,6 +200,7 @@
 | D-0182 | 2026-07-26 | Rename Applications “Home” leaf to Home Application | Active |
 | D-0183 | 2026-07-26 | Expanded email templates + public/admin Media library | Active |
 | D-0184 | 2026-07-26 | Admin Media simplified Add content UX (File / Video / Link) | Active |
+| D-0185 | 2026-07-26 | Admin Media traditional CMS UX + video/delete fixes | Active |
 
 ---
 
@@ -1642,6 +1643,15 @@
 - **In scope:** `MediaLibraryClient` + admin CSS; `media-embed` helper; media types/store/API optional display name; public Media preview embeds; `src/i18n/ui/*`; `docs/ADMIN_PLATFORM.md` + D-0184 + AGENTS phase pointer; `tsc`/smoke; commit/push; production deploy.
 - **Out of scope:** Object storage on Vercel; inventing media catalog content; neon/glow; Experience Redesign hero freeze (D-0175).
 - **Implications:** Extends D-0183 Admin Media. Same RBAC and storage honesty; UX only (plus embed preview).
+
+### D-0185 — Admin Media traditional CMS UX + video/delete fixes
+
+- **Date:** 2026-07-26
+- **Status:** Active
+- **Decision:** Owner authorizes a **durable Admin Media repair**: (1) fix video placement failures — MIME/extension inference for MP4/WebM/MOV, clear size/type/storage errors, YouTube/Vimeo embed CSP (`frame-src` + thumbnail `img-src`), inline Content-Disposition for video/image preview, honest Vercel filesystem + ~4.5 MB body limits with UI banner preferring URL embeds for large video; (2) **Delete** visible and working for non-seed upload/link rows (optimistic UI; seed/`seed-*` protected; editor+ + `manage_media`); (3) **traditional CMS navigation** — horizontal tabs Upload file / Upload video / Add link, visible Choose file inputs, upload progress, library table (Name / Type / Date / Open · Copy · Delete) with All files · Videos · Links filters. No fake success on read-only hosts; durable object storage remains a later phase.
+- **In scope:** `MediaLibraryClient` + admin CSS; media types/store/API; CSP in `next.config.ts`; admin media page props; `src/i18n/ui/*`; `docs/ADMIN_PLATFORM.md` + D-0185 + AGENTS phase pointer; `tsc`; commit/push; production deploy.
+- **Out of scope:** S3/Blob object storage; inventing catalog videos; public Media delete; neon/glow; Experience Redesign hero freeze (D-0175); auth/RBAC hierarchy redesign.
+- **Implications:** Supersedes D-0184 UX presentation (same library, clearer CMS grammar). Production Vercel still cannot persist new library rows until object storage; local `storage/admin-media/` remains the writable path.
 
 ## Pending Owner Decisions
 

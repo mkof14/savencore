@@ -148,7 +148,7 @@ These three are the **flagship A+B workstreams**. English below is the canonical
 
 | Field | Value |
 |-------|--------|
-| **Role** | System for interacting with robots and autonomous machines |
+| **Role** | Shared interface layer for communication between diverse robots/devices and SAVEN, and for coordinating shared/common tasks under one control and communication system (human oversight preserved) |
 | **Public status** | **In Development** (architecture / interface workstream — not a commercial product) |
 | **Kind** | System / interface |
 

@@ -108,14 +108,74 @@ export const roboticsLabPageEn: FlagshipBrochureContent = {
   ],
 };
 
-export const roboticsInterfacePageEn: FlagshipPageContent = {
+export const roboticsInterfacePageEn: FlagshipBrochureContent = {
   kicker: "SAVEN Core",
   title: "SAVEN Robotics Interface",
   status: "In Development",
-  lede: "A system for interacting with robots and autonomous machines — so people stay in command of complex physical work.",
+  lede: "The shared interface layer that connects diverse robots and devices to SAVEN — so they can communicate, coordinate common tasks, and stay under human command.",
   body: [
-    "The Robotics Interface is the human-facing layer for understanding what machines are doing, directing missions, and keeping limits visible.",
+    "SAVEN Robotics Interface is an important part of the SAVEN system architecture: a common communication and control path between SAVEN and the many kinds of robots and devices that may work together.",
+    "Different platforms — manipulators, mobile and trolley robots, assistive forms, and sensors — should not become separate islands of control. Through the Robotics Interface they share one control and communication system under SAVEN, so shared and common tasks can be planned, directed, and supervised as coordinated work.",
+    "People remain in authority. The Interface keeps missions, limits, and machine state visible so AI and robotics stay tools for human care — not opaque automation.",
     "Capability areas below are possible components of the architecture. None are presented as shipped product modules.",
+  ],
+  highlights: [
+    {
+      id: "what",
+      title: "What this is",
+      text: "A shared interface layer so diverse robots and devices can communicate and coordinate under SAVEN.",
+    },
+    {
+      id: "why",
+      title: "Why it matters",
+      text: "Common tasks across different machines need one governable communication path — with people still in command.",
+    },
+    {
+      id: "next",
+      title: "Status",
+      text: "In Development. Architecture for interoperability and oversight — not a commercial control product.",
+    },
+  ],
+  sections: [
+    {
+      id: "role",
+      title: "Role in the SAVEN system",
+      paragraphs: [
+        "SAVEN sits at the center of analysis, roles, events, and actions. The Robotics Interface is the layer through which executive devices connect — exchanging commands, telemetry, and task context so heterogeneous machines can participate in shared work.",
+        "Interoperability is the point: one architecture for many device kinds, so care-oriented physical assistance can grow without inventing a separate stack for every form factor.",
+      ],
+    },
+    {
+      id: "devices",
+      title: "Device diversity (architecture concepts)",
+      paragraphs: [
+        "The Interface is designed around classes of executive devices as architecture concepts — not product SKUs or deployment claims:",
+      ],
+      items: [
+        "Manipulators — careful reach, hold, and handoff under visible limits",
+        "Mobile and trolley robots — movement through shared spaces with governable paths",
+        "Assistive forms — physical support shapes meant to help people beside caregivers",
+        "Sensors and perception nodes — context that returns into SAVEN for the next action",
+      ],
+    },
+    {
+      id: "components",
+      title: "Possible components",
+      collapsed: true,
+      items: [
+        "Command and control",
+        "Visual interface",
+        "Mission planning",
+        "Real-time telemetry",
+        "Fleet management",
+        "Human–robot interaction",
+        "Remote operations",
+        "AI-assisted decision support",
+        "System diagnostics",
+        "Role-based access",
+        "Digital mission environment",
+      ],
+    },
   ],
   listHeading: "Possible components",
   items: [

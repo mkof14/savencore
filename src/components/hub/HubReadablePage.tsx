@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { HubStoryIcon } from "@/components/hub/HubStoryIcon";
 import { LabsDataLoop } from "@/components/labs/LabsDataLoop";
+import { RoboticsInterfaceDiagram } from "@/components/systems/RoboticsInterfaceDiagram";
 import type { Locale } from "@/config/locales";
 import { SITE_FALCON_MARK_PATH } from "@/config/site";
 import type { HubPageContent } from "@/content/hub/types";
@@ -97,9 +98,12 @@ export function HubReadablePage({ locale, content }: HubReadablePageProps) {
       </header>
 
       <div className="hub-page__inner hub-page__body-wrap">
-        {/* Labs architecture diagram sits early — first scroll attention (D-0167) */}
+        {/* Architecture diagrams sit early — first scroll attention (D-0167 / D-0189) */}
         {content.diagram?.kind === "labs-data-loop" ? (
           <LabsDataLoop labels={content.diagram.labels} />
+        ) : null}
+        {content.diagram?.kind === "robotics-interface" ? (
+          <RoboticsInterfaceDiagram labels={content.diagram.labels} />
         ) : null}
 
         {content.highlights && content.highlights.length > 0 ? (

@@ -56,7 +56,7 @@ export function getRoboticsLabPageContent(locale: Locale): FlagshipBrochureConte
   return localizeFlagship(roboticsLabPageEn, locale);
 }
 
-export function getRoboticsInterfacePageContent(locale: Locale): FlagshipPageContent {
+export function getRoboticsInterfacePageContent(locale: Locale): FlagshipBrochureContent {
   return localizeFlagship(roboticsInterfacePageEn, locale);
 }
 

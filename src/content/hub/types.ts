@@ -1,5 +1,6 @@
 import type { HubVisualTheme } from "@/content/hub/hub-visuals";
 import type { LabsDataLoopLabels } from "@/content/labs/data-loop";
+import type { RoboticsInterfaceDiagramLabels } from "@/content/systems/robotics-interface-diagram";
 
 /** Layer-1 hub page content — visual public entry, not docs chrome. */
 
@@ -41,6 +42,10 @@ export type HubDiagram =
   | {
       kind: "labs-data-loop";
       labels: LabsDataLoopLabels;
+    }
+  | {
+      kind: "robotics-interface";
+      labels: RoboticsInterfaceDiagramLabels;
     };
 
 export type HubPageContent = {
@@ -60,7 +65,7 @@ export type HubPageContent = {
   /** Short editorial story beats for ordinary readers (D-0165). */
   highlights?: readonly HubHighlight[];
   body?: readonly string[];
-  /** Animated or static architecture diagram (Labs overview — D-0166). */
+  /** Animated or static architecture diagram (Labs D-0166 / Robotics Interface D-0189). */
   diagram?: HubDiagram;
   /** Visual scenes after the opening (Labs leaves / overview — D-0166). */
   scenes?: readonly HubScene[];

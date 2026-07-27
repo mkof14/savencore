@@ -27,6 +27,7 @@ import {
   getLabsOverviewScenes,
   getRoboticsLabScenes,
 } from "@/content/labs/get-labs-visual-content";
+import { getRoboticsInterfaceDiagramLabels } from "@/content/systems/get-robotics-interface-diagram";
 import { deepLocalize } from "@/content/pages/localize-content";
 import { resolveContentLocale } from "@/i18n/types";
 import { dictionary as dictionaryAr } from "@/content/flagship/dictionaries/ar";
@@ -704,8 +705,26 @@ export function getRoboticsInterfaceHubContent(
   locale: Locale = "en",
 ): HubPageContent {
   const visual = domainVisualForHref("/systems/saven-robotics-interface/");
+  const page = getRoboticsInterfacePageContent(locale);
+  const hub = buildFlagshipHub(page);
   return {
-    ...buildFlagshipHub(getRoboticsInterfacePageContent(locale)),
+    ...hub,
+    ...(page.highlights ? { highlights: page.highlights } : {}),
+    ...(page.sections
+      ? {
+          sections: page.sections.map((section) => ({
+            id: section.id,
+            title: section.title,
+            ...(section.paragraphs ? { paragraphs: section.paragraphs } : {}),
+            ...(section.items ? { items: section.items } : {}),
+            ...(section.collapsed ? { collapsed: true } : {}),
+          })),
+        }
+      : {}),
+    diagram: {
+      kind: "robotics-interface",
+      labels: getRoboticsInterfaceDiagramLabels(locale),
+    },
     visual: {
       theme: "systems",
       mastheadImage: visual.mastheadImage,

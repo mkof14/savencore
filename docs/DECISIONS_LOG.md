@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-27 (D-0188 — Footer Architecture column restored)
+**Last updated:** 2026-07-27 (D-0189 — Robotics Interface content + hub diagram)
 
 ## Rules
 
@@ -204,6 +204,7 @@
 | D-0186 | 2026-07-26 | Admin Media delete-all + upload CTAs + public Media viewer | Active |
 | D-0187 | 2026-07-26 | Admin Media library filter chip contrast (light/dark) | Active |
 | D-0188 | 2026-07-27 | Footer Architecture column — Systems depth map | Active |
+| D-0189 | 2026-07-27 | SAVEN Robotics Interface — interoperability copy + hub diagram | Active |
 
 ---
 
@@ -1682,6 +1683,15 @@
 - **In scope:** `site-navigation` footer group id/title; `SiteFooter` comment; `src/i18n/ui/*` `footer.architecture`; `INFORMATION_ARCHITECTURE` as-built note; D-0188 + AGENTS phase pointer; commit/push; production deploy.
 - **Out of scope:** Renaming `/systems/` routes; inventing architecture leaf pages; changing Technology/Trust/Legal/Media/Home Application; neon/glow; Experience Redesign hero freeze (D-0175).
 - **Implications:** Visitors see Architecture in the footer with all published Systems architecture pages. Agents treat Architecture as the footer label for the Systems Layer-2 depth map.
+
+### D-0189 — SAVEN Robotics Interface content + animated hub diagram
+
+- **Date:** 2026-07-27
+- **Status:** Active
+- **Decision:** Owner authorizes expanded public copy and an animated architecture diagram on **SAVEN Robotics Interface** (`/systems/saven-robotics-interface/`). Positioning: the Interface is an important SAVEN system part — a shared interface layer for communication between diverse robots/devices and for coordinating shared/common tasks under one control and communication system (SAVEN), with human oversight preserved. Status remains **In Development** / architecture — not Operational, not a commercial control product, no invented fleets/metrics/deployments. Device classes (manipulators, mobile/trolley robots, assistive forms, sensors) are architecture concepts, not product SKUs. Diagram: center SAVEN, ring labeled SAVEN Robotics Interface, outer device nodes with intentional motion (link pulses, soft ring orbit, sequential device highlight); navy/gold/blue quality bar matching Labs `LabsDataLoop`; respect `prefers-reduced-motion`. English canonical; localize new page-body and diagram strings across flagship dictionaries (10 locales). Domain visual shell unchanged.
+- **In scope:** Flagship Robotics Interface brochure copy; `RoboticsInterfaceDiagram` + CSS; hub `diagram` kind wiring; diagram labels + flagship dictionary patch; D-0189 + AGENTS / IA brief pointer; `tsc`/smoke; commit/push; production deploy.
+- **Out of scope:** Invented photography/logo assets; claiming Operational/commercial availability; neon/glow excess; merging `/systems/robotics-layer/` with the Interface workstream; Labs diagram redesign; CMS.
+- **Implications:** Robotics Interface page teaches interoperability and common-task coordination visually and in copy; agents treat the diagram as architecture storytelling only.
 
 ## Pending Owner Decisions
 

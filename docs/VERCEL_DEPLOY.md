@@ -27,7 +27,7 @@ Set in Vercel → Project → Settings → Environment Variables (Production + P
 | `AUTH_URL` | Recommended in production | Public origin, e.g. `https://www.savencore.com` |
 | `NEXTAUTH_URL` | Optional alias | Same origin if your Auth.js version expects it |
 | `NEXT_PUBLIC_SITE_URL` | Recommended | Canonical origin for sitemap, robots, Open Graph (defaults to `https://www.savencore.com`) |
-| `NEXT_PUBLIC_SOCIAL_*` | Optional | Facebook / YouTube / X / LinkedIn / Instagram URLs — empty = icons hidden on public footer (D-0194) |
+| `NEXT_PUBLIC_SOCIAL_*` | Optional | Facebook / X / LinkedIn / Instagram — empty = icons hidden (D-0194). YouTube has a committed default (`https://youtu.be/0C1Sk_RAnSw`, D-0195); set env to override. |
 | `SMTP_*` | Optional | Admin mailings + public Contact form; unset → simulated admin send / Contact mailto fallback |
 | `BLOB_READ_WRITE_TOKEN` | Optional | Vercel Blob read/write token for durable Admin Media on production (D-0194) |
 

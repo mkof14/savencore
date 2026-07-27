@@ -95,7 +95,7 @@ SMTP_SECURE=false
 
 ## Footer socials
 
-Icons for Facebook, YouTube, X, LinkedIn, Instagram render **only when** the matching `NEXT_PUBLIC_SOCIAL_*` URL is set (D-0194). Unset / `#` → icon hidden on the public footer (no disabled placeholders). Do not invent profile URLs.
+Icons for Facebook, YouTube, X, LinkedIn, Instagram render **only when** configured (D-0194 SO-1). YouTube uses the owner-approved committed default `https://youtu.be/0C1Sk_RAnSw` (D-0195; `NEXT_PUBLIC_SOCIAL_YOUTUBE` overrides). Other networks: unset / `#` → icon hidden (no disabled placeholders). Do not invent additional profile URLs.
 
 ## Out of scope (later)
 

@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-27 (D-0194 — Gap backlog execution pass)
+**Last updated:** 2026-07-27 (D-0195 — YouTube social live)
 
 ## Rules
 
@@ -210,6 +210,7 @@
 | D-0192 | 2026-07-27 | Robotics Interface diagram — thumb visibility + section polish | Active; device photo approach superseded by D-0193 |
 | D-0193 | 2026-07-27 | Robotics Interface diagram — large SVG device illustrations | Active |
 | D-0194 | 2026-07-27 | Gap backlog execution pass (docs, legal UX, Blob, Systems, Roadmap, …) | Active |
+| D-0195 | 2026-07-27 | Owner YouTube URL live in footer (committed default + env override) | Active |
 
 ---
 
@@ -1759,6 +1760,16 @@
 - **Out of scope / blocked for owner:** Final counsel legal text; inventing social URLs / metrics / Operational / Inc. / leadership bios; investor portal; fake analytics dashboards; Knowledge Passport in first viewport; roadmap baseline year / dated entries; full admin DB for non-media stores.
 - **Implications:** Agents treat this entry as authorization for the listed ships. Do not present draft legal as effective law. Do not claim Blob or SMTP persistence/delivery without the env tokens configured. Append further work as new D-IDs.
 
+### D-0195 — YouTube social live (owner URL)
+
+- **Date:** 2026-07-27
+- **Status:** Active
+- **Decision:** Owner supplies `https://youtu.be/0C1Sk_RAnSw` as the YouTube social destination (“ссылка на Youtube channel”) and requires the footer YouTube icon to be **visible and clickable**. Commit this URL as the site default in `src/config/social.ts` so production works without waiting for a Vercel env var; `NEXT_PUBLIC_SOCIAL_YOUTUBE` remains an override. Other social networks stay unset and **hidden** (SO-1 / D-0194) — do not invent Facebook/X/LinkedIn/Instagram. Link opens in a new tab with `rel="noopener noreferrer"` and aria-label YouTube.
+- **URL note:** The supplied value is a **youtu.be video shortlink** (`youtu.be/VIDEO_ID`), not a typical `/channel/…` or `/@handle` channel URL. Use exactly the owner-given URL; do not “correct” it to a channel page without a further owner decision.
+- **In scope:** `src/config/social.ts` defaults; `.env.example` / local `.env.local` documentation; email template social helper alignment; D-0195 + brief AGENTS/ADMIN/VERCEL doc pointers; type-check; commit/push; production deploy; Russian brief for owner.
+- **Out of scope:** Inventing other social URLs; changing SO-1 hide-when-unset behavior for unset networks; claiming the shortlink is a verified channel page; analytics.
+- **Implications:** Partially resolves “Official social account URLs” pending item for **YouTube only**. Facebook / X / LinkedIn / Instagram remain owner-pending.
+
 ## Pending Owner Decisions
 
 These are not decisions yet; they are tracked for future resolution:
@@ -1826,3 +1837,9 @@ When resolved, append new decision entries; do not edit this section’s histori
 Resolved from the list above:
 
 - Item 4 — Contact emails / form destinations — resolved for the public channel by D-0173 (`info@savencore.com`, `/contact/` mailto form). SMTP/CRM remains future work. Named leadership bios remain unpublished; anonymous professional team narrative on Foundation is authorized.
+
+### Pending list update — 2026-07-27 (D-0195)
+
+Resolved / narrowed:
+
+- Official social account URLs — **YouTube only** resolved by D-0195 (`https://youtu.be/0C1Sk_RAnSw` committed default; env override). Facebook / X / LinkedIn / Instagram remain open.

@@ -1,6 +1,7 @@
 /**
- * Configurable public social profile URLs (D-0176).
- * Do not invent live profile URLs — set via NEXT_PUBLIC_SOCIAL_* env when real.
+ * Configurable public social profile URLs (D-0176 / D-0195).
+ * Unset networks stay hidden on the public footer (D-0194 SO-1).
+ * Owner-approved defaults may be committed; NEXT_PUBLIC_SOCIAL_* overrides.
  */
 
 export type SocialNetwork =
@@ -18,13 +19,22 @@ export type SocialLink = {
   configured: boolean;
 };
 
-function readSocialUrl(envName: string): string {
-  const raw = process.env[envName]?.trim() ?? "";
-  if (!raw || raw === "#") {
+/**
+ * Committed owner-approved defaults (D-0195).
+ * Note: YouTube value is the exact owner-supplied URL — a youtu.be video
+ * shortlink, not a /channel/ or /@handle page. Env still overrides.
+ */
+const SOCIAL_DEFAULTS: Partial<Record<SocialNetwork, string>> = {
+  youtube: "https://youtu.be/0C1Sk_RAnSw",
+};
+
+function normalizeSocialUrl(raw: string): string {
+  const trimmed = raw.trim();
+  if (!trimmed || trimmed === "#") {
     return "";
   }
   try {
-    const url = new URL(raw);
+    const url = new URL(trimmed);
     if (url.protocol !== "https:" && url.protocol !== "http:") {
       return "";
     }
@@ -53,7 +63,8 @@ export const SOCIAL_NETWORKS: readonly SocialNetwork[] = [
 
 export function getSocialLinks(): readonly SocialLink[] {
   return SOCIAL_NETWORKS.map((id) => {
-    const href = readSocialUrl(SOCIAL_ENV[id]);
+    const fromEnv = normalizeSocialUrl(process.env[SOCIAL_ENV[id]] ?? "");
+    const href = fromEnv || normalizeSocialUrl(SOCIAL_DEFAULTS[id] ?? "");
     return {
       id,
       labelKey: id,

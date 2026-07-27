@@ -1,4 +1,5 @@
 import { SITE_NAME, SITE_TAGLINE, SITE_URL } from "@/config/site";
+import { getSocialLinks } from "@/config/social";
 
 /** Brand accent matching site `--color-accent` (gold). */
 export const EMAIL_GOLD = "#d4a84b";
@@ -115,23 +116,9 @@ const FEATURE_PILLARS: readonly FeaturePillar[] = [
 const MISSION_QUOTE =
   "Intelligent systems built to support human life. From human understanding to physical assistance.";
 
-function socialHref(
-  envName: string,
-  fallback: string,
-): string {
-  const raw = process.env[envName]?.trim() ?? "";
-  if (!raw || raw === "#") {
-    return fallback;
-  }
-  try {
-    const url = new URL(raw);
-    if (url.protocol !== "https:" && url.protocol !== "http:") {
-      return fallback;
-    }
-    return url.toString();
-  } catch {
-    return fallback;
-  }
+function socialHref(network: "linkedin" | "youtube", fallback: string): string {
+  const link = getSocialLinks().find((entry) => entry.id === network);
+  return link?.configured ? link.href : fallback;
 }
 
 function featureCell(pillar: FeaturePillar): string {
@@ -206,8 +193,8 @@ function footerHtml(): string {
   const siteHost = siteUrl.replace(/^https?:\/\//, "");
   const globe = assetUrl("/email/icon-globe.png");
   const envelope = assetUrl("/email/icon-envelope.png");
-  const linkedIn = socialHref("NEXT_PUBLIC_SOCIAL_LINKEDIN", siteUrl);
-  const youTube = socialHref("NEXT_PUBLIC_SOCIAL_YOUTUBE", siteUrl);
+  const linkedIn = socialHref("linkedin", siteUrl);
+  const youTube = socialHref("youtube", siteUrl);
   const mailHref = `mailto:${contactEmail}`;
 
   return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0">

@@ -1,4 +1,4 @@
-/* SAVEN Robotics Interface hub diagram — navy/gold/blue/teal (D-0189 / D-0190) */
+/* SAVEN Robotics Interface hub diagram — navy/gold/blue/teal (D-0189 / D-0190 / D-0191) */
 
 .rid {
   --rid-navy: #0c1628;
@@ -219,15 +219,19 @@
   opacity: 0.9;
 }
 
+.rid__saven-mark {
+  pointer-events: none;
+}
+
 .rid__node-label--saven {
   font-family: var(--font-sans);
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
   fill: #fff8e8;
   paint-order: stroke fill;
   stroke: color-mix(in srgb, #0b1220 60%, transparent);
-  stroke-width: 2.8px;
+  stroke-width: 2.4px;
 }
 
 .rid__saven-ring {
@@ -249,15 +253,6 @@
   stroke-width: 1;
   opacity: 0.4;
   stroke-dasharray: 3 5;
-}
-
-.rid__saven-core-glow,
-.rid__saven-core-shine {
-  pointer-events: none;
-}
-
-.rid__saven-core-shine {
-  fill: color-mix(in srgb, #fff6d6 48%, transparent);
 }
 
 /* —— Device nodes —— */
@@ -317,162 +312,39 @@
   fill: var(--rid-ink-lite);
 }
 
-/* —— Device icons (illustrated silhouettes) —— */
-.rid__icon-body {
-  fill: color-mix(in srgb, var(--rid-blue-soft) 55%, #8ab);
+/* —— Photoreal device thumbs (D-0191) —— */
+.rid__device-thumb-halo {
+  fill: color-mix(in srgb, #0a1220 55%, transparent);
+  opacity: 0.55;
 }
 
-.rid__icon--manipulators .rid__icon-body {
-  fill: color-mix(in srgb, var(--rid-manip) 45%, #6a7);
-}
-
-.rid__icon--mobile .rid__icon-body {
-  fill: color-mix(in srgb, var(--rid-mobile) 55%, #7ab);
-}
-
-.rid__icon--trolley .rid__icon-body {
-  fill: color-mix(in srgb, var(--rid-trolley) 50%, #6a9);
-}
-
-.rid__icon--assist .rid__icon-body-path {
-  fill: color-mix(in srgb, var(--rid-assist) 55%, #9a8);
-}
-
-.rid__icon--sensors .rid__icon-body {
-  fill: color-mix(in srgb, var(--rid-sensor) 50%, #7ab);
-}
-
-.rid__icon-accent {
-  fill: var(--rid-gold);
-}
-
-.rid__icon--mobile .rid__icon-accent {
-  fill: color-mix(in srgb, var(--rid-mobile) 70%, #abc);
-}
-
-.rid__icon--trolley .rid__icon-accent {
-  fill: color-mix(in srgb, var(--rid-trolley) 65%, #8bc);
-}
-
-.rid__icon--trolley .rid__icon-cargo {
-  fill: color-mix(in srgb, var(--rid-gold) 70%, var(--rid-trolley));
-}
-
-.rid__icon--assist .rid__icon-accent {
-  fill: color-mix(in srgb, var(--rid-warm) 80%, var(--rid-gold));
-}
-
-.rid__icon--sensors .rid__icon-accent {
-  fill: color-mix(in srgb, var(--rid-sensor) 60%, #89a);
-}
-
-.rid__icon-joint {
-  fill: var(--rid-gold);
-}
-
-.rid__icon-joint--mid {
-  fill: var(--rid-amber);
-}
-
-.rid__icon-limb {
-  stroke: color-mix(in srgb, var(--rid-blue-soft) 80%, #cde);
-  stroke-width: 1.5;
-  stroke-linecap: square;
+.rid__device-thumb-ring {
   fill: none;
-}
-
-.rid__icon-limb--thick {
-  stroke-width: 2.4;
-}
-
-.rid__icon--manipulators .rid__icon-limb {
-  stroke: color-mix(in srgb, var(--rid-manip) 75%, #edc);
-}
-
-.rid__icon--trolley .rid__icon-limb {
-  stroke: color-mix(in srgb, var(--rid-trolley) 70%, #cde);
-}
-
-.rid__icon-limb--warm {
-  stroke: var(--rid-warm);
-  stroke-width: 1.8;
-}
-
-.rid__icon-grip {
-  stroke: var(--rid-gold);
   stroke-width: 1.6;
-  stroke-linecap: square;
 }
 
-.rid__icon-dot {
-  fill: var(--rid-gold);
+.rid__device-thumb-ring--manipulators {
+  stroke: var(--rid-manip);
 }
 
-.rid__icon-dot--warm {
-  fill: var(--rid-warm-deep);
+.rid__device-thumb-ring--mobileRobots {
+  stroke: var(--rid-mobile);
 }
 
-.rid__icon-lens {
-  fill: var(--rid-cyan);
+.rid__device-thumb-ring--trolleyRobots {
+  stroke: var(--rid-trolley);
 }
 
-.rid__icon-lens--alt {
-  fill: var(--rid-blue-soft);
+.rid__device-thumb-ring--assistiveForms {
+  stroke: var(--rid-assist);
 }
 
-.rid__icon-lens--core {
-  fill: color-mix(in srgb, var(--rid-sensor) 55%, #2a4050);
+.rid__device-thumb-ring--sensors {
   stroke: var(--rid-sensor);
-  stroke-width: 1.2;
 }
 
-.rid__icon-head {
-  fill: color-mix(in srgb, var(--rid-assist) 60%, #ba9);
-}
-
-.rid__icon-wheel-rim {
-  fill: none;
-  stroke: color-mix(in srgb, var(--rid-blue-soft) 70%, #cde);
-  stroke-width: 1.5;
-}
-
-.rid__icon--mobile .rid__icon-wheel-rim {
-  stroke: color-mix(in srgb, var(--rid-mobile) 75%, #cde);
-}
-
-.rid__icon--trolley .rid__icon-wheel-rim {
-  stroke: color-mix(in srgb, var(--rid-trolley) 75%, #cde);
-}
-
-.rid__icon-wheel-hub {
-  fill: var(--rid-gold);
-}
-
-.rid__icon-spoke {
-  stroke: color-mix(in srgb, var(--rid-gold) 70%, transparent);
-  stroke-width: 1;
-}
-
-.rid__icon-divider {
-  stroke: color-mix(in srgb, var(--rid-trolley) 50%, transparent);
-  stroke-width: 1;
-}
-
-.rid__icon-arc {
-  stroke: var(--rid-sensor);
-  stroke-width: 1.4;
-  stroke-linecap: square;
-  opacity: 0.85;
-}
-
-.rid__icon-arc--b {
-  stroke: var(--rid-blue-soft);
-  opacity: 0.7;
-}
-
-.rid__icon-arc--c {
-  stroke: var(--rid-teal);
-  opacity: 0.6;
+.rid__device-thumb-img {
+  pointer-events: none;
 }
 
 /* —— Cue + particles —— */
@@ -565,12 +437,10 @@
     animation: rid-orbit 22s linear infinite;
   }
 
-  .rid--motion .rid__saven-core {
-    animation: rid-core 2.8s ease-in-out infinite;
-  }
-
-  .rid--motion .rid__saven-core-glow {
-    animation: rid-core-glow 2.8s ease-in-out infinite;
+  .rid--motion .rid__saven-mark {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: rid-mark-breathe 3.2s ease-in-out infinite;
   }
 
   .rid--motion .rid__atmosphere--gold {
@@ -681,38 +551,33 @@
     animation-delay: 1.4s;
   }
 
-  /* Icon micro-motion */
-  .rid--motion .rid__icon-arm {
-    transform-origin: -2px 0px;
-    animation: rid-arm-swing 3.6s ease-in-out infinite;
-  }
-
-  .rid--motion .rid__icon-wheel--l,
-  .rid--motion .rid__icon-wheel--r {
+  /* Photo thumb micro-motion */
+  .rid--motion .rid__device-thumb-ring {
     transform-box: fill-box;
     transform-origin: center;
-    animation: rid-wheel-spin 2.8s linear infinite;
+    animation: rid-thumb-ring 2.8s ease-in-out infinite;
   }
 
-  .rid--motion .rid__icon-wheel--r {
-    animation-direction: reverse;
+  .rid--motion .rid__device--1 .rid__device-thumb-ring {
+    animation-delay: 0.35s;
   }
 
-  .rid--motion .rid__icon-arc--a {
-    animation: rid-arc-pulse 2.2s ease-in-out infinite;
+  .rid--motion .rid__device--2 .rid__device-thumb-ring {
+    animation-delay: 0.7s;
   }
 
-  .rid--motion .rid__icon-arc--b {
-    animation: rid-arc-pulse 2.2s ease-in-out infinite 0.35s;
+  .rid--motion .rid__device--3 .rid__device-thumb-ring {
+    animation-delay: 1.05s;
   }
 
-  .rid--motion .rid__icon-arc--c {
-    animation: rid-arc-pulse 2.2s ease-in-out infinite 0.7s;
+  .rid--motion .rid__device--4 .rid__device-thumb-ring {
+    animation-delay: 1.4s;
   }
 
-  .rid--motion .rid__icon-dot,
-  .rid--motion .rid__icon-joint {
-    animation: rid-dot 2.2s ease-in-out infinite;
+  .rid--motion .rid__device-thumb-img {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: rid-thumb-soft 4s ease-in-out infinite;
   }
 }
 
@@ -762,23 +627,13 @@
   }
 }
 
-@keyframes rid-core {
+@keyframes rid-mark-breathe {
   0%,
   100% {
+    opacity: 0.92;
+  }
+  50% {
     opacity: 1;
-  }
-  50% {
-    opacity: 0.86;
-  }
-}
-
-@keyframes rid-core-glow {
-  0%,
-  100% {
-    opacity: 0.55;
-  }
-  50% {
-    opacity: 0.9;
   }
 }
 
@@ -888,36 +743,22 @@
   }
 }
 
-@keyframes rid-arm-swing {
+@keyframes rid-thumb-ring {
   0%,
   100% {
-    transform: rotate(-6deg);
-  }
-  50% {
-    transform: rotate(10deg);
-  }
-}
-
-@keyframes rid-wheel-spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes rid-arc-pulse {
-  0%,
-  100% {
-    opacity: 0.4;
+    opacity: 0.75;
+    transform: scale(1);
   }
   50% {
     opacity: 1;
+    transform: scale(1.06);
   }
 }
 
-@keyframes rid-dot {
+@keyframes rid-thumb-soft {
   0%,
   100% {
-    opacity: 0.7;
+    opacity: 0.94;
   }
   50% {
     opacity: 1;

@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-27 (D-0190 — Robotics Interface diagram visual enrichment)
+**Last updated:** 2026-07-27 (D-0191 — Robotics Interface diagram brand mark + photoreal node thumbs)
 
 ## Rules
 
@@ -206,6 +206,7 @@
 | D-0188 | 2026-07-27 | Footer Architecture column — Systems depth map | Active |
 | D-0189 | 2026-07-27 | SAVEN Robotics Interface — interoperability copy + hub diagram | Active |
 | D-0190 | 2026-07-27 | Robotics Interface diagram — color, motion, device illustration | Active |
+| D-0191 | 2026-07-27 | Robotics Interface diagram — SAVEN logo + photoreal device thumbs | Active |
 
 ---
 
@@ -1702,6 +1703,15 @@
 - **In scope:** `RoboticsInterfaceDiagram` + CSS; D-0190 + AGENTS / IA brief pointer; type-check; commit/push; production deploy.
 - **Out of scope:** Copy/localization changes; inventing products/fleets/metrics; neon excess; Labs diagram redesign; CMS.
 - **Implications:** Diagram remains architecture storytelling with clearer visual device types and motion hierarchy.
+
+### D-0191 — Robotics Interface diagram brand mark + photoreal device thumbs
+
+- **Date:** 2026-07-27
+- **Status:** Active
+- **Decision:** Owner requests realistic, high-quality diagram icons and the **SAVEN brand mark** in the center node of the SAVEN Robotics Interface hub diagram. Replace crude SVG device silhouettes with cropped WebP thumbnails reused from approved site assets (domain / hero collage). Center node uses `/brand/saven-logo-mark.webp` (same mark as email/OG/header) with accessible description. Preserve D-0190 color accents, link traffic, ring motion, and `prefers-reduced-motion` behavior — no neon excess. Architecture framing unchanged (**In Development**; device classes remain concepts, not products).
+- **In scope:** `RoboticsInterfaceDiagram` + CSS; cropped thumbs under `public/domain/systems/diagram/`; D-0191 + AGENTS / IA brief pointer; type-check; smoke; commit/push; production deploy.
+- **Out of scope:** Inventing photography; copy/localization changes; claiming Operational fleets; Labs diagram redesign; CMS.
+- **Implications:** Diagram center reads as branded SAVEN; device nodes use premium photoreal crops from existing approved imagery only.
 
 ## Pending Owner Decisions
 

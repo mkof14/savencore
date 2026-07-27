@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-27 (D-0192 — Robotics Interface diagram thumb visibility + section polish)
+**Last updated:** 2026-07-27 (D-0193 — Robotics Interface diagram large SVG device illustrations)
 
 ## Rules
 
@@ -207,7 +207,8 @@
 | D-0189 | 2026-07-27 | SAVEN Robotics Interface — interoperability copy + hub diagram | Active |
 | D-0190 | 2026-07-27 | Robotics Interface diagram — color, motion, device illustration | Active |
 | D-0191 | 2026-07-27 | Robotics Interface diagram — SAVEN logo + photoreal device thumbs | Active |
-| D-0192 | 2026-07-27 | Robotics Interface diagram — thumb visibility + section polish | Active |
+| D-0192 | 2026-07-27 | Robotics Interface diagram — thumb visibility + section polish | Active; device photo approach superseded by D-0193 |
+| D-0193 | 2026-07-27 | Robotics Interface diagram — large SVG device illustrations | Active |
 
 ---
 
@@ -1708,7 +1709,7 @@
 ### D-0191 — Robotics Interface diagram brand mark + photoreal device thumbs
 
 - **Date:** 2026-07-27
-- **Status:** Active
+- **Status:** Active for center brand mark; **photoreal device thumbs superseded by D-0193**
 - **Decision:** Owner requests realistic, high-quality diagram icons and the **SAVEN brand mark** in the center node of the SAVEN Robotics Interface hub diagram. Replace crude SVG device silhouettes with cropped WebP thumbnails reused from approved site assets (domain / hero collage). Center node uses `/brand/saven-logo-mark.webp` (same mark as email/OG/header) with accessible description. Preserve D-0190 color accents, link traffic, ring motion, and `prefers-reduced-motion` behavior — no neon excess. Architecture framing unchanged (**In Development**; device classes remain concepts, not products).
 - **In scope:** `RoboticsInterfaceDiagram` + CSS; cropped thumbs under `public/domain/systems/diagram/`; D-0191 + AGENTS / IA brief pointer; type-check; smoke; commit/push; production deploy.
 - **Out of scope:** Inventing photography; copy/localization changes; claiming Operational fleets; Labs diagram redesign; CMS.
@@ -1717,11 +1718,20 @@
 ### D-0192 — Robotics Interface diagram thumb visibility + section polish
 
 - **Date:** 2026-07-27
-- **Status:** Active
+- **Status:** Active; **device photo approach superseded by D-0193** (section title / masthead polish retained)
 - **Decision:** Owner requests circular photoreal device thumbs that remain **clearly visible at small size**, a larger **“SAVEN Robotics Interface”** title above the diagram, and a more modern/attractive diagram section within brand grammar (navy/gold, straight corners, no neon excess). Enlarge node diameter; per-device zoom/offset crops on robot faces and distinctive features (CSS/SVG crop, not new photography); stronger rim/ring contrast; slightly larger center brand mark; refined section masthead, spacing, and subtle atmosphere. Preserve D-0190/D-0191 motion and `prefers-reduced-motion`. Architecture framing unchanged (**In Development**; device classes remain concepts, not products).
 - **In scope:** `RoboticsInterfaceDiagram` + CSS; D-0192 + AGENTS / IA brief pointer; type-check; commit/push; production deploy; Russian brief for owner.
 - **Out of scope:** Regenerating asset photography; inventing products/fleets/metrics; neon excess; Labs diagram redesign; CMS; copy invention beyond title hierarchy (existing localized strings).
 - **Implications:** Diagram thumbs read clearly when small; section title hierarchy leads with SAVEN Robotics Interface; visual polish stays within approved experience grammar.
+
+### D-0193 — Robotics Interface diagram large SVG device illustrations
+
+- **Date:** 2026-07-27
+- **Status:** Active
+- **Decision:** Owner rejects photoreal circular device thumbs as not acceptable (“картинки не годятся”) and requires the diagram to be **much clearer / more visual (наглядней)**. **Remove** small photo thumbnails as the primary device representation. Replace with **large, high-contrast custom SVG illustrations** of each device class (manipulator arm, mobile robot, trolley robot, assistive robot, sensors) — bold shapes, distinct per-device colors, readable labels under each node. Keep the real SAVEN brand mark at center (crisp and prominent). Retain large **“SAVEN Robotics Interface”** title and modern navy/gold section treatment from D-0192. Enlarge canvas; strengthen color-coded connection lines so the hub story is instantly understandable. Preserve motion / `prefers-reduced-motion` from D-0190. Architecture framing unchanged (**In Development**; device classes remain concepts, not products). Supersedes D-0191/D-0192 photo-thumb approach for device nodes.
+- **In scope:** `RoboticsInterfaceDiagram` + CSS; remove unused diagram WebP thumbs under `public/domain/systems/diagram/`; D-0193 + AGENTS / IA brief pointer; type-check; commit/push; production deploy; Russian brief for owner.
+- **Out of scope:** Reintroducing photo circles; inventing products/fleets/metrics; neon excess; Labs diagram redesign; CMS; inventing new marketing copy.
+- **Implications:** Device nodes are diagrammatic and obvious at a glance; photography is no longer used for Robotics Interface hub device icons.
 
 ## Pending Owner Decisions
 

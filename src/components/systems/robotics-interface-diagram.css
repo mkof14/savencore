@@ -1,4 +1,4 @@
-/* SAVEN Robotics Interface hub diagram — navy/gold/blue/teal (D-0189–D-0192) */
+/* SAVEN Robotics Interface hub diagram — navy/gold/blue/teal (D-0189–D-0193) */
 
 .rid {
   --rid-navy: #0c1628;
@@ -14,7 +14,6 @@
   --rid-warm-deep: #a88860;
   --rid-cyan: #6ec8e0;
   --rid-ink-lite: #e8eef4;
-  --rid-rim: #f2e6c4;
 
   /* Per-device accents */
   --rid-manip: #d4a84b;
@@ -170,9 +169,9 @@
 /* —— Links —— */
 .rid__path-glow {
   fill: none;
-  stroke-width: 6;
+  stroke-width: 10;
   stroke-linecap: square;
-  opacity: 0.22;
+  opacity: 0.28;
 }
 
 .rid__path-glow--manipulators {
@@ -197,35 +196,35 @@
 
 .rid__path {
   fill: none;
-  stroke-width: 1.85;
+  stroke-width: 2.6;
   stroke-linecap: square;
 }
 
 .rid__path--manipulators {
-  stroke: color-mix(in srgb, var(--rid-manip) 65%, #2a3a52);
+  stroke: color-mix(in srgb, var(--rid-manip) 82%, #fff);
 }
 
 .rid__path--mobileRobots {
-  stroke: color-mix(in srgb, var(--rid-mobile) 72%, #2a3a52);
+  stroke: color-mix(in srgb, var(--rid-mobile) 88%, #fff);
 }
 
 .rid__path--trolleyRobots {
-  stroke: color-mix(in srgb, var(--rid-trolley) 68%, #2a3a52);
+  stroke: color-mix(in srgb, var(--rid-trolley) 85%, #fff);
 }
 
 .rid__path--assistiveForms {
-  stroke: color-mix(in srgb, var(--rid-assist) 70%, #2a3a52);
+  stroke: color-mix(in srgb, var(--rid-assist) 85%, #fff);
 }
 
 .rid__path--sensors {
-  stroke: color-mix(in srgb, var(--rid-sensor) 72%, #2a3a52);
+  stroke: color-mix(in srgb, var(--rid-sensor) 88%, #fff);
 }
 
 .rid__path-pulse {
   fill: none;
-  stroke-width: 2.6;
+  stroke-width: 3.2;
   stroke-linecap: square;
-  stroke-dasharray: 14 36;
+  stroke-dasharray: 16 34;
   opacity: 0;
 }
 
@@ -237,33 +236,33 @@
 
 .rid__ring-orbit--halo {
   stroke: color-mix(in srgb, var(--rid-gold) 35%, var(--rid-teal));
-  stroke-width: 1;
-  opacity: 0.28;
+  stroke-width: 1.15;
+  opacity: 0.32;
   stroke-dasharray: 2 14;
 }
 
 .rid__ring-orbit--outer {
   stroke: color-mix(in srgb, var(--rid-blue) 55%, var(--rid-gold));
-  stroke-width: 1.35;
-  opacity: 0.55;
+  stroke-width: 1.5;
+  opacity: 0.6;
   stroke-dasharray: 4 9;
 }
 
 .rid__ring-orbit--main {
-  stroke-width: 2.2;
+  stroke-width: 2.6;
   stroke-dasharray: 8 7;
 }
 
 .rid__ring-orbit--inner {
-  stroke: color-mix(in srgb, var(--rid-gold) 70%, transparent);
-  stroke-width: 1.25;
-  opacity: 0.65;
+  stroke: color-mix(in srgb, var(--rid-gold) 75%, transparent);
+  stroke-width: 1.4;
+  opacity: 0.7;
   stroke-dasharray: none;
 }
 
 .rid__ring-bead {
   fill: var(--rid-gold);
-  opacity: 0.85;
+  opacity: 0.9;
 }
 
 .rid__ring-bead--1,
@@ -277,29 +276,29 @@
 
 .rid__ring-label {
   font-family: var(--font-sans);
-  font-size: 12.5px;
+  font-size: 13.5px;
   font-weight: 600;
   letter-spacing: 0.03em;
-  fill: color-mix(in srgb, var(--rid-ink-lite) 78%, var(--rid-gold));
+  fill: color-mix(in srgb, var(--rid-ink-lite) 82%, var(--rid-gold));
 }
 
 /* —— SAVEN center —— */
 .rid__node-plate--saven {
-  stroke: color-mix(in srgb, var(--rid-gold) 82%, #4a5a40);
-  stroke-width: 2;
+  stroke: color-mix(in srgb, var(--rid-gold) 88%, #4a5a40);
+  stroke-width: 2.4;
 }
 
 .rid__saven-frame {
   fill: none;
-  stroke: color-mix(in srgb, var(--rid-gold) 45%, transparent);
-  stroke-width: 1;
-  opacity: 0.6;
+  stroke: color-mix(in srgb, var(--rid-gold) 50%, transparent);
+  stroke-width: 1.15;
+  opacity: 0.65;
 }
 
 .rid__saven-corner {
   stroke: var(--rid-gold);
-  stroke-width: 1.8;
-  opacity: 0.9;
+  stroke-width: 2.1;
+  opacity: 0.95;
 }
 
 .rid__saven-mark {
@@ -308,63 +307,63 @@
 
 .rid__node-label--saven {
   font-family: var(--font-sans);
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.07em;
   fill: #fff8e8;
   paint-order: stroke fill;
   stroke: color-mix(in srgb, #0b1220 60%, transparent);
-  stroke-width: 2.4px;
+  stroke-width: 2.6px;
 }
 
 .rid__saven-ring {
   fill: none;
-  stroke: color-mix(in srgb, var(--rid-gold) 90%, transparent);
-  stroke-width: 1.65;
+  stroke: color-mix(in srgb, var(--rid-gold) 92%, transparent);
+  stroke-width: 1.85;
   transform-box: fill-box;
   transform-origin: center;
 }
 
 .rid__saven-ring--outer {
   stroke: color-mix(in srgb, var(--rid-blue) 60%, var(--rid-gold));
-  stroke-width: 1.25;
-  opacity: 0.6;
+  stroke-width: 1.4;
+  opacity: 0.65;
 }
 
 .rid__saven-ring--halo {
   stroke: color-mix(in srgb, var(--rid-teal) 45%, var(--rid-gold));
-  stroke-width: 1;
-  opacity: 0.4;
+  stroke-width: 1.15;
+  opacity: 0.45;
   stroke-dasharray: 3 5;
 }
 
 /* —— Device nodes —— */
 .rid__device-plate {
-  stroke-width: 1.35;
+  stroke-width: 2;
 }
 
 .rid__device-plate--manipulators {
-  stroke: color-mix(in srgb, var(--rid-manip) 55%, #3a4a30);
+  stroke: color-mix(in srgb, var(--rid-manip) 75%, #fff);
 }
 
 .rid__device-plate--mobileRobots {
-  stroke: color-mix(in srgb, var(--rid-mobile) 55%, #3a4a60);
+  stroke: color-mix(in srgb, var(--rid-mobile) 78%, #fff);
 }
 
 .rid__device-plate--trolleyRobots {
-  stroke: color-mix(in srgb, var(--rid-trolley) 55%, #2a4a48);
+  stroke: color-mix(in srgb, var(--rid-trolley) 78%, #fff);
 }
 
 .rid__device-plate--assistiveForms {
-  stroke: color-mix(in srgb, var(--rid-assist) 55%, #4a4030);
+  stroke: color-mix(in srgb, var(--rid-assist) 75%, #fff);
 }
 
 .rid__device-plate--sensors {
-  stroke: color-mix(in srgb, var(--rid-sensor) 55%, #2a4050);
+  stroke: color-mix(in srgb, var(--rid-sensor) 78%, #fff);
 }
 
 .rid__device-accent-bar {
-  opacity: 0.95;
+  opacity: 1;
 }
 
 .rid__device-accent-bar--manipulators {
@@ -387,82 +386,208 @@
   fill: var(--rid-sensor);
 }
 
+.rid__device-badge {
+  fill: color-mix(in srgb, #0a1220 55%, transparent);
+  stroke-width: 2.4;
+}
+
+.rid__device-badge--manipulators {
+  stroke: var(--rid-manip);
+  fill: color-mix(in srgb, var(--rid-manip) 18%, #0a1220);
+}
+
+.rid__device-badge--mobileRobots {
+  stroke: var(--rid-mobile);
+  fill: color-mix(in srgb, var(--rid-mobile) 18%, #0a1220);
+}
+
+.rid__device-badge--trolleyRobots {
+  stroke: var(--rid-trolley);
+  fill: color-mix(in srgb, var(--rid-trolley) 18%, #0a1220);
+}
+
+.rid__device-badge--assistiveForms {
+  stroke: var(--rid-assist);
+  fill: color-mix(in srgb, var(--rid-assist) 18%, #0a1220);
+}
+
+.rid__device-badge--sensors {
+  stroke: var(--rid-sensor);
+  fill: color-mix(in srgb, var(--rid-sensor) 18%, #0a1220);
+}
+
 .rid__device-label {
   font-family: var(--font-sans);
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 15px;
+  font-weight: 700;
   letter-spacing: -0.01em;
   fill: var(--rid-ink-lite);
 }
 
-/* —— Photoreal device thumbs (D-0191 / D-0192) —— */
-.rid__device-thumb-halo {
-  fill: color-mix(in srgb, #0a1220 40%, transparent);
+.rid__device-label--manipulators {
+  fill: color-mix(in srgb, #fff 70%, var(--rid-manip));
+}
+
+.rid__device-label--mobileRobots {
+  fill: color-mix(in srgb, #fff 70%, var(--rid-mobile));
+}
+
+.rid__device-label--trolleyRobots {
+  fill: color-mix(in srgb, #fff 70%, var(--rid-trolley));
+}
+
+.rid__device-label--assistiveForms {
+  fill: color-mix(in srgb, #fff 70%, var(--rid-assist));
+}
+
+.rid__device-label--sensors {
+  fill: color-mix(in srgb, #fff 70%, var(--rid-sensor));
+}
+
+/* —— Large SVG illustrations (D-0193) —— */
+.rid__illust-fill {
+  fill: color-mix(in srgb, var(--rid-ink-lite) 88%, transparent);
+}
+
+.rid__illust-accent {
+  fill: var(--rid-gold);
+}
+
+.rid__illust--mobile .rid__illust-accent {
+  fill: var(--rid-blue-soft);
+}
+
+.rid__illust--trolley .rid__illust-accent {
+  fill: var(--rid-teal);
+}
+
+.rid__illust--assist .rid__illust-accent {
+  fill: var(--rid-warm);
+}
+
+.rid__illust--sensors .rid__illust-accent {
+  fill: var(--rid-cyan);
+}
+
+.rid__illust-cargo {
+  fill: color-mix(in srgb, var(--rid-teal) 70%, #fff);
+}
+
+.rid__illust-joint {
+  fill: var(--rid-gold);
+  stroke: color-mix(in srgb, #0a1220 50%, transparent);
+  stroke-width: 1;
+}
+
+.rid__illust-joint--mid {
+  fill: var(--rid-amber);
+}
+
+.rid__illust-limb {
+  stroke: var(--rid-ink-lite);
+  stroke-width: 3.6;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+}
+
+.rid__illust-limb--warm {
+  stroke: var(--rid-warm);
+  stroke-width: 3.4;
+}
+
+.rid__illust-grip {
+  stroke: var(--rid-amber);
+  stroke-width: 3.2;
+  stroke-linecap: square;
+}
+
+.rid__illust-dot {
+  fill: var(--rid-gold);
+}
+
+.rid__illust-dot--warm {
+  fill: var(--rid-warm);
+}
+
+.rid__illust-lens {
+  fill: var(--rid-cyan);
+  stroke: color-mix(in srgb, #0a1220 40%, transparent);
+  stroke-width: 0.8;
+}
+
+.rid__illust-lens--alt {
+  fill: var(--rid-blue-soft);
+}
+
+.rid__illust-lens--core {
+  fill: color-mix(in srgb, var(--rid-cyan) 55%, #0a2030);
+  stroke: var(--rid-cyan);
+  stroke-width: 2;
+}
+
+.rid__illust-wheel-rim {
+  fill: color-mix(in srgb, var(--rid-navy) 40%, #1a2838);
+  stroke: var(--rid-ink-lite);
+  stroke-width: 2.2;
+}
+
+.rid__illust-wheel-hub {
+  fill: var(--rid-gold);
+}
+
+.rid__illust-spoke {
+  stroke: color-mix(in srgb, var(--rid-ink-lite) 70%, transparent);
+  stroke-width: 1.4;
+}
+
+.rid__illust-divider {
+  stroke: color-mix(in srgb, var(--rid-ink-lite) 45%, transparent);
+  stroke-width: 1.5;
+}
+
+.rid__illust-head {
+  fill: color-mix(in srgb, var(--rid-ink-lite) 92%, transparent);
+  stroke: var(--rid-warm);
+  stroke-width: 2;
+}
+
+.rid__illust-visor {
+  fill: #0a1220;
+}
+
+.rid__illust-torso {
+  fill: color-mix(in srgb, var(--rid-ink-lite) 86%, transparent);
+  stroke: var(--rid-warm-deep);
+  stroke-width: 1.6;
+}
+
+.rid__illust-arc {
+  stroke: var(--rid-cyan);
+  stroke-linecap: square;
+  fill: none;
+}
+
+.rid__illust-arc--a {
+  stroke-width: 2.2;
+  opacity: 0.9;
+}
+
+.rid__illust-arc--b {
+  stroke-width: 1.8;
   opacity: 0.7;
 }
 
-.rid__device-thumb-rim {
-  fill: none;
-  stroke-width: 2.4;
-  stroke: color-mix(in srgb, var(--rid-rim) 88%, #fff);
-  opacity: 0.95;
-}
-
-.rid__device-thumb-rim--manipulators {
-  stroke: color-mix(in srgb, var(--rid-rim) 55%, var(--rid-manip));
-}
-
-.rid__device-thumb-rim--mobileRobots {
-  stroke: color-mix(in srgb, var(--rid-rim) 50%, var(--rid-mobile));
-}
-
-.rid__device-thumb-rim--trolleyRobots {
-  stroke: color-mix(in srgb, var(--rid-rim) 50%, var(--rid-trolley));
-}
-
-.rid__device-thumb-rim--assistiveForms {
-  stroke: color-mix(in srgb, var(--rid-rim) 55%, var(--rid-assist));
-}
-
-.rid__device-thumb-rim--sensors {
-  stroke: color-mix(in srgb, var(--rid-rim) 50%, var(--rid-sensor));
-}
-
-.rid__device-thumb-ring {
-  fill: none;
-  stroke-width: 2.15;
-}
-
-.rid__device-thumb-ring--manipulators {
-  stroke: var(--rid-manip);
-}
-
-.rid__device-thumb-ring--mobileRobots {
-  stroke: var(--rid-mobile);
-}
-
-.rid__device-thumb-ring--trolleyRobots {
-  stroke: var(--rid-trolley);
-}
-
-.rid__device-thumb-ring--assistiveForms {
-  stroke: var(--rid-assist);
-}
-
-.rid__device-thumb-ring--sensors {
-  stroke: var(--rid-sensor);
-}
-
-.rid__device-thumb-img {
-  pointer-events: none;
+.rid__illust-arc--c {
+  stroke-width: 1.5;
+  opacity: 0.55;
 }
 
 /* —— Cue + particles —— */
 .rid__cue {
   font-family: var(--font-sans);
-  font-size: 12px;
-  font-weight: 500;
-  fill: color-mix(in srgb, var(--rid-ink-lite) 80%, var(--rid-gold));
+  font-size: 14px;
+  font-weight: 600;
+  fill: color-mix(in srgb, var(--rid-ink-lite) 82%, var(--rid-gold));
 }
 
 .rid__particle--manipulators {
@@ -596,12 +721,12 @@
   }
 
   .rid--motion .rid__path {
-    stroke-dasharray: 7 9;
+    stroke-dasharray: 9 8;
     animation: rid-dash 12s linear infinite;
   }
 
   .rid--motion .rid__path-pulse {
-    opacity: 0.65;
+    opacity: 0.7;
     animation: rid-pulse-flow 3.2s linear infinite;
   }
 
@@ -661,55 +786,50 @@
     animation-delay: 1.4s;
   }
 
-  /* Photo thumb micro-motion */
-  .rid--motion .rid__device-thumb-ring {
+  .rid--motion .rid__device-badge {
     transform-box: fill-box;
     transform-origin: center;
-    animation: rid-thumb-ring 2.8s ease-in-out infinite;
+    animation: rid-badge-pulse 2.8s ease-in-out infinite;
   }
 
-  .rid--motion .rid__device--1 .rid__device-thumb-ring {
+  .rid--motion .rid__device--1 .rid__device-badge {
     animation-delay: 0.35s;
   }
 
-  .rid--motion .rid__device--2 .rid__device-thumb-ring {
+  .rid--motion .rid__device--2 .rid__device-badge {
     animation-delay: 0.7s;
   }
 
-  .rid--motion .rid__device--3 .rid__device-thumb-ring {
+  .rid--motion .rid__device--3 .rid__device-badge {
     animation-delay: 1.05s;
   }
 
-  .rid--motion .rid__device--4 .rid__device-thumb-ring {
+  .rid--motion .rid__device--4 .rid__device-badge {
     animation-delay: 1.4s;
   }
 
-  .rid--motion .rid__device-thumb-rim {
+  .rid--motion .rid__illust-arm {
     transform-box: fill-box;
-    transform-origin: center;
-    animation: rid-thumb-rim 3.2s ease-in-out infinite;
+    transform-origin: -4px 2px;
+    animation: rid-arm-sway 3.6s ease-in-out infinite;
   }
 
-  .rid--motion .rid__device--1 .rid__device-thumb-rim {
+  .rid--motion .rid__illust-wheel {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: rid-wheel-spin 2.8s linear infinite;
+  }
+
+  .rid--motion .rid__illust-arc {
+    animation: rid-arc-pulse 2.4s ease-in-out infinite;
+  }
+
+  .rid--motion .rid__illust-arc--b {
     animation-delay: 0.35s;
   }
 
-  .rid--motion .rid__device--2 .rid__device-thumb-rim {
+  .rid--motion .rid__illust-arc--c {
     animation-delay: 0.7s;
-  }
-
-  .rid--motion .rid__device--3 .rid__device-thumb-rim {
-    animation-delay: 1.05s;
-  }
-
-  .rid--motion .rid__device--4 .rid__device-thumb-rim {
-    animation-delay: 1.4s;
-  }
-
-  .rid--motion .rid__device-thumb-img {
-    transform-box: fill-box;
-    transform-origin: center;
-    animation: rid-thumb-soft 4s ease-in-out infinite;
   }
 }
 
@@ -818,92 +938,98 @@
 @keyframes rid-device-manip {
   0%,
   100% {
-    stroke: color-mix(in srgb, var(--rid-manip) 55%, #3a4a30);
+    stroke: color-mix(in srgb, var(--rid-manip) 75%, #fff);
   }
   50% {
-    stroke: color-mix(in srgb, var(--rid-manip) 90%, #fff);
+    stroke: color-mix(in srgb, var(--rid-manip) 95%, #fff);
   }
 }
 
 @keyframes rid-device-mobile {
   0%,
   100% {
-    stroke: color-mix(in srgb, var(--rid-mobile) 55%, #3a4a60);
+    stroke: color-mix(in srgb, var(--rid-mobile) 78%, #fff);
   }
   50% {
-    stroke: color-mix(in srgb, var(--rid-mobile) 90%, #fff);
+    stroke: color-mix(in srgb, var(--rid-mobile) 95%, #fff);
   }
 }
 
 @keyframes rid-device-trolley {
   0%,
   100% {
-    stroke: color-mix(in srgb, var(--rid-trolley) 55%, #2a4a48);
+    stroke: color-mix(in srgb, var(--rid-trolley) 78%, #fff);
   }
   50% {
-    stroke: color-mix(in srgb, var(--rid-trolley) 90%, #fff);
+    stroke: color-mix(in srgb, var(--rid-trolley) 95%, #fff);
   }
 }
 
 @keyframes rid-device-assist {
   0%,
   100% {
-    stroke: color-mix(in srgb, var(--rid-assist) 55%, #4a4030);
+    stroke: color-mix(in srgb, var(--rid-assist) 75%, #fff);
   }
   50% {
-    stroke: color-mix(in srgb, var(--rid-assist) 90%, #fff);
+    stroke: color-mix(in srgb, var(--rid-assist) 95%, #fff);
   }
 }
 
 @keyframes rid-device-sensor {
   0%,
   100% {
-    stroke: color-mix(in srgb, var(--rid-sensor) 55%, #2a4050);
+    stroke: color-mix(in srgb, var(--rid-sensor) 78%, #fff);
   }
   50% {
-    stroke: color-mix(in srgb, var(--rid-sensor) 90%, #fff);
+    stroke: color-mix(in srgb, var(--rid-sensor) 95%, #fff);
   }
 }
 
 @keyframes rid-accent-pulse {
   0%,
   100% {
-    opacity: 0.75;
+    opacity: 0.8;
   }
   50% {
     opacity: 1;
   }
 }
 
-@keyframes rid-thumb-ring {
+@keyframes rid-badge-pulse {
   0%,
   100% {
-    opacity: 0.85;
+    opacity: 0.92;
     transform: scale(1);
   }
   50% {
     opacity: 1;
-    transform: scale(1.05);
+    transform: scale(1.04);
   }
 }
 
-@keyframes rid-thumb-rim {
+@keyframes rid-arm-sway {
   0%,
   100% {
-    opacity: 0.88;
+    transform: rotate(-4deg);
   }
   50% {
-    opacity: 1;
+    transform: rotate(6deg);
   }
 }
 
-@keyframes rid-thumb-soft {
+@keyframes rid-wheel-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rid-arc-pulse {
   0%,
   100% {
-    opacity: 0.96;
+    opacity: 0.45;
   }
   50% {
-    opacity: 1;
+    opacity: 0.95;
   }
 }
 
@@ -917,10 +1043,10 @@
   }
 
   .rid__ring-label {
-    font-size: 10px;
+    font-size: 11px;
   }
 
   .rid__device-label {
-    font-size: 11px;
+    font-size: 12.5px;
   }
 }

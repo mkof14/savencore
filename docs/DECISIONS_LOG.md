@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-27 (D-0197 — Instagram social live)
+**Last updated:** 2026-07-27 (D-0198 — Facebook social live)
 
 ## Rules
 
@@ -213,6 +213,7 @@
 | D-0195 | 2026-07-27 | Owner YouTube URL live in footer (committed default + env override) | Active |
 | D-0196 | 2026-07-27 | Owner X (Twitter) URL live in footer (committed default + env override) | Active |
 | D-0197 | 2026-07-27 | Owner Instagram URL live in footer (committed default + env override) | Active |
+| D-0198 | 2026-07-27 | Owner Facebook URL live in footer (committed default + env override) | Active |
 
 ---
 
@@ -1790,6 +1791,16 @@
 - **Out of scope:** Inventing other social URLs; changing SO-1 hide-when-unset behavior for unset networks; analytics.
 - **Implications:** Partially resolves “Official social account URLs” pending item for **YouTube + X + Instagram**. Facebook / LinkedIn remain owner-pending.
 
+### D-0198 — Facebook social live (owner URL)
+
+- **Date:** 2026-07-27
+- **Status:** Active
+- **Summary:** Owner Facebook profile URL committed as live footer social default.
+- **Decision:** Owner supplies `https://www.facebook.com/profile.php?id=61592276954371` as the Facebook social destination and requires the footer Facebook icon to be **visible and clickable**. Commit this URL as the site default in `src/config/social.ts` so production works without waiting for a Vercel env var; `NEXT_PUBLIC_SOCIAL_FACEBOOK` remains an override. YouTube remains live per D-0195; X remains live per D-0196; Instagram remains live per D-0197. Other social networks stay unset and **hidden** (SO-1 / D-0194) — do not invent LinkedIn. Link opens in a new tab with `rel="noopener noreferrer"` and aria-label Facebook.
+- **In scope:** `src/config/social.ts` defaults; `.env.example` / local `.env.local` documentation; D-0198 + brief AGENTS/ADMIN/VERCEL doc pointers; type-check; commit/push; production deploy; Russian brief for owner.
+- **Out of scope:** Inventing other social URLs; changing SO-1 hide-when-unset behavior for unset networks; analytics.
+- **Implications:** Partially resolves “Official social account URLs” pending item for **YouTube + X + Instagram + Facebook**. LinkedIn remains owner-pending.
+
 ## Pending Owner Decisions
 
 These are not decisions yet; they are tracked for future resolution:
@@ -1875,3 +1886,9 @@ Resolved / narrowed:
 Resolved / narrowed:
 
 - Official social account URLs — **YouTube + X + Instagram** resolved (`https://youtu.be/0C1Sk_RAnSw` D-0195; `https://x.com/SAVENcore` D-0196; `https://www.instagram.com/savencore/` D-0197; env overrides). Facebook / LinkedIn remain open.
+
+### Pending list update — 2026-07-27 (D-0198)
+
+Resolved / narrowed:
+
+- Official social account URLs — **YouTube + X + Instagram + Facebook** resolved (`https://youtu.be/0C1Sk_RAnSw` D-0195; `https://x.com/SAVENcore` D-0196; `https://www.instagram.com/savencore/` D-0197; `https://www.facebook.com/profile.php?id=61592276954371` D-0198; env overrides). LinkedIn remains open.

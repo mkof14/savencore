@@ -95,7 +95,7 @@ SMTP_SECURE=false
 
 ## Footer socials
 
-Icons for Facebook, YouTube, X, LinkedIn, Instagram render **only when** configured (D-0194 SO-1). YouTube uses the owner-approved committed default `https://youtu.be/0C1Sk_RAnSw` (D-0195; `NEXT_PUBLIC_SOCIAL_YOUTUBE` overrides). X uses `https://x.com/SAVENcore` (D-0196; `NEXT_PUBLIC_SOCIAL_X` overrides). Instagram uses `https://www.instagram.com/savencore/` (D-0197; `NEXT_PUBLIC_SOCIAL_INSTAGRAM` overrides). Other networks: unset / `#` → icon hidden (no disabled placeholders). Do not invent additional profile URLs.
+Icons for Facebook, YouTube, X, LinkedIn, Instagram render **only when** configured (D-0194 SO-1). Facebook uses the owner-approved committed default `https://www.facebook.com/profile.php?id=61592276954371` (D-0198; `NEXT_PUBLIC_SOCIAL_FACEBOOK` overrides). YouTube uses `https://youtu.be/0C1Sk_RAnSw` (D-0195; `NEXT_PUBLIC_SOCIAL_YOUTUBE` overrides). X uses `https://x.com/SAVENcore` (D-0196; `NEXT_PUBLIC_SOCIAL_X` overrides). Instagram uses `https://www.instagram.com/savencore/` (D-0197; `NEXT_PUBLIC_SOCIAL_INSTAGRAM` overrides). Other networks: unset / `#` → icon hidden (no disabled placeholders). Do not invent additional profile URLs.
 
 ## Out of scope (later)
 

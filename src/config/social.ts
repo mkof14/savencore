@@ -1,5 +1,5 @@
 /**
- * Configurable public social profile URLs (D-0176 / D-0195 / D-0196 / D-0197).
+ * Configurable public social profile URLs (D-0176 / D-0195 / D-0196 / D-0197 / D-0198).
  * Unset networks stay hidden on the public footer (D-0194 SO-1).
  * Owner-approved defaults may be committed; NEXT_PUBLIC_SOCIAL_* overrides.
  */
@@ -20,11 +20,12 @@ export type SocialLink = {
 };
 
 /**
- * Committed owner-approved defaults (D-0195 / D-0196 / D-0197).
+ * Committed owner-approved defaults (D-0195 / D-0196 / D-0197 / D-0198).
  * Note: YouTube value is the exact owner-supplied URL — a youtu.be video
  * shortlink, not a /channel/ or /@handle page. Env still overrides.
  */
 const SOCIAL_DEFAULTS: Partial<Record<SocialNetwork, string>> = {
+  facebook: "https://www.facebook.com/profile.php?id=61592276954371",
   youtube: "https://youtu.be/0C1Sk_RAnSw",
   x: "https://x.com/SAVENcore",
   instagram: "https://www.instagram.com/savencore/",

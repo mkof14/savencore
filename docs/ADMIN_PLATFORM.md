@@ -1,8 +1,15 @@
-# Admin Platform (D-0176 / D-0177 / D-0178)
+# Admin Platform (D-0176 / D-0177 / D-0178 / D-0213)
 
 **Status:** In Development / Architecture  
-**Authority:** `docs/DECISIONS_LOG.md` D-0176, D-0177, D-0178  
+**Authority:** `docs/DECISIONS_LOG.md` D-0176, D-0177, D-0178, D-0213  
 **Public site freeze:** D-0175 Experience Redesign UI remains the approved public snapshot; this platform is a restricted vertical slice and does not invent metrics, customers, or live social profiles.
+
+## Chrome (D-0213)
+
+- Admin shell follows public site **light/dark** via `html[data-theme]` and shared globals (`--color-background`, surface, ink, accent, field). Atmospheric navy sidebar remains; ThemeSwitch lives in the admin nav footer (site header/footer are hidden on admin routes).
+- Brand heading: SAVEN logo mark (`/brand/saven-logo-mark.webp`) before SAVEN CORE + Admin platform eyebrow + Admin title.
+- Accents: navy / gold / off-white / soft gray-blue hierarchy on active nav, cards, notes, primary buttons — straight corners, no neon.
+- RBAC and section gates are unchanged.
 
 ## Access
 

@@ -1,11 +1,13 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
 
 import type { AdminPermission, AdminRole } from "@/admin/roles";
 import { canPerform, roleLabel } from "@/admin/roles";
+import { ThemeSwitch } from "@/components/site/ThemeSwitch";
 import type { Locale } from "@/config/locales";
 import { getUi } from "@/i18n/ui";
 import { localizePath } from "@/navigation/locale-path";
@@ -93,11 +95,25 @@ export function AdminShell({
     <div className="admin-shell">
       <aside className="admin-shell__nav" aria-label={ui.admin.navLabel}>
         <div className="admin-shell__brand">
-          <div className="admin-shell__brand-lockup" dir="ltr" lang="en">
-            <span className="admin-shell__brand-saven">SAVEN</span>{" "}
-            <span className="admin-shell__brand-core">CORE</span>
+          <div className="admin-shell__brand-heading" dir="ltr" lang="en">
+            <Image
+              src="/brand/saven-logo-mark.webp"
+              alt=""
+              width={36}
+              height={48}
+              className="admin-shell__brand-mark"
+              priority
+              draggable={false}
+            />
+            <div className="admin-shell__brand-copy">
+              <div className="admin-shell__brand-lockup">
+                <span className="admin-shell__brand-saven">SAVEN</span>{" "}
+                <span className="admin-shell__brand-core">CORE</span>
+              </div>
+              <div className="admin-shell__brand-eyebrow">{ui.admin.eyebrow}</div>
+              <div className="admin-shell__brand-name">{ui.admin.brandTitle}</div>
+            </div>
           </div>
-          <div className="admin-shell__brand-name">{ui.admin.brandTitle}</div>
           <div className="admin-shell__brand-meta">
             {email}
             <br />
@@ -132,6 +148,7 @@ export function AdminShell({
         </ul>
 
         <div className="admin-shell__footer-links">
+          <ThemeSwitch locale={locale} placement="admin" />
           <Link
             href={localizePath(locale, "/")}
             className="admin-shell__text-link"

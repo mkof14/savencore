@@ -1,4 +1,4 @@
-/* Admin platform shell (D-0176) — straight corners, brand tokens, no neon. */
+/* Admin platform shell (D-0176 / D-0213) — straight corners, site theme tokens, no neon. */
 
 body:has(.admin-shell) .site-header,
 body:has(.admin-shell) .site-footer {
@@ -11,21 +11,49 @@ body:has(.admin-shell) .site-shell__main {
 }
 
 .admin-shell {
+  /* Follow public site light/dark via html[data-theme] globals (D-0207 / D-0211). */
   --admin-ink: var(--color-text);
   --admin-muted: var(--color-text-secondary);
   --admin-surface: var(--color-surface);
+  --admin-surface-muted: var(--color-surface-muted);
   --admin-bg: var(--color-background);
   --admin-border: var(--color-border);
-  --admin-accent: var(--color-accent, #d4a84b);
+  --admin-divider: var(--color-divider);
+  --admin-accent: var(--color-accent);
+  --admin-accent-strong: var(--color-accent-strong);
+  --admin-accent-text: var(--color-accent-text);
+  --admin-accent-soft: var(--color-accent-soft);
+  --admin-accent-line: var(--color-accent-line);
+  --admin-navy: var(--color-field);
+  --admin-navy-elevated: var(--color-field-elevated);
+  --admin-navy-mid: var(--color-field-mid);
+  --admin-soft-blue: color-mix(in srgb, #6b8a9e 22%, transparent);
   --admin-nav: var(--color-field);
-  --admin-nav-ink: #f4f6f8;
-  --admin-nav-muted: #c5ced9;
+  --admin-nav-elevated: var(--color-field-elevated);
+  --admin-nav-ink: var(--color-field-ink);
+  --admin-nav-muted: color-mix(in srgb, var(--color-field-ink) 72%, transparent);
+  --admin-nav-rule: color-mix(in srgb, var(--color-field-ink) 12%, transparent);
   min-height: 100vh;
   display: grid;
   background:
-    radial-gradient(1200px 480px at 12% -10%, color-mix(in srgb, var(--admin-accent) 10%, transparent), transparent 55%),
+    radial-gradient(
+      1100px 420px at 8% -8%,
+      color-mix(in srgb, var(--admin-accent) 12%, transparent),
+      transparent 52%
+    ),
+    radial-gradient(
+      900px 360px at 96% 4%,
+      var(--admin-soft-blue),
+      transparent 58%
+    ),
     var(--admin-bg);
   color: var(--admin-ink);
+}
+
+html[data-theme="dark"] .admin-shell {
+  --admin-soft-blue: color-mix(in srgb, #7a9bb0 16%, transparent);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 @media (min-width: 900px) {
@@ -35,19 +63,27 @@ body:has(.admin-shell) .site-shell__main {
 }
 
 .admin-shell__nav {
-  background: var(--admin-nav);
+  background:
+    linear-gradient(
+      180deg,
+      var(--admin-nav-elevated) 0%,
+      var(--admin-nav) 42%,
+      color-mix(in srgb, var(--admin-nav) 88%, #0d3b45 12%) 100%
+    );
   color: var(--admin-nav-ink);
   padding: 1.25rem 1rem 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
-  border-block-end: 1px solid rgba(255, 255, 255, 0.08);
+  border-block-end: 1px solid var(--admin-nav-rule);
+  box-shadow: inset 0 -1px 0 color-mix(in srgb, var(--admin-accent) 18%, transparent);
 }
 
 @media (min-width: 900px) {
   .admin-shell__nav {
     border-block-end: 0;
-    border-inline-end: 1px solid rgba(255, 255, 255, 0.08);
+    border-inline-end: 1px solid var(--admin-nav-rule);
+    box-shadow: inset -1px 0 0 color-mix(in srgb, var(--admin-accent) 22%, transparent);
     min-height: 100vh;
     position: sticky;
     top: 0;
@@ -57,16 +93,38 @@ body:has(.admin-shell) .site-shell__main {
 .admin-shell__brand {
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
+  gap: 0.45rem;
   padding-inline: 0.35rem;
 }
 
+.admin-shell__brand-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.admin-shell__brand-mark {
+  display: block;
+  flex: 0 0 auto;
+  width: auto;
+  height: 2.75rem;
+  object-fit: contain;
+  mix-blend-mode: lighten;
+}
+
+.admin-shell__brand-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.12rem;
+  min-width: 0;
+}
+
 .admin-shell__brand-lockup {
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  line-height: 1.2;
+  line-height: 1.15;
 }
 
 .admin-shell__brand-saven {
@@ -74,6 +132,14 @@ body:has(.admin-shell) .site-shell__main {
 }
 
 .admin-shell__brand-core {
+  color: var(--admin-accent-strong);
+}
+
+.admin-shell__brand-eyebrow {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--admin-accent);
 }
 
@@ -93,9 +159,10 @@ body:has(.admin-shell) .site-shell__main {
 .admin-shell__status {
   display: inline-flex;
   align-self: flex-start;
-  margin-top: 0.35rem;
+  margin-top: 0.2rem;
   padding: 0.2rem 0.45rem;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid color-mix(in srgb, var(--admin-accent) 35%, var(--admin-nav-rule));
+  background: color-mix(in srgb, var(--admin-accent) 10%, transparent);
   font-size: 0.68rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -118,20 +185,32 @@ body:has(.admin-shell) .site-shell__main {
   text-decoration: none;
   font-size: 0.9rem;
   border: 1px solid transparent;
+  border-inline-start: 3px solid transparent;
+  transition:
+    color var(--motion-duration-fast, 120ms) ease,
+    background-color var(--motion-duration-fast, 120ms) ease,
+    border-color var(--motion-duration-fast, 120ms) ease;
 }
 
 .admin-shell__link:hover,
 .admin-shell__link:focus-visible {
   color: var(--admin-nav-ink);
-  background: rgba(255, 255, 255, 0.06);
+  background: color-mix(in srgb, var(--admin-nav-ink) 8%, transparent);
+  border-inline-start-color: color-mix(in srgb, var(--admin-accent) 55%, transparent);
 }
 
 .admin-shell__link--active {
   color: var(--admin-nav-ink);
-  background: rgba(255, 255, 255, 0.1);
-  border-color: color-mix(in srgb, var(--admin-accent) 45%, transparent);
-  border-inline-start: 3px solid var(--admin-accent);
-  padding-inline-start: calc(0.65rem - 2px);
+  background:
+    linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--admin-accent) 16%, transparent) 0%,
+      color-mix(in srgb, var(--admin-nav-ink) 8%, transparent) 100%
+    );
+  border-color: color-mix(in srgb, var(--admin-accent) 40%, transparent);
+  border-inline-start: 3px solid var(--admin-accent-strong);
+  padding-inline-start: calc(0.65rem - 0px);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--admin-accent) 12%, transparent);
 }
 
 .admin-shell__footer-links {
@@ -140,6 +219,30 @@ body:has(.admin-shell) .site-shell__main {
   flex-direction: column;
   gap: 0.5rem;
   padding-top: 1rem;
+  border-block-start: 1px solid var(--admin-nav-rule);
+}
+
+.admin-shell__footer-links .theme-toggle--admin {
+  align-self: flex-start;
+  margin-inline-start: 0.35rem;
+  margin-block-end: 0.15rem;
+  width: 2.1rem;
+  height: 2.1rem;
+  border: 1px solid var(--admin-nav-rule);
+  color: var(--admin-nav-ink);
+}
+
+.admin-shell__footer-links .theme-toggle--admin:hover,
+.admin-shell__footer-links .theme-toggle--admin:focus-visible {
+  border-color: var(--admin-accent-strong);
+}
+
+.admin-shell__footer-links .theme-toggle--admin .theme-toggle__icon--sun {
+  color: var(--admin-accent-strong);
+}
+
+.admin-shell__footer-links .theme-toggle--admin .theme-toggle__icon--moon {
+  color: #9ec9e4;
 }
 
 .admin-shell__text-btn,
@@ -179,7 +282,7 @@ body:has(.admin-shell) .site-shell__main {
   font-size: 0.75rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--admin-muted);
+  color: var(--admin-accent-text);
 }
 
 .admin-page__title {
@@ -188,6 +291,7 @@ body:has(.admin-shell) .site-shell__main {
   font-weight: 600;
   letter-spacing: -0.02em;
   line-height: 1.2;
+  color: var(--admin-ink);
 }
 
 .admin-page__lead {
@@ -215,19 +319,33 @@ body:has(.admin-shell) .site-shell__main {
 
 .admin-card {
   border: 1px solid var(--admin-border);
-  background: var(--admin-surface);
+  background:
+    linear-gradient(
+      165deg,
+      color-mix(in srgb, var(--admin-soft-blue) 55%, var(--admin-surface)) 0%,
+      var(--admin-surface) 55%
+    );
   padding: 1.1rem 1.15rem;
-  box-shadow: 0 1px 0 color-mix(in srgb, var(--admin-ink) 4%, transparent);
+  box-shadow:
+    0 1px 0 color-mix(in srgb, var(--admin-ink) 4%, transparent),
+    0 8px 20px color-mix(in srgb, var(--admin-navy) 4%, transparent);
 }
 
 .admin-card--accent {
-  border-color: color-mix(in srgb, var(--admin-accent) 35%, var(--admin-border));
+  border-color: color-mix(in srgb, var(--admin-accent) 42%, var(--admin-border));
   border-block-start: 3px solid var(--admin-accent);
+  background:
+    linear-gradient(
+      165deg,
+      color-mix(in srgb, var(--admin-accent) 10%, var(--admin-surface)) 0%,
+      var(--admin-surface) 48%
+    );
   margin-bottom: 1.25rem;
 }
 
 .admin-card--unread {
-  border-color: color-mix(in srgb, var(--admin-accent) 40%, var(--admin-border));
+  border-color: color-mix(in srgb, var(--admin-accent) 48%, var(--admin-border));
+  box-shadow: inset 3px 0 0 var(--admin-accent-strong);
 }
 
 .admin-card__header-row {
@@ -362,7 +480,9 @@ body:has(.admin-shell) .site-shell__main {
 
 .admin-table th {
   font-weight: 600;
-  background: var(--color-surface-muted, rgba(0, 0, 0, 0.03));
+  background: var(--admin-surface-muted);
+  color: var(--admin-ink);
+  border-bottom-color: color-mix(in srgb, var(--admin-accent) 28%, var(--admin-border));
 }
 
 .admin-table tr:last-child td {
@@ -403,9 +523,16 @@ body:has(.admin-shell) .site-shell__main {
 }
 
 .admin-btn--primary {
-  background: var(--color-field);
-  color: #f4f6f8;
-  border-color: var(--color-field);
+  background: var(--admin-navy);
+  color: var(--admin-nav-ink);
+  border-color: color-mix(in srgb, var(--admin-accent) 45%, var(--admin-navy));
+  box-shadow: inset 0 -1px 0 color-mix(in srgb, var(--admin-accent) 35%, transparent);
+}
+
+.admin-btn--primary:hover,
+.admin-btn--primary:focus-visible {
+  border-color: var(--admin-accent-strong);
+  background: var(--admin-navy-elevated);
 }
 
 .admin-btn--media-cta {
@@ -505,7 +632,8 @@ body:has(.admin-shell) .site-shell__main {
   margin: 0 0 1.25rem;
   padding: 0.85rem 1rem;
   border: 1px solid var(--admin-border);
-  background: var(--color-surface-muted, rgba(0, 0, 0, 0.03));
+  border-inline-start: 3px solid var(--admin-accent);
+  background: color-mix(in srgb, var(--admin-surface-muted) 70%, var(--admin-surface));
   font-size: 0.875rem;
   line-height: 1.5;
   color: var(--admin-muted);
@@ -702,14 +830,14 @@ body:has(.admin-shell) .site-shell__main {
   display: grid;
   gap: 0.85rem;
   padding: 1rem 1.05rem;
-  border: 1px solid color-mix(in srgb, #0b1f3a 18%, var(--admin-border));
+  border: 1px solid color-mix(in srgb, var(--admin-navy) 18%, var(--admin-border));
   background:
     linear-gradient(
       180deg,
-      color-mix(in srgb, #f5f5f7 70%, var(--admin-surface)) 0%,
+      color-mix(in srgb, var(--admin-surface-muted) 55%, var(--admin-surface)) 0%,
       var(--admin-surface) 100%
     );
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55);
+  box-shadow: inset 0 1px 0 color-mix(in srgb, var(--admin-ink) 4%, transparent);
 }
 
 .admin-media-file-input {

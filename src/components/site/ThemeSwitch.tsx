@@ -9,8 +9,8 @@ type ThemeMode = "light" | "dark";
 
 type ThemeSwitchProps = {
   locale: Locale;
-  /** Visual placement — header utilities vs footer chrome. */
-  placement?: "header" | "footer";
+  /** Visual placement — header utilities, footer chrome, or admin shell. */
+  placement?: "header" | "footer" | "admin";
 };
 
 const STORAGE_KEY = "savencore-theme";

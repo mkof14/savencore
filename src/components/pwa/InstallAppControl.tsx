@@ -74,7 +74,7 @@ export function InstallAppControl({
     return null;
   }
 
-  const className = "site-footer__text-link install-app";
+  const className = "site-footer__install-control install-app";
 
   if (deferred) {
     return (

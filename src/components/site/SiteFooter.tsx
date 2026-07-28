@@ -28,9 +28,10 @@ type SiteFooterProps = {
 };
 
 /**
- * Apple-style footer (D-0209 / D-0212): each published section is its own equal column
+ * Apple-style footer (D-0209 / D-0212 / D-0213): each published section is its own equal column
  * in one forced desktop row — Architecture never stacks under Technology.
- * Contact form lives on `/contact/` only; bottom order: socials → disclaimer → bar.
+ * Install app lives in the Resources column (main link grid); Contact form on `/contact/` only;
+ * bottom order: socials → disclaimer → bar.
  */
 /** Layer 2 depth map — published domain destinations + Architecture + Legal. */
 export function SiteFooter({
@@ -146,6 +147,11 @@ export function SiteFooter({
               className={`site-footer__column site-footer__column--${columnIndex + 1}`}
             >
               {renderGroup(group)}
+              {group.id === "resources" ? (
+                <div className="site-footer__install">
+                  <InstallAppControl locale={locale} placement="footer" />
+                </div>
+              ) : null}
             </div>
           ))}
         </div>
@@ -163,7 +169,6 @@ export function SiteFooter({
           </p>
 
           <div className="site-footer__bar-links">
-            <InstallAppControl locale={locale} placement="footer" />
             <Link
               href={localizePath(locale, "/auth/sign-in/")}
               className="site-footer__text-link"

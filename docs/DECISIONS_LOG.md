@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-28 (D-0212 — Footer polish: form removed, disclaimer order, slogan lockup)
+**Last updated:** 2026-07-28 (D-0213 — Admin theme/logo/accents; footer Install app in Resources)
 
 ## Rules
 
@@ -228,6 +228,7 @@
 | D-0210 | 2026-07-28 | Footer language switcher hover color (Windows Chrome-safe) | Active |
 | D-0211 | 2026-07-28 | Deeper off-white, navy-tile favicon, footer form/disclaimer, FAQ care Q&As | Active (footer form removed: D-0212) |
 | D-0212 | 2026-07-28 | Footer: remove Get in touch; disclaimer under socials; denser links; slogan lockup | Active |
+| D-0213 | 2026-07-28 | Admin light/dark theme + logo + accents; footer Install app in Resources | Active |
 
 ---
 
@@ -1955,6 +1956,16 @@
 - **In scope:** `SiteFooter.tsx`, `site-shell.css`, layout smtp prop cleanup, delete `FooterContactForm.tsx`, UI i18n `footerContact` removal, D-0212 + AGENTS / SITE_ASSIGNMENT / IA pointers; type-check; local `:3000`; commit/push; production deploy; Russian owner brief.
 - **Out of scope:** Inventing pages/routes/socials, neon/glow, binding legal, changing Contact form behavior, LinkedIn, column inventory.
 - **Implications:** Footer no longer duplicates Contact acquisition; disclaimer reads after socials as a quieter protective note before copyright.
+
+### D-0213 — Admin theme/logo/accents; footer Install app in Resources column
+
+- **Date:** 2026-07-28
+- **Status:** Active
+- **Summary:** Owner polish: Admin Platform follows public site light/dark (`html[data-theme]` / shared theme tokens + ThemeSwitch in admin chrome); SAVEN logo mark before Admin Platform / brand heading; richer navy/gold/off-white/soft gray-blue accents (straight corners, no neon); move **Install app** out of the tiny bottom utilities bar into the main footer link grid under **Resources**, with smaller type; PWA behavior unchanged.
+- **Decision:** (1) Wire admin shell CSS to site globals (`--color-background` / surface / ink / accent / field); keep atmospheric navy sidebar; add ThemeSwitch in admin nav footer so theme can change while site header/footer are hidden. (2) Brand heading: `/brand/saven-logo-mark.webp` before SAVEN CORE + eyebrow + Admin title. (3) Enrich cards, active nav, notes, primary buttons with gold/navy/soft-blue hierarchy. (4) Relocate Install app into Resources column; smaller font than page links; Sign In / Admin remain in bottom bar. RBAC unchanged.
+- **In scope:** `AdminShell`, `admin.css`, `ThemeSwitch` placement, `SiteFooter`, `InstallAppControl`, `site-shell.css`, D-0213 + AGENTS / SITE_ASSIGNMENT / IA / ADMIN_PLATFORM pointers; type-check; local `:3000`; commit/push; production deploy; Russian owner brief.
+- **Out of scope:** Inventing pages/routes/socials, neon/glow, binding legal, changing admin RBAC/permissions, LinkedIn, CMS/analytics.
+- **Implications:** Admin chrome matches public theme flip; Install app reads with Layer-2 Resources rather than the copyright utilities strip.
 
 ## Pending Owner Decisions
 

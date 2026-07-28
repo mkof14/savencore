@@ -723,33 +723,85 @@ a.site-footer__social-link:focus-visible {
   border: 0;
 }
 
+/* Footer depth map — two balanced rows on desktop (D-0200); accordion on narrow. */
 .site-footer__grid {
   display: grid;
-  grid-template-columns: 1fr;
   gap: 0;
   align-items: start;
 }
 
-@media (min-width: 720px) {
-  .site-footer__grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--space-32) var(--space-32);
-  }
+.site-footer__row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  align-items: start;
+  min-width: 0;
 }
 
-/* Tablet / mid desktop: balanced wrap (3×3 for nine section groups). */
+/* Mid / desktop: open the two-row band layout with hairline separations. */
 @media (min-width: 900px) {
   .site-footer__grid {
+    gap: var(--space-32);
+  }
+
+  .site-footer__row {
+    column-gap: 0;
+    row-gap: var(--space-32);
+    padding-block: var(--space-8);
+  }
+
+  .site-footer__row--primary {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: var(--space-40, 2.5rem) var(--space-24);
+    padding-block-end: var(--space-32);
+    border-block-end: 1px solid
+      color-mix(in srgb, var(--color-accent-line) 42%, var(--footer-rule));
+  }
+
+  .site-footer__row--secondary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding-block-start: var(--space-8);
+  }
+
+  .site-footer__group {
+    border-block-end: 0;
+    padding-block: 0;
+    padding-inline: var(--space-16);
+    border-inline-start: 1px solid
+      color-mix(in srgb, var(--footer-rule) 88%, transparent);
+  }
+
+  .site-footer__row > .site-footer__group:first-child {
+    border-inline-start: 0;
+    padding-inline-start: 0;
+  }
+
+  .site-footer__row > .site-footer__group:last-child {
+    padding-inline-end: 0;
   }
 }
 
-/* Desktop: all nine section columns in one equal-width row (D-0199). */
-@media (min-width: 1200px) {
+/* Desktop: 5 + 4 equal tracks within each row (D-0200). */
+@media (min-width: 1100px) {
   .site-footer__grid {
-    grid-template-columns: repeat(9, minmax(0, 1fr));
-    gap: var(--space-28) var(--space-12);
+    gap: var(--space-48);
+  }
+
+  .site-footer__row {
+    row-gap: 0;
+  }
+
+  .site-footer__row--primary {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    padding-block-end: var(--space-32);
+  }
+
+  .site-footer__row--secondary {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    padding-block-start: 0;
+  }
+
+  .site-footer__group {
+    padding-inline: var(--space-24);
   }
 }
 
@@ -766,13 +818,6 @@ a.site-footer__social-link:focus-visible {
   min-width: 0;
 }
 
-@media (min-width: 720px) {
-  .site-footer__group {
-    border-block-end: 0;
-    padding-block: 0;
-  }
-}
-
 .site-footer__group-title {
   display: flex;
   align-items: center;
@@ -784,7 +829,7 @@ a.site-footer__social-link:focus-visible {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-accent-text);
-  line-height: 1.3;
+  line-height: 1.35;
   list-style: none;
   cursor: pointer;
 }
@@ -809,30 +854,17 @@ a.site-footer__social-link:focus-visible {
   content: "−";
 }
 
-@media (min-width: 720px) {
+@media (min-width: 900px) {
   .site-footer__group-title::after {
     display: none;
   }
 
   .site-footer__group-title {
-    min-height: 0;
-    margin-block-end: var(--space-16);
-  }
-}
-
-@media (min-width: 1200px) {
-  .site-footer__group-title {
-    /* Shared title band so equal columns start link lists on one baseline. */
     display: block;
-    min-height: 2.6em;
-    margin-block-end: var(--space-12);
-    letter-spacing: 0.05em;
+    min-height: 2.75em;
+    margin-block-end: var(--space-16);
+    letter-spacing: 0.06em;
     overflow-wrap: anywhere;
-  }
-
-  .site-footer__link {
-    font-size: 0.8125rem;
-    line-height: 1.4;
   }
 }
 
@@ -842,7 +874,7 @@ a.site-footer__social-link:focus-visible {
   padding: 0 0 var(--space-16);
   display: none;
   flex-direction: column;
-  gap: var(--space-12);
+  gap: 0.7rem;
 }
 
 .site-footer__group[open] .site-footer__list,
@@ -850,9 +882,10 @@ a.site-footer__social-link:focus-visible {
   display: flex;
 }
 
-@media (min-width: 720px) {
+@media (min-width: 900px) {
   .site-footer__list {
     padding-block-end: 0;
+    gap: 0.8rem;
   }
 }
 
@@ -870,7 +903,7 @@ a.site-footer__social-link:focus-visible {
   text-decoration: none;
   font: inherit;
   font-size: 0.875rem;
-  line-height: 1.45;
+  line-height: 1.55;
   letter-spacing: -0.005em;
 }
 

@@ -26,7 +26,7 @@ type SiteFooterProps = {
   showAdminLink?: boolean;
 };
 
-/** Layer 2 depth map — published domain destinations + Architecture + Legal (D-0132 / D-0154 / D-0181 / D-0188). */
+/** Layer 2 depth map — published domain destinations + Architecture + Legal (D-0132 / D-0154 / D-0181 / D-0188 / D-0200). */
 export function SiteFooter({
   locale,
   showAdminLink = false,
@@ -49,6 +49,74 @@ export function SiteFooter({
     }))
     .filter((group) => group.links.length > 0);
 
+  /** Desktop: two balanced rows (5 + 4) — D-0200; supersedes D-0199 one-row layout. */
+  const FOOTER_ROW_SPLIT = 5;
+  const footerRows = [
+    groups.slice(0, FOOTER_ROW_SPLIT),
+    groups.slice(FOOTER_ROW_SPLIT),
+  ].filter((row) => row.length > 0);
+
+  const renderGroup = (group: (typeof groups)[number]) => {
+    const title = getFooterGroupTitle(locale, group.id, group.title);
+    const headingId = `footer-${group.id}`;
+    const isLegal = group.id === "legal";
+    const groupClass = `site-footer__group${isLegal ? " site-footer__group--legal" : ""}`;
+
+    if (isCompact) {
+      return (
+        <details key={group.id} className={groupClass}>
+          <summary className="site-footer__group-title" id={headingId}>
+            {title}
+          </summary>
+          <ul className="site-footer__list" aria-labelledby={headingId}>
+            {group.links.map((link) => (
+              <li key={link.id}>
+                <Link
+                  href={localizePath(locale, link.href)}
+                  className={
+                    link.id === "footer-legal-more"
+                      ? "site-footer__link site-footer__link--more"
+                      : "site-footer__link"
+                  }
+                >
+                  {getNavEntryLabel(locale, link.id, link.label)}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </details>
+      );
+    }
+
+    return (
+      <section
+        key={group.id}
+        className={groupClass}
+        aria-labelledby={headingId}
+      >
+        <h2 className="site-footer__group-title" id={headingId}>
+          {title}
+        </h2>
+        <ul className="site-footer__list">
+          {group.links.map((link) => (
+            <li key={link.id}>
+              <Link
+                href={localizePath(locale, link.href)}
+                className={
+                  link.id === "footer-legal-more"
+                    ? "site-footer__link site-footer__link--more"
+                    : "site-footer__link"
+                }
+              >
+                {getNavEntryLabel(locale, link.id, link.label)}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+    );
+  };
+
   return (
     <footer className="site-footer">
       <div className="site-shell__inner site-footer__inner">
@@ -63,71 +131,14 @@ export function SiteFooter({
         </div>
 
         <div className="site-footer__grid">
-          {groups.map((group) => {
-            const title = getFooterGroupTitle(locale, group.id, group.title);
-            const headingId = `footer-${group.id}`;
-            const isLegal = group.id === "legal";
-
-            if (isCompact) {
-              return (
-                <details
-                  key={group.id}
-                  className={`site-footer__group${isLegal ? " site-footer__group--legal" : ""}`}
-                >
-                  <summary
-                    className="site-footer__group-title"
-                    id={headingId}
-                  >
-                    {title}
-                  </summary>
-                  <ul className="site-footer__list" aria-labelledby={headingId}>
-                    {group.links.map((link) => (
-                      <li key={link.id}>
-                        <Link
-                          href={localizePath(locale, link.href)}
-                          className={
-                            link.id === "footer-legal-more"
-                              ? "site-footer__link site-footer__link--more"
-                              : "site-footer__link"
-                          }
-                        >
-                          {getNavEntryLabel(locale, link.id, link.label)}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </details>
-              );
-            }
-
-            return (
-              <section
-                key={group.id}
-                className={`site-footer__group${isLegal ? " site-footer__group--legal" : ""}`}
-                aria-labelledby={headingId}
-              >
-                <h2 className="site-footer__group-title" id={headingId}>
-                  {title}
-                </h2>
-                <ul className="site-footer__list">
-                  {group.links.map((link) => (
-                    <li key={link.id}>
-                      <Link
-                        href={localizePath(locale, link.href)}
-                        className={
-                          link.id === "footer-legal-more"
-                            ? "site-footer__link site-footer__link--more"
-                            : "site-footer__link"
-                        }
-                      >
-                        {getNavEntryLabel(locale, link.id, link.label)}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </section>
-            );
-          })}
+          {footerRows.map((row, rowIndex) => (
+            <div
+              key={rowIndex === 0 ? "footer-row-primary" : "footer-row-secondary"}
+              className={`site-footer__row site-footer__row--${rowIndex === 0 ? "primary" : "secondary"}`}
+            >
+              {row.map(renderGroup)}
+            </div>
+          ))}
         </div>
 
         <div className="site-footer__social-row">

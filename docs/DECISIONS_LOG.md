@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-27 (D-0199 — Footer section columns one equal row)
+**Last updated:** 2026-07-27 (D-0200 — Footer two-row columns + visual separations)
 
 ## Rules
 
@@ -214,7 +214,8 @@
 | D-0196 | 2026-07-27 | Owner X (Twitter) URL live in footer (committed default + env override) | Active |
 | D-0197 | 2026-07-27 | Owner Instagram URL live in footer (committed default + env override) | Active |
 | D-0198 | 2026-07-27 | Owner Facebook URL live in footer (committed default + env override) | Active |
-| D-0199 | 2026-07-27 | Footer section columns — nine equal tracks in one desktop row | Active |
+| D-0199 | 2026-07-27 | Footer section columns — nine equal tracks in one desktop row | Superseded by D-0200 |
+| D-0200 | 2026-07-27 | Footer section columns — two balanced rows + visual separations | Active |
 
 ---
 
@@ -1805,12 +1806,22 @@
 ### D-0199 — Footer section columns one equal desktop row
 
 - **Date:** 2026-07-27
-- **Status:** Active
+- **Status:** Superseded by D-0200
 - **Summary:** All nine footer section columns share equal width in one desktop row.
 - **Decision:** Owner requires footer section columns (Technology, Architecture, Labs, Applications, Trust, Research, Company, Resources, Legal) to be **more symmetrical** and sit in **one horizontal row** on desktop. Root cause after D-0194 Resources: the grid still used an **eight-track** layout (D-0181 / D-0188), so the ninth column wrapped alone. Update `.site-footer__grid` to **nine equal `minmax(0, 1fr)` tracks** at ≥1200px; mid widths use a balanced **3×3** wrap; narrow screens keep the existing accordion. Align section titles on a shared baseline band; keep socials bottom row, Legal More, Home Application naming, and live socials (FB/YT/X/IG) unchanged. Straight corners / brand grammar retained.
 - **In scope:** `site-shell.css` footer grid/title polish; D-0199 + brief AGENTS / SITE_ASSIGNMENT pointers; type-check; commit/push; production deploy; Russian brief for owner; smoke www footer.
 - **Out of scope:** Changing footer link inventory, i18n copy, social URLs, Legal More hub, navigation taxonomy, or inventing columns/pages.
-- **Implications:** Supersedes the eight-track desktop footer grid note from D-0181 / D-0188 for column count only; equal-weight and socials-under-grid rules from D-0181 remain.
+- **Implications:** Supersedes the eight-track desktop footer grid note from D-0181 / D-0188 for column count only; equal-weight and socials-under-grid rules from D-0181 remain. **Layout superseded by D-0200** (owner: one row too dense).
+
+### D-0200 — Footer two-row columns with visual separations
+
+- **Date:** 2026-07-27
+- **Status:** Active
+- **Summary:** Footer section columns use two balanced desktop rows with hairline separations and more breathing room.
+- **Decision:** Owner feedback: footer texts look bad with too much copy side-by-side — **split into two rows** and add **visual separations**. Revert/replace the cramped nine-column single row (D-0199). Desktop (≥1100px): **two rows** — primary **5** equal tracks (Technology, Architecture, Labs, Applications, Trust) + secondary **4** equal tracks (Research, Company, Resources, Legal); clear horizontal gap and a restrained gold/navy hairline between rows; subtle column hairlines within each row; improved list gap / line-height. Mid widths (≥900px): same two-row bands with cleaner wrap (3 + 2 / 2 + 2). Narrow screens keep accordion. Do not change socials bottom bar, Legal More, live socials (FB/YT/X/IG), Home Application naming, or link inventory. Straight corners / brand grammar retained — no neon.
+- **In scope:** `SiteFooter.tsx` row split; `site-shell.css` footer grid/divider/spacing polish; D-0200 + AGENTS / SITE_ASSIGNMENT / IA pointers; type-check; commit/push; production deploy; Russian brief for owner; smoke www footer.
+- **Out of scope:** Changing footer link inventory, i18n copy, social URLs, Legal More hub, navigation taxonomy, or inventing columns/pages.
+- **Implications:** Supersedes D-0199 one-row desktop layout. Equal-weight section columns within each row and socials-under-grid rules from D-0181 remain.
 
 ## Pending Owner Decisions
 

@@ -737,25 +737,19 @@ a.site-footer__social-link:focus-visible {
   }
 }
 
+/* Tablet / mid desktop: balanced wrap (3×3 for nine section groups). */
 @media (min-width: 900px) {
   .site-footer__grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: var(--space-40, 2.5rem) var(--space-24);
   }
 }
 
+/* Desktop: all nine section columns in one equal-width row (D-0199). */
 @media (min-width: 1200px) {
   .site-footer__grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: var(--space-48) var(--space-32);
-  }
-}
-
-@media (min-width: 1440px) {
-  .site-footer__grid {
-    /* Eight equal columns — Legal shares the same track weight (D-0181). */
-    grid-template-columns: repeat(8, minmax(0, 1fr));
-    gap: var(--space-32) var(--space-20);
+    grid-template-columns: repeat(9, minmax(0, 1fr));
+    gap: var(--space-28) var(--space-12);
   }
 }
 
@@ -823,6 +817,22 @@ a.site-footer__social-link:focus-visible {
   .site-footer__group-title {
     min-height: 0;
     margin-block-end: var(--space-16);
+  }
+}
+
+@media (min-width: 1200px) {
+  .site-footer__group-title {
+    /* Shared title band so equal columns start link lists on one baseline. */
+    display: block;
+    min-height: 2.6em;
+    margin-block-end: var(--space-12);
+    letter-spacing: 0.05em;
+    overflow-wrap: anywhere;
+  }
+
+  .site-footer__link {
+    font-size: 0.8125rem;
+    line-height: 1.4;
   }
 }
 

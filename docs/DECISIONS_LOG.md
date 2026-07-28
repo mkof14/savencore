@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-27 (D-0198 — Facebook social live)
+**Last updated:** 2026-07-27 (D-0199 — Footer section columns one equal row)
 
 ## Rules
 
@@ -214,6 +214,7 @@
 | D-0196 | 2026-07-27 | Owner X (Twitter) URL live in footer (committed default + env override) | Active |
 | D-0197 | 2026-07-27 | Owner Instagram URL live in footer (committed default + env override) | Active |
 | D-0198 | 2026-07-27 | Owner Facebook URL live in footer (committed default + env override) | Active |
+| D-0199 | 2026-07-27 | Footer section columns — nine equal tracks in one desktop row | Active |
 
 ---
 
@@ -1800,6 +1801,16 @@
 - **In scope:** `src/config/social.ts` defaults; `.env.example` / local `.env.local` documentation; D-0198 + brief AGENTS/ADMIN/VERCEL doc pointers; type-check; commit/push; production deploy; Russian brief for owner.
 - **Out of scope:** Inventing other social URLs; changing SO-1 hide-when-unset behavior for unset networks; analytics.
 - **Implications:** Partially resolves “Official social account URLs” pending item for **YouTube + X + Instagram + Facebook**. LinkedIn remains owner-pending.
+
+### D-0199 — Footer section columns one equal desktop row
+
+- **Date:** 2026-07-27
+- **Status:** Active
+- **Summary:** All nine footer section columns share equal width in one desktop row.
+- **Decision:** Owner requires footer section columns (Technology, Architecture, Labs, Applications, Trust, Research, Company, Resources, Legal) to be **more symmetrical** and sit in **one horizontal row** on desktop. Root cause after D-0194 Resources: the grid still used an **eight-track** layout (D-0181 / D-0188), so the ninth column wrapped alone. Update `.site-footer__grid` to **nine equal `minmax(0, 1fr)` tracks** at ≥1200px; mid widths use a balanced **3×3** wrap; narrow screens keep the existing accordion. Align section titles on a shared baseline band; keep socials bottom row, Legal More, Home Application naming, and live socials (FB/YT/X/IG) unchanged. Straight corners / brand grammar retained.
+- **In scope:** `site-shell.css` footer grid/title polish; D-0199 + brief AGENTS / SITE_ASSIGNMENT pointers; type-check; commit/push; production deploy; Russian brief for owner; smoke www footer.
+- **Out of scope:** Changing footer link inventory, i18n copy, social URLs, Legal More hub, navigation taxonomy, or inventing columns/pages.
+- **Implications:** Supersedes the eight-track desktop footer grid note from D-0181 / D-0188 for column count only; equal-weight and socials-under-grid rules from D-0181 remain.
 
 ## Pending Owner Decisions
 

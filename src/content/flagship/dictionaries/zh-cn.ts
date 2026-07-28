@@ -105,7 +105,7 @@ export const dictionary: Record<string, string> = {
   "The primary engineering direction for robotic systems that sense, move, and act in the physical world — under clear human oversight.": "在人类明确的监督下，在物理世界中感知、移动和行动的机器人系统的主要工程方向。",
   "The purpose is human care: reducing overload for caregivers, supporting independence at home, and extending careful physical help into places where people already live and work.": "其目的是人性化关怀：减少护理人员的负担，支持家庭独立，并向人们已经生活和工作的地方提供仔细的身体帮助。",
   "The research environment of SAVEN Core — exploring advanced robotics, embodied AI, and non-standard engineering concepts.": "SAVEN Core 的研究环境——探索先进的机器人技术、具体化人工智能和非标准工程概念。",
-  "This page is structural information only. It is not an offer to sell securities. Contact channels will be published when approved. Sign In/Up provides authorized access when credentials are configured — not a full investor portal.": "此页面仅提供结构信息。这不是出售证券的要约。联系渠道将在获得批准后公布。登录%2FUp 在配置凭据后提供授权访问，而不是完整的投资者门户。",
+  "This page is structural information only. It is not an offer to sell securities. Contact channels will be published when approved. Sign In/Up provides authorized access when credentials are configured — not a full investor portal.": "此页面仅提供结构信息。这不是出售证券的要约。联系渠道将在获得批准后公布。登录 / 注册 在配置凭据后提供授权访问，而不是完整的投资者门户。",
   "Trust and human oversight as structural requirements": "信任和人类监督作为结构性要求",
   "Visual interface": "可视化界面",
   "We do not publish funding rounds, valuations, revenue figures, or return forecasts on this site. Those topics belong in appropriate private materials when authorized — never as public performance claims.": "我们不会在此网站上发布融资轮次、估值、收入数据或回报预测。这些主题在获得授权后属于适当的私人材料——绝不像公开表演所声称的那样。",

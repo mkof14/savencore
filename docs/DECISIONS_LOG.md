@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-27 (D-0202 — Public FAQ page)
+**Last updated:** 2026-07-28 (D-0203 — Deep FAQ translations + download polish)
 
 ## Rules
 
@@ -218,6 +218,7 @@
 | D-0200 | 2026-07-27 | Footer section columns — two balanced rows + visual separations | Active |
 | D-0201 | 2026-07-27 | Media download (mobile + desktop) + Vercel Blob deploy readiness | Active |
 | D-0202 | 2026-07-27 | Public FAQ page (accordion, governance-safe) | Active |
+| D-0203 | 2026-07-28 | Deep FAQ Q&A translations (10 locales) + Media download polish | Active |
 
 ---
 
@@ -1844,6 +1845,16 @@
 - **In scope:** `src/content/faq/*`, `FaqPage` + CSS, `app/[locale]/faq/`, `published-routes`, footer Resources, `domain-visuals`, sitemap hub priority, UI navEntries, D-0202 + AGENTS / SITE_ASSIGNMENT / IA pointers; type-check; smoke `/en/faq/`; commit/push; production deploy; Russian owner brief + URL.
 - **Out of scope:** Inventing facts/products/traction; final legal prose; CMS; analytics; neon; header mega-menu; inventing social URLs; Operational claims.
 - **Implications:** FAQ is a Layer-2 Resources destination. Further full answer localization for non-RU locales may deepen packs without changing route or governance rules.
+
+### D-0203 — Deep FAQ Q&A translations (10 locales) + Media download polish
+
+- **Date:** 2026-07-28
+- **Status:** Active
+- **Summary:** Complete professional FAQ question **and answer** dictionaries for all ten locales; fix leftover `%2F` Sign In/Up artifacts in flagship Investors copy; polish Media download UX (Downloading state + iOS-friendly trigger) with UI chrome in all locales.
+- **Decision:** Owner request «делаем глубокие переводы». EN remains canonical FAQ source (`src/content/faq/en.ts`). Non-EN locales use `deepLocalize` maps under `src/content/faq/dictionaries/*`. RU already complete (D-0202); es/de/fr/ja/zh-cn/ar/he/uk now include full answer packs (~153 previously missing keys) authored to match EN meaning without new claims. Brand/product proper names may remain Latin where EN/RU keep them. Media download continues D-0201 with clearer downloading state and Apple-touch `window.open` / `location.assign` fallback.
+- **In scope:** FAQ dictionaries + `scripts/faq-i18n` answer packs; flagship `%2F` fixes; `MediaPage` / `media-urls` download polish; UI `downloading` / `actionDownloading` in all `src/i18n/ui/*`; D-0203 + AGENTS pointer; `tsc`; smoke `/ru/faq/`, `/ar/faq/`, `/ja/faq/`, `/es/faq/`; commit/push; production deploy; Russian coverage report.
+- **Out of scope:** Inventing company facts; new FAQ items; final legal prose; CMS/analytics; inventing social URLs; Operational claims; regenerating unrelated legal MT packs.
+- **Implications:** FAQ pages should no longer fall back to English answers on non-EN locales for published Q&A strings. Further quality edits can deepen packs without route changes.
 
 ## Pending Owner Decisions
 

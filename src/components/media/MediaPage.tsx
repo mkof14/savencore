@@ -62,6 +62,7 @@ export function MediaPage({ locale, content, items }: MediaPageProps) {
   const [message, setMessage] = useState<string | null>(null);
   const [preview, setPreview] = useState<MediaItem | null>(null);
   const [filter, setFilter] = useState<GalleryFilter>("all");
+  const [downloadingId, setDownloadingId] = useState<string | null>(null);
 
   const filtered = useMemo(
     () => items.filter((item) => matchesFilter(item, filter)),
@@ -112,8 +113,13 @@ export function MediaPage({ locale, content, items }: MediaPageProps) {
       setMessage(ui.media.actionFailed);
       return;
     }
+    setDownloadingId(item.id);
+    setMessage(ui.media.downloading);
     triggerMediaDownload(downloadPath);
-    setMessage(ui.media.downloadStarted);
+    window.setTimeout(() => {
+      setDownloadingId((current) => (current === item.id ? null : current));
+      setMessage(ui.media.downloadStarted);
+    }, 900);
   }
 
   function categoryLabel(category: MediaCategory): string {
@@ -286,8 +292,14 @@ export function MediaPage({ locale, content, items }: MediaPageProps) {
                         type="button"
                         className="media-page__action media-page__action--download"
                         onClick={() => downloadItem(item)}
+                        disabled={downloadingId === item.id}
+                        aria-busy={downloadingId === item.id}
                       >
-                        {isExternalMediaLink(item) ? ui.media.open : ui.media.download}
+                        {isExternalMediaLink(item)
+                          ? ui.media.open
+                          : downloadingId === item.id
+                            ? ui.media.downloading
+                            : ui.media.download}
                       </button>
                       <button
                         type="button"

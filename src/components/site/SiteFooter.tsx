@@ -16,7 +16,6 @@ import { localizePath } from "@/navigation/locale-path";
 import { isFooterLinkPublished } from "@/navigation/navigation-types";
 import { footerNavigation } from "@/navigation/site-navigation";
 
-import { FooterContactForm } from "./FooterContactForm";
 import { FooterSocials } from "./FooterSocials";
 import { LanguageSelector } from "./LanguageSelector";
 import { MedicalDisclaimerNotice } from "./MedicalDisclaimerNotice";
@@ -26,22 +25,24 @@ type SiteFooterProps = {
   locale: Locale;
   /** When true, show restricted Admin link (signed-in role ≥ viewer). */
   showAdminLink?: boolean;
-  /** Same SMTP↔mailto gate as Contact page (D-0194 / D-0211). */
-  smtpConfigured?: boolean;
 };
 
 /**
- * Apple-style footer (D-0209 / D-0211): each published section is its own equal column
+ * Apple-style footer (D-0209 / D-0212): each published section is its own equal column
  * in one forced desktop row — Architecture never stacks under Technology.
+ * Contact form lives on `/contact/` only; bottom order: socials → disclaimer → bar.
  */
 /** Layer 2 depth map — published domain destinations + Architecture + Legal. */
 export function SiteFooter({
   locale,
   showAdminLink = false,
-  smtpConfigured = false,
 }: SiteFooterProps) {
   const ui = getUi(locale);
   const [isCompact, setIsCompact] = useState(false);
+  const taglineLines = ui.footer.tagline
+    .split("\n")
+    .map((line) => line.trim())
+    .filter(Boolean);
 
   useEffect(() => {
     const media = window.matchMedia("(max-width: 859px)");
@@ -129,7 +130,13 @@ export function SiteFooter({
             tone="dark"
             className="site-footer__brand"
           />
-          <p className="site-footer__tagline">{ui.footer.tagline}</p>
+          <p className="site-footer__tagline">
+            {taglineLines.map((line) => (
+              <span key={line} className="site-footer__tagline-line">
+                {line}
+              </span>
+            ))}
+          </p>
         </div>
 
         <div className="site-footer__grid">
@@ -143,27 +150,11 @@ export function SiteFooter({
           ))}
         </div>
 
-        <section
-          className="site-footer__contact"
-          aria-labelledby="footer-contact-heading"
-        >
-          <h2 id="footer-contact-heading" className="site-footer__contact-title">
-            {ui.footerContact.heading}
-          </h2>
-          <p className="site-footer__contact-lede">{ui.footerContact.lede}</p>
-          <FooterContactForm
-            labels={ui.footerContact}
-            contactLabels={ui.contact}
-            emailAddress="info@savencore.com"
-            smtpConfigured={smtpConfigured}
-          />
-        </section>
-
-        <MedicalDisclaimerNotice locale={locale} placement="footer" />
-
         <div className="site-footer__social-row">
           <FooterSocials locale={locale} />
         </div>
+
+        <MedicalDisclaimerNotice locale={locale} placement="footer" />
 
         <div className="site-footer__bar">
           <p className="site-footer__copyright">

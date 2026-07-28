@@ -22,7 +22,6 @@ import {
   type Locale,
 } from "@/config/locales";
 import { experienceFontVariables } from "@/design/fonts";
-import { isSmtpConfigured } from "@/lib/admin/smtp";
 import { buildLocaleLayoutMetadata } from "@/lib/seo/metadata";
 
 type LocaleLayoutProps = {
@@ -71,7 +70,6 @@ export default async function LocaleLayout({
   const locale: Locale = localeParam;
   const session = await auth();
   const showAdminLink = roleAtLeast(session?.user?.role, "viewer");
-  const smtpConfigured = isSmtpConfigured();
 
   return (
     <html
@@ -99,11 +97,7 @@ export default async function LocaleLayout({
         <div className="site-shell">
           <SiteHeader locale={locale} />
           <main className="site-shell__main">{children}</main>
-          <SiteFooter
-            locale={locale}
-            showAdminLink={showAdminLink}
-            smtpConfigured={smtpConfigured}
-          />
+          <SiteFooter locale={locale} showAdminLink={showAdminLink} />
         </div>
         <RegisterServiceWorker />
       </body>

@@ -410,13 +410,6 @@ export const uiEn = {
     linkLabel: "Medical Disclaimer",
   },
 
-  footerContact: {
-    heading: "Get in touch",
-    lede: "Write to info@savencore.com — partnerships, research dialogue, investor inquiry, or general questions.",
-    submit: "Send message",
-    submitMailto: "Open in email app",
-  },
-
   home: {
     developmentStatus: "Architecture",
     architectureOverview: "The idea in one view",

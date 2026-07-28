@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-28 (D-0210 — Footer language switcher hover color)
+**Last updated:** 2026-07-28 (D-0212 — Footer polish: form removed, disclaimer order, slogan lockup)
 
 ## Rules
 
@@ -226,7 +226,8 @@
 | D-0208 | 2026-07-28 | Footer socials/bar, care carousel links, direction table, footer fit, off-white deepen, favicon fill, nav one-row, Windows hover | Active |
 | D-0209 | 2026-07-28 | Footer one forced row (9 equal columns) + care stage Application CTAs | Active |
 | D-0210 | 2026-07-28 | Footer language switcher hover color (Windows Chrome-safe) | Active |
-| D-0211 | 2026-07-28 | Deeper off-white, navy-tile favicon, footer form/disclaimer, FAQ care Q&As | Active |
+| D-0211 | 2026-07-28 | Deeper off-white, navy-tile favicon, footer form/disclaimer, FAQ care Q&As | Active (footer form removed: D-0212) |
+| D-0212 | 2026-07-28 | Footer: remove Get in touch; disclaimer under socials; denser links; slogan lockup | Active |
 
 ---
 
@@ -1943,7 +1944,17 @@
 - **Decision:** (1) Light theme backgrounds deepen beyond D-0208 to `#e6e6e9` / `#eeeeef` / muted `#dcdce0` (still cool off-white, not warm cream). (2) Favicons regenerate as solid navy `#0b1220` square badges with trimmed, large-fill falcon mark (`?v=211`; maskable retains safer pad). (3) Footer page-name links slightly larger; column-gap widened; nine equal columns remain one horizontal desktop row (≥860px). (4) Compact footer form: name / email / message → `info@savencore.com` via same SMTP↔mailto pattern as Contact. (5) Protective medical disclaimer (no diagnosis; support doctors/medical workers/people; no prescribe/sell medicines; not emergency care; informational only) on footer strip + every legal page masthead; expand `/legal/medical-disclaimer/` sections accordingly (still draft-framed). (6) FAQ Trust section gains matching care/medical Q&As; translate UI + legal/FAQ dictionaries for all 10 locales. No Operational medical claims; no inventing clinical products.
 - **In scope:** Theme tokens/globals/site theme-color; favicon/PWA/SW cache; footer CSS + `FooterContactForm` + `MedicalDisclaimerNotice`; legal pages/index + medical-disclaimer content; FAQ en + locale dicts; UI chrome i18n; D-0211 + AGENTS / SITE_ASSIGNMENT / IA pointers; type-check; commit/push; production deploy; local `:3000`; Russian owner brief.
 - **Out of scope:** Binding legal counsel text, inventing social URLs/routes, neon/glow, CMS/analytics/CMP, LinkedIn, Operational product claims.
-- **Implications:** Supersedes D-0208 light off-white values and favicon fill approach for tab visibility (navy badge). Medical disclaimer remains protective draft language aligned with Master Spec claim prohibitions.
+- **Implications:** Supersedes D-0208 light off-white values and favicon fill approach for tab visibility (navy badge). Medical disclaimer remains protective draft language aligned with Master Spec claim prohibitions. Footer Get in touch form removed by **D-0212** (Contact page retains the form).
+
+### D-0212 — Footer: remove Get in touch; disclaimer under socials; denser links; slogan lockup
+
+- **Date:** 2026-07-28
+- **Status:** Active
+- **Summary:** Owner footer polish: remove Get in touch form from the footer (Contact page only); place medical disclaimer between social icons and the copyright/utilities bar; further compress vertical rhythm of footer page-link lists; restyle the three-line footer slogan as a memorable navy/gold typographic lockup (straight corners, no neon).
+- **Decision:** (1) Delete footer contact UI + `FooterContactForm` + `footerContact` i18n; Contact `/contact/` SMTP↔mailto unchanged. (2) Bottom order: socials → medical disclaimer → copyright bar. (3) Tighter list `gap` / link `line-height` / title margins; nine equal desktop columns remain one row. (4) Slogan lines render as stacked `.site-footer__tagline-line` with gold markers and weight hierarchy; existing locale strings keep `\n` separation. Colorful social hover (D-0208) preserved.
+- **In scope:** `SiteFooter.tsx`, `site-shell.css`, layout smtp prop cleanup, delete `FooterContactForm.tsx`, UI i18n `footerContact` removal, D-0212 + AGENTS / SITE_ASSIGNMENT / IA pointers; type-check; local `:3000`; commit/push; production deploy; Russian owner brief.
+- **Out of scope:** Inventing pages/routes/socials, neon/glow, binding legal, changing Contact form behavior, LinkedIn, column inventory.
+- **Implications:** Footer no longer duplicates Contact acquisition; disclaimer reads after socials as a quieter protective note before copyright.
 
 ## Pending Owner Decisions
 

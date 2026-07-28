@@ -1,14 +1,22 @@
 import { SITE_NAME, SITE_TAGLINE, SITE_URL } from "@/config/site";
-import { getSocialLinks } from "@/config/social";
 
-/** Brand accent matching site `--color-accent` (gold). */
+/**
+ * Email palette aligned to site tokens (D-0207 / D-0211 / D-0214):
+ * off-white chrome, soft charcoal gray-blue header, gold accent — no neon, no cream template.
+ */
 export const EMAIL_GOLD = "#d4a84b";
 export const EMAIL_NAVY = "#1c1f26";
-export const EMAIL_NAVY_INK = "#f4f6f8";
-export const EMAIL_MUTED = "#c5ced9";
-export const EMAIL_BODY = "#3a4550";
-export const EMAIL_CREAM = "#f7f1e6";
-export const EMAIL_FOOTER_BG = "#f0f2f5";
+export const EMAIL_NAVY_INK = "#eef3f7";
+export const EMAIL_MUTED = "#c5c9d1";
+export const EMAIL_BODY = "#3a3f4a";
+export const EMAIL_INK = "#1a1d24";
+export const EMAIL_PAGE = "#e6e6e9";
+export const EMAIL_SURFACE = "#eeeeef";
+export const EMAIL_BORDER = "#d4d4d8";
+/** Soft gray-blue quote band (site soft-blue family; not warm cream). */
+export const EMAIL_QUOTE_BG = "#e4e8ec";
+export const EMAIL_FOOTER_BG = "#eeeeef";
+export const EMAIL_LINK = "#1e3a5f";
 export const EMAIL_FONT =
   "Arial, Helvetica, 'Helvetica Neue', sans-serif";
 
@@ -116,26 +124,26 @@ const FEATURE_PILLARS: readonly FeaturePillar[] = [
 const MISSION_QUOTE =
   "Intelligent systems built to support human life. From human understanding to physical assistance.";
 
-function socialHref(network: "linkedin" | "youtube", fallback: string): string {
-  const link = getSocialLinks().find((entry) => entry.id === network);
-  return link?.configured ? link.href : fallback;
-}
-
 function featureCell(pillar: FeaturePillar): string {
   const icon = assetUrl(pillar.iconPath);
-  return `<td width="50%" valign="top" style="width:50%;padding:12px 10px;text-align:center;">
-  <img src="${icon}" alt="" width="40" height="40" style="display:block;margin:0 auto 10px;width:40px;height:40px;border:0;outline:none;" />
-  <div style="font-family:${EMAIL_FONT};font-size:14px;font-weight:700;line-height:1.3;color:${EMAIL_NAVY};margin:0 0 6px;">${escapeHtml(pillar.title)}</div>
-  <div style="font-family:${EMAIL_FONT};font-size:12px;line-height:1.45;color:${EMAIL_BODY};margin:0;">${escapeHtml(pillar.body)}</div>
+  return `<td width="50%" valign="top" style="width:50%;padding:14px 12px;text-align:center;">
+  <img src="${icon}" alt="" width="36" height="36" style="display:block;margin:0 auto 12px;width:36px;height:36px;border:0;outline:none;" />
+  <div style="font-family:${EMAIL_FONT};font-size:13px;font-weight:700;letter-spacing:0.02em;line-height:1.35;color:${EMAIL_INK};margin:0 0 6px;">${escapeHtml(pillar.title)}</div>
+  <div style="font-family:${EMAIL_FONT};font-size:12px;line-height:1.5;color:${EMAIL_BODY};margin:0;">${escapeHtml(pillar.body)}</div>
 </td>`;
 }
 
 function featuresBlockHtml(): string {
   const [a, b, c, d] = FEATURE_PILLARS;
-  return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:8px 0 0;">
+  return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:4px 0 0;background:${EMAIL_SURFACE};border:1px solid ${EMAIL_BORDER};">
   <tr>
     ${featureCell(a!)}
     ${featureCell(b!)}
+  </tr>
+  <tr>
+    <td colspan="2" style="padding:0 16px;">
+      <div style="height:1px;line-height:1px;font-size:1px;background:${EMAIL_BORDER};">&nbsp;</div>
+    </td>
   </tr>
   <tr>
     ${featureCell(c!)}
@@ -147,11 +155,11 @@ function featuresBlockHtml(): string {
 function quoteBlockHtml(): string {
   return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:28px 0 0;">
   <tr>
-    <td style="background:${EMAIL_CREAM};border-left:4px solid ${EMAIL_GOLD};padding:22px 22px 22px 20px;">
+    <td style="background:${EMAIL_QUOTE_BG};border-left:3px solid ${EMAIL_GOLD};padding:22px 22px 22px 20px;">
       <table role="presentation" cellpadding="0" cellspacing="0">
         <tr>
-          <td valign="top" style="padding:0 12px 0 0;font-family:Georgia,'Times New Roman',serif;font-size:36px;line-height:0.85;color:${EMAIL_GOLD};">&ldquo;</td>
-          <td valign="top" style="font-family:${EMAIL_FONT};font-size:15px;line-height:1.55;color:${EMAIL_BODY};font-style:italic;">
+          <td valign="top" style="padding:0 12px 0 0;font-family:Georgia,'Times New Roman',serif;font-size:32px;line-height:0.85;color:${EMAIL_GOLD};">&ldquo;</td>
+          <td valign="top" style="font-family:${EMAIL_FONT};font-size:14px;line-height:1.6;color:${EMAIL_BODY};font-style:italic;">
             ${escapeHtml(MISSION_QUOTE)}
           </td>
         </tr>
@@ -167,19 +175,19 @@ function contactRowHtml(): string {
   return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:28px 0 0;">
   <tr>
     <td align="center">
-      <table role="presentation" cellpadding="0" cellspacing="0">
+      <table role="presentation" cellpadding="0" cellspacing="0" style="background:${EMAIL_SURFACE};border:1px solid ${EMAIL_BORDER};">
         <tr>
-          <td valign="middle" style="padding:0 12px 0 0;">
+          <td valign="middle" style="padding:12px 10px 12px 12px;">
             <table role="presentation" cellpadding="0" cellspacing="0">
               <tr>
-                <td align="center" valign="middle" width="36" height="36" style="width:36px;height:36px;background:${EMAIL_NAVY};text-align:center;">
-                  <img src="${envelope}" alt="" width="18" height="18" style="display:block;margin:0 auto;width:18px;height:18px;border:0;outline:none;" />
+                <td align="center" valign="middle" width="34" height="34" style="width:34px;height:34px;background:${EMAIL_NAVY};text-align:center;">
+                  <img src="${envelope}" alt="" width="16" height="16" style="display:block;margin:0 auto;width:16px;height:16px;border:0;outline:none;" />
                 </td>
               </tr>
             </table>
           </td>
-          <td valign="middle" style="font-family:${EMAIL_FONT};font-size:14px;line-height:1.45;color:${EMAIL_BODY};">
-            Questions are welcome at <a href="mailto:${contactEmail}" style="color:#1a4f8b;text-decoration:underline;">${contactEmail}</a>
+          <td valign="middle" style="padding:12px 16px 12px 4px;font-family:${EMAIL_FONT};font-size:13px;line-height:1.5;color:${EMAIL_BODY};">
+            Questions are welcome at <a href="mailto:${contactEmail}" style="color:${EMAIL_LINK};text-decoration:underline;">${contactEmail}</a>
           </td>
         </tr>
       </table>
@@ -191,63 +199,39 @@ function contactRowHtml(): string {
 function footerHtml(): string {
   const { tagline, siteUrl, contactEmail, copyright, logoUrl } = EMAIL_BRAND;
   const siteHost = siteUrl.replace(/^https?:\/\//, "");
-  const globe = assetUrl("/email/icon-globe.png");
-  const envelope = assetUrl("/email/icon-envelope.png");
-  const linkedIn = socialHref("linkedin", siteUrl);
-  const youTube = socialHref("youtube", siteUrl);
-  const mailHref = `mailto:${contactEmail}`;
 
   return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0">
   <tr>
-    <td style="background:${EMAIL_FOOTER_BG};padding:22px 28px;">
+    <td style="height:2px;line-height:2px;font-size:2px;background:${EMAIL_GOLD};">&nbsp;</td>
+  </tr>
+  <tr>
+    <td style="background:${EMAIL_FOOTER_BG};padding:26px 28px 18px;border-top:1px solid ${EMAIL_BORDER};">
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
         <tr>
-          <td valign="top" style="padding:0 12px 12px 0;">
+          <td align="center" style="padding:0 0 16px;">
             <table role="presentation" cellpadding="0" cellspacing="0">
               <tr>
-                <td valign="middle" style="padding:0 10px 0 0;">
-                  <img src="${logoUrl}" alt="SAVEN Core" width="36" height="36" style="display:block;width:36px;height:36px;border:0;outline:none;" />
+                <td valign="middle" style="padding:0 12px 0 0;">
+                  <img src="${logoUrl}" alt="SAVEN Core" width="40" height="40" style="display:block;width:40px;height:40px;border:0;outline:none;" />
                 </td>
-                <td valign="middle">
+                <td valign="middle" style="text-align:left;">
                   ${brandLockupFooterHtml()}
-                  <div style="margin-top:4px;font-family:${EMAIL_FONT};font-size:11px;line-height:1.4;color:#6a7380;">${escapeHtml(tagline)}</div>
+                  <div style="margin-top:5px;font-family:${EMAIL_FONT};font-size:11px;line-height:1.45;color:#6a7380;letter-spacing:0.01em;">${escapeHtml(tagline)}</div>
                 </td>
               </tr>
             </table>
           </td>
-          <td valign="top" align="right" style="padding:0 0 12px 0;font-family:${EMAIL_FONT};font-size:12px;line-height:1.55;color:${EMAIL_BODY};">
-            <div style="margin:0 0 6px;white-space:nowrap;">
-              <img src="${globe}" alt="" width="14" height="14" style="display:inline-block;vertical-align:middle;width:14px;height:14px;border:0;outline:none;margin:0 6px 0 0;" />
-              <a href="${siteUrl}" style="color:${EMAIL_NAVY};text-decoration:none;vertical-align:middle;">${escapeHtml(siteHost)}</a>
-            </div>
-            <div style="margin:0;white-space:nowrap;">
-              <img src="${envelope}" alt="" width="14" height="14" style="display:inline-block;vertical-align:middle;width:14px;height:14px;border:0;outline:none;margin:0 6px 0 0;" />
-              <a href="mailto:${contactEmail}" style="color:${EMAIL_NAVY};text-decoration:none;vertical-align:middle;">${contactEmail}</a>
-            </div>
+        </tr>
+        <tr>
+          <td align="center" style="padding:0 0 14px;font-family:${EMAIL_FONT};font-size:12px;line-height:1.6;color:${EMAIL_BODY};">
+            <a href="${siteUrl}" style="color:${EMAIL_NAVY};text-decoration:none;font-weight:600;">${escapeHtml(siteHost)}</a>
+            <span style="color:${EMAIL_BORDER};padding:0 8px;">·</span>
+            <a href="mailto:${contactEmail}" style="color:${EMAIL_NAVY};text-decoration:none;font-weight:600;">${contactEmail}</a>
           </td>
         </tr>
-      </table>
-    </td>
-  </tr>
-  <tr>
-    <td style="background:#e6e6e9;padding:18px 28px 22px;text-align:center;">
-      <div style="font-family:${EMAIL_FONT};font-size:11px;line-height:1.45;color:#8a93a0;margin:0 0 14px;">${escapeHtml(copyright)}</div>
-      <table role="presentation" cellpadding="0" cellspacing="0" align="center" style="margin:0 auto;">
         <tr>
-          <td style="padding:0 8px;">
-            <a href="${escapeHtml(linkedIn)}" style="text-decoration:none;">
-              <img src="${assetUrl("/email/icon-linkedin.png")}" alt="LinkedIn" width="22" height="22" style="display:block;width:22px;height:22px;border:0;outline:none;" />
-            </a>
-          </td>
-          <td style="padding:0 8px;">
-            <a href="${escapeHtml(youTube)}" style="text-decoration:none;">
-              <img src="${assetUrl("/email/icon-youtube.png")}" alt="YouTube" width="22" height="22" style="display:block;width:22px;height:22px;border:0;outline:none;" />
-            </a>
-          </td>
-          <td style="padding:0 8px;">
-            <a href="${escapeHtml(mailHref)}" style="text-decoration:none;">
-              <img src="${assetUrl("/email/icon-mail.png")}" alt="Email" width="22" height="22" style="display:block;width:22px;height:22px;border:0;outline:none;" />
-            </a>
+          <td align="center" style="padding:4px 0 0;font-family:${EMAIL_FONT};font-size:11px;line-height:1.45;color:#8a93a0;">
+            ${escapeHtml(copyright)}
           </td>
         </tr>
       </table>
@@ -260,7 +244,7 @@ function headerHtml(): string {
   const { tagline, logoUrl, networkUrl } = EMAIL_BRAND;
   return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:${EMAIL_NAVY};">
   <tr>
-    <td style="padding:28px 24px 26px;">
+    <td style="padding:30px 26px 24px;background:${EMAIL_NAVY};">
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
         <tr>
           <td valign="middle" style="padding:0 12px 0 0;">
@@ -271,17 +255,20 @@ function headerHtml(): string {
                 </td>
                 <td style="vertical-align:middle;">
                   ${brandLockupHtml()}
-                  <div style="margin-top:8px;font-family:${EMAIL_FONT};font-size:12px;line-height:1.4;color:${EMAIL_MUTED};letter-spacing:0.01em;">${escapeHtml(tagline)}</div>
+                  <div style="margin-top:8px;font-family:${EMAIL_FONT};font-size:12px;line-height:1.45;color:${EMAIL_MUTED};letter-spacing:0.01em;">${escapeHtml(tagline)}</div>
                 </td>
               </tr>
             </table>
           </td>
-          <td valign="middle" align="right" width="140" style="width:140px;padding:0;">
-            <img src="${networkUrl}" alt="" width="140" height="60" style="display:block;width:140px;height:60px;border:0;outline:none;opacity:0.85;" />
+          <td valign="middle" align="right" width="132" style="width:132px;padding:0;">
+            <img src="${networkUrl}" alt="" width="132" height="56" style="display:block;width:132px;height:56px;border:0;outline:none;opacity:0.72;" />
           </td>
         </tr>
       </table>
     </td>
+  </tr>
+  <tr>
+    <td style="height:3px;line-height:3px;font-size:3px;background:${EMAIL_GOLD};">&nbsp;</td>
   </tr>
 </table>`;
 }
@@ -312,34 +299,34 @@ export function wrapEmailHtml(options: {
     }
   </style>
 </head>
-<body style="margin:0;padding:0;background:#e8ecf1;color:${EMAIL_NAVY};font-family:${EMAIL_FONT};">
+<body style="margin:0;padding:0;background:${EMAIL_PAGE};color:${EMAIL_INK};font-family:${EMAIL_FONT};">
   <div style="display:none;max-height:0;overflow:hidden;opacity:0;">${escapeHtml(preheader)}</div>
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#e8ecf1;padding:28px 12px;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:${EMAIL_PAGE};padding:28px 12px;">
     <tr>
       <td align="center">
-        <table role="presentation" class="email-shell" width="100%" cellpadding="0" cellspacing="0" style="max-width:640px;background:#e6e6e9;border:1px solid #d5dbe3;">
+        <table role="presentation" class="email-shell" width="100%" cellpadding="0" cellspacing="0" style="max-width:640px;background:${EMAIL_SURFACE};border:1px solid ${EMAIL_BORDER};">
           <tr>
             <td style="padding:0;">
               ${headerHtml()}
             </td>
           </tr>
           <tr>
-            <td class="email-pad" style="padding:36px 32px 12px;font-family:${EMAIL_FONT};font-size:16px;line-height:1.65;color:${EMAIL_BODY};text-align:center;">
+            <td class="email-pad" style="padding:36px 32px 12px;font-family:${EMAIL_FONT};font-size:16px;line-height:1.65;color:${EMAIL_BODY};text-align:center;background:${EMAIL_SURFACE};">
               ${bodyHtml}
             </td>
           </tr>
           <tr>
-            <td class="email-pad" style="padding:8px 24px 8px;">
+            <td class="email-pad" style="padding:12px 24px 8px;background:${EMAIL_SURFACE};">
               ${featuresBlockHtml()}
             </td>
           </tr>
           <tr>
-            <td class="email-pad" style="padding:4px 32px 8px;">
+            <td class="email-pad" style="padding:4px 32px 8px;background:${EMAIL_SURFACE};">
               ${quoteBlockHtml()}
             </td>
           </tr>
           <tr>
-            <td class="email-pad" style="padding:4px 32px 28px;">
+            <td class="email-pad" style="padding:4px 32px 32px;background:${EMAIL_SURFACE};">
               ${contactRowHtml()}
             </td>
           </tr>
@@ -370,7 +357,7 @@ export function paragraph(text: string): string {
 }
 
 export function headline(text: string): string {
-  return `<h1 style="margin:0 0 18px;font-family:${EMAIL_FONT};font-size:24px;line-height:1.3;font-weight:700;color:${EMAIL_NAVY};text-align:center;">${escapeHtml(text)}</h1>`;
+  return `<h1 style="margin:0 0 18px;font-family:${EMAIL_FONT};font-size:24px;line-height:1.3;font-weight:700;color:${EMAIL_INK};text-align:center;">${escapeHtml(text)}</h1>`;
 }
 
 /** Navy CTA with optional gold border — straight corners (AGENTS.md). */

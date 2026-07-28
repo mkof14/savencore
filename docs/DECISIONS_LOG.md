@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-28 (D-0213 — Admin theme/logo/accents; footer Install app in Resources)
+**Last updated:** 2026-07-28 (D-0214 — Email chrome restyle; remove social icons)
 
 ## Rules
 
@@ -229,6 +229,7 @@
 | D-0211 | 2026-07-28 | Deeper off-white, navy-tile favicon, footer form/disclaimer, FAQ care Q&As | Active (footer form removed: D-0212) |
 | D-0212 | 2026-07-28 | Footer: remove Get in touch; disclaimer under socials; denser links; slogan lockup | Active |
 | D-0213 | 2026-07-28 | Admin light/dark theme + logo + accents; footer Install app in Resources | Active |
+| D-0214 | 2026-07-28 | Email chrome restyle to site tokens; remove footer social icons | Active |
 
 ---
 
@@ -1966,6 +1967,16 @@
 - **In scope:** `AdminShell`, `admin.css`, `ThemeSwitch` placement, `SiteFooter`, `InstallAppControl`, `site-shell.css`, D-0213 + AGENTS / SITE_ASSIGNMENT / IA / ADMIN_PLATFORM pointers; type-check; local `:3000`; commit/push; production deploy; Russian owner brief.
 - **Out of scope:** Inventing pages/routes/socials, neon/glow, binding legal, changing admin RBAC/permissions, LinkedIn, CMS/analytics.
 - **Implications:** Admin chrome matches public theme flip; Install app reads with Layer-2 Resources rather than the copyright utilities strip.
+
+### D-0214 — Email chrome restyle to site tokens; remove footer social icons
+
+- **Date:** 2026-07-28
+- **Status:** Active
+- **Summary:** Owner requires mailing / email templates without social network icons and closer to current public site style (off-white / soft gray-blue, navy/gold BrandName lockup, falcon mark, straight corners, tagline, no neon).
+- **Decision:** (1) Remove the LinkedIn / YouTube / Email icon row from shared email footer chrome (D-0180 layout in `brand.ts`); public-site footer socials remain unchanged. (2) Restyle shared wrap to D-0207/D-0211 tokens: page `#e6e6e9`, surface `#eeeeef`, soft charcoal header `#1c1f26`, gold `#d4a84b` accent rules, soft gray-blue quote band (not warm cream), refined pillars / contact / lockup / typography. Keep falcon PNG mark, tagline, `info@savencore.com`, `www.savencore.com`, © 2026, honest Master Spec pillars/quote, absolute asset URLs + admin preview rewrite. No invented claims.
+- **In scope:** `src/content/admin/email-templates/brand.ts`; `docs/ADMIN_PLATFORM.md`; D-0214 + AGENTS phase pointer; type-check; commit/push; production deploy; Russian owner brief.
+- **Out of scope:** Changing per-template body copy beyond chrome; inventing social/product claims; neon/glow; CMS; public footer social behavior.
+- **Implications:** Supersedes D-0180 footer social-icon row for email only. All Admin Templates / Mailings that use `wrapEmailHtml` pick up the new chrome automatically.
 
 ## Pending Owner Decisions
 

@@ -1,7 +1,7 @@
-# Admin Platform (D-0176 / D-0177 / D-0178 / D-0213)
+# Admin Platform (D-0176 / D-0177 / D-0178 / D-0213 / D-0214)
 
 **Status:** In Development / Architecture  
-**Authority:** `docs/DECISIONS_LOG.md` D-0176, D-0177, D-0178, D-0213  
+**Authority:** `docs/DECISIONS_LOG.md` D-0176, D-0177, D-0178, D-0213, D-0214  
 **Public site freeze:** D-0175 Experience Redesign UI remains the approved public snapshot; this platform is a restricted vertical slice and does not invent metrics, customers, or live social profiles.
 
 ## Chrome (D-0213)
@@ -75,7 +75,7 @@ Persisted role assignments (Users & roles / accepted invitations) are checked af
 Nav: **Dashboard · Templates · Mailings · Invitations · Users & roles · Permissions · Notifications · Media · Monitoring · Marketing tools**
 
 1. **Dashboard** — entry cards with honest counts; In Development labeling.
-2. **Email templates** — EN modules under `src/content/admin/email-templates/` (D-0176 / D-0180 / D-0183). Shared chrome (D-0180): navy header with PNG mark (`/brand/saven-logo-mark.png`) + SAVEN (light) / CORE (gold `#d4a84b`) lockup + tagline + subtle network graphic (`/email/header-network.png`); per-template middle body; 2×2 feature pillars (honest positioning — “Built for Continuity” instead of scale overclaims); cream quote band with Master Spec mission/positioning lines; contact row (`info@savencore.com`); footer with site, copyright © 2026, and LinkedIn/YouTube/Email icons (`NEXT_PUBLIC_SOCIAL_*` when set, else site/mailto). CTA: navy + gold border, **straight corners**. Preview iframe rewrites absolute `/brand/` + `/email/` production URLs to the current origin. Library includes welcome/invite, investor intro, partnership ack + follow-up, press + press-kit invite, care newsletters, event invite + follow-up, research update, meeting thank-you, soft re-engagement, security, and internal ops/briefing.
+2. **Email templates** — EN modules under `src/content/admin/email-templates/` (D-0176 / D-0180 / D-0183 / D-0214). Shared chrome (D-0214 restyle of D-0180 layout): soft charcoal gray-blue header (`#1c1f26`) with PNG falcon mark (`/brand/saven-logo-mark.png`) + SAVEN (light) / CORE (gold `#d4a84b`) lockup + tagline + gold accent rule + subtle network graphic (`/email/header-network.png`); off-white / surface shell (`#e6e6e9` / `#eeeeef`); per-template middle body; 2×2 feature pillars (honest positioning — “Built for Continuity” instead of scale overclaims); soft gray-blue quote band with Master Spec mission/positioning lines; contact row (`info@savencore.com`); footer with lockup, tagline, site, contact, copyright © 2026 — **no social network icons**. CTA: navy + gold border, **straight corners**. Preview iframe rewrites absolute `/brand/` + `/email/` production URLs to the current origin. Library includes welcome/invite, investor intro, partnership ack + follow-up, press + press-kit invite, care newsletters, event invite + follow-up, research update, meeting thank-you, soft re-engagement, security, and internal ops/briefing.
 3. **Mailings** — compose from template, manual recipient list, preview, send. If `SMTP_*` configured → real SMTP attempt; otherwise **simulated** send + outbox JSONL (`storage/admin/outbox.jsonl`) — never claims real delivery without SMTP.
 4. **Invitations** — create (email, role, token, expiry); pending/accepted/revoked; copy link `/{locale}/auth/sign-in/?invite=TOKEN` → accept at `/{locale}/auth/accept-invite/?token=TOKEN`.
 5. **Users & roles** — directory of demo + allowlist + assignments; assign/remove persisted roles (demo operator fixed).

@@ -111,10 +111,19 @@ export const physicalWorldHomeZhCn: PhysicalWorldHomeContent = {
       left: [
         { label: "宗旨", href: "/purpose/" },
         { label: "实验室", href: "/labs/" },
+        { label: "人的数据模型", href: "/technology/human-data-model/" },
+        { label: "机器人技术", href: "/technology/robotics/" },
+        { label: "自动化", href: "/technology/automation/" },
+        { label: "互操作性", href: "/technology/interoperability/" },
       ],
       right: [
+        { label: "知识引擎", href: "/systems/knowledge-engine/" },
+        { label: "机器人层", href: "/systems/robotics-layer/" },
+        { label: "机器人接口", href: "/systems/saven-robotics-interface/" },
+        { label: "Internal Future Lab", href: "/labs/internal-future-lab/" },
         { label: "信任", href: "/trust/" },
         { label: "联系我们", href: "/contact/" },
+        { label: "常见问题", href: "/faq/" },
       ],
     },
     map: [

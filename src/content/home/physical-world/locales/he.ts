@@ -111,10 +111,19 @@ export const physicalWorldHomeHe: PhysicalWorldHomeContent = {
       left: [
         { label: "מטרה", href: "/purpose/" },
         { label: "מעבדות", href: "/labs/" },
+        { label: "מודל נתונים אנושיים", href: "/technology/human-data-model/" },
+        { label: "רובוטיקה", href: "/technology/robotics/" },
+        { label: "אוטומציה", href: "/technology/automation/" },
+        { label: "תאימות בין מערכות", href: "/technology/interoperability/" },
       ],
       right: [
+        { label: "מנוע ידע", href: "/systems/knowledge-engine/" },
+        { label: "שכבת רובוטיקה", href: "/systems/robotics-layer/" },
+        { label: "ממשק רובוטיקה", href: "/systems/saven-robotics-interface/" },
+        { label: "Internal Future Lab", href: "/labs/internal-future-lab/" },
         { label: "אמון", href: "/trust/" },
         { label: "יצירת קשר", href: "/contact/" },
+        { label: "שאלות נפוצות", href: "/faq/" },
       ],
     },
     map: [

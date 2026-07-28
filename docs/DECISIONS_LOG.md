@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-28 (D-0217 — SAVEN wordmark glow + closing corner nav)
+**Last updated:** 2026-07-28 (D-0218 — denser closing corner nav + ~2× SAVEN glow)
 
 ## Rules
 
@@ -231,7 +231,8 @@
 | D-0213 | 2026-07-28 | Admin light/dark theme + logo + accents; footer Install app in Resources | Active |
 | D-0214 | 2026-07-28 | Email chrome restyle to site tokens; remove footer social icons | Active |
 | D-0216 | 2026-07-28 | Explore SAVEN interactive closing band + legal interim policy pass | Active |
-| D-0217 | 2026-07-28 | Closing band: SAVEN wordmark glow + upper corner nav | Active |
+| D-0217 | 2026-07-28 | Closing band: SAVEN wordmark glow + upper corner nav | Active (denser nav / glow size: D-0218) |
+| D-0218 | 2026-07-28 | Closing band: denser upper nav + ~2× SAVEN glow + lively hover | Active |
 
 ---
 
@@ -2007,6 +2008,23 @@
 - **In scope:** `ClosingExploreMap` + closing CSS; home physical-world types + all 10 locales; D-0217 + AGENTS / SITE_ASSIGNMENT / IA pointers; type-check; commit/push; production deploy; Russian owner brief.
 - **Out of scope:** Neon elsewhere; inventing routes; changing pillar destinations; legal/CMP changes.
 - **Implications:** Narrow exception to the “no glow” rule for this closing wordmark only. Corner nav is secondary to Explore pillars.
+
+### D-0218 — Closing band denser upper nav + ~2× SAVEN glow
+
+- **Date:** 2026-07-28
+- **Status:** Active
+- **Summary:** Owner wants a stronger (~2× radius) SAVEN wordmark glow, denser published-route clusters in the dark upper corners (beyond Purpose · Labs | Trust · Contact), and livelier Windows-friendly `:hover` affordance on those links — without covering falcon / SAVEN / Explore pillars or adding neon spam elsewhere.
+- **Decision:**
+  1. **Wordmark glow ~2×:** Double text-shadow blur radii and enlarge the soft gold/blue radial wash on hover/focus (still brand soft glow only; `prefers-reduced-motion` keeps color/brightness without scale pulse).
+  2. **Dense upper-corner clusters (published routes only):**
+     - **Left:** Purpose · Labs · Human Data Model · Robotics · Automation · Interoperability
+     - **Right:** Knowledge Engine · Robotics Layer · Robotics Interface · Internal Future Lab · Trust · Contact · FAQ
+     - Routes: `/purpose/`, `/labs/`, `/technology/human-data-model/`, `/technology/robotics/`, `/technology/automation/`, `/technology/interoperability/`, `/systems/knowledge-engine/`, `/systems/robotics-layer/`, `/systems/saven-robotics-interface/`, `/labs/internal-future-lab/`, `/trust/`, `/contact/`, `/faq/`.
+  3. **Lively link hover:** Explicit `:hover` / `:focus-visible` color lift, soft gold underline, slight scale + brand glow (Windows Chrome-safe); no transform under reduced motion.
+  4. Pillar Explore map (D-0216) unchanged.
+- **In scope:** Closing CSS + `ClosingExploreMap` content (all 10 home locales); D-0218 + AGENTS / SITE_ASSIGNMENT / IA pointers; type-check; commit/push; production deploy; Russian owner brief.
+- **Out of scope:** Neon elsewhere; inventing routes; changing pillar destinations; legal/CMP changes.
+- **Implications:** D-0217 corner pair expands to denser clusters; glow exception remains limited to this closing wordmark.
 
 ## Pending Owner Decisions
 

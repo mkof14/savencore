@@ -111,10 +111,19 @@ export const physicalWorldHomeJa: PhysicalWorldHomeContent = {
       left: [
         { label: "目的", href: "/purpose/" },
         { label: "ラボ", href: "/labs/" },
+        { label: "人のデータモデル", href: "/technology/human-data-model/" },
+        { label: "ロボティクス", href: "/technology/robotics/" },
+        { label: "自動化", href: "/technology/automation/" },
+        { label: "相互運用性", href: "/technology/interoperability/" },
       ],
       right: [
+        { label: "知識エンジン", href: "/systems/knowledge-engine/" },
+        { label: "ロボティクス層", href: "/systems/robotics-layer/" },
+        { label: "ロボティクス・IF", href: "/systems/saven-robotics-interface/" },
+        { label: "Internal Future Lab", href: "/labs/internal-future-lab/" },
         { label: "信頼", href: "/trust/" },
         { label: "お問い合わせ", href: "/contact/" },
+        { label: "FAQ", href: "/faq/" },
       ],
     },
     map: [

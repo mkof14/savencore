@@ -111,10 +111,19 @@ export const physicalWorldHomeFr: PhysicalWorldHomeContent = {
       left: [
         { label: "Raison d’être", href: "/purpose/" },
         { label: "Labs", href: "/labs/" },
+        { label: "Modèle de données humaines", href: "/technology/human-data-model/" },
+        { label: "Robotique", href: "/technology/robotics/" },
+        { label: "Automatisation", href: "/technology/automation/" },
+        { label: "Interopérabilité", href: "/technology/interoperability/" },
       ],
       right: [
+        { label: "Moteur de connaissances", href: "/systems/knowledge-engine/" },
+        { label: "Couche robotique", href: "/systems/robotics-layer/" },
+        { label: "Interface robotique", href: "/systems/saven-robotics-interface/" },
+        { label: "Internal Future Lab", href: "/labs/internal-future-lab/" },
         { label: "Confiance", href: "/trust/" },
         { label: "Contact", href: "/contact/" },
+        { label: "FAQ", href: "/faq/" },
       ],
     },
     map: [

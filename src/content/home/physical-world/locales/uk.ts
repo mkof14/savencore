@@ -111,10 +111,19 @@ export const physicalWorldHomeUk: PhysicalWorldHomeContent = {
       left: [
         { label: "Мета", href: "/purpose/" },
         { label: "Лабораторії", href: "/labs/" },
+        { label: "Модель даних про людину", href: "/technology/human-data-model/" },
+        { label: "Робототехніка", href: "/technology/robotics/" },
+        { label: "Автоматизація", href: "/technology/automation/" },
+        { label: "Інтероперабельність", href: "/technology/interoperability/" },
       ],
       right: [
+        { label: "Рушій знань", href: "/systems/knowledge-engine/" },
+        { label: "Шар робототехніки", href: "/systems/robotics-layer/" },
+        { label: "Роботичний інтерфейс", href: "/systems/saven-robotics-interface/" },
+        { label: "Internal Future Lab", href: "/labs/internal-future-lab/" },
         { label: "Довіра", href: "/trust/" },
         { label: "Контакти", href: "/contact/" },
+        { label: "FAQ", href: "/faq/" },
       ],
     },
     map: [

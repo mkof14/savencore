@@ -111,10 +111,19 @@ export const physicalWorldHomeAr: PhysicalWorldHomeContent = {
       left: [
         { label: "الغاية", href: "/purpose/" },
         { label: "المختبرات", href: "/labs/" },
+        { label: "نموذج البيانات البشرية", href: "/technology/human-data-model/" },
+        { label: "الروبوتات", href: "/technology/robotics/" },
+        { label: "الأتمتة", href: "/technology/automation/" },
+        { label: "التوافقية", href: "/technology/interoperability/" },
       ],
       right: [
+        { label: "محرك المعرفة", href: "/systems/knowledge-engine/" },
+        { label: "طبقة الروبوتات", href: "/systems/robotics-layer/" },
+        { label: "واجهة الروبوتات", href: "/systems/saven-robotics-interface/" },
+        { label: "Internal Future Lab", href: "/labs/internal-future-lab/" },
         { label: "الثقة", href: "/trust/" },
         { label: "اتصل بنا", href: "/contact/" },
+        { label: "الأسئلة الشائعة", href: "/faq/" },
       ],
     },
     map: [

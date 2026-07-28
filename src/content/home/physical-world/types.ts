@@ -69,7 +69,7 @@ export type PhysicalWorldHomeContent = {
     map: readonly ClosingExplorePillar[];
     /** SAVEN wordmark hover/focus glow label (D-0217). */
     wordmarkLabel: string;
-    /** Quiet upper-corner nav on the dark metal band (D-0217). */
+    /** Dense upper-corner nav on the dark metal band (D-0217 / D-0218). */
     corners: {
       navLabel: string;
       left: readonly ClosingCornerLink[];

@@ -110,10 +110,19 @@ export const physicalWorldHomeEn: PhysicalWorldHomeContent = {
       left: [
         { label: "Purpose", href: "/purpose/" },
         { label: "Labs", href: "/labs/" },
+        { label: "Human Data Model", href: "/technology/human-data-model/" },
+        { label: "Robotics", href: "/technology/robotics/" },
+        { label: "Automation", href: "/technology/automation/" },
+        { label: "Interoperability", href: "/technology/interoperability/" },
       ],
       right: [
+        { label: "Knowledge Engine", href: "/systems/knowledge-engine/" },
+        { label: "Robotics Layer", href: "/systems/robotics-layer/" },
+        { label: "Robotics Interface", href: "/systems/saven-robotics-interface/" },
+        { label: "Internal Future Lab", href: "/labs/internal-future-lab/" },
         { label: "Trust", href: "/trust/" },
         { label: "Contact", href: "/contact/" },
+        { label: "FAQ", href: "/faq/" },
       ],
     },
     map: [

@@ -347,8 +347,14 @@ a.utility-nav__link:focus-visible {
   gap: var(--space-8);
 }
 
-.language-selector__summary:hover,
-.language-selector__summary:focus-visible {
+/* Explicit summary element — Windows Chrome / equal-specificity footers (D-0208/D-0210) */
+summary.language-selector__summary:hover,
+summary.language-selector__summary:focus-visible {
+  color: var(--color-accent-text);
+}
+
+summary.language-selector__summary:hover .language-selector__code,
+summary.language-selector__summary:focus-visible .language-selector__code {
   color: var(--color-accent-text);
 }
 
@@ -1114,6 +1120,24 @@ button.site-footer__text-link:focus-visible {
   gap: var(--space-4);
 }
 
+.site-footer__utilities .language-selector__summary .language-selector__code {
+  color: var(--footer-ink-soft);
+}
+
+/*
+ * Footer utilities set a later color on summary — hover must beat that rule
+ * (same class of fix as D-0208 header; D-0210). Not gated on @media (hover: hover).
+ */
+.site-footer__utilities summary.language-selector__summary:hover,
+.site-footer__utilities summary.language-selector__summary:focus-visible {
+  color: var(--color-accent-strong);
+}
+
+.site-footer__utilities summary.language-selector__summary:hover .language-selector__code,
+.site-footer__utilities summary.language-selector__summary:focus-visible .language-selector__code {
+  color: var(--color-accent-strong);
+}
+
 .site-footer__utilities .language-selector__flag {
   font-size: 0.8125rem;
 }
@@ -1126,6 +1150,23 @@ button.site-footer__text-link:focus-visible {
 
 .site-footer__utilities .language-selector__option {
   color: var(--footer-ink);
+}
+
+.site-footer__utilities a.language-selector__option:hover,
+.site-footer__utilities a.language-selector__option:focus-visible {
+  background: color-mix(in srgb, var(--footer-ink) 8%, transparent);
+  color: var(--color-accent-strong);
+}
+
+.site-footer__utilities a.language-selector__option:hover .language-selector__code,
+.site-footer__utilities a.language-selector__option:focus-visible .language-selector__code,
+.site-footer__utilities .language-selector__option[aria-current="true"] .language-selector__code {
+  color: var(--color-accent-strong);
+}
+
+.site-footer__utilities .language-selector__option[aria-current="true"] {
+  background: color-mix(in srgb, var(--footer-ink) 8%, transparent);
+  color: var(--color-accent-strong);
 }
 
 .site-footer__version {
@@ -1182,7 +1223,7 @@ button.site-footer__text-link:focus-visible {
 
 .theme-toggle--footer:hover,
 .theme-toggle--footer:focus-visible {
-  border-color: var(--footer-rule);
+  border-color: var(--color-accent-strong);
 }
 
 .theme-toggle--footer svg {

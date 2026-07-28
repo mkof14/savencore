@@ -68,9 +68,15 @@ html[data-theme="dark"] .site-header .desktop-nav__trigger:hover {
   color: var(--color-accent-strong);
 }
 
-html[data-theme="dark"] .site-header .language-selector__summary:hover,
+html[data-theme="dark"] .site-header summary.language-selector__summary:hover,
+html[data-theme="dark"] .site-header summary.language-selector__summary:focus-visible,
 html[data-theme="dark"] .site-header .site-header__text-link:hover,
 html[data-theme="dark"] .site-header .site-header__text-link:focus-visible {
+  color: var(--color-accent-strong);
+}
+
+html[data-theme="dark"] .site-header summary.language-selector__summary:hover .language-selector__code,
+html[data-theme="dark"] .site-header summary.language-selector__summary:focus-visible .language-selector__code {
   color: var(--color-accent-strong);
 }
 

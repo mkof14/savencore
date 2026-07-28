@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-28 (D-0209 — Footer nine equal one-row columns + care stage CTAs)
+**Last updated:** 2026-07-28 (D-0210 — Footer language switcher hover color)
 
 ## Rules
 
@@ -224,6 +224,8 @@
 | D-0206 | 2026-07-28 | Footer — more space between stacked sections; slightly smaller type; earlier 5-col row | Active |
 | D-0207 | 2026-07-28 | Theme tokens — light off-white + dark soft gray-blue; footer 5-col from ≥720px | Active (light off-white deepen: D-0208) |
 | D-0208 | 2026-07-28 | Footer socials/bar, care carousel links, direction table, footer fit, off-white deepen, favicon fill, nav one-row, Windows hover | Active |
+| D-0209 | 2026-07-28 | Footer one forced row (9 equal columns) + care stage Application CTAs | Active |
+| D-0210 | 2026-07-28 | Footer language switcher hover color (Windows Chrome-safe) | Active |
 
 ---
 
@@ -1921,6 +1923,16 @@
 - **In scope:** `SiteFooter.tsx`, `site-shell.css`, `LivingDomains.tsx`, `physical-world-home.css`, footer label shortenings in nav + i18n, D-0209 + AGENTS / SITE_ASSIGNMENT / IA pointers; type-check; local `:3000` smoke; commit/push; production deploy; Russian owner brief.
 - **Out of scope:** Inventing pages/routes/socials, neon/glow, binding legal, LinkedIn, changing Application leaf inventory.
 - **Implications:** Desktop footer is nine equal tracks in one CSS grid row. Care stage CTAs are visible on the big image; rail links remain.
+
+### D-0210 — Footer language switcher hover color
+
+- **Date:** 2026-07-28
+- **Status:** Active
+- **Summary:** Owner bug: footer language control did not change color on hover. Root cause: `.site-footer__utilities .language-selector__summary` set soft ink later with equal specificity, so the shared `:hover` accent rule never won. Fix matches D-0208 Windows Chrome pattern — explicit `summary.language-selector__summary:hover` / `:focus-visible` (and locale-code child) with higher-specificity footer utilities rules using `--color-accent-strong`; same for option rows; footer theme toggle hover border uses accent for bar consistency. Light + dark footer tokens already remap accent gold.
+- **Decision:** Repair hover/focus-visible color only; no IA, copy, or navigation changes. Do not gate on `@media (hover: hover)`.
+- **In scope:** `site-shell.css`, `experience.css` (header dark summary/code parity), D-0210 + AGENTS / SITE_ASSIGNMENT / IA pointers; type-check; local smoke; commit/push; production deploy; Russian brief.
+- **Out of scope:** Inventing pages/routes/socials, neon/glow, binding legal, changing language inventory.
+- **Implications:** Footer language (and nearby theme) chrome hover is reliable on Windows Chrome and touch-hybrid browsers.
 
 ## Pending Owner Decisions
 

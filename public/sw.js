@@ -1,13 +1,13 @@
 /* SAVEN Core — lightweight offline shell (D-0162).
  * Caches the app shell only. Does not invent offline content for domain pages.
  */
-const CACHE = "savencore-shell-v6";
+const CACHE = "savencore-shell-v7";
 const SHELL = [
   "/",
   "/en/",
   "/manifest.webmanifest",
-  "/icons/icon-192.png",
-  "/icons/icon-512.png",
+  "/icons/icon-192.png?v=205",
+  "/icons/icon-512.png?v=205",
 ];
 
 self.addEventListener("install", (event) => {

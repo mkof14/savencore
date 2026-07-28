@@ -124,40 +124,40 @@ export function buildLocaleLayoutMetadata(locale: Locale): Metadata {
       template: `%s | ${SITE_NAME}`,
     },
     applicationName: SITE_NAME,
-    /** Prefer largest practical brand icons (D-0204); browsers pick by sizes. */
+    /** Prefer largest practical brand icons (D-0204/D-0205); ?v=205 busts sticky browser caches. */
     icons: {
       icon: [
-        { url: "/favicon.svg", type: "image/svg+xml" },
-        { url: "/favicon.ico", sizes: "16x16 32x32 48x48 64x64" },
+        { url: "/favicon.svg?v=205", type: "image/svg+xml" },
+        { url: "/favicon.ico?v=205", sizes: "16x16 32x32 48x48 64x64" },
         {
-          url: "/favicon-32x32.png",
+          url: "/favicon-32x32.png?v=205",
           sizes: "32x32",
           type: "image/png",
         },
         {
-          url: "/favicon-48x48.png",
+          url: "/favicon-48x48.png?v=205",
           sizes: "48x48",
           type: "image/png",
         },
         {
-          url: "/icons/icon-192.png",
+          url: "/icons/icon-192.png?v=205",
           sizes: "192x192",
           type: "image/png",
         },
         {
-          url: "/icons/icon-512.png",
+          url: "/icons/icon-512.png?v=205",
           sizes: "512x512",
           type: "image/png",
         },
       ],
       apple: [
         {
-          url: "/icons/apple-touch-icon.png",
+          url: "/icons/apple-touch-icon.png?v=205",
           sizes: "180x180",
           type: "image/png",
         },
       ],
-      shortcut: "/favicon-48x48.png",
+      shortcut: "/favicon-48x48.png?v=205",
     },
     appleWebApp: {
       capable: true,

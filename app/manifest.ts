@@ -22,19 +22,19 @@ export default function manifest(): MetadataRoute.Manifest {
     categories: ["business", "technology"],
     icons: [
       {
-        src: "/icons/icon-192.png",
+        src: "/icons/icon-192.png?v=205",
         sizes: "192x192",
         type: "image/png",
         purpose: "any",
       },
       {
-        src: "/icons/icon-512.png",
+        src: "/icons/icon-512.png?v=205",
         sizes: "512x512",
         type: "image/png",
         purpose: "any",
       },
       {
-        src: "/icons/icon-512-maskable.png",
+        src: "/icons/icon-512-maskable.png?v=205",
         sizes: "512x512",
         type: "image/png",
         purpose: "maskable",

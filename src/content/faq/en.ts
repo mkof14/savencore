@@ -580,6 +580,48 @@ export const faqPageEn: FaqPageContent = {
             },
           ],
         },
+        {
+          id: "trust-medical-diagnosis",
+          question: "Does SAVEN Core diagnose or treat medical conditions?",
+          answer: [
+            "No. SAVEN Core does not diagnose, treat, or manage medical conditions through this website. Nothing on this website is medical advice.",
+            "If you are experiencing a medical emergency, contact local emergency services. Always seek the advice of a qualified health professional for personal medical questions.",
+          ],
+          links: [
+            {
+              label: "Medical Disclaimer",
+              href: "/legal/medical-disclaimer/",
+            },
+          ],
+        },
+        {
+          id: "trust-medicines",
+          question: "Does SAVEN Core prescribe or sell medicines?",
+          answer: [
+            "No. SAVEN Core does not prescribe medicines and does not sell medicines through this website.",
+          ],
+          links: [
+            {
+              label: "Medical Disclaimer",
+              href: "/legal/medical-disclaimer/",
+            },
+          ],
+        },
+        {
+          id: "trust-care-support",
+          question: "Who is SAVEN Core trying to support in care contexts?",
+          answer: [
+            "SAVEN Core develops intelligent systems intended to support doctors, medical workers, and people in hospitals, at home, and in everyday environments.",
+            "Support means assistance architecture under human oversight. Website content remains informational and architectural — not clinical documentation, medical advice, or emergency care.",
+          ],
+          links: [
+            {
+              label: "Medical Disclaimer",
+              href: "/legal/medical-disclaimer/",
+            },
+            { label: "Limitations", href: "/trust/limitations/" },
+          ],
+        },
       ],
     },
     {

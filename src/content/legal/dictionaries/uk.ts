@@ -242,4 +242,9 @@ export const dictionary: Record<string, string> = {
   "Where applicable by jurisdiction, legal bases will be described after counsel review. This draft does not assert specific legal bases.": "Якщо застосовно відповідно до юрисдикції, правові основи будуть описані після перевірки юристом. Цей проект не містить конкретних правових підстав.",
   "Who we are": "хто ми",
   "Your rights and choices": "Ваші права та вибір",
+  "Support for care professionals and people": "Підтримка фахівців з догляду та людей",
+  "SAVEN Core develops intelligent systems intended to support doctors, medical workers, and people in hospitals, at home, and in everyday environments. Support means assistance architecture under human oversight — not a claim that this website delivers clinical care.": "SAVEN Core розробляє інтелектуальні системи, призначені підтримувати лікарів, медичних працівників і людей у лікарнях, вдома та в повсякденному середовищі. Підтримка означає архітектуру допомоги під людським наглядом — а не твердження, що цей сайт надає клінічну допомогу.",
+  "No prescribing or sale of medicines": "Без призначення та продажу ліків",
+  "SAVEN Core does not prescribe medicines and does not sell medicines through this website.": "SAVEN Core не призначає ліки і не продає ліки через цей вебсайт.",
+  "Non-emergency questions may use the public contact channel at info@savencore.com or the Contact page. Do not send urgent medical, emergency, or personal health information through website forms.": "Неекстрені запитання можна надсилати через публічний канал info@savencore.com або сторінку «Контакти». Не надсилайте термінову медичну, екстрену чи особисту інформацію про здоров'я через форми сайту.",
 };

@@ -260,4 +260,12 @@ export const dictionary: Record<string, string> = {
   "Yes. A Research Disclaimer legal draft exists and remains draft-framed until counsel approval.": "はい。Research Disclaimer の法務ドラフトがあり、弁護人承認までドラフト枠のままです。",
   "Yes. Arabic and Hebrew are RTL locales. Architecture prepares for ten languages and RTL from the beginning.": "はい。アラビア語とヘブライ語は RTL ロケールです。アーキテクチャは最初から 10 言語と RTL に備えます。",
   "Yes. Public Interface language emphasizes that people remain in command as capability grows. Human oversight is a trust foundation across the site.": "はい。公開 Interface の表現は、能力が増すにつれ人が指揮を保つことを強調します。人間の監督はサイト全体の信頼の基盤です。",
+  "Does SAVEN Core diagnose or treat medical conditions?": "SAVEN Core は病状を診断または治療しますか？",
+  "No. SAVEN Core does not diagnose, treat, or manage medical conditions through this website. Nothing on this website is medical advice.": "いいえ。SAVEN Core は本ウェブサイトを通じて病状の診断・治療・管理を行いません。本サイトのいかなる内容も医療アドバイスではありません。",
+  "If you are experiencing a medical emergency, contact local emergency services. Always seek the advice of a qualified health professional for personal medical questions.": "医療上の緊急事態の場合は、地域の救急サービスに連絡してください。個人的な医学的質問については、必ず資格のある医療専門家の助言を求めてください。",
+  "Does SAVEN Core prescribe or sell medicines?": "SAVEN Core は医薬品を処方または販売しますか？",
+  "No. SAVEN Core does not prescribe medicines and does not sell medicines through this website.": "いいえ。SAVEN Core は医薬品を処方せず、本ウェブサイトを通じて医薬品を販売しません。",
+  "Who is SAVEN Core trying to support in care contexts?": "ケアの文脈で SAVEN Core は誰を支援しようとしていますか？",
+  "SAVEN Core develops intelligent systems intended to support doctors, medical workers, and people in hospitals, at home, and in everyday environments.": "SAVEN Core は、病院・家庭・日常環境において医師・医療従事者・人々を支援することを意図したインテリジェントシステムを開発します。",
+  "Support means assistance architecture under human oversight. Website content remains informational and architectural — not clinical documentation, medical advice, or emergency care.": "支援とは人間の監督下でのアシスタンス設計を意味します。サイトの内容は情報・アーキテクチャであり、臨床文書・医療アドバイス・緊急医療ではありません。",
 };

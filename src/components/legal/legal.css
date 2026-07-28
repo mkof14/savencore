@@ -56,6 +56,30 @@
   color: var(--color-text);
 }
 
+.legal-page__medical-notice {
+  margin: var(--space-16) 0 0;
+  max-width: 58ch;
+  padding: var(--space-12) var(--space-16);
+  border: 1px solid var(--color-divider);
+  border-inline-start: 3px solid var(--color-accent-text);
+  background: color-mix(in srgb, var(--color-surface-muted) 55%, var(--color-surface));
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+}
+
+.legal-page__medical-link {
+  color: var(--color-accent-text);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  font-weight: 600;
+}
+
+a.legal-page__medical-link:hover,
+a.legal-page__medical-link:focus-visible {
+  color: var(--color-text);
+}
+
 .legal-page--cookie-preferences .legal-page__banner {
   border-color: color-mix(in srgb, var(--color-accent-text) 55%, var(--color-divider));
   background: color-mix(in srgb, var(--color-accent-text) 14%, var(--color-surface));

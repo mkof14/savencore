@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { MedicalDisclaimerNotice } from "@/components/site/MedicalDisclaimerNotice";
 import type { Locale } from "@/config/locales";
 import { getLegalDraftBanner } from "@/content/legal/types";
 import { getNavEntryLabel } from "@/i18n/nav-label";
@@ -27,6 +28,7 @@ export function LegalIndexPage({ locale }: LegalIndexPageProps) {
           <p className="legal-page__banner" role="status">
             {getLegalDraftBanner(locale)}
           </p>
+          <MedicalDisclaimerNotice locale={locale} placement="legal" />
         </div>
       </header>
 

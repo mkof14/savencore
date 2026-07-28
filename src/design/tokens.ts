@@ -11,12 +11,12 @@ import { spacing, spacingPx, SPACING_SCALE_PX } from "./spacing";
 import { fontFamily, typography } from "./typography";
 
 /**
- * Light-primary neutral palette (D-0207) — cool off-white chrome, not pure white.
+ * Light-primary neutral palette (D-0207 / D-0211) — deeper cool off-white chrome.
  * Intentionally avoids purple/indigo AI gradients and warm cream template looks.
  */
 export const color = {
-  background: "#f0f0f2",
-  surface: "#f6f6f8",
+  background: "#e6e6e9",
+  surface: "#eeeeef",
   text: "#1a1d24",
   textSecondary: "#3a3f4a",
   border: "#d4d4d8",

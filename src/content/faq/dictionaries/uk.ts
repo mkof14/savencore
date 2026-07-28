@@ -260,4 +260,12 @@ export const dictionary: Record<string, string> = {
   "Yes. A Research Disclaimer legal draft exists and remains draft-framed until counsel approval.": "Так. Існує юридична чернетка Research Disclaimer і залишається в рамці чернетки до схвалення юристами.",
   "Yes. Arabic and Hebrew are RTL locales. Architecture prepares for ten languages and RTL from the beginning.": "Так. Арабська та іврит — RTL-локалі. Архітектура з самого початку готує десять мов і RTL.",
   "Yes. Public Interface language emphasizes that people remain in command as capability grows. Human oversight is a trust foundation across the site.": "Так. Публічна мова Interface підкреслює, що люди залишаються при командуванні зі зростанням можливостей. Людський нагляд — основа довіри на всьому сайті.",
+  "Does SAVEN Core diagnose or treat medical conditions?": "Чи діагностує або лікує SAVEN Core медичні стани?",
+  "No. SAVEN Core does not diagnose, treat, or manage medical conditions through this website. Nothing on this website is medical advice.": "Ні. SAVEN Core не діагностує, не лікує і не веде медичні стани через цей сайт. Ніщо на сайті не є медичною порадою.",
+  "If you are experiencing a medical emergency, contact local emergency services. Always seek the advice of a qualified health professional for personal medical questions.": "Якщо вам потрібна невідкладна медична допомога, зверніться до місцевої екстреної служби. З особистих медичних питань завжди звертайтеся до кваліфікованого фахівця.",
+  "Does SAVEN Core prescribe or sell medicines?": "Чи призначає або продає SAVEN Core ліки?",
+  "No. SAVEN Core does not prescribe medicines and does not sell medicines through this website.": "Ні. SAVEN Core не призначає ліки і не продає ліки через цей сайт.",
+  "Who is SAVEN Core trying to support in care contexts?": "Кого SAVEN Core прагне підтримувати в контекстах догляду?",
+  "SAVEN Core develops intelligent systems intended to support doctors, medical workers, and people in hospitals, at home, and in everyday environments.": "SAVEN Core розробляє інтелектуальні системи, призначені підтримувати лікарів, медичних працівників і людей у лікарнях, вдома та в повсякденному середовищі.",
+  "Support means assistance architecture under human oversight. Website content remains informational and architectural — not clinical documentation, medical advice, or emergency care.": "Підтримка означає архітектуру допомоги під людським наглядом. Вміст сайту залишається інформаційним і архітектурним — не клінічною документацією, медичною порадою чи екстреною допомогою.",
 };

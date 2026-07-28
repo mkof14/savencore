@@ -260,4 +260,12 @@ export const dictionary: Record<string, string> = {
   "Yes. A Research Disclaimer legal draft exists and remains draft-framed until counsel approval.": "כן. קיימת טיוטה משפטית של Research Disclaimer והיא נשארת במסגרת טיוטה עד אישור יועץ.",
   "Yes. Arabic and Hebrew are RTL locales. Architecture prepares for ten languages and RTL from the beginning.": "כן. ערבית ועברית הן לוקאלי RTL. הארכיטקטורה מכינה עשר שפות ו-RTL מההתחלה.",
   "Yes. Public Interface language emphasizes that people remain in command as capability grows. Human oversight is a trust foundation across the site.": "כן. שפת ה-Interface הציבורית מדגישה שאנשים נשארים בפיקוד ככל שהיכולת גדלה. פיקוח אנושי הוא יסוד אמון בכל האתר.",
+  "Does SAVEN Core diagnose or treat medical conditions?": "האם SAVEN Core מאבחנת או מטפלת במצבים רפואיים?",
+  "No. SAVEN Core does not diagnose, treat, or manage medical conditions through this website. Nothing on this website is medical advice.": "לא. SAVEN Core אינה מאבחנת, מטפלת או מנהלת מצבים רפואיים באמצעות אתר זה. שום דבר באתר אינו ייעוץ רפואי.",
+  "If you are experiencing a medical emergency, contact local emergency services. Always seek the advice of a qualified health professional for personal medical questions.": "אם אתם חווים מצב חירום רפואי, פנו לשירותי החירום המקומיים. תמיד פנו לייעוץ של איש מקצוע מוסמך בתחום הבריאות לשאלות רפואיות אישיות.",
+  "Does SAVEN Core prescribe or sell medicines?": "האם SAVEN Core רושמת או מוכרת תרופות?",
+  "No. SAVEN Core does not prescribe medicines and does not sell medicines through this website.": "לא. SAVEN Core אינה רושמת תרופות ואינה מוכרת תרופות דרך אתר זה.",
+  "Who is SAVEN Core trying to support in care contexts?": "את מי SAVEN Core מנסה לתמוך בהקשרי טיפול?",
+  "SAVEN Core develops intelligent systems intended to support doctors, medical workers, and people in hospitals, at home, and in everyday environments.": "SAVEN Core מפתחת מערכות חכמות שנועדו לתמוך ברופאים, בעובדים רפואיים ובאנשים בבתי חולים, בבית ובסביבות יומיומיות.",
+  "Support means assistance architecture under human oversight. Website content remains informational and architectural — not clinical documentation, medical advice, or emergency care.": "תמיכה פירושה ארכיטקטורת סיוע תחת פיקוח אנושי. תוכן האתר נשאר מידע וארכיטקטורה — לא תיעוד קליני, ייעוץ רפואי או טיפול חירום.",
 };

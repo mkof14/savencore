@@ -226,6 +226,7 @@
 | D-0208 | 2026-07-28 | Footer socials/bar, care carousel links, direction table, footer fit, off-white deepen, favicon fill, nav one-row, Windows hover | Active |
 | D-0209 | 2026-07-28 | Footer one forced row (9 equal columns) + care stage Application CTAs | Active |
 | D-0210 | 2026-07-28 | Footer language switcher hover color (Windows Chrome-safe) | Active |
+| D-0211 | 2026-07-28 | Deeper off-white, navy-tile favicon, footer form/disclaimer, FAQ care Q&As | Active |
 
 ---
 
@@ -1901,7 +1902,7 @@
 - **Decision:** Owner requires (1) desktop footer remains a single row of five equal columns (D-0205 map), compact with good gaps — lower breakpoint 800px → **720px** and sync accordion `matchMedia` to `max-width: 719px`; (2) light page/body/main/surface chrome → Apple-adjacent off-white family (`#f5f5f7` background, `#fafafb` surface, `#eeeff2` muted) — avoid pure white as default page bg; (3) dark backgrounds and atmospheric hero/masthead fields → muted soft gray-blue (`#1c1f26` field / dark bg, `#252830` elevated, `#2a2e38` mid) instead of `#0b1220` / similar navy freezes; migrate hardcoded fills to `--color-*` / `--color-field*` tokens across home, hubs, experience chrome, media, admin, email brand navy, theme-color meta; keep gold accents, straight corners, brand lockup; no neon; preserve WCAG-ish text contrast (ink `#1a1d24` on off-white). Socials/legal bottom bar and stacked section groups within columns unchanged.
 - **In scope:** `app/globals.css` tokens; `src/design/tokens.ts`; `src/config/site.ts` theme colors; footer CSS/JS breakpoint; CSS migrations for hardcoded `#fff` / `#0b1220` backgrounds; D-0207 + AGENTS / SITE_ASSIGNMENT / IA pointers; type-check; local smoke; commit/push; production deploy; Russian owner brief (token values + footer note).
 - **Out of scope:** Changing footer link inventory, inventing social URLs, navigation taxonomy, inventing pages, neon/glow, rewriting diagram stroke color-mix endpoints that use `#fff` only as a lighten mix (not page chrome).
-- **Implications:** Light and dark theme toggles both read intentional (off-white paper / soft charcoal field). Prior navy `#0b1220` remains only where unused; atmospheric bands share `--color-field` in both themes. Light off-white values deepened further by **D-0208**.
+- **Implications:** Light and dark theme toggles both read intentional (off-white paper / soft charcoal field). Prior navy `#0b1220` remains only where unused; atmospheric bands share `--color-field` in both themes. Light off-white values deepened further by **D-0208**, then again by **D-0211** (`#e6e6e9` / `#eeeeef`).
 
 ### D-0208 — Footer socials/bar, care carousel, direction table, chrome polish
 
@@ -1933,6 +1934,16 @@
 - **In scope:** `site-shell.css`, `experience.css` (header dark summary/code parity), D-0210 + AGENTS / SITE_ASSIGNMENT / IA pointers; type-check; local smoke; commit/push; production deploy; Russian brief.
 - **Out of scope:** Inventing pages/routes/socials, neon/glow, binding legal, changing language inventory.
 - **Implications:** Footer language (and nearby theme) chrome hover is reliable on Windows Chrome and touch-hybrid browsers.
+
+### D-0211 — Deeper off-white, navy-tile favicon, footer Get in touch + medical disclaimer, FAQ care Q&As
+
+- **Date:** 2026-07-28
+- **Status:** Active
+- **Summary:** Owner polish: deeper light off-white page chrome; bold navy-tile favicon for readable tabs; larger footer link type + wider nine-column gaps (one row kept); compact footer Get in touch form (SMTP↔mailto like Contact); protective medical disclaimer on footer + all legal pages; expanded Medical Disclaimer draft + matching FAQ Trust Q&As — all locales.
+- **Decision:** (1) Light theme backgrounds deepen beyond D-0208 to `#e6e6e9` / `#eeeeef` / muted `#dcdce0` (still cool off-white, not warm cream). (2) Favicons regenerate as solid navy `#0b1220` square badges with trimmed, large-fill falcon mark (`?v=211`; maskable retains safer pad). (3) Footer page-name links slightly larger; column-gap widened; nine equal columns remain one horizontal desktop row (≥860px). (4) Compact footer form: name / email / message → `info@savencore.com` via same SMTP↔mailto pattern as Contact. (5) Protective medical disclaimer (no diagnosis; support doctors/medical workers/people; no prescribe/sell medicines; not emergency care; informational only) on footer strip + every legal page masthead; expand `/legal/medical-disclaimer/` sections accordingly (still draft-framed). (6) FAQ Trust section gains matching care/medical Q&As; translate UI + legal/FAQ dictionaries for all 10 locales. No Operational medical claims; no inventing clinical products.
+- **In scope:** Theme tokens/globals/site theme-color; favicon/PWA/SW cache; footer CSS + `FooterContactForm` + `MedicalDisclaimerNotice`; legal pages/index + medical-disclaimer content; FAQ en + locale dicts; UI chrome i18n; D-0211 + AGENTS / SITE_ASSIGNMENT / IA pointers; type-check; commit/push; production deploy; local `:3000`; Russian owner brief.
+- **Out of scope:** Binding legal counsel text, inventing social URLs/routes, neon/glow, CMS/analytics/CMP, LinkedIn, Operational product claims.
+- **Implications:** Supersedes D-0208 light off-white values and favicon fill approach for tab visibility (navy badge). Medical disclaimer remains protective draft language aligned with Master Spec claim prohibitions.
 
 ## Pending Owner Decisions
 

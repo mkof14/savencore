@@ -404,6 +404,19 @@ export const uiEn = {
       "Structural draft pages for the public website. Not final legal text — pending legal review. Cookie Preferences is a draft model only (no live CMP).",
   },
 
+  medicalDisclaimer: {
+    short:
+      "SAVEN Core does not diagnose medical conditions, prescribe or sell medicines, or provide emergency care through this website. We develop systems intended to support doctors, medical workers, and people. Website content is informational — not medical advice.",
+    linkLabel: "Medical Disclaimer",
+  },
+
+  footerContact: {
+    heading: "Get in touch",
+    lede: "Write to info@savencore.com — partnerships, research dialogue, investor inquiry, or general questions.",
+    submit: "Send message",
+    submitMailto: "Open in email app",
+  },
+
   home: {
     developmentStatus: "Architecture",
     architectureOverview: "The idea in one view",

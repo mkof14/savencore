@@ -455,6 +455,18 @@ export const LEGAL_PAGES: readonly LegalPageContent[] = [
         ],
       },
       {
+        title: "Support for care professionals and people",
+        paragraphs: [
+          "SAVEN Core develops intelligent systems intended to support doctors, medical workers, and people in hospitals, at home, and in everyday environments. Support means assistance architecture under human oversight — not a claim that this website delivers clinical care.",
+        ],
+      },
+      {
+        title: "No prescribing or sale of medicines",
+        paragraphs: [
+          "SAVEN Core does not prescribe medicines and does not sell medicines through this website.",
+        ],
+      },
+      {
         title: "Not emergency support",
         paragraphs: [
           "If you are experiencing a medical emergency, contact local emergency services. Do not use this website for emergency care.",
@@ -475,7 +487,7 @@ export const LEGAL_PAGES: readonly LegalPageContent[] = [
       {
         title: "Contact for non-emergency inquiries",
         paragraphs: [
-          "Non-emergency contact channels will be published when approved.",
+          "Non-emergency questions may use the public contact channel at info@savencore.com or the Contact page. Do not send urgent medical, emergency, or personal health information through website forms.",
         ],
       },
     ],

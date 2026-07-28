@@ -260,4 +260,12 @@ export const dictionary: Record<string, string> = {
   "Yes. A Research Disclaimer legal draft exists and remains draft-framed until counsel approval.": "是。存在 Research Disclaimer 法律草案，并在律师批准前保持草案框架。",
   "Yes. Arabic and Hebrew are RTL locales. Architecture prepares for ten languages and RTL from the beginning.": "是。阿拉伯语与希伯来语为 RTL 区域设置。架构从一开始即为十种语言与 RTL 做准备。",
   "Yes. Public Interface language emphasizes that people remain in command as capability grows. Human oversight is a trust foundation across the site.": "是。公开 Interface 用语强调：随着能力增长，人仍保持指挥。人类监督是全站信任基础。",
+  "Does SAVEN Core diagnose or treat medical conditions?": "SAVEN Core 是否诊断或治疗疾病？",
+  "No. SAVEN Core does not diagnose, treat, or manage medical conditions through this website. Nothing on this website is medical advice.": "否。SAVEN Core 不会通过本网站诊断、治疗或管理疾病。本网站任何内容均非医疗建议。",
+  "If you are experiencing a medical emergency, contact local emergency services. Always seek the advice of a qualified health professional for personal medical questions.": "如遇医疗紧急情况，请联系当地急救服务。个人医疗问题请务必咨询合格的健康专业人士。",
+  "Does SAVEN Core prescribe or sell medicines?": "SAVEN Core 是否开具或销售药品？",
+  "No. SAVEN Core does not prescribe medicines and does not sell medicines through this website.": "否。SAVEN Core 不开具药品，也不通过本网站销售药品。",
+  "Who is SAVEN Core trying to support in care contexts?": "在照护场景中，SAVEN Core 试图支持谁？",
+  "SAVEN Core develops intelligent systems intended to support doctors, medical workers, and people in hospitals, at home, and in everyday environments.": "SAVEN Core 开发旨在在医院、家庭和日常环境中支持医生、医护人员和人们的智能系统。",
+  "Support means assistance architecture under human oversight. Website content remains informational and architectural — not clinical documentation, medical advice, or emergency care.": "支持意味着在人类监督下的协助架构。网站内容仍为信息与架构说明——并非临床文档、医疗建议或紧急护理。",
 };

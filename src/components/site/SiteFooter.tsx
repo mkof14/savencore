@@ -16,24 +16,29 @@ import { localizePath } from "@/navigation/locale-path";
 import { isFooterLinkPublished } from "@/navigation/navigation-types";
 import { footerNavigation } from "@/navigation/site-navigation";
 
+import { FooterContactForm } from "./FooterContactForm";
 import { FooterSocials } from "./FooterSocials";
 import { LanguageSelector } from "./LanguageSelector";
+import { MedicalDisclaimerNotice } from "./MedicalDisclaimerNotice";
 import { ThemeSwitch } from "./ThemeSwitch";
 
 type SiteFooterProps = {
   locale: Locale;
   /** When true, show restricted Admin link (signed-in role ≥ viewer). */
   showAdminLink?: boolean;
+  /** Same SMTP↔mailto gate as Contact page (D-0194 / D-0211). */
+  smtpConfigured?: boolean;
 };
 
 /**
- * Apple-style footer (D-0209): each published section is its own equal column
+ * Apple-style footer (D-0209 / D-0211): each published section is its own equal column
  * in one forced desktop row — Architecture never stacks under Technology.
  */
 /** Layer 2 depth map — published domain destinations + Architecture + Legal. */
 export function SiteFooter({
   locale,
   showAdminLink = false,
+  smtpConfigured = false,
 }: SiteFooterProps) {
   const ui = getUi(locale);
   const [isCompact, setIsCompact] = useState(false);
@@ -137,6 +142,24 @@ export function SiteFooter({
             </div>
           ))}
         </div>
+
+        <section
+          className="site-footer__contact"
+          aria-labelledby="footer-contact-heading"
+        >
+          <h2 id="footer-contact-heading" className="site-footer__contact-title">
+            {ui.footerContact.heading}
+          </h2>
+          <p className="site-footer__contact-lede">{ui.footerContact.lede}</p>
+          <FooterContactForm
+            labels={ui.footerContact}
+            contactLabels={ui.contact}
+            emailAddress="info@savencore.com"
+            smtpConfigured={smtpConfigured}
+          />
+        </section>
+
+        <MedicalDisclaimerNotice locale={locale} placement="footer" />
 
         <div className="site-footer__social-row">
           <FooterSocials locale={locale} />

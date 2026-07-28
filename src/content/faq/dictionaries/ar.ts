@@ -260,4 +260,12 @@ export const dictionary: Record<string, string> = {
   "Yes. A Research Disclaimer legal draft exists and remains draft-framed until counsel approval.": "نعم. توجد مسودة قانونية Research Disclaimer وتبقى بإطار المسودة حتى موافقة المستشار.",
   "Yes. Arabic and Hebrew are RTL locales. Architecture prepares for ten languages and RTL from the beginning.": "نعم. العربية والعبرية إعدادات محلية RTL. تُعدّ الهندسة المعمارية عشر لغات وRTL منذ البداية.",
   "Yes. Public Interface language emphasizes that people remain in command as capability grows. Human oversight is a trust foundation across the site.": "نعم. تؤكد لغة Interface العامة أن البشر يبقون في القيادة مع نمو القدرة. الرقابة البشرية أساس ثقة عبر الموقع.",
+  "Does SAVEN Core diagnose or treat medical conditions?": "هل يشخّص SAVEN Core الحالات الطبية أو يعالجها؟",
+  "No. SAVEN Core does not diagnose, treat, or manage medical conditions through this website. Nothing on this website is medical advice.": "لا. لا يقوم SAVEN Core بتشخيص الحالات الطبية أو علاجها أو إدارتها عبر هذا الموقع. لا شيء في هذا الموقع يُعد نصيحة طبية.",
+  "If you are experiencing a medical emergency, contact local emergency services. Always seek the advice of a qualified health professional for personal medical questions.": "إذا كنت تواجه حالة طبية طارئة، فاتصل بخدمات الطوارئ المحلية. اطلب دائمًا مشورة متخصص صحي مؤهل للأسئلة الطبية الشخصية.",
+  "Does SAVEN Core prescribe or sell medicines?": "هل يصف SAVEN Core أدوية أو يبيعها؟",
+  "No. SAVEN Core does not prescribe medicines and does not sell medicines through this website.": "لا. لا تصف SAVEN Core أدوية ولا تبيع أدوية عبر هذا الموقع.",
+  "Who is SAVEN Core trying to support in care contexts?": "من يسعى SAVEN Core إلى دعمه في سياقات الرعاية؟",
+  "SAVEN Core develops intelligent systems intended to support doctors, medical workers, and people in hospitals, at home, and in everyday environments.": "تطوّر SAVEN Core أنظمة ذكية تهدف إلى دعم الأطباء والعاملين الطبيين والأشخاص في المستشفيات والمنازل والبيئات اليومية.",
+  "Support means assistance architecture under human oversight. Website content remains informational and architectural — not clinical documentation, medical advice, or emergency care.": "الدعم يعني هندسة مساعدة تحت إشراف بشري. يبقى محتوى الموقع معلوماتيًا وهندسيًا — وليس توثيقًا سريريًا أو نصيحة طبية أو رعاية طارئة.",
 };

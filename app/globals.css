@@ -25,13 +25,13 @@
   --space-96: 6rem;
 
   /*
-   * Experience palette (D-0207) — escape template pure-white / deep-navy fills.
-   * Light: Apple-adjacent cool off-white page chrome (never pure #fff as default).
+   * Experience palette (D-0207 / D-0211) — escape template pure-white / deep-navy fills.
+   * Light: deeper cool off-white page chrome (further from #fff than D-0208).
    * Dark / atmospheric field: soft charcoal gray-blue (muted, less saturated).
    */
-  --color-background: #f0f0f2;
-  --color-surface: #f6f6f8;
-  --color-surface-muted: #e8e8ec;
+  --color-background: #e6e6e9;
+  --color-surface: #eeeeef;
+  --color-surface-muted: #dcdce0;
   --color-text: #1a1d24;
   --color-text-secondary: #3a3f4a;
   --color-border: #d4d4d8;
@@ -49,7 +49,7 @@
   --color-accent-soft: color-mix(in srgb, var(--color-accent) 16%, transparent);
   --color-accent-line: color-mix(in srgb, var(--color-accent) 55%, transparent);
   --color-ink-fixed: #1a1d24;
-  --color-paper-fixed: #f0f0f2;
+  --color-paper-fixed: #e6e6e9;
 
   /* Atmospheric dark field — hero / mastheads / dark chrome (both themes) */
   --color-field: #1c1f26;

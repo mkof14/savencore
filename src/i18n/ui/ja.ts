@@ -32,6 +32,17 @@ export const uiJa: UiMessages = {
     signInUnavailable: "サインインは現在ご利用いただけません。",
   },
   legal: {"lastUpdated":"最終更新","related":"法務ページ","draftNote":"草案 — 法務レビュー待ち","indexTitle":"法的情報","indexLead":"公開サイト向けの構成用草案ページです。最終的な法的文書ではありません — 法的レビュー待ちです。"},
+  medicalDisclaimer: {
+    short:
+      "SAVEN Core は、本ウェブサイトを通じて病状の診断、医薬品の処方・販売、緊急医療の提供を行いません。医師・医療従事者・人々を支援するためのシステムの開発を目指しています。サイトの内容は情報提供であり、医療アドバイスではありません。",
+    linkLabel: "医療上の免責事項",
+  },
+  footerContact: {
+    heading: "お問い合わせ",
+    lede: "info@savencore.com へ — 提携、研究対話、投資家向け照会、一般的なご質問。",
+    submit: "メッセージを送信",
+    submitMailto: "メールアプリで開く",
+  },
   home: { developmentStatus: "アーキテクチャ", architectureOverview: "ひと目でわかる考え方", architectureOverviewText: "人と情報から、日常の生活を支えるシステムへ。明確な範囲のもとで進めます。", knowledgeExplorer: "見る", majorDomains: "主なテーマ", publishedPages: "このページ群", relationships: "つながり", domainMap: "見つける", architectureDependencies: "テーマのつながり", currentStatus: "進捗", platformProgress: "テーマ", featuredConcepts: "見つける", startWithCore: "はじめに読む考え方", continueExploring: "続ける", chooseEntrance: "始める場所を選ぶ", knowledgeId: "文書ID", complete: "完了", inProgress: "進行中", planned: "対象範囲", understand: "理解する", explore: "見る", discover: "見つける", continue: "続ける", beatWhat: "何を", beatWho: "誰に", beatWhy: "なぜ", beatHow: "どう", hourFramesLabel: "ケアの一時間" },
   ko: { ...uiEn.ko, document: "文書", passport: "文書情報", knowledgeId: "文書ID", domain: "テーマ領域", type: "文書の種類", status: "ステータス", version: "バージョン", evidence: "根拠", maturity: "ステータス", readingTime: "読了時間", lastReview: "最終確認", owner: "担当者", engineeringObject: "ページ情報", currentPosition: "現在地", nextReading: "次に読む内容", notYetAssigned: "未指定", dependencies: "関連する概念", dependencyGraph: "関連する概念", incoming: "利用するもの", outgoing: "依存するもの", nonePublished: "なし", knowledgeGraph: "つながり", parents: "より広いテーマ", children: "含まれるテーマ", consumers: "利用するもの", providers: "基盤となるもの", lifecycle: "文書の履歴", created: "作成", reviewed: "確認", published: "公開", updated: "更新", nextReview: "次回確認", deprecated: "非推奨", futureRevision: "改訂", versionHistory: "バージョン", previousVersion: "前のバージョン", summaryOfChanges: "変更内容", date: "日付", readingPaths: "おすすめの読み方", level2Kicker: "次に", level2Title: "関連する文書と概念", level3Kicker: "詳細", level3Title: "専門家向けの文書情報" },
   scope: { definition: "定義", "current-scope": "対象範囲", "future-scope": "次に進むこと", "human-oversight": "人による監督", "safety-boundary": "安全上の境界", "engineering-note": "注記", limitation: "限界" },

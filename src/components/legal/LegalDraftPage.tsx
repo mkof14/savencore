@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { MedicalDisclaimerNotice } from "@/components/site/MedicalDisclaimerNotice";
 import type { Locale } from "@/config/locales";
 import {
   getLegalDraftBanner,
@@ -44,6 +45,7 @@ export function LegalDraftPage({ locale, content }: LegalDraftPageProps) {
           <p className="legal-page__banner" role="status">
             {getLegalDraftBanner(locale)}
           </p>
+          <MedicalDisclaimerNotice locale={locale} placement="legal" />
         </div>
       </header>
 

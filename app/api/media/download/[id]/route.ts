@@ -15,9 +15,9 @@ type RouteContext = {
 };
 
 /**
- * Public media file access for visibility=public library items (D-0183 / D-0201).
- * Serves inline for preview. Use /api/media/download/[id]/ for attachment downloads.
- * Hosted Blob uploads are streamed same-origin (not redirected to CDN) so CSP + download work.
+ * Public same-origin forced download (D-0201).
+ * Streams with Content-Disposition: attachment so mobile Safari / desktop
+ * save the file without relying on the HTML download attribute.
  */
 export async function GET(_request: Request, context: RouteContext) {
   const { id } = await context.params;
@@ -26,13 +26,11 @@ export async function GET(_request: Request, context: RouteContext) {
     return NextResponse.json({ error: "Not found" }, { status: 404 });
   }
 
-  if (isExternalMediaLink(item) && item.externalUrl) {
-    return NextResponse.redirect(item.externalUrl, 302);
-  }
-
-  // Seeds: same-origin publicPath is fine for inline preview.
-  if (item.source === "seed" && item.publicPath) {
-    return NextResponse.redirect(item.publicPath, 302);
+  if (isExternalMediaLink(item)) {
+    return NextResponse.json(
+      { error: "External links cannot be force-downloaded." },
+      { status: 400 },
+    );
   }
 
   const payload = await readMediaFile(id);
@@ -40,5 +38,5 @@ export async function GET(_request: Request, context: RouteContext) {
     return NextResponse.json({ error: "Not found" }, { status: 404 });
   }
 
-  return mediaFileResponse(payload, "inline", "public, max-age=300");
+  return mediaFileResponse(payload, "attachment", "private, no-store");
 }

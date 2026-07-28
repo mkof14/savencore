@@ -1,6 +1,6 @@
 # Vercel deploy — SAVEN Core
 
-Standard Next.js App Router app. No custom `vercel.json` required; Vercel detects Next.js and runs `next build`.
+Standard Next.js App Router app. `vercel.json` marks the framework; Vercel runs `next build`. No custom redirects that would break locale trailing slashes or media API routes.
 
 ## 1. Import the project
 
@@ -29,9 +29,17 @@ Set in Vercel → Project → Settings → Environment Variables (Production + P
 | `NEXT_PUBLIC_SITE_URL` | Recommended | Canonical origin for sitemap, robots, Open Graph (defaults to `https://www.savencore.com`) |
 | `NEXT_PUBLIC_SOCIAL_*` | Optional | LinkedIn — empty = icon hidden (D-0194). Facebook (`https://www.facebook.com/profile.php?id=61592276954371`, D-0198), YouTube (`https://youtu.be/0C1Sk_RAnSw`, D-0195), X (`https://x.com/SAVENcore`, D-0196), and Instagram (`https://www.instagram.com/savencore/`, D-0197) have committed defaults; set env to override. |
 | `SMTP_*` | Optional | Admin mailings + public Contact form; unset → simulated admin send / Contact mailto fallback |
-| `BLOB_READ_WRITE_TOKEN` | Optional | Vercel Blob read/write token for durable Admin Media on production (D-0194) |
+| `BLOB_READ_WRITE_TOKEN` | **Required for durable Media on Vercel** | Create a **Blob** store in the Vercel dashboard (Storage → Blob) and paste the read/write token into Production (and Preview if testing uploads). Without it, Admin Media shows an honest banner and cannot persist uploads/links/deletes on Vercel (D-0194 / D-0201). Local `npm run dev` still uses `storage/admin-media/`. |
 
 See `.env.example` and `docs/ADMIN_PLATFORM.md`. Without Google or demo credentials the Sign In page still renders with controls disabled — it does not invent a logged-in state. Email/password is a single env-based operator account (always `super_admin`) for owner/operator access; a real user store/DB comes later. Local/dev may use documented defaults when env is unset; **production never uses a silent default password** — set `AUTH_DEMO_*` in Vercel for prod demo login.
+
+### Media persistence + download (D-0201)
+
+1. In Vercel → Storage → create **Blob**, connect to this project → copy `BLOB_READ_WRITE_TOKEN` into Environment Variables for **Production**.
+2. Redeploy after setting the token.
+3. Public Media downloads use same-origin `/api/media/download/[id]/` with `Content-Disposition: attachment` (works on mobile Safari + desktop; do not rely on the HTML `download` attribute alone).
+4. Preview/view stays on `/api/media/[id]/` (inline) or seed `publicPath`. External YouTube/Vimeo/site links open in a new tab — they are not force-downloaded.
+5. **Upload size:** Vercel serverless request body is typically **≈ 4.5 MB**. Larger files fail before our handler — prefer YouTube/Vimeo URL embeds for video, or upload large files in local development then migrate when a larger transfer path is authorized. Local FS max remains 40 MB.
 
 **Owner ops (not automated in repo):** Google Search Console property verification for `www.savencore.com`; do not enable Google Analytics until counsel + CMP decision (cookie prefs remain draft-only).
 
@@ -57,4 +65,4 @@ npm run type-check
 npm run build
 ```
 
-Smoke after deploy: `/en/`, `/de/`, `/ja/`, `/ar/` home + Technology + auth sign-in.
+Smoke after deploy: `/en/`, `/de/`, `/ja/`, `/ar/` home + Technology + auth sign-in; `/en/media/` View + Download on a seed asset; Admin → Media Open / Download when signed in.

@@ -11,7 +11,6 @@ import {
 import type { AdminRole } from "@/admin/roles";
 import { canPerform } from "@/admin/roles";
 import type { Locale } from "@/config/locales";
-import { SITE_URL } from "@/config/site";
 import { getUi } from "@/i18n/ui";
 import {
   looksLikeHttpUrl,
@@ -19,6 +18,8 @@ import {
   titleFromFilename,
 } from "@/lib/admin/media-embed";
 import {
+  isExternalMediaLink,
+  isHostedMediaFile,
   isSeedMediaItem,
   MEDIA_MAX_UPLOAD_BYTES,
   MEDIA_UPLOAD_ACCEPT,
@@ -29,6 +30,12 @@ import {
   type MediaCategory,
   type MediaItem,
 } from "@/lib/admin/media-types";
+import {
+  absoluteMediaUrl,
+  mediaAdminDownloadPath,
+  mediaAdminViewPath,
+  triggerMediaDownload,
+} from "@/lib/admin/media-urls";
 
 type AddTab = "file" | "video" | "link";
 type LibraryTab = "all" | "video" | "docs" | "link";
@@ -99,7 +106,7 @@ export function MediaLibraryClient({
     if (!preview) {
       return null;
     }
-    return resolveItemUrl(preview, { absolute: false });
+    return mediaAdminViewPath(preview);
   }, [preview]);
 
   const videoEmbed = useMemo(
@@ -367,11 +374,25 @@ export function MediaLibraryClient({
   }
 
   function absoluteUrl(item: MediaItem): string {
-    return resolveItemUrl(item, { absolute: true });
+    return absoluteMediaUrl(mediaAdminViewPath(item));
   }
 
   function openItem(item: MediaItem) {
     window.open(absoluteUrl(item), "_blank", "noopener,noreferrer");
+  }
+
+  function downloadItem(item: MediaItem) {
+    if (isExternalMediaLink(item)) {
+      openItem(item);
+      return;
+    }
+    const path = mediaAdminDownloadPath(item);
+    if (!path) {
+      flash(null, ui.admin.actionFailed);
+      return;
+    }
+    triggerMediaDownload(path);
+    flash(ui.admin.actionDownloadStarted, null);
   }
 
   const categoryLabel = (category: MediaCategory): string => {
@@ -762,6 +783,15 @@ export function MediaLibraryClient({
                           >
                             {ui.admin.mediaOpen}
                           </button>
+                          {isHostedMediaFile(item) ? (
+                            <button
+                              type="button"
+                              className="admin-btn"
+                              onClick={() => downloadItem(item)}
+                            >
+                              {ui.admin.actionDownload}
+                            </button>
+                          ) : null}
                           <button
                             type="button"
                             className="admin-btn"
@@ -825,6 +855,15 @@ export function MediaLibraryClient({
               >
                 {ui.admin.mediaOpen}
               </button>
+              {isHostedMediaFile(preview) ? (
+                <button
+                  type="button"
+                  className="admin-btn"
+                  onClick={() => downloadItem(preview)}
+                >
+                  {ui.admin.actionDownload}
+                </button>
+              ) : null}
               {canDelete ? (
                 <button
                   type="button"
@@ -879,31 +918,19 @@ function formatDate(iso: string, locale: Locale): string {
   }
 }
 
-function resolveItemUrl(
-  item: MediaItem,
-  options: { absolute: boolean },
-): string {
-  if (item.externalUrl) {
-    return item.externalUrl;
-  }
-  if (item.source === "seed" && item.publicPath) {
-    return options.absolute
-      ? `${SITE_URL}${item.publicPath}`
-      : item.publicPath;
-  }
-  const path = `/api/admin/media/${item.id}/`;
-  return options.absolute ? `${SITE_URL}${path}` : path;
-}
-
 function ItemThumb({ item }: { item: MediaItem }) {
   const kind = mediaPreviewKind(item);
-  const url = resolveItemUrl(item, { absolute: false });
+  const url = mediaAdminViewPath(item);
   if (kind === "image") {
     // eslint-disable-next-line @next/next/no-img-element
     return <img src={url} alt="" className="admin-media-table__thumb-img" />;
   }
   if (kind === "video") {
-    const embed = item.externalUrl ? parseVideoEmbedUrl(item.externalUrl) : null;
+    // YouTube/Vimeo link rows only — Blob CDN URLs on uploads are not embeds.
+    const embed =
+      item.externalUrl && !item.storageKey
+        ? parseVideoEmbedUrl(item.externalUrl)
+        : null;
     if (embed?.provider === "youtube") {
       return (
         // eslint-disable-next-line @next/next/no-img-element
@@ -928,7 +955,10 @@ function ItemThumb({ item }: { item: MediaItem }) {
 function PreviewBody({ item, url }: { item: MediaItem; url: string }) {
   const kind = mediaPreviewKind(item);
   if (kind === "video") {
-    const embed = item.externalUrl ? parseVideoEmbedUrl(item.externalUrl) : null;
+    const embed =
+      item.externalUrl && !item.storageKey
+        ? parseVideoEmbedUrl(item.externalUrl)
+        : null;
     if (embed?.provider === "youtube" || embed?.provider === "vimeo") {
       return (
         <iframe

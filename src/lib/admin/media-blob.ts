@@ -88,6 +88,36 @@ export async function blobPutMediaFile(input: {
   return result.url;
 }
 
+/** Fetch a previously uploaded Blob file by storage key (or known CDN URL). */
+export async function blobGetMediaFile(input: {
+  storageKey: string;
+  url?: string;
+}): Promise<Buffer | null> {
+  try {
+    let url = input.url?.trim() || "";
+    if (!url) {
+      const pathname = `${FILE_PREFIX}${input.storageKey}`;
+      const result = await list({
+        prefix: pathname,
+        limit: 5,
+        ...tokenOption(),
+      });
+      const match = result.blobs.find((blob) => blob.pathname === pathname);
+      url = match?.url ?? "";
+    }
+    if (!url) {
+      return null;
+    }
+    const response = await fetch(url, { cache: "no-store" });
+    if (!response.ok) {
+      return null;
+    }
+    return Buffer.from(await response.arrayBuffer());
+  } catch {
+    return null;
+  }
+}
+
 export async function blobDeleteMediaFile(storageKey: string): Promise<void> {
   const pathname = `${FILE_PREFIX}${storageKey}`;
   try {

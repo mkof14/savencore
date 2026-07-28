@@ -47,6 +47,31 @@ export function isProtectedMediaItem(item: MediaItem): boolean {
   return isSeedMediaItem(item);
 }
 
+/**
+ * Hosted file we can stream (seed under /public, or upload on FS / Vercel Blob).
+ * Blob uploads may also set externalUrl to the Blob CDN URL — still hosted.
+ */
+export function isHostedMediaFile(item: MediaItem): boolean {
+  if (item.source === "seed" && Boolean(item.publicPath)) {
+    return true;
+  }
+  if (item.source === "upload" && Boolean(item.storageKey)) {
+    return true;
+  }
+  return false;
+}
+
+/** True external / site link rows — open in a new tab; never force-download. */
+export function isExternalMediaLink(item: MediaItem): boolean {
+  if (item.source === "link") {
+    return true;
+  }
+  if (isHostedMediaFile(item)) {
+    return false;
+  }
+  return Boolean(item.externalUrl) || item.category === "link";
+}
+
 export function mediaPreviewKind(
   item: MediaItem,
 ): "image" | "video" | "pdf" | "text" | "link" | "other" {
@@ -65,11 +90,8 @@ export function mediaPreviewKind(
   ) {
     return "pdf";
   }
-  if (
-    item.category === "link" ||
-    item.source === "link" ||
-    Boolean(item.externalUrl)
-  ) {
+  // Do not treat Blob CDN URLs on uploads as “link” (D-0201).
+  if (isExternalMediaLink(item)) {
     return "link";
   }
   if (

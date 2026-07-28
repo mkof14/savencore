@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-27 (D-0200 — Footer two-row columns + visual separations)
+**Last updated:** 2026-07-27 (D-0201 — Media download fix + Vercel Blob deploy readiness)
 
 ## Rules
 
@@ -216,6 +216,7 @@
 | D-0198 | 2026-07-27 | Owner Facebook URL live in footer (committed default + env override) | Active |
 | D-0199 | 2026-07-27 | Footer section columns — nine equal tracks in one desktop row | Superseded by D-0200 |
 | D-0200 | 2026-07-27 | Footer section columns — two balanced rows + visual separations | Active |
+| D-0201 | 2026-07-27 | Media download (mobile + desktop) + Vercel Blob deploy readiness | Active |
 
 ---
 
@@ -1822,6 +1823,16 @@
 - **In scope:** `SiteFooter.tsx` row split; `site-shell.css` footer grid/divider/spacing polish; D-0200 + AGENTS / SITE_ASSIGNMENT / IA pointers; type-check; commit/push; production deploy; Russian brief for owner; smoke www footer.
 - **Out of scope:** Changing footer link inventory, i18n copy, social URLs, Legal More hub, navigation taxonomy, or inventing columns/pages.
 - **Implications:** Supersedes D-0199 one-row desktop layout. Equal-weight section columns within each row and socials-under-grid rules from D-0181 remain.
+
+### D-0201 — Media download (mobile + desktop) + Vercel Blob deploy readiness
+
+- **Date:** 2026-07-27
+- **Status:** Active
+- **Summary:** Same-origin attachment download routes for public + admin Media; Blob uploads stream correctly; Vercel deploy docs clarify durable media env.
+- **Decision:** Owner requires fixing **download for mobile and desktop** (public Media + Admin Media View/Download/Copy) and preparing a solid **Vercel deploy** path for media persistence. Root causes: (1) HTML `download` attribute is unreliable on mobile Safari and ignored cross-origin; (2) public `/api/media/[id]/` always used `Content-Disposition: inline`; (3) Vercel Blob uploads stored a CDN `externalUrl` and were treated as external links, so `readMediaFile` returned null and clients opened the CDN URL (CSP / Save As broken). Authorize: same-origin `/api/media/download/[id]/` (public) and `/api/admin/media/download/[id]/` (viewer+); stream hosted files (seed + FS + Blob) with `Content-Disposition: attachment` + correct MIME; keep preview/view inline; external links open only (no force-download); distinguish hosted uploads from link rows; document `BLOB_READ_WRITE_TOKEN` as required for durable Media on Vercel; confirm build; commit/push for production deploy.
+- **In scope:** media store/blob read path; public + admin download API routes; MediaPage + MediaLibraryClient download UX; `docs/VERCEL_DEPLOY.md` / `ADMIN_PLATFORM.md` / `.env.example` / `vercel.json`; D-0201 + AGENTS pointer; type-check + build; commit/push; Russian owner report.
+- **Out of scope:** Inventing media content; raising Vercel body limit beyond platform defaults; full CMS/DB; changing auth model; inventing social URLs.
+- **Implications:** Extends D-0194 Blob path. Owner must set `BLOB_READ_WRITE_TOKEN` on Vercel for durable uploads after deploy.
 
 ## Pending Owner Decisions
 

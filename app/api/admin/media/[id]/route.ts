@@ -3,7 +3,13 @@ import { NextResponse } from "next/server";
 import { roleHasPermission } from "@/admin/permissions";
 import { canPerform } from "@/admin/roles";
 import { requireAdminRole } from "@/admin/require-role";
-import { deleteMediaItem, readMediaFile } from "@/lib/admin/media-store";
+import { mediaFileResponse } from "@/lib/admin/media-response";
+import {
+  deleteMediaItem,
+  getMediaItem,
+  isExternalMediaLink,
+  readMediaFile,
+} from "@/lib/admin/media-store";
 
 export const runtime = "nodejs";
 
@@ -11,6 +17,10 @@ type RouteContext = {
   params: Promise<{ id: string }>;
 };
 
+/**
+ * Admin inline preview for hosted files (D-0183 / D-0201).
+ * External links redirect; Blob uploads stream same-origin for CSP-safe preview.
+ */
 export async function GET(_request: Request, context: RouteContext) {
   const gate = await requireAdminRole("viewer");
   if (!gate.ok) {
@@ -21,26 +31,25 @@ export async function GET(_request: Request, context: RouteContext) {
   }
 
   const { id } = await context.params;
+  const item = await getMediaItem(id);
+  if (!item) {
+    return NextResponse.json({ error: "Not found" }, { status: 404 });
+  }
+
+  if (isExternalMediaLink(item) && item.externalUrl) {
+    return NextResponse.redirect(item.externalUrl, 302);
+  }
+
+  if (item.source === "seed" && item.publicPath) {
+    return NextResponse.redirect(item.publicPath, 302);
+  }
+
   const payload = await readMediaFile(id);
   if (!payload) {
     return NextResponse.json({ error: "Not found" }, { status: 404 });
   }
 
-  const disposition = payload.item.mimeType.startsWith("video/")
-    || payload.item.mimeType.startsWith("image/")
-    || payload.item.mimeType === "application/pdf"
-    ? "inline"
-    : "attachment";
-
-  return new NextResponse(new Uint8Array(payload.buffer), {
-    status: 200,
-    headers: {
-      "Content-Type": payload.item.mimeType,
-      "Content-Length": String(payload.buffer.length),
-      "Content-Disposition": `${disposition}; filename="${sanitizeFilename(payload.downloadName)}"`,
-      "Cache-Control": "private, no-store",
-    },
-  });
+  return mediaFileResponse(payload, "inline", "private, no-store");
 }
 
 export async function DELETE(_request: Request, context: RouteContext) {
@@ -76,8 +85,4 @@ export async function DELETE(_request: Request, context: RouteContext) {
   }
 
   return NextResponse.json({ ok: true });
-}
-
-function sanitizeFilename(name: string): string {
-  return name.replace(/[^\w.\- ()[\]]+/g, "_").slice(0, 160) || "download.bin";
 }

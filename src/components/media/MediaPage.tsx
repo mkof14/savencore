@@ -5,16 +5,23 @@ import Link from "next/link";
 import { useMemo, useState } from "react";
 
 import type { Locale } from "@/config/locales";
-import { SITE_FALCON_MARK_PATH, SITE_URL } from "@/config/site";
+import { SITE_FALCON_MARK_PATH } from "@/config/site";
 import type { MediaPageContent } from "@/content/media/en";
 import { domainVisualForHref } from "@/content/domain/domain-visuals";
 import { getUi } from "@/i18n/ui";
 import { parseVideoEmbedUrl } from "@/lib/admin/media-embed";
 import {
+  isExternalMediaLink,
   mediaPreviewKind,
   type MediaCategory,
   type MediaItem,
 } from "@/lib/admin/media-types";
+import {
+  absoluteMediaUrl,
+  mediaPublicDownloadPath,
+  mediaPublicViewPath,
+  triggerMediaDownload,
+} from "@/lib/admin/media-urls";
 import { localizePath } from "@/navigation/locale-path";
 
 import "./media.css";
@@ -28,21 +35,11 @@ type MediaPageProps = {
 type GalleryFilter = "all" | "video" | "docs" | "link";
 
 function itemHref(item: MediaItem): string {
-  if (item.externalUrl) {
-    return item.externalUrl;
-  }
-  if (item.source === "seed" && item.publicPath) {
-    return item.publicPath;
-  }
-  return `/api/media/${item.id}/`;
+  return mediaPublicViewPath(item);
 }
 
 function absoluteHref(item: MediaItem): string {
-  const href = itemHref(item);
-  if (href.startsWith("http")) {
-    return href;
-  }
-  return `${SITE_URL}${href}`;
+  return absoluteMediaUrl(itemHref(item));
 }
 
 function matchesFilter(item: MediaItem, filter: GalleryFilter): boolean {
@@ -53,7 +50,7 @@ function matchesFilter(item: MediaItem, filter: GalleryFilter): boolean {
     return item.category === "video";
   }
   if (filter === "link") {
-    return item.category === "link";
+    return item.category === "link" || isExternalMediaLink(item);
   }
   return item.category === "document" || item.category === "presentation";
 }
@@ -106,18 +103,16 @@ export function MediaPage({ locale, content, items }: MediaPageProps) {
   }
 
   function downloadItem(item: MediaItem) {
-    const href = itemHref(item);
-    if (item.externalUrl) {
-      window.open(href, "_blank", "noopener,noreferrer");
+    if (isExternalMediaLink(item)) {
+      window.open(itemHref(item), "_blank", "noopener,noreferrer");
       return;
     }
-    const a = document.createElement("a");
-    a.href = href;
-    a.download = item.name;
-    a.rel = "noopener";
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
+    const downloadPath = mediaPublicDownloadPath(item);
+    if (!downloadPath) {
+      setMessage(ui.media.actionFailed);
+      return;
+    }
+    triggerMediaDownload(downloadPath);
     setMessage(ui.media.downloadStarted);
   }
 
@@ -292,7 +287,7 @@ export function MediaPage({ locale, content, items }: MediaPageProps) {
                         className="media-page__action media-page__action--download"
                         onClick={() => downloadItem(item)}
                       >
-                        {item.externalUrl ? ui.media.open : ui.media.download}
+                        {isExternalMediaLink(item) ? ui.media.open : ui.media.download}
                       </button>
                       <button
                         type="button"
@@ -349,7 +344,7 @@ export function MediaPage({ locale, content, items }: MediaPageProps) {
                 className="media-page__action media-page__action--download"
                 onClick={() => downloadItem(preview)}
               >
-                {preview.externalUrl ? ui.media.open : ui.media.download}
+                {isExternalMediaLink(preview) ? ui.media.open : ui.media.download}
               </button>
               <button
                 type="button"
@@ -385,9 +380,10 @@ function CardVisual({ item }: { item: MediaItem }) {
   }
 
   if (kind === "video") {
-    const embed = item.externalUrl
-      ? parseVideoEmbedUrl(item.externalUrl)
-      : null;
+    const embed =
+      item.externalUrl && !item.storageKey
+        ? parseVideoEmbedUrl(item.externalUrl)
+        : null;
     if (embed?.provider === "youtube") {
       return (
         // eslint-disable-next-line @next/next/no-img-element
@@ -437,7 +433,11 @@ function PublicPreview({ item }: { item: MediaItem }) {
     const embed = item.externalUrl
       ? parseVideoEmbedUrl(item.externalUrl)
       : null;
-    if (embed?.provider === "youtube" || embed?.provider === "vimeo") {
+    // Hosted video files use same-origin href; only parse true link embeds.
+    if (
+      !item.storageKey &&
+      (embed?.provider === "youtube" || embed?.provider === "vimeo")
+    ) {
       return (
         <iframe
           title={item.name}
@@ -450,7 +450,7 @@ function PublicPreview({ item }: { item: MediaItem }) {
     }
     return (
       <video
-        src={embed?.embedUrl ?? href}
+        src={item.storageKey ? href : (embed?.embedUrl ?? href)}
         controls
         playsInline
         className="media-page__preview-media"

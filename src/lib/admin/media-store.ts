@@ -5,6 +5,7 @@ import path from "node:path";
 import { parseVideoEmbedUrl } from "@/lib/admin/media-embed";
 import {
   blobDeleteMediaFile,
+  blobGetMediaFile,
   blobPutMediaFile,
   blobReadHiddenIds,
   blobReadUploadIndex,
@@ -20,6 +21,7 @@ import type {
 import {
   inferMimeType,
   isAllowedUpload,
+  isExternalMediaLink,
   MEDIA_MAX_UPLOAD_BYTES,
   mediaVisibility,
 } from "@/lib/admin/media-types";
@@ -28,6 +30,8 @@ export type { MediaCategory, MediaItem, MediaVisibility } from "@/lib/admin/medi
 export {
   inferMimeType,
   isAllowedUpload,
+  isExternalMediaLink,
+  isHostedMediaFile,
   isProtectedMediaItem,
   isSeedMediaItem,
   mediaPreviewKind,
@@ -313,7 +317,9 @@ export async function readMediaFile(
     return null;
   }
 
-  if (item.source === "link" || item.externalUrl) {
+  // External / site links have no file bytes. Blob uploads may set externalUrl
+  // to the CDN URL while remaining source=upload + storageKey (D-0201).
+  if (isExternalMediaLink(item)) {
     return null;
   }
 
@@ -328,6 +334,21 @@ export async function readMediaFile(
   }
 
   if (item.source === "upload" && item.storageKey) {
+    if (shouldUseBlobBackend() || item.externalUrl) {
+      const buffer = await blobGetMediaFile({
+        storageKey: item.storageKey,
+        ...(item.externalUrl ? { url: item.externalUrl } : {}),
+      });
+      if (!buffer) {
+        return null;
+      }
+      return {
+        item: { ...item, size: buffer.length },
+        buffer,
+        downloadName: item.name,
+      };
+    }
+
     const abs = path.join(FILES_DIR, item.storageKey);
     const buffer = await fs.readFile(abs);
     return {

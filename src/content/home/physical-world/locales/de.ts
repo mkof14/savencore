@@ -101,5 +101,51 @@ export const physicalWorldHomeDe: PhysicalWorldHomeContent = {
     pillars: "Support · Action · Verification · Environment · Network",
     tagline: "One Intelligence. Many Bodies. Real-World Action.",
     alt: "SAVEN-Logo und Säulen: Support, Action, Verification, Environment und Network. Slogan: One Intelligence. Many Bodies. Real-World Action.",
+    exploreLabel: "SAVEN erkunden",
+    exploreHint:
+      "Bewegen Sie den Zeiger über eine Säule oder fokussieren Sie sie, um die Bedeutung zu sehen — dann tiefer gehen.",
+    goDeeper: "Tiefer gehen",
+    map: [
+      {
+        id: "support",
+        label: "Support",
+        meaning:
+          "Menschliche Fürsorge steht zuerst — der Zweck, Menschen dort zu helfen, wo Leben stattfindet.",
+        href: "/purpose/",
+        cta: "Zweck",
+      },
+      {
+        id: "action",
+        label: "Action",
+        meaning:
+          "Befehl und Steuerung, damit Maschinen in der physischen Welt unter Menschen handeln.",
+        href: "/systems/saven-robotics-interface/",
+        cta: "Robotik-Schnittstelle",
+      },
+      {
+        id: "verification",
+        label: "Verification",
+        meaning:
+          "Sicherheit, Vertrauen und menschliche Aufsicht vor jedem Autonomieanspruch.",
+        href: "/trust/human-oversight/",
+        cta: "Menschliche Aufsicht",
+      },
+      {
+        id: "environment",
+        label: "Environment",
+        meaning:
+          "Anwendungskontexte in der physischen Welt — Krankenhäuser, Zuhause und darüber hinaus.",
+        href: "/applications/",
+        cta: "Anwendungen",
+      },
+      {
+        id: "network",
+        label: "Network",
+        meaning:
+          "Vernetzte Systemarchitektur, die Intelligenz mit vielen Körpern verbindet.",
+        href: "/systems/",
+        cta: "Systeme",
+      },
+    ],
   },
 };

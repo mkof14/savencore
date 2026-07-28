@@ -100,5 +100,51 @@ export const physicalWorldHomeEn: PhysicalWorldHomeContent = {
     pillars: "Support · Action · Verification · Environment · Network",
     tagline: "One Intelligence. Many Bodies. Real-World Action.",
     alt: "SAVEN logo and pillars: Support, Action, Verification, Environment, and Network. Tagline: One Intelligence. Many Bodies. Real-World Action.",
+    exploreLabel: "Explore SAVEN",
+    exploreHint:
+      "Hover or focus a pillar to see what it means — then go deeper on the site.",
+    goDeeper: "Go deeper",
+    map: [
+      {
+        id: "support",
+        label: "Support",
+        meaning:
+          "Human care comes first — the purpose of helping people where life happens.",
+        href: "/purpose/",
+        cta: "Purpose",
+      },
+      {
+        id: "action",
+        label: "Action",
+        meaning:
+          "Command and control so machines can act in the physical world under people.",
+        href: "/systems/saven-robotics-interface/",
+        cta: "Robotics Interface",
+      },
+      {
+        id: "verification",
+        label: "Verification",
+        meaning:
+          "Safety, trust, and human oversight before any claim of autonomy.",
+        href: "/trust/human-oversight/",
+        cta: "Human Oversight",
+      },
+      {
+        id: "environment",
+        label: "Environment",
+        meaning:
+          "Application contexts in the physical world — hospitals, home, and beyond.",
+        href: "/applications/",
+        cta: "Applications",
+      },
+      {
+        id: "network",
+        label: "Network",
+        meaning:
+          "Connected systems architecture that links intelligence to many bodies.",
+        href: "/systems/",
+        cta: "Systems",
+      },
+    ],
   },
 };

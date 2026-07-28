@@ -101,5 +101,51 @@ export const physicalWorldHomeEs: PhysicalWorldHomeContent = {
     pillars: "Support · Action · Verification · Environment · Network",
     tagline: "One Intelligence. Many Bodies. Real-World Action.",
     alt: "Logotipo SAVEN y pilares: Support, Action, Verification, Environment y Network. Eslogan: One Intelligence. Many Bodies. Real-World Action.",
+    exploreLabel: "Explorar SAVEN",
+    exploreHint:
+      "Pase el cursor o enfoque un pilar para ver su significado — luego profundice en el sitio.",
+    goDeeper: "Ir más profundo",
+    map: [
+      {
+        id: "support",
+        label: "Support",
+        meaning:
+          "El cuidado humano es primero — el propósito de ayudar a las personas donde ocurre la vida.",
+        href: "/purpose/",
+        cta: "Propósito",
+      },
+      {
+        id: "action",
+        label: "Action",
+        meaning:
+          "Mando y control para que las máquinas actúen en el mundo físico bajo personas.",
+        href: "/systems/saven-robotics-interface/",
+        cta: "Interfaz de robótica",
+      },
+      {
+        id: "verification",
+        label: "Verification",
+        meaning:
+          "Seguridad, confianza y supervisión humana antes de cualquier afirmación de autonomía.",
+        href: "/trust/human-oversight/",
+        cta: "Supervisión humana",
+      },
+      {
+        id: "environment",
+        label: "Environment",
+        meaning:
+          "Contextos de aplicación en el mundo físico — hospitales, hogar y más allá.",
+        href: "/applications/",
+        cta: "Aplicaciones",
+      },
+      {
+        id: "network",
+        label: "Network",
+        meaning:
+          "Arquitectura de sistemas conectados que vincula la inteligencia a muchos cuerpos.",
+        href: "/systems/",
+        cta: "Sistemas",
+      },
+    ],
   },
 };

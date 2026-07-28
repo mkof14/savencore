@@ -31,7 +31,7 @@ export const uiJa: UiMessages = {
       "Googleでのサインインは現在ご利用いただけません。",
     signInUnavailable: "サインインは現在ご利用いただけません。",
   },
-  legal: {"lastUpdated":"最終更新","related":"法務ページ","draftNote":"草案 — 法務レビュー待ち","indexTitle":"法的情報","indexLead":"公開サイト向けの構成用草案ページです。最終的な法的文書ではありません — 法的レビュー待ちです。"},
+  legal: {"lastUpdated":"最終更新","related":"法務ページ","draftNote":"情報の取り扱いとサイト利用条件に関するサイトポリシー。お問い合わせ: info@savencore.com。","indexTitle":"法的情報","indexLead":"公開サイトのプライバシー、利用規約、Cookie、アクセシビリティ、セキュリティおよび関連通知。Cookie設定ではライブの同意CMPがないことを説明します — ブラウザ設定を使うかお問い合わせください。"},
   medicalDisclaimer: {
     short:
       "SAVEN Core は、本ウェブサイトを通じて病状の診断、医薬品の処方・販売、緊急医療の提供を行いません。医師・医療従事者・人々を支援するためのシステムの開発を目指しています。サイトの内容は情報提供であり、医療アドバイスではありません。",

@@ -931,6 +931,13 @@ export function getFutureLabHubContent(locale: Locale = "en"): HubPageContent {
       theme: "labs",
       mastheadImage: visual.mastheadImage,
       mastheadAlt: visual.mastheadAlt,
+      /* Lab-spirit collage — approved domain / technology / research assets (D-0215) */
+      mastheadCollage: [
+        "/domain/labs/internal-future-lab.webp",
+        "/domain/labs/scene-future-research.webp",
+        "/domain/technology/artificial-intelligence.webp",
+        "/domain/technology/robotics.webp",
+      ],
     },
     scenes: getFutureLabScenes(locale),
   };

@@ -139,7 +139,7 @@ export const DOMAIN_MASTHEAD_BY_HREF: Record<string, DomainMastheadVisual> = {
   "/labs/internal-future-lab/": {
     theme: "labs",
     mastheadImage: "/domain/labs/internal-future-lab.webp",
-    mastheadAlt: "Researchers exploring advanced robotics in a calm lab",
+    mastheadAlt: "Researchers exploring advanced robotics in a calm Future Lab",
   },
 
   /* ——— Applications (reuse care assets where thematically perfect) ——— */

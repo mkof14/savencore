@@ -82,6 +82,44 @@
   object-position: 48% 42%;
 }
 
+/* Labs collage (Future Lab — D-0215): lighter scrim so experiment tiles stay readable */
+.hub-page--labs.hub-page--collage .hub-page__masthead-scrim {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(28, 31, 38, 0.28) 0%,
+      rgba(28, 31, 38, 0.48) 46%,
+      rgba(28, 31, 38, 0.86) 100%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(28, 31, 38, 0.68) 0%,
+      rgba(28, 31, 38, 0.2) 58%,
+      rgba(28, 31, 38, 0.32) 100%
+    );
+}
+
+.hub-page--labs.hub-page--collage .hub-page__masthead-tile:nth-child(1) .hub-page__masthead-collage-image {
+  object-position: 42% 38%;
+}
+
+.hub-page--labs.hub-page--collage .hub-page__masthead-tile:nth-child(2) .hub-page__masthead-collage-image {
+  object-position: 50% 42%;
+}
+
+.hub-page--labs.hub-page--collage .hub-page__masthead-tile:nth-child(3) .hub-page__masthead-collage-image {
+  object-position: 48% 40%;
+}
+
+.hub-page--labs.hub-page--collage .hub-page__masthead-tile:nth-child(4) .hub-page__masthead-collage-image {
+  object-position: 55% 45%;
+}
+
+.hub-page--labs.hub-page--collage .hub-page__masthead-collage {
+  gap: 3px;
+  background: color-mix(in srgb, var(--color-navy, #1c1f26) 92%, #d4a84b);
+}
+
 /* Purpose hub — multi-tile care collage (diverse ages / care settings) */
 .hub-page__masthead-collage {
   position: absolute;
@@ -490,6 +528,54 @@ html[data-theme="dark"] .hub-page__scene-media {
   color: var(--color-text-secondary);
   text-wrap: pretty;
   max-width: var(--measure-lede);
+}
+
+/* Rich scene mosaic — denser lab experiment layout (Future Lab — D-0215) */
+@media (min-width: 900px) {
+  .hub-page__scene-list--rich {
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(1rem, 2vw, 1.5rem);
+  }
+
+  .hub-page__scene-list--rich .hub-page__scene {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .hub-page__scene-list--rich .hub-page__scene:nth-child(even) {
+    grid-template-columns: 1fr;
+  }
+
+  .hub-page__scene-list--rich .hub-page__scene:nth-child(even) .hub-page__scene-media {
+    order: 0;
+  }
+
+  .hub-page__scene-list--rich .hub-page__scene-media {
+    min-height: 12.5rem;
+    aspect-ratio: 16 / 10;
+  }
+
+  .hub-page__scene-list--rich .hub-page__scene {
+    border-color: color-mix(in srgb, var(--color-border) 70%, #d4a84b 30%);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, transparent 92%, #d4a84b);
+  }
+
+  .hub-page__scene-list--rich .hub-page__scene-copy {
+    padding: clamp(1rem, 2.2vw, 1.35rem);
+  }
+}
+
+@media (min-width: 900px) and (prefers-reduced-motion: no-preference) {
+  .hub-page__scene-list--rich .hub-page__scene {
+    transition:
+      transform var(--motion-duration-fast, 180ms) var(--motion-easing-standard, ease),
+      border-color var(--motion-duration-fast, 180ms) var(--motion-easing-standard, ease);
+  }
+
+  .hub-page__scene-list--rich .hub-page__scene:hover {
+    transform: translateY(-0.2rem);
+    border-color: color-mix(in srgb, var(--color-border) 40%, #d4a84b 60%);
+  }
 }
 
 /* ——— Path grid ——— */

@@ -31,7 +31,7 @@ export const uiEs: UiMessages = {
       "El inicio de sesión con Google no está disponible ahora.",
     signInUnavailable: "El inicio de sesión no está disponible ahora.",
   },
-  legal: {"lastUpdated":"Última actualización","related":"Páginas legales","draftNote":"Borrador — pendiente de revisión legal","indexTitle":"Legal","indexLead":"Páginas estructurales en borrador del sitio público. No son texto legal definitivo — pendientes de revisión jurídica."},
+  legal: {"lastUpdated":"Última actualización","related":"Páginas legales","draftNote":"Políticas del sitio sobre prácticas de información y términos de uso. Preguntas: info@savencore.com.","indexTitle":"Legal","indexLead":"Privacidad, términos, cookies, accesibilidad, seguridad y avisos relacionados del sitio público. Preferencias de cookies explica que no hay CMP de consentimiento activo — use la configuración del navegador o contáctenos."},
   medicalDisclaimer: {
     short:
       "SAVEN Core no diagnostica condiciones médicas, no prescribe ni vende medicamentos, ni presta atención de emergencia a través de este sitio web. Desarrollamos sistemas pensados para apoyar a médicos, personal sanitario y personas. El contenido del sitio es informativo — no es consejo médico.",

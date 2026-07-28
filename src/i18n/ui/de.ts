@@ -31,7 +31,7 @@ export const uiDe: UiMessages = {
       "Die Anmeldung mit Google ist derzeit nicht verfügbar.",
     signInUnavailable: "Die Anmeldung ist derzeit nicht verfügbar.",
   },
-  legal: {"lastUpdated":"Zuletzt aktualisiert","related":"Rechtliche Seiten","draftNote":"Entwurf — ausstehende rechtliche Prüfung","indexTitle":"Rechtliches","indexLead":"Strukturelle Entwurfsseiten für die öffentliche Website. Kein endgültiger Rechtstext — rechtliche Prüfung ausstehend."},
+  legal: {"lastUpdated":"Zuletzt aktualisiert","related":"Rechtliche Seiten","draftNote":"Website-Richtlinien zu Informationspraktiken und Nutzungsbedingungen. Fragen: info@savencore.com.","indexTitle":"Rechtliches","indexLead":"Datenschutz, Nutzungsbedingungen, Cookies, Barrierefreiheit, Sicherheit und verwandte Hinweise für die öffentliche Website. Cookie-Einstellungen erklären, dass kein Live-CMP aktiv ist — Browser-Einstellungen nutzen oder uns kontaktieren."},
   medicalDisclaimer: {
     short:
       "SAVEN Core stellt über diese Website keine Diagnosen, verschreibt und verkauft keine Arzneimittel und leistet keine Notfallversorgung. Wir entwickeln Systeme zur Unterstützung von Ärztinnen und Ärzten, medizinischem Personal und Menschen. Website-Inhalte sind informativ — keine medizinische Beratung.",

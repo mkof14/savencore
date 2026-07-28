@@ -101,5 +101,51 @@ export const physicalWorldHomeHe: PhysicalWorldHomeContent = {
     pillars: "Support · Action · Verification · Environment · Network",
     tagline: "One Intelligence. Many Bodies. Real-World Action.",
     alt: "לוגו SAVEN והעמודים: Support, Action, Verification, Environment ו-Network. סלוגן: One Intelligence. Many Bodies. Real-World Action.",
+    exploreLabel: "חקור את SAVEN",
+    exploreHint:
+      "רחפו או התמקדו בעמוד כדי לראות את המשמעות — ואז העמיקו באתר.",
+    goDeeper: "העמיקו",
+    map: [
+      {
+        id: "support",
+        label: "Support",
+        meaning:
+          "טיפול אנושי קודם — המטרה לעזור לאנשים במקום שבו החיים מתרחשים.",
+        href: "/purpose/",
+        cta: "מטרה",
+      },
+      {
+        id: "action",
+        label: "Action",
+        meaning:
+          "פיקוד ובקרה כדי שמכונות יפעלו בעולם הפיזי תחת אנשים.",
+        href: "/systems/saven-robotics-interface/",
+        cta: "ממשק רובוטיקה",
+      },
+      {
+        id: "verification",
+        label: "Verification",
+        meaning:
+          "בטיחות, אמון ופיקוח אנושי לפני כל טענת אוטונומיה.",
+        href: "/trust/human-oversight/",
+        cta: "פיקוח אנושי",
+      },
+      {
+        id: "environment",
+        label: "Environment",
+        meaning:
+          "הקשרי יישום בעולם הפיזי — בתי חולים, בית ומעבר.",
+        href: "/applications/",
+        cta: "יישומים",
+      },
+      {
+        id: "network",
+        label: "Network",
+        meaning:
+          "ארכיטקטורת מערכות מחוברות שמקשרת מודיעין לגופים רבים.",
+        href: "/systems/",
+        cta: "מערכות",
+      },
+    ],
   },
 };

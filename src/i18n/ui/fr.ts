@@ -32,7 +32,7 @@ export const uiFr: UiMessages = {
     signInUnavailable:
       "La connexion n’est pas disponible pour le moment.",
   },
-  legal: {"lastUpdated":"Dernière mise à jour","related":"Pages juridiques","draftNote":"Brouillon — en attente de revue juridique","indexTitle":"Mentions légales","indexLead":"Pages structurelles en brouillon pour le site public. Texte juridique non définitif — en attente de revue juridique."},
+  legal: {"lastUpdated":"Dernière mise à jour","related":"Pages juridiques","draftNote":"Politiques du site sur les pratiques d’information et les conditions d’utilisation. Questions : info@savencore.com.","indexTitle":"Mentions légales","indexLead":"Confidentialité, conditions, cookies, accessibilité, sécurité et avis connexes pour le site public. Les préférences cookies indiquent qu’aucun CMP de consentement n’est actif — utilisez les réglages du navigateur ou contactez-nous."},
   medicalDisclaimer: {
     short:
       "SAVEN Core ne pose pas de diagnostics médicaux, ne prescrit ni ne vend de médicaments, et ne fournit pas de soins d'urgence via ce site. Nous développons des systèmes destinés à soutenir les médecins, les professionnels de santé et les personnes. Le contenu du site est informatif — pas un avis médical.",

@@ -1332,7 +1332,7 @@ html[data-theme="dark"] .theme-toggle--footer .theme-toggle__icon--moon {
   color: #9ec9e4;
 }
 
-/* PWA install — in Resources column of main link grid (D-0213); smaller than page links */
+/* PWA install — in Resources column; same type size as column page links (D-0215) */
 .site-footer__install {
   margin-block-start: 0.35rem;
   padding-block-start: 0.35rem;
@@ -1355,11 +1355,11 @@ button.site-footer__install-control,
   background: transparent;
   cursor: pointer;
   font: inherit;
-  font-size: 0.5625rem;
+  font-size: 0.6875rem;
   font-weight: 500;
-  letter-spacing: 0.01em;
-  line-height: 1.3;
-  color: var(--footer-ink-faint);
+  letter-spacing: -0.01em;
+  line-height: 1.22;
+  color: var(--footer-ink-soft);
   text-decoration: none;
   text-align: start;
   padding: 0;
@@ -1368,6 +1368,15 @@ button.site-footer__install-control,
   max-width: 100%;
   overflow-wrap: anywhere;
   word-break: break-word;
+}
+
+@media (min-width: 860px) {
+  .site-footer__install-control,
+  button.site-footer__install-control,
+  .site-footer__install summary.site-footer__install-control {
+    font-size: 0.75rem;
+    line-height: 1.2;
+  }
 }
 
 a.site-footer__install-control:hover,

@@ -19,6 +19,11 @@ const LivingDomains = dynamic(
   { ssr: true },
 );
 
+const ClosingExploreMap = dynamic(
+  () => import("./ClosingExploreMap").then((mod) => mod.ClosingExploreMap),
+  { ssr: true },
+);
+
 type PhysicalWorldHomeProps = {
   locale: Locale;
 };
@@ -215,24 +220,34 @@ export function PhysicalWorldHome({ locale }: PhysicalWorldHomeProps) {
       <section className="pw-closing" aria-labelledby="pw-closing-title">
         {/* Soft top overlay only — never crops the graphic */}
         <div className="pw-closing__fade-top" aria-hidden="true" />
-        <picture className="pw-closing__picture">
-          <source srcSet="/home/saven-closing-bg.webp" type="image/webp" />
-          <img
-            className="pw-closing__bg"
-            src="/home/saven-closing-bg.jpg"
-            alt={c.closing.alt}
-            width={1280}
-            height={853}
-            decoding="async"
-            loading="lazy"
+        <div className="pw-closing__stage">
+          <picture className="pw-closing__picture">
+            <source srcSet="/home/saven-closing-bg.webp" type="image/webp" />
+            <img
+              className="pw-closing__bg"
+              src="/home/saven-closing-bg.jpg"
+              alt=""
+              width={1280}
+              height={853}
+              decoding="async"
+              loading="lazy"
+            />
+          </picture>
+          <ClosingExploreMap
+            locale={locale}
+            exploreLabel={c.closing.exploreLabel}
+            exploreHint={c.closing.exploreHint}
+            goDeeper={c.closing.goDeeper}
+            pillars={c.closing.map}
           />
-        </picture>
+        </div>
         {/* Footer blend after the banner so tagline stays fully visible */}
         <div className="pw-closing__fade-bottom" aria-hidden="true" />
         <div className="pw-closing__copy visually-hidden">
           <h2 id="pw-closing-title">{c.closing.heading}</h2>
           <p>{c.closing.pillars}</p>
           <p>{c.closing.tagline}</p>
+          <p>{c.closing.alt}</p>
         </div>
       </section>
     </article>

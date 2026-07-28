@@ -16,6 +16,14 @@ export type PhysicalWorldFlagshipItem = {
   note: string;
 };
 
+export type ClosingExplorePillar = {
+  id: "support" | "action" | "verification" | "environment" | "network";
+  label: string;
+  meaning: string;
+  href: string;
+  cta: string;
+};
+
 export type PhysicalWorldHomeContent = {
   brand: string;
   heroLine: string;
@@ -49,5 +57,10 @@ export type PhysicalWorldHomeContent = {
     pillars: string;
     tagline: string;
     alt: string;
+    /** Explore SAVEN interactive map (D-0216). */
+    exploreLabel: string;
+    exploreHint: string;
+    goDeeper: string;
+    map: readonly ClosingExplorePillar[];
   };
 };

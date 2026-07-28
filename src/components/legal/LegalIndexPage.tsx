@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import { MedicalDisclaimerNotice } from "@/components/site/MedicalDisclaimerNotice";
 import type { Locale } from "@/config/locales";
-import { getLegalDraftBanner } from "@/content/legal/types";
+import { getLegalSiteNotice } from "@/content/legal/types";
 import { getNavEntryLabel } from "@/i18n/nav-label";
 import { getUi } from "@/i18n/ui";
 import { localizePath } from "@/navigation/locale-path";
@@ -14,7 +14,7 @@ type LegalIndexPageProps = {
   locale: Locale;
 };
 
-/** Structural Legal hub — lists published draft destinations (D-0181). */
+/** Legal hub — lists published Legal destinations (D-0181 / D-0216). */
 export function LegalIndexPage({ locale }: LegalIndexPageProps) {
   const ui = getUi(locale);
 
@@ -25,8 +25,8 @@ export function LegalIndexPage({ locale }: LegalIndexPageProps) {
           <p className="legal-page__eyebrow">{ui.footer.legal}</p>
           <h1 className="legal-page__title">{ui.legal.indexTitle}</h1>
           <p className="legal-page__summary">{ui.legal.indexLead}</p>
-          <p className="legal-page__banner" role="status">
-            {getLegalDraftBanner(locale)}
+          <p className="legal-page__notice" role="note">
+            {getLegalSiteNotice(locale)}
           </p>
           <MedicalDisclaimerNotice locale={locale} placement="legal" />
         </div>

@@ -13,39 +13,48 @@ export type LegalPageContent = {
   sections: readonly LegalSection[];
 };
 
-export const LEGAL_DRAFT_BANNER =
-  "DRAFT FOR STRUCTURAL PURPOSES — Not final legal text. Pending legal review. Not an active privacy notice, terms agreement, or consent UI.";
+/** Short honest site notice (D-0216) — replaces structural DRAFT banner. */
+export const LEGAL_SITE_NOTICE =
+  "These pages describe SAVEN Core information practices and terms of site use. For questions: info@savencore.com.";
 
-export const LEGAL_LAST_UPDATED = "Date pending legal review";
+/** @deprecated Use LEGAL_SITE_NOTICE — kept only to avoid stale imports during transition. */
+export const LEGAL_DRAFT_BANNER = LEGAL_SITE_NOTICE;
 
-const DRAFT_BANNER_BY_LOCALE: Record<ContentLocale, string> = {
-  en: LEGAL_DRAFT_BANNER,
-  es: "BORRADOR CON FINES ESTRUCTURALES — No es texto legal definitivo. Pendiente de revisión jurídica. No es un aviso de privacidad activo, un acuerdo de términos ni una interfaz de consentimiento.",
-  de: "ENTWURF ZU STRUKTURELLEN ZWECKEN — Kein endgültiger Rechtstext. Rechtliche Prüfung ausstehend. Keine aktive Datenschutzerklärung, keine AGB-Vereinbarung und keine Einwilligungs-UI.",
-  fr: "BROUILLON À DES FINS STRUCTURELLES — Texte juridique non définitif. En attente de revue juridique. Ce n’est pas un avis de confidentialité actif, un accord de conditions ni une interface de consentement.",
-  ja: "構成目的の草案 — 最終的な法的文書ではありません。法的レビュー待ちです。有効なプライバシー通知、利用規約の合意、または同意UIではありません。",
-  "zh-cn": "结构性草案 — 非最终法律文本。待法律审核。不是有效的隐私声明、条款协议或同意界面。",
-  ar: "مسودة لأغراض هيكلية — ليست نصًا قانونيًا نهائيًا. بانتظار المراجعة القانونية. ليست إشعار خصوصية ساريًا ولا اتفاق شروط ولا واجهة موافقة.",
-  he: "טיוטה למטרות מבניות — אינה טקסט משפטי סופי. ממתינה לסקירה משפטית. אינה הודעת פרטיות פעילה, הסכם תנאים או ממשק הסכמה.",
-  uk: "ЧЕРНЕТКА ДЛЯ СТРУКТУРНИХ ЦІЛЕЙ — Не остаточний юридичний текст. Очікує юридичного перегляду. Це не активне повідомлення про конфіденційність, угода про умови чи інтерфейс згоди.",
-  ru: "ЧЕРНОВИК ДЛЯ СТРУКТУРНЫХ ЦЕЛЕЙ — Не окончательный юридический текст. Ожидает юридической проверки. Это не действующее уведомление о конфиденциальности, соглашение об условиях и не интерфейс согласия.",
+export const LEGAL_LAST_UPDATED = "28 July 2026";
+
+const SITE_NOTICE_BY_LOCALE: Record<ContentLocale, string> = {
+  en: LEGAL_SITE_NOTICE,
+  es: "Estas páginas describen las prácticas de información de SAVEN Core y los términos de uso del sitio. Preguntas: info@savencore.com.",
+  de: "Diese Seiten beschreiben Informationspraktiken von SAVEN Core und Nutzungsbedingungen der Website. Fragen: info@savencore.com.",
+  fr: "Ces pages décrivent les pratiques d’information de SAVEN Core et les conditions d’utilisation du site. Questions : info@savencore.com.",
+  ja: "これらのページは、SAVEN Coreの情報取り扱いとサイト利用条件を説明します。お問い合わせ: info@savencore.com。",
+  "zh-cn": "这些页面说明 SAVEN Core 的信息处理做法与网站使用条款。咨询：info@savencore.com。",
+  ar: "تصف هذه الصفحات ممارسات معلومات SAVEN Core وشروط استخدام الموقع. للاستفسار: info@savencore.com.",
+  he: "דפים אלה מתארים את נוהלי המידע של SAVEN Core ואת תנאי השימוש באתר. לשאלות: info@savencore.com.",
+  uk: "Ці сторінки описують інформаційні практики SAVEN Core і умови користування сайтом. Питання: info@savencore.com.",
+  ru: "Эти страницы описывают информационные практики SAVEN Core и условия использования сайта. Вопросы: info@savencore.com.",
 };
 
 const LAST_UPDATED_BY_LOCALE: Record<ContentLocale, string> = {
   en: LEGAL_LAST_UPDATED,
-  es: "Fecha pendiente de revisión jurídica",
-  de: "Datum ausstehend — rechtliche Prüfung",
-  fr: "Date en attente de revue juridique",
-  ja: "日付は法的レビュー待ち",
-  "zh-cn": "日期待法律审核",
-  ar: "التاريخ بانتظار المراجعة القانونية",
-  he: "התאריך ממתין לסקירה משפטית",
-  uk: "Дата очікує юридичного перегляду",
-  ru: "Дата ожидает юридической проверки",
+  es: "28 de julio de 2026",
+  de: "28. Juli 2026",
+  fr: "28 juillet 2026",
+  ja: "2026年7月28日",
+  "zh-cn": "2026年7月28日",
+  ar: "28 يوليو 2026",
+  he: "28 ביולי 2026",
+  uk: "28 липня 2026",
+  ru: "28 июля 2026",
 };
 
+export function getLegalSiteNotice(locale: Locale): string {
+  return SITE_NOTICE_BY_LOCALE[resolveContentLocale(locale)];
+}
+
+/** @deprecated Prefer getLegalSiteNotice (D-0216). */
 export function getLegalDraftBanner(locale: Locale): string {
-  return DRAFT_BANNER_BY_LOCALE[resolveContentLocale(locale)];
+  return getLegalSiteNotice(locale);
 }
 
 export function getLegalLastUpdatedLabel(locale: Locale): string {

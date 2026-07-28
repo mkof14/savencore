@@ -398,10 +398,10 @@ export const uiEn = {
     lastUpdated: "Last updated",
     related: "Legal pages",
     draftNote:
-      "Draft — pending legal review. Not active privacy / terms / consent UI.",
+      "Site policies for information practices and terms of use. Questions: info@savencore.com.",
     indexTitle: "Legal",
     indexLead:
-      "Structural draft pages for the public website. Not final legal text — pending legal review. Cookie Preferences is a draft model only (no live CMP).",
+      "Privacy, terms, cookies, accessibility, security, and related notices for the public website. Cookie Preferences explains that no live consent CMP is active — use browser settings or contact us.",
   },
 
   medicalDisclaimer: {

@@ -101,5 +101,51 @@ export const physicalWorldHomeJa: PhysicalWorldHomeContent = {
     pillars: "Support · Action · Verification · Environment · Network",
     tagline: "One Intelligence. Many Bodies. Real-World Action.",
     alt: "SAVENのロゴと柱：Support、Action、Verification、Environment、Network。タグライン：One Intelligence. Many Bodies. Real-World Action.",
+    exploreLabel: "SAVENを探る",
+    exploreHint:
+      "柱にカーソルを合わせるかフォーカスして意味を確認し、サイトでさらに深掘りできます。",
+    goDeeper: "さらに見る",
+    map: [
+      {
+        id: "support",
+        label: "Support",
+        meaning:
+          "人へのケアが最優先 — 生活の場で人を支える目的です。",
+        href: "/purpose/",
+        cta: "目的",
+      },
+      {
+        id: "action",
+        label: "Action",
+        meaning:
+          "人が指揮する下で、機械が物理世界で動けるための指令と制御。",
+        href: "/systems/saven-robotics-interface/",
+        cta: "ロボティクス・インターフェース",
+      },
+      {
+        id: "verification",
+        label: "Verification",
+        meaning:
+          "自律を主張する前に、安全・信頼・人の監督。",
+        href: "/trust/human-oversight/",
+        cta: "人の監督",
+      },
+      {
+        id: "environment",
+        label: "Environment",
+        meaning:
+          "物理世界の応用文脈 — 病院、家庭、そしてその先。",
+        href: "/applications/",
+        cta: "応用",
+      },
+      {
+        id: "network",
+        label: "Network",
+        meaning:
+          "知性を多くの身体につなぐ接続システム・アーキテクチャ。",
+        href: "/systems/",
+        cta: "システム",
+      },
+    ],
   },
 };

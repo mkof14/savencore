@@ -28,7 +28,7 @@ export const uiZhCn: UiMessages = {
     googleUnavailable: "目前无法使用 Google 登录。",
     signInUnavailable: "目前无法登录。",
   },
-  legal: {"lastUpdated":"最近更新","related":"法律页面","draftNote":"草案 — 待法律审阅","indexTitle":"法律信息","indexLead":"面向公众网站的结构性草案页面。非最终法律文本 — 待法律审核。"},
+  legal: {"lastUpdated":"最近更新","related":"法律页面","draftNote":"关于信息处理做法与网站使用条款的站点政策。咨询：info@savencore.com。","indexTitle":"法律信息","indexLead":"面向公众网站的隐私、条款、Cookie、无障碍、安全及相关声明。Cookie 偏好说明当前无实时同意 CMP——请使用浏览器设置或联系我们。"},
   medicalDisclaimer: {
     short:
       "SAVEN Core 不会通过本网站进行医疗诊断、开具或销售药品，也不提供紧急医疗护理。我们开发旨在支持医生、医护人员和人们的系统。网站内容仅供信息参考——并非医疗建议。",

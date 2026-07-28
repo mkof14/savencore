@@ -203,9 +203,10 @@ export const futureLabPageEn: FlagshipBrochureContent = {
   kicker: "SAVEN Core",
   title: "Internal Future Lab",
   status: "Research",
-  lede: "The research environment of SAVEN Core — exploring advanced robotics, embodied AI, and new ways machines might carefully support human life.",
+  lede: "A new name for research at SAVEN Core — broader continuous inquiry than classic R&D, exploring advanced robotics, embodied AI, and careful support for human life.",
   body: [
-    "Internal Future Lab looks ahead of near-term systems work: new forms of robotics and manipulators, richer sensing, physical-environment modeling, and human–machine collaboration that could one day ease care in homes, clinics, and everyday places.",
+    "Internal Future Lab replaces an outdated understanding of R&D. SAVEN believes classic research-and-development thinking — siloed projects, short cycles, product-shaped pipelines — is not enough for the approach we need: continuous, embodied inquiry into how intelligence might carefully assist people in the physical world.",
+    "The Lab looks ahead of near-term systems work: new forms of robotics and manipulators, richer sensing, physical-environment modeling, and human–machine collaboration that could one day ease care in homes, clinics, and everyday places.",
     "Findings inform Robotics Lab and Interface directions. Research status means exploration and architecture — open questions, not validated devices or deployed products.",
   ],
   listHeading: "Research directions",
@@ -223,21 +224,32 @@ export const futureLabPageEn: FlagshipBrochureContent = {
   highlights: [
     {
       id: "what",
-      title: "What this is",
-      text: "A research environment for advanced robotics, embodied AI, and non-standard engineering concepts.",
+      title: "Beyond classic R&D",
+      text: "Future Lab is a deliberate new name — continuous inquiry instead of siloed research-and-development framing.",
+      icon: "horizon",
     },
     {
       id: "why",
       title: "Why it matters",
       text: "Tomorrow’s physical assistance needs careful exploration before it can serve people with dignity.",
+      icon: "care",
     },
     {
       id: "next",
       title: "Status",
       text: "Research. Exploration and architecture — not product or clinical claims.",
+      icon: "growth",
     },
   ],
   sections: [
+    {
+      id: "beyond-rd",
+      title: "Why Future Lab, not R&D",
+      paragraphs: [
+        "Classic R&D often narrows too early — discrete projects aiming at product-shaped outcomes. SAVEN chose Internal Future Lab to name a wider, continuous research environment: experiments, models, and architecture that stay open long enough to ask better questions.",
+        "This is not a product factory and not a promise of dates. It is how SAVEN holds inquiry into embodied AI, new sensing, and non-standard engineering while keeping human care as the purpose.",
+      ],
+    },
     {
       id: "directions",
       title: "Research directions",
@@ -314,7 +326,7 @@ export const labsHubPageEn: FlagshipBrochureContent = {
       id: "future-lab-overview",
       title: "Internal Future Lab",
       paragraphs: [
-        "Research environment (Research status): advanced robotics forms, embodied AI, autonomous decision-making, new sensing, physical-environment modeling, and non-standard engineering concepts.",
+        "Research environment (Research status) — a deliberate new name beyond classic R&D: advanced robotics forms, embodied AI, autonomous decision-making, new sensing, physical-environment modeling, and non-standard engineering concepts.",
       ],
     },
   ],

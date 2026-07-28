@@ -48,9 +48,25 @@ export const futureLabScenesEn: readonly HubScene[] = [
     id: "future-research",
     image: "/domain/labs/scene-future-research.webp",
     alt: "Researchers studying advanced robotic systems in a calm lab",
-    title: "Exploring what comes next",
+    title: "A lab for open questions",
     caption:
-      "Internal Future Lab studies advanced robotics and embodied AI so promising ideas can mature before they enter near-term engineering.",
+      "Future Lab is where SAVEN holds experiments and architecture longer than classic R&D cycles — so better questions can form before near-term engineering.",
+  },
+  {
+    id: "embodied-inquiry",
+    image: "/domain/technology/artificial-intelligence.webp",
+    alt: "Embodied intelligence concepts explored in a research setting",
+    title: "Embodied AI, carefully framed",
+    caption:
+      "Inquiry into embodied intelligence stays upstream: models, sensing, and decision concepts — Research status, not operational autonomy claims.",
+  },
+  {
+    id: "robotics-forms",
+    image: "/domain/labs/scene-robotics-assist.webp",
+    alt: "Advanced robotic forms explored as assistive concepts",
+    title: "New forms of robotics",
+    caption:
+      "Prospective platforms and manipulators are studied as possibilities for later governable engineering — not as finished products on display.",
   },
   {
     id: "future-human",
@@ -58,6 +74,6 @@ export const futureLabScenesEn: readonly HubScene[] = [
     alt: "Assistive robotics concept supporting a person with human oversight",
     title: "Human life as the horizon",
     caption:
-      "Concepts are judged by whether they could later ease care with dignity — not by invented deployments or product claims.",
+      "Every direction is judged by whether it could later ease care with dignity — caregivers and people remaining in authority.",
   },
 ];

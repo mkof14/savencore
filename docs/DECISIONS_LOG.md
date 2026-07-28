@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-28 (D-0214 — Email chrome restyle; remove social icons)
+**Last updated:** 2026-07-28 (D-0216 — Explore SAVEN closing map + legal interim policies)
 
 ## Rules
 
@@ -230,6 +230,7 @@
 | D-0212 | 2026-07-28 | Footer: remove Get in touch; disclaimer under socials; denser links; slogan lockup | Active |
 | D-0213 | 2026-07-28 | Admin light/dark theme + logo + accents; footer Install app in Resources | Active |
 | D-0214 | 2026-07-28 | Email chrome restyle to site tokens; remove footer social icons | Active |
+| D-0216 | 2026-07-28 | Explore SAVEN interactive closing band + legal interim policy pass | Active |
 
 ---
 
@@ -1977,6 +1978,18 @@
 - **In scope:** `src/content/admin/email-templates/brand.ts`; `docs/ADMIN_PLATFORM.md`; D-0214 + AGENTS phase pointer; type-check; commit/push; production deploy; Russian owner brief.
 - **Out of scope:** Changing per-template body copy beyond chrome; inventing social/product claims; neon/glow; CMS; public footer social behavior.
 - **Implications:** Supersedes D-0180 footer social-icon row for email only. All Admin Templates / Mailings that use `wrapEmailHtml` pick up the new chrome automatically.
+
+### D-0216 — Explore SAVEN closing band + legal interim policy pass
+
+- **Date:** 2026-07-28
+- **Status:** Active
+- **Summary:** Owner wants the homepage dark SAVEN closing graphic (Support · Action · Verification · Environment · Network) to be useful — clickable pillars plus one unique interactive feature — and legal pages without the scary structural-DRAFT banner, upgraded toward coherent public interim policies (still no invented entity/registration/DPO/GDPR-certified claims; counsel review recommended for regulated jurisdictions).
+- **Decision:**
+  1. **Explore SAVEN interactive map** on the home closing band: five pillar hotspots + keyboard-accessible rail; hover/focus reveals one-line meaning + Go deeper CTA; click navigates to published routes only — Support → `/purpose/`; Action → `/systems/saven-robotics-interface/`; Verification → `/trust/human-oversight/`; Environment → `/applications/`; Network → `/systems/`. Brand grammar retained (navy/gold on dark art; no neon). UI strings in all 10 home locales.
+  2. **Legal:** Owner authorizes removing the structural-DRAFT banner sitewide. Replace with a short honest notice (“These pages describe SAVEN Core information practices and terms of site use. For questions: info@savencore.com.”) and upgrade Legal page bodies to owner-authorized **interim site policies** (privacy, terms, cookies, accessibility, security, IP, rights, medical/research disclaimers aligned with existing Medical Disclaimer). Cookie Preferences stays honest: **no live CMP** — browser settings + contact. FAQ legal Q&As updated accordingly. Formal entity name, governing law venue, and jurisdiction-specific counsel packs remain open.
+- **In scope:** `ClosingExploreMap` + home closing CSS/content; legal `pages.ts` / types / Legal pages chrome; FAQ EN + locale dicts (merge carefully with Future Lab FAQ WIP); UI legal chrome i18n; D-0216 + AGENTS / SITE_ASSIGNMENT / IA pointers; type-check; commit/push; production deploy; Russian owner brief with link map.
+- **Out of scope:** Inventing registration/DPO/certifications; live CMP/analytics; Knowledge Passport in first viewport; neon; clobbering Future Lab Install/content WIP beyond FAQ merge.
+- **Implications:** Partially supersedes D-0154 “draft-only banner” presentation for public Legal pages — interim policies stand as owner-authorized site policies; counsel review still recommended before regulated claims. Closing band becomes a navigational Explore map rather than a static image alone.
 
 ## Pending Owner Decisions
 

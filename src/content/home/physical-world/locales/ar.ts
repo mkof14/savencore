@@ -101,5 +101,51 @@ export const physicalWorldHomeAr: PhysicalWorldHomeContent = {
     pillars: "Support · Action · Verification · Environment · Network",
     tagline: "One Intelligence. Many Bodies. Real-World Action.",
     alt: "شعار SAVEN والركائز: Support و Action و Verification و Environment و Network. الشعار النصي: One Intelligence. Many Bodies. Real-World Action.",
+    exploreLabel: "استكشف SAVEN",
+    exploreHint:
+      "مرّر المؤشر أو ركّز على ركيزة لمعرفة معناها — ثم تعمّق في الموقع.",
+    goDeeper: "تعمّق أكثر",
+    map: [
+      {
+        id: "support",
+        label: "Support",
+        meaning:
+          "الرعاية الإنسانية أولاً — غاية مساعدة الناس حيث تحدث الحياة.",
+        href: "/purpose/",
+        cta: "الغاية",
+      },
+      {
+        id: "action",
+        label: "Action",
+        meaning:
+          "قيادة وتحكم لتمكين الآلات من العمل في العالم المادي تحت إشراف الناس.",
+        href: "/systems/saven-robotics-interface/",
+        cta: "واجهة الروبوتات",
+      },
+      {
+        id: "verification",
+        label: "Verification",
+        meaning:
+          "السلامة والثقة والإشراف البشري قبل أي ادّعاء بالاستقلالية.",
+        href: "/trust/human-oversight/",
+        cta: "الإشراف البشري",
+      },
+      {
+        id: "environment",
+        label: "Environment",
+        meaning:
+          "سياقات تطبيق في العالم المادي — المستشفيات والمنزل وما بعدهما.",
+        href: "/applications/",
+        cta: "التطبيقات",
+      },
+      {
+        id: "network",
+        label: "Network",
+        meaning:
+          "هندسة أنظمة متصلة تربط الذكاء بأجسام متعددة.",
+        href: "/systems/",
+        cta: "الأنظمة",
+      },
+    ],
   },
 };

@@ -101,5 +101,51 @@ export const physicalWorldHomeUk: PhysicalWorldHomeContent = {
     pillars: "Support · Action · Verification · Environment · Network",
     tagline: "One Intelligence. Many Bodies. Real-World Action.",
     alt: "Логотип SAVEN і стовпи: Support, Action, Verification, Environment і Network. Слоган: One Intelligence. Many Bodies. Real-World Action.",
+    exploreLabel: "Дослідити SAVEN",
+    exploreHint:
+      "Наведіть або сфокусуйте стовп, щоб побачити зміст — потім перейдіть глибше сайтом.",
+    goDeeper: "Поглибитись",
+    map: [
+      {
+        id: "support",
+        label: "Support",
+        meaning:
+          "Людська турбота насамперед — мета допомагати людям там, де відбувається життя.",
+        href: "/purpose/",
+        cta: "Мета",
+      },
+      {
+        id: "action",
+        label: "Action",
+        meaning:
+          "Керування і контроль, щоб машини діяли у фізичному світі під людьми.",
+        href: "/systems/saven-robotics-interface/",
+        cta: "Robotics Interface",
+      },
+      {
+        id: "verification",
+        label: "Verification",
+        meaning:
+          "Безпека, довіра та людський нагляд перед будь-якими заявами про автономію.",
+        href: "/trust/human-oversight/",
+        cta: "Людський нагляд",
+      },
+      {
+        id: "environment",
+        label: "Environment",
+        meaning:
+          "Контексти застосування у фізичному світі — лікарні, дім і далі.",
+        href: "/applications/",
+        cta: "Застосування",
+      },
+      {
+        id: "network",
+        label: "Network",
+        meaning:
+          "Архітектура пов’язаних систем, що з’єднує інтелект із багатьма тілами.",
+        href: "/systems/",
+        cta: "Системи",
+      },
+    ],
   },
 };

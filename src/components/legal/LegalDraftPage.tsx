@@ -3,8 +3,8 @@ import Link from "next/link";
 import { MedicalDisclaimerNotice } from "@/components/site/MedicalDisclaimerNotice";
 import type { Locale } from "@/config/locales";
 import {
-  getLegalDraftBanner,
   getLegalLastUpdatedLabel,
+  getLegalSiteNotice,
 } from "@/content/legal/types";
 import type { LegalPageContent } from "@/content/legal/types";
 import { getUi } from "@/i18n/ui";
@@ -42,8 +42,8 @@ export function LegalDraftPage({ locale, content }: LegalDraftPageProps) {
             <span aria-hidden="true"> · </span>
             <span>{getLegalLastUpdatedLabel(locale)}</span>
           </p>
-          <p className="legal-page__banner" role="status">
-            {getLegalDraftBanner(locale)}
+          <p className="legal-page__notice" role="note">
+            {getLegalSiteNotice(locale)}
           </p>
           <MedicalDisclaimerNotice locale={locale} placement="legal" />
         </div>

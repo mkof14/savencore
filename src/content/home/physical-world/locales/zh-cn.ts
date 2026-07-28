@@ -101,5 +101,51 @@ export const physicalWorldHomeZhCn: PhysicalWorldHomeContent = {
     pillars: "Support · Action · Verification · Environment · Network",
     tagline: "One Intelligence. Many Bodies. Real-World Action.",
     alt: "SAVEN 标识与支柱：Support、Action、Verification、Environment 与 Network。标语：One Intelligence. Many Bodies. Real-World Action.",
+    exploreLabel: "探索 SAVEN",
+    exploreHint:
+      "悬停或聚焦支柱以了解含义——然后在站点中深入了解。",
+    goDeeper: "深入了解",
+    map: [
+      {
+        id: "support",
+        label: "Support",
+        meaning:
+          "人文关怀优先——在生活发生之处帮助人们的宗旨。",
+        href: "/purpose/",
+        cta: "宗旨",
+      },
+      {
+        id: "action",
+        label: "Action",
+        meaning:
+          "在人的指挥下，让机器在物理世界采取行动的指挥与控制。",
+        href: "/systems/saven-robotics-interface/",
+        cta: "机器人接口",
+      },
+      {
+        id: "verification",
+        label: "Verification",
+        meaning:
+          "在任何自主主张之前，先有安全、信任与人工监督。",
+        href: "/trust/human-oversight/",
+        cta: "人工监督",
+      },
+      {
+        id: "environment",
+        label: "Environment",
+        meaning:
+          "物理世界中的应用场景——医院、家庭及其他场所。",
+        href: "/applications/",
+        cta: "应用",
+      },
+      {
+        id: "network",
+        label: "Network",
+        meaning:
+          "将智能连接至多种形体的系统架构。",
+        href: "/systems/",
+        cta: "系统",
+      },
+    ],
   },
 };

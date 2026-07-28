@@ -56,7 +56,7 @@ export const faqPageEn: FaqPageContent = {
   label: "FAQ",
   title: "Questions about SAVEN Core",
   lede: "Clear answers about purpose, foundation, technology, systems, labs, trust, and how to read this site — without inventing products, customers, or guarantees.",
-  note: "Principal systems are in development. Status language and published pages remain the source of truth. Legal pages are structural drafts until counsel approval.",
+  note: "Principal systems are in development. Status language and published pages remain the source of truth. Legal pages describe site information practices and terms of use; counsel review remains recommended for regulated jurisdictions.",
   expandAll: "Expand all",
   collapseAll: "Collapse all",
   tocLabel: "Topics",
@@ -444,7 +444,23 @@ export const faqPageEn: FaqPageContent = {
           id: "labs-future",
           question: "What is Internal Future Lab?",
           answer: [
-            "Internal Future Lab explores longer-horizon research and architecture directions. Content remains directional and descriptive — not a guarantee of future products or dates.",
+            "Internal Future Lab is SAVEN Core’s research environment — and a deliberate new name that replaces an outdated understanding of classic R&D.",
+            "SAVEN believes traditional research-and-development framing is not enough for continuous, embodied inquiry into how intelligence might carefully support people in the physical world.",
+            "It explores longer-horizon directions in advanced robotics, embodied AI, sensing, and related architecture. Content remains directional and descriptive — Research status, not a guarantee of future products or dates.",
+          ],
+          links: [
+            {
+              label: "Internal Future Lab",
+              href: "/labs/internal-future-lab/",
+            },
+          ],
+        },
+        {
+          id: "labs-vs-rd",
+          question: "Why Future Lab instead of R&D?",
+          answer: [
+            "Classic R&D often implies siloed projects and product-shaped pipelines. Future Lab names a broader continuous inquiry — exploration and architecture upstream of near-term engineering — while human care remains the purpose.",
+            "It is not an Operational product claim and does not invent timelines, customers, or validated devices.",
           ],
           links: [
             {
@@ -494,7 +510,7 @@ export const faqPageEn: FaqPageContent = {
           id: "apps-medical-claims",
           question: "Does the site claim medical outcomes?",
           answer: [
-            "No. Application pages must not invent medical outcomes, approvals, or commercial availability. Medical Disclaimer and related legal drafts explain limits; they are structural drafts until counsel approval.",
+            "No. Application pages must not invent medical outcomes, approvals, or commercial availability. The Medical Disclaimer and related Legal pages explain limits — including that SAVEN Core does not diagnose, prescribe, or sell medicines through this website.",
           ],
           links: [
             {
@@ -523,7 +539,7 @@ export const faqPageEn: FaqPageContent = {
           id: "trust-what",
           question: "What does Trust cover?",
           answer: [
-            "Trust includes Privacy, Security, Safety, Human Oversight, Transparency, Ethics and Responsible Use, and Limitations — plus related legal draft destinations.",
+            "Trust includes Privacy, Security, Safety, Human Oversight, Transparency, Ethics and Responsible Use, and Limitations — plus related Legal pages.",
           ],
           links: [{ label: "Trust", href: "/trust/" }],
         },
@@ -541,14 +557,14 @@ export const faqPageEn: FaqPageContent = {
           id: "trust-responsible-ai",
           question: "What is Responsible AI here?",
           answer: [
-            "Responsible AI and Ethics pages describe careful use, limits, and governance commitments. SAVEN Core uses and advances AI; it does not claim to create AI. Legal Responsible AI content remains draft-framed until counsel approval.",
+            "Responsible AI and Ethics pages describe careful use, limits, and governance commitments. SAVEN Core uses and advances AI; it does not claim to create AI.",
           ],
           links: [
             {
               label: "Ethics and Responsible Use",
               href: "/trust/ethics-and-responsible-use/",
             },
-            { label: "Responsible AI (legal draft)", href: "/legal/responsible-ai/" },
+            { label: "Responsible AI", href: "/legal/responsible-ai/" },
           ],
         },
         {
@@ -660,7 +676,7 @@ export const faqPageEn: FaqPageContent = {
           id: "research-disclaimer",
           question: "Is there a research disclaimer?",
           answer: [
-            "Yes. A Research Disclaimer legal draft exists and remains draft-framed until counsel approval.",
+            "Yes. A Research Disclaimer Legal page explains that research materials are preliminary and do not guarantee outcomes, dates, or regulatory approval.",
           ],
           links: [
             {
@@ -934,9 +950,9 @@ export const faqPageEn: FaqPageContent = {
         },
         {
           id: "not-legal-final",
-          question: "Are legal pages final binding law?",
+          question: "Are legal pages counsel-certified for every jurisdiction?",
           answer: [
-            "No. Legal destinations are structural drafts until counsel approval. They must not be presented as effective law.",
+            "Legal pages are owner-authorized interim site policies describing information practices and terms of use. They are not a substitute for jurisdiction-specific counsel review where regulated activities apply. Contact: info@savencore.com.",
           ],
           links: [{ label: "Legal", href: "/legal/" }],
         },

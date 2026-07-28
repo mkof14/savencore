@@ -1,110 +1,116 @@
 import type { LegalPageContent } from "./types";
 
 /**
- * Structural legal page bodies derived from docs/TRUST_LEGAL_STRUCTURE.md.
- * Honest draft framing only — no invented entity details, counsel names,
- * registration numbers, or binding “effective” policy claims.
+ * Public site legal pages (D-0216) — owner-authorized interim policies.
+ * Coherent, protective, industry-standard structure. No invented entity
+ * registration, DPO names, jurisdictions, or “GDPR certified” claims.
+ * Counsel review remains recommended for regulated jurisdictions.
  */
 
 const PRIVACY_ORIENTATION =
   "Designed around privacy, controlled access, data minimization, safety, traceability, and human oversight.";
+
+const CONTACT_LINE =
+  "Questions: info@savencore.com or the Contact page at /contact/.";
 
 export const LEGAL_PAGES: readonly LegalPageContent[] = [
   {
     slug: "privacy-policy",
     title: "Privacy Policy",
     summary:
-      "Structural outline of how SAVEN Core intends to describe information practices for this website. This page is a draft for review — not a binding privacy policy.",
+      "How SAVEN Core handles information on this public website. Principal systems described elsewhere remain In Development.",
     sections: [
       {
         title: "Overview",
         paragraphs: [
-          "This draft explains the intended structure of a future Privacy Policy for the SAVEN Core public website.",
+          "This Privacy Policy describes information practices for the SAVEN Core public website (savencore.com).",
           PRIVACY_ORIENTATION,
-          "Nothing on this page asserts completed compliance, regulatory certification, or operational data processing beyond what the site currently does.",
+          "This site is primarily informational. We do not claim completed regulatory certification, and we do not sell personal information.",
         ],
       },
       {
         title: "Who we are",
         paragraphs: [
-          "Legal entity details, registered address, and formal controller identity will be stated here after owner confirmation and legal review.",
-          "Until then, treat “SAVEN Core” as the public brand name for this informational website only.",
+          "SAVEN Core is the public brand for this informational website. Formal legal entity name, registered address, and controller identity will be stated here when confirmed by the owner.",
+          "Until then, treat “SAVEN Core” as the public brand name for this website only. Copyright © 2026 SAVEN Core. All rights reserved.",
         ],
       },
       {
         title: "Scope of this policy",
         paragraphs: [
-          "Intended scope: information collected through the public website and related public communications channels that are later approved.",
-          "This draft does not cover unpublished products, investor portals, clinical systems, or third-party services that are not yet configured.",
+          "This policy covers information collected through the public website and related public channels we operate (for example Contact when used, and Sign In when enabled).",
+          "It does not cover unpublished products, clinical systems, investor portals beyond what this site publishes, or third-party sites we link to.",
         ],
       },
       {
         title: "Information we may collect",
         paragraphs: [
-          "Categories to be confirmed when actual technology is selected, for example: technical logs, language preference, theme preference stored locally, and information you voluntarily submit if contact or auth features are enabled.",
-          "Do not assume analytics, advertising, or selling of personal information are active unless a later approved policy states otherwise.",
+          "Depending on which features you use, we may process: technical logs needed to operate and secure the site; language and theme preferences stored on your device; information you voluntarily submit via Contact or similar forms; and account credentials or identity tokens if Sign In is enabled.",
+          "We do not run marketing analytics or advertising trackers on this site unless a later update of this policy says otherwise.",
         ],
       },
       {
-        title: "How we may use information",
+        title: "How we use information",
         paragraphs: [
-          "Intended uses (when features exist): operate and secure the website, remember preferences, respond to requests, and improve clarity of public information.",
-          "Uses will be limited to what is necessary and disclosed in a final reviewed policy.",
+          "We use information to operate and secure the website, remember preferences, respond to requests you send, authenticate signed-in users when Sign In is enabled, and improve clarity of public information.",
+          "We use only what is needed for those purposes.",
         ],
       },
       {
         title: "Legal bases",
         paragraphs: [
-          "Where applicable by jurisdiction, legal bases will be described after counsel review. This draft does not assert specific legal bases.",
+          "Where a privacy law requires a legal basis, we rely on bases appropriate to the activity — for example operating the site you request, responding to your communications, and legitimate interests in securing and improving an informational website — without inventing jurisdiction-specific filings here.",
         ],
       },
       {
         title: "Sharing and processors",
         paragraphs: [
-          "No partners, vendors, or processors are invented here. Any future processors (for example authentication or hosting) will be listed only when actually used and approved for disclosure.",
+          "We do not sell personal information.",
+          "Hosting, email delivery, authentication, or media storage providers may process data only to provide those services when configured. We list processors here only when actually used; we do not invent vendor names.",
         ],
       },
       {
         title: "Retention",
         paragraphs: [
-          "Retention periods will be defined when processing activities are confirmed. Local preferences such as theme or language may remain on your device until cleared.",
+          "We keep information only as long as needed for the purposes above, security, or legal obligations. Local preferences such as theme or language remain on your device until you clear them.",
         ],
       },
       {
         title: "Security practices",
         paragraphs: [
-          "SAVEN Core designs around privacy, controlled access, data minimization, safety, traceability, and human oversight.",
-          "No claim of complete security or zero risk is made.",
+          PRIVACY_ORIENTATION,
+          "No website can claim complete security or zero risk. Report suspected security issues via the public Report a Security Issue page or info@savencore.com.",
         ],
       },
       {
         title: "International transfers",
         paragraphs: [
-          "Transfer mechanisms, if any, will be described after infrastructure and counsel review. Placeholder only.",
+          "Our hosting and service providers may process data in more than one country. Where transfer safeguards are required by law, we will describe them when infrastructure and counsel confirm the details.",
         ],
       },
       {
         title: "Your rights and choices",
         paragraphs: [
-          "Regional rights pathways will be described in related draft pages. Contact channels for privacy requests will be published when approved.",
+          "Depending on where you live, you may have rights to access, correct, delete, or restrict certain personal information, or to object to certain processing. See Data Rights and Regional Privacy Rights for more detail.",
+          "To make a request, email info@savencore.com. We may need to verify your identity before responding.",
         ],
       },
       {
         title: "Children’s privacy",
         paragraphs: [
-          "Children’s privacy wording is reserved for legal review. This informational site is not directed at children.",
+          "This informational website is not directed at children. We do not knowingly collect personal information from children through this site. If you believe a child has provided information, contact info@savencore.com so we can delete it.",
         ],
       },
       {
         title: "Changes to this policy",
         paragraphs: [
-          "When a final policy is approved, material changes will be reflected with an updated date. This draft remains unlabeled as effective law.",
+          "We may update this policy as the site or practices change. The “Last updated” date on this page will change when we do. Continued use of the site after an update means you should review the revised policy.",
         ],
       },
       {
         title: "Contact for privacy requests",
         paragraphs: [
-          "A privacy contact channel will be published when approved. No email addresses are invented in this draft.",
+          CONTACT_LINE,
         ],
       },
     ],
@@ -113,72 +119,73 @@ export const LEGAL_PAGES: readonly LegalPageContent[] = [
     slug: "terms-of-use",
     title: "Terms of Use",
     summary:
-      "Structural terms outline for use of the SAVEN Core website. Draft only — pending legal review.",
+      "Terms for using the SAVEN Core public website. Informational content about systems that are principally In Development.",
     sections: [
       {
         title: "Agreement to terms",
         paragraphs: [
-          "A final Terms of Use will explain when browsing or using the site constitutes agreement. This page is not that agreement yet.",
+          "By browsing or using this website, you agree to these Terms of Use. If you do not agree, do not use the site.",
         ],
       },
       {
         title: "Nature of the website",
         paragraphs: [
-          "The website provides informational material about systems in development. It does not offer operational products, medical services, or investment solicitations by default.",
+          "The website provides informational material about intelligent systems and related work. Principal systems are in development. The site does not offer operational products for purchase, medical services, or investment solicitations by default.",
         ],
       },
       {
         title: "Intellectual property",
         paragraphs: [
-          "Site materials are intended to be protected as described in the Intellectual Property and Copyright Notice drafts.",
+          "Site materials are protected as described in the Intellectual Property, Trademark Notice, and Copyright Notice pages. Limited personal viewing is allowed; broader reuse needs permission.",
         ],
       },
       {
         title: "Acceptable use",
         paragraphs: [
-          "Visitors must not misuse the site, attempt unauthorized access, or use content in misleading ways. Detailed rules will follow legal review.",
+          "You must not misuse the site, attempt unauthorized access, disrupt service, scrape in a way that harms availability, or use content in misleading ways that imply false endorsement, partnership, or product readiness.",
         ],
       },
       {
         title: "No professional advice",
         paragraphs: [
-          "Website content is not legal, medical, investment, or other professional advice.",
+          "Website content is not legal, medical, investment, or other professional advice. Always consult a qualified professional for decisions that affect you.",
         ],
       },
       {
         title: "Disclaimers",
         paragraphs: [
-          "Informational disclaimers will be finalized by counsel. Development-status reminders remain in force across the site.",
+          "Content is provided “as is” for informational purposes. Development-status reminders across the site remain in force. See also Medical Disclaimer and Research Disclaimer.",
         ],
       },
       {
         title: "Limitation of liability",
         paragraphs: [
-          "Limitation of liability language is reserved for legal draft and approval.",
+          "To the fullest extent permitted by law, SAVEN Core is not liable for indirect, incidental, special, consequential, or punitive damages, or for loss of data, profits, or goodwill, arising from use of this informational website.",
+          "Nothing in these terms excludes liability that cannot be excluded under applicable law.",
         ],
       },
       {
         title: "Indemnity",
         paragraphs: [
-          "Indemnity language is reserved for legal draft and approval.",
+          "You agree to indemnify and hold harmless SAVEN Core from claims arising out of your misuse of the site or your violation of these terms, to the extent permitted by law.",
         ],
       },
       {
         title: "Governing law / venue",
         paragraphs: [
-          "Governing law and venue are pending legal confirmation. No jurisdiction is asserted in this draft.",
+          "Governing law and venue will be stated when the formal legal entity and counsel confirm them. Until then, mandatory consumer protections in your place of residence still apply where required by law.",
         ],
       },
       {
         title: "Changes",
         paragraphs: [
-          "Terms may change after review. Updated versions will replace drafts when approved.",
+          "We may update these terms. The “Last updated” date will change when we do. Material changes should be reviewed before continued use.",
         ],
       },
       {
         title: "Contact",
         paragraphs: [
-          "Contact details for terms questions will be published when approved.",
+          CONTACT_LINE,
         ],
       },
     ],
@@ -187,7 +194,7 @@ export const LEGAL_PAGES: readonly LegalPageContent[] = [
     slug: "cookie-policy",
     title: "Cookie Policy",
     summary:
-      "Structural explanation of cookies and similar technologies. Draft pending selection of actual site technologies and legal review.",
+      "How this site uses cookies and similar technologies. No marketing analytics or live consent CMP is claimed.",
     sections: [
       {
         title: "What cookies and similar technologies are",
@@ -198,37 +205,41 @@ export const LEGAL_PAGES: readonly LegalPageContent[] = [
       {
         title: "Types of cookies used",
         paragraphs: [
-          "A concrete list will be published when technologies are selected. Local preferences such as theme may use browser storage rather than third-party cookies.",
+          "Today, this site primarily uses local preferences such as language and theme stored in your browser. Essential operational storage may be used when Sign In or similar features are enabled.",
+          "We do not claim third-party advertising cookies or marketing analytics on this site.",
         ],
       },
       {
         title: "Purpose of each category",
         paragraphs: [
-          "Categories under consideration: essential/operational, preferences/functional, and privacy-controlled analytics if later approved. No analytics vendor is claimed here.",
+          "Essential / operational: needed for basic site function and security when those features exist.",
+          "Preferences / functional: language and theme on your device.",
+          "Analytics: not active on this site unless a later update discloses a vendor and purpose.",
         ],
       },
       {
         title: "Managing preferences",
         paragraphs: [
-          "See the Cookie Preferences draft page for the intended control structure. Non-essential tools must not be pre-checked when a consent UI is introduced.",
+          "There is no live cookie consent management platform (CMP) on this site. Manage preferences through your browser settings, or contact us with questions.",
+          "See Cookie Preferences for an honest summary of what is and is not active.",
         ],
       },
       {
         title: "Browser controls",
         paragraphs: [
-          "Most browsers allow blocking or deleting cookies. Blocking essential storage may affect basic site behavior.",
+          "Most browsers allow blocking or deleting cookies and site data. Blocking essential storage may affect Sign In or basic behavior.",
         ],
       },
       {
         title: "Updates",
         paragraphs: [
-          "This draft will be updated when real cookie use begins and after legal review.",
+          "We will update this policy if cookie or similar-technology use changes.",
         ],
       },
       {
         title: "Contact",
         paragraphs: [
-          "Cookie-related contact details will be published when approved.",
+          CONTACT_LINE,
         ],
       },
     ],
@@ -237,50 +248,51 @@ export const LEGAL_PAGES: readonly LegalPageContent[] = [
     slug: "cookie-preferences",
     title: "Cookie Preferences",
     summary:
-      "Draft preference model only. No live consent management platform (CMP) or analytics opt-in UI is active on this site.",
+      "Honest preference summary. No live consent banner, preference center, or CMP is active on this site.",
     sections: [
       {
         title: "Not an active consent UI",
         paragraphs: [
           "This page does not collect, save, or enforce cookie choices. There is no live consent banner, preference center, or CMP connected to analytics or advertising.",
-          "Draft structural copy below describes an intended future model only — pending legal review and an authorized vendor decision.",
+          "Use your browser settings to clear or block site data, or email info@savencore.com with questions.",
         ],
       },
       {
         title: "Preference summary",
         paragraphs: [
-          "When a consent system is authorized, visitors will be able to review and update non-essential preferences here.",
           "Today, no analytics or advertising cookie UI is active on this site.",
+          "Language and theme preferences, when used, are stored locally on your device.",
         ],
       },
       {
         title: "Essential cookies",
         paragraphs: [
-          "Essential/operational storage needed for basic site function remains on when such features exist. Essential items are not optional.",
+          "Essential or operational storage needed for basic site function remains on when such features exist. Essential items are not optional.",
         ],
       },
       {
         title: "Preferences / functional cookies",
         paragraphs: [
-          "Examples under consideration: language and theme preferences stored locally on your device.",
+          "Examples in use or under consideration: language and theme preferences stored locally on your device.",
         ],
       },
       {
         title: "Analytics cookies",
         paragraphs: [
-          "Analytics, if introduced later, will be privacy-controlled and vendor-disclosed. Vendor is TBD; none is claimed now.",
+          "Analytics, if introduced later, will be disclosed with vendor and purpose. None is claimed now.",
         ],
       },
       {
-        title: "Save / update controls",
+        title: "How to manage today",
         paragraphs: [
-          "Save and update controls will appear when a consent management design is approved. No dark patterns will be used. Controls shown in drafts are not functional.",
+          "Clear site data or block cookies in your browser. For Sign In sessions, signing out and clearing site data removes local session material where applicable.",
+          CONTACT_LINE,
         ],
       },
       {
         title: "Related policy",
         paragraphs: [
-          "See the Cookie Policy draft for category definitions.",
+          "See the Cookie Policy for category definitions.",
         ],
       },
     ],
@@ -289,7 +301,7 @@ export const LEGAL_PAGES: readonly LegalPageContent[] = [
     slug: "accessibility-statement",
     title: "Accessibility Statement",
     summary:
-      "Commitment structure for website accessibility. Non-absolute language; target standard WCAG 2.2 AA.",
+      "Commitment to making the public website usable for a wide range of people. Target: WCAG 2.2 AA where reasonably achievable.",
     sections: [
       {
         title: "Commitment",
@@ -306,7 +318,7 @@ export const LEGAL_PAGES: readonly LegalPageContent[] = [
       {
         title: "Measures taken / in progress",
         paragraphs: [
-          "Examples of ongoing work: semantic structure, keyboard access for primary controls, language and direction support, and reduced-motion respect for living media.",
+          "Examples of ongoing work: semantic structure, keyboard access for primary controls, language and direction support (including RTL locales), and reduced-motion respect for living media.",
         ],
       },
       {
@@ -318,13 +330,13 @@ export const LEGAL_PAGES: readonly LegalPageContent[] = [
       {
         title: "Feedback and contact",
         paragraphs: [
-          "An accessibility feedback channel will be published when approved. No contact address is invented here.",
+          "If you encounter an accessibility barrier, tell us what page and what happened. " + CONTACT_LINE,
         ],
       },
       {
         title: "Compatibility notes",
         paragraphs: [
-          "The site is intended to work with current major browsers. Assistive technology compatibility will be assessed over time.",
+          "The site is intended to work with current major browsers. Assistive technology compatibility is assessed over time.",
         ],
       },
       {
@@ -339,7 +351,7 @@ export const LEGAL_PAGES: readonly LegalPageContent[] = [
     slug: "security",
     title: "Security",
     summary:
-      "Public security posture outline for the website and related public systems. Not a certification or guarantee of complete security.",
+      "Public security posture for the website. Not a certification or guarantee of complete security.",
     sections: [
       {
         title: "Security posture overview",
@@ -357,13 +369,13 @@ export const LEGAL_PAGES: readonly LegalPageContent[] = [
       {
         title: "Vulnerability reporting",
         paragraphs: [
-          "A responsible reporting pathway will be published when approved. Do not invent security@ addresses in this draft.",
+          "Please report suspected security issues responsibly via the Report a Security Issue page or info@savencore.com. Do not publicly disclose exploit details before we can assess them.",
         ],
       },
       {
         title: "Scope and limitations",
         paragraphs: [
-          "This draft covers the public website context. It does not describe unpublished operational systems as secure deployments.",
+          "This page covers the public website context. It does not describe unpublished operational systems as secure deployments.",
         ],
       },
       {
@@ -375,7 +387,7 @@ export const LEGAL_PAGES: readonly LegalPageContent[] = [
       {
         title: "Contact / report channel",
         paragraphs: [
-          "Report channel pending approval.",
+          "Report a Security Issue: /resources/report-a-security-issue/. Or email info@savencore.com.",
         ],
       },
     ],
@@ -419,13 +431,13 @@ export const LEGAL_PAGES: readonly LegalPageContent[] = [
       {
         title: "Feedback pathway",
         paragraphs: [
-          "Feedback channels will be published when approved.",
+          CONTACT_LINE,
         ],
       },
       {
         title: "Related policies",
         paragraphs: [
-          "See Trust domain pages for governance architecture, and other Legal drafts for disclaimers.",
+          "See Trust domain pages for governance architecture, and Medical Disclaimer, Research Disclaimer, and related Legal pages for limits.",
         ],
       },
     ],
@@ -531,7 +543,7 @@ export const LEGAL_PAGES: readonly LegalPageContent[] = [
       {
         title: "Contact",
         paragraphs: [
-          "Research contact channels will be published when approved.",
+          CONTACT_LINE,
         ],
       },
     ],
@@ -540,36 +552,36 @@ export const LEGAL_PAGES: readonly LegalPageContent[] = [
     slug: "intellectual-property",
     title: "Intellectual Property",
     summary:
-      "Structural notice regarding ownership and permitted use of site materials. Draft pending legal review.",
+      "Ownership and permitted use of SAVEN Core website materials.",
     sections: [
       {
         title: "Ownership",
         paragraphs: [
-          "Unless otherwise noted, website text, design, and brand materials are owned by SAVEN Core or used under permission. Exact legal owner wording awaits entity confirmation.",
+          "Unless otherwise noted, website text, design, and brand materials are owned by SAVEN Core or used under permission. Exact legal owner wording will match the confirmed entity name when published.",
         ],
       },
       {
         title: "Permitted use of site materials",
         paragraphs: [
-          "Limited personal, non-commercial viewing of the public site is intended. Broader reuse requires permission.",
+          "Limited personal, non-commercial viewing of the public site is allowed. Broader reuse requires written permission.",
         ],
       },
       {
         title: "Prohibited use",
         paragraphs: [
-          "Do not copy, modify, or redistribute site materials in misleading ways, or imply endorsement without authorization.",
+          "Do not copy, modify, or redistribute site materials in misleading ways, or imply endorsement, partnership, or product readiness without authorization.",
         ],
       },
       {
         title: "Notice of infringement pathway",
         paragraphs: [
-          "An infringement notice process will be defined by legal counsel. Placeholder only.",
+          "To report suspected infringement of SAVEN Core materials, email info@savencore.com with enough detail to identify the material and location.",
         ],
       },
       {
         title: "Contact",
         paragraphs: [
-          "IP contact details pending approval.",
+          CONTACT_LINE,
         ],
       },
     ],
@@ -578,18 +590,18 @@ export const LEGAL_PAGES: readonly LegalPageContent[] = [
     slug: "trademark-notice",
     title: "Trademark Notice",
     summary:
-      "Brand and trademark usage guidance structure. Only confirmed marks will be listed after approval.",
+      "Brand and trademark usage guidance. Only confirmed marks are claimed.",
     sections: [
       {
         title: "Trademark list",
         paragraphs: [
-          "Confirmed marks such as SAVEN Core and related lockups will be listed here after legal confirmation. No unconfirmed marks are invented.",
+          "SAVEN Core and related logo lockups identify the public brand of this website. Additional marks will be listed only when confirmed.",
         ],
       },
       {
         title: "Correct brand usage",
         paragraphs: [
-          "Use the brand name accurately. Do not alter the logo lockup or imply affiliation without permission.",
+          "Use the brand name accurately. Do not alter the logo lockup or imply affiliation, endorsement, or partnership without permission.",
         ],
       },
       {
@@ -601,7 +613,7 @@ export const LEGAL_PAGES: readonly LegalPageContent[] = [
       {
         title: "Contact",
         paragraphs: [
-          "Trademark contact details pending approval.",
+          CONTACT_LINE,
         ],
       },
     ],
@@ -627,13 +639,13 @@ export const LEGAL_PAGES: readonly LegalPageContent[] = [
       {
         title: "Permission requests",
         paragraphs: [
-          "Permission requests will be handled through an approved contact channel when published.",
+          "For permission requests, email info@savencore.com with the material you want to use and the intended purpose.",
         ],
       },
       {
         title: "Related IP links",
         paragraphs: [
-          "See Intellectual Property and Trademark Notice drafts for related structure.",
+          "See Intellectual Property and Trademark Notice for related terms.",
         ],
       },
     ],
@@ -642,36 +654,36 @@ export const LEGAL_PAGES: readonly LegalPageContent[] = [
     slug: "data-rights",
     title: "Data Rights",
     summary:
-      "Structural overview of individual data rights concepts. Applicability depends on jurisdiction and confirmed processing.",
+      "How to exercise individual data rights related to this website. Applicability depends on jurisdiction and confirmed processing.",
     sections: [
       {
         title: "Overview of rights concepts",
         paragraphs: [
-          "Depending on region and activity, people may have rights related to access, correction, deletion, restriction, or portability. This draft does not assert which frameworks currently apply.",
+          "Depending on region and activity, people may have rights related to access, correction, deletion, restriction, or portability of personal information.",
         ],
       },
       {
         title: "Request pathways",
         paragraphs: [
-          "Request pathways will be published when processing and contact channels are confirmed.",
+          "Email info@savencore.com with “Data rights request” in the subject line and describe what you need. Or use the Contact page.",
         ],
       },
       {
         title: "Verification process",
         paragraphs: [
-          "Verification steps are placeholder until legal and operational design is complete.",
+          "We may ask for information reasonably needed to verify that you are the person the request concerns before fulfilling it.",
         ],
       },
       {
         title: "Response timing",
         paragraphs: [
-          "Response timing commitments are pending legal review.",
+          "We aim to respond within a reasonable time and within any period required by applicable law.",
         ],
       },
       {
         title: "Contact",
         paragraphs: [
-          "Data-rights contact pending approval.",
+          CONTACT_LINE,
         ],
       },
     ],
@@ -680,36 +692,36 @@ export const LEGAL_PAGES: readonly LegalPageContent[] = [
     slug: "regional-privacy-rights",
     title: "Regional Privacy Rights",
     summary:
-      "Placeholder structure for regional privacy frameworks. No applicability is asserted without legal confirmation.",
+      "Regional privacy frameworks may grant additional rights. We do not invent applicability claims for specific laws here.",
     sections: [
       {
         title: "Region sections",
         paragraphs: [
-          "Future versions may organize rights by region. Frameworks will be named only when counsel confirms relevance.",
+          "If you believe a regional privacy law applies to your interaction with this website, describe your request and region when you contact us so we can respond appropriately.",
         ],
       },
       {
-        title: "Placeholders for regional frameworks",
+        title: "No invented certification claims",
         paragraphs: [
-          "Do not read this draft as a claim that any specific regional law currently applies to SAVEN Core processing.",
+          "This page does not claim that any specific regional law currently applies, and it does not claim GDPR, CCPA, or similar certification.",
         ],
       },
       {
         title: "Rights summaries",
         paragraphs: [
-          "Region-specific summaries will be added as drafts after legal review.",
+          "Common rights concepts include access, correction, deletion, and opt-out of sale or sharing where those concepts apply. See also Do Not Sell or Share and Data Rights.",
         ],
       },
       {
         title: "Request submission method",
         paragraphs: [
-          "Submission methods pending approval.",
+          CONTACT_LINE,
         ],
       },
       {
         title: "Related links",
         paragraphs: [
-          "See Privacy Policy and Do Not Sell or Share drafts.",
+          "See Privacy Policy and Do Not Sell or Share.",
         ],
       },
     ],
@@ -718,36 +730,36 @@ export const LEGAL_PAGES: readonly LegalPageContent[] = [
     slug: "do-not-sell-or-share",
     title: "Do Not Sell or Share My Personal Information",
     summary:
-      "Structural page for sale/share opt-out concepts. Scope definitions pending legal review; no sale of personal information is claimed as a current practice.",
+      "SAVEN Core does not sell personal information from this website. Opt-out requests can still be sent where required by law.",
     sections: [
       {
         title: "Statement of purpose",
         paragraphs: [
-          "This page reserves a clear place for opt-out requests where applicable by law. It does not assert that SAVEN Core sells personal information.",
+          "SAVEN Core does not sell personal information collected through this public website. This page provides a clear place for opt-out-style requests where a law requires one.",
         ],
       },
       {
         title: "Scope definitions",
         paragraphs: [
-          "Definitions of “sell” and “share” are jurisdiction-dependent and pending legal review.",
+          "Definitions of “sell” and “share” depend on jurisdiction. We do not claim marketing data shares or advertising sale practices on this site.",
         ],
       },
       {
         title: "Request mechanism",
         paragraphs: [
-          "A request mechanism will be published when required processing and contact channels exist.",
+          "Email info@savencore.com with “Do not sell or share” in the subject line, or use the Contact page.",
         ],
       },
       {
         title: "Authorized agent process",
         paragraphs: [
-          "Authorized-agent handling is placeholder until counsel defines the process.",
+          "If an authorized agent submits a request on your behalf, we may require proof of authorization and identity verification as permitted by law.",
         ],
       },
       {
         title: "Related privacy links",
         paragraphs: [
-          "See Privacy Policy, Data Rights, and Regional Privacy Rights drafts.",
+          "See Privacy Policy, Data Rights, and Regional Privacy Rights.",
         ],
       },
     ],
@@ -756,18 +768,18 @@ export const LEGAL_PAGES: readonly LegalPageContent[] = [
     slug: "legal-notices",
     title: "Legal Notices",
     summary:
-      "Collection point for website legal notices and links to related draft documents.",
+      "Collection point for website legal notices and links to related Legal pages.",
     sections: [
       {
-        title: "Entity and contact placeholders",
+        title: "Entity and contact",
         paragraphs: [
-          "Formal legal entity name, address, and contact details will appear here after confirmation. “Inc.” is not added unless the legal name is confirmed.",
+          "Public contact for legal and policy questions: info@savencore.com. Formal legal entity name and address will appear here after owner confirmation. “Inc.” is not added unless the legal name is confirmed.",
         ],
       },
       {
         title: "Website notice collection point",
         paragraphs: [
-          "This page gathers pointers to structural legal drafts for the public website.",
+          "This page gathers pointers to Legal pages for the public website.",
         ],
       },
       {
@@ -779,7 +791,7 @@ export const LEGAL_PAGES: readonly LegalPageContent[] = [
       {
         title: "Jurisdiction notes",
         paragraphs: [
-          "Jurisdiction notes are pending counsel.",
+          "Mandatory consumer or privacy protections in your place of residence may apply regardless of the entity details still pending confirmation.",
         ],
       },
     ],

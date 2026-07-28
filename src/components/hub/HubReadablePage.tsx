@@ -31,10 +31,15 @@ export function HubReadablePage({ locale, content }: HubReadablePageProps) {
   const hasIconHighlights = Boolean(
     content.highlights?.some((item) => item.icon),
   );
+  const hasRichScenes = Boolean(
+    content.scenes && content.scenes.length >= 4,
+  );
 
   return (
     <article
-      className={`hub-page hub-page--${theme}`}
+      className={`hub-page hub-page--${theme}${
+        content.visual?.mastheadCollage?.length ? " hub-page--collage" : ""
+      }`}
       aria-labelledby={titleId}
     >
       <header className="hub-page__masthead">
@@ -152,7 +157,13 @@ export function HubReadablePage({ locale, content }: HubReadablePageProps) {
             className="hub-page__scenes"
             aria-label={ui.hub.scenes}
           >
-            <ul className="hub-page__scene-list">
+            <ul
+              className={
+                hasRichScenes
+                  ? "hub-page__scene-list hub-page__scene-list--rich"
+                  : "hub-page__scene-list"
+              }
+            >
               {content.scenes.map((scene) => (
                 <li key={scene.id} className="hub-page__scene">
                   <div className="hub-page__scene-media">

@@ -579,9 +579,10 @@
   background:
     linear-gradient(
       180deg,
-      transparent 45%,
-      rgba(10, 16, 26, 0.55) 78%,
-      rgba(10, 16, 26, 0.82) 100%
+      transparent 38%,
+      rgba(10, 16, 26, 0.42) 68%,
+      rgba(10, 16, 26, 0.78) 88%,
+      rgba(10, 16, 26, 0.88) 100%
     );
 }
 
@@ -612,6 +613,46 @@
   letter-spacing: var(--tracking-heading);
   line-height: 1.28;
   color: #eef3f7;
+  text-shadow: 0 1px 2px rgba(10, 16, 26, 0.45);
+}
+
+.pw-domains__caption-cta {
+  margin: clamp(0.65rem, 1.4vh, 0.95rem) 0 0;
+  pointer-events: auto;
+}
+
+.pw-domains__stage-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15rem;
+  max-width: 100%;
+  padding: 0.4rem 0.7rem;
+  border: 1px solid color-mix(in srgb, #eef3f7 38%, transparent);
+  background: color-mix(in srgb, #0a101a 55%, transparent);
+  color: #eef3f7;
+  font-size: 0.8125rem;
+  font-weight: 650;
+  letter-spacing: 0.03em;
+  line-height: 1.2;
+  text-decoration: none;
+  text-shadow: 0 1px 1px rgba(10, 16, 26, 0.35);
+  backdrop-filter: blur(6px);
+  transition:
+    color var(--motion-duration-fast) var(--motion-easing-standard),
+    border-color var(--motion-duration-fast) var(--motion-easing-standard),
+    background-color var(--motion-duration-fast) var(--motion-easing-standard);
+}
+
+a.pw-domains__stage-link:hover,
+a.pw-domains__stage-link:focus-visible {
+  color: var(--color-accent-strong);
+  border-color: color-mix(in srgb, var(--color-accent-strong) 70%, #eef3f7);
+  background: color-mix(in srgb, #0a101a 72%, transparent);
+}
+
+a.pw-domains__stage-link:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
 }
 
 .pw-domains__rail {

@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-28 (D-0208 — Footer socials/bar, care carousel, direction table, theme, favicon, nav hover)
+**Last updated:** 2026-07-28 (D-0209 — Footer nine equal one-row columns + care stage CTAs)
 
 ## Rules
 
@@ -220,7 +220,7 @@
 | D-0202 | 2026-07-27 | Public FAQ page (accordion, governance-safe) | Active |
 | D-0203 | 2026-07-28 | Deep FAQ Q&A translations (10 locales) + Media download polish | Active |
 | D-0204 | 2026-07-28 | Max-size favicon / PWA / apple-touch icons from brand mark | Active (fill supersede: D-0205) |
-| D-0205 | 2026-07-28 | Apple-style footer (5 columns, stacked groups) + max-fill favicon | Active (fill supersede: D-0208) |
+| D-0205 | 2026-07-28 | Apple-style footer (5 columns, stacked groups) + max-fill favicon | Superseded by D-0209 (layout); fill by D-0208 |
 | D-0206 | 2026-07-28 | Footer — more space between stacked sections; slightly smaller type; earlier 5-col row | Active |
 | D-0207 | 2026-07-28 | Theme tokens — light off-white + dark soft gray-blue; footer 5-col from ≥720px | Active (light off-white deepen: D-0208) |
 | D-0208 | 2026-07-28 | Footer socials/bar, care carousel links, direction table, footer fit, off-white deepen, favicon fill, nav one-row, Windows hover | Active |
@@ -1910,6 +1910,17 @@
 - **In scope:** `site-shell.css`, `FooterSocials` styles, `SiteFooter` bar, `LivingDomains` + home CSS/content, flagship table + eng-table polish, theme tokens/globals/site theme-color, favicon regeneration + cache bust, nav label shortenings where needed, D-0208 + AGENTS / SITE_ASSIGNMENT / IA pointers; type-check; commit/push; production deploy; restart local `:3000`; Russian A–I brief.
 - **Out of scope:** Inventing pages/routes/socials, neon/glow, binding legal, CMS/analytics, LinkedIn (still hidden).
 - **Implications:** Supersedes D-0205 favicon fill ratio and D-0207 light off-white values for page chrome; footer Architecture remains stacked under Technology within column 1.
+
+
+### D-0209 — Footer one forced row (9 equal columns) + care stage Application CTAs
+
+- **Date:** 2026-07-28
+- **Status:** Active
+- **Summary:** Owner incomplete-work pass: force every footer **section** into a **single horizontal desktop row** (Technology · Architecture · Labs · Applications · Trust · Research · Company · Resources · Legal as nine equal `minmax(0, 1fr)` columns — Architecture is its own column, never stacked under Technology); compress type/gaps and shorten a few footer-only labels so content wraps **inside** columns only. Care living carousel gains matching published Application links **on the large featured/fullscreen stage** (not only under thumbnails), with contrast scrim CTA in SAVEN grammar. Routes unchanged (healthcare / home / hospitals / emergency per scene map).
+- **Decision:** Supersede D-0205–D-0208 stacked five-column footer map for desktop layout. Accordion remains below 860px. Stage CTAs reuse the D-0208 scene→Applications route map; no invented routes.
+- **In scope:** `SiteFooter.tsx`, `site-shell.css`, `LivingDomains.tsx`, `physical-world-home.css`, footer label shortenings in nav + i18n, D-0209 + AGENTS / SITE_ASSIGNMENT / IA pointers; type-check; local `:3000` smoke; commit/push; production deploy; Russian owner brief.
+- **Out of scope:** Inventing pages/routes/socials, neon/glow, binding legal, LinkedIn, changing Application leaf inventory.
+- **Implications:** Desktop footer is nine equal tracks in one CSS grid row. Care stage CTAs are visible on the big image; rail links remain.
 
 ## Pending Owner Decisions
 

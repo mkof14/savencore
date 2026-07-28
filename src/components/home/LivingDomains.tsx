@@ -97,6 +97,15 @@ export function LivingDomains({
 
   const sectionClass = className ? `pw-domains ${className}` : "pw-domains";
 
+  const stageLinkLabel =
+    current.href && current.linkNavId
+      ? getNavEntryLabel(
+          locale,
+          current.linkNavId,
+          current.linkFallbackLabel ?? current.linkNavId,
+        )
+      : null;
+
   return (
     <section className={sectionClass} aria-labelledby={titleId}>
       <div className="pw-home__inner pw-domains__intro">
@@ -141,6 +150,17 @@ export function LivingDomains({
         <div className="pw-home__inner pw-domains__caption">
           <p className="pw-domains__caption-label">{current.label}</p>
           <p className="pw-domains__caption-line">{current.line}</p>
+          {current.href && stageLinkLabel ? (
+            <p className="pw-domains__caption-cta">
+              <Link
+                href={localizePath(locale, current.href)}
+                className="pw-domains__stage-link"
+              >
+                {stageLinkLabel}
+                <span aria-hidden="true"> →</span>
+              </Link>
+            </p>
+          ) : null}
         </div>
       </div>
 

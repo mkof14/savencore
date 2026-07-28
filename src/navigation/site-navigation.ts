@@ -311,7 +311,7 @@ export const footerNavigation: readonly FooterGroup[] = [
       ),
       published(
         "footer-labs-internal-future-lab",
-        "Internal Future Lab",
+        "Future Lab",
         "/labs/internal-future-lab/",
       ),
     ],
@@ -359,7 +359,7 @@ export const footerNavigation: readonly FooterGroup[] = [
       published("footer-resources-faq", "FAQ", "/faq/"),
       published(
         "footer-resources-security-issue",
-        "Report a Security Issue",
+        "Security Issue",
         "/resources/report-a-security-issue/",
       ),
     ],

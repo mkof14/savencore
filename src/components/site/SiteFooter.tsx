@@ -27,17 +27,9 @@ type SiteFooterProps = {
 };
 
 /**
- * Apple-style footer columns (D-0205): five equal desktop tracks; within each
- * track, category blocks stack vertically. Supersedes D-0199 / D-0200 layouts.
+ * Apple-style footer (D-0209): each published section is its own equal column
+ * in one forced desktop row — Architecture never stacks under Technology.
  */
-const FOOTER_COLUMN_GROUP_IDS = [
-  ["technology", "architecture"],
-  ["labs", "applications"],
-  ["trust", "research"],
-  ["company", "resources"],
-  ["legal"],
-] as const;
-
 /** Layer 2 depth map — published domain destinations + Architecture + Legal. */
 export function SiteFooter({
   locale,
@@ -47,7 +39,7 @@ export function SiteFooter({
   const [isCompact, setIsCompact] = useState(false);
 
   useEffect(() => {
-    const media = window.matchMedia("(max-width: 719px)");
+    const media = window.matchMedia("(max-width: 859px)");
     const sync = () => setIsCompact(media.matches);
     sync();
     media.addEventListener("change", sync);
@@ -60,14 +52,6 @@ export function SiteFooter({
       links: group.links.filter(isFooterLinkPublished),
     }))
     .filter((group) => group.links.length > 0);
-
-  const groupsById = new Map(groups.map((group) => [group.id, group]));
-
-  const footerColumns = FOOTER_COLUMN_GROUP_IDS.map((ids) =>
-    ids
-      .map((id) => groupsById.get(id))
-      .filter((group): group is (typeof groups)[number] => Boolean(group)),
-  ).filter((column) => column.length > 0);
 
   const renderGroup = (group: (typeof groups)[number]) => {
     const title = getFooterGroupTitle(locale, group.id, group.title);
@@ -144,12 +128,12 @@ export function SiteFooter({
         </div>
 
         <div className="site-footer__grid">
-          {footerColumns.map((column, columnIndex) => (
+          {groups.map((group, columnIndex) => (
             <div
-              key={column.map((group) => group.id).join("-")}
+              key={group.id}
               className={`site-footer__column site-footer__column--${columnIndex + 1}`}
             >
-              {column.map(renderGroup)}
+              {renderGroup(group)}
             </div>
           ))}
         </div>

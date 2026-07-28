@@ -47,7 +47,7 @@ export function SiteFooter({
   const [isCompact, setIsCompact] = useState(false);
 
   useEffect(() => {
-    const media = window.matchMedia("(max-width: 899px)");
+    const media = window.matchMedia("(max-width: 719px)");
     const sync = () => setIsCompact(media.matches);
     sync();
     media.addEventListener("change", sync);

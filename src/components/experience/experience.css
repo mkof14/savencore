@@ -5,11 +5,11 @@
  */
 
 :root {
-  --xp-ink: #0b1220;
-  --xp-ink-soft: #243044;
-  --xp-paper: #f2f5f7;
-  --xp-paper-deep: #e6ecef;
-  --xp-field: #ffffff;
+  --xp-ink: var(--color-text);
+  --xp-ink-soft: #3a3f4a;
+  --xp-paper: var(--color-background);
+  --xp-paper-deep: var(--color-surface-muted);
+  --xp-field: var(--color-surface);
   --xp-tech: #0d3b45;
   --xp-tech-wash: #d9e8eb;
   --xp-systems: #172554;
@@ -23,16 +23,16 @@
 }
 
 html[data-theme="dark"] {
-  --xp-ink: #eef3f7;
-  --xp-ink-soft: #c5d0de;
-  --xp-paper: #0b1220;
-  --xp-paper-deep: #151d2e;
-  --xp-field: #151d2e;
-  --xp-tech-wash: color-mix(in srgb, #0d3b45 38%, #0b1220);
-  --xp-systems-wash: color-mix(in srgb, #172554 42%, #0b1220);
-  --xp-apps-wash: color-mix(in srgb, #1a3328 40%, #0b1220);
-  --xp-trust-wash: color-mix(in srgb, #3b2418 36%, #0b1220);
-  --xp-research-wash: color-mix(in srgb, #0f2744 40%, #0b1220);
+  --xp-ink: var(--color-field-ink);
+  --xp-ink-soft: #c5c9d1;
+  --xp-paper: var(--color-field);
+  --xp-paper-deep: var(--color-field-elevated);
+  --xp-field: var(--color-field-elevated);
+  --xp-tech-wash: color-mix(in srgb, #0d3b45 38%, var(--color-field));
+  --xp-systems-wash: color-mix(in srgb, #172554 42%, var(--color-field));
+  --xp-apps-wash: color-mix(in srgb, #1a3328 40%, var(--color-field));
+  --xp-trust-wash: color-mix(in srgb, #3b2418 36%, var(--color-field));
+  --xp-research-wash: color-mix(in srgb, #0f2744 40%, var(--color-field));
 }
 
 /*
@@ -40,10 +40,10 @@ html[data-theme="dark"] {
  * Dark theme keeps the navy chrome menu treatment.
  */
 html[data-theme="dark"] .site-header {
-  background: #0b1220;
+  background: var(--color-field);
   border-block-end: 1px solid rgba(238, 243, 247, 0.12);
-  color: #eef3f7;
-  --color-text: #eef3f7;
+  color: var(--color-field-ink);
+  --color-text: var(--color-field-ink);
   --color-text-secondary: rgba(238, 243, 247, 0.78);
   --color-accent-text: #d4a84b;
   --color-border: rgba(238, 243, 247, 0.22);
@@ -54,12 +54,12 @@ html[data-theme="dark"] .site-header .desktop-nav__trigger,
 html[data-theme="dark"] .site-header .language-selector__summary,
 html[data-theme="dark"] .site-header .mobile-nav-toggle,
 html[data-theme="dark"] .site-header .site-header__text-link {
-  color: #eef3f7;
+  color: var(--color-field-ink);
 }
 
 html[data-theme="dark"] .site-header .desktop-nav__link.is-active,
 html[data-theme="dark"] .site-header .desktop-nav__trigger[aria-expanded="true"] {
-  color: #ffffff;
+  color: #f5f5f7;
   text-decoration-color: var(--color-accent);
 }
 
@@ -80,35 +80,35 @@ html[data-theme="dark"] .site-header .theme-toggle:focus-visible {
 }
 
 html[data-theme="dark"] .site-header .language-selector__panel {
-  background: #132033;
+  background: var(--color-field-elevated);
   border-color: rgba(238, 243, 247, 0.16);
-  color: #eef3f7;
+  color: var(--color-field-ink);
 }
 
 html[data-theme="dark"] .site-header .language-selector__option {
-  color: #eef3f7;
+  color: var(--color-field-ink);
 }
 
 html[data-theme="dark"] .site-header .language-selector__option:hover,
 html[data-theme="dark"] .site-header .language-selector__option:focus-visible,
 html[data-theme="dark"] .site-header .language-selector__option[aria-current="true"] {
-  background: #1c2a3f;
+  background: var(--color-field-mid);
   color: var(--color-accent);
 }
 
 html[data-theme="dark"] .site-header .desktop-nav__panel {
-  background: #132033;
+  background: var(--color-field-elevated);
   border-color: rgba(238, 243, 247, 0.16);
 }
 
 html[data-theme="dark"] .site-header .desktop-nav__panel-link {
-  color: #eef3f7;
+  color: var(--color-field-ink);
 }
 
 html[data-theme="dark"] .site-header .desktop-nav__panel-link:hover,
 html[data-theme="dark"] .site-header .desktop-nav__panel-link:focus-visible {
-  background: #1c2a3f;
-  color: #eef3f7;
+  background: var(--color-field-mid);
+  color: var(--color-field-ink);
 }
 
 html[data-theme="dark"] .site-header .utility-nav__link {
@@ -117,18 +117,18 @@ html[data-theme="dark"] .site-header .utility-nav__link {
 
 html[data-theme="dark"] .site-header .utility-nav__link:hover,
 html[data-theme="dark"] .site-header .utility-nav__link[aria-current="page"] {
-  color: #eef3f7;
+  color: var(--color-field-ink);
 }
 
 html[data-theme="dark"] .site-header .mobile-nav-toggle {
-  background: #0b1220;
+  background: var(--color-field);
   border-color: rgba(238, 243, 247, 0.22);
-  color: #eef3f7;
+  color: var(--color-field-ink);
 }
 
 html[data-theme="dark"] .site-header .mobile-nav-toggle:hover {
-  background: #132033;
-  color: #ffffff;
+  background: var(--color-field-elevated);
+  color: #f5f5f7;
 }
 
 /* ——— Knowledge heroes: unique compositions ——— */

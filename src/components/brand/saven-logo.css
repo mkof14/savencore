@@ -2,8 +2,8 @@
 
 .saven-logo {
   --saven-gold: var(--color-accent);
-  --saven-navy: #0b1220;
-  --saven-ink: #ffffff;
+  --saven-navy: #1c1f26;
+  --saven-ink: #f5f5f7;
 
   display: inline-flex;
   align-items: center;
@@ -284,11 +284,11 @@ html[dir="rtl"] .saven-logo__mark {
 /* Hero / dark surfaces: SAVEN reads as logo ink */
 .pw-hero__brand .brand-name__saven,
 .kx-hero__brand .brand-name__saven {
-  color: #ffffff;
+  color: #f5f5f7;
 }
 
 html[data-theme="dark"] .auth-sign-in__title .brand-name__saven {
-  color: #ffffff;
+  color: #f5f5f7;
 }
 
 .pw-hero__brand .brand-name__core,

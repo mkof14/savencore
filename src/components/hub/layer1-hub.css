@@ -22,8 +22,8 @@
   min-height: clamp(22rem, 58vh, 32rem);
   display: grid;
   align-items: end;
-  background: #0b1220;
-  color: #eef3f7;
+  background: var(--color-field);
+  color: var(--color-field-ink);
 }
 
 @media (max-width: 720px) {
@@ -59,7 +59,12 @@
       color-mix(in srgb, var(--color-accent) 28%, transparent) 0%,
       transparent 55%
     ),
-    linear-gradient(160deg, #0b1220 0%, #152033 55%, #0b1220 100%);
+    linear-gradient(
+      160deg,
+      var(--color-field) 0%,
+      var(--color-field-elevated) 55%,
+      var(--color-field) 100%
+    );
 }
 
 .hub-page__masthead-image {
@@ -104,15 +109,15 @@
   background:
     linear-gradient(
       180deg,
-      rgba(11, 18, 32, 0.22) 0%,
-      rgba(11, 18, 32, 0.4) 48%,
-      rgba(11, 18, 32, 0.78) 100%
+      rgba(28, 31, 38, 0.22) 0%,
+      rgba(28, 31, 38, 0.4) 48%,
+      rgba(28, 31, 38, 0.78) 100%
     ),
     linear-gradient(
       90deg,
-      rgba(11, 18, 32, 0.7) 0%,
-      rgba(11, 18, 32, 0.18) 58%,
-      rgba(11, 18, 32, 0.26) 100%
+      rgba(28, 31, 38, 0.7) 0%,
+      rgba(28, 31, 38, 0.18) 58%,
+      rgba(28, 31, 38, 0.26) 100%
     );
 }
 
@@ -142,15 +147,15 @@
   background:
     linear-gradient(
       180deg,
-      rgba(11, 18, 32, 0.35) 0%,
-      rgba(11, 18, 32, 0.55) 42%,
-      rgba(11, 18, 32, 0.92) 100%
+      rgba(28, 31, 38, 0.35) 0%,
+      rgba(28, 31, 38, 0.55) 42%,
+      rgba(28, 31, 38, 0.92) 100%
     ),
     linear-gradient(
       90deg,
-      rgba(11, 18, 32, 0.72) 0%,
-      rgba(11, 18, 32, 0.28) 55%,
-      rgba(11, 18, 32, 0.45) 100%
+      rgba(28, 31, 38, 0.72) 0%,
+      rgba(28, 31, 38, 0.28) 55%,
+      rgba(28, 31, 38, 0.45) 100%
     );
 }
 
@@ -180,7 +185,7 @@
   height: auto;
   object-fit: contain;
   mix-blend-mode: lighten;
-  filter: drop-shadow(0 1px 10px rgba(11, 18, 32, 0.45));
+  filter: drop-shadow(0 1px 10px rgba(28, 31, 38, 0.45));
 }
 
 /* Purpose collage already dense — keep falcon quieter */

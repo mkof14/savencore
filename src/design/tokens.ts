@@ -11,16 +11,16 @@ import { spacing, spacingPx, SPACING_SCALE_PX } from "./spacing";
 import { fontFamily, typography } from "./typography";
 
 /**
- * Light-primary neutral palette for engineering clarity.
+ * Light-primary neutral palette (D-0207) — cool off-white chrome, not pure white.
  * Intentionally avoids purple/indigo AI gradients and warm cream template looks.
  */
 export const color = {
-  background: "#ffffff",
-  surface: "#f4f4f5",
-  text: "#18181b",
-  textSecondary: "#52525b",
-  border: "#e4e4e7",
-  divider: "#d4d4d8",
+  background: "#f5f5f7",
+  surface: "#fafafb",
+  text: "#1a1d24",
+  textSecondary: "#3a3f4a",
+  border: "#d8d8dc",
+  divider: "#c8c8ce",
   success: "#15803d",
   warning: "#a16207",
   error: "#b91c1c",
@@ -41,16 +41,16 @@ export const signal = {
 export type ColorToken = keyof typeof color;
 
 /**
- * Controlled dark surface tokens for limited technology sections later.
- * Not a sitewide dark theme. Do not use as the default environment.
+ * Controlled dark surface tokens — soft charcoal gray-blue (D-0207).
+ * Matches sitewide dark theme / atmospheric field; not deep template navy.
  */
 export const colorDarkSection = {
-  background: "#18181b",
-  surface: "#27272a",
-  text: "#fafafa",
-  textSecondary: "#a1a1aa",
-  border: "#3f3f46",
-  divider: "#52525b",
+  background: "#1c1f26",
+  surface: "#252830",
+  text: "#eef3f7",
+  textSecondary: "#c5c9d1",
+  border: "#3a3e48",
+  divider: "#454954",
 } as const;
 
 export const tokens = {

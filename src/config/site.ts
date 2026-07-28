@@ -20,5 +20,5 @@ export const SITE_OG_IMAGE_ALT = "SAVEN Core";
 /** Approved falcon brand mark used in chrome and domain mastheads. */
 export const SITE_FALCON_MARK_PATH = "/brand/saven-logo-mark.webp";
 
-export const SITE_THEME_COLOR_LIGHT = "#f4f6f8";
-export const SITE_THEME_COLOR_DARK = "#0b1220";
+export const SITE_THEME_COLOR_LIGHT = "#f5f5f7";
+export const SITE_THEME_COLOR_DARK = "#1c1f26";

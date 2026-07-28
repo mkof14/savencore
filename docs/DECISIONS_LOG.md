@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-28 (D-0206 — Footer section spacing + slightly smaller type)
+**Last updated:** 2026-07-28 (D-0207 — Off-white / soft gray-blue theme + footer one-row earlier)
 
 ## Rules
 
@@ -222,6 +222,7 @@
 | D-0204 | 2026-07-28 | Max-size favicon / PWA / apple-touch icons from brand mark | Active (fill supersede: D-0205) |
 | D-0205 | 2026-07-28 | Apple-style footer (5 columns, stacked groups) + max-fill favicon | Active |
 | D-0206 | 2026-07-28 | Footer — more space between stacked sections; slightly smaller type; earlier 5-col row | Active |
+| D-0207 | 2026-07-28 | Theme tokens — light off-white + dark soft gray-blue; footer 5-col from ≥720px | Active |
 
 ---
 
@@ -1888,6 +1889,16 @@
 - **In scope:** `site-shell.css` footer grid/type; D-0206 + AGENTS / SITE_ASSIGNMENT / IA pointers; type-check; commit/push; production deploy; local smoke; Russian owner brief.
 - **Out of scope:** Changing footer link inventory, inventing social URLs, Legal More hub, navigation taxonomy, inventing pages, neon/glow.
 - **Implications:** Refines D-0205 spacing/type only; five-column Apple map and column pairing remain.
+
+### D-0207 — Off-white / soft gray-blue theme + footer one-row earlier
+
+- **Date:** 2026-07-28
+- **Status:** Active
+- **Summary:** Escape generic AI-template page chrome: light theme uses cool **off-white** (not pure `#fff`); dark theme and atmospheric fields use **soft charcoal gray-blue** (not deep template navy `#0b1220`); keep Apple-style five-column footer in **one horizontal row** from typical laptop widths (≥720px).
+- **Decision:** Owner requires (1) desktop footer remains a single row of five equal columns (D-0205 map), compact with good gaps — lower breakpoint 800px → **720px** and sync accordion `matchMedia` to `max-width: 719px`; (2) light page/body/main/surface chrome → Apple-adjacent off-white family (`#f5f5f7` background, `#fafafb` surface, `#eeeff2` muted) — avoid pure white as default page bg; (3) dark backgrounds and atmospheric hero/masthead fields → muted soft gray-blue (`#1c1f26` field / dark bg, `#252830` elevated, `#2a2e38` mid) instead of `#0b1220` / similar navy freezes; migrate hardcoded fills to `--color-*` / `--color-field*` tokens across home, hubs, experience chrome, media, admin, email brand navy, theme-color meta; keep gold accents, straight corners, brand lockup; no neon; preserve WCAG-ish text contrast (ink `#1a1d24` on off-white). Socials/legal bottom bar and stacked section groups within columns unchanged.
+- **In scope:** `app/globals.css` tokens; `src/design/tokens.ts`; `src/config/site.ts` theme colors; footer CSS/JS breakpoint; CSS migrations for hardcoded `#fff` / `#0b1220` backgrounds; D-0207 + AGENTS / SITE_ASSIGNMENT / IA pointers; type-check; local smoke; commit/push; production deploy; Russian owner brief (token values + footer note).
+- **Out of scope:** Changing footer link inventory, inventing social URLs, navigation taxonomy, inventing pages, neon/glow, rewriting diagram stroke color-mix endpoints that use `#fff` only as a lighten mix (not page chrome).
+- **Implications:** Light and dark theme toggles both read intentional (off-white paper / soft charcoal field). Prior navy `#0b1220` remains only where unused; atmospheric bands share `--color-field` in both themes.
 
 ## Pending Owner Decisions
 

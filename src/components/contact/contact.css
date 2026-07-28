@@ -261,7 +261,7 @@
   appearance: none;
   border: 1px solid color-mix(in srgb, var(--color-accent) 70%, transparent);
   background: var(--color-accent);
-  color: #0b1220;
+  color: var(--color-ink-fixed);
   font: inherit;
   font-weight: var(--weight-semibold);
   letter-spacing: 0.02em;

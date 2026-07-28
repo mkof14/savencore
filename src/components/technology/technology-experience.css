@@ -9,8 +9,8 @@
   --tech-mid: #164853;
   --tech-lift: #1f5c69;
   --tech-mist: #d9e8eb;
-  --tech-paper: #f2f5f7;
-  --tech-field: #ffffff;
+  --tech-paper: var(--color-background);
+  --tech-field: var(--color-surface);
   --tech-line: rgba(232, 243, 245, 0.28);
   --tech-secondary: #3d4a5c;
 
@@ -479,7 +479,7 @@
 }
 
 .tech-x-next__link--primary:hover {
-  background: #ffffff;
+  background: #f5f5f7;
 }
 
 /* ——— Professional dossier (kept, visually quiet) ——— */

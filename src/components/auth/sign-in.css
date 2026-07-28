@@ -270,7 +270,7 @@ html[dir="rtl"] .auth-sign-in__back-arrow {
   padding: var(--space-12) var(--space-20);
   border: 1px solid color-mix(in srgb, var(--color-accent) 55%, transparent);
   background: var(--color-accent);
-  color: #0b1220;
+  color: var(--color-ink-fixed);
   font-size: 1rem;
   font-weight: 650;
   cursor: pointer;
@@ -370,7 +370,7 @@ html[data-theme="dark"] .auth-sign-in {
     color-mix(in srgb, #1a2438 94%, var(--color-accent)) 0%,
     #121a2a 100%
   );
-  --auth-field-bg: color-mix(in srgb, var(--color-background) 70%, #152033);
+  --auth-field-bg: color-mix(in srgb, var(--color-background) 70%, var(--color-field-elevated));
   --auth-field-border: color-mix(in srgb, #eef3f7 18%, transparent);
   --auth-error-bg: color-mix(in srgb, var(--color-background) 55%, #2a1820);
   --auth-error-ink: #f5e6e3;

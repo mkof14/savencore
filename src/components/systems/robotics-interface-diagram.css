@@ -2,7 +2,7 @@
 
 .rid {
   --rid-navy: #0c1628;
-  --rid-navy-mid: #152033;
+  --rid-navy-mid: #252830;
   --rid-blue: #5b8db8;
   --rid-blue-soft: #7eb8c9;
   --rid-teal: #5ec4b8;
@@ -312,7 +312,7 @@
   letter-spacing: 0.07em;
   fill: #fff8e8;
   paint-order: stroke fill;
-  stroke: color-mix(in srgb, #0b1220 60%, transparent);
+  stroke: color-mix(in srgb, #1c1f26 60%, transparent);
   stroke-width: 2.6px;
 }
 

@@ -24,14 +24,18 @@
   --space-64: 4rem;
   --space-96: 6rem;
 
-  /* Experience palette — calm ink on cool paper */
-  --color-background: #f2f5f7;
-  --color-surface: #ffffff;
-  --color-surface-muted: #e8eef2;
-  --color-text: #0b1220;
-  --color-text-secondary: #3a4556;
-  --color-border: #d5dde4;
-  --color-divider: #c8d2db;
+  /*
+   * Experience palette (D-0207) — escape template pure-white / deep-navy fills.
+   * Light: Apple-adjacent cool off-white page chrome (never pure #fff as default).
+   * Dark / atmospheric field: soft charcoal gray-blue (muted, less saturated).
+   */
+  --color-background: #f5f5f7;
+  --color-surface: #fafafb;
+  --color-surface-muted: #eeeff2;
+  --color-text: #1a1d24;
+  --color-text-secondary: #3a3f4a;
+  --color-border: #d8d8dc;
+  --color-divider: #c8c8ce;
   --color-success: #15803d;
   --color-warning: #a16207;
   --color-error: #b91c1c;
@@ -44,8 +48,14 @@
   --color-accent-muted: color-mix(in srgb, var(--color-accent-text) 78%, transparent);
   --color-accent-soft: color-mix(in srgb, var(--color-accent) 16%, transparent);
   --color-accent-line: color-mix(in srgb, var(--color-accent) 55%, transparent);
-  --color-ink-fixed: #0b1220;
-  --color-paper-fixed: #f2f5f7;
+  --color-ink-fixed: #1a1d24;
+  --color-paper-fixed: #f5f5f7;
+
+  /* Atmospheric dark field — hero / mastheads / dark chrome (both themes) */
+  --color-field: #1c1f26;
+  --color-field-elevated: #252830;
+  --color-field-mid: #2a2e38;
+  --color-field-ink: #eef3f7;
 
   /* Functional accents — meaning markers only (borders/dots), not fills */
   --signal-human: #0f4c5c;
@@ -173,13 +183,13 @@ body {
 
 /* Dark chrome: antialiased reads cleaner on ink fields (Apple pattern) */
 html[data-theme="dark"] {
-  --color-background: #0b1220;
-  --color-surface: #151d2e;
-  --color-surface-muted: #1a2438;
+  --color-background: #1c1f26;
+  --color-surface: #252830;
+  --color-surface-muted: #2c303a;
   --color-text: #eef3f7;
-  --color-text-secondary: #c5d0de;
-  --color-border: #2a3648;
-  --color-divider: #334155;
+  --color-text-secondary: #c5c9d1;
+  --color-border: #3a3e48;
+  --color-divider: #454954;
   --color-accent-text: #d4a84b;
   --color-accent-muted: color-mix(in srgb, var(--color-accent) 72%, transparent);
   -webkit-font-smoothing: antialiased;

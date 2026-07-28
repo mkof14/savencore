@@ -3,7 +3,7 @@ import { getSocialLinks } from "@/config/social";
 
 /** Brand accent matching site `--color-accent` (gold). */
 export const EMAIL_GOLD = "#d4a84b";
-export const EMAIL_NAVY = "#0b1220";
+export const EMAIL_NAVY = "#1c1f26";
 export const EMAIL_NAVY_INK = "#f4f6f8";
 export const EMAIL_MUTED = "#c5ced9";
 export const EMAIL_BODY = "#3a4550";
@@ -230,7 +230,7 @@ function footerHtml(): string {
     </td>
   </tr>
   <tr>
-    <td style="background:#ffffff;padding:18px 28px 22px;text-align:center;">
+    <td style="background:#f5f5f7;padding:18px 28px 22px;text-align:center;">
       <div style="font-family:${EMAIL_FONT};font-size:11px;line-height:1.45;color:#8a93a0;margin:0 0 14px;">${escapeHtml(copyright)}</div>
       <table role="presentation" cellpadding="0" cellspacing="0" align="center" style="margin:0 auto;">
         <tr>
@@ -317,7 +317,7 @@ export function wrapEmailHtml(options: {
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#e8ecf1;padding:28px 12px;">
     <tr>
       <td align="center">
-        <table role="presentation" class="email-shell" width="100%" cellpadding="0" cellspacing="0" style="max-width:640px;background:#ffffff;border:1px solid #d5dbe3;">
+        <table role="presentation" class="email-shell" width="100%" cellpadding="0" cellspacing="0" style="max-width:640px;background:#f5f5f7;border:1px solid #d5dbe3;">
           <tr>
             <td style="padding:0;">
               ${headerHtml()}

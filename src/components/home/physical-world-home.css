@@ -21,8 +21,8 @@
 
 .pw-hero {
   /* Atmospheric field stays dark in both themes (D-0172); page shell flips. */
-  --pw-hero-field: #0b1220;
-  --pw-hero-ink: #eef3f7;
+  --pw-hero-field: var(--color-field);
+  --pw-hero-ink: var(--color-field-ink);
   position: relative;
   overflow: hidden;
   width: 100%;

@@ -562,11 +562,11 @@ html[data-theme="dark"] .site-footer {
   --footer-ink-soft: rgba(232, 238, 245, 0.78);
   --footer-ink-faint: rgba(232, 238, 245, 0.55);
   --footer-rule: rgba(232, 238, 245, 0.14);
-  --footer-panel: #162033;
+  --footer-panel: var(--color-field-elevated);
   border-block-start-color: var(--footer-rule);
   background:
-    radial-gradient(90% 60% at 0% 0%, rgba(61, 120, 140, 0.18) 0%, transparent 50%),
-    linear-gradient(180deg, #0b1220 0%, #121a2b 100%);
+    radial-gradient(90% 60% at 0% 0%, rgba(61, 120, 140, 0.14) 0%, transparent 50%),
+    linear-gradient(180deg, var(--color-field) 0%, var(--color-field-elevated) 100%);
   color: var(--footer-ink);
   --color-accent-text: #d4a84b;
   --color-accent-muted: color-mix(in srgb, #d4a84b 72%, transparent);
@@ -580,7 +580,7 @@ html[data-theme="dark"] .site-footer {
   gap: var(--space-24);
 }
 
-@media (min-width: 800px) {
+@media (min-width: 720px) {
   .site-footer__inner {
     gap: var(--space-32);
   }
@@ -723,7 +723,7 @@ a.site-footer__social-link:focus-visible {
   border: 0;
 }
 
-/* Footer depth map — Apple-style 5 columns with stacked groups (D-0205/D-0206); accordion on narrow. */
+/* Footer depth map — Apple-style 5 columns with stacked groups (D-0205–D-0207); accordion on narrow. */
 .site-footer__grid {
   display: grid;
   gap: 0;
@@ -738,10 +738,11 @@ a.site-footer__social-link:focus-visible {
   min-width: 0;
 }
 
-@media (min-width: 800px) {
+/* One horizontal row from typical laptop widths (D-0207; was 800px in D-0206). */
+@media (min-width: 720px) {
   .site-footer__grid {
     grid-template-columns: repeat(5, minmax(0, 1fr));
-    column-gap: var(--space-16);
+    column-gap: clamp(0.75rem, 1.6vw, 1.5rem);
     row-gap: 0;
     padding-block: var(--space-4) var(--space-24);
   }
@@ -805,7 +806,7 @@ a.site-footer__social-link:focus-visible {
   content: "−";
 }
 
-@media (min-width: 800px) {
+@media (min-width: 720px) {
   .site-footer__group-title::after {
     display: none;
   }
@@ -833,7 +834,7 @@ a.site-footer__social-link:focus-visible {
   display: flex;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 720px) {
   .site-footer__list {
     padding-block-end: 0;
     gap: 0.25rem;

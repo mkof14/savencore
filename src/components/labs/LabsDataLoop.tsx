@@ -69,13 +69,13 @@ export function LabsDataLoop({ labels }: LabsDataLoopProps) {
             </linearGradient>
             <radialGradient id={savenGrad} cx="40%" cy="35%" r="70%">
               <stop offset="0%" stopColor="#2a4060" />
-              <stop offset="55%" stopColor="#152033" />
-              <stop offset="100%" stopColor="#0b1220" />
+              <stop offset="55%" stopColor="#252830" />
+              <stop offset="100%" stopColor="#1c1f26" />
             </radialGradient>
             <radialGradient id={savenCoreGrad} cx="42%" cy="38%" r="65%">
               <stop offset="0%" stopColor="#3a4a62" />
-              <stop offset="55%" stopColor="#152033" />
-              <stop offset="100%" stopColor="#0b1220" />
+              <stop offset="55%" stopColor="#252830" />
+              <stop offset="100%" stopColor="#1c1f26" />
             </radialGradient>
             <radialGradient id={`${savenCoreGrad}-gold`} cx="50%" cy="50%" r="50%">
               <stop offset="0%" stopColor="#e8c878" stopOpacity="0.55" />
@@ -83,7 +83,7 @@ export function LabsDataLoop({ labels }: LabsDataLoopProps) {
             </radialGradient>
             <linearGradient id={clusterGrad} x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#1a2d44" />
-              <stop offset="50%" stopColor="#152033" />
+              <stop offset="50%" stopColor="#252830" />
               <stop offset="100%" stopColor="#1f2a22" />
             </linearGradient>
             <linearGradient id={hdmGrad} x1="0%" y1="0%" x2="100%" y2="100%">

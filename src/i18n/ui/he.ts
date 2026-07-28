@@ -76,6 +76,7 @@ export const uiHe: UiMessages = {
     "footer-company-investors-contact": "יצירת קשר למשקיעים",
     "footer-company-media": "מדיה",
     "footer-company-roadmap": "מפת דרכים",
+    "footer-resources-faq": "שאלות נפוצות",
     "footer-resources-security-issue": "דיווח על בעיית אבטחה",
     "footer-labs-overview": "סקירה",
     "footer-labs-saven-robotics-lab": "SAVEN Robotics Lab",

@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-27 (D-0201 — Media download fix + Vercel Blob deploy readiness)
+**Last updated:** 2026-07-27 (D-0202 — Public FAQ page)
 
 ## Rules
 
@@ -217,6 +217,7 @@
 | D-0199 | 2026-07-27 | Footer section columns — nine equal tracks in one desktop row | Superseded by D-0200 |
 | D-0200 | 2026-07-27 | Footer section columns — two balanced rows + visual separations | Active |
 | D-0201 | 2026-07-27 | Media download (mobile + desktop) + Vercel Blob deploy readiness | Active |
+| D-0202 | 2026-07-27 | Public FAQ page (accordion, governance-safe) | Active |
 
 ---
 
@@ -1833,6 +1834,16 @@
 - **In scope:** media store/blob read path; public + admin download API routes; MediaPage + MediaLibraryClient download UX; `docs/VERCEL_DEPLOY.md` / `ADMIN_PLATFORM.md` / `.env.example` / `vercel.json`; D-0201 + AGENTS pointer; type-check + build; commit/push; Russian owner report.
 - **Out of scope:** Inventing media content; raising Vercel body limit beyond platform defaults; full CMS/DB; changing auth model; inventing social URLs.
 - **Implications:** Extends D-0194 Blob path. Owner must set `BLOB_READ_WRITE_TOKEN` on Vercel for durable uploads after deploy.
+
+### D-0202 — Public FAQ page (accordion, governance-safe)
+
+- **Date:** 2026-07-27
+- **Status:** Active
+- **Summary:** Full public FAQ at `/faq/` with thematic accordion sections; footer Resources link; sitemap; governance-safe copy grounded in Master Spec and published pages.
+- **Decision:** Owner requires a **full FAQ** in the footer with many Q&As, accordion UI, site style, thematic tint per topic, and colored accents between question/answer. Route: `/[locale]/faq/`. Footer placement: **Resources** (with Report a Security Issue). Content must put all possible honest SAVEN information (purpose, foundation sequence, technology, systems/architecture, SAVEN Robotics Interface, labs, applications, trust/Responsible AI, research/roadmap, investors, media/contact/socials, locales/RTL, terminology, status language, explicit non-claims) without inventing customers, partners, metrics, Operational products, patents, team names, final legal claims, or “we create AI” (D-0174). Status vocabulary: Research / Architecture / In Development primarily. UI: accessible accordion (`button` + `aria-expanded`, multi-open + expand/collapse all), section accent colors, links to published destinations. English canonical; UI chrome in all `src/i18n/ui/*`; page dictionaries for all ten locales (Russian answers complete; other locales localize chrome/sections/questions with English answer fallback via `deepLocalize`).
+- **In scope:** `src/content/faq/*`, `FaqPage` + CSS, `app/[locale]/faq/`, `published-routes`, footer Resources, `domain-visuals`, sitemap hub priority, UI navEntries, D-0202 + AGENTS / SITE_ASSIGNMENT / IA pointers; type-check; smoke `/en/faq/`; commit/push; production deploy; Russian owner brief + URL.
+- **Out of scope:** Inventing facts/products/traction; final legal prose; CMS; analytics; neon; header mega-menu; inventing social URLs; Operational claims.
+- **Implications:** FAQ is a Layer-2 Resources destination. Further full answer localization for non-RU locales may deepen packs without changing route or governance rules.
 
 ## Pending Owner Decisions
 

@@ -31,6 +31,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       route === "/foundation/" ||
       route === "/contact/" ||
       route === "/media/" ||
+      route === "/faq/" ||
       route === "/legal/";
 
     for (const locale of LOCALES) {

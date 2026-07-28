@@ -76,6 +76,7 @@ export const uiAr: UiMessages = {
     "footer-company-investors-contact": "تواصل للمستثمرين",
     "footer-company-media": "الوسائط",
     "footer-company-roadmap": "خارطة الطريق",
+    "footer-resources-faq": "الأسئلة الشائعة",
     "footer-resources-security-issue": "الإبلاغ عن مشكلة أمنية",
     "footer-labs-overview": "نظرة عامة",
     "footer-labs-saven-robotics-lab": "SAVEN Robotics Lab",

@@ -76,6 +76,7 @@ export const uiUk: UiMessages = {
     "footer-company-investors-contact": "Контакт для інвесторів",
     "footer-company-media": "Медіа",
     "footer-company-roadmap": "Дорожня карта",
+    "footer-resources-faq": "FAQ",
     "footer-resources-security-issue": "Повідомити про проблему безпеки",
     "footer-labs-overview": "Огляд",
     "footer-labs-saven-robotics-lab": "SAVEN Robotics Lab",

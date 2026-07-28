@@ -78,6 +78,7 @@ export const uiEn = {
     "footer-company-media": "Media",
     "footer-company-contact": "Contact",
     "footer-company-roadmap": "Roadmap",
+    "footer-resources-faq": "FAQ",
     "footer-resources-security-issue": "Report a Security Issue",
     "footer-labs-overview": "Overview",
     "footer-labs-saven-robotics-lab": "SAVEN Robotics Lab",

@@ -55,7 +55,7 @@ The site must feel like a **confident, simple, large-company product surface** �
 
 **Homepage note (D-0134 / D-0136–D-0139):** First screen = clarity + living **smooth photoreal video** of multi-robot assistive help (human + manipulator + mobile service + optional third device cue; morph/crossfade motion, not jump-cut slideshow or ken-burns-only — not labeled wireframe diagrams, not inventory, not fake deployment claims). Section 2 = simple tangible essence scenes (Assist / Move / Sense / Support). A+B and all technical inventory live **off-home** (footer + section pages). **One Human Hour is not the public default identity.**
 
-**As-built footer (D-0181–D-0200):** Technology · **Architecture** (Systems leaves + SAVEN Robotics Interface; routes stay `/systems/*`) · Labs · Applications · Trust · Research (Overview + Areas + Notes) · Company (About → `/foundation/`, Mission → `/purpose/`, Investors, Investor Contact, Media → `/media/`, Contact → `/contact/`, Roadmap → `/roadmap/`) · Resources (Report a Security Issue) · Legal (primary links + More → `/legal/` hub; draft framing). Desktop layout: **two balanced rows** (5 + 4) with hairline column/row separations (D-0200; supersedes D-0199 one-row). Header hubs (≤7): Labs, **Systems**, Applications, Technology, Research, Trust, Investors (Purpose remains via footer Mission).
+**As-built footer (D-0181–D-0200 / D-0202):** Technology · **Architecture** (Systems leaves + SAVEN Robotics Interface; routes stay `/systems/*`) · Labs · Applications · Trust · Research (Overview + Areas + Notes) · Company (About → `/foundation/`, Mission → `/purpose/`, Investors, Investor Contact, Media → `/media/`, Contact → `/contact/`, Roadmap → `/roadmap/`) · Resources (FAQ → `/faq/`, Report a Security Issue) · Legal (primary links + More → `/legal/` hub; draft framing). Desktop layout: **two balanced rows** (5 + 4) with hairline column/row separations (D-0200; supersedes D-0199 one-row). Header hubs (≤7): Labs, **Systems**, Applications, Technology, Research, Trust, Investors (Purpose remains via footer Mission).
 
 ---
 
@@ -204,7 +204,7 @@ Do **not** present any of the above as shipped features, SKUs, or deployed capab
 | SAVEN Robotics Interface | Via **Systems** hub + Architecture footer | **Yes** | `/systems/saven-robotics-interface/` (distinct from `/systems/robotics-layer/`) |
 | Internal Future Lab | Via **Labs** hub | **Yes** | `/labs/internal-future-lab/` |
 
-**Also published (D-0194):** `/roadmap/` (Direction — no fake years), `/research/areas/`, `/research/notes/`, `/investors/contact/`, `/resources/report-a-security-issue/`, `/media/`, `/contact/`, `/company/about/` → redirect to `/foundation/`.
+**Also published (D-0194 / D-0202):** `/roadmap/` (Direction — no fake years), `/research/areas/`, `/research/notes/`, `/investors/contact/`, `/faq/`, `/resources/report-a-security-issue/`, `/media/`, `/contact/`, `/company/about/` → redirect to `/foundation/`.
 
 **Scheme A is the live scheme** (IA / Master Spec slugs). Schemes B/C remain historical alternatives only — do not implement alternate short URLs without a new decision.
 

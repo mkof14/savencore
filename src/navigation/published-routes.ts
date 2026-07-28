@@ -57,6 +57,7 @@ export const PUBLISHED_ROUTES = [
   "/contact/",
   "/media/",
   "/resources/report-a-security-issue/",
+  "/faq/",
   "/company/about/",
   "/auth/sign-in/",
   "/legal/",

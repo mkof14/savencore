@@ -235,6 +235,11 @@ export const DOMAIN_MASTHEAD_BY_HREF: Record<string, DomainMastheadVisual> = {
     mastheadImage: "/domain/trust/security.webp",
     mastheadAlt: "Security as responsible protection",
   },
+  "/faq/": {
+    theme: "foundation",
+    mastheadImage: "/domain/company/scene-platform-craft.webp",
+    mastheadAlt: "Quiet platform craft atmosphere for SAVEN Core questions and answers",
+  },
 
   /* ——— Research / Company ——— */
   "/research/": {

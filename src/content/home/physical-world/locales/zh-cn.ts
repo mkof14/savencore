@@ -61,6 +61,11 @@ export const physicalWorldHomeZhCn: PhysicalWorldHomeContent = {
     deepenHref: "/labs/saven-robotics-lab/",
   },
   flagships: {
+    columns: {
+      workstream: "工作流",
+      status: "状态",
+      note: "重点",
+    },
     headline: "方向所指之处",
     support:
       "简要了解正朝这一愿景推进的旗舰工作线——每一项均以其真实的当前状态呈现。",

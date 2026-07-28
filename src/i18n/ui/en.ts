@@ -83,7 +83,7 @@ export const uiEn = {
     "footer-labs-overview": "Overview",
     "footer-labs-saven-robotics-lab": "SAVEN Robotics Lab",
     "footer-labs-internal-future-lab": "Internal Future Lab",
-    "footer-systems-saven-robotics-interface": "SAVEN Robotics Interface",
+    "footer-systems-saven-robotics-interface": "Robotics Interface",
     "systems-saven-robotics-interface": "SAVEN Robotics Interface",
     "sign-in": "Sign In/Up",
     "footer-legal-privacy-policy": "Privacy Policy",

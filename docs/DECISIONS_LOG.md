@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-28 (D-0207 — Off-white / soft gray-blue theme + footer one-row earlier)
+**Last updated:** 2026-07-28 (D-0208 — Footer socials/bar, care carousel, direction table, theme, favicon, nav hover)
 
 ## Rules
 
@@ -220,9 +220,10 @@
 | D-0202 | 2026-07-27 | Public FAQ page (accordion, governance-safe) | Active |
 | D-0203 | 2026-07-28 | Deep FAQ Q&A translations (10 locales) + Media download polish | Active |
 | D-0204 | 2026-07-28 | Max-size favicon / PWA / apple-touch icons from brand mark | Active (fill supersede: D-0205) |
-| D-0205 | 2026-07-28 | Apple-style footer (5 columns, stacked groups) + max-fill favicon | Active |
+| D-0205 | 2026-07-28 | Apple-style footer (5 columns, stacked groups) + max-fill favicon | Active (fill supersede: D-0208) |
 | D-0206 | 2026-07-28 | Footer — more space between stacked sections; slightly smaller type; earlier 5-col row | Active |
-| D-0207 | 2026-07-28 | Theme tokens — light off-white + dark soft gray-blue; footer 5-col from ≥720px | Active |
+| D-0207 | 2026-07-28 | Theme tokens — light off-white + dark soft gray-blue; footer 5-col from ≥720px | Active (light off-white deepen: D-0208) |
+| D-0208 | 2026-07-28 | Footer socials/bar, care carousel links, direction table, footer fit, off-white deepen, favicon fill, nav one-row, Windows hover | Active |
 
 ---
 
@@ -1898,7 +1899,17 @@
 - **Decision:** Owner requires (1) desktop footer remains a single row of five equal columns (D-0205 map), compact with good gaps — lower breakpoint 800px → **720px** and sync accordion `matchMedia` to `max-width: 719px`; (2) light page/body/main/surface chrome → Apple-adjacent off-white family (`#f5f5f7` background, `#fafafb` surface, `#eeeff2` muted) — avoid pure white as default page bg; (3) dark backgrounds and atmospheric hero/masthead fields → muted soft gray-blue (`#1c1f26` field / dark bg, `#252830` elevated, `#2a2e38` mid) instead of `#0b1220` / similar navy freezes; migrate hardcoded fills to `--color-*` / `--color-field*` tokens across home, hubs, experience chrome, media, admin, email brand navy, theme-color meta; keep gold accents, straight corners, brand lockup; no neon; preserve WCAG-ish text contrast (ink `#1a1d24` on off-white). Socials/legal bottom bar and stacked section groups within columns unchanged.
 - **In scope:** `app/globals.css` tokens; `src/design/tokens.ts`; `src/config/site.ts` theme colors; footer CSS/JS breakpoint; CSS migrations for hardcoded `#fff` / `#0b1220` backgrounds; D-0207 + AGENTS / SITE_ASSIGNMENT / IA pointers; type-check; local smoke; commit/push; production deploy; Russian owner brief (token values + footer note).
 - **Out of scope:** Changing footer link inventory, inventing social URLs, navigation taxonomy, inventing pages, neon/glow, rewriting diagram stroke color-mix endpoints that use `#fff` only as a lighten mix (not page chrome).
-- **Implications:** Light and dark theme toggles both read intentional (off-white paper / soft charcoal field). Prior navy `#0b1220` remains only where unused; atmospheric bands share `--color-field` in both themes.
+- **Implications:** Light and dark theme toggles both read intentional (off-white paper / soft charcoal field). Prior navy `#0b1220` remains only where unused; atmospheric bands share `--color-field` in both themes. Light off-white values deepened further by **D-0208**.
+
+### D-0208 — Footer socials/bar, care carousel, direction table, chrome polish
+
+- **Date:** 2026-07-28
+- **Status:** Active
+- **Summary:** Owner multi-request polish pass: colored lively footer socials; smaller footer bottom bar with `Copyright © 2026 SAVEN CORE. All rights reserved.` via BrandName; Care carousel click raises the scene + published Application links under thumbs; direction flagships as a readable zebra table (eng-tables match); force five footer columns one row + compressed link spacing + footer-only “Robotics Interface” label; deepen light off-white (`#f0f0f2` / `#f6f6f8`); maximize favicon mark fill (`?v=208`); header hubs stay one row on language switch; sitewide nav/link hover colors reliable on Windows Chrome.
+- **Decision:** Implement A–I as authorized owner polish without inventing routes, neon, or legal prose. Keep D-0205 column map; compress Architecture stack so it does not read as a second footer row; social brand tints tasteful (FB blue, YT red, X ink/paper, IG gradient); hover uses explicit `:hover` / `:focus-visible` accent colors without `@media (hover: hover)` gating; `prefers-reduced-motion` may zero duration but must not remove color hover.
+- **In scope:** `site-shell.css`, `FooterSocials` styles, `SiteFooter` bar, `LivingDomains` + home CSS/content, flagship table + eng-table polish, theme tokens/globals/site theme-color, favicon regeneration + cache bust, nav label shortenings where needed, D-0208 + AGENTS / SITE_ASSIGNMENT / IA pointers; type-check; commit/push; production deploy; restart local `:3000`; Russian A–I brief.
+- **Out of scope:** Inventing pages/routes/socials, neon/glow, binding legal, CMS/analytics, LinkedIn (still hidden).
+- **Implications:** Supersedes D-0205 favicon fill ratio and D-0207 light off-white values for page chrome; footer Architecture remains stacked under Technology within column 1.
 
 ## Pending Owner Decisions
 

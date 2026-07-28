@@ -61,6 +61,11 @@ export const physicalWorldHomeJa: PhysicalWorldHomeContent = {
     deepenHref: "/labs/saven-robotics-lab/",
   },
   flagships: {
+    columns: {
+      workstream: "ワークストリーム",
+      status: "状況",
+      note: "焦点",
+    },
     headline: "方向性が向かう先",
     support:
       "そのビジョンに向けて構築を進めるフラッグシップの取り組みを簡単にご紹介します — それぞれ現在の正直な状況で表示しています。",

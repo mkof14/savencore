@@ -61,6 +61,11 @@ export const physicalWorldHomeDe: PhysicalWorldHomeContent = {
     deepenHref: "/labs/saven-robotics-lab/",
   },
   flagships: {
+    columns: {
+      workstream: "Arbeitsstrom",
+      status: "Status",
+      note: "Fokus",
+    },
     headline: "Wohin die Richtung führt",
     support:
       "Ein kurzer Blick auf die Leuchtturm-Arbeitsstränge, die auf diese Vision hinarbeiten — jeweils mit ehrlichem, aktuellem Status.",

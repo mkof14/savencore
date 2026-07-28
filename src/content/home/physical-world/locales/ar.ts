@@ -61,6 +61,11 @@ export const physicalWorldHomeAr: PhysicalWorldHomeContent = {
     deepenHref: "/labs/saven-robotics-lab/",
   },
   flagships: {
+    columns: {
+      workstream: "مسار العمل",
+      status: "الحالة",
+      note: "التركيز",
+    },
     headline: "إلى أين يتجه المسار",
     support:
       "نظرة موجزة على مسارات العمل الرئيسية التي تبني نحو هذه الرؤية — كل منها معروض بحالته الصادقة والحالية.",

@@ -5,6 +5,7 @@ import { BrandName } from "@/components/brand/BrandName";
 import type { Locale } from "@/config/locales";
 import { getPhysicalWorldHomeContent } from "@/content/home/physical-world/get-physical-world-content";
 import { localizePath } from "@/navigation/locale-path";
+import type { PublishedRoute } from "@/navigation/published-routes";
 
 import "./physical-world-home.css";
 
@@ -22,38 +23,72 @@ type PhysicalWorldHomeProps = {
   locale: Locale;
 };
 
-const LIVING_SRC: Record<string, { webp: string; jpg: string }> = {
+/** Care scene → published Applications routes only (D-0208). */
+const LIVING_SRC: Record<
+  string,
+  {
+    webp: string;
+    jpg: string;
+    href: PublishedRoute;
+    linkNavId: string;
+    linkFallbackLabel: string;
+  }
+> = {
   "hospital-care": {
     webp: "/home/care/hospital-care.webp",
     jpg: "/home/care/hospital-care.jpg",
+    href: "/applications/healthcare/",
+    linkNavId: "applications-healthcare",
+    linkFallbackLabel: "Healthcare",
   },
   "home-care": {
     webp: "/home/care/home-care.webp",
     jpg: "/home/care/home-care.jpg",
+    href: "/applications/home/",
+    linkNavId: "applications-home",
+    linkFallbackLabel: "Home Application",
   },
   "children-family": {
     webp: "/home/care/children-family.webp",
     jpg: "/home/care/children-family.jpg",
+    href: "/applications/home/",
+    linkNavId: "applications-home",
+    linkFallbackLabel: "Home Application",
   },
   emergency: {
     webp: "/home/care/emergency.webp",
     jpg: "/home/care/emergency.jpg",
+    href: "/applications/emergency/",
+    linkNavId: "applications-emergency",
+    linkFallbackLabel: "Emergency",
   },
   surgical: {
     webp: "/home/care/surgical.webp",
     jpg: "/home/care/surgical.jpg",
+    href: "/applications/hospitals/",
+    linkNavId: "applications-hospitals",
+    linkFallbackLabel: "Hospitals",
   },
   "rural-remote": {
     webp: "/home/care/rural-remote.webp",
     jpg: "/home/care/rural-remote.jpg",
+    href: "/applications/healthcare/",
+    linkNavId: "applications-healthcare",
+    linkFallbackLabel: "Healthcare",
   },
   "mental-health": {
     webp: "/home/care/mental-health.webp",
     jpg: "/home/care/mental-health.jpg",
+    href: "/applications/healthcare/",
+    linkNavId: "applications-healthcare",
+    linkFallbackLabel: "Healthcare",
   },
   "disaster-relief": {
     webp: "/home/care/disaster-relief.webp",
     jpg: "/home/care/disaster-relief.jpg",
+    href: "/applications/emergency/",
+    linkNavId: "applications-emergency",
+    linkFallbackLabel: "Emergency",
   },
 };
 
@@ -65,10 +100,20 @@ export function PhysicalWorldHome({ locale }: PhysicalWorldHomeProps) {
   const c = getPhysicalWorldHomeContent(locale);
   const livingScenes = c.living.scenes.map((scene) => {
     const media = LIVING_SRC[scene.id];
+    if (!media) {
+      return {
+        ...scene,
+        webp: "",
+        jpg: "",
+      };
+    }
     return {
       ...scene,
-      webp: media?.webp ?? "",
-      jpg: media?.jpg ?? "",
+      webp: media.webp,
+      jpg: media.jpg,
+      href: media.href,
+      linkNavId: media.linkNavId,
+      linkFallbackLabel: media.linkFallbackLabel,
     };
   });
 
@@ -106,6 +151,7 @@ export function PhysicalWorldHome({ locale }: PhysicalWorldHomeProps) {
       {/* Full-bleed living→closing: one background plane, no letterboxed light strip */}
       <div className="pw-living-block">
         <LivingDomains
+          locale={locale}
           className="pw-domains--primary"
           titleId="pw-living-title"
           railLabel={c.living.railLabel}
@@ -132,29 +178,36 @@ export function PhysicalWorldHome({ locale }: PhysicalWorldHomeProps) {
               </h2>
               <p className="pw-flagships__support">{c.flagships.support}</p>
             </div>
-            <ul className="pw-flagships__list">
-              {c.flagships.items.map((item) => (
-                <li key={item.href} className="pw-flagships__item">
-                  <Link
-                    href={localizePath(locale, item.href)}
-                    className="pw-flagships__link"
-                  >
-                    <span className="pw-flagships__top">
-                      <span className="pw-flagships__label">
-                        {item.label}
-                      </span>
-                      <span className="pw-flagships__status">
-                        {item.status}
-                      </span>
-                    </span>
-                    <span className="pw-flagships__note">{item.note}</span>
-                    <span className="pw-flagships__arrow" aria-hidden="true">
-                      →
-                    </span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <div className="pw-flagships__table-wrap">
+              <table className="pw-flagships__table">
+                <thead>
+                  <tr>
+                    <th scope="col">{c.flagships.columns.workstream}</th>
+                    <th scope="col">{c.flagships.columns.status}</th>
+                    <th scope="col">{c.flagships.columns.note}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {c.flagships.items.map((item) => (
+                    <tr key={item.href}>
+                      <th scope="row">
+                        <Link
+                          href={localizePath(locale, item.href)}
+                          className="pw-flagships__row-link"
+                        >
+                          {item.label}
+                          <span aria-hidden="true"> →</span>
+                        </Link>
+                      </th>
+                      <td>
+                        <span className="pw-flagships__status">{item.status}</span>
+                      </td>
+                      <td>{item.note}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </section>
       ) : null}

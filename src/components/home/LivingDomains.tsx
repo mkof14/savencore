@@ -1,6 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
+
+import type { Locale } from "@/config/locales";
+import { getNavEntryLabel } from "@/i18n/nav-label";
+import { localizePath } from "@/navigation/locale-path";
+import type { PublishedRoute } from "@/navigation/published-routes";
 
 export type LivingDomainScene = {
   id: string;
@@ -8,9 +14,15 @@ export type LivingDomainScene = {
   line: string;
   webp: string;
   jpg: string;
+  /** Published application (or related) destination under the thumb. */
+  href?: PublishedRoute;
+  /** navEntries key for the link label. */
+  linkNavId?: string;
+  linkFallbackLabel?: string;
 };
 
 type LivingDomainsProps = {
+  locale: Locale;
   scenes: readonly LivingDomainScene[];
   headline: string;
   support: string;
@@ -27,8 +39,10 @@ const ADVANCE_MS = 4500;
 /**
  * Living theater — full-bleed active scene + scene rail.
  * Crossfade auto-advance; prefers-reduced-motion stays on the first scene.
+ * Manual pick jumps the stage into view immediately (D-0208).
  */
 export function LivingDomains({
+  locale,
   scenes,
   headline,
   support,
@@ -41,6 +55,7 @@ export function LivingDomains({
   const [transitionsOn, setTransitionsOn] = useState(false);
   /** Bump to restart the auto-advance clock after a manual pick. */
   const [clock, setClock] = useState(0);
+  const theaterRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const media = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -66,8 +81,15 @@ export function LivingDomains({
   }, [allowMotion, scenes.length, clock]);
 
   const select = (index: number) => {
+    // Instant raise: skip crossfade so the chosen scene appears now.
+    setTransitionsOn(false);
     setActive(index);
     setClock((c) => c + 1);
+    theaterRef.current?.scrollIntoView({
+      behavior: allowMotion ? "smooth" : "auto",
+      block: "center",
+      inline: "nearest",
+    });
   };
 
   const current = scenes[active] ?? scenes[0];
@@ -84,7 +106,7 @@ export function LivingDomains({
         <p className="pw-domains__support">{support}</p>
       </div>
 
-      <div className="pw-domains__theater">
+      <div ref={theaterRef} className="pw-domains__theater">
         <div
           className={
             transitionsOn ? "pw-domains__stage is-ready" : "pw-domains__stage"
@@ -124,29 +146,48 @@ export function LivingDomains({
 
       <div className="pw-home__inner">
         <ul className="pw-domains__rail" role="tablist" aria-label={railLabel}>
-          {scenes.map((scene, i) => (
-            <li key={scene.id}>
-              <button
-                type="button"
-                role="tab"
-                aria-selected={i === active}
-                className={
-                  i === active
-                    ? "pw-domains__rail-btn is-active"
-                    : "pw-domains__rail-btn"
-                }
-                onClick={() => select(i)}
-              >
-                <span className="pw-domains__rail-thumb" aria-hidden="true">
-                  <picture>
-                    <source srcSet={scene.webp} type="image/webp" />
-                    <img src={scene.jpg} alt="" width={120} height={68} />
-                  </picture>
-                </span>
-                <span className="pw-domains__rail-label">{scene.label}</span>
-              </button>
-            </li>
-          ))}
+          {scenes.map((scene, i) => {
+            const linkLabel =
+              scene.href && scene.linkNavId
+                ? getNavEntryLabel(
+                    locale,
+                    scene.linkNavId,
+                    scene.linkFallbackLabel ?? scene.linkNavId,
+                  )
+                : null;
+
+            return (
+              <li key={scene.id}>
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={i === active}
+                  className={
+                    i === active
+                      ? "pw-domains__rail-btn is-active"
+                      : "pw-domains__rail-btn"
+                  }
+                  onClick={() => select(i)}
+                >
+                  <span className="pw-domains__rail-thumb" aria-hidden="true">
+                    <picture>
+                      <source srcSet={scene.webp} type="image/webp" />
+                      <img src={scene.jpg} alt="" width={120} height={68} />
+                    </picture>
+                  </span>
+                  <span className="pw-domains__rail-label">{scene.label}</span>
+                </button>
+                {scene.href && linkLabel ? (
+                  <Link
+                    href={localizePath(locale, scene.href)}
+                    className="pw-domains__rail-link"
+                  >
+                    {linkLabel}
+                  </Link>
+                ) : null}
+              </li>
+            );
+          })}
         </ul>
       </div>
     </section>

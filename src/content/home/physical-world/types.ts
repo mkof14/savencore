@@ -33,10 +33,15 @@ export type PhysicalWorldHomeContent = {
     deepenLabel: string;
     deepenHref: string;
   };
-  /** Optional compact gateway to flagship workstreams (D-0194 / H-2). */
+  /** Optional compact gateway to flagship workstreams (D-0194 / H-2 / D-0208 table). */
   flagships?: {
     headline: string;
     support: string;
+    columns: {
+      workstream: string;
+      status: string;
+      note: string;
+    };
     items: readonly PhysicalWorldFlagshipItem[];
   };
   closing: {

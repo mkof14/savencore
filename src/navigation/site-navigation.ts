@@ -294,7 +294,7 @@ export const footerNavigation: readonly FooterGroup[] = [
       ...footerLinksFromDomain("systems", systemsNavChildren),
       published(
         "footer-systems-saven-robotics-interface",
-        "SAVEN Robotics Interface",
+        "Robotics Interface",
         "/systems/saven-robotics-interface/",
       ),
     ],

@@ -79,11 +79,11 @@ export default async function LocaleLayout({
       suppressHydrationWarning
     >
       <head>
-        {/* Icons also declared in buildLocaleLayoutMetadata (D-0204/D-0205); ?v=205 busts sticky caches. */}
+        {/* Icons also declared in buildLocaleLayoutMetadata (D-0204/D-0205); ?v=208 busts sticky caches. */}
         <link
           rel="apple-touch-icon"
           sizes="180x180"
-          href="/icons/apple-touch-icon.png?v=205"
+          href="/icons/apple-touch-icon.png?v=208"
         />
         <meta name="apple-mobile-web-app-title" content="SAVEN Core" />
         <script

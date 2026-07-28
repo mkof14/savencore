@@ -17,7 +17,7 @@ export const uiRu: UiMessages = {
     research: "Исследования",
     purpose: "Цель",
     foundation: "Основа",
-    labs: "Лаборатории",
+    labs: "Лабы",
     investors: "Инвесторам",
     signIn: "Вход / Регистрация",
   },
@@ -81,7 +81,7 @@ export const uiRu: UiMessages = {
     "footer-labs-overview": "Обзор",
     "footer-labs-saven-robotics-lab": "SAVEN Robotics Lab",
     "footer-labs-internal-future-lab": "Internal Future Lab",
-    "footer-systems-saven-robotics-interface": "SAVEN Robotics Interface",
+    "footer-systems-saven-robotics-interface": "Робототехнический интерфейс",
     "systems-saven-robotics-interface": "SAVEN Robotics Interface",
    "sign-in": "Вход / Регистрация", "footer-legal-privacy-policy": "Политика конфиденциальности", "footer-legal-terms-of-use": "Условия использования", "footer-legal-cookie-policy": "Политика cookie", "footer-legal-cookie-preferences": "Настройки cookie", "footer-legal-accessibility-statement": "Заявление о доступности", "footer-legal-security": "Безопасность", "footer-legal-responsible-ai": "Ответственный ИИ", "footer-legal-medical-disclaimer": "Медицинский отказ от ответственности", "footer-legal-research-disclaimer": "Исследовательский отказ от ответственности", "footer-legal-intellectual-property": "Интеллектуальная собственность", "footer-legal-trademark-notice": "Уведомление о товарных знаках", "footer-legal-copyright": "Уведомление об авторских правах", "footer-legal-data-rights": "Права на данные", "footer-legal-regional-privacy-rights": "Региональные права на конфиденциальность", "footer-legal-do-not-sell-or-share": "Не продавать и не передавать", "footer-legal-legal-notices": "Юридические уведомления", "footer-legal-more": "Ещё"},
   footer: {

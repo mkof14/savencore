@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" viewBox="0 0 512 512">
-  <!-- Max-fill falcon mark (D-0205); raster master at /icons/icon-512.png -->
-  <image width="512" height="512" href="/icons/icon-512.png" xlink:href="/icons/icon-512.png"/>
+  <!-- Max-fill falcon mark (D-0208); raster master at /icons/icon-512.png -->
+  <image width="512" height="512" xlink:href="/icons/icon-512.png"/>
 </svg>

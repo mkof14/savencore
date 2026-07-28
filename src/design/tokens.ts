@@ -15,12 +15,12 @@ import { fontFamily, typography } from "./typography";
  * Intentionally avoids purple/indigo AI gradients and warm cream template looks.
  */
 export const color = {
-  background: "#f5f5f7",
-  surface: "#fafafb",
+  background: "#f0f0f2",
+  surface: "#f6f6f8",
   text: "#1a1d24",
   textSecondary: "#3a3f4a",
-  border: "#d8d8dc",
-  divider: "#c8c8ce",
+  border: "#d4d4d8",
+  divider: "#c4c4ca",
   success: "#15803d",
   warning: "#a16207",
   error: "#b91c1c",

@@ -29,13 +29,13 @@
    * Light: Apple-adjacent cool off-white page chrome (never pure #fff as default).
    * Dark / atmospheric field: soft charcoal gray-blue (muted, less saturated).
    */
-  --color-background: #f5f5f7;
-  --color-surface: #fafafb;
-  --color-surface-muted: #eeeff2;
+  --color-background: #f0f0f2;
+  --color-surface: #f6f6f8;
+  --color-surface-muted: #e8e8ec;
   --color-text: #1a1d24;
   --color-text-secondary: #3a3f4a;
-  --color-border: #d8d8dc;
-  --color-divider: #c8c8ce;
+  --color-border: #d4d4d8;
+  --color-divider: #c4c4ca;
   --color-success: #15803d;
   --color-warning: #a16207;
   --color-error: #b91c1c;
@@ -49,7 +49,7 @@
   --color-accent-soft: color-mix(in srgb, var(--color-accent) 16%, transparent);
   --color-accent-line: color-mix(in srgb, var(--color-accent) 55%, transparent);
   --color-ink-fixed: #1a1d24;
-  --color-paper-fixed: #f5f5f7;
+  --color-paper-fixed: #f0f0f2;
 
   /* Atmospheric dark field — hero / mastheads / dark chrome (both themes) */
   --color-field: #1c1f26;

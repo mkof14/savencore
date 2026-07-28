@@ -61,6 +61,11 @@ export const physicalWorldHomeFr: PhysicalWorldHomeContent = {
     deepenHref: "/labs/saven-robotics-lab/",
   },
   flagships: {
+    columns: {
+      workstream: "Chantier",
+      status: "Statut",
+      note: "Focus",
+    },
     headline: "Vers où la direction se dirige",
     support:
       "Un bref aperçu des chantiers phares qui construisent vers cette vision — chacun présenté avec son statut actuel et honnête.",

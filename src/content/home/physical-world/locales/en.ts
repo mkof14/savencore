@@ -63,6 +63,11 @@ export const physicalWorldHomeEn: PhysicalWorldHomeContent = {
     headline: "Where the direction is heading",
     support:
       "A short look at the flagship workstreams building toward that vision — each shown at its honest, current status.",
+    columns: {
+      workstream: "Workstream",
+      status: "Status",
+      note: "Focus",
+    },
     items: [
       {
         label: "SAVEN Robotics Lab",

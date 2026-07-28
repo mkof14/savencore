@@ -105,6 +105,18 @@ export const physicalWorldHomeRu: PhysicalWorldHomeContent = {
     exploreHint:
       "Наведите или сфокусируйте столп, чтобы увидеть смысл — затем перейдите глубже по сайту.",
     goDeeper: "Углубиться",
+    wordmarkLabel: "SAVEN",
+    corners: {
+      navLabel: "Направления закрывающего блока",
+      left: [
+        { label: "Цель", href: "/purpose/" },
+        { label: "Лаборатории", href: "/labs/" },
+      ],
+      right: [
+        { label: "Доверие", href: "/trust/" },
+        { label: "Контакты", href: "/contact/" },
+      ],
+    },
     map: [
       {
         id: "support",

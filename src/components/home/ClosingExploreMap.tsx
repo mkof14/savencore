@@ -4,7 +4,10 @@ import Link from "next/link";
 import { useId, useState } from "react";
 
 import type { Locale } from "@/config/locales";
-import type { ClosingExplorePillar } from "@/content/home/physical-world/types";
+import type {
+  ClosingCornerLink,
+  ClosingExplorePillar,
+} from "@/content/home/physical-world/types";
 import { localizePath } from "@/navigation/locale-path";
 import type { PublishedRoute } from "@/navigation/published-routes";
 
@@ -23,12 +26,21 @@ const HOTSPOTS: Record<
   network: { left: 73.8, top: 54.5, width: 15.5, height: 20 },
 };
 
+/** Wordmark region over baked-in SAVEN letters (D-0217 glow). */
+const WORDMARK_BOX = { left: 28, top: 34.5, width: 44, height: 14 };
+
 type ClosingExploreMapProps = {
   locale: Locale;
   exploreLabel: string;
   exploreHint: string;
   goDeeper: string;
   pillars: readonly ClosingExplorePillar[];
+  wordmarkLabel: string;
+  corners: {
+    navLabel: string;
+    left: readonly ClosingCornerLink[];
+    right: readonly ClosingCornerLink[];
+  };
 };
 
 export function ClosingExploreMap({
@@ -37,11 +49,14 @@ export function ClosingExploreMap({
   exploreHint,
   goDeeper,
   pillars,
+  wordmarkLabel,
+  corners,
 }: ClosingExploreMapProps) {
   const panelId = useId();
   const [activeId, setActiveId] = useState<ClosingExplorePillar["id"] | null>(
     null,
   );
+  const [wordmarkLit, setWordmarkLit] = useState(false);
 
   const active = pillars.find((p) => p.id === activeId) ?? null;
 
@@ -51,6 +66,54 @@ export function ClosingExploreMap({
       <p className="pw-explore__hint" id={`${panelId}-hint`}>
         {exploreHint}
       </p>
+
+      <nav className="pw-explore__corners" aria-label={corners.navLabel}>
+        <ul className="pw-explore__corners-list pw-explore__corners-list--left">
+          {corners.left.map((item) => (
+            <li key={`corner-l-${item.href}`}>
+              <Link
+                href={localizePath(locale, item.href as PublishedRoute)}
+                className="pw-explore__corner-link"
+              >
+                {item.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <ul className="pw-explore__corners-list pw-explore__corners-list--right">
+          {corners.right.map((item) => (
+            <li key={`corner-r-${item.href}`}>
+              <Link
+                href={localizePath(locale, item.href as PublishedRoute)}
+                className="pw-explore__corner-link"
+              >
+                {item.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      <button
+        type="button"
+        className={`pw-explore__wordmark${wordmarkLit ? " is-lit" : ""}`}
+        style={{
+          left: `${WORDMARK_BOX.left}%`,
+          top: `${WORDMARK_BOX.top}%`,
+          width: `${WORDMARK_BOX.width}%`,
+          height: `${WORDMARK_BOX.height}%`,
+        }}
+        aria-label={wordmarkLabel}
+        onFocus={() => setWordmarkLit(true)}
+        onBlur={() => setWordmarkLit(false)}
+        onMouseEnter={() => setWordmarkLit(true)}
+        onMouseLeave={() => setWordmarkLit(false)}
+      >
+        <span className="pw-explore__wordmark-text" aria-hidden="true">
+          SAVEN
+        </span>
+        <span className="pw-explore__wordmark-glow" aria-hidden="true" />
+      </button>
 
       <ul
         className="pw-explore__hotspots"

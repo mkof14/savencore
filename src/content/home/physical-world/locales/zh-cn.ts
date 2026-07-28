@@ -105,6 +105,18 @@ export const physicalWorldHomeZhCn: PhysicalWorldHomeContent = {
     exploreHint:
       "悬停或聚焦支柱以了解含义——然后在站点中深入了解。",
     goDeeper: "深入了解",
+    wordmarkLabel: "SAVEN",
+    corners: {
+      navLabel: "收束区导航",
+      left: [
+        { label: "宗旨", href: "/purpose/" },
+        { label: "实验室", href: "/labs/" },
+      ],
+      right: [
+        { label: "信任", href: "/trust/" },
+        { label: "联系我们", href: "/contact/" },
+      ],
+    },
     map: [
       {
         id: "support",

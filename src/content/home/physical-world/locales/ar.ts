@@ -105,6 +105,18 @@ export const physicalWorldHomeAr: PhysicalWorldHomeContent = {
     exploreHint:
       "مرّر المؤشر أو ركّز على ركيزة لمعرفة معناها — ثم تعمّق في الموقع.",
     goDeeper: "تعمّق أكثر",
+    wordmarkLabel: "SAVEN",
+    corners: {
+      navLabel: "وجهات الشريط الختامي",
+      left: [
+        { label: "الغاية", href: "/purpose/" },
+        { label: "المختبرات", href: "/labs/" },
+      ],
+      right: [
+        { label: "الثقة", href: "/trust/" },
+        { label: "اتصل بنا", href: "/contact/" },
+      ],
+    },
     map: [
       {
         id: "support",

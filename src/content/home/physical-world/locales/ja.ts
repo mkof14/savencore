@@ -105,6 +105,18 @@ export const physicalWorldHomeJa: PhysicalWorldHomeContent = {
     exploreHint:
       "柱にカーソルを合わせるかフォーカスして意味を確認し、サイトでさらに深掘りできます。",
     goDeeper: "さらに見る",
+    wordmarkLabel: "SAVEN",
+    corners: {
+      navLabel: "クロージングの行き先",
+      left: [
+        { label: "目的", href: "/purpose/" },
+        { label: "ラボ", href: "/labs/" },
+      ],
+      right: [
+        { label: "信頼", href: "/trust/" },
+        { label: "お問い合わせ", href: "/contact/" },
+      ],
+    },
     map: [
       {
         id: "support",

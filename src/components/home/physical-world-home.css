@@ -1091,6 +1091,141 @@ a.pw-flagships__row-link:focus-visible {
   pointer-events: none;
 }
 
+/* ——— Quiet upper-corner nav (D-0217) ——— */
+
+.pw-explore__corners {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.pw-explore__corners-list {
+  position: absolute;
+  top: 4.5%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  pointer-events: none;
+}
+
+.pw-explore__corners-list--left {
+  left: 2.5%;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.pw-explore__corners-list--right {
+  right: 2.5%;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.pw-explore__corner-link {
+  pointer-events: auto;
+  display: inline-block;
+  padding: 0.15rem 0.2rem;
+  font-size: clamp(0.625rem, 1.05vw, 0.75rem);
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, #8a9bb4 78%, #fff);
+  text-decoration: none;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.55);
+  border-bottom: 1px solid transparent;
+  transition:
+    color 160ms ease,
+    border-color 160ms ease,
+    text-shadow 160ms ease;
+}
+
+.pw-explore__corner-link:hover,
+.pw-explore__corner-link:focus-visible {
+  color: #e8eef8;
+  border-bottom-color: color-mix(in srgb, #d4a84b 55%, transparent);
+  text-shadow:
+    0 0 10px color-mix(in srgb, #6ea8ff 35%, transparent),
+    0 1px 6px rgba(0, 0, 0, 0.5);
+  outline: none;
+}
+
+/* ——— SAVEN wordmark soft brand glow (D-0217; owner-authorized) ——— */
+
+.pw-explore__wordmark {
+  position: absolute;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: default;
+  pointer-events: auto;
+  border-radius: 0;
+}
+
+.pw-explore__wordmark:focus-visible {
+  outline: 1px solid color-mix(in srgb, #d4a84b 55%, transparent);
+  outline-offset: 2px;
+}
+
+.pw-explore__wordmark-text {
+  position: relative;
+  z-index: 1;
+  font-size: clamp(1.75rem, 7.2vw, 4.25rem);
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  line-height: 1;
+  text-indent: 0.22em;
+  color: transparent;
+  text-shadow: none;
+  transition:
+    text-shadow 220ms ease,
+    filter 220ms ease;
+}
+
+.pw-explore__wordmark-glow {
+  position: absolute;
+  inset: 8% 12%;
+  z-index: 0;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at center,
+    color-mix(in srgb, #d4a84b 0%, transparent) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 220ms ease, background 220ms ease;
+}
+
+.pw-explore__wordmark:hover .pw-explore__wordmark-text,
+.pw-explore__wordmark:focus-visible .pw-explore__wordmark-text,
+.pw-explore__wordmark.is-lit .pw-explore__wordmark-text {
+  text-shadow:
+    0 0 8px color-mix(in srgb, #d4a84b 55%, transparent),
+    0 0 18px color-mix(in srgb, #6ea8ff 45%, transparent),
+    0 0 36px color-mix(in srgb, #d4a84b 28%, transparent),
+    0 0 52px color-mix(in srgb, #6ea8ff 18%, transparent);
+  filter: brightness(1.08);
+}
+
+.pw-explore__wordmark:hover .pw-explore__wordmark-glow,
+.pw-explore__wordmark:focus-visible .pw-explore__wordmark-glow,
+.pw-explore__wordmark.is-lit .pw-explore__wordmark-glow {
+  opacity: 1;
+  background: radial-gradient(
+    ellipse at center,
+    color-mix(in srgb, #d4a84b 22%, transparent) 0%,
+    color-mix(in srgb, #6ea8ff 14%, transparent) 42%,
+    transparent 72%
+  );
+}
+
 .pw-explore__hint {
   position: absolute;
   width: 1px;
@@ -1246,6 +1381,24 @@ a.pw-flagships__row-link:focus-visible {
     letter-spacing: 0.1em;
   }
 
+  .pw-explore__corners-list {
+    top: 3.25%;
+    gap: 0.2rem;
+  }
+
+  .pw-explore__corners-list--left {
+    left: 1.5%;
+  }
+
+  .pw-explore__corners-list--right {
+    right: 1.5%;
+  }
+
+  .pw-explore__corner-link {
+    letter-spacing: 0.1em;
+    font-size: 0.5625rem;
+  }
+
   .pw-explore__panel {
     bottom: 16%;
     padding: 0.65rem 0.75rem;
@@ -1259,8 +1412,21 @@ a.pw-flagships__row-link:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   .pw-explore__hotspot,
   .pw-explore__panel,
-  .pw-explore__rail-link {
+  .pw-explore__rail-link,
+  .pw-explore__corner-link,
+  .pw-explore__wordmark-text,
+  .pw-explore__wordmark-glow {
     transition: none;
+  }
+
+  .pw-explore__wordmark:hover .pw-explore__wordmark-text,
+  .pw-explore__wordmark:focus-visible .pw-explore__wordmark-text,
+  .pw-explore__wordmark.is-lit .pw-explore__wordmark-text {
+    /* Color/brightness shift only — no expansive multi-layer pulse feel */
+    text-shadow:
+      0 0 6px color-mix(in srgb, #d4a84b 40%, transparent),
+      0 0 12px color-mix(in srgb, #6ea8ff 30%, transparent);
+    filter: brightness(1.06);
   }
 }
 

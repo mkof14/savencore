@@ -105,6 +105,18 @@ export const physicalWorldHomeHe: PhysicalWorldHomeContent = {
     exploreHint:
       "רחפו או התמקדו בעמוד כדי לראות את המשמעות — ואז העמיקו באתר.",
     goDeeper: "העמיקו",
+    wordmarkLabel: "SAVEN",
+    corners: {
+      navLabel: "יעדי סיום",
+      left: [
+        { label: "מטרה", href: "/purpose/" },
+        { label: "מעבדות", href: "/labs/" },
+      ],
+      right: [
+        { label: "אמון", href: "/trust/" },
+        { label: "יצירת קשר", href: "/contact/" },
+      ],
+    },
     map: [
       {
         id: "support",

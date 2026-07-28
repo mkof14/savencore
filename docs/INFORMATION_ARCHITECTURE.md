@@ -380,6 +380,8 @@ Configurable until official URLs are supplied. No fake URLs.
 
 Home is the primary composition surface. It must deliver the 20-second comprehension goals without becoming a product catalog, SaaS landing page, or generic AI startup template.
 
+**As-built closing band (D-0216 / D-0217):** Explore SAVEN pillar map; soft brand glow on the SAVEN wordmark (hover/focus); upper corner nav Purpose · Labs (left) and Trust · Contact (right) — published routes only.
+
 Home content structure will be defined in a later approved content phase. No page build in Phase 0.
 
 ---

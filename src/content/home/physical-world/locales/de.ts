@@ -105,6 +105,18 @@ export const physicalWorldHomeDe: PhysicalWorldHomeContent = {
     exploreHint:
       "Bewegen Sie den Zeiger über eine Säule oder fokussieren Sie sie, um die Bedeutung zu sehen — dann tiefer gehen.",
     goDeeper: "Tiefer gehen",
+    wordmarkLabel: "SAVEN",
+    corners: {
+      navLabel: "Ziele im Abschlussband",
+      left: [
+        { label: "Zweck", href: "/purpose/" },
+        { label: "Labore", href: "/labs/" },
+      ],
+      right: [
+        { label: "Vertrauen", href: "/trust/" },
+        { label: "Kontakt", href: "/contact/" },
+      ],
+    },
     map: [
       {
         id: "support",

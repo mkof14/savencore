@@ -103,7 +103,7 @@ Prominent paths into the three primary workstreams (canonical scopes in §5.0):
 1. **Hero** — brand, hero line, one breath sentence, three build pillars, tagline, footer cue, plus living atmosphere + thematic illustration plane
 2. **Care living carousel** — one care-focused living band (hospitals / home / family / emergency / …)
 3. **Flagship Gateway** — compact paths: Robotics Lab, Robotics Interface, Internal Future Lab (+ optional Investors) with honest statuses
-4. **Closing** — SAVEN meaning band
+4. **Closing** — SAVEN meaning band: Explore pillars (D-0216) + wordmark glow + upper corner nav Purpose · Labs | Trust · Contact (D-0217)
 5. **Footer** — complete published site map by domain
 
 A + B remain valid for section pages; Flagship Gateway is the authorized compact home B path (D-0194) — still not a first-viewport inventory dump.

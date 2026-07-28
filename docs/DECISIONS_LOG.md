@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-28 (D-0216 — Explore SAVEN closing map + legal interim policies)
+**Last updated:** 2026-07-28 (D-0217 — SAVEN wordmark glow + closing corner nav)
 
 ## Rules
 
@@ -231,6 +231,7 @@
 | D-0213 | 2026-07-28 | Admin light/dark theme + logo + accents; footer Install app in Resources | Active |
 | D-0214 | 2026-07-28 | Email chrome restyle to site tokens; remove footer social icons | Active |
 | D-0216 | 2026-07-28 | Explore SAVEN interactive closing band + legal interim policy pass | Active |
+| D-0217 | 2026-07-28 | Closing band: SAVEN wordmark glow + upper corner nav | Active |
 
 ---
 
@@ -1990,6 +1991,22 @@
 - **In scope:** `ClosingExploreMap` + home closing CSS/content; legal `pages.ts` / types / Legal pages chrome; FAQ EN + locale dicts (merge carefully with Future Lab FAQ WIP); UI legal chrome i18n; D-0216 + AGENTS / SITE_ASSIGNMENT / IA pointers; type-check; commit/push; production deploy; Russian owner brief with link map.
 - **Out of scope:** Inventing registration/DPO/certifications; live CMP/analytics; Knowledge Passport in first viewport; neon; clobbering Future Lab Install/content WIP beyond FAQ merge.
 - **Implications:** Partially supersedes D-0154 “draft-only banner” presentation for public Legal pages — interim policies stand as owner-authorized site policies; counsel review still recommended before regulated claims. Closing band becomes a navigational Explore map rather than a static image alone.
+
+### D-0217 — Closing band SAVEN glow + upper corner nav
+
+- **Date:** 2026-07-28
+- **Status:** Active
+- **Summary:** Owner wants the dark SAVEN closing graphic’s empty upper corners used for quiet navigation, and the baked-in **SAVEN** wordmark to glow tastefully on hover/focus (explicit glow exception for this element only).
+- **Decision:**
+  1. **Wordmark glow (owner-authorized):** Soft gold/blue brand glow on hover/focus of the SAVEN letters via CSS `text-shadow` + radial wash over the wordmark hotspot. Not neon spam. `prefers-reduced-motion`: color/brightness shift only, no expansive pulse.
+  2. **Upper corner links (published routes only):**
+     - **Left:** Purpose → `/purpose/` · Labs → `/labs/`
+     - **Right:** Trust → `/trust/` · Contact → `/contact/`
+     - Rationale: balanced pair — mission + where work is built (left) vs assurance + authorized reach channel (right). Complements pillar Explore map (D-0216) without covering falcon / SAVEN / pillars. Quiet small-caps labels that brighten on hover.
+  3. Pillar interactivity from D-0216 retained.
+- **In scope:** `ClosingExploreMap` + closing CSS; home physical-world types + all 10 locales; D-0217 + AGENTS / SITE_ASSIGNMENT / IA pointers; type-check; commit/push; production deploy; Russian owner brief.
+- **Out of scope:** Neon elsewhere; inventing routes; changing pillar destinations; legal/CMP changes.
+- **Implications:** Narrow exception to the “no glow” rule for this closing wordmark only. Corner nav is secondary to Explore pillars.
 
 ## Pending Owner Decisions
 

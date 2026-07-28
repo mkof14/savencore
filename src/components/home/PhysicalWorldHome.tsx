@@ -239,6 +239,8 @@ export function PhysicalWorldHome({ locale }: PhysicalWorldHomeProps) {
             exploreHint={c.closing.exploreHint}
             goDeeper={c.closing.goDeeper}
             pillars={c.closing.map}
+            wordmarkLabel={c.closing.wordmarkLabel}
+            corners={c.closing.corners}
           />
         </div>
         {/* Footer blend after the banner so tagline stays fully visible */}

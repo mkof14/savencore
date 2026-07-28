@@ -104,6 +104,18 @@ export const physicalWorldHomeEn: PhysicalWorldHomeContent = {
     exploreHint:
       "Hover or focus a pillar to see what it means — then go deeper on the site.",
     goDeeper: "Go deeper",
+    wordmarkLabel: "SAVEN",
+    corners: {
+      navLabel: "Closing destinations",
+      left: [
+        { label: "Purpose", href: "/purpose/" },
+        { label: "Labs", href: "/labs/" },
+      ],
+      right: [
+        { label: "Trust", href: "/trust/" },
+        { label: "Contact", href: "/contact/" },
+      ],
+    },
     map: [
       {
         id: "support",

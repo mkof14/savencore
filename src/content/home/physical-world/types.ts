@@ -24,6 +24,11 @@ export type ClosingExplorePillar = {
   cta: string;
 };
 
+export type ClosingCornerLink = {
+  label: string;
+  href: string;
+};
+
 export type PhysicalWorldHomeContent = {
   brand: string;
   heroLine: string;
@@ -62,5 +67,13 @@ export type PhysicalWorldHomeContent = {
     exploreHint: string;
     goDeeper: string;
     map: readonly ClosingExplorePillar[];
+    /** SAVEN wordmark hover/focus glow label (D-0217). */
+    wordmarkLabel: string;
+    /** Quiet upper-corner nav on the dark metal band (D-0217). */
+    corners: {
+      navLabel: string;
+      left: readonly ClosingCornerLink[];
+      right: readonly ClosingCornerLink[];
+    };
   };
 };

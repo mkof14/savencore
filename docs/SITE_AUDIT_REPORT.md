@@ -132,7 +132,7 @@ Practical production surface prep landed: security headers, SEO metadata + sitem
 ### Done
 
 - `app/manifest.ts` → `/manifest.webmanifest` (name **SAVEN Core**, standalone, theme colors, icons 192/512)
-- Icons: `app/icon.png` (512), `app/apple-icon.png` (180), `app/favicon.ico`; `public/favicon.svg`, `favicon.ico` (16/32/48/64), `favicon-16/32/48.png`, `public/icons/icon-64.png`, `icon-192.png`, `icon-512.png`, `icon-512-maskable.png`, `apple-touch-icon.png` (D-0204)
+- Icons: `app/icon.png` (512), `app/apple-icon.png` (180), `app/favicon.ico`; `public/favicon.svg`, `favicon.ico` (16/32/48/64), `favicon-16/32/48.png`, `public/icons/icon-64.png`, `icon-192.png`, `icon-512.png`, `icon-512-maskable.png`, `apple-touch-icon.png` (D-0204 / max-fill D-0205)
 - Apple meta + apple-touch-icon in locale layout; Next.js `metadata.icons` prefers SVG + 48/192/512
 - Discreet **Install app** control (`beforeinstallprompt` + iOS tip) — i18n `pwa.*` in all 10 UI locales
 - Lightweight `public/sw.js` offline shell; registered in production only

@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-28 (D-0204 — Max-size favicon / app icons)
+**Last updated:** 2026-07-28 (D-0205 — Apple-style footer columns + max-fill favicon)
 
 ## Rules
 
@@ -215,11 +215,12 @@
 | D-0197 | 2026-07-27 | Owner Instagram URL live in footer (committed default + env override) | Active |
 | D-0198 | 2026-07-27 | Owner Facebook URL live in footer (committed default + env override) | Active |
 | D-0199 | 2026-07-27 | Footer section columns — nine equal tracks in one desktop row | Superseded by D-0200 |
-| D-0200 | 2026-07-27 | Footer section columns — two balanced rows + visual separations | Active |
+| D-0200 | 2026-07-27 | Footer section columns — two balanced rows + visual separations | Superseded by D-0205 |
 | D-0201 | 2026-07-27 | Media download (mobile + desktop) + Vercel Blob deploy readiness | Active |
 | D-0202 | 2026-07-27 | Public FAQ page (accordion, governance-safe) | Active |
 | D-0203 | 2026-07-28 | Deep FAQ Q&A translations (10 locales) + Media download polish | Active |
-| D-0204 | 2026-07-28 | Max-size favicon / PWA / apple-touch icons from brand mark | Active |
+| D-0204 | 2026-07-28 | Max-size favicon / PWA / apple-touch icons from brand mark | Active (fill supersede: D-0205) |
+| D-0205 | 2026-07-28 | Apple-style footer (5 columns, stacked groups) + max-fill favicon | Active |
 
 ---
 
@@ -1820,12 +1821,12 @@
 ### D-0200 — Footer two-row columns with visual separations
 
 - **Date:** 2026-07-27
-- **Status:** Active
+- **Status:** Superseded by D-0205
 - **Summary:** Footer section columns use two balanced desktop rows with hairline separations and more breathing room.
 - **Decision:** Owner feedback: footer texts look bad with too much copy side-by-side — **split into two rows** and add **visual separations**. Revert/replace the cramped nine-column single row (D-0199). Desktop (≥1100px): **two rows** — primary **5** equal tracks (Technology, Architecture, Labs, Applications, Trust) + secondary **4** equal tracks (Research, Company, Resources, Legal); clear horizontal gap and a restrained gold/navy hairline between rows; subtle column hairlines within each row; improved list gap / line-height. Mid widths (≥900px): same two-row bands with cleaner wrap (3 + 2 / 2 + 2). Narrow screens keep accordion. Do not change socials bottom bar, Legal More, live socials (FB/YT/X/IG), Home Application naming, or link inventory. Straight corners / brand grammar retained — no neon.
 - **In scope:** `SiteFooter.tsx` row split; `site-shell.css` footer grid/divider/spacing polish; D-0200 + AGENTS / SITE_ASSIGNMENT / IA pointers; type-check; commit/push; production deploy; Russian brief for owner; smoke www footer.
 - **Out of scope:** Changing footer link inventory, i18n copy, social URLs, Legal More hub, navigation taxonomy, or inventing columns/pages.
-- **Implications:** Supersedes D-0199 one-row desktop layout. Equal-weight section columns within each row and socials-under-grid rules from D-0181 remain.
+- **Implications:** Supersedes D-0199 one-row desktop layout. Equal-weight section columns within each row and socials-under-grid rules from D-0181 remain. **Layout superseded by D-0205** (Apple-style five columns with stacked section groups).
 
 ### D-0201 — Media download (mobile + desktop) + Vercel Blob deploy readiness
 
@@ -1866,6 +1867,16 @@
 - **In scope:** `public/favicon*` + `public/icons/*`; Next.js file icons `app/icon.png` (512), `app/apple-icon.png` (180), `app/favicon.ico` (16–64); `src/lib/seo/metadata.ts` icons; `app/manifest.ts`; locale layout apple-touch sizes; SW shell icon; media seed favicon path; D-0204 + AGENTS pointer; type-check; commit/push; production deploy; smoke icon URLs on www; Russian owner brief (sizes + hard-refresh tip).
 - **Out of scope:** Inventing a vector falcon; changing OG share art; inventing brand colors beyond `#0b1220`; CMS; analytics.
 - **Implications:** Browsers cache favicons aggressively — owners may need a hard refresh / clear site data to see the new tab icon immediately.
+
+### D-0205 — Apple-style footer columns + max-fill favicon
+
+- **Date:** 2026-07-28
+- **Status:** Active
+- **Summary:** Compact footer modeled on apple.com density (SAVEN brand tokens): one desktop row of **five equal columns**, with existing section groups **stacked vertically inside columns**; regenerate favicons with larger falcon mark fill.
+- **Decision:** Owner requires (1) footer more compact / Apple-like — not nine cramped tracks (D-0199) and not two dense rows (D-0200); (2) favicon mark even larger in the 512 canvas (less padding). Column mapping: (1) Technology + Architecture; (2) Labs + Applications; (3) Trust + Research; (4) Company + Resources; (5) Legal. Within each column: bold section title + compact link list, then the next stacked group. Thin hairline dividers use existing footer tokens (light + dark). Bottom band keeps copyright, Install/Sign In, language/theme; social row keeps live FB/YT/X/IG; Legal More unchanged. Mobile keeps accordion collapse. Favicon: same size ladder as D-0204 but ~3.5–5% padding on any-purpose icons (~93% height fill); apple-touch ~6%; maskable ~12% safer pad. No new routes or invented pages.
+- **In scope:** `SiteFooter.tsx` column map; `site-shell.css` compact footer grid/type; regenerate `public/favicon*` + `public/icons/*` + `app/icon.png` / `apple-icon.png` / `favicon.ico`; SW cache bump; D-0205 + AGENTS / SITE_ASSIGNMENT / IA pointers; type-check; commit/push; production deploy; Russian owner brief (column map + hard-refresh tip).
+- **Out of scope:** Changing footer link inventory, inventing social URLs, Legal More hub changes, Home Application rename, inventing pages, neon/glow, Apple brand colors/copy.
+- **Implications:** Supersedes D-0199 / D-0200 footer layout. Favicon cache still aggressive — hard refresh / clear site data may be required.
 
 ## Pending Owner Decisions
 

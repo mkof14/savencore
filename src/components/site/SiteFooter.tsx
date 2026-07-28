@@ -26,7 +26,19 @@ type SiteFooterProps = {
   showAdminLink?: boolean;
 };
 
-/** Layer 2 depth map — published domain destinations + Architecture + Legal (D-0132 / D-0154 / D-0181 / D-0188 / D-0200). */
+/**
+ * Apple-style footer columns (D-0205): five equal desktop tracks; within each
+ * track, category blocks stack vertically. Supersedes D-0199 / D-0200 layouts.
+ */
+const FOOTER_COLUMN_GROUP_IDS = [
+  ["technology", "architecture"],
+  ["labs", "applications"],
+  ["trust", "research"],
+  ["company", "resources"],
+  ["legal"],
+] as const;
+
+/** Layer 2 depth map — published domain destinations + Architecture + Legal. */
 export function SiteFooter({
   locale,
   showAdminLink = false,
@@ -49,12 +61,13 @@ export function SiteFooter({
     }))
     .filter((group) => group.links.length > 0);
 
-  /** Desktop: two balanced rows (5 + 4) — D-0200; supersedes D-0199 one-row layout. */
-  const FOOTER_ROW_SPLIT = 5;
-  const footerRows = [
-    groups.slice(0, FOOTER_ROW_SPLIT),
-    groups.slice(FOOTER_ROW_SPLIT),
-  ].filter((row) => row.length > 0);
+  const groupsById = new Map(groups.map((group) => [group.id, group]));
+
+  const footerColumns = FOOTER_COLUMN_GROUP_IDS.map((ids) =>
+    ids
+      .map((id) => groupsById.get(id))
+      .filter((group): group is (typeof groups)[number] => Boolean(group)),
+  ).filter((column) => column.length > 0);
 
   const renderGroup = (group: (typeof groups)[number]) => {
     const title = getFooterGroupTitle(locale, group.id, group.title);
@@ -131,12 +144,12 @@ export function SiteFooter({
         </div>
 
         <div className="site-footer__grid">
-          {footerRows.map((row, rowIndex) => (
+          {footerColumns.map((column, columnIndex) => (
             <div
-              key={rowIndex === 0 ? "footer-row-primary" : "footer-row-secondary"}
-              className={`site-footer__row site-footer__row--${rowIndex === 0 ? "primary" : "secondary"}`}
+              key={column.map((group) => group.id).join("-")}
+              className={`site-footer__column site-footer__column--${columnIndex + 1}`}
             >
-              {row.map(renderGroup)}
+              {column.map(renderGroup)}
             </div>
           ))}
         </div>

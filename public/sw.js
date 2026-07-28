@@ -1,7 +1,7 @@
 /* SAVEN Core — lightweight offline shell (D-0162).
  * Caches the app shell only. Does not invent offline content for domain pages.
  */
-const CACHE = "savencore-shell-v5";
+const CACHE = "savencore-shell-v6";
 const SHELL = [
   "/",
   "/en/",

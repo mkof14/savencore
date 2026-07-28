@@ -79,7 +79,12 @@ export default async function LocaleLayout({
       suppressHydrationWarning
     >
       <head>
-        <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+        {/* Icons also declared in buildLocaleLayoutMetadata (D-0204); keep apple link for older clients. */}
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/icons/apple-touch-icon.png"
+        />
         <meta name="apple-mobile-web-app-title" content="SAVEN Core" />
         <script
           dangerouslySetInnerHTML={{

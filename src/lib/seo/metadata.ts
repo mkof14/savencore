@@ -124,6 +124,41 @@ export function buildLocaleLayoutMetadata(locale: Locale): Metadata {
       template: `%s | ${SITE_NAME}`,
     },
     applicationName: SITE_NAME,
+    /** Prefer largest practical brand icons (D-0204); browsers pick by sizes. */
+    icons: {
+      icon: [
+        { url: "/favicon.svg", type: "image/svg+xml" },
+        { url: "/favicon.ico", sizes: "16x16 32x32 48x48 64x64" },
+        {
+          url: "/favicon-32x32.png",
+          sizes: "32x32",
+          type: "image/png",
+        },
+        {
+          url: "/favicon-48x48.png",
+          sizes: "48x48",
+          type: "image/png",
+        },
+        {
+          url: "/icons/icon-192.png",
+          sizes: "192x192",
+          type: "image/png",
+        },
+        {
+          url: "/icons/icon-512.png",
+          sizes: "512x512",
+          type: "image/png",
+        },
+      ],
+      apple: [
+        {
+          url: "/icons/apple-touch-icon.png",
+          sizes: "180x180",
+          type: "image/png",
+        },
+      ],
+      shortcut: "/favicon-48x48.png",
+    },
     appleWebApp: {
       capable: true,
       title: SITE_NAME,

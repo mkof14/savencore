@@ -2,7 +2,13 @@
  * Caches the app shell only. Does not invent offline content for domain pages.
  */
 const CACHE = "savencore-shell-v5";
-const SHELL = ["/", "/en/", "/manifest.webmanifest", "/icons/icon-192.png"];
+const SHELL = [
+  "/",
+  "/en/",
+  "/manifest.webmanifest",
+  "/icons/icon-192.png",
+  "/icons/icon-512.png",
+];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(

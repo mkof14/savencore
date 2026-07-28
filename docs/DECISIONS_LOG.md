@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-28 (D-0203 — Deep FAQ translations + download polish)
+**Last updated:** 2026-07-28 (D-0204 — Max-size favicon / app icons)
 
 ## Rules
 
@@ -219,6 +219,7 @@
 | D-0201 | 2026-07-27 | Media download (mobile + desktop) + Vercel Blob deploy readiness | Active |
 | D-0202 | 2026-07-27 | Public FAQ page (accordion, governance-safe) | Active |
 | D-0203 | 2026-07-28 | Deep FAQ Q&A translations (10 locales) + Media download polish | Active |
+| D-0204 | 2026-07-28 | Max-size favicon / PWA / apple-touch icons from brand mark | Active |
 
 ---
 
@@ -1855,6 +1856,16 @@
 - **In scope:** FAQ dictionaries + `scripts/faq-i18n` answer packs; flagship `%2F` fixes; `MediaPage` / `media-urls` download polish; UI `downloading` / `actionDownloading` in all `src/i18n/ui/*`; D-0203 + AGENTS pointer; `tsc`; smoke `/ru/faq/`, `/ar/faq/`, `/ja/faq/`, `/es/faq/`; commit/push; production deploy; Russian coverage report.
 - **Out of scope:** Inventing company facts; new FAQ items; final legal prose; CMS/analytics; inventing social URLs; Operational claims; regenerating unrelated legal MT packs.
 - **Implications:** FAQ pages should no longer fall back to English answers on non-EN locales for published Q&A strings. Further quality edits can deepen packs without route changes.
+
+### D-0204 — Max-size favicon / PWA / apple-touch icons from brand mark
+
+- **Date:** 2026-07-28
+- **Status:** Active
+- **Summary:** Regenerate site favicons and app icons from the approved falcon mark (`public/brand/saven-logo-mark.webp`, 479×647) at the largest practical sizes; wire Next.js metadata + web manifest to prefer them.
+- **Decision:** Owner request «увелич фавикон до максимального размера возможного». Do not upscale the tiny legacy 16/32 assets or the 128×128 PNG companion. Render down from the webp mark: PNG favicons 16/32/48, ICO embedding 16/32/48/64, SVG favicon pointing at `/icons/icon-512.png`, apple-touch 180×180 on navy `#0b1220`, PWA 192 + 512 (any) + 512 maskable (navy, safer padding). Open Graph `og-default` remains the share card (not a favicon substitute).
+- **In scope:** `public/favicon*` + `public/icons/*`; `src/lib/seo/metadata.ts` icons; `app/manifest.ts`; locale layout apple-touch sizes; SW shell icon; media seed favicon path; D-0204 + AGENTS pointer; type-check; commit/push; production deploy; smoke icon URLs on www; Russian owner brief (sizes + hard-refresh tip).
+- **Out of scope:** Inventing a vector falcon; changing OG share art; inventing brand colors beyond `#0b1220`; CMS; analytics.
+- **Implications:** Browsers cache favicons aggressively — owners may need a hard refresh / clear site data to see the new tab icon immediately.
 
 ## Pending Owner Decisions
 

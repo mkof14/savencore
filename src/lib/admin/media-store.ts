@@ -101,14 +101,14 @@ const SEED_ITEMS: readonly MediaItem[] = [
   },
   {
     id: "seed-favicon",
-    name: "Favicon 32×32",
+    name: "Favicon 48×48",
     mimeType: "image/png",
     size: 0,
     category: "image",
     createdAt: "2026-07-26T00:00:00.000Z",
     source: "seed",
-    publicPath: "/favicon-32x32.png",
-    description: "Site favicon asset.",
+    publicPath: "/favicon-48x48.png",
+    description: "Site favicon asset (high-res PNG; full set includes 16–512 + ICO/SVG).",
     visibility: "public",
   },
   {

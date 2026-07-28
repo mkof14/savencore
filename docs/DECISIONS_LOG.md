@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-28 (D-0205 — Apple-style footer columns + max-fill favicon)
+**Last updated:** 2026-07-28 (D-0206 — Footer section spacing + slightly smaller type)
 
 ## Rules
 
@@ -221,6 +221,7 @@
 | D-0203 | 2026-07-28 | Deep FAQ Q&A translations (10 locales) + Media download polish | Active |
 | D-0204 | 2026-07-28 | Max-size favicon / PWA / apple-touch icons from brand mark | Active (fill supersede: D-0205) |
 | D-0205 | 2026-07-28 | Apple-style footer (5 columns, stacked groups) + max-fill favicon | Active |
+| D-0206 | 2026-07-28 | Footer — more space between stacked sections; slightly smaller type; earlier 5-col row | Active |
 
 ---
 
@@ -1877,6 +1878,16 @@
 - **In scope:** `SiteFooter.tsx` column map; `site-shell.css` compact footer grid/type; regenerate `public/favicon*` + `public/icons/*` + `app/icon.png` / `apple-icon.png` / `favicon.ico`; SW cache bump; D-0205 + AGENTS / SITE_ASSIGNMENT / IA pointers; type-check; commit/push; production deploy; Russian owner brief (column map + hard-refresh tip).
 - **Out of scope:** Changing footer link inventory, inventing social URLs, Legal More hub changes, Home Application rename, inventing pages, neon/glow, Apple brand colors/copy.
 - **Implications:** Supersedes D-0199 / D-0200 footer layout. Favicon cache still aggressive — hard refresh / clear site data may be required.
+
+### D-0206 — Footer stacked-section spacing + slightly smaller type
+
+- **Date:** 2026-07-28
+- **Status:** Active
+- **Summary:** Keep Apple-style five-column footer (D-0205); increase vertical air between stacked section groups within columns; slightly reduce title/link font size; ensure desktop stays one row of five columns earlier.
+- **Decision:** Owner requires (1) **more spacing** between stacked category blocks inside footer columns; (2) desktop remains **one row** of five equal columns; (3) **slightly smaller** fonts for section titles and links (still readable). Fix undefined spacing tokens (`--space-28` / `--space-20`) that prevented column gap from applying; use defined scale (`--space-48` between stacked groups). Lower five-column breakpoint from 900px → **800px** so the single row appears earlier. Mobile accordion, social row, and legal/utilities bottom bar unchanged. No link inventory, social URL, or IA changes.
+- **In scope:** `site-shell.css` footer grid/type; D-0206 + AGENTS / SITE_ASSIGNMENT / IA pointers; type-check; commit/push; production deploy; local smoke; Russian owner brief.
+- **Out of scope:** Changing footer link inventory, inventing social URLs, Legal More hub, navigation taxonomy, inventing pages, neon/glow.
+- **Implications:** Refines D-0205 spacing/type only; five-column Apple map and column pairing remain.
 
 ## Pending Owner Decisions
 

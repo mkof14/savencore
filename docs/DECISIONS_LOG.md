@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-29 (D-0239 — BioMath Core follow-ups: policy links, TOC, Trust paths)
+**Last updated:** 2026-07-29 (D-0240 — Security / SEO / Marketing hygiene)
 
 ## Rules
 
@@ -255,6 +255,7 @@
 | D-0237 | 2026-07-29 | BioMath Core category panels — no counts, Environments chrome | Active; refined by D-0238 |
 | D-0238 | 2026-07-29 | BioMath Core diagram rhythm + Black Box sensitive-data storage intent | Active; refined by D-0239 |
 | D-0239 | 2026-07-29 | BioMath Core follow-ups — policy links, TOC, Trust paths, a11y | Active |
+| D-0240 | 2026-07-29 | Security / SEO / Marketing hygiene | Active |
 
 ---
 
@@ -2385,6 +2386,20 @@
 - **In scope:** BioMathCorePage / Visuals / CSS; EN biomath-core + dictionaries; D-0239 + AGENTS / SITE_ASSIGNMENT / INFORMATION_ARCHITECTURE; local + prod proof; commit/push/Vercel prod.
 - **Out of scope:** New BioMath Life / SAVEN leaves; final legal packs; SOC2/HIPAA/GDPR certified claims; Operational vault; new photography/KPI dashboards; regenerating diagram WebP series; CMS/analytics; owner translation QA retranslation of prior body.
 - **Implications:** BMC leaf is easier to navigate and honestly bridges architecture intent to published Trust/Legal pages without inventing compliance theater.
+
+### D-0240 — Security / SEO / Marketing hygiene
+
+- **Date:** 2026-07-29
+- **Status:** Active
+- **Summary:** Owner-authorized hygiene pass for public-site security headers/crawl boundaries, SEO metadata and robots/sitemap gaps, and marketing consistency checks — safe fixes only; no exploits, no invented CMP/analytics/certifications.
+- **Decision:**
+  1. **Security** — Keep D-0162 CSP pragmatic posture; add `Cross-Origin-Opener-Policy: same-origin-allow-popups` for Auth.js Google handoff; production CSP `upgrade-insecure-requests`; strip SMTP transport errors from public Contact API responses; admin surfaces get robots disallow + `X-Robots-Tag` + layout `noIndex` (auth gate unchanged).
+  2. **SEO** — Fix BioMath Core document title (use page title **BioMath Core**, not Foundation label) and richer description from approved page copy; elevate `/foundation/biomath-core/` sitemap hub priority; align `SITE_DEFAULT_DESCRIPTION` / Organization JSON-LD with Master Spec primary positioning (“Intelligent systems built to support human life.”); preserve existing canonical/hreflang via `buildPageMetadata`.
+  3. **Marketing** — Confirm socials remain YT/X/IG/FB defaults only (LinkedIn hidden until owner URL); BMC Continue exploring Trust paths and Architecture / In Development status language remain; no Operational false claims.
+  4. **Out of scope remains** — Cookie CMP, analytics, CSP nonce hardening, exploit PoCs, counsel-certified legal packs, inventing LinkedIn or compliance certifications.
+- **In scope:** `next.config.ts`, `proxy.ts`, `app/robots.ts`, `app/sitemap.ts`, admin layout metadata, BMC + site SEO helpers/constants, Contact API, D-0240 + brief AGENTS pointer; commit/push/Vercel prod.
+- **Out of scope:** New leaf pages; CMS/analytics/CMP; LinkedIn URL invention; Operational product claims; CSP nonce migration; rate-limiting Contact beyond current soft-degrade.
+- **Implications:** Extends D-0162 production readiness without changing public IA or inventing compliance theater. Residual: CSP still allows `'unsafe-inline'`/`'unsafe-eval'` for Next.js; Contact has no hard rate limit; LinkedIn still owner-pending.
 
 ## Pending Owner Decisions
 

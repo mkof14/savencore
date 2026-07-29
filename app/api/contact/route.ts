@@ -58,10 +58,10 @@ export async function POST(request: Request) {
   });
 
   if (!result.ok) {
+    // Do not echo SMTP/transport details to the public client (D-0240).
     return NextResponse.json({
       ok: false,
       fallback: "mailto" as const,
-      error: result.error,
     });
   }
 

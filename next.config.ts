@@ -13,6 +13,8 @@ const securityHeaders: { key: string; value: string }[] = [
   { key: "X-Content-Type-Options", value: "nosniff" },
   { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
   { key: "X-Frame-Options", value: "DENY" },
+  // Allow Google OAuth popup/redirect handoff while keeping opener isolation.
+  { key: "Cross-Origin-Opener-Policy", value: "same-origin-allow-popups" },
   {
     key: "Permissions-Policy",
     value:
@@ -47,6 +49,11 @@ if (process.env.VERCEL_ENV === "production") {
     key: "Strict-Transport-Security",
     value: "max-age=63072000; includeSubDomains; preload",
   });
+  // Production-only: force HTTPS subresource upgrades when mixed content appears.
+  const csp = securityHeaders.find((h) => h.key === "Content-Security-Policy");
+  if (csp) {
+    csp.value = `${csp.value}; upgrade-insecure-requests`;
+  }
 }
 
 const nextConfig: NextConfig = {
@@ -61,6 +68,9 @@ const nextConfig: NextConfig = {
     formats: ["image/avif", "image/webp"],
     // Local assets under /public only — no remote CMS images in this phase.
     remotePatterns: [],
+    // Align with BioMath ~40rem panels + common hub mastheads (D-0240).
+    deviceSizes: [640, 750, 828, 1080, 1200, 1280, 1920],
+    imageSizes: [64, 96, 128, 256, 384, 448, 640],
   },
   async headers() {
     return [
@@ -76,6 +86,53 @@ const nextConfig: NextConfig = {
             value: "public, max-age=0, must-revalidate",
           },
           { key: "Service-Worker-Allowed", value: "/" },
+        ],
+      },
+      // Immutable-ish static marketing assets (D-0240). Fingerprinted _next/static
+      // already long-cached by Next; these paths are content-addressed by deploy.
+      {
+        source: "/domain/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=86400, stale-while-revalidate=604800",
+          },
+        ],
+      },
+      {
+        source: "/hub/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=86400, stale-while-revalidate=604800",
+          },
+        ],
+      },
+      {
+        source: "/home/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=86400, stale-while-revalidate=604800",
+          },
+        ],
+      },
+      {
+        source: "/brand/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=86400, stale-while-revalidate=604800",
+          },
+        ],
+      },
+      {
+        source: "/icons/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=86400, stale-while-revalidate=604800",
+          },
         ],
       },
     ];

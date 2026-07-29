@@ -16,14 +16,18 @@ export function proxy(request: NextRequest) {
 
   const response = NextResponse.next();
 
-  // Auth and preview surfaces should not be indexed.
+  // Auth, admin, and preview surfaces should not be indexed (D-0162 / D-0240).
   const segments = pathname.split("/").filter(Boolean);
   const locale = segments[0];
   const rest = segments.slice(1).join("/");
   if (pathname === "/auth/sign-in" || pathname === "/auth/sign-in/") {
     response.headers.set("X-Robots-Tag", "noindex, nofollow");
   } else if (locale && isLocale(locale)) {
-    if (rest.startsWith("auth/") || rest.startsWith("preview/")) {
+    if (
+      rest.startsWith("auth/") ||
+      rest.startsWith("admin/") ||
+      rest.startsWith("preview/")
+    ) {
       response.headers.set("X-Robots-Tag", "noindex, nofollow");
     }
   }

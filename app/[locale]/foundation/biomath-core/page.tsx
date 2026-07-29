@@ -14,11 +14,20 @@ export async function generateMetadata({ params }: Props) {
     return {};
   }
   const content = getBioMathCorePageContent(localeParam);
+  // Title must be BioMath Core (not Foundation label). Description uses approved page copy only.
+  const description = [
+    content.title,
+    content.lede,
+    content.livingModel.support,
+  ]
+    .filter(Boolean)
+    .join(" ")
+    .slice(0, 320);
   return buildPageMetadata({
     locale: localeParam,
     path: BIOMATH_CORE_PAGE_HREF,
-    title: content.label,
-    description: content.lede.slice(0, 320),
+    title: content.title,
+    description,
     image: "/domain/foundation/biomath-core-sphere.png",
     imageAlt: content.hero.visualAlt,
   });

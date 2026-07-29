@@ -3,11 +3,15 @@ import Link from "next/link";
 
 import { BioMathCoreCategoryIcon } from "@/components/foundation/BioMathCoreCategoryIcon";
 import {
+  BlackBoxVisual,
   DualRolesVisual,
+  EngineVisual,
   EnvironmentsVisual,
   FormulaVisual,
   LayerStackVisual,
   LivingModelVisual,
+  OutputVisual,
+  SecondOpinionVisual,
 } from "@/components/foundation/BioMathCoreVisuals";
 import type { Locale } from "@/config/locales";
 import type { BioMathCorePageContent } from "@/content/pages/en/biomath-core";
@@ -22,7 +26,7 @@ type BioMathCorePageProps = {
 };
 
 /**
- * BioMath Core leaf — owner capability graphics + model catalog (D-0228–D-0231).
+ * BioMath Core leaf — site-native themeable capability components (D-0228–D-0232).
  */
 export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
   const titleId = "bmc-page-title";
@@ -73,8 +77,6 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
           </h2>
           <p className="bmc-page__section-support">{content.livingModel.support}</p>
           <LivingModelVisual
-            imageSrc={content.livingModel.imageSrc}
-            imageAlt={content.livingModel.imageAlt}
             visualLabel={content.livingModel.visualLabel}
             points={content.livingModel.points}
           />
@@ -89,8 +91,6 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
           </h2>
           <p className="bmc-page__section-support">{content.layerStack.support}</p>
           <LayerStackVisual
-            imageSrc={content.layerStack.imageSrc}
-            imageAlt={content.layerStack.imageAlt}
             layers={content.layerStack.layers}
             callout={content.layerStack.callout}
           />
@@ -105,11 +105,63 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
           </h2>
           <p className="bmc-page__section-support">{content.dualRoles.support}</p>
           <DualRolesVisual
-            imageSrc={content.dualRoles.imageSrc}
-            imageAlt={content.dualRoles.imageAlt}
             biomath={content.dualRoles.biomath}
             saven={content.dualRoles.saven}
             banner={content.dualRoles.banner}
+          />
+        </section>
+
+        <section
+          className="bmc-page__section bmc-page__engine"
+          aria-labelledby="bmc-engine-title"
+        >
+          <h2 id="bmc-engine-title" className="bmc-page__section-title">
+            {content.engine.heading}
+          </h2>
+          <p className="bmc-page__section-support">{content.engine.support}</p>
+          <EngineVisual phases={content.engine.phases} />
+        </section>
+
+        <section
+          className="bmc-page__section bmc-page__opinion"
+          aria-labelledby="bmc-opinion-title"
+        >
+          <h2 id="bmc-opinion-title" className="bmc-page__section-title">
+            {content.secondOpinion.heading}
+          </h2>
+          <p className="bmc-page__section-support">{content.secondOpinion.support}</p>
+          <SecondOpinionVisual
+            signalLabel={content.secondOpinion.signalLabel}
+            resultLabel={content.secondOpinion.resultLabel}
+            lanes={content.secondOpinion.lanes}
+            dualModelHeading={content.secondOpinion.dualModelHeading}
+            dualModelSteps={content.secondOpinion.dualModelSteps}
+            insight={content.secondOpinion.insight}
+          />
+        </section>
+
+        <section
+          className="bmc-page__section bmc-page__blackbox"
+          aria-labelledby="bmc-blackbox-title"
+        >
+          <h2 id="bmc-blackbox-title" className="bmc-page__section-title">
+            {content.blackBox.heading}
+          </h2>
+          <p className="bmc-page__section-support">{content.blackBox.support}</p>
+          <BlackBoxVisual sides={content.blackBox.sides} />
+        </section>
+
+        <section
+          className="bmc-page__section bmc-page__output"
+          aria-labelledby="bmc-output-title"
+        >
+          <h2 id="bmc-output-title" className="bmc-page__section-title">
+            {content.output.heading}
+          </h2>
+          <p className="bmc-page__section-support">{content.output.support}</p>
+          <OutputVisual
+            pillars={content.output.pillars}
+            footer={content.output.footer}
           />
         </section>
 
@@ -122,8 +174,6 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
           </h2>
           <p className="bmc-page__section-support">{content.formula.support}</p>
           <FormulaVisual
-            imageSrc={content.formula.imageSrc}
-            imageAlt={content.formula.imageAlt}
             parts={content.formula.parts}
             equals={content.formula.equals}
             equalsDetail={content.formula.equalsDetail}
@@ -139,8 +189,6 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
           </h2>
           <p className="bmc-page__section-support">{content.environments.support}</p>
           <EnvironmentsVisual
-            imageSrc={content.environments.imageSrc}
-            imageAlt={content.environments.imageAlt}
             cards={content.environments.cards}
             footer={content.environments.footer}
           />
@@ -202,6 +250,7 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
         <section
           className="bmc-page__section bmc-page__categories"
           aria-labelledby="bmc-categories-title"
+          data-bmc-categories="css-cards"
         >
           <div className="bmc-page__categories-intro">
             <h2 id="bmc-categories-title" className="bmc-page__section-title">

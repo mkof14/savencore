@@ -15,8 +15,8 @@ export function BioMathCoreCategoryIcon({ id }: BioMathCoreCategoryIconProps) {
     strokeLinejoin: "miter" as const,
     "aria-hidden": true as const,
     focusable: false as const,
-    width: 28,
-    height: 28,
+    width: 20,
+    height: 20,
   };
 
   switch (id) {

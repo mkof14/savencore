@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-29 (D-0231 — BioMath Core owner capability graphics)
+**Last updated:** 2026-07-29 (D-0232 — BioMath Core site-native themeable components)
 
 ## Rules
 
@@ -246,7 +246,8 @@
 | D-0228 | 2026-07-29 | BioMath Core leaf `/foundation/biomath-core/` + home Go deeper | Active |
 | D-0229 | 2026-07-29 | BioMath Core catalog redesign, transparent logo, home order | Partially superseded by D-0230 (home merge + leaf capability diagrams) |
 | D-0230 | 2026-07-29 | BioMath Core capability redesign + home merged bridge | Partially superseded by D-0231 (owner graphics as page assets) |
-| D-0231 | 2026-07-29 | BioMath Core owner capability images on leaf | Active |
+| D-0231 | 2026-07-29 | BioMath Core owner capability images on leaf | Partially superseded by D-0232 (native components primary) |
+| D-0232 | 2026-07-29 | BioMath Core site-native themeable components | Active |
 
 ---
 
@@ -2250,6 +2251,23 @@
 - **In scope:** Public assets; BioMathCorePage / Visuals / CSS / EN content + dictionaries; D-0231 + AGENTS / SITE_ASSIGNMENT; type-check; commit/push/Vercel prod; curl proof of asset URLs in HTML; local :3000 restart; Russian owner brief.
 - **Out of scope:** Operational catalog; inventing clinical/product claims; additional foundation leaves.
 - **Implications:** BioMath Core leaf proves owner graphics in production HTML; SVG-only capability presentation is no longer acceptable for these five concepts.
+
+
+### D-0232 — BioMath Core site-native themeable components (supersedes pasted primary UI)
+
+- **Date:** 2026-07-29
+- **Status:** Active
+- **Summary:** Owner requires BioMath Core leaf visuals to be **adapted site-native CSS/SVG/HTML components** — smaller, theme-switchable (light off-white + dark soft gray-blue) — not large pasted dark PNG/WebP screenshots as the primary UI. Supersedes D-0231 for presentation primacy; owner concepts remain the source of truth for content/structure. Optional small decorative crops of owner art may appear as accents inside components, but primary UI must be native.
+- **Decision:**
+  1. **20-category catalog** — Site-native CSS card grid with EN counts + blurbs and Architecture disclaimer; themeable; not a dark orbital/screenshot wallpaper.
+  2. **Existing capability sections** — Living Model, four-layer stack, dual roles, Master Infrastructure Formula, Environments converted to themeable native components (retire huge full-bleed dark screenshots as primary).
+  3. **New adapted sections (EN canonical)** — Engine three simulation phases; **one** Second Opinion section (local vs systemic / dual-model / verified result); Black Box Architecture; Output: Structured Understanding (five pillars including The Second Opinion).
+  4. **Style** — SAVEN navy/gold + BMC orange/blue accents; straight corners; limited accent glow only; works light and dark; medical/status disclaimers unchanged in spirit.
+  5. **i18n** — English canonical; chrome + key section titles across all 10 locales.
+  6. **Home** — Unchanged from D-0230 merged bridge.
+- **In scope:** BioMathCorePage / Visuals / CSS / EN content + dictionaries; D-0232 + AGENTS / SITE_ASSIGNMENT; type-check; local :3000; commit/push/Vercel prod; Russian owner brief; proof that categories are CSS cards.
+- **Out of scope:** Operational catalog; inventing clinical/product claims; restoring pasted screenshots as primary UI; additional foundation leaves.
+- **Implications:** Owner must see adapted interactive/site components on the leaf, not “just pictures.” D-0231 assets may remain in `public/` but are not required as primary presentation.
 
 ## Pending Owner Decisions
 

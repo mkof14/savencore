@@ -188,6 +188,20 @@ export const dictionary: Record<string, string> = {
   "The Black Box Architecture — glass cube with intelligence mesh and security shield": "ブラックボックスアーキテクチャ — 知能メッシュとセキュリティシールドを持つガラス立方体",
   "Output: Structured Understanding — five glass pillars for Current State, Causal Logic, Focus Zones, Dynamics, and The Second Opinion": "出力：構造化された理解 — Current State、Causal Logic、Focus Zones、Dynamics、The Second Opinion の5本のガラス柱",
   "Master Infrastructure Formula — BioMath Core + SAVEN + Bodies = System of Continuous Care": "マスターインフラ公式 — BioMath Core + SAVEN + Bodies = 継続ケアシステム",
-  "Environments — Home, Hospital, and Institution linked by one continuous helix": "環境 — 一本の連続ヘリックスで結ばれた家庭・病院・施設"
+  "Environments — Home, Hospital, and Institution linked by one continuous helix": "環境 — 一本の連続ヘリックスで結ばれた家庭・病院・施設",
+  "What looks like a closed box is designed to hold living intelligence and protective control — including technical approaches for storing personal and sensitive personal information. This describes Architecture / In Development intent, not Operational security guarantees.": "閉じた箱のように見えるものは、生きた知能と保護制御を収めるよう設計されています — 個人情報および機微な個人情報を保存するための技術的アプローチを含みます。これは Architecture / In Development の意図であり、Operational なセキュリティ保証ではありません。",
+  "Sensitive personal data — intended storage approach": "機微な個人データ — 想定される保存アプローチ",
+  "Inside the Black Box concept, personal information and sensitive personal information are treated as technical data-storage problems — not as open marketing databases. The goal is to keep human context usable for care continuity while limiting who can reach it, what is kept, and why.": "ブラックボックス概念の中では、個人情報および機微な個人情報は技術的なデータ保存の課題として扱われます — 開かれたマーケティング用データベースではありません。目標は、誰が到達できるか・何を残すか・なぜかを制限しつつ、ケアの連続性のために人間の文脈を使える状態に保つことです。",
+  "The architecture is designed around privacy, controlled access, data minimization, safety, traceability, and human oversight. Protection targets include encryption for data at rest and in transit, permissioned roles, separation of sensitive material from broader system surfaces, and purpose limitation — keep only what a clear purpose requires. These are design targets for systems still in development; they are not claims of a certified live production vault, regulatory approval, or zero risk.": "アーキテクチャは、プライバシー、制御されたアクセス、データ最小化、安全性、追跡可能性、人による監督を中心に設計されています。保護の目標には、保存時および転送時の暗号化、許可された役割、機微な素材をより広いシステム面から分離すること、目的制限 — 明確な目的に必要なものだけを残すことが含まれます。これらは開発中のシステムの設計目標であり、認定済みの本番保管庫、規制承認、ゼロリスクの主張ではありません。",
+  "Architecture intent — not Operational guarantees": "Architecture の意図 — Operational な保証ではない",
+  "Storage": "保存",
+  "Technical stores for personal and sensitive personal data, governed inside the Black Box concept — not unrestricted collection.": "個人データおよび機微な個人データのための技術的ストア。ブラックボックス概念の中で統治されます — 無制限の収集ではありません。",
+  "Access": "アクセス",
+  "Permissioned roles and controlled pathways; sensitive context is not open by default.": "許可された役割と制御された経路；機微な文脈は既定では開かれません。",
+  "Encryption posture": "暗号化の姿勢",
+  "Designed so sensitive material is protected while stored and while moving between trusted components — architecture intent, not a live certification claim.": "機微な素材が保存中および信頼できる構成要素間の移動中に保護されるよう設計 — アーキテクチャの意図であり、稼働中の認定主張ではありません。",
+  "Isolation": "分離",
+  "Separate sensitive context from broader surfaces where practical; protective boundaries around the Black Box volume.": "実務上可能な範囲で機微な文脈をより広い面から分離；ブラックボックス体積の周囲に保護境界。",
+  "Minimization": "最小化",
+  "Keep only what the stated purpose requires; avoid retaining excess human detail.": "述べられた目的に必要なものだけを残す；過剰な人間の詳細の保持を避ける。",
 };
-

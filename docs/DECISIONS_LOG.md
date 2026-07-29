@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-29 (D-0237 — BioMath Core category panels)
+**Last updated:** 2026-07-29 (D-0238 — BioMath Core diagram rhythm + Black Box storage)
 
 ## Rules
 
@@ -252,7 +252,8 @@
 | D-0234 | 2026-07-29 | BioMath Core rich illustration panels | Active; refined by D-0235 (unified English diagram series) |
 | D-0235 | 2026-07-29 | BioMath Core unified English diagram series | Active; refined by D-0236 |
 | D-0236 | 2026-07-29 | BioMath Core Engine cache-bust + compact panels + hero band | Active; refined by D-0237 (category panels) |
-| D-0237 | 2026-07-29 | BioMath Core category panels — no counts, Environments chrome | Active |
+| D-0237 | 2026-07-29 | BioMath Core category panels — no counts, Environments chrome | Active; refined by D-0238 |
+| D-0238 | 2026-07-29 | BioMath Core diagram rhythm + Black Box sensitive-data storage intent | Active |
 
 ---
 
@@ -2340,7 +2341,7 @@
 ### D-0237 — BioMath Core category panels — no counts, Environments chrome
 
 - **Date:** 2026-07-29
-- **Status:** Active
+- **Status:** Active; refined by D-0238
 - **Summary:** Owner requires the BioMath Services 20-category section to drop per-card service-count digits (e.g. Critical Health **18**), enlarge category titles, and elevate the grid visually toward the **Environments** illustration-panel treatment (themeable framed artboard / diagram chrome from D-0234–D-0236) — still a card grid, not an orbital wallpaper screenshot, and not an Operational storefront.
 - **Decision:**
   1. **No card counts** — Do not render `serviceCount` on category cards. Counts may remain in the content data model for internal use only.
@@ -2351,6 +2352,21 @@
 - **In scope:** BioMathCorePage / biomath-core-page.css; EN biomath-core + dictionaries; D-0237 + AGENTS / SITE_ASSIGNMENT; local :3000 + prod proof; commit/push/Vercel prod.
 - **Out of scope:** Restoring orbital wallpaper as primary; inventing Operational live-service claims; changing IA/nav; inventing clinical claims.
 - **Implications:** Category section reads as part of the BMC diagram series, not a plain text dump or KPI count strip.
+
+### D-0238 — BioMath Core diagram rhythm + Black Box sensitive-data storage intent
+
+- **Date:** 2026-07-29
+- **Status:** Active
+- **Summary:** Owner requires all BioMath Core diagrams/images to read smaller and more harmonious on the leaf (tighter max-widths, tighter vertical rhythm, smarter Black Box two-column layout) and an expanded Black Box section that explains, in simple language, the intended technical approach for storing personal / sensitive personal information — Architecture / In Development only.
+- **Decision:**
+  1. **Smaller harmonious panels** — Default `.bmc-figure` max-width ~40rem (narrow Black Box ~34rem); category artboard ~56rem; tighter body gaps and caption proximity; responsive `sizes` aligned to the new caps — not giant poster scroll.
+  2. **Black Box layout** — Desktop two-column: compact illustration + prose block; stacks on small screens.
+  3. **Sensitive-data copy** — Plain-English architecture intent: technical data-storage solutions for personal / sensitive personal data; principles labeled Storage · Access · Encryption posture · Isolation · Minimization; aligned with trust preferred language (privacy, controlled access, data minimization, safety, traceability, human oversight). Explicitly **not** Operational guarantees, certifications (SOC2/HIPAA), live production vault claims, final legal policy text, or medical advice.
+  4. **i18n** — EN canonical + all biomath-core locale dictionaries for new body copy.
+  5. **Governance** — Refines D-0236/D-0237 sizing; prior BMC illustration grammar remains.
+- **In scope:** BioMathCorePage / Visuals / CSS; EN biomath-core + dictionaries; D-0238 + AGENTS / SITE_ASSIGNMENT; local + prod proof; commit/push/Vercel prod.
+- **Out of scope:** Inventing certifications/partners/metrics; final legal policy; Operational “we already encrypt everything in production” claims; IA/nav changes.
+- **Implications:** BMC leaf stays illustration-led but scroll-friendly; Black Box is the honest place for sensitive-storage architecture intent without overclaiming.
 
 ## Pending Owner Decisions
 

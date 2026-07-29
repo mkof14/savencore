@@ -7,9 +7,9 @@ import {
 } from "@/content/biomath-core/scope";
 
 /**
- * BioMath Core leaf page — D-0228–D-0236.
+ * BioMath Core leaf page — D-0228–D-0238.
  * Architecture / In Development model coverage — not an Operational catalog.
- * D-0236: cache-busted English Engine art, compact diagram panels, sharper hero band.
+ * D-0238: harmonious smaller diagram panels + Black Box sensitive-data storage intent.
  */
 
 export type BioMathCoreSequenceStep = {
@@ -81,6 +81,12 @@ export type BioMathCoreBlackBoxSide = {
   body: string;
 };
 
+export type BioMathCoreBlackBoxPrinciple = {
+  id: string;
+  label: string;
+  body: string;
+};
+
 export type BioMathCoreOutputPillar = {
   id: string;
   label: string;
@@ -145,6 +151,11 @@ export type BioMathCorePageContent = {
     visualLabel: string;
     caption: string;
     sides: readonly BioMathCoreBlackBoxSide[];
+    storageHeading: string;
+    storageIntro: string;
+    storageBody: string;
+    principlesEyebrow: string;
+    principles: readonly BioMathCoreBlackBoxPrinciple[];
   };
   output: {
     heading: string;
@@ -365,7 +376,7 @@ export const biomathCorePageContent: BioMathCorePageContent = {
   blackBox: {
     heading: "The Black Box Architecture",
     support:
-      "What looks like a closed box is designed to hold two governed halves — living intelligence and protective control — without inventing Operational deployment claims.",
+      "What looks like a closed box is designed to hold living intelligence and protective control — including technical approaches for storing personal and sensitive personal information. This describes Architecture / In Development intent, not Operational security guarantees.",
     visualLabel:
       "The Black Box Architecture — glass cube with intelligence mesh and security shield",
     caption:
@@ -380,6 +391,39 @@ export const biomathCorePageContent: BioMathCorePageContent = {
         id: "security",
         label: "Security",
         body: "Permissioned boundaries, verification, and protective control around sensitive human context.",
+      },
+    ],
+    storageHeading: "Sensitive personal data — intended storage approach",
+    storageIntro:
+      "Inside the Black Box concept, personal information and sensitive personal information are treated as technical data-storage problems — not as open marketing databases. The goal is to keep human context usable for care continuity while limiting who can reach it, what is kept, and why.",
+    storageBody:
+      "The architecture is designed around privacy, controlled access, data minimization, safety, traceability, and human oversight. Protection targets include encryption for data at rest and in transit, permissioned roles, separation of sensitive material from broader system surfaces, and purpose limitation — keep only what a clear purpose requires. These are design targets for systems still in development; they are not claims of a certified live production vault, regulatory approval, or zero risk.",
+    principlesEyebrow: "Architecture intent — not Operational guarantees",
+    principles: [
+      {
+        id: "storage",
+        label: "Storage",
+        body: "Technical stores for personal and sensitive personal data, governed inside the Black Box concept — not unrestricted collection.",
+      },
+      {
+        id: "access",
+        label: "Access",
+        body: "Permissioned roles and controlled pathways; sensitive context is not open by default.",
+      },
+      {
+        id: "encryption",
+        label: "Encryption posture",
+        body: "Designed so sensitive material is protected while stored and while moving between trusted components — architecture intent, not a live certification claim.",
+      },
+      {
+        id: "isolation",
+        label: "Isolation",
+        body: "Separate sensitive context from broader surfaces where practical; protective boundaries around the Black Box volume.",
+      },
+      {
+        id: "minimization",
+        label: "Minimization",
+        body: "Keep only what the stated purpose requires; avoid retaining excess human detail.",
       },
     ],
   },

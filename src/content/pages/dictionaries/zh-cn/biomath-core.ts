@@ -188,6 +188,20 @@ export const dictionary: Record<string, string> = {
   "The Black Box Architecture — glass cube with intelligence mesh and security shield": "黑箱架构——带智能网格与安全盾的玻璃立方体",
   "Output: Structured Understanding — five glass pillars for Current State, Causal Logic, Focus Zones, Dynamics, and The Second Opinion": "输出：结构化理解——Current State、Causal Logic、Focus Zones、Dynamics 与 The Second Opinion 五根玻璃柱",
   "Master Infrastructure Formula — BioMath Core + SAVEN + Bodies = System of Continuous Care": "主基础设施公式 — BioMath Core + SAVEN + Bodies = 持续照护系统",
-  "Environments — Home, Hospital, and Institution linked by one continuous helix": "环境——由一条连续螺旋连接的家庭、医院与机构"
+  "Environments — Home, Hospital, and Institution linked by one continuous helix": "环境——由一条连续螺旋连接的家庭、医院与机构",
+  "What looks like a closed box is designed to hold living intelligence and protective control — including technical approaches for storing personal and sensitive personal information. This describes Architecture / In Development intent, not Operational security guarantees.": "看似封闭的盒子，旨在容纳活体智能与防护控制——包括存储个人信息和敏感个人信息的技术方案。这描述的是 Architecture / In Development 意图，而非 Operational 安全保证。",
+  "Sensitive personal data — intended storage approach": "敏感个人数据——拟议存储方法",
+  "Inside the Black Box concept, personal information and sensitive personal information are treated as technical data-storage problems — not as open marketing databases. The goal is to keep human context usable for care continuity while limiting who can reach it, what is kept, and why.": "在黑箱概念中，个人信息和敏感个人信息被视为技术性数据存储问题——而非开放的营销数据库。目标是在限制谁可访问、保留什么以及为何保留的同时，保持人类上下文可用于照护连续性。",
+  "The architecture is designed around privacy, controlled access, data minimization, safety, traceability, and human oversight. Protection targets include encryption for data at rest and in transit, permissioned roles, separation of sensitive material from broader system surfaces, and purpose limitation — keep only what a clear purpose requires. These are design targets for systems still in development; they are not claims of a certified live production vault, regulatory approval, or zero risk.": "该架构围绕隐私、受控访问、数据最小化、安全、可追溯性与人工监督设计。保护目标包括静态与传输中加密、授权角色、将敏感材料与更广系统面分离，以及目的限制——仅保留明确目的所需内容。这些是仍在开发中系统的设计目标；并非已认证的生产金库、监管批准或零风险声明。",
+  "Architecture intent — not Operational guarantees": "Architecture 意图——非 Operational 保证",
+  "Storage": "存储",
+  "Technical stores for personal and sensitive personal data, governed inside the Black Box concept — not unrestricted collection.": "面向个人与敏感个人数据的技术存储，在黑箱概念内受治理——非无限制收集。",
+  "Access": "访问",
+  "Permissioned roles and controlled pathways; sensitive context is not open by default.": "授权角色与受控路径；敏感上下文默认不开放。",
+  "Encryption posture": "加密姿态",
+  "Designed so sensitive material is protected while stored and while moving between trusted components — architecture intent, not a live certification claim.": "设计为敏感材料在存储及在受信组件间传输时受保护——架构意图，而非在线认证声明。",
+  "Isolation": "隔离",
+  "Separate sensitive context from broader surfaces where practical; protective boundaries around the Black Box volume.": "在可行处将敏感上下文与更广表面分离；黑箱体积周围设防护边界。",
+  "Minimization": "最小化",
+  "Keep only what the stated purpose requires; avoid retaining excess human detail.": "仅保留所述目的所需内容；避免保留多余的人类细节。",
 };
-

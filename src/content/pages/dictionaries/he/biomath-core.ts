@@ -188,6 +188,20 @@ export const dictionary: Record<string, string> = {
   "The Black Box Architecture — glass cube with intelligence mesh and security shield": "ארכיטקטורת קופסה שחורה — קוביית זכוכית עם רשת אינטליגנציה ומגן אבטחה",
   "Output: Structured Understanding — five glass pillars for Current State, Causal Logic, Focus Zones, Dynamics, and The Second Opinion": "פלט: הבנה מובנית — חמישה עמודי זכוכית ל-Current State, Causal Logic, Focus Zones, Dynamics ו-The Second Opinion",
   "Master Infrastructure Formula — BioMath Core + SAVEN + Bodies = System of Continuous Care": "נוסחת תשתית ראשית — BioMath Core + SAVEN + Bodies = מערכת טיפול רציף",
-  "Environments — Home, Hospital, and Institution linked by one continuous helix": "סביבות — בית, בית חולים ומוסד מקושרים בסליל רציף אחד"
+  "Environments — Home, Hospital, and Institution linked by one continuous helix": "סביבות — בית, בית חולים ומוסד מקושרים בסליל רציף אחד",
+  "What looks like a closed box is designed to hold living intelligence and protective control — including technical approaches for storing personal and sensitive personal information. This describes Architecture / In Development intent, not Operational security guarantees.": "מה שנראה כמו קופסה סגורה מיועד להחזיק אינטליגנציה חיה ובקרה מגינה — כולל גישות טכניות לאחסון מידע אישי ומידע אישי רגיש. זה מתאר כוונת Architecture / In Development, לא הבטחות אבטחה Operational.",
+  "Sensitive personal data — intended storage approach": "נתונים אישיים רגישים — גישת אחסון מיועדת",
+  "Inside the Black Box concept, personal information and sensitive personal information are treated as technical data-storage problems — not as open marketing databases. The goal is to keep human context usable for care continuity while limiting who can reach it, what is kept, and why.": "בתוך מושג הקופסה השחורה, מידע אישי ומידע אישי רגיש מטופלים כבעיות טכניות של אחסון נתונים — לא כמסדי נתונים שיווקיים פתוחים. המטרה לשמור על הקשר אנושי שמיש לרציפות טיפול תוך הגבלת מי יכול להגיע אליו, מה נשמר ולמה.",
+  "The architecture is designed around privacy, controlled access, data minimization, safety, traceability, and human oversight. Protection targets include encryption for data at rest and in transit, permissioned roles, separation of sensitive material from broader system surfaces, and purpose limitation — keep only what a clear purpose requires. These are design targets for systems still in development; they are not claims of a certified live production vault, regulatory approval, or zero risk.": "הארכיטקטורה מתוכננת סביב פרטיות, גישה מבוקרת, מזעור נתונים, בטיחות, עקיבות ופיקוח אנושי. יעדי הגנה כוללים הצפנה לנתונים במנוחה ובמעבר, תפקידים מורשים, הפרדת חומר רגיש ממשטחי מערכת רחבים יותר, והגבלת מטרה — לשמור רק את מה שמטרה ברורה דורשת. אלה יעדי עיצוב למערכות שעדיין בפיתוח; אין אלה טענות על כספת ייצור מוסמכת, אישור רגולטורי או סיכון אפסי.",
+  "Architecture intent — not Operational guarantees": "כוונת Architecture — לא הבטחות Operational",
+  "Storage": "אחסון",
+  "Technical stores for personal and sensitive personal data, governed inside the Black Box concept — not unrestricted collection.": "מאגרים טכניים לנתונים אישיים ונתונים אישיים רגישים, בניהול בתוך מושג הקופסה השחורה — לא איסוף בלתי מוגבל.",
+  "Access": "גישה",
+  "Permissioned roles and controlled pathways; sensitive context is not open by default.": "תפקידים מורשים ומסלולים מבוקרים; הקשר רגיש אינו פתוח כברירת מחדל.",
+  "Encryption posture": "עמדת הצפנה",
+  "Designed so sensitive material is protected while stored and while moving between trusted components — architecture intent, not a live certification claim.": "מתוכנן כך שחומר רגיש מוגן בעת אחסון ובעת מעבר בין רכיבים מהימנים — כוונת ארכיטקטורה, לא טענת הסמכה חיה.",
+  "Isolation": "בידוד",
+  "Separate sensitive context from broader surfaces where practical; protective boundaries around the Black Box volume.": "להפריד הקשר רגיש ממשטחים רחבים יותר כשזה מעשי; גבולות מגינים סביב נפח הקופסה השחורה.",
+  "Minimization": "מזעור",
+  "Keep only what the stated purpose requires; avoid retaining excess human detail.": "לשמור רק את מה שהמטרה המוצהרת דורשת; להימנע משמירת פירוט אנושי עודף.",
 };
-

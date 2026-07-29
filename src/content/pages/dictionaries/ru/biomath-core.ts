@@ -188,6 +188,20 @@ export const dictionary: Record<string, string> = {
   "Foundation sequence — BioMath Life to BioMath Core to SAVEN to SAVEN Core": "Последовательность Foundation — BioMath Life → BioMath Core → SAVEN → SAVEN Core",
   "Intelligence · Living Model": "Интеллект · Живая модель",
   "Execution · Control · Verify": "Исполнение · Контроль · Верификация",
-  "Human Care Systems": "Системы человеческой заботы"
+  "Human Care Systems": "Системы человеческой заботы",
+  "What looks like a closed box is designed to hold living intelligence and protective control — including technical approaches for storing personal and sensitive personal information. This describes Architecture / In Development intent, not Operational security guarantees.": "То, что выглядит как закрытый ящик, предназначено удерживать живой интеллект и защитный контроль — включая технические подходы к хранению персональных и чувствительных персональных данных. Это описывает намерение Architecture / In Development, а не Operational гарантии безопасности.",
+  "Sensitive personal data — intended storage approach": "Чувствительные персональные данные — предполагаемый подход к хранению",
+  "Inside the Black Box concept, personal information and sensitive personal information are treated as technical data-storage problems — not as open marketing databases. The goal is to keep human context usable for care continuity while limiting who can reach it, what is kept, and why.": "В концепции чёрного ящика персональная и чувствительная персональная информация рассматривается как технические задачи хранения данных — не как открытые маркетинговые базы. Цель — сохранять человеческий контекст пригодным для непрерывности заботы, ограничивая кто может к нему обращаться, что хранится и зачем.",
+  "The architecture is designed around privacy, controlled access, data minimization, safety, traceability, and human oversight. Protection targets include encryption for data at rest and in transit, permissioned roles, separation of sensitive material from broader system surfaces, and purpose limitation — keep only what a clear purpose requires. These are design targets for systems still in development; they are not claims of a certified live production vault, regulatory approval, or zero risk.": "Архитектура построена вокруг конфиденциальности, контролируемого доступа, минимизации данных, безопасности, прослеживаемости и человеческого надзора. Цели защиты включают шифрование данных в покое и при передаче, разрешённые роли, отделение чувствительного материала от более широких поверхностей системы и ограничение цели — хранить только то, что требует ясная цель. Это цели проектирования для систем, всё ещё находящихся в разработке; это не утверждения о сертифицированном боевом хранилище, регуляторном одобрении или нулевом риске.",
+  "Architecture intent — not Operational guarantees": "Намерение Architecture — не Operational гарантии",
+  "Storage": "Хранение",
+  "Technical stores for personal and sensitive personal data, governed inside the Black Box concept — not unrestricted collection.": "Технические хранилища для персональных и чувствительных персональных данных, управляемые в концепции чёрного ящика — не неограниченный сбор.",
+  "Access": "Доступ",
+  "Permissioned roles and controlled pathways; sensitive context is not open by default.": "Разрешённые роли и контролируемые пути; чувствительный контекст не открыт по умолчанию.",
+  "Encryption posture": "Позиция шифрования",
+  "Designed so sensitive material is protected while stored and while moving between trusted components — architecture intent, not a live certification claim.": "Спроектировано так, чтобы чувствительный материал был защищён при хранении и при перемещении между доверенными компонентами — намерение архитектуры, а не утверждение о живой сертификации.",
+  "Isolation": "Изоляция",
+  "Separate sensitive context from broader surfaces where practical; protective boundaries around the Black Box volume.": "Отделять чувствительный контекст от более широких поверхностей там, где это практично; защитные границы вокруг объёма чёрного ящика.",
+  "Minimization": "Минимизация",
+  "Keep only what the stated purpose requires; avoid retaining excess human detail.": "Хранить только то, что требует заявленная цель; избегать удержания избыточных человеческих деталей.",
 };
-

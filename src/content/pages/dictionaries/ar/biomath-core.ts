@@ -188,6 +188,20 @@ export const dictionary: Record<string, string> = {
   "The Black Box Architecture — glass cube with intelligence mesh and security shield": "بنية الصندوق الأسود — مكعب زجاجي بشبكة ذكاء ودرع أمان",
   "Output: Structured Understanding — five glass pillars for Current State, Causal Logic, Focus Zones, Dynamics, and The Second Opinion": "المخرج: فهم منظَّم — خمسة أعمدة زجاجية لـ Current State وCausal Logic وFocus Zones وDynamics وThe Second Opinion",
   "Master Infrastructure Formula — BioMath Core + SAVEN + Bodies = System of Continuous Care": "صيغة البنية التحتية الرئيسية — BioMath Core + SAVEN + Bodies = نظام رعاية مستمرة",
-  "Environments — Home, Hospital, and Institution linked by one continuous helix": "البيئات — المنزل والمستشفى والمؤسسة مرتبطة بحلزون مستمر واحد"
+  "Environments — Home, Hospital, and Institution linked by one continuous helix": "البيئات — المنزل والمستشفى والمؤسسة مرتبطة بحلزون مستمر واحد",
+  "What looks like a closed box is designed to hold living intelligence and protective control — including technical approaches for storing personal and sensitive personal information. This describes Architecture / In Development intent, not Operational security guarantees.": "ما يبدو كصندوق مغلق مصمَّم لاحتواء ذكاء حيّ وتحكم وقائي — بما في ذلك نُهج تقنية لتخزين المعلومات الشخصية والمعلومات الشخصية الحساسة. يصف هذا نية Architecture / In Development، وليس ضمانات أمان Operational.",
+  "Sensitive personal data — intended storage approach": "البيانات الشخصية الحساسة — نهج التخزين المقصود",
+  "Inside the Black Box concept, personal information and sensitive personal information are treated as technical data-storage problems — not as open marketing databases. The goal is to keep human context usable for care continuity while limiting who can reach it, what is kept, and why.": "داخل مفهوم الصندوق الأسود، تُعامل المعلومات الشخصية والمعلومات الشخصية الحساسة كمشكلات تقنية لتخزين البيانات — وليست قواعد بيانات تسويقية مفتوحة. الهدف إبقاء السياق البشري قابلاً للاستخدام لاستمرارية الرعاية مع تقييد من يمكنه الوصول وما يُحفظ ولماذا.",
+  "The architecture is designed around privacy, controlled access, data minimization, safety, traceability, and human oversight. Protection targets include encryption for data at rest and in transit, permissioned roles, separation of sensitive material from broader system surfaces, and purpose limitation — keep only what a clear purpose requires. These are design targets for systems still in development; they are not claims of a certified live production vault, regulatory approval, or zero risk.": "تُصمَّم المعمارية حول الخصوصية والوصول المتحكم وتقليل البيانات والسلامة وإمكانية التتبع والإشراف البشري. تشمل أهداف الحماية التشفير للبيانات الساكنة وفي أثناء النقل، والأدوار المصرّح بها، وفصل المواد الحساسة عن أسطح النظام الأوسع، وتقييد الغرض — الاحتفاظ فقط بما يتطلبه غرض واضح. هذه أهداف تصميم لأنظمة لا تزال قيد التطوير؛ وليست ادعاءات بخزنة إنتاج معتمدة أو موافقة تنظيمية أو مخاطر صفرية.",
+  "Architecture intent — not Operational guarantees": "نية Architecture — ليست ضمانات Operational",
+  "Storage": "التخزين",
+  "Technical stores for personal and sensitive personal data, governed inside the Black Box concept — not unrestricted collection.": "مخازن تقنية للبيانات الشخصية والبيانات الشخصية الحساسة، محكومة داخل مفهوم الصندوق الأسود — وليست جمعاً غير مقيَّد.",
+  "Access": "الوصول",
+  "Permissioned roles and controlled pathways; sensitive context is not open by default.": "أدوار مصرّح بها ومسارات متحكم بها؛ السياق الحساس ليس مفتوحاً افتراضياً.",
+  "Encryption posture": "موقف التشفير",
+  "Designed so sensitive material is protected while stored and while moving between trusted components — architecture intent, not a live certification claim.": "مصمَّم بحيث تُحمى المواد الحساسة أثناء التخزين وأثناء الانتقال بين المكوّنات الموثوقة — نية معمارية، وليست ادعاء شهادة حية.",
+  "Isolation": "العزل",
+  "Separate sensitive context from broader surfaces where practical; protective boundaries around the Black Box volume.": "فصل السياق الحساس عن الأسطح الأوسع حيثما أمكن؛ حدود وقائية حول حجم الصندوق الأسود.",
+  "Minimization": "التقليل",
+  "Keep only what the stated purpose requires; avoid retaining excess human detail.": "الاحتفاظ فقط بما يتطلبه الغرض المذكور؛ وتجنب الاحتفاظ بتفاصيل بشرية زائدة.",
 };
-

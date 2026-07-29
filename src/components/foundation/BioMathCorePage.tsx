@@ -169,11 +169,38 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
             {content.blackBox.heading}
           </h2>
           <p className="bmc-page__section-support">{content.blackBox.support}</p>
-          <BlackBoxVisual
-            visualLabel={content.blackBox.visualLabel}
-            caption={content.blackBox.caption}
-            sides={content.blackBox.sides}
-          />
+          <div className="bmc-page__blackbox-layout">
+            <BlackBoxVisual
+              visualLabel={content.blackBox.visualLabel}
+              caption={content.blackBox.caption}
+              sides={content.blackBox.sides}
+            />
+            <div className="bmc-page__blackbox-prose">
+              <h3 className="bmc-page__blackbox-storage-title">
+                {content.blackBox.storageHeading}
+              </h3>
+              <p className="bmc-page__paragraph">{content.blackBox.storageIntro}</p>
+              <p className="bmc-page__paragraph">{content.blackBox.storageBody}</p>
+              <p className="bmc-page__blackbox-principles-eyebrow">
+                {content.blackBox.principlesEyebrow}
+              </p>
+              <ul className="bmc-page__blackbox-principles">
+                {content.blackBox.principles.map((principle) => (
+                  <li
+                    key={principle.id}
+                    className={`bmc-page__blackbox-principle bmc-page__blackbox-principle--${principle.id}`}
+                  >
+                    <strong className="bmc-page__blackbox-principle-label">
+                      {principle.label}
+                    </strong>
+                    <span className="bmc-page__blackbox-principle-body">
+                      {principle.body}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </section>
 
         <section

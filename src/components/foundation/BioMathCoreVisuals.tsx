@@ -52,7 +52,7 @@ function DiagramFigure({
           width={width}
           height={height}
           className="bmc-figure__img"
-          sizes="(max-width: 720px) 100vw, (max-width: 1100px) 88vw, 52rem"
+          sizes="(max-width: 720px) 100vw, (max-width: 1100px) 78vw, 40rem"
           priority={priority}
         />
       </div>

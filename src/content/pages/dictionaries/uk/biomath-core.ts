@@ -188,6 +188,20 @@ export const dictionary: Record<string, string> = {
   "Foundation sequence — BioMath Life to BioMath Core to SAVEN to SAVEN Core": "Послідовність Foundation — BioMath Life → BioMath Core → SAVEN → SAVEN Core",
   "Intelligence · Living Model": "Інтелект · Жива модель",
   "Execution · Control · Verify": "Виконання · Контроль · Верифікація",
-  "Human Care Systems": "Системи людської турботи"
+  "Human Care Systems": "Системи людської турботи",
+  "What looks like a closed box is designed to hold living intelligence and protective control — including technical approaches for storing personal and sensitive personal information. This describes Architecture / In Development intent, not Operational security guarantees.": "Те, що виглядає як закрита скринька, призначене тримати живу інтелігенцію та захисний контроль — включно з технічними підходами до зберігання персональної та чутливої персональної інформації. Це описує намір Architecture / In Development, а не Operational гарантії безпеки.",
+  "Sensitive personal data — intended storage approach": "Чутливі персональні дані — передбачуваний підхід до зберігання",
+  "Inside the Black Box concept, personal information and sensitive personal information are treated as technical data-storage problems — not as open marketing databases. The goal is to keep human context usable for care continuity while limiting who can reach it, what is kept, and why.": "У концепції чорної скриньки персональна та чутлива персональна інформація розглядається як технічні задачі зберігання даних — не як відкриті маркетингові бази. Мета — зберегти людський контекст придатним для безперервності піклування, обмежуючи хто може його отримати, що зберігається і навіщо.",
+  "The architecture is designed around privacy, controlled access, data minimization, safety, traceability, and human oversight. Protection targets include encryption for data at rest and in transit, permissioned roles, separation of sensitive material from broader system surfaces, and purpose limitation — keep only what a clear purpose requires. These are design targets for systems still in development; they are not claims of a certified live production vault, regulatory approval, or zero risk.": "Архітектура побудована навколо приватності, контрольованого доступу, мінімізації даних, безпеки, простежуваності та людського нагляду. Цілі захисту включають шифрування даних у спокої та під час передачі, дозволені ролі, відокремлення чутливого матеріалу від ширших поверхонь системи та обмеження мети — зберігати лише те, що вимагає чітка мета. Це цілі проєктування для систем, що ще в розробці; це не твердження про сертифіковане бойове сховище, регуляторне схвалення чи нульовий ризик.",
+  "Architecture intent — not Operational guarantees": "Намір Architecture — не Operational гарантії",
+  "Storage": "Зберігання",
+  "Technical stores for personal and sensitive personal data, governed inside the Black Box concept — not unrestricted collection.": "Технічні сховища для персональних і чутливих персональних даних, керовані в концепції чорної скриньки — не необмежений збір.",
+  "Access": "Доступ",
+  "Permissioned roles and controlled pathways; sensitive context is not open by default.": "Дозволені ролі та контрольовані шляхи; чутливий контекст не відкритий за замовчуванням.",
+  "Encryption posture": "Позиція шифрування",
+  "Designed so sensitive material is protected while stored and while moving between trusted components — architecture intent, not a live certification claim.": "Спроєктовано так, щоб чутливий матеріал захищався під час зберігання та під час переміщення між довіреними компонентами — намір архітектури, не твердження про живу сертифікацію.",
+  "Isolation": "Ізоляція",
+  "Separate sensitive context from broader surfaces where practical; protective boundaries around the Black Box volume.": "Відокремлювати чутливий контекст від ширших поверхонь там, де практично; захисні межі навколо обсягу чорної скриньки.",
+  "Minimization": "Мінімізація",
+  "Keep only what the stated purpose requires; avoid retaining excess human detail.": "Зберігати лише те, що вимагає зазначена мета; уникати утримання зайвих людських деталей.",
 };
-

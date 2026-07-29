@@ -1,4 +1,4 @@
-/* BioMath Core leaf page — navy / gold / orange accents, limited glow (D-0228 / D-0236). */
+/* BioMath Core leaf page — navy / gold / orange accents, limited glow (D-0228 / D-0238). */
 
 .bmc-page {
   --bmc-navy: #0b1524;
@@ -7,7 +7,8 @@
   --bmc-orange: #e07a3d;
   --bmc-gold: #d4a84b;
   --bmc-off: #f4f1ea;
-  --bmc-diagram-max: 52rem;
+  --bmc-diagram-max: 40rem;
+  --bmc-diagram-narrow: 34rem;
   color: var(--color-text);
   background: var(--color-bg);
 }
@@ -181,9 +182,9 @@
 .bmc-page__body {
   max-width: 72rem;
   margin-inline: auto;
-  padding: clamp(2rem, 4vw, 3.25rem) clamp(1.25rem, 4vw, 2.5rem) clamp(3rem, 6vw, 4.5rem);
+  padding: clamp(1.75rem, 3.5vw, 2.85rem) clamp(1.25rem, 4vw, 2.5rem) clamp(2.75rem, 5.5vw, 4rem);
   display: grid;
-  gap: clamp(1.75rem, 3.5vw, 2.75rem);
+  gap: clamp(1.45rem, 3vw, 2.25rem);
 }
 
 .bmc-page__section-title {
@@ -277,9 +278,9 @@ html[data-theme="dark"] .bmc-page__categories {
 
 .bmc-page__category-artboard {
   position: relative;
-  margin: 1.25rem auto 0;
-  max-width: min(68rem, 100%);
-  padding: clamp(0.85rem, 2vw, 1.25rem);
+  margin: 1.1rem auto 0;
+  max-width: min(56rem, 100%);
+  padding: clamp(0.75rem, 1.8vw, 1.1rem);
   overflow: hidden;
   border: 1px solid color-mix(in srgb, var(--bmc-navy) 16%, var(--color-border));
   background:
@@ -534,16 +535,132 @@ html[data-theme="dark"] .bmc-page__category-card {
   padding-block-start: 1.25rem;
 }
 
-/* —— Capability illustration panels (D-0234) —— */
+/* —— Black Box: compact figure + sensitive-data prose (D-0238) —— */
+
+.bmc-page__blackbox-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.2fr);
+  gap: clamp(1rem, 2.4vw, 1.65rem);
+  align-items: start;
+  margin-block-start: 0.35rem;
+}
+
+.bmc-viz--blackbox {
+  margin-block-start: 0;
+}
+
+.bmc-viz--blackbox .bmc-figure {
+  max-width: var(--bmc-diagram-narrow);
+  margin-inline: 0;
+}
+
+.bmc-page__blackbox-prose {
+  display: grid;
+  gap: 0.7rem;
+  padding: clamp(0.85rem, 2vw, 1.15rem);
+  border: 1px solid color-mix(in srgb, var(--bmc-navy) 14%, var(--color-border));
+  background:
+    linear-gradient(
+      165deg,
+      color-mix(in srgb, var(--bmc-off) 72%, var(--color-surface)),
+      color-mix(in srgb, #e8ecf1 55%, var(--color-surface))
+    );
+}
+
+html[data-theme="dark"] .bmc-page__blackbox-prose {
+  background:
+    linear-gradient(
+      165deg,
+      color-mix(in srgb, var(--bmc-navy) 22%, var(--color-surface)),
+      var(--color-surface)
+    );
+  border-color: color-mix(in srgb, var(--bmc-blue) 20%, var(--color-border));
+}
+
+.bmc-page__blackbox-storage-title {
+  margin: 0;
+  font-size: clamp(1.02rem, 1.8vw, 1.2rem);
+  line-height: 1.3;
+  font-weight: var(--weight-semibold);
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+}
+
+.bmc-page__blackbox-prose .bmc-page__paragraph {
+  max-width: none;
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+}
+
+.bmc-page__blackbox-principles-eyebrow {
+  margin: 0.15rem 0 0;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: var(--weight-semibold);
+  color: color-mix(in srgb, var(--bmc-navy) 50%, var(--bmc-gold));
+}
+
+html[data-theme="dark"] .bmc-page__blackbox-principles-eyebrow {
+  color: color-mix(in srgb, var(--bmc-gold) 85%, #fff);
+}
+
+.bmc-page__blackbox-principles {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.bmc-page__blackbox-principle {
+  display: grid;
+  gap: 0.2rem;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  border-inline-start: 3px solid var(--bmc-blue);
+}
+
+.bmc-page__blackbox-principle--access {
+  border-inline-start-color: var(--bmc-gold);
+}
+
+.bmc-page__blackbox-principle--encryption {
+  border-inline-start-color: var(--bmc-orange);
+}
+
+.bmc-page__blackbox-principle--isolation {
+  border-inline-start-color: var(--bmc-blue);
+}
+
+.bmc-page__blackbox-principle--minimization {
+  border-inline-start-color: var(--bmc-gold);
+}
+
+.bmc-page__blackbox-principle-label {
+  font-size: 0.8125rem;
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+}
+
+.bmc-page__blackbox-principle-body {
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: var(--color-text-muted);
+}
+
+/* —— Capability illustration panels (D-0234 / D-0238) —— */
 
 .bmc-viz {
-  margin-block-start: 1rem;
+  margin-block-start: 0.7rem;
 }
 
 .bmc-figure {
   margin: 0 auto;
   display: grid;
-  gap: 0.75rem;
+  gap: 0.5rem;
   max-width: var(--bmc-diagram-max);
 }
 
@@ -588,9 +705,9 @@ html[data-theme="dark"] .bmc-figure--dark .bmc-figure__frame {
 .bmc-figure__caption {
   margin: 0;
   font-size: 0.8125rem;
-  line-height: 1.45;
+  line-height: 1.4;
   color: var(--color-text-muted);
-  max-width: 52rem;
+  max-width: var(--bmc-diagram-max);
 }
 
 .bmc-figure__caption--inline {
@@ -944,6 +1061,15 @@ html[data-theme="dark"] .bmc-sequence__step--emphasis .bmc-sequence__label {
 }
 
 @media (max-width: 960px) {
+  .bmc-page__blackbox-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .bmc-viz--blackbox .bmc-figure {
+    max-width: min(var(--bmc-diagram-narrow), 100%);
+    margin-inline: auto;
+  }
+
   .bmc-figure__stack-meta,
   .bmc-figure__dual-meta,
   .bmc-sequence__list {
@@ -954,6 +1080,7 @@ html[data-theme="dark"] .bmc-sequence__step--emphasis .bmc-sequence__label {
 @media (max-width: 720px) {
   .bmc-page {
     --bmc-diagram-max: 100%;
+    --bmc-diagram-narrow: 100%;
   }
 
   .bmc-page__hero-inner {

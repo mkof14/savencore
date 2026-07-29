@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-28 (D-0215 — Future Lab beyond R&D + Install size)
+**Last updated:** 2026-07-28 (D-0219 — homepage clarity pack, reversible)
 
 ## Rules
 
@@ -234,6 +234,7 @@
 | D-0216 | 2026-07-28 | Explore SAVEN interactive closing band + legal interim policy pass | Active |
 | D-0217 | 2026-07-28 | Closing band: SAVEN wordmark glow + upper corner nav | Active (denser nav / glow size: D-0218) |
 | D-0218 | 2026-07-28 | Closing band: denser upper nav + ~2× SAVEN glow + lively hover | Active |
+| D-0219 | 2026-07-28 | Homepage clarity pack (definition, chain, pillars, audience, boundaries) — reversible flag | Active |
 
 ---
 
@@ -2040,6 +2041,29 @@
 - **In scope:** Closing CSS + `ClosingExploreMap` content (all 10 home locales); D-0218 + AGENTS / SITE_ASSIGNMENT / IA pointers; type-check; commit/push; production deploy; Russian owner brief.
 - **Out of scope:** Neon elsewhere; inventing routes; changing pillar destinations; legal/CMP changes.
 - **Implications:** D-0217 corner pair expands to denser clusters; glow exception remains limited to this closing wordmark.
+
+### D-0219 — Homepage clarity pack (reversible)
+
+- **Date:** 2026-07-28
+- **Status:** Active
+- **Summary:** Owner approved implementing all prior homepage clarity advisory items so visitors answer “what is SAVEN?” within the first seconds — with an explicit revert path.
+- **Decision:**
+  1. Ship a gated **Home Clarity Pack** (`HomeClarityPack` + `src/config/home-clarity.ts`) on Physical World home:
+     - **What is SAVEN** — 1–2 definition sentences (systems linking human understanding ↔ robots/devices under human control; AI as tool; uses/advances, does not create — aligns D-0174).
+     - **3-step clickable chain** — Human understanding → SAVEN → physical assistance (Purpose · Robotics Interface · Applications).
+     - **Compact Explore SAVEN** strip (Support · Action · Verification · Environment · Network) early on the page; **keep** the rich closing Explore band (D-0216–D-0218).
+     - **Audience fork** — Care/Purpose/Applications · Technology/Labs/Interface/Systems · Investors.
+     - **Care carousel** stage — stronger “Why this is SAVEN” one-liner + existing Application CTA.
+     - **What we are not** — three short points (not creating AI as purpose; not diagnosing; not prescribing/selling medicines — aligns medical disclaimer / D-0174 / D-0211).
+  2. **Default ON.** Revert without deleting code:
+     - Set `HOME_CLARITY_V1_DEFAULT = false` in `src/config/home-clarity.ts`, **or**
+     - Set env `NEXT_PUBLIC_HOME_CLARITY_V1=false` and rebuild/redeploy.
+     - When false, home renders the pre-D-0219 structure (hero → living carousel → flagships → closing).
+  3. Full removal later: delete `HomeClarityPack`, ungated clarity usage in `PhysicalWorldHome` / `LivingDomains`, clarity CSS, optional `clarity` / `why*` content fields, and this config; commit note referencing D-0219.
+  4. English canonical; all 10 physical-world home locales translated. No Knowledge Passport in first viewport; no Operational / customer invention; straight corners; brand tokens.
+- **In scope:** Config flag; `HomeClarityPack`; home CSS; living stage why-line; content types + 10 locales; D-0219 + AGENTS / SITE_ASSIGNMENT / IA pointers; type-check; commit/push; Vercel prod; local `:3000` restart; Russian owner brief + revert instructions.
+- **Out of scope:** Changing closing Explore map behavior; inventing routes; legal pack rewrite; analytics/CMP.
+- **Implications:** Homepage gains early clarity blocks while remaining one commit/flag flip from the prior structure.
 
 ## Pending Owner Decisions
 

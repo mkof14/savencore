@@ -382,6 +382,8 @@ Home is the primary composition surface. It must deliver the 20-second comprehen
 
 **As-built closing band (D-0216 / D-0217 / D-0218):** Explore SAVEN pillar map; soft brand glow on the SAVEN wordmark (hover/focus; ~2× radius per D-0218); dense upper corner nav — Purpose · Labs · Human Data Model · Robotics · Automation · Interoperability (left) and Knowledge Engine · Robotics Layer · Robotics Interface · Internal Future Lab · Trust · Contact · FAQ (right) — published routes only.
 
+**As-built clarity pack (D-0219):** When `HOME_CLARITY_V1` is on (default), post-hero home adds definition, 3-step chain, compact Explore strip, audience fork, care-stage why-line, and “what we are not”; rich closing Explore band remains. Revert: set flag false (see `src/config/home-clarity.ts` / D-0219).
+
 Home content structure will be defined in a later approved content phase. No page build in Phase 0.
 
 ---

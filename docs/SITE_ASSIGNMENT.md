@@ -98,13 +98,14 @@ Prominent paths into the three primary workstreams (canonical scopes in §5.0):
 3. **Internal Future Lab** → proposed destination when published (see §5.0.4)
 4. Optional engineering deep path already strong in repo: **Technology** / Human Data Model (flagship engineering reference per D-0107) — only if it does not crowd the three above
 
-### Homepage region order (as-built, D-0135 / D-0150 / D-0194)
+### Homepage region order (as-built, D-0135 / D-0150 / D-0194 / D-0219)
 
 1. **Hero** — brand, hero line, one breath sentence, three build pillars, tagline, footer cue, plus living atmosphere + thematic illustration plane
-2. **Care living carousel** — one care-focused living band (hospitals / home / family / emergency / …)
-3. **Flagship Gateway** — compact paths: Robotics Lab, Robotics Interface, Internal Future Lab (+ optional Investors) with honest statuses
-4. **Closing** — SAVEN meaning band: Explore pillars (D-0216) + wordmark glow (~2× D-0218) + dense upper corner nav (Purpose · Labs · tech leaves | systems · Future Lab · Trust · Contact · FAQ — D-0217/D-0218)
-5. **Footer** — complete published site map by domain
+2. **Clarity pack** (D-0219; flag `HOME_CLARITY_V1`, default on) — What is SAVEN · 3-step chain · compact Explore pillars · audience fork; after carousel: what we are not. Set flag false to restore pre-D-0219 order.
+3. **Care living carousel** — one care-focused living band (hospitals / home / family / emergency / …); with clarity on: stage “Why this is SAVEN” + Application CTA
+4. **Flagship Gateway** — compact paths: Robotics Lab, Robotics Interface, Internal Future Lab (+ optional Investors) with honest statuses
+5. **Closing** — SAVEN meaning band: Explore pillars (D-0216) + wordmark glow (~2× D-0218) + dense upper corner nav (Purpose · Labs · tech leaves | systems · Future Lab · Trust · Contact · FAQ — D-0217/D-0218)
+6. **Footer** — complete published site map by domain
 
 A + B remain valid for section pages; Flagship Gateway is the authorized compact home B path (D-0194) — still not a first-viewport inventory dump.
 

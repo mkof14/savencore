@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-28 (D-0220 — analysis backlog execution)
+**Last updated:** 2026-07-29 (D-0221 — closing corner restore + clarity visual)
 
 ## Rules
 
@@ -235,7 +235,8 @@
 | D-0217 | 2026-07-28 | Closing band: SAVEN wordmark glow + upper corner nav | Active (denser nav / glow size: D-0218) |
 | D-0218 | 2026-07-28 | Closing band: denser upper nav + ~2× SAVEN glow + lively hover | Active |
 | D-0219 | 2026-07-28 | Homepage clarity pack (definition, chain, pillars, audience, boundaries) — reversible flag | Active |
-| D-0220 | 2026-07-28 | Analysis backlog execution — legal chrome honesty, clarity v2 density, ops docs, durable Admin JSON/Blob, corner More links, title search, CSP defer | Active |
+| D-0220 | 2026-07-28 | Analysis backlog execution — legal chrome honesty, clarity v2 density, ops docs, durable Admin JSON/Blob, corner More links, title search, CSP defer | Partially superseded (corner More links → D-0221) |
+| D-0221 | 2026-07-29 | Restore dense closing corner nav; richer clarity cards; smaller footer Install app | Active |
 
 ---
 
@@ -2083,6 +2084,19 @@
 - **In scope:** Legal types/UI/FAQ locales; home-clarity V2; ClosingExploreMap disclosure; json-store Blob backend; Admin banners; `/search/`; ops docs; D-0220 + AGENTS/IA/SITE_ASSIGNMENT pointers; type-check; commit/push/deploy.
 - **Out of scope:** Full CMS; inventing entity/DPO/law; Operational claims; LinkedIn/leadership/roadmap dates/investor PDF without facts; nonce CSP pass.
 - **Implications:** Public trust language is clearer; home is denser with two-flag revert; Admin durability matches Media when Blob is configured; search is title-only and honest.
+
+### D-0221 — Closing corner restore + clarity visual enrichment
+
+- **Date:** 2026-07-29
+- **Status:** Active
+- **Summary:** Owner feedback «не вижу изменений»: D-0220 progressive disclosure hid the dense two-sided closing corner lists behind **More links**; clarity blocks felt under-visual; Install app needed smaller footer type. Implement fully, verify local + prod HTML, redeploy.
+- **Decision:**
+  1. **Closing corner nav** — Restore always-visible dense left/right clusters on the dark SAVEN closing band (Purpose, Labs, Human Data Model, Robotics, Automation, Interoperability | Knowledge Engine, Robotics Layer, Robotics Interface, Internal Future Lab, Trust, Contact, FAQ). Supersede D-0220 §5 “More links” collapse for this band.
+  2. **Home clarity visual** — Keep `HOME_CLARITY_V1` / `HOME_CLARITY_V2` gates. Enrich definition / 3-step chain / Explore pillars / audience fork with navy/gold/off-white card grammar, clearer spacing, accents, and visible support/meaning copy (not text-only density).
+  3. **Footer Install app** — Smaller type than other Resources column links (supersedes D-0215 same-size rule for Install only).
+- **In scope:** `ClosingExploreMap`, `HomeClarityPack` + CSS, footer install CSS, D-0221 + AGENTS/IA/SITE_ASSIGNMENT pointers; commit/push/Vercel prod; local + www smoke.
+- **Out of scope:** New routes; inventing facts; neon beyond approved wordmark glow; CMS/full-text search.
+- **Implications:** Closing band again shows full corner destinations without a center toggle; clarity remains flag-gated but reads as site-styled cards.
 
 ## Pending Owner Decisions
 

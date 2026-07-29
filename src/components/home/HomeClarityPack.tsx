@@ -21,8 +21,9 @@ type HomeClarityPackProps = {
 };
 
 /**
- * Reversible homepage clarity blocks (D-0219 / denser D-0220 via HOME_CLARITY_V2).
+ * Reversible homepage clarity blocks (D-0219 / denser D-0220 / visual D-0221).
  * Gated by `HOME_CLARITY_V1_ENABLED` — returns null when the flag is off.
+ * V2 adds navy/gold/off-white card grammar while keeping support copy visible.
  */
 export function HomeClarityPack({
   locale,
@@ -33,14 +34,19 @@ export function HomeClarityPack({
   if (!HOME_CLARITY_V1_ENABLED) return null;
 
   const dense = HOME_CLARITY_V2_ENABLED;
-  const earlyClass = dense
-    ? "pw-clarity pw-clarity--early pw-clarity--v2"
-    : "pw-clarity pw-clarity--early";
+  const earlyClass = [
+    "pw-clarity",
+    "pw-clarity--early",
+    dense ? "pw-clarity--v2" : "",
+    "pw-clarity--visual",
+  ]
+    .filter(Boolean)
+    .join(" ");
 
   if (slot === "post-living") {
     return (
       <section
-        className={`pw-clarity pw-clarity--not${dense ? " pw-clarity--v2" : ""}`}
+        className={`pw-clarity pw-clarity--not pw-clarity--visual${dense ? " pw-clarity--v2" : ""}`}
         aria-labelledby="pw-clarity-not-title"
       >
         <div className="pw-home__inner pw-clarity__inner">
@@ -64,10 +70,15 @@ export function HomeClarityPack({
         aria-labelledby="pw-clarity-def-title"
       >
         <div className="pw-home__inner pw-clarity__inner">
-          <h2 id="pw-clarity-def-title" className="pw-clarity__title">
-            {clarity.definition.heading}
-          </h2>
-          <p className="pw-clarity__body">{clarity.definition.body}</p>
+          <div className="pw-clarity__panel pw-clarity__panel--definition">
+            <p className="pw-clarity__eyebrow" aria-hidden="true">
+              SAVEN
+            </p>
+            <h2 id="pw-clarity-def-title" className="pw-clarity__title">
+              {clarity.definition.heading}
+            </h2>
+            <p className="pw-clarity__body">{clarity.definition.body}</p>
+          </div>
         </div>
       </section>
 
@@ -91,6 +102,9 @@ export function HomeClarityPack({
                   href={localizePath(locale, step.href as PublishedRoute)}
                   className="pw-clarity__chain-link"
                 >
+                  <span className="pw-clarity__chain-index" aria-hidden="true">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
                   <span className="pw-clarity__chain-label">{step.label}</span>
                   <span className="pw-clarity__chain-cta">
                     {step.cta}
@@ -103,7 +117,6 @@ export function HomeClarityPack({
         </div>
       </section>
 
-      {/* V2: keep a single dense pillar row; full Explore remains in the closing band. */}
       <section
         className={`pw-clarity__block pw-clarity__explore${dense ? " pw-clarity__explore--dense" : ""}`}
         aria-labelledby="pw-clarity-explore-title"
@@ -112,9 +125,7 @@ export function HomeClarityPack({
           <h2 id="pw-clarity-explore-title" className="pw-clarity__title">
             {clarity.exploreStrip.heading}
           </h2>
-          {!dense ? (
-            <p className="pw-clarity__support">{clarity.exploreStrip.support}</p>
-          ) : null}
+          <p className="pw-clarity__support">{clarity.exploreStrip.support}</p>
           <ul className="pw-clarity__pillars" aria-label={clarity.exploreStrip.heading}>
             {pillars.map((pillar) => (
               <li key={pillar.id}>
@@ -123,13 +134,15 @@ export function HomeClarityPack({
                   className="pw-clarity__pillar"
                   title={pillar.meaning}
                 >
+                  <span className="pw-clarity__pillar-mark" aria-hidden="true">
+                    {pillar.label.slice(0, 1)}
+                  </span>
                   <span className="pw-clarity__pillar-label">{pillar.label}</span>
-                  {!dense ? (
-                    <span className="pw-clarity__pillar-cta">
-                      {pillar.cta}
-                      <span aria-hidden="true"> →</span>
-                    </span>
-                  ) : null}
+                  <span className="pw-clarity__pillar-meaning">{pillar.meaning}</span>
+                  <span className="pw-clarity__pillar-cta">
+                    {pillar.cta}
+                    <span aria-hidden="true"> →</span>
+                  </span>
                 </Link>
               </li>
             ))}
@@ -145,16 +158,12 @@ export function HomeClarityPack({
           <h2 id="pw-clarity-audience-title" className="pw-clarity__title">
             {clarity.audience.heading}
           </h2>
-          {!dense ? (
-            <p className="pw-clarity__support">{clarity.audience.support}</p>
-          ) : null}
+          <p className="pw-clarity__support">{clarity.audience.support}</p>
           <ul className="pw-clarity__paths">
             {clarity.audience.paths.map((path) => (
               <li key={path.id} className="pw-clarity__path">
                 <p className="pw-clarity__path-label">{path.label}</p>
-                {!dense ? (
-                  <p className="pw-clarity__path-desc">{path.description}</p>
-                ) : null}
+                <p className="pw-clarity__path-desc">{path.description}</p>
                 <ul className="pw-clarity__path-links">
                   {path.links.map((link) => (
                     <li key={link.href}>

@@ -119,11 +119,11 @@ export type PhysicalWorldHomeContent = {
     map: readonly ClosingExplorePillar[];
     /** SAVEN wordmark hover/focus glow label (D-0217). */
     wordmarkLabel: string;
-    /** Dense upper-corner nav on the dark metal band (D-0217 / D-0218 / D-0220). */
+    /** Dense upper-corner nav on the dark metal band (D-0217 / D-0218 / D-0221). */
     corners: {
       navLabel: string;
-      /** Expand/collapse label for non-primary corner links (D-0220). */
-      moreLabel: string;
+      /** Unused after D-0221 restored full visible clusters (kept optional for locales). */
+      moreLabel?: string;
       left: readonly ClosingCornerLink[];
       right: readonly ClosingCornerLink[];
     };

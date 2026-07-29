@@ -380,9 +380,9 @@ Configurable until official URLs are supplied. No fake URLs.
 
 Home is the primary composition surface. It must deliver the 20-second comprehension goals without becoming a product catalog, SaaS landing page, or generic AI startup template.
 
-**As-built closing band (D-0216 / D-0217 / D-0218 / D-0220):** Explore SAVEN pillar map; soft brand glow on the SAVEN wordmark (hover/focus; ~2× radius per D-0218); upper corner nav — Purpose · Labs · Trust · Contact always visible; remaining tech/systems/FAQ destinations under **More links** expand/collapse (D-0220); published routes only.
+**As-built closing band (D-0216 / D-0217 / D-0218 / D-0221):** Explore SAVEN pillar map; soft brand glow on the SAVEN wordmark (hover/focus; ~2× radius per D-0218); upper corner nav — dense always-visible left/right clusters (Purpose · Labs · Human Data Model · Robotics · Automation · Interoperability | Knowledge Engine · Robotics Layer · Robotics Interface · Internal Future Lab · Trust · Contact · FAQ); D-0220 **More links** collapse superseded by D-0221; published routes only.
 
-**As-built clarity pack (D-0219 / D-0220):** When `HOME_CLARITY_V1` is on (default), post-hero home adds definition, 3-step chain, compact Explore strip, audience fork, care-stage why-line, and “what we are not”; rich closing Explore band remains. When `HOME_CLARITY_V2` is also on (default), density is tightened (shorter spacing, compact explore row, leaner audience cards). Revert density: `NEXT_PUBLIC_HOME_CLARITY_V2=false`. Revert full clarity: `NEXT_PUBLIC_HOME_CLARITY_V1=false` (see `src/config/home-clarity.ts` / D-0219 / D-0220).
+**As-built clarity pack (D-0219 / D-0220 / D-0221):** When `HOME_CLARITY_V1` is on (default), post-hero home adds definition, 3-step chain, Explore strip, audience fork, care-stage why-line, and “what we are not”; rich closing Explore band remains. When `HOME_CLARITY_V2` is also on (default), layout stays compact with richer navy/gold/off-white cards and visible support/meaning copy (D-0221). Revert density: `NEXT_PUBLIC_HOME_CLARITY_V2=false`. Revert full clarity: `NEXT_PUBLIC_HOME_CLARITY_V1=false` (see `src/config/home-clarity.ts` / D-0219 / D-0220 / D-0221).
 
 **As-built search (D-0220):** `/search/` filters published-route titles and nav labels only; header + Resources footer link; honest empty states.
 

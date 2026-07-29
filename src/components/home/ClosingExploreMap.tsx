@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useId, useMemo, useState } from "react";
+import { useId, useState } from "react";
 
 import type { Locale } from "@/config/locales";
 import type {
@@ -29,14 +29,6 @@ const HOTSPOTS: Record<
 /** Wordmark region over baked-in SAVEN letters (D-0217 glow). */
 const WORDMARK_BOX = { left: 28, top: 34.5, width: 44, height: 14 };
 
-/** Always-visible corner destinations (D-0220 progressive disclosure). */
-const PRIMARY_CORNER_HREFS = new Set([
-  "/purpose/",
-  "/labs/",
-  "/trust/",
-  "/contact/",
-]);
-
 type ClosingExploreMapProps = {
   locale: Locale;
   exploreLabel: string;
@@ -46,21 +38,11 @@ type ClosingExploreMapProps = {
   wordmarkLabel: string;
   corners: {
     navLabel: string;
-    moreLabel: string;
+    moreLabel?: string;
     left: readonly ClosingCornerLink[];
     right: readonly ClosingCornerLink[];
   };
 };
-
-function splitCorners(items: readonly ClosingCornerLink[]) {
-  const primary: ClosingCornerLink[] = [];
-  const more: ClosingCornerLink[] = [];
-  for (const item of items) {
-    if (PRIMARY_CORNER_HREFS.has(item.href)) primary.push(item);
-    else more.push(item);
-  }
-  return { primary, more };
-}
 
 function CornerList({
   locale,
@@ -89,6 +71,10 @@ function CornerList({
   );
 }
 
+/**
+ * Closing Explore map — dense left/right corner nav stays visible (D-0221).
+ * D-0220 “More links” collapse removed so both upper clusters show full lists.
+ */
 export function ClosingExploreMap({
   locale,
   exploreLabel,
@@ -99,17 +85,12 @@ export function ClosingExploreMap({
   corners,
 }: ClosingExploreMapProps) {
   const panelId = useId();
-  const moreId = useId();
   const [activeId, setActiveId] = useState<ClosingExplorePillar["id"] | null>(
     null,
   );
   const [wordmarkLit, setWordmarkLit] = useState(false);
-  const [moreOpen, setMoreOpen] = useState(false);
 
   const active = pillars.find((p) => p.id === activeId) ?? null;
-  const left = useMemo(() => splitCorners(corners.left), [corners.left]);
-  const right = useMemo(() => splitCorners(corners.right), [corners.right]);
-  const hasMore = left.more.length > 0 || right.more.length > 0;
 
   return (
     <div className="pw-explore">
@@ -119,28 +100,8 @@ export function ClosingExploreMap({
       </p>
 
       <nav className="pw-explore__corners" aria-label={corners.navLabel}>
-        <CornerList locale={locale} items={left.primary} side="left" />
-        <CornerList locale={locale} items={right.primary} side="right" />
-        {hasMore ? (
-          <div className="pw-explore__corners-more">
-            <button
-              type="button"
-              className="pw-explore__corners-more-toggle"
-              aria-expanded={moreOpen}
-              aria-controls={moreId}
-              onClick={() => setMoreOpen((open) => !open)}
-            >
-              {corners.moreLabel}
-              <span aria-hidden="true">{moreOpen ? " −" : " +"}</span>
-            </button>
-            {moreOpen ? (
-              <div id={moreId} className="pw-explore__corners-more-panel">
-                <CornerList locale={locale} items={left.more} side="left" />
-                <CornerList locale={locale} items={right.more} side="right" />
-              </div>
-            ) : null}
-          </div>
-        ) : null}
+        <CornerList locale={locale} items={corners.left} side="left" />
+        <CornerList locale={locale} items={corners.right} side="right" />
       </nav>
 
       <button

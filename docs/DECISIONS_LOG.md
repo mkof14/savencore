@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-29 (D-0224 — Install app UX + media download restore)
+**Last updated:** 2026-07-29 (D-0225 — Explore SAVEN cinematic letter showcase)
 
 ## Rules
 
@@ -240,6 +240,7 @@
 | D-0222 | 2026-07-29 | Force footer Install app clearly smaller than column links | Superseded by D-0223 |
 | D-0223 | 2026-07-29 | Restore always-visible footer Install app; match column link type | Active |
 | D-0224 | 2026-07-29 | Fix Install app help UX (no bare Close); restore media downloads | Active |
+| D-0225 | 2026-07-29 | Explore SAVEN cinematic letter showcase (clarity band) | Active |
 
 ---
 
@@ -2138,6 +2139,20 @@
 - **In scope:** `InstallAppControl`, `site-shell.css`, `src/i18n/ui/*` (`installed` / `howToInstall` / `closeHelp`), `media-urls.ts`, public + admin media View routes, D-0224 + AGENTS / SITE_ASSIGNMENT / IA pointers; local `:3000` smoke; commit/push/Vercel prod; Russian owner brief.
 - **Out of scope:** Header Install; neon; inventing store listings; CMS; changing View/Download product rules beyond restore.
 - **Implications:** Clarifies non-Chrome Install path; Close never appears as a Resources column link; download path remains same-origin attachment-first.
+
+### D-0225 — Explore SAVEN cinematic letter showcase
+
+- **Date:** 2026-07-29
+- **Status:** Active
+- **Summary:** Owner wants the clarity **Explore SAVEN** strip highlighted and redesigned as a cinematic five-pillar band: logo beside the title, highly visual S–A–V–E–N letter heroes, split composition (letter + title/body/CTA), dark band aesthetic; glow contained to this section; closing rail letter consistency; English canonical copy with all 10 locales for pillar bodies.
+- **Decision:**
+  1. **Clarity Explore redesign** — Replace the compact five-card Explore strip with `ExploreSavenShowcase`: SAVEN logo mark (`/brand/saven-logo-mark.webp`) next to the section title; keyboard-accessible S–A–V–E–N tab rail; active panel is split letter visual + title/body/CTA. Remains gated by `HOME_CLARITY_V1` (and rendered inside the clarity pack).
+  2. **Letter heroes** — WebP assets under `public/home/explore-saven/` (S amber/gold crystalline · A gold energy · V cyan/chrome · E blue network · N blue fiber). Contained soft glow only inside `.pw-explore-saven` — not sitewide neon.
+  3. **Copy / routes** — Canonical EN: Support → `/purpose/` · Action → Robotics Interface · Verification → Human Oversight · Environment → Applications · Network → Systems. Bodies stay honest; no invented product claims. Closing Explore rail/panel labels show letter + pillar name for consistency.
+  4. **i18n** — Heading/support + pillar labels/meanings/CTAs via existing physical-world home locales (all 10).
+- **In scope:** `ExploreSavenShowcase`, `HomeClarityPack`, closing rail label tweak, explore letter WebPs, home CSS, D-0225 + AGENTS / SITE_ASSIGNMENT / IA; type-check; commit/push/Vercel prod; local `:3000`; Russian owner brief.
+- **Out of scope:** Inventing claims; neon outside this band; CMS; changing pillar destinations; ungating when `HOME_CLARITY_V1` is off.
+- **Implications:** Narrow glow exception (with D-0217/D-0218 closing wordmark) for clarity Explore letter band only. Compact pre-D-0225 Explore cards remain unused while clarity is on.
 
 ## Pending Owner Decisions
 

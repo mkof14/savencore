@@ -178,7 +178,10 @@ export function ClosingExploreMap({
       >
         {active ? (
           <>
-            <p className="pw-explore__panel-label">{active.label}</p>
+            <p className="pw-explore__panel-label">
+              <span aria-hidden="true">{active.label.slice(0, 1)} — </span>
+              {active.label}
+            </p>
             <p className="pw-explore__panel-meaning">{active.meaning}</p>
             <Link
               href={localizePath(locale, active.href as PublishedRoute)}
@@ -215,7 +218,10 @@ export function ClosingExploreMap({
                   )
                 }
               >
-                {pillar.label}
+                <span className="pw-explore__rail-letter" aria-hidden="true">
+                  {pillar.label.slice(0, 1)}
+                </span>
+                <span className="pw-explore__rail-name">{pillar.label}</span>
               </Link>
             </li>
           ))}

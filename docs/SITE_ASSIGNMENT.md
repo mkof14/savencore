@@ -101,7 +101,7 @@ Prominent paths into the three primary workstreams (canonical scopes in §5.0):
 ### Homepage region order (as-built, D-0135 / D-0150 / D-0194 / D-0219)
 
 1. **Hero** — brand, hero line, one breath sentence, three build pillars, tagline, footer cue, plus living atmosphere + thematic illustration plane
-2. **Clarity pack** (D-0219 / D-0220 / D-0221; flags `HOME_CLARITY_V1` + `HOME_CLARITY_V2`, default on) — visual What is SAVEN · 3-step chain · Explore pillars · audience fork (navy/gold/off-white cards); after carousel: what we are not. Set `HOME_CLARITY_V1` false to restore pre-D-0219 order; set `HOME_CLARITY_V2` false to keep V1 blocks with pre-density layout.
+2. **Clarity pack** (D-0219 / D-0220 / D-0221 / D-0225; flags `HOME_CLARITY_V1` + `HOME_CLARITY_V2`, default on) — visual What is SAVEN · 3-step chain · **Explore SAVEN** cinematic letter showcase (logo + S–A–V–E–N panels) · audience fork; after carousel: what we are not. Set `HOME_CLARITY_V1` false to restore pre-D-0219 order; set `HOME_CLARITY_V2` false to keep V1 blocks with pre-density layout.
 3. **Care living carousel** — one care-focused living band (hospitals / home / family / emergency / …); with clarity on: stage “Why this is SAVEN” + Application CTA
 4. **Flagship Gateway** — compact paths: Robotics Lab, Robotics Interface, Internal Future Lab (+ optional Investors) with honest statuses
 5. **Closing** — SAVEN meaning band: Explore pillars (D-0216) + wordmark glow (~2× D-0218) + dense always-visible upper corner nav (Purpose · Labs · tech leaves | systems · Future Lab · Trust · Contact · FAQ — D-0217/D-0218/D-0221)

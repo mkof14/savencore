@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { ExploreSavenShowcase } from "@/components/home/ExploreSavenShowcase";
 import {
   HOME_CLARITY_V1_ENABLED,
   HOME_CLARITY_V2_ENABLED,
@@ -22,6 +23,7 @@ type HomeClarityPackProps = {
 
 /**
  * Reversible homepage clarity blocks (D-0219 / denser D-0220 / visual D-0221).
+ * Explore SAVEN uses cinematic letter panels (D-0225).
  * Gated by `HOME_CLARITY_V1_ENABLED` — returns null when the flag is off.
  * V2 adds navy/gold/off-white card grammar while keeping support copy visible.
  */
@@ -117,38 +119,12 @@ export function HomeClarityPack({
         </div>
       </section>
 
-      <section
-        className={`pw-clarity__block pw-clarity__explore${dense ? " pw-clarity__explore--dense" : ""}`}
-        aria-labelledby="pw-clarity-explore-title"
-      >
-        <div className="pw-home__inner pw-clarity__inner">
-          <h2 id="pw-clarity-explore-title" className="pw-clarity__title">
-            {clarity.exploreStrip.heading}
-          </h2>
-          <p className="pw-clarity__support">{clarity.exploreStrip.support}</p>
-          <ul className="pw-clarity__pillars" aria-label={clarity.exploreStrip.heading}>
-            {pillars.map((pillar) => (
-              <li key={pillar.id}>
-                <Link
-                  href={localizePath(locale, pillar.href as PublishedRoute)}
-                  className="pw-clarity__pillar"
-                  title={pillar.meaning}
-                >
-                  <span className="pw-clarity__pillar-mark" aria-hidden="true">
-                    {pillar.label.slice(0, 1)}
-                  </span>
-                  <span className="pw-clarity__pillar-label">{pillar.label}</span>
-                  <span className="pw-clarity__pillar-meaning">{pillar.meaning}</span>
-                  <span className="pw-clarity__pillar-cta">
-                    {pillar.cta}
-                    <span aria-hidden="true"> →</span>
-                  </span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+      <ExploreSavenShowcase
+        locale={locale}
+        heading={clarity.exploreStrip.heading}
+        support={clarity.exploreStrip.support}
+        pillars={pillars}
+      />
 
       <section
         className="pw-clarity__block pw-clarity__audience"

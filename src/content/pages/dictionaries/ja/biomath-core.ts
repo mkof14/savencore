@@ -23,7 +23,7 @@ export const dictionary: Record<string, string> = {
   "Full foundation sequence hub": "Foundationシーケンス全体のハブ",
   "BioMath Core questions and answers": "BioMath Coreの質問と回答",
   "BioMath Core pages describe intended architecture. Status remains Architecture / In Development. They do not imply commercial deployment, clinical use, diagnosis, prescribing, or selling medicines.": "BioMath Coreのページは意図されたアーキテクチャを示します。ステータスはArchitecture / In Developmentのままです。商業展開、臨床利用、診断、処方、医薬品販売を意味しません。",
-  "BioMath Core sphere — structured intelligence at the center of the foundation": "BioMath Coreの球体—基盤の中心にある構造化された知能",
+  "BioMath Core ambient panel — engine core and living digital model motif (Architecture illustration)": "BioMath Coreアンビエントパネル—エンジンコアと生きたデジタルモデルのモチーフ（Architectureイラスト）",
   "Where health data becomes daily clarity.": "健康データが日々の明晰さになる場所。",
   "Complete Services Catalog": "完全なサービスカタログ",
   "Explore 200+ biomathematical health services across 20 specialized categories.": "20の専門カテゴリにわたる200以上のバイオ数学的ヘルスサービスを探る。",

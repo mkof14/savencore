@@ -27,7 +27,7 @@ type BioMathCorePageProps = {
 };
 
 /**
- * BioMath Core leaf — owner-grade illustration panels in themeable chrome (D-0228–D-0234).
+ * BioMath Core leaf — owner-grade illustration panels in themeable chrome (D-0228–D-0236).
  */
 export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
   const titleId = "bmc-page-title";
@@ -35,11 +35,14 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
   return (
     <article className="bmc-page" aria-labelledby={titleId}>
       <header className="bmc-page__hero">
+        <div className="bmc-page__hero-grid" aria-hidden="true" />
         <div className="bmc-page__hero-glow" aria-hidden="true" />
         <div className="bmc-page__hero-inner">
           <div className="bmc-page__hero-copy">
-            <p className="bmc-page__label">{content.label}</p>
-            <p className="bmc-page__status">{content.status}</p>
+            <div className="bmc-page__hero-meta">
+              <p className="bmc-page__label">{content.label}</p>
+              <p className="bmc-page__status">{content.status}</p>
+            </div>
             <div className="bmc-page__logo-wrap">
               <Image
                 src="/brand/biomath-core-logo.webp"
@@ -56,13 +59,20 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
             <p className="bmc-page__lede">{content.lede}</p>
           </div>
           <div className="bmc-page__hero-visual">
+            <div className="bmc-page__hero-frame" aria-hidden="true">
+              <span className="bmc-page__hero-corner bmc-page__hero-corner--tl" />
+              <span className="bmc-page__hero-corner bmc-page__hero-corner--tr" />
+              <span className="bmc-page__hero-corner bmc-page__hero-corner--bl" />
+              <span className="bmc-page__hero-corner bmc-page__hero-corner--br" />
+            </div>
             <Image
-              src="/domain/foundation/biomath-core-sphere.png"
+              src="/domain/foundation/biomath-core/diagrams/bmc-hero-ambient.webp"
               alt={content.hero.visualAlt}
-              width={480}
-              height={480}
+              width={1400}
+              height={780}
               priority
-              className="bmc-page__sphere"
+              className="bmc-page__hero-ambient"
+              sizes="(max-width: 720px) 88vw, 28rem"
             />
           </div>
         </div>

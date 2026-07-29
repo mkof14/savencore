@@ -23,7 +23,7 @@ export const dictionary: Record<string, string> = {
   "Full foundation sequence hub": "Hub completo de la secuencia Foundation",
   "BioMath Core questions and answers": "Preguntas y respuestas sobre BioMath Core",
   "BioMath Core pages describe intended architecture. Status remains Architecture / In Development. They do not imply commercial deployment, clinical use, diagnosis, prescribing, or selling medicines.": "Las páginas de BioMath Core describen la arquitectura prevista. El estado permanece Architecture / In Development. No implican despliegue comercial, uso clínico, diagnóstico, prescripción ni venta de medicamentos.",
-  "BioMath Core sphere — structured intelligence at the center of the foundation": "Esfera BioMath Core — inteligencia estructurada en el centro de la base",
+  "BioMath Core ambient panel — engine core and living digital model motif (Architecture illustration)": "Panel ambiental BioMath Core — motivo del núcleo del motor y del modelo digital vivo (ilustración de Architecture)",
   "Where health data becomes daily clarity.": "Donde los datos de salud se convierten en claridad diaria.",
   "Complete Services Catalog": "Catálogo completo de servicios",
   "Explore 200+ biomathematical health services across 20 specialized categories.": "Explore más de 200 servicios de salud biomatemática en 20 categorías especializadas.",

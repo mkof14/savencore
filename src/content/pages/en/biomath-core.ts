@@ -7,9 +7,9 @@ import {
 } from "@/content/biomath-core/scope";
 
 /**
- * BioMath Core leaf page — D-0228–D-0234.
+ * BioMath Core leaf page — D-0228–D-0236.
  * Architecture / In Development model coverage — not an Operational catalog.
- * D-0234: owner-grade illustration panels in themeable site chrome (supersedes primitive SVG primacy).
+ * D-0236: cache-busted English Engine art, compact diagram panels, sharper hero band.
  */
 
 export type BioMathCoreSequenceStep = {
@@ -220,7 +220,7 @@ export const biomathCorePageContent: BioMathCorePageContent = {
   hero: {
     logoAlt: "BioMath Core",
     visualAlt:
-      "BioMath Core sphere — structured intelligence at the center of the foundation",
+      "BioMath Core ambient panel — engine core and living digital model motif (Architecture illustration)",
   },
   livingModel: {
     heading: "One Human = One Living Model",

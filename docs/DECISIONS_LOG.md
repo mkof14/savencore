@@ -2308,7 +2308,7 @@
 ### D-0235 — BioMath Core unified English diagram series
 
 - **Date:** 2026-07-29
-- **Status:** Active
+- **Status:** Active; refined by D-0236
 - **Summary:** Owner requested Engine redraw with **English-only** on-image text (prior asset still had Russian title) and a **single coherent visual language** across BioMath Core diagram panels (not mismatched sample dumps).
 - **Decision:**
   1. **Engine redraw** — `engine-phases.webp` retitled **BioMath Core Engine: 3 Simulation Phases** with English phase labels (Input / Core / Output). Concept preserved: biometric data tags → glowing core → living digital human model. No Russian/Cyrillic on-image.
@@ -2319,6 +2319,21 @@
 - **In scope:** Diagram WebPs; BioMathCoreVisuals dimensions; EN caption + locale dictionaries; D-0235 + AGENTS / SITE_ASSIGNMENT; verify local + prod; commit/push/Vercel prod.
 - **Out of scope:** Changing IA/nav; inventing Operational products; restoring Russian on-image text.
 - **Implications:** BioMath Core diagrams must read as one illustration family with English on-image labels where text is baked into art.
+
+### D-0236 — BioMath Core Engine cache-bust + compact panels + hero band
+
+- **Date:** 2026-07-29
+- **Status:** Active
+- **Summary:** Owner proof showed Russian Engine title still on the live leaf after D-0235. Root cause: same filename (`engine-phases.webp`) allowed Next Image / CDN / browser caches to keep serving the D-0234 Russian bitmap even after the static file was replaced. Also requested smaller diagram display sizes and a sharper BioMath Core top banner.
+- **Decision:**
+  1. **Engine cache-bust** — New asset `engine-phases-en-v2.webp` (1920×1280, English title **BioMath Core Engine: 3 Simulation Phases**, Input tags → Core orb/rings → digital human; sample aesthetic; no Cyrillic). Code points only to the new filename; remove the old `engine-phases.webp` path.
+  2. **Compact diagrams** — `.bmc-figure` max-width ~52rem, centered; responsive `sizes` reduced so panels are not giant full-bleed posters.
+  3. **Hero band** — Redesigned BioMath Core header: HUD grid + corner frame, smaller logo, Architecture status honesty, ambient diagram-series strip (`bmc-hero-ambient.webp`) instead of the large muddy sphere poster.
+  4. **Governance** — Architecture / In Development only; no invented Operational KPI dashboards as primary meaning; English on-image for Engine remains mandatory.
+  5. **i18n** — Hero visualAlt EN + locale dictionaries updated.
+- **In scope:** Engine + hero assets; BioMathCorePage / Visuals / CSS; EN + dictionaries; D-0236 + AGENTS / SITE_ASSIGNMENT; local + prod OCR/hash proof; commit/push/Vercel prod.
+- **Out of scope:** Changing IA/nav; Operational catalog; restoring Russian on-image text; inventing clinical claims.
+- **Implications:** Engine URL must change when replacing on-image language so caches cannot resurrect Russian art; BMC diagrams stay compact; hero matches the diagram-series grammar.
 
 ## Pending Owner Decisions
 

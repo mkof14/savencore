@@ -52,7 +52,7 @@ function DiagramFigure({
           width={width}
           height={height}
           className="bmc-figure__img"
-          sizes="(max-width: 900px) 100vw, 72rem"
+          sizes="(max-width: 720px) 100vw, (max-width: 1100px) 88vw, 52rem"
           priority={priority}
         />
       </div>
@@ -211,10 +211,10 @@ export function EngineVisual({ visualLabel, caption, phases }: EngineVisualProps
   return (
     <div className="bmc-viz bmc-viz--engine">
       <DiagramFigure
-        src={`${DIAGRAM_BASE}/engine-phases.webp`}
+        src={`${DIAGRAM_BASE}/engine-phases-en-v2.webp`}
         alt={visualLabel}
-        width={1536}
-        height={1024}
+        width={1920}
+        height={1280}
         caption={caption}
         artboard="dark"
       >

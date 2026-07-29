@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-29 (D-0233 — Living Model + Four-layer stack visual redesign)
+**Last updated:** 2026-07-29 (D-0234 — BioMath Core rich illustration panels)
 
 ## Rules
 
@@ -247,8 +247,9 @@
 | D-0229 | 2026-07-29 | BioMath Core catalog redesign, transparent logo, home order | Partially superseded by D-0230 (home merge + leaf capability diagrams) |
 | D-0230 | 2026-07-29 | BioMath Core capability redesign + home merged bridge | Partially superseded by D-0231 (owner graphics as page assets) |
 | D-0231 | 2026-07-29 | BioMath Core owner capability images on leaf | Partially superseded by D-0232 (native components primary) |
-| D-0232 | 2026-07-29 | BioMath Core site-native themeable components | Active |
-| D-0233 | 2026-07-29 | Living Model + Four-layer stack visual redesign | Active |
+| D-0232 | 2026-07-29 | BioMath Core site-native themeable components | Partially superseded by D-0234 (rich illustration panels primary) |
+| D-0233 | 2026-07-29 | Living Model + Four-layer stack visual redesign | Partially superseded by D-0234 (owner-grade panels replace primitive SVG primacy) |
+| D-0234 | 2026-07-29 | BioMath Core rich illustration panels | Active |
 
 ---
 
@@ -2285,6 +2286,23 @@
 - **In scope:** BioMathCorePage / Visuals / CSS / EN content + dictionaries; D-0233 + AGENTS / SITE_ASSIGNMENT notes; type-check; local :3000 smoke; commit/push/Vercel prod; owner brief.
 - **Out of scope:** Pasting owner screenshots as primary UI; Operational catalog; inventing clinical/product claims; redesigning Second Opinion / Engine / catalog unless needed for layout flow.
 - **Implications:** Living Model and Four-layer stack read as clear visual compositions matching SAVEN BMC grammar, not plain text lists or dark screenshot dumps.
+
+
+### D-0234 — BioMath Core rich illustration panels (owner sample quality)
+
+- **Date:** 2026-07-29
+- **Status:** Active
+- **Summary:** Owner rejected D-0232/D-0233 primitive CSS/SVG wireframes as too thin (“примитивно”). BioMath Core capability sections must present **owner-grade dense illustrative panels** matching sample quality — wrapped in **themeable site chrome** (frames, captions, English legends/status) — not childish stick-figure diagrams and not a single full-page dark poster dump.
+- **Decision:**
+  1. **Primary visual weight** — Optimized WebP/PNG illustration assets under `public/domain/foundation/biomath-core/diagrams/` (from owner samples + prior D-0231 English capability art). Each figure sits in a framed light or dark artboard panel with English HTML caption/legend.
+  2. **Sections redone** — Living Model; Four-layer stack; Engine (3 phases); **one** Second Opinion (dual paths + dual-model concepts synthesized — not three competing SO sections); Black Box; Output pillars; Master Infrastructure Formula; Foundation sequence (premium glass steps + helix, not a plain arrow list). Dual roles / Environments keep rich panels. 20-category CSS cards remain.
+  3. **Language** — English canonical UI/captions/legends. Baked Russian in any source art is compensated by English section titles + legends around the panel.
+  4. **Theme** — Light page may host dark artboard frames when the illustration requires it; dark theme blends panels. Straight corners; no extra neon chrome beyond the illustration assets.
+  5. **Governance** — Architecture / In Development only; no Operational/medical claim invention. Supersedes D-0232/D-0233 for **presentation primacy** of rich illustrations over primitive SVG.
+  6. **i18n** — New EN captions/alts/legend strings across page dictionaries for all 10 locales.
+- **In scope:** Diagram assets; BioMathCorePage / Visuals / CSS / EN content + dictionaries; D-0234 + AGENTS / SITE_ASSIGNMENT; type-check; local :3000; commit/push/Vercel prod; owner brief.
+- **Out of scope:** Operational catalog; inventing clinical/product claims; restoring primitive SVG as primary capability UI; orbital wallpaper as category primary.
+- **Implications:** BioMath Core leaf must read as premium technical illustration panels with site chrome — visibly closer to owner samples than to simplified wireframes.
 
 ## Pending Owner Decisions
 

@@ -1,6 +1,8 @@
+import Image from "next/image";
+import type { ReactNode } from "react";
+
 import type {
   BioMathCoreBlackBoxSide,
-  BioMathCoreDualModelStep,
   BioMathCoreEnginePhase,
   BioMathCoreEnvironmentCard,
   BioMathCoreFormulaPart,
@@ -8,552 +10,509 @@ import type {
   BioMathCoreOpinionLane,
   BioMathCoreOutputPillar,
   BioMathCoreRoleSide,
+  BioMathCoreSequenceStep,
   BioMathCoreStackLayer,
 } from "@/content/pages/en/biomath-core";
 
+const DIAGRAM_BASE = "/domain/foundation/biomath-core/diagrams";
+
+type DiagramArtboard = "light" | "dark";
+
+type DiagramFigureProps = {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  caption?: string;
+  artboard?: DiagramArtboard;
+  priority?: boolean;
+  children?: ReactNode;
+};
+
+/** Themeable chrome around owner-grade illustration assets (D-0234). */
+function DiagramFigure({
+  src,
+  alt,
+  width,
+  height,
+  caption,
+  artboard = "light",
+  priority = false,
+  children,
+}: DiagramFigureProps) {
+  return (
+    <figure
+      className={`bmc-figure bmc-figure--${artboard}`}
+      data-bmc-figure={artboard}
+    >
+      <div className="bmc-figure__frame">
+        <Image
+          src={src}
+          alt={alt}
+          width={width}
+          height={height}
+          className="bmc-figure__img"
+          sizes="(max-width: 900px) 100vw, 72rem"
+          priority={priority}
+        />
+      </div>
+      {caption ? (
+        <figcaption className="bmc-figure__caption">{caption}</figcaption>
+      ) : null}
+      {children}
+    </figure>
+  );
+}
+
 type LivingModelVisualProps = {
   visualLabel: string;
-  badgeOne: string;
-  badgeHuman: string;
+  caption: string;
   points: readonly BioMathCoreLivingPoint[];
 };
 
-/** Site-native living human model (D-0233) — digital silhouette + continuous principles. */
 export function LivingModelVisual({
   visualLabel,
-  badgeOne,
-  badgeHuman,
+  caption,
   points,
 }: LivingModelVisualProps) {
   return (
-    <div className="bmc-viz bmc-viz--living" role="group" aria-label={visualLabel}>
-      <div className="bmc-viz__living-stage">
-        <div className="bmc-viz__living-badge" aria-hidden="true">
-          <span className="bmc-viz__living-badge-one">{badgeOne}</span>
-          <span className="bmc-viz__living-badge-human">{badgeHuman}</span>
-        </div>
-        <svg
-          className="bmc-viz__svg bmc-viz__svg--living"
-          viewBox="0 0 220 320"
-          xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true"
-        >
-          <defs>
-            <linearGradient id="bmc-living-mesh" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#4a8fd4" stopOpacity="0.85" />
-              <stop offset="55%" stopColor="#4a8fd4" stopOpacity="0.45" />
-              <stop offset="100%" stopColor="#e07a3d" stopOpacity="0.55" />
-            </linearGradient>
-            <linearGradient id="bmc-living-fill" x1="20%" y1="0%" x2="80%" y2="100%">
-              <stop offset="0%" stopColor="#4a8fd4" stopOpacity="0.12" />
-              <stop offset="100%" stopColor="#e07a3d" stopOpacity="0.1" />
-            </linearGradient>
-            <radialGradient id="bmc-living-platform" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="#4a8fd4" stopOpacity="0.35" />
-              <stop offset="70%" stopColor="#4a8fd4" stopOpacity="0.12" />
-              <stop offset="100%" stopColor="#4a8fd4" stopOpacity="0" />
-            </radialGradient>
-          </defs>
-
-          {/* Platform */}
-          <ellipse cx="110" cy="292" rx="72" ry="14" fill="url(#bmc-living-platform)" />
-          <ellipse
-            cx="110"
-            cy="292"
-            rx="58"
-            ry="10"
-            fill="none"
-            stroke="#4a8fd4"
-            strokeOpacity="0.45"
-            strokeWidth="1.25"
-          />
-          <ellipse
-            cx="110"
-            cy="292"
-            rx="38"
-            ry="6"
-            fill="none"
-            stroke="#d4a84b"
-            strokeOpacity="0.4"
-            strokeWidth="1"
-          />
-
-          {/* Mesh grid behind figure */}
-          <g stroke="#4a8fd4" strokeOpacity="0.12" strokeWidth="0.75">
-            <path d="M40 40 H180 M40 70 H180 M40 100 H180 M40 130 H180 M40 160 H180 M40 190 H180 M40 220 H180 M40 250 H180" />
-            <path d="M55 30 V270 M80 30 V270 M110 30 V270 M140 30 V270 M165 30 V270" />
-          </g>
-
-          {/* Digital human silhouette (A-pose wireframe) */}
-          <g fill="url(#bmc-living-fill)" stroke="url(#bmc-living-mesh)" strokeWidth="1.6" strokeLinejoin="round">
-            {/* Head */}
-            <ellipse cx="110" cy="48" rx="18" ry="22" />
-            {/* Neck + torso */}
-            <path d="M102 68 L98 78 L78 96 L72 168 L88 168 L92 118 L110 122 L128 118 L132 168 L148 168 L142 96 L122 78 L118 68 Z" />
-            {/* Arms */}
-            <path d="M78 96 L48 128 L42 158 L54 162 L62 136 L88 108 Z" />
-            <path d="M142 96 L172 128 L178 158 L166 162 L158 136 L132 108 Z" />
-            {/* Legs */}
-            <path d="M88 168 L82 236 L78 278 L94 280 L100 236 L110 178 Z" />
-            <path d="M132 168 L138 236 L142 278 L126 280 L120 236 L110 178 Z" />
-          </g>
-
-          {/* Mesh contour accents */}
-          <g fill="none" stroke="#4a8fd4" strokeOpacity="0.55" strokeWidth="0.9">
-            <path d="M94 88 Q110 96 126 88" />
-            <path d="M86 112 Q110 124 134 112" />
-            <path d="M80 140 Q110 152 140 140" />
-            <ellipse cx="110" cy="48" rx="12" ry="14" />
-          </g>
-
-          {/* Scan / focus nodes */}
-          <g>
-            <circle cx="110" cy="48" r="3.2" fill="#e07a3d" />
-            <circle cx="110" cy="118" r="3.2" fill="#d4a84b" />
-            <circle cx="72" cy="148" r="2.6" fill="#4a8fd4" />
-            <circle cx="148" cy="148" r="2.6" fill="#4a8fd4" />
-            <circle cx="110" cy="210" r="2.8" fill="#e07a3d" />
-          </g>
-
-          {/* HUD callout lines */}
-          <g stroke="#4a8fd4" strokeOpacity="0.4" strokeWidth="1" fill="none">
-            <path d="M128 48 H178" />
-            <path d="M128 118 H178" />
-            <path d="M92 210 H42" />
-          </g>
-          <g fill="#4a8fd4" fillOpacity="0.55">
-            <rect x="178" y="42" width="22" height="6" />
-            <rect x="178" y="54" width="14" height="3" />
-            <rect x="178" y="112" width="22" height="6" />
-            <rect x="178" y="124" width="16" height="3" />
-            <rect x="20" y="204" width="22" height="6" />
-            <rect x="20" y="216" width="14" height="3" />
-          </g>
-        </svg>
-      </div>
-
-      <ol className="bmc-viz__living-points">
-        {points.map((point, index) => (
-          <li
-            key={point.id}
-            className={`bmc-viz__living-point bmc-viz__living-point--${point.id}`}
-          >
-            <span className="bmc-viz__living-index" aria-hidden="true">
-              {String(index + 1).padStart(2, "0")}
-            </span>
-            <span className="bmc-viz__living-point-body">{point.body}</span>
-            <span className="bmc-viz__living-point-mark" aria-hidden="true" />
-          </li>
-        ))}
-      </ol>
+    <div className="bmc-viz bmc-viz--living">
+      <DiagramFigure
+        src={`${DIAGRAM_BASE}/living-model.webp`}
+        alt={visualLabel}
+        width={1024}
+        height={559}
+        caption={caption}
+        artboard="light"
+        priority
+      >
+        <ol className="bmc-figure__legend" aria-label={visualLabel}>
+          {points.map((point, index) => (
+            <li key={point.id} className={`bmc-figure__legend-item bmc-figure__legend-item--${point.id}`}>
+              <span className="bmc-figure__legend-index" aria-hidden="true">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <span>{point.body}</span>
+            </li>
+          ))}
+        </ol>
+      </DiagramFigure>
     </div>
   );
 }
 
 type LayerStackVisualProps = {
+  visualLabel: string;
+  caption: string;
   layers: readonly BioMathCoreStackLayer[];
   calloutEyebrow: string;
   callout: string;
 };
 
 export function LayerStackVisual({
+  visualLabel,
+  caption,
   layers,
   calloutEyebrow,
   callout,
 }: LayerStackVisualProps) {
   return (
     <div className="bmc-viz bmc-viz--stack">
-      <div className="bmc-viz__stack-layout">
-        <ol className="bmc-viz__stack-list" aria-label="Four-layer stack">
-          {layers.map((layer, index) => (
-            <li
-              key={layer.id}
-              className={`bmc-viz__stack-layer bmc-viz__stack-layer--${layer.id}`}
-              style={{ ["--bmc-stack-i" as string]: String(index) }}
-            >
-              <div className="bmc-viz__stack-plate" aria-hidden="true">
-                {layer.id === "saven" ? (
-                  <svg
-                    className="bmc-viz__stack-helix"
-                    viewBox="0 0 120 28"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M4 14 C20 2, 40 26, 56 14 S92 2, 116 14"
-                      fill="none"
-                      stroke="#e07a3d"
-                      strokeWidth="2"
-                    />
-                    <path
-                      d="M4 14 C20 26, 40 2, 56 14 S92 26, 116 14"
-                      fill="none"
-                      stroke="#4a8fd4"
-                      strokeWidth="2"
-                    />
-                  </svg>
-                ) : null}
-                {layer.id === "body" ? (
-                  <svg
-                    className="bmc-viz__stack-mesh"
-                    viewBox="0 0 120 28"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M8 6 H112 M8 14 H112 M8 22 H112 M24 4 V24 M48 4 V24 M72 4 V24 M96 4 V24"
-                      fill="none"
-                      stroke="#4a8fd4"
-                      strokeOpacity="0.45"
-                      strokeWidth="1"
-                    />
-                    <path
-                      d="M16 8 L40 20 M40 8 L64 20 M64 8 L88 20 M88 8 L112 20"
-                      fill="none"
-                      stroke="#e07a3d"
-                      strokeOpacity="0.35"
-                      strokeWidth="1"
-                    />
-                  </svg>
-                ) : null}
-                {layer.id === "biomath-core" ? (
-                  <span className="bmc-viz__stack-core-orb" />
-                ) : null}
-              </div>
-              <span className="bmc-viz__stack-index" aria-hidden="true">
-                {String(index + 1).padStart(2, "0")}
-              </span>
-              <div className="bmc-viz__stack-copy">
-                <p className="bmc-viz__stack-name">{layer.name}</p>
-                <p className="bmc-viz__stack-role">{layer.role}</p>
-                <p className="bmc-viz__stack-detail">{layer.detail}</p>
-              </div>
-            </li>
-          ))}
-        </ol>
-
-        <aside className="bmc-viz__stack-callout">
-          <p className="bmc-viz__stack-callout-eyebrow">{calloutEyebrow}</p>
-          <p className="bmc-viz__stack-callout-body">{callout}</p>
-        </aside>
-      </div>
+      <DiagramFigure
+        src={`${DIAGRAM_BASE}/layer-stack.webp`}
+        alt={visualLabel}
+        width={1024}
+        height={533}
+        caption={caption}
+        artboard="light"
+      >
+        <div className="bmc-figure__stack-meta">
+          <ol className="bmc-figure__legend bmc-figure__legend--compact">
+            {layers.map((layer, index) => (
+              <li key={layer.id}>
+                <span className="bmc-figure__legend-index" aria-hidden="true">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <span>
+                  <strong>{layer.name}</strong>
+                  <span className="bmc-figure__legend-role"> — {layer.role}</span>
+                </span>
+              </li>
+            ))}
+          </ol>
+          <aside className="bmc-figure__callout">
+            <p className="bmc-figure__callout-eyebrow">{calloutEyebrow}</p>
+            <p className="bmc-figure__callout-body">{callout}</p>
+          </aside>
+        </div>
+      </DiagramFigure>
     </div>
   );
 }
 
 type DualRolesVisualProps = {
+  visualLabel: string;
+  caption: string;
   biomath: BioMathCoreRoleSide;
   saven: BioMathCoreRoleSide;
   banner: string;
 };
 
-export function DualRolesVisual({ biomath, saven, banner }: DualRolesVisualProps) {
+export function DualRolesVisual({
+  visualLabel,
+  caption,
+  biomath,
+  saven,
+  banner,
+}: DualRolesVisualProps) {
   return (
     <div className="bmc-viz bmc-viz--dual">
-      <div className="bmc-viz__dual-grid">
-        <div className="bmc-viz__dual-piece bmc-viz__dual-piece--biomath">
-          <p className="bmc-viz__dual-name">{biomath.name}</p>
-          <p className="bmc-viz__dual-title">{biomath.title}</p>
-          <ul className="bmc-viz__dual-verbs">
-            {biomath.verbs.map((verb) => (
-              <li key={verb}>{verb}</li>
-            ))}
-          </ul>
+      <DiagramFigure
+        src={`${DIAGRAM_BASE}/dual-roles.webp`}
+        alt={visualLabel}
+        width={1024}
+        height={560}
+        caption={caption}
+        artboard="light"
+      >
+        <div className="bmc-figure__dual-meta">
+          <div className="bmc-figure__dual-side">
+            <p className="bmc-figure__dual-name">{biomath.name}</p>
+            <p className="bmc-figure__dual-title">{biomath.title}</p>
+            <ul>
+              {biomath.verbs.map((verb) => (
+                <li key={verb}>{verb}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="bmc-figure__dual-side">
+            <p className="bmc-figure__dual-name">{saven.name}</p>
+            <p className="bmc-figure__dual-title">{saven.title}</p>
+            <ul>
+              {saven.verbs.map((verb) => (
+                <li key={verb}>{verb}</li>
+              ))}
+            </ul>
+          </div>
         </div>
-        <div className="bmc-viz__dual-join" aria-hidden="true">
-          <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M8 40 L32 16 L48 16 L72 40 L48 64 L32 64 Z"
-              fill="none"
-              stroke="#d4a84b"
-              strokeWidth="2"
-            />
-            <path
-              d="M28 40 L40 28 L52 40 L40 52 Z"
-              fill="#e07a3d"
-              fillOpacity="0.35"
-              stroke="#4a8fd4"
-              strokeWidth="1.5"
-            />
-          </svg>
-        </div>
-        <div className="bmc-viz__dual-piece bmc-viz__dual-piece--saven">
-          <p className="bmc-viz__dual-name">{saven.name}</p>
-          <p className="bmc-viz__dual-title">{saven.title}</p>
-          <ul className="bmc-viz__dual-verbs">
-            {saven.verbs.map((verb) => (
-              <li key={verb}>{verb}</li>
-            ))}
-          </ul>
-        </div>
-      </div>
-      <p className="bmc-viz__dual-banner">{banner}</p>
+        <p className="bmc-figure__banner">{banner}</p>
+      </DiagramFigure>
     </div>
   );
 }
 
 type EngineVisualProps = {
+  visualLabel: string;
+  caption: string;
   phases: readonly BioMathCoreEnginePhase[];
 };
 
-export function EngineVisual({ phases }: EngineVisualProps) {
+export function EngineVisual({ visualLabel, caption, phases }: EngineVisualProps) {
   return (
     <div className="bmc-viz bmc-viz--engine">
-      <ol className="bmc-viz__engine-flow">
-        {phases.map((phase, index) => (
-          <li key={phase.id} className={`bmc-viz__engine-phase bmc-viz__engine-phase--${phase.id}`}>
-            {index > 0 ? (
-              <span className="bmc-viz__engine-arrow" aria-hidden="true">
-                →
-              </span>
-            ) : null}
-            <div className="bmc-viz__engine-card">
-              <p className="bmc-viz__engine-index" aria-hidden="true">
+      <DiagramFigure
+        src={`${DIAGRAM_BASE}/engine-phases.webp`}
+        alt={visualLabel}
+        width={1024}
+        height={438}
+        caption={caption}
+        artboard="dark"
+      >
+        <ol className="bmc-figure__legend bmc-figure__legend--phases">
+          {phases.map((phase, index) => (
+            <li key={phase.id} className={`bmc-figure__legend-item bmc-figure__legend-item--${phase.id}`}>
+              <span className="bmc-figure__legend-index" aria-hidden="true">
                 {String(index + 1).padStart(2, "0")}
-              </p>
-              <p className="bmc-viz__engine-label">{phase.label}</p>
-              <p className="bmc-viz__engine-body">{phase.body}</p>
-              {phase.tags && phase.tags.length > 0 ? (
-                <ul className="bmc-viz__engine-tags">
-                  {phase.tags.map((tag) => (
-                    <li key={tag}>{tag}</li>
-                  ))}
-                </ul>
-              ) : null}
-              {phase.id === "core" ? (
-                <div className="bmc-viz__engine-core" aria-hidden="true">
-                  <span className="bmc-viz__engine-core-ring" />
-                  <span className="bmc-viz__engine-core-dot" />
-                </div>
-              ) : null}
-            </div>
-          </li>
-        ))}
-      </ol>
+              </span>
+              <span>
+                <strong>{phase.label}</strong>
+                <span className="bmc-figure__legend-body"> — {phase.body}</span>
+              </span>
+            </li>
+          ))}
+        </ol>
+      </DiagramFigure>
     </div>
   );
 }
 
 type SecondOpinionVisualProps = {
+  visualLabel: string;
+  caption: string;
   signalLabel: string;
   resultLabel: string;
   lanes: readonly BioMathCoreOpinionLane[];
-  dualModelHeading: string;
-  dualModelSteps: readonly BioMathCoreDualModelStep[];
   insight: string;
 };
 
+/** One unified Second Opinion panel — dual paths → verified / unified conclusion. */
 export function SecondOpinionVisual({
+  visualLabel,
+  caption,
   signalLabel,
   resultLabel,
   lanes,
-  dualModelHeading,
-  dualModelSteps,
   insight,
 }: SecondOpinionVisualProps) {
   return (
     <div className="bmc-viz bmc-viz--opinion">
-      <div className="bmc-viz__opinion-flow" role="group" aria-label={signalLabel}>
-        <div className="bmc-viz__opinion-node bmc-viz__opinion-node--signal">
-          <span className="bmc-viz__opinion-node-label">{signalLabel}</span>
+      <DiagramFigure
+        src={`${DIAGRAM_BASE}/second-opinion.webp`}
+        alt={visualLabel}
+        width={1024}
+        height={567}
+        caption={caption}
+        artboard="dark"
+      >
+        <div className="bmc-figure__opinion-legend" role="group" aria-label={visualLabel}>
+          <span className="bmc-figure__chip bmc-figure__chip--signal">{signalLabel}</span>
+          <ol className="bmc-figure__legend bmc-figure__legend--opinion">
+            {lanes.map((lane) => (
+              <li
+                key={lane.id}
+                className={`bmc-figure__legend-item bmc-figure__legend-item--${lane.id}`}
+              >
+                <strong>{lane.label}</strong>
+                <span className="bmc-figure__legend-body"> — {lane.body}</span>
+              </li>
+            ))}
+          </ol>
+          <span className="bmc-figure__chip bmc-figure__chip--result">{resultLabel}</span>
         </div>
-        <div className="bmc-viz__opinion-lanes">
-          {lanes.map((lane) => (
-            <div
-              key={lane.id}
-              className={`bmc-viz__opinion-lane bmc-viz__opinion-lane--${lane.id}`}
-            >
-              <p className="bmc-viz__opinion-lane-label">{lane.label}</p>
-              <p className="bmc-viz__opinion-lane-body">{lane.body}</p>
-            </div>
-          ))}
-        </div>
-        <div className="bmc-viz__opinion-node bmc-viz__opinion-node--result">
-          <span className="bmc-viz__opinion-node-label">{resultLabel}</span>
-        </div>
-      </div>
-
-      <h3 className="bmc-viz__subhead">{dualModelHeading}</h3>
-      <ol className="bmc-viz__dual-model">
-        {dualModelSteps.map((step, index) => (
-          <li
-            key={step.id}
-            className={`bmc-viz__dual-model-step bmc-viz__dual-model-step--${step.id}`}
-          >
-            {index > 0 ? (
-              <span className="bmc-viz__dual-model-arrow" aria-hidden="true">
-                →
-              </span>
-            ) : null}
-            <div className="bmc-viz__dual-model-card">
-              <p className="bmc-viz__dual-model-label">{step.label}</p>
-              <p className="bmc-viz__dual-model-body">{step.body}</p>
-            </div>
-          </li>
-        ))}
-      </ol>
-      <p className="bmc-viz__opinion-insight">{insight}</p>
+        <p className="bmc-figure__insight">{insight}</p>
+      </DiagramFigure>
     </div>
   );
 }
 
 type BlackBoxVisualProps = {
+  visualLabel: string;
+  caption: string;
   sides: readonly BioMathCoreBlackBoxSide[];
 };
 
-export function BlackBoxVisual({ sides }: BlackBoxVisualProps) {
+export function BlackBoxVisual({ visualLabel, caption, sides }: BlackBoxVisualProps) {
   return (
     <div className="bmc-viz bmc-viz--blackbox">
-      <div className="bmc-viz__blackbox-frame" role="group">
-        {sides.map((side) => (
-          <div
-            key={side.id}
-            className={`bmc-viz__blackbox-side bmc-viz__blackbox-side--${side.id}`}
-          >
-            <div className="bmc-viz__blackbox-glyph" aria-hidden="true">
-              {side.id === "intelligence" ? (
-                <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="32" cy="32" r="18" fill="none" stroke="#e07a3d" strokeWidth="1.75" />
-                  <circle cx="32" cy="32" r="4" fill="#e07a3d" />
-                  <circle cx="18" cy="22" r="3" fill="#d4a84b" />
-                  <circle cx="46" cy="22" r="3" fill="#d4a84b" />
-                  <circle cx="18" cy="42" r="3" fill="#4a8fd4" />
-                  <circle cx="46" cy="42" r="3" fill="#4a8fd4" />
-                  <path
-                    d="M32 28 L18 22 M32 28 L46 22 M32 36 L18 42 M32 36 L46 42"
-                    stroke="#e07a3d"
-                    strokeOpacity="0.55"
-                    strokeWidth="1.25"
-                  />
-                </svg>
-              ) : (
-                <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M32 10 L50 18 V34 C50 46 40 54 32 56 C24 54 14 46 14 34 V18 Z"
-                    fill="none"
-                    stroke="#4a8fd4"
-                    strokeWidth="2"
-                  />
-                  <rect
-                    x="26"
-                    y="28"
-                    width="12"
-                    height="14"
-                    rx="0"
-                    fill="none"
-                    stroke="#4a8fd4"
-                    strokeWidth="1.75"
-                  />
-                  <path
-                    d="M29 28 V24 C29 21.2 31 19 32 19 C33 19 35 21.2 35 24 V28"
-                    fill="none"
-                    stroke="#4a8fd4"
-                    strokeWidth="1.75"
-                  />
-                </svg>
-              )}
-            </div>
-            <p className="bmc-viz__blackbox-label">{side.label}</p>
-            <p className="bmc-viz__blackbox-body">{side.body}</p>
-          </div>
-        ))}
-      </div>
+      <DiagramFigure
+        src={`${DIAGRAM_BASE}/black-box.webp`}
+        alt={visualLabel}
+        width={799}
+        height={699}
+        caption={caption}
+        artboard="dark"
+      >
+        <ul className="bmc-figure__legend bmc-figure__legend--sides">
+          {sides.map((side) => (
+            <li
+              key={side.id}
+              className={`bmc-figure__legend-item bmc-figure__legend-item--${side.id}`}
+            >
+              <strong>{side.label}</strong>
+              <span className="bmc-figure__legend-body"> — {side.body}</span>
+            </li>
+          ))}
+        </ul>
+      </DiagramFigure>
     </div>
   );
 }
 
 type OutputVisualProps = {
+  visualLabel: string;
+  caption: string;
   pillars: readonly BioMathCoreOutputPillar[];
   footer: string;
 };
 
-export function OutputVisual({ pillars, footer }: OutputVisualProps) {
+export function OutputVisual({
+  visualLabel,
+  caption,
+  pillars,
+  footer,
+}: OutputVisualProps) {
   return (
     <div className="bmc-viz bmc-viz--output">
-      <ul className="bmc-viz__pillar-grid">
-        {pillars.map((pillar) => (
-          <li
-            key={pillar.id}
-            className={`bmc-viz__pillar bmc-viz__pillar--${pillar.id}`}
-          >
-            <p className="bmc-viz__pillar-label">{pillar.label}</p>
-            <p className="bmc-viz__pillar-body">{pillar.body}</p>
-          </li>
-        ))}
-      </ul>
-      <p className="bmc-viz__output-footer">{footer}</p>
+      <DiagramFigure
+        src={`${DIAGRAM_BASE}/output-pillars.webp`}
+        alt={visualLabel}
+        width={1024}
+        height={581}
+        caption={caption}
+        artboard="dark"
+      >
+        <ol className="bmc-figure__legend bmc-figure__legend--pillars">
+          {pillars.map((pillar, index) => (
+            <li key={pillar.id}>
+              <span className="bmc-figure__legend-index" aria-hidden="true">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <span>
+                <strong>{pillar.label}</strong>
+                <span className="bmc-figure__legend-body"> — {pillar.body}</span>
+              </span>
+            </li>
+          ))}
+        </ol>
+        <p className="bmc-figure__banner">{footer}</p>
+      </DiagramFigure>
     </div>
   );
 }
 
 type FormulaVisualProps = {
+  visualLabel: string;
+  caption: string;
   parts: readonly BioMathCoreFormulaPart[];
   equals: string;
   equalsDetail: string;
 };
 
-export function FormulaVisual({ parts, equals, equalsDetail }: FormulaVisualProps) {
+export function FormulaVisual({
+  visualLabel,
+  caption,
+  parts,
+  equals,
+  equalsDetail,
+}: FormulaVisualProps) {
   return (
-    <div className="bmc-viz bmc-viz--formula" role="group" aria-label={equals}>
-      <div className="bmc-viz__formula-row">
-        {parts.map((part, index) => (
-          <div key={part.id} className="bmc-viz__formula-group">
-            {index > 0 ? (
-              <span className="bmc-viz__formula-op" aria-hidden="true">
-                +
-              </span>
-            ) : null}
-            <div className={`bmc-viz__formula-part bmc-viz__formula-part--${part.id}`}>
-              <p className="bmc-viz__formula-label">{part.label}</p>
-              <p className="bmc-viz__formula-detail">{part.detail}</p>
-            </div>
-          </div>
-        ))}
-        <span className="bmc-viz__formula-op" aria-hidden="true">
-          =
-        </span>
-        <div className="bmc-viz__formula-result">
-          <p className="bmc-viz__formula-equals">{equals}</p>
-          <p className="bmc-viz__formula-equals-detail">{equalsDetail}</p>
-        </div>
-      </div>
+    <div className="bmc-viz bmc-viz--formula">
+      <DiagramFigure
+        src={`${DIAGRAM_BASE}/formula.webp`}
+        alt={visualLabel}
+        width={1024}
+        height={554}
+        caption={caption}
+        artboard="light"
+      >
+        <p className="bmc-figure__formula-readout" aria-label={equals}>
+          {parts.map((part, index) => (
+            <span key={part.id}>
+              {index > 0 ? (
+                <span className="bmc-figure__formula-op" aria-hidden="true">
+                  {" "}
+                  +{" "}
+                </span>
+              ) : null}
+              <strong>{part.label}</strong>
+              <span className="bmc-figure__legend-role"> ({part.detail})</span>
+            </span>
+          ))}
+          <span className="bmc-figure__formula-op" aria-hidden="true">
+            {" "}
+            ={" "}
+          </span>
+          <strong>{equals}</strong>
+        </p>
+        <p className="bmc-figure__caption bmc-figure__caption--inline">{equalsDetail}</p>
+      </DiagramFigure>
     </div>
   );
 }
 
 type EnvironmentsVisualProps = {
+  visualLabel: string;
+  caption: string;
   cards: readonly BioMathCoreEnvironmentCard[];
   footer: string;
 };
 
-export function EnvironmentsVisual({ cards, footer }: EnvironmentsVisualProps) {
+export function EnvironmentsVisual({
+  visualLabel,
+  caption,
+  cards,
+  footer,
+}: EnvironmentsVisualProps) {
   return (
     <div className="bmc-viz bmc-viz--envs">
-      <div className="bmc-viz__helix" aria-hidden="true">
-        <svg viewBox="0 0 720 48" xmlns="http://www.w3.org/2000/svg" className="bmc-viz__helix-svg">
-          <path
-            d="M20 24 C80 4, 140 44, 200 24 S320 4, 380 24 S500 44, 560 24 S660 4, 700 24"
-            fill="none"
-            stroke="#4a8fd4"
-            strokeWidth="1.75"
-            strokeOpacity="0.65"
-          />
-          <path
-            d="M20 24 C80 44, 140 4, 200 24 S320 44, 380 24 S500 4, 560 24 S660 44, 700 24"
-            fill="none"
-            stroke="#e07a3d"
-            strokeWidth="1.75"
-            strokeOpacity="0.55"
-          />
-        </svg>
+      <DiagramFigure
+        src={`${DIAGRAM_BASE}/environments.webp`}
+        alt={visualLabel}
+        width={1024}
+        height={568}
+        caption={caption}
+        artboard="light"
+      >
+        <ul className="bmc-figure__legend bmc-figure__legend--envs">
+          {cards.map((card) => (
+            <li key={card.id}>
+              <strong>{card.label}</strong>
+              <span className="bmc-figure__legend-body"> — {card.body}</span>
+            </li>
+          ))}
+        </ul>
+        <p className="bmc-figure__banner">{footer}</p>
+      </DiagramFigure>
+    </div>
+  );
+}
+
+type SequenceVisualProps = {
+  visualLabel: string;
+  steps: readonly BioMathCoreSequenceStep[];
+};
+
+/** Premium foundation sequence — glass steps + continuous helix (not a plain arrow list). */
+export function SequenceVisual({ visualLabel, steps }: SequenceVisualProps) {
+  return (
+    <div className="bmc-viz bmc-viz--sequence" role="group" aria-label={visualLabel}>
+      <div className="bmc-sequence">
+        <div className="bmc-sequence__helix" aria-hidden="true">
+          <svg viewBox="0 0 720 56" xmlns="http://www.w3.org/2000/svg" className="bmc-sequence__helix-svg">
+            <defs>
+              <linearGradient id="bmc-seq-blue" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#4a8fd4" stopOpacity="0.25" />
+                <stop offset="50%" stopColor="#4a8fd4" stopOpacity="0.9" />
+                <stop offset="100%" stopColor="#4a8fd4" stopOpacity="0.35" />
+              </linearGradient>
+              <linearGradient id="bmc-seq-orange" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#e07a3d" stopOpacity="0.25" />
+                <stop offset="50%" stopColor="#e07a3d" stopOpacity="0.9" />
+                <stop offset="100%" stopColor="#e07a3d" stopOpacity="0.35" />
+              </linearGradient>
+            </defs>
+            <path
+              d="M12 28 C70 6, 130 50, 190 28 S310 6, 370 28 S490 50, 550 28 S650 6, 708 28"
+              fill="none"
+              stroke="url(#bmc-seq-blue)"
+              strokeWidth="2.5"
+            />
+            <path
+              d="M12 28 C70 50, 130 6, 190 28 S310 50, 370 28 S490 6, 550 28 S650 50, 708 28"
+              fill="none"
+              stroke="url(#bmc-seq-orange)"
+              strokeWidth="2.5"
+            />
+          </svg>
+        </div>
+        <ol className="bmc-sequence__list">
+          {steps.map((step, index) => (
+            <li
+              key={step.id}
+              className={
+                step.emphasis
+                  ? "bmc-sequence__step bmc-sequence__step--emphasis"
+                  : "bmc-sequence__step"
+              }
+            >
+              {index > 0 ? (
+                <span className="bmc-sequence__connector" aria-hidden="true">
+                  <span className="bmc-sequence__connector-line" />
+                </span>
+              ) : null}
+              <div className="bmc-sequence__card">
+                <span className="bmc-sequence__index" aria-hidden="true">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <span className="bmc-sequence__label">{step.label}</span>
+                {step.detail ? (
+                  <span className="bmc-sequence__detail">{step.detail}</span>
+                ) : null}
+              </div>
+            </li>
+          ))}
+        </ol>
       </div>
-      <ul className="bmc-viz__env-grid">
-        {cards.map((card) => (
-          <li key={card.id} className={`bmc-viz__env-card bmc-viz__env-card--${card.id}`}>
-            <p className="bmc-viz__env-label">{card.label}</p>
-            <p className="bmc-viz__env-body">{card.body}</p>
-          </li>
-        ))}
-      </ul>
-      <p className="bmc-viz__env-footer">{footer}</p>
     </div>
   );
 }

@@ -12,6 +12,7 @@ import {
   LivingModelVisual,
   OutputVisual,
   SecondOpinionVisual,
+  SequenceVisual,
 } from "@/components/foundation/BioMathCoreVisuals";
 import type { Locale } from "@/config/locales";
 import type { BioMathCorePageContent } from "@/content/pages/en/biomath-core";
@@ -26,7 +27,7 @@ type BioMathCorePageProps = {
 };
 
 /**
- * BioMath Core leaf — site-native themeable capability components (D-0228–D-0233).
+ * BioMath Core leaf — owner-grade illustration panels in themeable chrome (D-0228–D-0234).
  */
 export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
   const titleId = "bmc-page-title";
@@ -78,8 +79,7 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
           <p className="bmc-page__section-support">{content.livingModel.support}</p>
           <LivingModelVisual
             visualLabel={content.livingModel.visualLabel}
-            badgeOne={content.livingModel.badgeOne}
-            badgeHuman={content.livingModel.badgeHuman}
+            caption={content.livingModel.caption}
             points={content.livingModel.points}
           />
         </section>
@@ -93,6 +93,8 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
           </h2>
           <p className="bmc-page__section-support">{content.layerStack.support}</p>
           <LayerStackVisual
+            visualLabel={content.layerStack.visualLabel}
+            caption={content.layerStack.caption}
             layers={content.layerStack.layers}
             calloutEyebrow={content.layerStack.calloutEyebrow}
             callout={content.layerStack.callout}
@@ -108,6 +110,8 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
           </h2>
           <p className="bmc-page__section-support">{content.dualRoles.support}</p>
           <DualRolesVisual
+            visualLabel={content.dualRoles.visualLabel}
+            caption={content.dualRoles.caption}
             biomath={content.dualRoles.biomath}
             saven={content.dualRoles.saven}
             banner={content.dualRoles.banner}
@@ -122,7 +126,11 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
             {content.engine.heading}
           </h2>
           <p className="bmc-page__section-support">{content.engine.support}</p>
-          <EngineVisual phases={content.engine.phases} />
+          <EngineVisual
+            visualLabel={content.engine.visualLabel}
+            caption={content.engine.caption}
+            phases={content.engine.phases}
+          />
         </section>
 
         <section
@@ -134,11 +142,11 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
           </h2>
           <p className="bmc-page__section-support">{content.secondOpinion.support}</p>
           <SecondOpinionVisual
+            visualLabel={content.secondOpinion.visualLabel}
+            caption={content.secondOpinion.caption}
             signalLabel={content.secondOpinion.signalLabel}
             resultLabel={content.secondOpinion.resultLabel}
             lanes={content.secondOpinion.lanes}
-            dualModelHeading={content.secondOpinion.dualModelHeading}
-            dualModelSteps={content.secondOpinion.dualModelSteps}
             insight={content.secondOpinion.insight}
           />
         </section>
@@ -151,7 +159,11 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
             {content.blackBox.heading}
           </h2>
           <p className="bmc-page__section-support">{content.blackBox.support}</p>
-          <BlackBoxVisual sides={content.blackBox.sides} />
+          <BlackBoxVisual
+            visualLabel={content.blackBox.visualLabel}
+            caption={content.blackBox.caption}
+            sides={content.blackBox.sides}
+          />
         </section>
 
         <section
@@ -163,6 +175,8 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
           </h2>
           <p className="bmc-page__section-support">{content.output.support}</p>
           <OutputVisual
+            visualLabel={content.output.visualLabel}
+            caption={content.output.caption}
             pillars={content.output.pillars}
             footer={content.output.footer}
           />
@@ -177,6 +191,8 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
           </h2>
           <p className="bmc-page__section-support">{content.formula.support}</p>
           <FormulaVisual
+            visualLabel={content.formula.visualLabel}
+            caption={content.formula.caption}
             parts={content.formula.parts}
             equals={content.formula.equals}
             equalsDetail={content.formula.equalsDetail}
@@ -192,6 +208,8 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
           </h2>
           <p className="bmc-page__section-support">{content.environments.support}</p>
           <EnvironmentsVisual
+            visualLabel={content.environments.visualLabel}
+            caption={content.environments.caption}
             cards={content.environments.cards}
             footer={content.environments.footer}
           />
@@ -205,25 +223,10 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
             {content.sequence.heading}
           </h2>
           <p className="bmc-page__section-support">{content.sequence.support}</p>
-          <ol className="bmc-page__sequence-list">
-            {content.sequence.steps.map((step, index) => (
-              <li
-                key={step.id}
-                className={
-                  step.emphasis
-                    ? "bmc-page__sequence-item bmc-page__sequence-item--emphasis"
-                    : "bmc-page__sequence-item"
-                }
-              >
-                {index > 0 ? (
-                  <span className="bmc-page__sequence-arrow" aria-hidden="true">
-                    →
-                  </span>
-                ) : null}
-                <span className="bmc-page__sequence-label">{step.label}</span>
-              </li>
-            ))}
-          </ol>
+          <SequenceVisual
+            visualLabel={content.sequence.visualLabel}
+            steps={content.sequence.steps}
+          />
         </section>
 
         <section

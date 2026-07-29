@@ -7,14 +7,15 @@ import {
 } from "@/content/biomath-core/scope";
 
 /**
- * BioMath Core leaf page — D-0228 / D-0229 / D-0230 / D-0231 / D-0232 / D-0233.
+ * BioMath Core leaf page — D-0228–D-0234.
  * Architecture / In Development model coverage — not an Operational catalog.
- * D-0232/D-0233: site-native themeable components (not pasted dark screenshots as primary UI).
+ * D-0234: owner-grade illustration panels in themeable site chrome (supersedes primitive SVG primacy).
  */
 
 export type BioMathCoreSequenceStep = {
   id: string;
   label: string;
+  detail?: string;
   emphasis?: boolean;
 };
 
@@ -74,12 +75,6 @@ export type BioMathCoreOpinionLane = {
   body: string;
 };
 
-export type BioMathCoreDualModelStep = {
-  id: string;
-  label: string;
-  body: string;
-};
-
 export type BioMathCoreBlackBoxSide = {
   id: string;
   label: string;
@@ -106,13 +101,14 @@ export type BioMathCorePageContent = {
     heading: string;
     support: string;
     visualLabel: string;
-    badgeOne: string;
-    badgeHuman: string;
+    caption: string;
     points: readonly BioMathCoreLivingPoint[];
   };
   layerStack: {
     heading: string;
     support: string;
+    visualLabel: string;
+    caption: string;
     layers: readonly BioMathCoreStackLayer[];
     calloutEyebrow: string;
     callout: string;
@@ -120,6 +116,8 @@ export type BioMathCorePageContent = {
   dualRoles: {
     heading: string;
     support: string;
+    visualLabel: string;
+    caption: string;
     biomath: BioMathCoreRoleSide;
     saven: BioMathCoreRoleSide;
     banner: string;
@@ -127,32 +125,40 @@ export type BioMathCorePageContent = {
   engine: {
     heading: string;
     support: string;
+    visualLabel: string;
+    caption: string;
     phases: readonly BioMathCoreEnginePhase[];
   };
   secondOpinion: {
     heading: string;
     support: string;
+    visualLabel: string;
+    caption: string;
     signalLabel: string;
     resultLabel: string;
     lanes: readonly BioMathCoreOpinionLane[];
-    dualModelHeading: string;
-    dualModelSteps: readonly BioMathCoreDualModelStep[];
     insight: string;
   };
   blackBox: {
     heading: string;
     support: string;
+    visualLabel: string;
+    caption: string;
     sides: readonly BioMathCoreBlackBoxSide[];
   };
   output: {
     heading: string;
     support: string;
+    visualLabel: string;
+    caption: string;
     pillars: readonly BioMathCoreOutputPillar[];
     footer: string;
   };
   formula: {
     heading: string;
     support: string;
+    visualLabel: string;
+    caption: string;
     parts: readonly BioMathCoreFormulaPart[];
     equals: string;
     equalsDetail: string;
@@ -160,12 +166,15 @@ export type BioMathCorePageContent = {
   environments: {
     heading: string;
     support: string;
+    visualLabel: string;
+    caption: string;
     cards: readonly BioMathCoreEnvironmentCard[];
     footer: string;
   };
   sequence: {
     heading: string;
     support: string;
+    visualLabel: string;
     steps: readonly BioMathCoreSequenceStep[];
   };
   reportsCallout: {
@@ -218,9 +227,9 @@ export const biomathCorePageContent: BioMathCorePageContent = {
     support:
       "A single continuous model of one person — not fragmented profiles reset by each service.",
     visualLabel:
-      "Digital living human model — one continuous person, not fragmented service profiles",
-    badgeOne: "ONE",
-    badgeHuman: "HUMAN",
+      "One Human = One Living Model — dense living core mesh with continuous-context principles",
+    caption:
+      "Illustrative architecture panel: one living model at the center of continuous human context.",
     points: [
       {
         id: "over-time",
@@ -240,6 +249,10 @@ export const biomathCorePageContent: BioMathCorePageContent = {
     heading: "Four-layer stack",
     support:
       "From philosophy to physical bodies — one governed path. BioMath Core is the brain and context engine.",
+    visualLabel:
+      "Four-layer stack — BioMath Life, BioMath Core, SAVEN execution, Body Layer with critical dependency",
+    caption:
+      "Illustrative architecture panel: four governed layers from philosophy to physical bodies.",
     layers: [
       {
         id: "biomath-life",
@@ -274,6 +287,10 @@ export const biomathCorePageContent: BioMathCorePageContent = {
     heading: "Context and execution — dual roles",
     support:
       "Two interlocking capabilities. Neither replaces the other; both are required for continuous care architecture.",
+    visualLabel:
+      "BioMath Core context engine and SAVEN execution layer as interlocking dual roles",
+    caption:
+      "Illustrative architecture panel: context and execution must interlock for continuous care.",
     biomath: {
       name: "BioMath Core",
       title: "Context Engine",
@@ -291,6 +308,10 @@ export const biomathCorePageContent: BioMathCorePageContent = {
     heading: "Engine — three simulation phases",
     support:
       "Authorized signals enter the core, recalculate the living model, and return structured simulation context — Architecture only, not a live clinical engine.",
+    visualLabel:
+      "BioMath Core engine — three simulation phases from tagged input through glowing core to digital living human model",
+    caption:
+      "Illustrative architecture panel: Input → Core → Output (English legend below; Architecture only).",
     phases: [
       {
         id: "input",
@@ -320,36 +341,22 @@ export const biomathCorePageContent: BioMathCorePageContent = {
     heading: "The Second Opinion",
     support:
       "Every new signal is read two ways in parallel — local service logic and full-model systemic check — then unified into a verified result. This is architecture for how the system is intended to think, not a clinical product claim.",
+    visualLabel:
+      "The Dual-Opinion Cognitive Engine — New Signal splits into Local and Systemic opinions, then Unified Conclusion",
+    caption:
+      "One unified Second Opinion architecture: parallel local + systemic reading → verified / unified conclusion.",
     signalLabel: "New Signal",
-    resultLabel: "Verified Result",
+    resultLabel: "Unified Conclusion",
     lanes: [
       {
         id: "local",
-        label: "Opinion A — Local",
-        body: "Data analysis directly within a specific service and its specialized logic.",
+        label: "Local Opinion",
+        body: "Formed inside a specific service or category — direct specialized logic (Model A / direct analysis).",
       },
       {
         id: "systemic",
-        label: "Opinion B — Systemic",
-        body: "Independent verification by the entire model — history, other areas, and the established human structure.",
-      },
-    ],
-    dualModelHeading: "Dual-model cognitive path",
-    dualModelSteps: [
-      {
-        id: "model-a",
-        label: "Model A — Direct Analysis",
-        body: "Ingests authorized biometric and behavioral context. Forms the primary local reading.",
-      },
-      {
-        id: "model-b",
-        label: "Model B — Structural Validation",
-        body: "The second-opinion path. Independently cross-checks conclusions against longitudinal history and structural logic.",
-      },
-      {
-        id: "advisor",
-        label: "Unified Conclusion",
-        body: "Outputs structured, human-readable adaptive guidance as continuous route architecture — not a static template and not medical advice.",
+        label: "Systemic Opinion",
+        body: "Evaluated against history, cross-category influences, and the established structural map (Model B / structural validation).",
       },
     ],
     insight:
@@ -359,6 +366,10 @@ export const biomathCorePageContent: BioMathCorePageContent = {
     heading: "The Black Box Architecture",
     support:
       "What looks like a closed box is designed to hold two governed halves — living intelligence and protective control — without inventing Operational deployment claims.",
+    visualLabel:
+      "The Black Box Architecture — glass cube with intelligence mesh and security shield",
+    caption:
+      "Illustrative architecture panel: living intelligence and protective control inside one governed glass volume.",
     sides: [
       {
         id: "intelligence",
@@ -376,6 +387,10 @@ export const biomathCorePageContent: BioMathCorePageContent = {
     heading: "Output: Structured Understanding",
     support:
       "BioMath Core is intended to return structured understanding — not generic advice. Five output pillars describe the architecture target.",
+    visualLabel:
+      "Output: Structured Understanding — five glass pillars for Current State, Causal Logic, Focus Zones, Dynamics, and The Second Opinion",
+    caption:
+      "Illustrative architecture panel: five structured-understanding pillars — not generic advice.",
     pillars: [
       {
         id: "current-state",
@@ -410,6 +425,10 @@ export const biomathCorePageContent: BioMathCorePageContent = {
     heading: "Master Infrastructure Formula",
     support:
       "Architecture equation for continuous care — model coverage plus execution plus bodies.",
+    visualLabel:
+      "Master Infrastructure Formula — BioMath Core + SAVEN + Bodies = System of Continuous Care",
+    caption:
+      "Illustrative architecture panel: the master infrastructure equation for continuous care.",
     parts: [
       {
         id: "biomath",
@@ -435,6 +454,10 @@ export const biomathCorePageContent: BioMathCorePageContent = {
     heading: "Environments",
     support:
       "Home, hospital, and institution share one helix of context, execution, and verification.",
+    visualLabel:
+      "Environments — Home, Hospital, and Institution linked by one continuous helix",
+    caption:
+      "Illustrative architecture panel: the same continuity logic across home, hospital, and institution.",
     cards: [
       {
         id: "home",
@@ -459,11 +482,30 @@ export const biomathCorePageContent: BioMathCorePageContent = {
     heading: "Foundation sequence",
     support:
       "One continuous path — not unrelated projects. BioMath Core sits at the intelligence layer.",
+    visualLabel:
+      "Foundation sequence — BioMath Life to BioMath Core to SAVEN to SAVEN Core",
     steps: [
-      { id: "biomath-life", label: "BioMath Life" },
-      { id: "biomath-core", label: "BioMath Core", emphasis: true },
-      { id: "saven", label: "SAVEN" },
-      { id: "saven-core", label: "SAVEN Core" },
+      {
+        id: "biomath-life",
+        label: "BioMath Life",
+        detail: "Strategy · Philosophy · Standards",
+      },
+      {
+        id: "biomath-core",
+        label: "BioMath Core",
+        detail: "Intelligence · Living Model",
+        emphasis: true,
+      },
+      {
+        id: "saven",
+        label: "SAVEN",
+        detail: "Execution · Control · Verify",
+      },
+      {
+        id: "saven-core",
+        label: "SAVEN Core",
+        detail: "Human Care Systems",
+      },
     ],
   },
   reportsCallout: {

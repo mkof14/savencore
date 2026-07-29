@@ -47,6 +47,8 @@ export const uiZhCn: UiMessages = {
     installApp: "安装应用",
     iosTip:
       "在 iPhone 或 iPad 上：点按“分享”，然后点按“添加到主屏幕”以安装 SAVEN Core。",
+    browserTip:
+      "使用浏览器的“安装”或“添加到主屏幕”选项来安装 SAVEN Core。",
   },
 
   contact: {

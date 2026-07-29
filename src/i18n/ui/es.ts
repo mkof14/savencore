@@ -50,6 +50,8 @@ export const uiEs: UiMessages = {
     installApp: "Instalar app",
     iosTip:
       "En iPhone o iPad: toque Compartir y luego Añadir a pantalla de inicio para instalar SAVEN Core.",
+    browserTip:
+      "Usa la opción Instalar o Añadir a pantalla de inicio de tu navegador para instalar SAVEN Core.",
   },
 
   contact: {

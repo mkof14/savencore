@@ -50,6 +50,8 @@ export const uiJa: UiMessages = {
     installApp: "アプリをインストール",
     iosTip:
       "iPhoneまたはiPadでは、「共有」→「ホーム画面に追加」でSAVEN Coreをインストールできます。",
+    browserTip:
+      "ブラウザの「インストール」または「ホーム画面に追加」から SAVEN Core をインストールできます。",
   },
 
   contact: {

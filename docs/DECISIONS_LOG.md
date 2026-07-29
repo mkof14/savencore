@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-29 (D-0222 — footer Install app type forced smaller)
+**Last updated:** 2026-07-29 (D-0223 — restore footer Install app always visible, same link type)
 
 ## Rules
 
@@ -237,7 +237,8 @@
 | D-0219 | 2026-07-28 | Homepage clarity pack (definition, chain, pillars, audience, boundaries) — reversible flag | Active |
 | D-0220 | 2026-07-28 | Analysis backlog execution — legal chrome honesty, clarity v2 density, ops docs, durable Admin JSON/Blob, corner More links, title search, CSP defer | Partially superseded (corner More links → D-0221) |
 | D-0221 | 2026-07-29 | Restore dense closing corner nav; richer clarity cards; smaller footer Install app | Partially superseded (Install size → D-0222) |
-| D-0222 | 2026-07-29 | Force footer Install app clearly smaller than column links | Active |
+| D-0222 | 2026-07-29 | Force footer Install app clearly smaller than column links | Superseded by D-0223 |
+| D-0223 | 2026-07-29 | Restore always-visible footer Install app; match column link type | Active |
 
 ---
 
@@ -2102,7 +2103,7 @@
 ### D-0222 — Footer Install app type forced clearly smaller
 
 - **Date:** 2026-07-29
-- **Status:** Active
+- **Status:** Superseded by D-0223
 - **Summary:** Owner bug «ты не сделал меньше шрифт Install app in footer» — D-0221 size did not visibly apply because a later `font: inherit` on `button.install-app.site-footer__install-control` overrode the smaller `font-size`. Force Install clearly below column links and remove the inherit conflict.
 - **Decision:**
   1. **Install type** — `.site-footer__install-control` (and button/summary variants) use `0.5rem` (mobile) / `0.55rem` (≥860px) with `!important`; column links remain `0.6875rem` / `0.75rem`.
@@ -2111,6 +2112,19 @@
 - **In scope:** `site-shell.css`, D-0222 + AGENTS / SITE_ASSIGNMENT / IA pointers; verify built CSS; commit/push/Vercel prod; local `:3000`; Russian owner brief.
 - **Out of scope:** Nav/IA changes; new routes; inventing facts.
 - **Implications:** Install app in Resources is visibly secondary to FAQ / security / search links; supersedes D-0221 §3 sizing detail (and D-0215 same-size rule for Install).
+
+### D-0223 — Restore always-visible footer Install app; match column link type
+
+- **Date:** 2026-07-29
+- **Status:** Active
+- **Summary:** Owner report «Install app disappeared» — control returned `null` unless `beforeinstallprompt` fired or the device was iOS, so desktop HTML often had no Install row. Also reverse D-0222 tiny type: Install must match other Resources column links.
+- **Decision:**
+  1. **Always visible** — `InstallAppControl` always renders in the Resources list (SSR + client), except when the app is already installed (standalone) or the tip was dismissed. Non-prompt browsers get a details tip (`browserTip` / `iosTip`).
+  2. **Same type as links** — Install uses `.site-footer__link` font-size (`0.6875rem` / `0.75rem` ≥1200px). Remove D-0222 `0.5rem` / `0.55rem` `!important` shrink.
+  3. Placement remains under Resources as a list item alongside FAQ / search / security.
+- **In scope:** `InstallAppControl`, `SiteFooter`, `site-shell.css`, `src/i18n/ui/*` (`browserTip`), D-0223 + AGENTS / SITE_ASSIGNMENT / IA pointers; local `:3000` HTML smoke; commit/push/Vercel prod; Russian owner brief.
+- **Out of scope:** Header Install; inventing PWA store listings; nav/IA beyond Resources Install visibility.
+- **Implications:** Supersedes D-0222 sizing; restores D-0215 same-size rule for Install; Install text is present in footer HTML without waiting for installability events.
 
 ## Pending Owner Decisions
 

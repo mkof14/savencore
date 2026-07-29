@@ -517,6 +517,8 @@ export const uiRu: UiMessages = {
     installApp: "Установить приложение",
     iosTip:
       "На iPhone или iPad: нажмите «Поделиться», затем «На экран „Домой“», чтобы установить SAVEN Core.",
+    browserTip:
+      "Используйте в браузере пункт «Установить» или «На экран „Домой“», чтобы установить SAVEN Core.",
   },
 
   contact: {

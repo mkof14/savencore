@@ -50,6 +50,8 @@ export const uiDe: UiMessages = {
     installApp: "App installieren",
     iosTip:
       "Auf iPhone oder iPad: Tippen Sie auf Teilen und dann auf Zum Home-Bildschirm, um SAVEN Core zu installieren.",
+    browserTip:
+      "Verwenden Sie die Option „Installieren“ oder „Zum Home-Bildschirm“ Ihres Browsers, um SAVEN Core zu installieren.",
   },
 
   contact: {

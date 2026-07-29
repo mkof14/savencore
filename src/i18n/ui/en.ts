@@ -550,6 +550,8 @@ export const uiEn = {
     installApp: "Install app",
     iosTip:
       "On iPhone or iPad: tap Share, then Add to Home Screen to install SAVEN Core.",
+    browserTip:
+      "Use your browser’s Install or Add to Home Screen option to install SAVEN Core.",
   },
 
   contact: {

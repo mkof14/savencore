@@ -34,8 +34,9 @@ function isStandalone(): boolean {
 }
 
 /**
- * Discreet Install app control — shows when beforeinstallprompt is available,
- * or a short iOS tip when installable via Share → Add to Home Screen.
+ * Install app control — always visible in the footer Resources column (D-0223).
+ * Uses beforeinstallprompt when available; otherwise a short how-to tip.
+ * Hidden only when already installed (standalone) or the tip was dismissed.
  */
 export function InstallAppControl({
   locale,
@@ -45,36 +46,33 @@ export function InstallAppControl({
   const [deferred, setDeferred] = useState<BeforeInstallPromptEvent | null>(
     null,
   );
-  const [showIosTip, setShowIosTip] = useState(false);
+  const [isIos, setIsIos] = useState(false);
   const [dismissed, setDismissed] = useState(false);
+  const [standalone, setStandalone] = useState(false);
 
   useEffect(() => {
-    if (isStandalone()) return;
+    if (isStandalone()) {
+      setStandalone(true);
+      return;
+    }
 
     const onBip = (event: Event) => {
       event.preventDefault();
       setDeferred(event as BeforeInstallPromptEvent);
-      setShowIosTip(false);
     };
 
     window.addEventListener("beforeinstallprompt", onBip);
-
-    if (isIosDevice()) {
-      setShowIosTip(true);
-    }
+    setIsIos(isIosDevice());
 
     return () => window.removeEventListener("beforeinstallprompt", onBip);
   }, []);
 
-  if (dismissed || isStandalone()) {
+  if (dismissed || standalone) {
     return null;
   }
 
-  if (!deferred && !showIosTip) {
-    return null;
-  }
-
-  const className = "site-footer__install-control install-app";
+  const className =
+    "site-footer__link site-footer__install-control install-app";
 
   if (deferred) {
     return (
@@ -99,7 +97,9 @@ export function InstallAppControl({
   return (
     <details className={`install-app install-app--tip install-app--${placement}`}>
       <summary className={className}>{ui.pwa.installApp}</summary>
-      <p className="install-app__tip">{ui.pwa.iosTip}</p>
+      <p className="install-app__tip">
+        {isIos ? ui.pwa.iosTip : ui.pwa.browserTip}
+      </p>
       <button
         type="button"
         className="install-app__dismiss"

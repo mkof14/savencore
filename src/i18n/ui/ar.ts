@@ -406,6 +406,8 @@ export const uiAr: UiMessages = {
     installApp: "تثبيت التطبيق",
     iosTip:
       "على iPhone أو iPad: اضغط مشاركة، ثم إضافة إلى الشاشة الرئيسية لتثبيت SAVEN Core.",
+    browserTip:
+      "استخدم خيار التثبيت أو إضافة إلى الشاشة الرئيسية في متصفحك لتثبيت SAVEN Core.",
   },
 
   contact: {

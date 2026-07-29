@@ -404,6 +404,8 @@ export const uiHe: UiMessages = {
     installApp: "התקנת האפליקציה",
     iosTip:
       "ב-iPhone או iPad: הקישו על שיתוף ואז על הוספה למסך הבית כדי להתקין את SAVEN Core.",
+    browserTip:
+      "השתמשו באפשרות התקנה או הוספה למסך הבית בדפדפן כדי להתקין את SAVEN Core.",
   },
 
   contact: {

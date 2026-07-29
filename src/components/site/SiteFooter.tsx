@@ -66,6 +66,13 @@ export function SiteFooter({
     const isLegal = group.id === "legal";
     const groupClass = `site-footer__group${isLegal ? " site-footer__group--legal" : ""}`;
 
+    const installItem =
+      group.id === "resources" ? (
+        <li key="footer-install-app" className="site-footer__install-item">
+          <InstallAppControl locale={locale} placement="footer" />
+        </li>
+      ) : null;
+
     if (isCompact) {
       return (
         <details key={group.id} className={groupClass}>
@@ -87,6 +94,7 @@ export function SiteFooter({
                 </Link>
               </li>
             ))}
+            {installItem}
           </ul>
         </details>
       );
@@ -116,6 +124,7 @@ export function SiteFooter({
               </Link>
             </li>
           ))}
+          {installItem}
         </ul>
       </section>
     );
@@ -147,11 +156,6 @@ export function SiteFooter({
               className={`site-footer__column site-footer__column--${columnIndex + 1}`}
             >
               {renderGroup(group)}
-              {group.id === "resources" ? (
-                <div className="site-footer__install">
-                  <InstallAppControl locale={locale} placement="footer" />
-                </div>
-              ) : null}
             </div>
           ))}
         </div>

@@ -190,6 +190,7 @@ export const physicalWorldHomeZhCn: PhysicalWorldHomeContent = {
     wordmarkLabel: "SAVEN",
     corners: {
       navLabel: "收束区导航",
+      moreLabel: '更多链接',
       left: [
         { label: "宗旨", href: "/purpose/" },
         { label: "实验室", href: "/labs/" },

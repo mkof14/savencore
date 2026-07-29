@@ -7,6 +7,7 @@ import { UsersRolesClient } from "@/components/admin/UsersRolesClient";
 import { isLocale, type Locale } from "@/config/locales";
 import { getUi } from "@/i18n/ui";
 import { listOperators } from "@/lib/admin/operators-store";
+import { AdminStoreBanner } from "@/components/admin/AdminStoreBanner";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -33,6 +34,7 @@ export default async function AdminUsersPage({ params }: PageProps) {
       <p className="admin-page__eyebrow">{ui.admin.eyebrow}</p>
       <h1 className="admin-page__title">{ui.admin.usersTitle}</h1>
       <p className="admin-page__lead">{ui.admin.usersLead}</p>
+      <AdminStoreBanner locale={locale} />
       <p className="admin-note">{ui.admin.usersNote}</p>
       <UsersRolesClient
         operators={operators}

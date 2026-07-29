@@ -9,6 +9,7 @@ import { ADMIN_ROLES, canPerform } from "@/admin/roles";
 import { PermissionsMatrixClient } from "@/components/admin/PermissionsMatrixClient";
 import { isLocale, type Locale } from "@/config/locales";
 import { getUi } from "@/i18n/ui";
+import { AdminStoreBanner } from "@/components/admin/AdminStoreBanner";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -31,6 +32,7 @@ export default async function AdminPermissionsPage({ params }: PageProps) {
       <p className="admin-page__eyebrow">{ui.admin.eyebrow}</p>
       <h1 className="admin-page__title">{ui.admin.permissionsTitle}</h1>
       <p className="admin-page__lead">{ui.admin.permissionsLead}</p>
+      <AdminStoreBanner locale={locale} />
       <p className="admin-note">{ui.admin.permissionsNote}</p>
       <PermissionsMatrixClient
         initialMatrix={matrix}

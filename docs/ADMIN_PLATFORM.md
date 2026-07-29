@@ -85,9 +85,11 @@ Nav: **Dashboard · Templates · Mailings · Invitations · Users & roles · Per
 9. **Marketing tools** — promotion + SEO checklists only; no fabricated traffic/ROI.
 10. **Technical monitoring** — package version, locales, published routes, commit SHA when available.
 
-### JSON store
+### JSON store (D-0220)
 
-Runtime files under `storage/admin/` (gitignored). Seed defaults live in code. On read-only hosts (typical Vercel), writes return an honest “storage unavailable” error — durable DB/object storage is a later phase.
+Runtime files under `storage/admin/` (gitignored) in local development. Seed defaults live in code.
+
+**Durable production path:** when `BLOB_READ_WRITE_TOKEN` is set, the same JSON files (invitations, operators, permissions, mailings, notifications) and the outbox NDJSON persist via Vercel Blob under `admin-store/` (`src/lib/admin/json-store.ts`). When the token is unset on Vercel, writes return “storage unavailable” and Admin pages for invitations / users / permissions / mailings / notifications show an honest **local-only / not durable** banner — no fake persistence.
 
 ### Optional SMTP
 
@@ -100,15 +102,26 @@ SMTP_FROM=info@savencore.com
 SMTP_SECURE=false
 ```
 
+**Owner checklist (paste secrets in Vercel — never commit):**
+
+1. [ ] `AUTH_SECRET`, and either Google OAuth or `AUTH_DEMO_EMAIL` / `AUTH_DEMO_PASSWORD`
+2. [ ] `AUTH_URL` = production origin
+3. [ ] `BLOB_READ_WRITE_TOKEN` for durable Media **and** Admin JSON
+4. [ ] `SMTP_*` only if real delivery is required
+5. [ ] Redeploy after env changes
+
+See `docs/VERCEL_DEPLOY.md` §2.
 ## Footer socials
 
 Icons for Facebook, YouTube, X, LinkedIn, Instagram render **only when** configured (D-0194 SO-1). Facebook uses the owner-approved committed default `https://www.facebook.com/profile.php?id=61592276954371` (D-0198; `NEXT_PUBLIC_SOCIAL_FACEBOOK` overrides). YouTube uses `https://youtu.be/0C1Sk_RAnSw` (D-0195; `NEXT_PUBLIC_SOCIAL_YOUTUBE` overrides). X uses `https://x.com/SAVENcore` (D-0196; `NEXT_PUBLIC_SOCIAL_X` overrides). Instagram uses `https://www.instagram.com/savencore/` (D-0197; `NEXT_PUBLIC_SOCIAL_INSTAGRAM` overrides). Other networks: unset / `#` → icon hidden (no disabled placeholders). Do not invent additional profile URLs.
 
 ## Out of scope (later)
 
-- Full relational DB for all admin stores (invitations, roles, outbox) — Blob covers Media first
+- Full relational DB / CMS for all admin + public content (Blob JSON covers Admin stores when token set — D-0220; not a CMS)
 - Google Analytics / cookie consent CMP / ROI dashboards
-- Inventing official social profile URLs
+- Inventing official social profile URLs (LinkedIn still open)
 - Claiming SMTP delivery success when SMTP is unset
-- Investor portal / data room
-- Final counsel-approved legal text
+- Investor portal / data room / investor PDF without owner assets
+- Final counsel-approved multi-jurisdiction legal packs (site policies remain website policies — D-0220)
+- Dated public Roadmap years / leadership bios without owner-supplied facts
+- Nonce-based CSP hardening (documented deferral — D-0220)

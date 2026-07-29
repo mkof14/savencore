@@ -290,5 +290,5 @@ export const dictionary: Record<string, string> = {
   "Responsible AI": "責任あるAI",
   "Yes. A Research Disclaimer Legal page explains that research materials are preliminary and do not guarantee outcomes, dates, or regulatory approval.": "はい。Research Disclaimer法務ページは、研究資料が暫定的であり、成果・日程・規制承認を保証しないと説明します。",
   "Are legal pages counsel-certified for every jurisdiction?": "法務ページはすべての法域で弁護士認定済みですか？",
-  "Legal pages are owner-authorized interim site policies describing information practices and terms of use. They are not a substitute for jurisdiction-specific counsel review where regulated activities apply. Contact: info@savencore.com.": "法務ページは、情報取り扱いと利用条件を説明するオーナー承認の暫定サイトポリシーです。規制活動が適用される場合の法域別弁護士レビューの代わりにはなりません。連絡先: info@savencore.com。",
+  "Legal pages are owner-authorized site policies and terms of use for this website. They are not a complete multi-jurisdiction regulatory compliance pack and are not a substitute for jurisdiction-specific counsel review where regulated activities apply. Contact: info@savencore.com.": "法務ページは、本ウェブサイト向けのオーナー承認のサイトポリシーおよび利用条件です。複数法域にわたる完全な規制コンプライアンスパックではなく、規制活動が適用される場合の法域別弁護士レビューの代わりにもなりません。連絡先: info@savencore.com。",
 };

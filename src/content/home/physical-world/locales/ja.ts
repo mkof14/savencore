@@ -190,6 +190,7 @@ export const physicalWorldHomeJa: PhysicalWorldHomeContent = {
     wordmarkLabel: "SAVEN",
     corners: {
       navLabel: "クロージングの行き先",
+      moreLabel: 'その他のリンク',
       left: [
         { label: "目的", href: "/purpose/" },
         { label: "ラボ", href: "/labs/" },

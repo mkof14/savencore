@@ -65,7 +65,7 @@ export const physicalWorldHomeEn: PhysicalWorldHomeContent = {
   clarity: {
     definition: {
       heading: "What is SAVEN",
-      body: "SAVEN Core builds systems that link human understanding to robots and devices in the physical world — under human control. AI is a tool we use and advance for that purpose; creating AI is not the purpose.",
+      body: "SAVEN Core links human understanding to robots and devices in the physical world — under human control. AI is a tool for that purpose, not the purpose.",
     },
     chain: {
       heading: "From understanding to assistance",
@@ -90,19 +90,16 @@ export const physicalWorldHomeEn: PhysicalWorldHomeContent = {
     },
     exploreStrip: {
       heading: "Explore SAVEN",
-      support:
-        "Five pillars of the architecture — the same map continues in the closing band below.",
+      support: "Five architecture pillars — full map in the closing band.",
     },
     audience: {
       heading: "Where do you want to begin?",
-      support:
-        "Three clear paths — care and purpose, technology and systems, or long-horizon investment posture.",
+      support: "Care & purpose · technology & systems · investors.",
       paths: [
         {
           id: "care",
           label: "Care & purpose",
-          description:
-            "Understand why SAVEN exists and where assistance is meant to help people.",
+          description: "Why SAVEN exists and where assistance helps people.",
           links: [
             { label: "Purpose", href: "/purpose/" },
             { label: "Applications", href: "/applications/" },
@@ -111,8 +108,7 @@ export const physicalWorldHomeEn: PhysicalWorldHomeContent = {
         {
           id: "technology",
           label: "Technology & systems",
-          description:
-            "See the labs, interface, and architecture that link intelligence to physical action.",
+          description: "Labs, interface, and architecture linking intelligence to action.",
           links: [
             { label: "Technology", href: "/technology/" },
             { label: "Labs", href: "/labs/" },
@@ -126,8 +122,7 @@ export const physicalWorldHomeEn: PhysicalWorldHomeContent = {
         {
           id: "investors",
           label: "Investors",
-          description:
-            "Long-horizon, mission-aligned capital posture — honest status, no invented metrics.",
+          description: "Long-horizon, mission-aligned capital — honest status.",
           links: [{ label: "Investors", href: "/investors/" }],
         },
       ],
@@ -189,6 +184,7 @@ export const physicalWorldHomeEn: PhysicalWorldHomeContent = {
     wordmarkLabel: "SAVEN",
     corners: {
       navLabel: "Closing destinations",
+      moreLabel: 'More links',
       left: [
         { label: "Purpose", href: "/purpose/" },
         { label: "Labs", href: "/labs/" },

@@ -7,6 +7,7 @@ import { InvitationsClient } from "@/components/admin/InvitationsClient";
 import { isLocale, type Locale } from "@/config/locales";
 import { getUi } from "@/i18n/ui";
 import { listInvitations } from "@/lib/admin/invitations-store";
+import { AdminStoreBanner } from "@/components/admin/AdminStoreBanner";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -33,6 +34,7 @@ export default async function AdminInvitationsPage({ params }: PageProps) {
       <p className="admin-page__eyebrow">{ui.admin.eyebrow}</p>
       <h1 className="admin-page__title">{ui.admin.invitationsTitle}</h1>
       <p className="admin-page__lead">{ui.admin.invitationsLead}</p>
+      <AdminStoreBanner locale={locale} />
       <p className="admin-note">{ui.admin.invitationsNote}</p>
       <InvitationsClient
         locale={locale}

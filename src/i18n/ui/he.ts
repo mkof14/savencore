@@ -76,6 +76,7 @@ export const uiHe: UiMessages = {
     "footer-company-investors-contact": "יצירת קשר למשקיעים",
     "footer-company-media": "מדיה",
     "footer-company-roadmap": "מפת דרכים",
+    "footer-resources-search": "חיפוש",
     "footer-resources-faq": "שאלות נפוצות",
     "footer-resources-security-issue": "בעיית אבטחה",
     "footer-labs-overview": "סקירה",
@@ -161,6 +162,7 @@ export const uiHe: UiMessages = {
       "מקומית: storage/admin-media/. אחסון ענן עמיד (S3 / Blob) הוא שלב מאוחר יותר. ב־Vercel לא נשמרות רשומות ספרייה חדשות.",
     mediaVercelLimit:
       "לא ניתן לשמור שינויים בספריית המדיה על מארח זה ללא BLOB_READ_WRITE_TOKEN (טיפוסי ל־Vercel). הגדירו Vercel Blob לאחסון עמיד, הוסיפו קבצים וקישורי YouTube/Vimeo בפיתוח מקומי, או העדיפו הטמעת URL לסרטונים גדולים (מגבלת גוף הבקשה ב־Vercel ≈ 4.5 מגה־בייט).",
+    localStoreOnly: "מקומי בלבד / לא עמיד במארח זה: הזמנות, תפקידים, הרשאות, דיוורים והתראות דורשים BLOB_READ_WRITE_TOKEN (Vercel Blob) כדי להתמיד ב-Vercel. בלעדיו שינויים עלולים להיכשל או להיעלם אחרי פריסה מחדש. פיתוח מקומי עדיין כותב ל-storage/admin/.",
     mediaAddHeading: "העלאה",
     mediaAddLead:
       "כלים קלאסיים: העלאת קובץ, הוספת כתובת וידאו או שמירת קישור. אחר כך נהלו שורות בטבלה למטה.",
@@ -265,10 +267,12 @@ export const uiHe: UiMessages = {
   legal: {
     lastUpdated: "עודכן לאחרונה",
     related: "דפים משפטיים",
-    draftNote: "מדיניות האתר לגבי נוהלי מידע ותנאי שימוש. לשאלות: info@savencore.com.",
+    draftNote: "מדיניות אתר ותנאי שימוש של אתר זה — לא חבילת ציות רגולטורי מלאה לכל תחומי השיפוט. לשאלות: info@savencore.com.",
     indexTitle: "משפטי",
-    indexLead: "פרטיות, תנאים, עוגיות, נגישות, אבטחה והודעות קשורות לאתר הציבורי. העדפות עוגיות מסבירות שאין CMP הסכמה פעיל — השתמשו בהגדרות הדפדפן או צרו קשר.",
+    indexLead: "פרטיות, תנאים, עוגיות, נגישות, אבטחה והודעות קשורות לאתר הציבורי. אלה מדיניות אתר — לא חבילה מאושרת על ידי יועץ לכל תחום שיפוט. העדפות עוגיות מסבירות שאין CMP הסכמה פעיל — השתמשו בהגדרות הדפדפן או צרו קשר.",
   },
+
+    search: { title: "חיפוש", lead: "מצאו דפים מפורסמים לפי כותרת. חיפוש קל של מפת האתר — לא CMS לטקסט מלא.", placeholder: "חיפוש כותרות דפים…", submit: "חיפוש", noQuery: "הקלידו כמה אותיות כדי לסנן כותרות דפים מפורסמים.", empty: "אין דפים מפורסמים תואמים. נסו מילה אחרת או עיינו במפת הכותרת התחתונה.", results: "{count} דפים תואמים", honestNote: "החיפוש מכסה רק כותרות דפים מפורסמים ותוויות ניווט — לא גופי מסמכים או תוכן Admin פרטי.", navLabel: "חיפוש" },
 
   medicalDisclaimer: {
     short:

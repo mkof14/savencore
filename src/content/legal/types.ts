@@ -13,9 +13,12 @@ export type LegalPageContent = {
   sections: readonly LegalSection[];
 };
 
-/** Short honest site notice (D-0216) — replaces structural DRAFT banner. */
+/**
+ * Short honest site notice (D-0216 / D-0220) — website policies, not a
+ * counsel-complete multi-jurisdiction regulatory pack. No invented entity/DPO/law.
+ */
 export const LEGAL_SITE_NOTICE =
-  "These pages describe SAVEN Core information practices and terms of site use. For questions: info@savencore.com.";
+  "These pages are site policies and terms of use for this website — not a complete multi-jurisdiction regulatory compliance pack. For questions: info@savencore.com.";
 
 /** @deprecated Use LEGAL_SITE_NOTICE — kept only to avoid stale imports during transition. */
 export const LEGAL_DRAFT_BANNER = LEGAL_SITE_NOTICE;
@@ -24,15 +27,15 @@ export const LEGAL_LAST_UPDATED = "28 July 2026";
 
 const SITE_NOTICE_BY_LOCALE: Record<ContentLocale, string> = {
   en: LEGAL_SITE_NOTICE,
-  es: "Estas páginas describen las prácticas de información de SAVEN Core y los términos de uso del sitio. Preguntas: info@savencore.com.",
-  de: "Diese Seiten beschreiben Informationspraktiken von SAVEN Core und Nutzungsbedingungen der Website. Fragen: info@savencore.com.",
-  fr: "Ces pages décrivent les pratiques d’information de SAVEN Core et les conditions d’utilisation du site. Questions : info@savencore.com.",
-  ja: "これらのページは、SAVEN Coreの情報取り扱いとサイト利用条件を説明します。お問い合わせ: info@savencore.com。",
-  "zh-cn": "这些页面说明 SAVEN Core 的信息处理做法与网站使用条款。咨询：info@savencore.com。",
-  ar: "تصف هذه الصفحات ممارسات معلومات SAVEN Core وشروط استخدام الموقع. للاستفسار: info@savencore.com.",
-  he: "דפים אלה מתארים את נוהלי המידע של SAVEN Core ואת תנאי השימוש באתר. לשאלות: info@savencore.com.",
-  uk: "Ці сторінки описують інформаційні практики SAVEN Core і умови користування сайтом. Питання: info@savencore.com.",
-  ru: "Эти страницы описывают информационные практики SAVEN Core и условия использования сайта. Вопросы: info@savencore.com.",
+  es: "Estas páginas son políticas del sitio y términos de uso de este sitio web — no un paquete completo de cumplimiento normativo multi-jurisdiccional. Preguntas: info@savencore.com.",
+  de: "Diese Seiten sind Website-Richtlinien und Nutzungsbedingungen dieser Website — kein vollständiges multi-jurisdiktionelles Regulierungspaket. Fragen: info@savencore.com.",
+  fr: "Ces pages sont des politiques du site et des conditions d’utilisation de ce site web — pas un pack réglementaire multi-juridictionnel complet. Questions : info@savencore.com.",
+  ja: "これらのページは本ウェブサイトのサイトポリシーおよび利用条件であり、複数法域にわたる完全な規制コンプライアンスパックではありません。お問い合わせ: info@savencore.com。",
+  "zh-cn": "这些页面是本网站的站点政策与使用条款——并非完整的多司法辖区监管合规套件。咨询：info@savencore.com。",
+  ar: "هذه الصفحات سياسات موقع وشروط استخدام لهذا الموقع الإلكتروني — وليست حزمة امتثال تنظيمي كاملة متعددة الولايات القضائية. للاستفسار: info@savencore.com.",
+  he: "דפים אלה הם מדיניות אתר ותנאי שימוש של אתר זה — לא חבילת ציות רגולטורי מלאה לכל תחומי השיפוט. לשאלות: info@savencore.com.",
+  uk: "Ці сторінки — політики сайту та умови використання цього вебсайту, а не повний багатоюрисдикційний регуляторний пакет. Питання: info@savencore.com.",
+  ru: "Эти страницы — политики сайта и условия использования этого веб-сайта, а не полный многоюрисдикционный регуляторный пакет. Вопросы: info@savencore.com.",
 };
 
 const LAST_UPDATED_BY_LOCALE: Record<ContentLocale, string> = {

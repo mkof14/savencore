@@ -952,7 +952,7 @@ export const faqPageEn: FaqPageContent = {
           id: "not-legal-final",
           question: "Are legal pages counsel-certified for every jurisdiction?",
           answer: [
-            "Legal pages are owner-authorized interim site policies describing information practices and terms of use. They are not a substitute for jurisdiction-specific counsel review where regulated activities apply. Contact: info@savencore.com.",
+            "Legal pages are owner-authorized site policies and terms of use for this website. They are not a complete multi-jurisdiction regulatory compliance pack and are not a substitute for jurisdiction-specific counsel review where regulated activities apply. Contact: info@savencore.com.",
           ],
           links: [{ label: "Legal", href: "/legal/" }],
         },

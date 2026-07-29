@@ -190,6 +190,7 @@ export const physicalWorldHomeEs: PhysicalWorldHomeContent = {
     wordmarkLabel: "SAVEN",
     corners: {
       navLabel: "Destinos del cierre",
+      moreLabel: 'Más enlaces',
       left: [
         { label: "Propósito", href: "/purpose/" },
         { label: "Labs", href: "/labs/" },

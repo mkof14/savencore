@@ -357,6 +357,7 @@ export const footerNavigation: readonly FooterGroup[] = [
     title: "Resources",
     links: [
       published("footer-resources-faq", "FAQ", "/faq/"),
+      published("footer-resources-search", "Search", "/search/"),
       published(
         "footer-resources-security-issue",
         "Security Issue",

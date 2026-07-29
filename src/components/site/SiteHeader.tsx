@@ -38,6 +38,12 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
 
         <div className="site-header__utilities">
           <Link
+            href={localizePath(locale, "/search/")}
+            className="site-header__text-link"
+          >
+            {ui.search.navLabel}
+          </Link>
+          <Link
             href={localizePath(locale, "/auth/sign-in/")}
             className="site-header__text-link"
           >

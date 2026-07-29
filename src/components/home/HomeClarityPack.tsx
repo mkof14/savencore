@@ -1,6 +1,9 @@
 import Link from "next/link";
 
-import { HOME_CLARITY_V1_ENABLED } from "@/config/home-clarity";
+import {
+  HOME_CLARITY_V1_ENABLED,
+  HOME_CLARITY_V2_ENABLED,
+} from "@/config/home-clarity";
 import type { Locale } from "@/config/locales";
 import type {
   ClosingExplorePillar,
@@ -18,7 +21,7 @@ type HomeClarityPackProps = {
 };
 
 /**
- * Reversible homepage clarity blocks (D-0219).
+ * Reversible homepage clarity blocks (D-0219 / denser D-0220 via HOME_CLARITY_V2).
  * Gated by `HOME_CLARITY_V1_ENABLED` — returns null when the flag is off.
  */
 export function HomeClarityPack({
@@ -29,9 +32,17 @@ export function HomeClarityPack({
 }: HomeClarityPackProps) {
   if (!HOME_CLARITY_V1_ENABLED) return null;
 
+  const dense = HOME_CLARITY_V2_ENABLED;
+  const earlyClass = dense
+    ? "pw-clarity pw-clarity--early pw-clarity--v2"
+    : "pw-clarity pw-clarity--early";
+
   if (slot === "post-living") {
     return (
-      <section className="pw-clarity pw-clarity--not" aria-labelledby="pw-clarity-not-title">
+      <section
+        className={`pw-clarity pw-clarity--not${dense ? " pw-clarity--v2" : ""}`}
+        aria-labelledby="pw-clarity-not-title"
+      >
         <div className="pw-home__inner pw-clarity__inner">
           <h2 id="pw-clarity-not-title" className="pw-clarity__title">
             {clarity.not.heading}
@@ -47,7 +58,7 @@ export function HomeClarityPack({
   }
 
   return (
-    <div className="pw-clarity pw-clarity--early">
+    <div className={earlyClass}>
       <section
         className="pw-clarity__block pw-clarity__definition"
         aria-labelledby="pw-clarity-def-title"
@@ -92,15 +103,18 @@ export function HomeClarityPack({
         </div>
       </section>
 
+      {/* V2: keep a single dense pillar row; full Explore remains in the closing band. */}
       <section
-        className="pw-clarity__block pw-clarity__explore"
+        className={`pw-clarity__block pw-clarity__explore${dense ? " pw-clarity__explore--dense" : ""}`}
         aria-labelledby="pw-clarity-explore-title"
       >
         <div className="pw-home__inner pw-clarity__inner">
           <h2 id="pw-clarity-explore-title" className="pw-clarity__title">
             {clarity.exploreStrip.heading}
           </h2>
-          <p className="pw-clarity__support">{clarity.exploreStrip.support}</p>
+          {!dense ? (
+            <p className="pw-clarity__support">{clarity.exploreStrip.support}</p>
+          ) : null}
           <ul className="pw-clarity__pillars" aria-label={clarity.exploreStrip.heading}>
             {pillars.map((pillar) => (
               <li key={pillar.id}>
@@ -110,10 +124,12 @@ export function HomeClarityPack({
                   title={pillar.meaning}
                 >
                   <span className="pw-clarity__pillar-label">{pillar.label}</span>
-                  <span className="pw-clarity__pillar-cta">
-                    {pillar.cta}
-                    <span aria-hidden="true"> →</span>
-                  </span>
+                  {!dense ? (
+                    <span className="pw-clarity__pillar-cta">
+                      {pillar.cta}
+                      <span aria-hidden="true"> →</span>
+                    </span>
+                  ) : null}
                 </Link>
               </li>
             ))}
@@ -129,12 +145,16 @@ export function HomeClarityPack({
           <h2 id="pw-clarity-audience-title" className="pw-clarity__title">
             {clarity.audience.heading}
           </h2>
-          <p className="pw-clarity__support">{clarity.audience.support}</p>
+          {!dense ? (
+            <p className="pw-clarity__support">{clarity.audience.support}</p>
+          ) : null}
           <ul className="pw-clarity__paths">
             {clarity.audience.paths.map((path) => (
               <li key={path.id} className="pw-clarity__path">
                 <p className="pw-clarity__path-label">{path.label}</p>
-                <p className="pw-clarity__path-desc">{path.description}</p>
+                {!dense ? (
+                  <p className="pw-clarity__path-desc">{path.description}</p>
+                ) : null}
                 <ul className="pw-clarity__path-links">
                   {path.links.map((link) => (
                     <li key={link.href}>

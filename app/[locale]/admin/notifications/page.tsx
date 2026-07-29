@@ -7,6 +7,7 @@ import { NotificationsClient } from "@/components/admin/NotificationsClient";
 import { isLocale, type Locale } from "@/config/locales";
 import { getUi } from "@/i18n/ui";
 import { listNotifications } from "@/lib/admin/notifications-store";
+import { AdminStoreBanner } from "@/components/admin/AdminStoreBanner";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -31,6 +32,7 @@ export default async function AdminNotificationsPage({ params }: PageProps) {
   return (
     <div>
       <p className="admin-page__eyebrow">{ui.admin.eyebrow}</p>
+      <AdminStoreBanner locale={locale} />
       <h1 className="admin-page__title">{ui.admin.notificationsTitle}</h1>
       <p className="admin-page__lead">{ui.admin.notificationsLead}</p>
       <NotificationsClient

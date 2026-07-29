@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-28 (D-0219 — homepage clarity pack, reversible)
+**Last updated:** 2026-07-28 (D-0220 — analysis backlog execution)
 
 ## Rules
 
@@ -235,6 +235,7 @@
 | D-0217 | 2026-07-28 | Closing band: SAVEN wordmark glow + upper corner nav | Active (denser nav / glow size: D-0218) |
 | D-0218 | 2026-07-28 | Closing band: denser upper nav + ~2× SAVEN glow + lively hover | Active |
 | D-0219 | 2026-07-28 | Homepage clarity pack (definition, chain, pillars, audience, boundaries) — reversible flag | Active |
+| D-0220 | 2026-07-28 | Analysis backlog execution — legal chrome honesty, clarity v2 density, ops docs, durable Admin JSON/Blob, corner More links, title search, CSP defer | Active |
 
 ---
 
@@ -2064,6 +2065,24 @@
 - **In scope:** Config flag; `HomeClarityPack`; home CSS; living stage why-line; content types + 10 locales; D-0219 + AGENTS / SITE_ASSIGNMENT / IA pointers; type-check; commit/push; Vercel prod; local `:3000` restart; Russian owner brief + revert instructions.
 - **Out of scope:** Changing closing Explore map behavior; inventing routes; legal pack rewrite; analytics/CMP.
 - **Implications:** Homepage gains early clarity blocks while remaining one commit/flag flip from the prior structure.
+
+### D-0220 — Analysis backlog execution (multi-role site analysis)
+
+- **Date:** 2026-07-28
+- **Status:** Active
+- **Summary:** Owner ordered implementing all possible recommendations from the multi-role site analysis (legal honesty, home density, ops docs, durable Admin beyond Media, closing corner progressive disclosure, translation QA, lightweight title search) without inventing facts. LinkedIn URL, dated Roadmap years, investor PDF, and leadership remain blocked pending owner facts.
+- **Decision:**
+  1. **Legal chrome honesty** — Sitewide notice and FAQ reinforce that Legal pages are **site policies / terms of use of the website**, not a complete multi-jurisdiction regulatory compliance pack. Keep medical disclaimer. Do not invent entity address, DPO, governing law, or “GDPR certified”.
+  2. **Home clarity v2 density** — Keep `HOME_CLARITY_V1` (default on). Add `HOME_CLARITY_V2` (default on when V1 on): denser spacing, compact early Explore pillar row (no support line / CTAs), tighter audience cards. Revert density: `NEXT_PUBLIC_HOME_CLARITY_V2=false` or `HOME_CLARITY_V2_DEFAULT=false`. Revert full clarity: `NEXT_PUBLIC_HOME_CLARITY_V1=false` (see D-0219).
+  3. **Ops docs** — Strengthen `VERCEL_DEPLOY.md` / `ADMIN_PLATFORM.md` AUTH_* / BLOB_* / SMTP_* checklists (owner pastes secrets).
+  4. **Durable Admin JSON** — When `BLOB_READ_WRITE_TOKEN` is set, invitations/roles/permissions/mailings/notifications/outbox persist via Vercel Blob (`admin-store/`). Otherwise honest **local-only / not durable** banners on those Admin pages.
+  5. **Closing corner nav** — Purpose / Labs / Trust / Contact stay visible; other corner links under **More links** expand/collapse.
+  6. **Lightweight search** — Published-route title search at `/search/` + header/footer link; honest empty states; no CMS/full-text.
+  7. **CSP** — Do not tighten script-src yet (Next.js + Auth.js breakage risk); document deferral in deploy docs.
+  8. **Blocked** — LinkedIn URL; dated Roadmap; investor PDF; leadership bios — require owner-supplied facts.
+- **In scope:** Legal types/UI/FAQ locales; home-clarity V2; ClosingExploreMap disclosure; json-store Blob backend; Admin banners; `/search/`; ops docs; D-0220 + AGENTS/IA/SITE_ASSIGNMENT pointers; type-check; commit/push/deploy.
+- **Out of scope:** Full CMS; inventing entity/DPO/law; Operational claims; LinkedIn/leadership/roadmap dates/investor PDF without facts; nonce CSP pass.
+- **Implications:** Public trust language is clearer; home is denser with two-flag revert; Admin durability matches Media when Blob is configured; search is title-only and honest.
 
 ## Pending Owner Decisions
 

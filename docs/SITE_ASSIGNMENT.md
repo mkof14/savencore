@@ -101,7 +101,7 @@ Prominent paths into the three primary workstreams (canonical scopes in §5.0):
 ### Homepage region order (as-built, D-0135 / D-0150 / D-0194 / D-0219)
 
 1. **Hero** — brand, hero line, one breath sentence, three build pillars, tagline, footer cue, plus living atmosphere + thematic illustration plane
-2. **Clarity pack** (D-0219; flag `HOME_CLARITY_V1`, default on) — What is SAVEN · 3-step chain · compact Explore pillars · audience fork; after carousel: what we are not. Set flag false to restore pre-D-0219 order.
+2. **Clarity pack** (D-0219 / D-0220; flags `HOME_CLARITY_V1` + `HOME_CLARITY_V2`, default on) — denser What is SAVEN · 3-step chain · compact Explore pillars · audience fork; after carousel: what we are not. Set `HOME_CLARITY_V1` false to restore pre-D-0219 order; set `HOME_CLARITY_V2` false to keep V1 blocks with pre-density layout.
 3. **Care living carousel** — one care-focused living band (hospitals / home / family / emergency / …); with clarity on: stage “Why this is SAVEN” + Application CTA
 4. **Flagship Gateway** — compact paths: Robotics Lab, Robotics Interface, Internal Future Lab (+ optional Investors) with honest statuses
 5. **Closing** — SAVEN meaning band: Explore pillars (D-0216) + wordmark glow (~2× D-0218) + dense upper corner nav (Purpose · Labs · tech leaves | systems · Future Lab · Trust · Contact · FAQ — D-0217/D-0218)
@@ -260,7 +260,7 @@ Proposed clean top-level grouping for the showcase site. **Changing live primary
 | 8 | Company | About / approach when published (no invented leadership) |
 | 9 | Investors | Investor information path (no invented metrics; no auth portal in this assignment) |
 
-**Utility (when published):** Language; Contact; Search (architecture-ready; working search still out of scope per AGENTS.md).
+**Utility (when published):** Language; Contact; Search (title-only `/search/` over published routes — D-0220; not a full-text CMS).
 
 **Purpose / Foundation:** Remain essential content destinations (Master Spec). They may live as Home bridge + footer / Company area until primary-nav re-expansion is authorized. Do not delete the foundation sequence from the story.
 

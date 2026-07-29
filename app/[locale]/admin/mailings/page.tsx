@@ -9,6 +9,7 @@ import { isLocale, type Locale } from "@/config/locales";
 import { getUi } from "@/i18n/ui";
 import { listMailings } from "@/lib/admin/mailings-store";
 import { isSmtpConfigured } from "@/lib/admin/smtp";
+import { AdminStoreBanner } from "@/components/admin/AdminStoreBanner";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -33,6 +34,7 @@ export default async function AdminMailingsPage({ params }: PageProps) {
   return (
     <div>
       <p className="admin-page__eyebrow">{ui.admin.eyebrow}</p>
+      <AdminStoreBanner locale={locale} />
       <h1 className="admin-page__title">{ui.admin.mailingsTitle}</h1>
       <p className="admin-page__lead">{ui.admin.mailingsLead}</p>
       <MailingsClient

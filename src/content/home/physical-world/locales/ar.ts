@@ -190,6 +190,7 @@ export const physicalWorldHomeAr: PhysicalWorldHomeContent = {
     wordmarkLabel: "SAVEN",
     corners: {
       navLabel: "وجهات الشريط الختامي",
+      moreLabel: 'المزيد من الروابط',
       left: [
         { label: "الغاية", href: "/purpose/" },
         { label: "المختبرات", href: "/labs/" },

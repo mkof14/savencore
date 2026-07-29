@@ -79,6 +79,7 @@ export const uiEn = {
     "footer-company-contact": "Contact",
     "footer-company-roadmap": "Roadmap",
     "footer-resources-faq": "FAQ",
+    "footer-resources-search": "Search",
     "footer-resources-security-issue": "Security Issue",
     "footer-labs-overview": "Overview",
     "footer-labs-saven-robotics-lab": "SAVEN Robotics Lab",
@@ -250,6 +251,8 @@ export const uiEn = {
       "Local store: storage/admin-media/. On Vercel, set BLOB_READ_WRITE_TOKEN (Vercel Blob) for durable cloud storage — without it, the filesystem cannot persist new library entries.",
     mediaVercelLimit:
       "This host cannot persist media library changes without BLOB_READ_WRITE_TOKEN (typical on Vercel). Configure Vercel Blob for durable uploads, add files and YouTube/Vimeo links in local development, or prefer a URL embed for large videos (Vercel request body ≈ 4.5 MB).",
+    localStoreOnly:
+      "Local-only / not durable on this host: invitations, roles, permissions, mailings, and notifications need BLOB_READ_WRITE_TOKEN (Vercel Blob) to persist on Vercel. Without it, changes may fail or disappear after redeploy. Local development still writes to storage/admin/.",
     mediaAddHeading: "Upload",
     mediaAddLead:
       "Classic library tools: upload a file, add a video URL, or save a link. Then manage rows in the table below.",
@@ -398,10 +401,23 @@ export const uiEn = {
     lastUpdated: "Last updated",
     related: "Legal pages",
     draftNote:
-      "Site policies for information practices and terms of use. Questions: info@savencore.com.",
+      "Site policies and terms of use for this website — not a complete multi-jurisdiction regulatory compliance pack. Questions: info@savencore.com.",
     indexTitle: "Legal",
     indexLead:
-      "Privacy, terms, cookies, accessibility, security, and related notices for the public website. Cookie Preferences explains that no live consent CMP is active — use browser settings or contact us.",
+      "Privacy, terms, cookies, accessibility, security, and related notices for the public website. These are website policies — not a counsel-certified pack for every jurisdiction. Cookie Preferences explains that no live consent CMP is active — use browser settings or contact us.",
+  },
+
+  search: {
+    title: "Search",
+    lead: "Find published pages by title. This is a lightweight site map search — not a full-text CMS.",
+    placeholder: "Search page titles…",
+    submit: "Search",
+    noQuery: "Type a few letters to filter published page titles.",
+    empty: "No published pages match that title. Try another word, or browse the footer map.",
+    results: "{count} matching pages",
+    honestNote:
+      "Search covers published page titles and navigation labels only — not document bodies or private Admin content.",
+    navLabel: "Search",
   },
 
   medicalDisclaimer: {

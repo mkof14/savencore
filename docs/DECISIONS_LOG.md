@@ -2449,6 +2449,19 @@
 - **Out of scope:** LinkedIn; CSP nonce migration; new leaves; Operational/medical/legal invention; rewriting D-0240–D-0242.
 - **Implications:** Contact spam bursts soft-degrade without confusing the honest mailto path; BMC boundaries and mobile reading improve without IA expansion. Residual: per-instance memory limit (not edge WAF); CSP `'unsafe-inline'`/`'unsafe-eval'` remains; LinkedIn owner-pending; native translation QA still advised.
 
+### D-0244 — Theme bootstrap via next/script (React 19 / Next 16.2)
+
+- **Date:** 2026-07-29
+- **Status:** Active
+- **Summary:** Fix Next.js 16.2 / React 19 overlay “Encountered a script tag while rendering React component” caused by an inline `<script dangerouslySetInnerHTML>` theme bootstrap in `app/[locale]/layout.tsx`.
+- **Decision:**
+  1. Remove the raw client-tree `<script>` from the locale layout.
+  2. Load the same `savencore-theme` localStorage → `data-theme` IIFE from `public/theme-bootstrap.js` via `next/script` with `strategy="beforeInteractive"` in root `app/layout.tsx` (required placement for beforeInteractive in App Router) so theme still applies before paint (no FOUC).
+  3. Leave Organization JSON-LD as `type="application/ld+json"` (not executable JS); theme toggle (`ThemeSwitch`) unchanged.
+- **In scope:** `app/layout.tsx`, `app/[locale]/layout.tsx`, `public/theme-bootstrap.js`, D-0244 + AGENTS pointer; local hard-refresh proof + commit/push/Vercel prod.
+- **Out of scope:** Theme API redesign; next-themes package; CSP nonce migration; inventing design tokens.
+- **Implications:** Dev overlay clears; light/dark restore from localStorage remains; beforeInteractive remains root-layout-bound per Next.
+
 ## Pending Owner Decisions
 
 These are not decisions yet; they are tracked for future resolution:

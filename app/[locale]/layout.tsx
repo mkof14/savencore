@@ -86,11 +86,7 @@ export default async function LocaleLayout({
           href="/icons/apple-touch-icon.png?v=211"
         />
         <meta name="apple-mobile-web-app-title" content="SAVEN Core" />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem("savencore-theme");if(t==="dark"||t==="light"){document.documentElement.setAttribute("data-theme",t);}}catch(e){}})();`,
-          }}
-        />
+        {/* Theme FOUC bootstrap: next/script beforeInteractive in app/layout.tsx (D-0244). */}
         <OrganizationJsonLd />
       </head>
       <body>

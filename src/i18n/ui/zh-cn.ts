@@ -45,10 +45,13 @@ export const uiZhCn: UiMessages = {
   hub: { related: "继续", explore: "探索", areas: "领域", what: "一句话", why: "为何有益", next: "接下来", deeper: "继续阅读", scenes: "场景" },
   pwa: {
     installApp: "安装应用",
+    installed: "已安装",
+    howToInstall: "如何安装",
+    closeHelp: "关闭",
     iosTip:
       "在 iPhone 或 iPad 上：点按“分享”，然后点按“添加到主屏幕”以安装 SAVEN Core。",
     browserTip:
-      "使用浏览器的“安装”或“添加到主屏幕”选项来安装 SAVEN Core。",
+      "在浏览器菜单中选择“安装应用”或“添加到主屏幕”以安装 SAVEN Core。",
   },
 
   contact: {

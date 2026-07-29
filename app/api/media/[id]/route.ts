@@ -15,9 +15,10 @@ type RouteContext = {
 };
 
 /**
- * Public media file access for visibility=public library items (D-0183 / D-0201).
+ * Public media file access for visibility=public library items (D-0183 / D-0201 / D-0224).
  * Serves inline for preview. Use /api/media/download/[id]/ for attachment downloads.
- * Hosted Blob uploads are streamed same-origin (not redirected to CDN) so CSP + download work.
+ * Hosted Blob uploads and seeds are streamed same-origin (not relative redirects)
+ * so Next.js redirect rules + CSP + download work.
  */
 export async function GET(_request: Request, context: RouteContext) {
   const { id } = await context.params;
@@ -28,11 +29,6 @@ export async function GET(_request: Request, context: RouteContext) {
 
   if (isExternalMediaLink(item) && item.externalUrl) {
     return NextResponse.redirect(item.externalUrl, 302);
-  }
-
-  // Seeds: same-origin publicPath is fine for inline preview.
-  if (item.source === "seed" && item.publicPath) {
-    return NextResponse.redirect(item.publicPath, 302);
   }
 
   const payload = await readMediaFile(id);

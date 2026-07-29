@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-29 (D-0223 — restore footer Install app always visible, same link type)
+**Last updated:** 2026-07-29 (D-0224 — Install app UX + media download restore)
 
 ## Rules
 
@@ -239,6 +239,7 @@
 | D-0221 | 2026-07-29 | Restore dense closing corner nav; richer clarity cards; smaller footer Install app | Partially superseded (Install size → D-0222) |
 | D-0222 | 2026-07-29 | Force footer Install app clearly smaller than column links | Superseded by D-0223 |
 | D-0223 | 2026-07-29 | Restore always-visible footer Install app; match column link type | Active |
+| D-0224 | 2026-07-29 | Fix Install app help UX (no bare Close); restore media downloads | Active |
 
 ---
 
@@ -2125,6 +2126,18 @@
 - **In scope:** `InstallAppControl`, `SiteFooter`, `site-shell.css`, `src/i18n/ui/*` (`browserTip`), D-0223 + AGENTS / SITE_ASSIGNMENT / IA pointers; local `:3000` HTML smoke; commit/push/Vercel prod; Russian owner brief.
 - **Out of scope:** Header Install; inventing PWA store listings; nav/IA beyond Resources Install visibility.
 - **Implications:** Supersedes D-0222 sizing; restores D-0215 same-size rule for Install; Install text is present in footer HTML without waiting for installability events.
+
+### D-0224 — Fix Install app help UX; restore media downloads
+
+- **Date:** 2026-07-29
+- **Status:** Active
+- **Summary:** Owner bug: clicking **Install app** in the footer showed a bare underlined **Close** (no tip), so Install appeared broken. Root cause: `<details>` put the tip in an absolutely positioned popover while **Close** stayed a sibling in normal flow (looked like a Resources link). Also re-verify / harden public + admin Media downloads (D-0201) for desktop and iOS.
+- **Decision:**
+  1. **Install UX** — Always visible in Resources at column link type (D-0223). If `beforeinstallprompt` is available, click runs the native prompt. If already installed (standalone), show **Installed**. Otherwise click opens a compact **How to install** panel (iOS Share → Add to Home Screen / browser Install tip) with **Close** inside the panel only — no bare Close footer link. Escape / outside click dismisses; Install stays visible after close.
+  2. **Downloads** — Keep View vs Download split. Hosted files use `/api/media/download/[id]/` and `/api/admin/media/download/[id]/` with `Content-Disposition: attachment`. Public/admin **View** routes stream seeds + uploads same-origin inline (fix relative `NextResponse.redirect(publicPath)` 500). Client `triggerMediaDownload` prefers fetch→blob→object URL (desktop + iOS), with Apple `window.open` / `location.assign` and same-origin anchor fallbacks.
+- **In scope:** `InstallAppControl`, `site-shell.css`, `src/i18n/ui/*` (`installed` / `howToInstall` / `closeHelp`), `media-urls.ts`, public + admin media View routes, D-0224 + AGENTS / SITE_ASSIGNMENT / IA pointers; local `:3000` smoke; commit/push/Vercel prod; Russian owner brief.
+- **Out of scope:** Header Install; neon; inventing store listings; CMS; changing View/Download product rules beyond restore.
+- **Implications:** Clarifies non-Chrome Install path; Close never appears as a Resources column link; download path remains same-origin attachment-first.
 
 ## Pending Owner Decisions
 

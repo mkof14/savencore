@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 
 import type { Locale } from "@/config/locales";
 import { getUi } from "@/i18n/ui";
@@ -34,20 +34,23 @@ function isStandalone(): boolean {
 }
 
 /**
- * Install app control — always visible in the footer Resources column (D-0223).
- * Uses beforeinstallprompt when available; otherwise a short how-to tip.
- * Hidden only when already installed (standalone) or the tip was dismissed.
+ * Install app control — always visible in the footer Resources column (D-0223 / D-0224).
+ * - beforeinstallprompt → native install prompt
+ * - already installed → “Installed”
+ * - otherwise → compact “How to install” panel (tip + Close inside the panel)
  */
 export function InstallAppControl({
   locale,
   placement = "footer",
 }: InstallAppControlProps) {
   const ui = getUi(locale);
+  const helpId = useId();
+  const rootRef = useRef<HTMLDivElement>(null);
   const [deferred, setDeferred] = useState<BeforeInstallPromptEvent | null>(
     null,
   );
   const [isIos, setIsIos] = useState(false);
-  const [dismissed, setDismissed] = useState(false);
+  const [helpOpen, setHelpOpen] = useState(false);
   const [standalone, setStandalone] = useState(false);
 
   useEffect(() => {
@@ -59,6 +62,7 @@ export function InstallAppControl({
     const onBip = (event: Event) => {
       event.preventDefault();
       setDeferred(event as BeforeInstallPromptEvent);
+      setHelpOpen(false);
     };
 
     window.addEventListener("beforeinstallprompt", onBip);
@@ -67,12 +71,39 @@ export function InstallAppControl({
     return () => window.removeEventListener("beforeinstallprompt", onBip);
   }, []);
 
-  if (dismissed || standalone) {
-    return null;
-  }
+  useEffect(() => {
+    if (!helpOpen) return;
+
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setHelpOpen(false);
+    };
+    const onPointer = (event: MouseEvent) => {
+      if (
+        rootRef.current &&
+        !rootRef.current.contains(event.target as Node)
+      ) {
+        setHelpOpen(false);
+      }
+    };
+
+    document.addEventListener("keydown", onKey);
+    document.addEventListener("mousedown", onPointer);
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.removeEventListener("mousedown", onPointer);
+    };
+  }, [helpOpen]);
 
   const className =
     "site-footer__link site-footer__install-control install-app";
+
+  if (standalone) {
+    return (
+      <span className={`${className} install-app--installed`}>
+        {ui.pwa.installed}
+      </span>
+    );
+  }
 
   if (deferred) {
     return (
@@ -95,18 +126,39 @@ export function InstallAppControl({
   }
 
   return (
-    <details className={`install-app install-app--tip install-app--${placement}`}>
-      <summary className={className}>{ui.pwa.installApp}</summary>
-      <p className="install-app__tip">
-        {isIos ? ui.pwa.iosTip : ui.pwa.browserTip}
-      </p>
+    <div
+      ref={rootRef}
+      className={`install-app install-app--help install-app--${placement}`}
+    >
       <button
         type="button"
-        className="install-app__dismiss"
-        onClick={() => setDismissed(true)}
+        className={className}
+        aria-expanded={helpOpen}
+        aria-controls={helpOpen ? helpId : undefined}
+        onClick={() => setHelpOpen((open) => !open)}
       >
-        {ui.close}
+        {ui.pwa.installApp}
       </button>
-    </details>
+      {helpOpen ? (
+        <div
+          id={helpId}
+          className="install-app__panel"
+          role="dialog"
+          aria-label={ui.pwa.howToInstall}
+        >
+          <p className="install-app__panel-title">{ui.pwa.howToInstall}</p>
+          <p className="install-app__tip-text">
+            {isIos ? ui.pwa.iosTip : ui.pwa.browserTip}
+          </p>
+          <button
+            type="button"
+            className="install-app__dismiss"
+            onClick={() => setHelpOpen(false)}
+          >
+            {ui.pwa.closeHelp}
+          </button>
+        </div>
+      ) : null}
+    </div>
   );
 }

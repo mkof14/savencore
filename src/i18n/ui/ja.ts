@@ -48,10 +48,13 @@ export const uiJa: UiMessages = {
   hub: { related: "続ける", explore: "見る", areas: "領域", what: "ひとこと", why: "なぜ役立つか", next: "これから", deeper: "もっと読む", scenes: "場面" },
   pwa: {
     installApp: "アプリをインストール",
+    installed: "インストール済み",
+    howToInstall: "インストール方法",
+    closeHelp: "閉じる",
     iosTip:
       "iPhoneまたはiPadでは、「共有」→「ホーム画面に追加」でSAVEN Coreをインストールできます。",
     browserTip:
-      "ブラウザの「インストール」または「ホーム画面に追加」から SAVEN Core をインストールできます。",
+      "ブラウザのメニューから「インストール」または「ホーム画面に追加」で SAVEN Core をインストールできます。",
   },
 
   contact: {

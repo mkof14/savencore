@@ -18,8 +18,9 @@ type RouteContext = {
 };
 
 /**
- * Admin inline preview for hosted files (D-0183 / D-0201).
- * External links redirect; Blob uploads stream same-origin for CSP-safe preview.
+ * Admin inline preview for hosted files (D-0183 / D-0201 / D-0224).
+ * External links redirect (absolute URL); seeds + Blob uploads stream same-origin
+ * so relative publicPath redirects never 500 under Next.js URL rules.
  */
 export async function GET(_request: Request, context: RouteContext) {
   const gate = await requireAdminRole("viewer");
@@ -38,10 +39,6 @@ export async function GET(_request: Request, context: RouteContext) {
 
   if (isExternalMediaLink(item) && item.externalUrl) {
     return NextResponse.redirect(item.externalUrl, 302);
-  }
-
-  if (item.source === "seed" && item.publicPath) {
-    return NextResponse.redirect(item.publicPath, 302);
   }
 
   const payload = await readMediaFile(id);

@@ -402,10 +402,13 @@ export const uiHe: UiMessages = {
 
   pwa: {
     installApp: "התקנת האפליקציה",
+    installed: "מותקן",
+    howToInstall: "איך להתקין",
+    closeHelp: "סגור",
     iosTip:
       "ב-iPhone או iPad: הקישו על שיתוף ואז על הוספה למסך הבית כדי להתקין את SAVEN Core.",
     browserTip:
-      "השתמשו באפשרות התקנה או הוספה למסך הבית בדפדפן כדי להתקין את SAVEN Core.",
+      "בתפריט הדפדפן בחרו התקנת אפליקציה או הוספה למסך הבית כדי להתקין את SAVEN Core.",
   },
 
   contact: {

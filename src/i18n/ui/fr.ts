@@ -49,10 +49,13 @@ export const uiFr: UiMessages = {
   hub: { related: "Continuer", explore: "Explorer", areas: "Domaines", what: "En bref", why: "Pourquoi ça aide", next: "La suite", deeper: "Aller plus loin", scenes: "Scènes" },
   pwa: {
     installApp: "Installer l’app",
+    installed: "Installée",
+    howToInstall: "Comment installer",
+    closeHelp: "Fermer",
     iosTip:
       "Sur iPhone ou iPad : appuyez sur Partager, puis sur Sur l’écran d’accueil pour installer SAVEN Core.",
     browserTip:
-      "Utilisez l’option Installer ou Ajouter à l’écran d’accueil de votre navigateur pour installer SAVEN Core.",
+      "Dans le menu du navigateur, choisissez Installer l’app ou Sur l’écran d’accueil pour installer SAVEN Core.",
   },
 
   contact: {

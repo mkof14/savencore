@@ -548,10 +548,13 @@ export const uiEn = {
 
   pwa: {
     installApp: "Install app",
+    installed: "Installed",
+    howToInstall: "How to install",
+    closeHelp: "Close",
     iosTip:
       "On iPhone or iPad: tap Share, then Add to Home Screen to install SAVEN Core.",
     browserTip:
-      "Use your browser’s Install or Add to Home Screen option to install SAVEN Core.",
+      "Use your browser’s menu: Install app, or Add to Home Screen, to install SAVEN Core.",
   },
 
   contact: {

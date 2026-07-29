@@ -6,7 +6,7 @@ import {
 } from "@/lib/admin/media-types";
 
 /**
- * Same-origin view / download URLs for hosted media (D-0201).
+ * Same-origin view / download URLs for hosted media (D-0201 / D-0224).
  * External links stay absolute destinations; never force-download them.
  */
 
@@ -59,14 +59,21 @@ function isAppleTouchBrowser(): boolean {
   return navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1;
 }
 
-/**
- * Trigger a same-origin attachment download (mobile + desktop).
- * Relies on Content-Disposition: attachment (+ filename*=UTF-8) from the
- * download API — do not depend on the HTML download attribute (ignored
- * cross-origin / iOS). iOS: window.open to the attachment URL, with
- * location.assign fallback when the popup is blocked.
- */
-export function triggerMediaDownload(downloadPath: string): void {
+function filenameFromContentDisposition(header: string | null): string | null {
+  if (!header) return null;
+  const utf8 = /filename\*=UTF-8''([^;]+)/i.exec(header);
+  if (utf8?.[1]) {
+    try {
+      return decodeURIComponent(utf8[1].trim().replace(/^"+|"+$/g, ""));
+    } catch {
+      /* fall through */
+    }
+  }
+  const plain = /filename="?([^";]+)"?/i.exec(header);
+  return plain?.[1]?.trim() || null;
+}
+
+function openAttachmentFallback(downloadPath: string): void {
   if (isAppleTouchBrowser()) {
     const opened = window.open(downloadPath, "_blank", "noopener,noreferrer");
     if (!opened) {
@@ -78,8 +85,44 @@ export function triggerMediaDownload(downloadPath: string): void {
   const a = document.createElement("a");
   a.href = downloadPath;
   a.rel = "noopener";
-  a.target = "_blank";
+  a.setAttribute("download", "");
   document.body.appendChild(a);
   a.click();
   a.remove();
+}
+
+/**
+ * Trigger a same-origin attachment download (mobile + desktop) — D-0201 / D-0224.
+ * Prefer fetch → blob → object URL so desktop and iOS get a real save when the
+ * browser honors `download`. Fall back to Apple window.open / assign, or a
+ * same-origin anchor click (Content-Disposition: attachment from the API).
+ */
+export function triggerMediaDownload(downloadPath: string): void {
+  void (async () => {
+    try {
+      const response = await fetch(downloadPath, {
+        credentials: "same-origin",
+        cache: "no-store",
+      });
+      if (!response.ok) {
+        throw new Error(`download failed: ${response.status}`);
+      }
+      const blob = await response.blob();
+      const name =
+        filenameFromContentDisposition(
+          response.headers.get("Content-Disposition"),
+        ) || "download";
+      const objectUrl = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = objectUrl;
+      a.download = name;
+      a.rel = "noopener";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      window.setTimeout(() => URL.revokeObjectURL(objectUrl), 2_000);
+    } catch {
+      openAttachmentFallback(downloadPath);
+    }
+  })();
 }

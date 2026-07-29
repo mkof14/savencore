@@ -404,10 +404,13 @@ export const uiAr: UiMessages = {
 
   pwa: {
     installApp: "تثبيت التطبيق",
+    installed: "مثبّت",
+    howToInstall: "طريقة التثبيت",
+    closeHelp: "إغلاق",
     iosTip:
       "على iPhone أو iPad: اضغط مشاركة، ثم إضافة إلى الشاشة الرئيسية لتثبيت SAVEN Core.",
     browserTip:
-      "استخدم خيار التثبيت أو إضافة إلى الشاشة الرئيسية في متصفحك لتثبيت SAVEN Core.",
+      "من قائمة المتصفح اختر تثبيت التطبيق أو إضافة إلى الشاشة الرئيسية لتثبيت SAVEN Core.",
   },
 
   contact: {

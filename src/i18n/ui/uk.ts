@@ -84,7 +84,7 @@ export const uiUk: UiMessages = {
     "footer-labs-saven-robotics-lab": "SAVEN Robotics Lab",
     "footer-labs-internal-future-lab": "Future Lab",
     "footer-systems-saven-robotics-interface": "Роботичний інтерфейс",
-    "systems-saven-robotics-interface": "SAVEN Robotics Interface",
+    "systems-saven-robotics-interface": "Роботичний інтерфейс SAVEN",
    "sign-in": "Увійти / Зареєструватися", "footer-legal-privacy-policy": "Політика конфіденційності", "footer-legal-terms-of-use": "Умови використання", "footer-legal-cookie-policy": "Політика файлів cookie", "footer-legal-cookie-preferences": "Налаштування файлів cookie", "footer-legal-accessibility-statement": "Заява про доступність", "footer-legal-security": "Безпека", "footer-legal-responsible-ai": "Відповідальний ШІ", "footer-legal-medical-disclaimer": "Медичне застереження", "footer-legal-research-disclaimer": "Дослідницьке застереження", "footer-legal-intellectual-property": "Інтелектуальна власність", "footer-legal-trademark-notice": "Повідомлення про торговельну марку", "footer-legal-copyright": "Повідомлення про авторське право", "footer-legal-data-rights": "Права на дані", "footer-legal-regional-privacy-rights": "Регіональні права на конфіденційність", "footer-legal-do-not-sell-or-share": "Не продавати й не передавати", "footer-legal-legal-notices": "Юридичні повідомлення", "footer-legal-more": "Ще"},
   footer: {
     technology: "Технології",

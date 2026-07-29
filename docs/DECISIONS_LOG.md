@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-29 (D-0240 — Security / SEO / Marketing hygiene)
+**Last updated:** 2026-07-29 (D-0242 — i18n audit — BioMath Core + public UI chrome)
 
 ## Rules
 
@@ -256,6 +256,8 @@
 | D-0238 | 2026-07-29 | BioMath Core diagram rhythm + Black Box sensitive-data storage intent | Active; refined by D-0239 |
 | D-0239 | 2026-07-29 | BioMath Core follow-ups — policy links, TOC, Trust paths, a11y | Active |
 | D-0240 | 2026-07-29 | Security / SEO / Marketing hygiene | Active |
+| D-0241 | 2026-07-29 | Performance / Downloads / critical-path speed | Active |
+| D-0242 | 2026-07-29 | i18n audit — BioMath Core + public UI chrome | Active |
 
 ---
 
@@ -2400,6 +2402,35 @@
 - **In scope:** `next.config.ts`, `proxy.ts`, `app/robots.ts`, `app/sitemap.ts`, admin layout metadata, BMC + site SEO helpers/constants, Contact API, D-0240 + brief AGENTS pointer; commit/push/Vercel prod.
 - **Out of scope:** New leaf pages; CMS/analytics/CMP; LinkedIn URL invention; Operational product claims; CSP nonce migration; rate-limiting Contact beyond current soft-degrade.
 - **Implications:** Extends D-0162 production readiness without changing public IA or inventing compliance theater. Residual: CSP still allows `'unsafe-inline'`/`'unsafe-eval'` for Next.js; Contact has no hard rate limit; LinkedIn still owner-pending.
+
+### D-0241 — Performance / Downloads / critical-path speed
+
+- **Date:** 2026-07-29
+- **Status:** Active
+- **Summary:** Owner-authorized measurable page-load and download hardening — compress display-sized BioMath / hero assets, tighten image `sizes` / LCP priority, locale-scoped font preload, static-asset cache headers, and awaitable media download UX — without inventing CMS, analytics, CMP, or new products.
+- **Decision:**
+  1. **Asset weight** — Re-encode BioMath Core diagram WebPs to ~2× display width (~960–1280) and recompress home hero-collage WebP/JPEG to ~900w; keep English on-image Engine art (`engine-phases-en-v2.webp`); no new photography or invented KPI imagery.
+  2. **Runtime image hygiene** — Accurate `width`/`height`/`sizes`/`quality`; LCP priority only on BMC hero (logo + ambient); below-fold diagrams lazy; `content-visibility` + contain on BMC sections/figures; Next `deviceSizes`/`imageSizes` aligned to ~40rem panels.
+  3. **Fonts** — Locale-scoped CSS variable classes so Arabic/Hebrew faces are not applied (and not eagerly preloaded) on Latin/Cyrillic pages; mono `preload: false`.
+  4. **Caching** — `Cache-Control` long-cache + SWR for `/domain/`, `/hub/`, `/home/`, `/brand/`, `/icons/`; public media inline view cache raised to 1 day + SWR; SW shell cache bump (`savencore-shell-v10`); downloads remain `private, no-store`.
+  5. **Downloads** — `triggerMediaDownload` returns success/failure; Media + Admin await and surface honest failure; seed download APIs remain Content-Disposition attachment. Install app footer help unchanged in behavior (D-0224).
+  6. **Critical paths** — Smoke home → BioMath Core, foundation, FAQ, trust/legal, search (title-only honesty preserved), media download.
+- **In scope:** diagram/hero public assets; BioMathCore page/visuals/CSS; fonts + locale layout; next.config image sizes + asset cache headers (retag from accidental D-0240 comment); media view cache + download client; SW version; D-0241 + AGENTS pointer; local smoke + prod deploy.
+- **Out of scope:** CMS/full-text search; analytics/CMP; new leaves; regenerating diagram *content* (English captions already shipped); care-carousel full re-encode pass; streaming Range downloads for multi-MB Blob files.
+- **Implications:** Faster first paint on home and BMC without changing IA or claims. Residual backlog: care JPG dual delivery still present; media `readMediaFile` still buffers whole object; CSP nonce hardening remains D-0240 residual.
+
+### D-0242 — i18n audit — BioMath Core + public UI chrome
+
+- **Date:** 2026-07-29
+- **Status:** Active
+- **Summary:** Owner-authorized translation/i18n hygiene after D-0237–D-0239 BioMath Core keys — fix missing Continue exploring path labels, Trust · Privacy / Trust · Security link labels, and public footer/nav leftovers in es/de/fr/ja/zh-cn (+ robotics interface / Future Lab labels in ar/he/ru/uk). English remains canonical.
+- **Decision:**
+  1. **BioMath dictionaries** — Upsert D-0239 Continue exploring labels (`Human Data`, `Human Data Model`, `Purpose`, `Technology`, `FAQ`), translate `Trust · Privacy` / `Trust · Security` / Black Box where appropriate, and localize path notes + support sentence so RTL/full locales no longer fall back to English for those display strings.
+  2. **UI chrome** — Fill public `navEntries` gaps (Research Areas/Notes, Roadmap, Investor Contact, Security Issue, SAVEN Robotics Interface) and `footer.labs` / `rightsReserved` in es/de/fr/ja/zh-cn; align Future Lab / robotics interface labels in ar/he/ru/uk. Legal/search/PWA/Media honesty strings already present across 10 locales (spot-checked).
+  3. **Remaining** — Admin deep-copy still largely English via `...uiEn` spread in several locales (acceptable for restricted Admin until owner authorizes Admin i18n pass). FAQ acronym may remain `FAQ` in ru/uk/de/fr/ja by convention. Vendor/native-speaker QA still recommended for BioMath body prose.
+- **In scope:** `src/content/pages/dictionaries/*/biomath-core.ts`; `src/i18n/ui/{es,de,fr,ja,zh-cn,ar,he,ru,uk}.ts`; D-0242 entry; type-check; commit/push/Vercel prod.
+- **Out of scope:** New page-body localization campaigns; inventing legal/medical claims; Admin full translation; changing English source copy; CMS/analytics/CMP.
+- **Implications:** Published BioMath Continue exploring / Trust soft-links and public footer labels no longer silently English in localized chrome after D-0239. Residual: Admin English leftovers; home ja/zh-cn clarity structure already localized for biomath bridge; native QA still advised.
 
 ## Pending Owner Decisions
 

@@ -1,16 +1,28 @@
 import { notFound } from "next/navigation";
 
-import { DomainVisualPage } from "@/components/domain/DomainVisualPage";
+import { InvestorsPage } from "@/components/investors/InvestorsPage";
 import { isLocale } from "@/config/locales";
-import { getInvestorsHubContent } from "@/content/hub/build-hub-content";
-import { createHubGenerateMetadata } from "@/lib/seo/metadata";
+import { getInvestorsPremiumPageContent } from "@/content/investors/get-investors-page";
+import { INVESTORS_PAGE_HREF } from "@/content/investors/page-en";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 
 type Props = { params: Promise<{ locale: string }> };
 
-export const generateMetadata = createHubGenerateMetadata(
-  "/investors/",
-  getInvestorsHubContent,
-);
+export async function generateMetadata({ params }: Props) {
+  const { locale: localeParam } = await params;
+  if (!isLocale(localeParam)) {
+    return {};
+  }
+  const content = getInvestorsPremiumPageContent(localeParam);
+  return buildPageMetadata({
+    locale: localeParam,
+    path: INVESTORS_PAGE_HREF,
+    title: content.metaTitle,
+    description: content.metaDescription,
+    image: "/domain/company/investors.webp",
+    imageAlt: content.hero.title,
+  });
+}
 
 export default async function Page({ params }: Props) {
   const { locale: localeParam } = await params;
@@ -18,9 +30,9 @@ export default async function Page({ params }: Props) {
     notFound();
   }
   return (
-    <DomainVisualPage
+    <InvestorsPage
       locale={localeParam}
-      content={getInvestorsHubContent(localeParam)}
+      content={getInvestorsPremiumPageContent(localeParam)}
     />
   );
 }

@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-29 (D-0245 — Search balance + home YouTube feature band)
+**Last updated:** 2026-07-29 (D-0246 — Investors professional page)
 
 ## Rules
 
@@ -261,6 +261,7 @@
 | D-0243 | 2026-07-29 | Contact rate limit + BMC mobile / what-is-not / home sync | Active |
 | D-0244 | 2026-07-29 | Theme bootstrap via next/script (React 19 / Next 16.2) | Active |
 | D-0245 | 2026-07-29 | Search page balance + home YouTube feature band | Active |
+| D-0246 | 2026-07-29 | Investors professional page (BMC framing, SAVEN-owned) | Active |
 
 ---
 
@@ -2476,6 +2477,21 @@
 - **In scope:** site-shell + search CSS/page; `HomeYoutubeFeature` + `PhysicalWorldHome`; UI i18n; D-0245 + AGENTS pointer; local proof + commit/push/Vercel prod.
 - **Out of scope:** Full-text search/CMS; inventing Operational claims; additional social embeds; CSP nonce migration; LinkedIn.
 - **Implications:** Search no longer visually left-hugged; home gains an approved media closer matching the existing YouTube social default. Residual: Media/admin embeds may still use `youtube.com/embed` (allowed); optional later switch to nocookie there.
+
+### D-0246 — Investors professional page (BioMath Core framing, SAVEN-owned)
+
+- **Date:** 2026-07-29
+- **Status:** Active
+- **Summary:** Replace the Layer-1 Investors hub shell on `/investors/` with a dedicated, themeable Investors brochure: memorable thesis hero, foundation sequence, honest Architecture / In Development building map, high-level capital-use categories (no amounts), engagement audiences, why-now category thesis, risk disclaimer, and CTAs to Investor Contact / Contact — inspired by BioMath Core investors structure but rewritten for SAVEN Core ownership and D-0062 claim rules.
+- **Decision:**
+  1. **Route** — Keep approved IA path `/investors/` (and existing `/investors/contact/`). Header/footer Investors links unchanged. No investor portal / data room / auth expansion.
+  2. **Presentation** — Dedicated `InvestorsPage` + `investors-page.css` using site design tokens (light/dark, straight corners, field/accent grammar). Not a BioMath Core neon clone; capital / trust / clarity tone.
+  3. **Copy rules** — English canonical. Do **not** invent metrics, rounds, valuations, revenue, CAC, customers, partners, patents, Operational products, or promised returns. Do **not** use the word **Platform** or buzz vocabulary (ecosystem, synergy, leverage, disrupt, cutting-edge, seamlessly, next-generation, revolutionary, holistic, etc.) in Investors page body/scenes. Prefer site language: intelligent systems for the physical world; BioMath Life → BioMath Core → SAVEN → SAVEN Core; Research · Architecture · In Development.
+  4. **i18n** — UI chrome already covers Investors nav labels; page body localized via `src/content/investors/dictionaries/` for all nine non-English content locales (es/de/fr/ja/zh-cn/ar/he/ru/uk) with English fallback.
+  5. **Contact** — Public channel remains `info@savencore.com` / `/investors/contact/` / `/contact/`. © 2026 SAVEN Core (no “Inc.”).
+- **In scope:** Investors page component/CSS/content/dicts; `/investors/` route metadata; flagship Investors + scenes terminology scrub aligning with no-Platform rule; D-0246 + AGENTS pointer; local proof; commit/push/Vercel prod.
+- **Out of scope:** Investor portal; invented financial claims; BMC metrics as SAVEN facts; inventing Inc./entity; nav schema invention; neon decoration.
+- **Implications:** `/en/investors/` is the professional capital-posture brochure. Residual: Investor Contact leaf may still use DomainVisualPage shell; robotics Lab copy may still use “platforms” for physical robot form factors (outside Investors brochure).
 
 ## Pending Owner Decisions
 

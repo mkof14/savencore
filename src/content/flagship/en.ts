@@ -353,13 +353,13 @@ export const investorsPageEn: FlagshipBrochureContent = {
     "Flagship workstreams: Robotics Lab, Robotics Interface, Future Lab",
     "Engineering depth available for those who want it",
     "Trust and human oversight as structural requirements",
-    "Human-care purpose that anchors platform ambition",
+    "Human-care purpose that anchors systems ambition",
   ],
   highlights: [
     {
       id: "potential",
       icon: "potential",
-      title: "Platform potential",
+      title: "Systems potential",
       text: "A coherent stack spanning human understanding, AI, robotics, and physical assistance across care and life domains.",
     },
     {
@@ -372,7 +372,7 @@ export const investorsPageEn: FlagshipBrochureContent = {
       id: "long-term",
       icon: "horizon",
       title: "Long-term value",
-      text: "Patient capital for durable platforms where lasting human needs meet disciplined engineering — not return promises.",
+      text: "Patient capital for durable systems where lasting human needs meet disciplined engineering — not return promises.",
     },
     {
       id: "responsible",
@@ -386,7 +386,7 @@ export const investorsPageEn: FlagshipBrochureContent = {
       id: "posture",
       title: "Investment posture",
       paragraphs: [
-        "SAVEN Core seeks partners who understand long-horizon platform building: patient capital, clear governance, and honesty about development status.",
+        "SAVEN Core seeks partners who understand long-horizon systems building: patient capital, clear governance, and honesty about development status.",
         "We do not publish funding rounds, valuations, revenue figures, or return forecasts on this site. Those topics belong in appropriate private materials when authorized — never as public performance claims.",
       ],
     },
@@ -400,7 +400,7 @@ export const investorsPageEn: FlagshipBrochureContent = {
     },
     {
       id: "potential",
-      title: "Platform potential",
+      title: "Systems potential",
       paragraphs: [
         "The opportunity is structural: a coherent stack spanning human understanding, AI, robotics, and physical assistance across multiple care and life domains.",
         "Multi-domain optionality matters because the same disciplined foundations — perception, control, interfaces, trust — can support hospitals, homes, and everyday settings without inventing separate product myths for each.",
@@ -419,14 +419,14 @@ export const investorsPageEn: FlagshipBrochureContent = {
       title: "Human benefit",
       paragraphs: [
         "The enduring purpose is Turning Intelligence Into Human Care: systems that help people where life is demanding — care teams, families, and individuals across ages and stages of life.",
-        "Impact potential is the reason the engineering exists. Public pages describe that intent carefully; they do not claim clinical outcomes, partner programs, or operational service.",
+        "Human benefit is the reason the engineering exists. Public pages describe that intent carefully; they do not claim clinical outcomes, partner programs, or operational service.",
       ],
     },
     {
       id: "value-creation",
       title: "Long-term value creation",
       paragraphs: [
-        "In categories where durable platforms serve lasting human needs, responsible growth and platform leverage can create meaningful long-term value for mission-aligned capital.",
+        "In categories where durable systems serve lasting human needs, responsible growth and systems depth can create meaningful long-term value for mission-aligned capital.",
         "That is an aspirational thesis about the category and craft — not a promise of returns, IRR, ROI, or any performance guarantee. Good outcomes for people and disciplined engineering come first; financial results are never invented for marketing.",
       ],
     },
@@ -438,7 +438,7 @@ export const investorsPageEn: FlagshipBrochureContent = {
         "Flagship workstreams: Robotics Lab, Robotics Interface, Future Lab",
         "Engineering depth available for those who want it",
         "Trust and human oversight as structural requirements",
-        "Human-care purpose that anchors platform ambition",
+        "Human-care purpose that anchors systems ambition",
       ],
     },
   ],
@@ -459,7 +459,7 @@ export const investorsContactPageEn: FlagshipBrochureContent = {
   lede: "Investor conversations start the same way every conversation with SAVEN Core starts — through Contact. There is no separate investor portal, data room, or scheduling system on this site.",
   body: [
     "Write to info@savencore.com with “Investor inquiry” in the subject line, or use the Contact form and note that context in your message. Investor conversations are read from that same public address.",
-    "For structural context before writing — posture, platform potential, and what we share publicly — see the Investors overview.",
+    "For structural context before writing — posture, systems potential, and what we share publicly — see the Investors overview.",
   ],
   listHeading: "Continue",
   items: [

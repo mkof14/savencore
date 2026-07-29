@@ -59,6 +59,88 @@ export const physicalWorldHomeDe: PhysicalWorldHomeContent = {
     railLabel: "Fürsorge-Szenen",
     deepenLabel: "SAVEN Robotics Lab",
     deepenHref: "/labs/saven-robotics-lab/",
+    whyLabel: "Warum das SAVEN ist",
+    whyLine:
+      "Systeme, die Menschen an realen Orten unterstützen sollen — unter menschlicher Kontrolle, nicht als Ersatz für Fürsorge.",
+  },
+  clarity: {
+    definition: {
+      heading: "Was ist SAVEN",
+      body: "SAVEN Core baut Systeme, die menschliches Verständnis mit Robotern und Geräten in der physischen Welt verbinden — unter menschlicher Kontrolle. KI ist ein Werkzeug, das wir dafür nutzen und weiterentwickeln; KI zu erschaffen ist nicht der Zweck.",
+    },
+    chain: {
+      heading: "Vom Verständnis zur Unterstützung",
+      ariaLabel: "Drei Schritte vom menschlichen Verständnis zur physischen Unterstützung",
+      steps: [
+        {
+          label: "Menschliches Verständnis",
+          href: "/purpose/",
+          cta: "Zweck",
+        },
+        {
+          label: "SAVEN",
+          href: "/systems/saven-robotics-interface/",
+          cta: "Robotik-Schnittstelle",
+        },
+        {
+          label: "Physische Unterstützung",
+          href: "/applications/",
+          cta: "Anwendungen",
+        },
+      ],
+    },
+    exploreStrip: {
+      heading: "SAVEN erkunden",
+      support:
+        "Fünf Säulen der Architektur — dieselbe Karte setzt sich im Abschlussband unten fort.",
+    },
+    audience: {
+      heading: "Wo möchten Sie beginnen?",
+      support:
+        "Drei klare Wege — Fürsorge und Zweck, Technologie und Systeme oder langfristige Investitionshaltung.",
+      paths: [
+        {
+          id: "care",
+          label: "Fürsorge & Zweck",
+          description:
+            "Verstehen Sie, warum SAVEN existiert und wo Unterstützung Menschen helfen soll.",
+          links: [
+            { label: "Zweck", href: "/purpose/" },
+            { label: "Anwendungen", href: "/applications/" },
+          ],
+        },
+        {
+          id: "technology",
+          label: "Technologie & Systeme",
+          description:
+            "Sehen Sie Labs, Schnittstelle und Architektur, die Intelligenz mit physischem Handeln verbinden.",
+          links: [
+            { label: "Technologie", href: "/technology/" },
+            { label: "Labs", href: "/labs/" },
+            {
+              label: "Robotik-Schnittstelle",
+              href: "/systems/saven-robotics-interface/",
+            },
+            { label: "Systeme", href: "/systems/" },
+          ],
+        },
+        {
+          id: "investors",
+          label: "Investoren",
+          description:
+            "Langfristige, missionsausgerichtete Kapitalhaltung — ehrlicher Status, keine erfundenen Kennzahlen.",
+          links: [{ label: "Investoren", href: "/investors/" }],
+        },
+      ],
+    },
+    not: {
+      heading: "Was wir nicht sind",
+      points: [
+        "Wir existieren nicht, um KI zu erschaffen — KI ist ein Werkzeug, das wir für menschliche Unterstützung nutzen und weiterentwickeln.",
+        "Wir diagnostizieren über diese Website keine medizinischen Zustände.",
+        "Wir verschreiben und verkaufen keine Arzneimittel.",
+      ],
+    },
   },
   flagships: {
     columns: {

@@ -59,6 +59,88 @@ export const physicalWorldHomeHe: PhysicalWorldHomeContent = {
     railLabel: "סצנות טיפול",
     deepenLabel: "SAVEN Robotics Lab",
     deepenHref: "/labs/saven-robotics-lab/",
+    whyLabel: "למה זה SAVEN",
+    whyLine:
+      "מערכות שנבנו לסייע לאנשים במקומות אמיתיים — תחת שליטה אנושית, לא כתחליף לטיפול.",
+  },
+  clarity: {
+    definition: {
+      heading: "מה זה SAVEN",
+      body: "SAVEN Core בונה מערכות שמקשרות הבנה אנושית לרובוטים ומכשירים בעולם הפיזי — תחת שליטה אנושית. בינה מלאכותית היא כלי שאנו משתמשים בו ומקדמים למטרה זו; יצירת בינה מלאכותית אינה המטרה.",
+    },
+    chain: {
+      heading: "מהבנה לסיוע",
+      ariaLabel: "שלושה שלבים מהבנה אנושית לסיוע פיזי",
+      steps: [
+        {
+          label: "הבנה אנושית",
+          href: "/purpose/",
+          cta: "ייעוד",
+        },
+        {
+          label: "SAVEN",
+          href: "/systems/saven-robotics-interface/",
+          cta: "ממשק רובוטיקה",
+        },
+        {
+          label: "סיוע פיזי",
+          href: "/applications/",
+          cta: "יישומים",
+        },
+      ],
+    },
+    exploreStrip: {
+      heading: "חקרו את SAVEN",
+      support:
+        "חמישה עמודי הארכיטקטורה — אותה מפה ממשיכה ברצועת הסיום למטה.",
+    },
+    audience: {
+      heading: "מאיפה תרצו להתחיל?",
+      support:
+        "שלושה מסלולים ברורים — טיפול וייעוד, טכנולוגיה ומערכות, או גישת השקעה לטווח ארוך.",
+      paths: [
+        {
+          id: "care",
+          label: "טיפול וייעוד",
+          description:
+            "הבינו למה SAVEN קיים ואיפה הסיוע אמור לעזור לאנשים.",
+          links: [
+            { label: "ייעוד", href: "/purpose/" },
+            { label: "יישומים", href: "/applications/" },
+          ],
+        },
+        {
+          id: "technology",
+          label: "טכנולוגיה ומערכות",
+          description:
+            "ראו מעבדות, ממשק וארכיטקטורה שמקשרים אינטליגנציה לפעולה פיזית.",
+          links: [
+            { label: "טכנולוגיה", href: "/technology/" },
+            { label: "מעבדות", href: "/labs/" },
+            {
+              label: "ממשק רובוטיקה",
+              href: "/systems/saven-robotics-interface/",
+            },
+            { label: "מערכות", href: "/systems/" },
+          ],
+        },
+        {
+          id: "investors",
+          label: "משקיעים",
+          description:
+            "גישת הון לטווח ארוך מיושרת למשימה — סטטוס כנה, בלי מדדים מומצאים.",
+          links: [{ label: "משקיעים", href: "/investors/" }],
+        },
+      ],
+    },
+    not: {
+      heading: "מה אנחנו לא",
+      points: [
+        "אנחנו לא קיימים כדי ליצור בינה מלאכותית — היא כלי שאנו משתמשים בו ומקדמים לתמיכה אנושית.",
+        "איננו מאבחנים מצבים רפואיים דרך אתר זה.",
+        "איננו רושמים או מוכרים תרופות.",
+      ],
+    },
   },
   flagships: {
     columns: {

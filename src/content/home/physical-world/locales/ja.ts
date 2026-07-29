@@ -59,6 +59,88 @@ export const physicalWorldHomeJa: PhysicalWorldHomeContent = {
     railLabel: "ケアの場面",
     deepenLabel: "SAVEN Robotics Lab",
     deepenHref: "/labs/saven-robotics-lab/",
+    whyLabel: "これが SAVEN である理由",
+    whyLine:
+      "現実の場で人を支援するためのシステム — 人間の管理下で。ケアの代替ではありません。",
+  },
+  clarity: {
+    definition: {
+      heading: "SAVEN とは",
+      body: "SAVEN Core は、人間の理解を現実世界のロボットやデバイスにつなぐシステムを構築します — 人間の管理下で。AI はその目的のために使い、前進させる道具であり、AI を創ることが目的ではありません。",
+    },
+    chain: {
+      heading: "理解から支援へ",
+      ariaLabel: "人間の理解から物理的支援までの三段階",
+      steps: [
+        {
+          label: "人間の理解",
+          href: "/purpose/",
+          cta: "パーパス",
+        },
+        {
+          label: "SAVEN",
+          href: "/systems/saven-robotics-interface/",
+          cta: "ロボティクス・インターフェース",
+        },
+        {
+          label: "物理的支援",
+          href: "/applications/",
+          cta: "アプリケーション",
+        },
+      ],
+    },
+    exploreStrip: {
+      heading: "SAVEN を探る",
+      support:
+        "アーキテクチャの五本柱 — 同じ地図はページ下部のクロージング帯にも続きます。",
+    },
+    audience: {
+      heading: "どこから始めますか？",
+      support:
+        "三つの明確な道 — ケアとパーパス、技術とシステム、長期の投資姿勢。",
+      paths: [
+        {
+          id: "care",
+          label: "ケアとパーパス",
+          description:
+            "SAVEN が存在する理由と、支援が人を助ける場を理解する。",
+          links: [
+            { label: "パーパス", href: "/purpose/" },
+            { label: "アプリケーション", href: "/applications/" },
+          ],
+        },
+        {
+          id: "technology",
+          label: "技術とシステム",
+          description:
+            "知性を物理的行動につなぐラボ、インターフェース、アーキテクチャを見る。",
+          links: [
+            { label: "テクノロジー", href: "/technology/" },
+            { label: "ラボ", href: "/labs/" },
+            {
+              label: "ロボティクス・インターフェース",
+              href: "/systems/saven-robotics-interface/",
+            },
+            { label: "システム", href: "/systems/" },
+          ],
+        },
+        {
+          id: "investors",
+          label: "投資家",
+          description:
+            "長期・ミッション整合の資本姿勢 — 誠実なステータス、架空の指標なし。",
+          links: [{ label: "投資家", href: "/investors/" }],
+        },
+      ],
+    },
+    not: {
+      heading: "私たちではないもの",
+      points: [
+        "AI を創ることが存在理由ではありません — AI は人の支援のために使い、前進させる道具です。",
+        "このサイトを通じて医学的診断は行いません。",
+        "医薬品の処方や販売は行いません。",
+      ],
+    },
   },
   flagships: {
     columns: {

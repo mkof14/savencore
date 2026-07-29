@@ -59,6 +59,88 @@ export const physicalWorldHomeFr: PhysicalWorldHomeContent = {
     railLabel: "Scènes de soin",
     deepenLabel: "SAVEN Robotics Lab",
     deepenHref: "/labs/saven-robotics-lab/",
+    whyLabel: "Pourquoi c’est SAVEN",
+    whyLine:
+      "Des systèmes conçus pour assister les personnes dans des lieux réels — sous contrôle humain, pas comme substitut aux soins.",
+  },
+  clarity: {
+    definition: {
+      heading: "Qu’est-ce que SAVEN",
+      body: "SAVEN Core construit des systèmes qui relient la compréhension humaine aux robots et appareils dans le monde physique — sous contrôle humain. L’IA est un outil que nous utilisons et faisons progresser à cette fin ; créer de l’IA n’est pas le but.",
+    },
+    chain: {
+      heading: "De la compréhension à l’assistance",
+      ariaLabel: "Trois étapes de la compréhension humaine à l’assistance physique",
+      steps: [
+        {
+          label: "Compréhension humaine",
+          href: "/purpose/",
+          cta: "Mission",
+        },
+        {
+          label: "SAVEN",
+          href: "/systems/saven-robotics-interface/",
+          cta: "Interface robotique",
+        },
+        {
+          label: "Assistance physique",
+          href: "/applications/",
+          cta: "Applications",
+        },
+      ],
+    },
+    exploreStrip: {
+      heading: "Explorer SAVEN",
+      support:
+        "Cinq piliers de l’architecture — la même carte se poursuit dans la bande de clôture ci-dessous.",
+    },
+    audience: {
+      heading: "Par où voulez-vous commencer ?",
+      support:
+        "Trois chemins clairs — soins et mission, technologie et systèmes, ou posture d’investissement à long terme.",
+      paths: [
+        {
+          id: "care",
+          label: "Soins & mission",
+          description:
+            "Comprendre pourquoi SAVEN existe et où l’assistance est destinée à aider les personnes.",
+          links: [
+            { label: "Mission", href: "/purpose/" },
+            { label: "Applications", href: "/applications/" },
+          ],
+        },
+        {
+          id: "technology",
+          label: "Technologie & systèmes",
+          description:
+            "Voir les labs, l’interface et l’architecture qui relient l’intelligence à l’action physique.",
+          links: [
+            { label: "Technologie", href: "/technology/" },
+            { label: "Labs", href: "/labs/" },
+            {
+              label: "Interface robotique",
+              href: "/systems/saven-robotics-interface/",
+            },
+            { label: "Systèmes", href: "/systems/" },
+          ],
+        },
+        {
+          id: "investors",
+          label: "Investisseurs",
+          description:
+            "Posture de capital à long terme alignée sur la mission — statut honnête, sans métriques inventées.",
+          links: [{ label: "Investisseurs", href: "/investors/" }],
+        },
+      ],
+    },
+    not: {
+      heading: "Ce que nous ne sommes pas",
+      points: [
+        "Nous n’existons pas pour créer de l’IA — l’IA est un outil que nous utilisons et faisons progresser pour le soutien humain.",
+        "Nous ne diagnostiquons pas de conditions médicales via ce site.",
+        "Nous ne prescritons ni ne vendons de médicaments.",
+      ],
+    },
   },
   flagships: {
     columns: {

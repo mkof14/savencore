@@ -59,6 +59,88 @@ export const physicalWorldHomeAr: PhysicalWorldHomeContent = {
     railLabel: "مشاهد الرعاية",
     deepenLabel: "SAVEN Robotics Lab",
     deepenHref: "/labs/saven-robotics-lab/",
+    whyLabel: "لماذا هذا SAVEN",
+    whyLine:
+      "أنظمة مبنية لمساعدة الناس في أماكن حقيقية — تحت السيطرة البشرية، لا كبديل للرعاية.",
+  },
+  clarity: {
+    definition: {
+      heading: "ما هو SAVEN",
+      body: "يبني SAVEN Core أنظمة تربط الفهم البشري بالروبوتات والأجهزة في العالم المادي — تحت السيطرة البشرية. الذكاء الاصطناعي أداة نستخدمها ونطوّرها لهذا الغرض؛ خلق الذكاء الاصطناعي ليس الغاية.",
+    },
+    chain: {
+      heading: "من الفهم إلى المساعدة",
+      ariaLabel: "ثلاث خطوات من الفهم البشري إلى المساعدة المادية",
+      steps: [
+        {
+          label: "الفهم البشري",
+          href: "/purpose/",
+          cta: "الغاية",
+        },
+        {
+          label: "SAVEN",
+          href: "/systems/saven-robotics-interface/",
+          cta: "واجهة الروبوتات",
+        },
+        {
+          label: "المساعدة المادية",
+          href: "/applications/",
+          cta: "التطبيقات",
+        },
+      ],
+    },
+    exploreStrip: {
+      heading: "استكشف SAVEN",
+      support:
+        "خمسة أعمدة للهندسة — نفس الخريطة تواصل في شريط الختام أدناه.",
+    },
+    audience: {
+      heading: "من أين تريد أن تبدأ؟",
+      support:
+        "ثلاثة مسارات واضحة — الرعاية والغاية، والتقنية والأنظمة، أو موقف الاستثمار طويل الأمد.",
+      paths: [
+        {
+          id: "care",
+          label: "الرعاية والغاية",
+          description:
+            "افهم لماذا يوجد SAVEN وأين يُقصد بالمساعدة أن تدعم الناس.",
+          links: [
+            { label: "الغاية", href: "/purpose/" },
+            { label: "التطبيقات", href: "/applications/" },
+          ],
+        },
+        {
+          id: "technology",
+          label: "التقنية والأنظمة",
+          description:
+            "اطّلع على المختبرات والواجهة والهندسة التي تربط الذكاء بالفعل المادي.",
+          links: [
+            { label: "التقنية", href: "/technology/" },
+            { label: "المختبرات", href: "/labs/" },
+            {
+              label: "واجهة الروبوتات",
+              href: "/systems/saven-robotics-interface/",
+            },
+            { label: "الأنظمة", href: "/systems/" },
+          ],
+        },
+        {
+          id: "investors",
+          label: "المستثمرون",
+          description:
+            "موقف رأس مال طويل الأمد ومتوافق مع المهمة — حالة صادقة بلا مقاييس مخترعة.",
+          links: [{ label: "المستثمرون", href: "/investors/" }],
+        },
+      ],
+    },
+    not: {
+      heading: "ما لسنا عليه",
+      points: [
+        "لسنا موجودين لخلق الذكاء الاصطناعي — إنه أداة نستخدمها ونطوّرها لدعم الإنسان.",
+        "لا نشخّص حالات طبية عبر هذا الموقع.",
+        "لا نصف الأدوية ولا نبيعها.",
+      ],
+    },
   },
   flagships: {
     columns: {

@@ -2,11 +2,13 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 
 import { BrandName } from "@/components/brand/BrandName";
+import { HOME_CLARITY_V1_ENABLED } from "@/config/home-clarity";
 import type { Locale } from "@/config/locales";
 import { getPhysicalWorldHomeContent } from "@/content/home/physical-world/get-physical-world-content";
 import { localizePath } from "@/navigation/locale-path";
 import type { PublishedRoute } from "@/navigation/published-routes";
 
+import { HomeClarityPack } from "./HomeClarityPack";
 import "./physical-world-home.css";
 
 const HeroLivingMedia = dynamic(
@@ -99,7 +101,7 @@ const LIVING_SRC: Record<
 
 /**
  * Homepage — first seconds: what SAVEN is (living photoreal hero),
- * then one care-focused living carousel, then blended closing meaning band.
+ * optional clarity pack (D-0219), care living carousel, then closing meaning band.
  */
 export function PhysicalWorldHome({ locale }: PhysicalWorldHomeProps) {
   const c = getPhysicalWorldHomeContent(locale);
@@ -121,6 +123,8 @@ export function PhysicalWorldHome({ locale }: PhysicalWorldHomeProps) {
       linkFallbackLabel: media.linkFallbackLabel,
     };
   });
+
+  const showClarity = HOME_CLARITY_V1_ENABLED && Boolean(c.clarity);
 
   return (
     <article className="pw-home">
@@ -153,6 +157,15 @@ export function PhysicalWorldHome({ locale }: PhysicalWorldHomeProps) {
         <HeroLivingMedia />
       </header>
 
+      {showClarity && c.clarity ? (
+        <HomeClarityPack
+          locale={locale}
+          clarity={c.clarity}
+          pillars={c.closing.map}
+          slot="post-hero"
+        />
+      ) : null}
+
       {/* Full-bleed living→closing: one background plane, no letterboxed light strip */}
       <div className="pw-living-block">
         <LivingDomains
@@ -163,6 +176,9 @@ export function PhysicalWorldHome({ locale }: PhysicalWorldHomeProps) {
           headline={c.living.headline}
           support={c.living.support}
           scenes={livingScenes}
+          {...(showClarity && c.living.whyLabel && c.living.whyLine
+            ? { whyLabel: c.living.whyLabel, whyLine: c.living.whyLine }
+            : {})}
         />
         <div className="pw-home__inner pw-domains__deepen-row">
           <p className="pw-domains__deepen">
@@ -173,6 +189,15 @@ export function PhysicalWorldHome({ locale }: PhysicalWorldHomeProps) {
           </p>
         </div>
       </div>
+
+      {showClarity && c.clarity ? (
+        <HomeClarityPack
+          locale={locale}
+          clarity={c.clarity}
+          pillars={c.closing.map}
+          slot="post-living"
+        />
+      ) : null}
 
       {c.flagships ? (
         <section className="pw-flagships" aria-labelledby="pw-flagships-title">

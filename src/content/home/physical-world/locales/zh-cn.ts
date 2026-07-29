@@ -59,6 +59,88 @@ export const physicalWorldHomeZhCn: PhysicalWorldHomeContent = {
     railLabel: "照护场景",
     deepenLabel: "SAVEN Robotics Lab",
     deepenHref: "/labs/saven-robotics-lab/",
+    whyLabel: "为什么这是 SAVEN",
+    whyLine:
+      "旨在在真实场所协助人的系统——在人的掌控下，而非替代照护。",
+  },
+  clarity: {
+    definition: {
+      heading: "什么是 SAVEN",
+      body: "SAVEN Core 构建将人类理解与现实世界中的机器人与设备相连的系统——在人的掌控下。AI 是我们为此使用并推进的工具；创造 AI 不是目的。",
+    },
+    chain: {
+      heading: "从理解到协助",
+      ariaLabel: "从人类理解到物理协助的三步",
+      steps: [
+        {
+          label: "人类理解",
+          href: "/purpose/",
+          cta: "使命",
+        },
+        {
+          label: "SAVEN",
+          href: "/systems/saven-robotics-interface/",
+          cta: "机器人接口",
+        },
+        {
+          label: "物理协助",
+          href: "/applications/",
+          cta: "应用",
+        },
+      ],
+    },
+    exploreStrip: {
+      heading: "探索 SAVEN",
+      support:
+        "架构的五根支柱——同一张地图在下方收束带中继续。",
+    },
+    audience: {
+      heading: "您想从哪里开始？",
+      support:
+        "三条清晰路径——照护与使命、技术与系统，或长期投资姿态。",
+      paths: [
+        {
+          id: "care",
+          label: "照护与使命",
+          description:
+            "了解 SAVEN 为何存在，以及协助应在何处帮助人们。",
+          links: [
+            { label: "使命", href: "/purpose/" },
+            { label: "应用", href: "/applications/" },
+          ],
+        },
+        {
+          id: "technology",
+          label: "技术与系统",
+          description:
+            "查看将智能连接到物理行动的实验室、接口与架构。",
+          links: [
+            { label: "技术", href: "/technology/" },
+            { label: "实验室", href: "/labs/" },
+            {
+              label: "机器人接口",
+              href: "/systems/saven-robotics-interface/",
+            },
+            { label: "系统", href: "/systems/" },
+          ],
+        },
+        {
+          id: "investors",
+          label: "投资者",
+          description:
+            "长期、使命对齐的资本姿态——诚实状态，无虚构指标。",
+          links: [{ label: "投资者", href: "/investors/" }],
+        },
+      ],
+    },
+    not: {
+      heading: "我们不是什么",
+      points: [
+        "我们的存在不是为了创造 AI——AI 是我们为人类支持而使用并推进的工具。",
+        "我们不会通过本网站诊断医疗状况。",
+        "我们不开方也不销售药品。",
+      ],
+    },
   },
   flagships: {
     columns: {

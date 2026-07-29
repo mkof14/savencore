@@ -1,6 +1,7 @@
 /**
  * Layer 1 homepage — clarity first, one care-focused living carousel, then closing.
  * Inventory / flagships / technical depth live off-home (footer + section pages).
+ * Optional clarity pack (D-0219) is gated by `HOME_CLARITY_V1_ENABLED`.
  */
 
 export type PhysicalWorldDomainScene = {
@@ -29,6 +30,50 @@ export type ClosingCornerLink = {
   href: string;
 };
 
+export type HomeClarityChainStep = {
+  label: string;
+  href: string;
+  cta: string;
+};
+
+export type HomeClarityAudienceLink = {
+  label: string;
+  href: string;
+};
+
+export type HomeClarityAudiencePath = {
+  id: "care" | "technology" | "investors";
+  label: string;
+  description: string;
+  links: readonly HomeClarityAudienceLink[];
+};
+
+/** Reversible clarity blocks (D-0219) — rendered only when the feature flag is on. */
+export type HomeClarityContent = {
+  definition: {
+    heading: string;
+    body: string;
+  };
+  chain: {
+    heading: string;
+    ariaLabel: string;
+    steps: readonly HomeClarityChainStep[];
+  };
+  exploreStrip: {
+    heading: string;
+    support: string;
+  };
+  audience: {
+    heading: string;
+    support: string;
+    paths: readonly HomeClarityAudiencePath[];
+  };
+  not: {
+    heading: string;
+    points: readonly string[];
+  };
+};
+
 export type PhysicalWorldHomeContent = {
   brand: string;
   heroLine: string;
@@ -45,6 +90,9 @@ export type PhysicalWorldHomeContent = {
     railLabel: string;
     deepenLabel: string;
     deepenHref: string;
+    /** Stage “why this is SAVEN” line (D-0219; shown when clarity flag on). */
+    whyLabel?: string;
+    whyLine?: string;
   };
   /** Optional compact gateway to flagship workstreams (D-0194 / H-2 / D-0208 table). */
   flagships?: {
@@ -57,6 +105,8 @@ export type PhysicalWorldHomeContent = {
     };
     items: readonly PhysicalWorldFlagshipItem[];
   };
+  /** Homepage clarity pack copy (D-0219). */
+  clarity?: HomeClarityContent;
   closing: {
     heading: string;
     pillars: string;

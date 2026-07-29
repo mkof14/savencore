@@ -32,6 +32,9 @@ type LivingDomainsProps = {
   railLabel?: string;
   /** Extra class on the section (e.g. primary living theater). */
   className?: string;
+  /** Optional stage “why this is SAVEN” (D-0219 clarity). */
+  whyLabel?: string;
+  whyLine?: string;
 };
 
 const ADVANCE_MS = 4500;
@@ -49,6 +52,8 @@ export function LivingDomains({
   titleId = "pw-living-title",
   railLabel = "Care scenes",
   className,
+  whyLabel,
+  whyLine,
 }: LivingDomainsProps) {
   const [allowMotion, setAllowMotion] = useState(false);
   const [active, setActive] = useState(0);
@@ -150,6 +155,12 @@ export function LivingDomains({
         <div className="pw-home__inner pw-domains__caption">
           <p className="pw-domains__caption-label">{current.label}</p>
           <p className="pw-domains__caption-line">{current.line}</p>
+          {whyLabel && whyLine ? (
+            <p className="pw-domains__caption-why">
+              <span className="pw-domains__caption-why-label">{whyLabel}</span>
+              <span className="pw-domains__caption-why-line">{whyLine}</span>
+            </p>
+          ) : null}
           {current.href && stageLinkLabel ? (
             <p className="pw-domains__caption-cta">
               <Link

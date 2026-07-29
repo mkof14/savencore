@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-28 (D-0218 — denser closing corner nav + ~2× SAVEN glow)
+**Last updated:** 2026-07-28 (D-0215 — Future Lab beyond R&D + Install size)
 
 ## Rules
 
@@ -230,6 +230,7 @@
 | D-0212 | 2026-07-28 | Footer: remove Get in touch; disclaimer under socials; denser links; slogan lockup | Active |
 | D-0213 | 2026-07-28 | Admin light/dark theme + logo + accents; footer Install app in Resources | Active |
 | D-0214 | 2026-07-28 | Email chrome restyle to site tokens; remove footer social icons | Active |
+| D-0215 | 2026-07-28 | Future Lab naming beyond classic R&D + visual lab page; footer Install same size as links | Active |
 | D-0216 | 2026-07-28 | Explore SAVEN interactive closing band + legal interim policy pass | Active |
 | D-0217 | 2026-07-28 | Closing band: SAVEN wordmark glow + upper corner nav | Active (denser nav / glow size: D-0218) |
 | D-0218 | 2026-07-28 | Closing band: denser upper nav + ~2× SAVEN glow + lively hover | Active |
@@ -1980,6 +1981,20 @@
 - **In scope:** `src/content/admin/email-templates/brand.ts`; `docs/ADMIN_PLATFORM.md`; D-0214 + AGENTS phase pointer; type-check; commit/push; production deploy; Russian owner brief.
 - **Out of scope:** Changing per-template body copy beyond chrome; inventing social/product claims; neon/glow; CMS; public footer social behavior.
 - **Implications:** Supersedes D-0180 footer social-icon row for email only. All Admin Templates / Mailings that use `wrapEmailHtml` pick up the new chrome automatically.
+
+### D-0215 — Future Lab beyond classic R&D; visual lab page; Install app link size
+
+- **Date:** 2026-07-28
+- **Status:** Active
+- **Summary:** Owner requires Internal Future Lab to explain beautifully that the name **replaces an outdated understanding of classic R&D** (SAVEN believes siloed research-and-development framing is not enough for continuous embodied inquiry); same explanation in FAQ; richer lab-spirit visuals from approved `public/` assets; footer **Install app** same type size as other Resources column links (supersedes D-0213 smaller Install type).
+- **Decision:**
+  1. **Naming:** Future Lab is a deliberate new name for SAVEN Core’s research environment — broader continuous inquiry than classic R&D; human care remains primary; public status **Research** (not Operational).
+  2. **Page:** Enrich `/labs/internal-future-lab/` with R&D naming section, icon highlights, four visual scenes, and masthead collage from approved labs/technology WebPs; straight corners; navy/gold/off-white; no neon; no invented metrics/customers.
+  3. **FAQ:** Update “What is Internal Future Lab?” and add “Why Future Lab instead of R&D?”; localize across all FAQ locale dictionaries.
+  4. **Footer:** Install app control uses the same font-size (and soft ink) as `.site-footer__link` (0.6875rem / 0.75rem ≥860px).
+- **In scope:** Future Lab flagship EN + dictionaries; labs scenes; hub collage; HubReadablePage rich-scene layout CSS; FAQ EN + dictionaries; `site-shell.css` Install size; SITE_ASSIGNMENT §5.0.3 / IA naming pointers; D-0215 + AGENTS; type-check; smoke; commit/push; production deploy; Russian owner brief + URLs.
+- **Out of scope:** Inventing photography beyond repo; Operational claims; neon; LinkedIn; CMS/analytics; changing Robotics Lab scopes.
+- **Implications:** Partially supersedes D-0213 Install “smaller than page links.” Clarifies D-0131 Future Lab naming for public visitors. As-built code landed in the same production push wave as D-0216 (shared commit bundle); this entry is the governing decision ID.
 
 ### D-0216 — Explore SAVEN closing band + legal interim policy pass
 

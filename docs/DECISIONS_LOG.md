@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-29 (D-0228 — BioMath Core leaf page + home Go deeper / Who we are)
+**Last updated:** 2026-07-29 (D-0229 — BioMath Core catalog redesign + home section order + transparent logo)
 
 ## Rules
 
@@ -244,6 +244,7 @@
 | D-0226 | 2026-07-29 | Explore SAVEN: larger letter tabs + compact band | Active |
 | D-0227 | 2026-07-29 | BioMath Core: 20 categories / 200+ services → SAVEN actions | Active |
 | D-0228 | 2026-07-29 | BioMath Core leaf `/foundation/biomath-core/` + home Go deeper | Active |
+| D-0229 | 2026-07-29 | BioMath Core catalog redesign, transparent logo, home order | Active |
 
 ---
 
@@ -2202,6 +2203,21 @@
 - **In scope:** Leaf page + CSS/icons, assets, published-routes, footer, home clarity types/locales/CSS/`HomeClarityPack`, FAQ links, Foundation related link, domain-visuals masthead map, D-0228 + AGENTS / SITE_ASSIGNMENT / IA; type-check; commit/push/Vercel; smoke; Russian owner brief.
 - **Out of scope:** Operational commercial catalog claims; neon storefront recreation; inventing additional foundation leaves (BioMath Life / SAVEN / SAVEN Core) unless later authorized; CMS.
 - **Implications:** BioMath Core is a first-class public leaf. Foundation hub retains summary scope grid; leaf is the deep page. D-0227 accents remain; home CTA destination is the leaf.
+
+
+### D-0229 — BioMath Core catalog redesign, transparent logo, home section order
+
+- **Date:** 2026-07-29
+- **Status:** Active
+- **Summary:** Owner authorizes (A) moving home BioMath Core → SAVEN callout and Go deeper / Who we are immediately before “What we are not”; (B) transparent BioMath Core logo (PNG/WebP, no dark plate) for light + dark themes, smaller brand mark on home and leaf; (C) BioMath Core leaf redesign — title **BioMath Core**, tagline **Where health data becomes daily clarity.**, Complete Services Catalog intro, 20-category diagram with owner-supplied service counts and blurbs (site-native navy/gold/BMC accents; not neon; not live e-commerce); remove categories screenshot/reference image from public use; (D) i18n for new EN strings across 10 locales. Framing remains Architecture / In Development model coverage — not Operational storefront; medical non-claims retained (not diagnose / prescribe / sell medicines). “Digital Therapeutics Store” is a category name in the model catalog only.
+- **Decision:**
+  1. **Home order** — Clarity post-living: BioMath callout → Go deeper / Who we are → What we are not. Post-hero keeps definition → chain → Explore SAVEN → audience.
+  2. **Logo** — Process `public/brand/biomath-core-logo.png` (+ `.webp`) to transparent background; use smaller mark on home Go deeper and BMC hero.
+  3. **Leaf** — Hero title/tagline as above; catalog heading + 20-category cards with counts/blurbs; keep foundation sequence, Human Data Model, reports→SAVEN, status, medical note.
+  4. **i18n** — EN canonical; page dictionaries + FAQ category list + Foundation category labels updated for all 10 locales.
+- **In scope:** HomeClarityPack order/CSS, BMC page/CSS/content/scope, logo assets, FAQ + foundation dictionaries, D-0229 + AGENTS / SITE_ASSIGNMENT / IA; type-check; commit/push/Vercel; smoke; Russian owner brief.
+- **Out of scope:** Operational commercial catalog; live storefront; inventing additional foundation leaves; neon spam.
+- **Implications:** BioMath Core leaf is the model catalog depth page; home BioMath accents sit lower, just before boundaries.
 
 ## Pending Owner Decisions
 

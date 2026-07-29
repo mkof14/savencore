@@ -15,8 +15,8 @@ type BioMathCorePageProps = {
 };
 
 /**
- * BioMath Core leaf — logo + sphere hero, foundation sequence,
- * reports→actions callout, and site-native health category grid (D-0228).
+ * BioMath Core leaf — transparent logo hero, foundation sequence,
+ * reports→actions callout, and 20-category model catalog (D-0228 / D-0229).
  */
 export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
   const titleId = "bmc-page-title";
@@ -31,10 +31,10 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
             <p className="bmc-page__status">{content.status}</p>
             <div className="bmc-page__logo-wrap">
               <Image
-                src="/brand/biomath-core-logo.png"
+                src="/brand/biomath-core-logo.webp"
                 alt={content.hero.logoAlt}
-                width={480}
-                height={160}
+                width={160}
+                height={166}
                 priority
                 className="bmc-page__logo"
               />
@@ -130,6 +130,16 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
         </section>
 
         <section
+          className="bmc-page__section bmc-page__catalog"
+          aria-labelledby="bmc-catalog-title"
+        >
+          <h2 id="bmc-catalog-title" className="bmc-page__section-title">
+            {content.catalog.heading}
+          </h2>
+          <p className="bmc-page__section-support">{content.catalog.support}</p>
+        </section>
+
+        <section
           className="bmc-page__section bmc-page__categories"
           aria-labelledby="bmc-categories-title"
         >
@@ -141,11 +151,20 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
           </div>
           <ul className="bmc-page__category-grid">
             {content.categories.cards.map((card) => (
-              <li key={card.id} className={`bmc-page__category-card bmc-page__category-card--${card.id}`}>
+              <li
+                key={card.id}
+                className={`bmc-page__category-card bmc-page__category-card--${card.id}`}
+              >
+                <div className="bmc-page__category-top">
+                  <span className="bmc-page__category-icon" aria-hidden="true">
+                    <BioMathCoreCategoryIcon id={card.id} />
+                  </span>
+                  <span className="bmc-page__category-count">
+                    {card.serviceCount}
+                  </span>
+                </div>
                 <span className="bmc-page__category-label">{card.label}</span>
-                <span className="bmc-page__category-icon" aria-hidden="true">
-                  <BioMathCoreCategoryIcon id={card.id} />
-                </span>
+                <span className="bmc-page__category-blurb">{card.blurb}</span>
               </li>
             ))}
           </ul>

@@ -7,7 +7,7 @@ import {
 } from "@/content/biomath-core/scope";
 
 /**
- * BioMath Core leaf page — D-0228.
+ * BioMath Core leaf page — D-0228 / D-0229.
  * Architecture / In Development model coverage — not an Operational catalog.
  */
 
@@ -20,6 +20,8 @@ export type BioMathCoreSequenceStep = {
 export type BioMathCoreCategoryCard = {
   id: BioMathCoreCategoryId;
   label: string;
+  serviceCount: number;
+  blurb: string;
 };
 
 export type BioMathCorePathLink = {
@@ -57,6 +59,10 @@ export type BioMathCorePageContent = {
     body: string;
     scopeLine: string;
   };
+  catalog: {
+    heading: string;
+    support: string;
+  };
   categories: {
     heading: string;
     subtitle: string;
@@ -78,14 +84,14 @@ export const biomathCorePageContent: BioMathCorePageContent = {
     category: "Foundation",
     documentType: "Knowledge",
     status: "Architecture",
-    version: "0.1",
+    version: "0.2",
     lastUpdated: "2026-07-29",
     readingTime: "6 min",
     relatedDomain: "Foundation, Human Data Model, SAVEN",
   },
-  label: "BioMath Core",
-  title: "The intelligence foundation that structures human context.",
-  lede: "BioMath Core gathers and structures the Human Data Model so understanding can inform careful assistance. It is the basis of the foundation sequence — and the source of reports and conclusions that shape SAVEN’s next-level actions under human control.",
+  label: "Foundation",
+  title: "BioMath Core",
+  lede: "Where health data becomes daily clarity.",
   status: "Architecture",
   hero: {
     logoAlt: "BioMath Core",
@@ -123,14 +129,21 @@ export const biomathCorePageContent: BioMathCorePageContent = {
     body: "Information for SAVEN’s next-level actions and commands is formed from BioMath Core reports and conclusions — under human control. Reports inform assistance and command architecture; they do not diagnose conditions, prescribe, or sell medicines.",
     scopeLine: `Model coverage: ${BIOMATH_CORE_CATEGORY_COUNT} categories · ${BIOMATH_CORE_SERVICES_LABEL} services`,
   },
+  catalog: {
+    heading: "Complete Services Catalog",
+    support: `Explore ${BIOMATH_CORE_SERVICES_LABEL} biomathematical health services across ${BIOMATH_CORE_CATEGORY_COUNT} specialized categories.`,
+  },
   categories: {
-    heading: "Health Categories",
-    subtitle: `Model scope across ${BIOMATH_CORE_CATEGORY_COUNT} categories and ${BIOMATH_CORE_SERVICES_LABEL} services — Architecture / In Development, not a live commercial catalog.`,
+    heading: `BioMath Services — Showing ${BIOMATH_CORE_CATEGORY_COUNT} categories`,
+    subtitle:
+      "Architecture / In Development model coverage — not a live e-commerce storefront or Operational commercial catalog.",
     disclaimer:
-      "Category cards describe intended model coverage. They are not an Operational storefront, not a claim of live AI-powered services, and not medical advice.",
+      "Category cards describe intended model coverage. They are not an Operational storefront, not a claim of live AI-powered services, and not medical advice. They do not diagnose, prescribe, or sell medicines.",
     cards: biomathCoreCategoriesEn.map((c) => ({
       id: c.id,
       label: c.label,
+      serviceCount: c.serviceCount,
+      blurb: c.blurb,
     })),
   },
   paths: {

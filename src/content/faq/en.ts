@@ -179,7 +179,7 @@ export const faqPageEn: FaqPageContent = {
           id: "foundation-biomath-categories",
           question: "Which categories does BioMath Core cover?",
           answer: [
-            "The published model scope lists 20 categories: Critical Health; Everyday Well-being; Longevity and Anti-Aging; Mental Well-being; Fitness and Performance; Women's Health; Men's Health; Beauty and Skincare; Nutrition and Diet; Sleep and Recovery; Environmental Health; Family Health; Preventive Medicine; Biohacking; Elderly Care; Eye Health; Digital Therapy; Sexual Longevity; Men's Sexual Health; Women's Sexual Health.",
+            "The published model scope lists 20 categories: Critical Health; Everyday Wellness; Longevity & Anti-Aging; Mental Wellness; Fitness & Performance; Women's Health; Men's Health; Beauty & Skincare; Nutrition & Diet; Sleep & Recovery; Environmental Health; Family Health; Preventive Medicine & Longevity; Biohacking & Performance; Senior Care; Eye-Health Suite; Digital Therapeutics Store; General Sexual Longevity; Men's Sexual Health; Women's Sexual Health.",
             "Across those categories, BioMath Core describes 200+ services as model coverage. Status remains Architecture / In Development — not a claim of Operational commercial availability.",
           ],
           links: [

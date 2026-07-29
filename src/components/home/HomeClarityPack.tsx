@@ -18,7 +18,7 @@ type HomeClarityPackProps = {
   locale: Locale;
   clarity: HomeClarityContent;
   pillars: readonly ClosingExplorePillar[];
-  /** post-hero: definition + chain + compact explore + audience; post-living: boundaries. */
+  /** post-hero: definition + chain + compact explore + audience; post-living: biomath + go deeper + boundaries. */
   slot: "post-hero" | "post-living";
 };
 
@@ -32,69 +32,15 @@ function localizePublishedHref(locale: Locale, href: string): string {
   return `${localizePath(locale, path as PublishedRoute)}${hash}`;
 }
 
-/**
- * Reversible homepage clarity blocks (D-0219 / denser D-0220 / visual D-0221).
- * Explore SAVEN uses cinematic letter panels (D-0225 / D-0226).
- * Gated by `HOME_CLARITY_V1_ENABLED` — returns null when the flag is off.
- * V2 adds navy/gold/off-white card grammar while keeping support copy visible.
- */
-export function HomeClarityPack({
+function BiomathAndGoDeeper({
   locale,
   clarity,
-  pillars,
-  slot,
-}: HomeClarityPackProps) {
-  if (!HOME_CLARITY_V1_ENABLED) return null;
-
-  const dense = HOME_CLARITY_V2_ENABLED;
-  const earlyClass = [
-    "pw-clarity",
-    "pw-clarity--early",
-    dense ? "pw-clarity--v2" : "",
-    "pw-clarity--visual",
-  ]
-    .filter(Boolean)
-    .join(" ");
-
-  if (slot === "post-living") {
-    return (
-      <section
-        className={`pw-clarity pw-clarity--not pw-clarity--visual${dense ? " pw-clarity--v2" : ""}`}
-        aria-labelledby="pw-clarity-not-title"
-      >
-        <div className="pw-home__inner pw-clarity__inner">
-          <h2 id="pw-clarity-not-title" className="pw-clarity__title">
-            {clarity.not.heading}
-          </h2>
-          <ul className="pw-clarity__not-list">
-            {clarity.not.points.map((point) => (
-              <li key={point}>{point}</li>
-            ))}
-          </ul>
-        </div>
-      </section>
-    );
-  }
-
+}: {
+  locale: Locale;
+  clarity: HomeClarityContent;
+}) {
   return (
-    <div className={earlyClass}>
-      <section
-        className="pw-clarity__block pw-clarity__definition"
-        aria-labelledby="pw-clarity-def-title"
-      >
-        <div className="pw-home__inner pw-clarity__inner">
-          <div className="pw-clarity__panel pw-clarity__panel--definition">
-            <p className="pw-clarity__eyebrow" aria-hidden="true">
-              SAVEN
-            </p>
-            <h2 id="pw-clarity-def-title" className="pw-clarity__title">
-              {clarity.definition.heading}
-            </h2>
-            <p className="pw-clarity__body">{clarity.definition.body}</p>
-          </div>
-        </div>
-      </section>
-
+    <>
       {clarity.biomathCallout ? (
         <section
           className="pw-clarity__block pw-clarity__biomath"
@@ -152,10 +98,10 @@ export function HomeClarityPack({
               </div>
               <div className="pw-clarity__go-deeper-brand" aria-hidden="true">
                 <Image
-                  src="/brand/biomath-core-logo.png"
+                  src="/brand/biomath-core-logo.webp"
                   alt=""
-                  width={280}
-                  height={94}
+                  width={120}
+                  height={125}
                   className="pw-clarity__go-deeper-logo"
                 />
               </div>
@@ -163,6 +109,78 @@ export function HomeClarityPack({
           </div>
         </section>
       ) : null}
+    </>
+  );
+}
+
+/**
+ * Reversible homepage clarity blocks (D-0219 / denser D-0220 / visual D-0221).
+ * Explore SAVEN uses cinematic letter panels (D-0225 / D-0226).
+ * BioMath + Go deeper sit before “What we are not” (D-0229).
+ * Gated by `HOME_CLARITY_V1_ENABLED` — returns null when the flag is off.
+ * V2 adds navy/gold/off-white card grammar while keeping support copy visible.
+ */
+export function HomeClarityPack({
+  locale,
+  clarity,
+  pillars,
+  slot,
+}: HomeClarityPackProps) {
+  if (!HOME_CLARITY_V1_ENABLED) return null;
+
+  const dense = HOME_CLARITY_V2_ENABLED;
+  const earlyClass = [
+    "pw-clarity",
+    "pw-clarity--early",
+    dense ? "pw-clarity--v2" : "",
+    "pw-clarity--visual",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  if (slot === "post-living") {
+    return (
+      <div
+        className={`pw-clarity pw-clarity--late pw-clarity--visual${dense ? " pw-clarity--v2" : ""}`}
+      >
+        <BiomathAndGoDeeper locale={locale} clarity={clarity} />
+        <section
+          className="pw-clarity__block pw-clarity--not"
+          aria-labelledby="pw-clarity-not-title"
+        >
+          <div className="pw-home__inner pw-clarity__inner">
+            <h2 id="pw-clarity-not-title" className="pw-clarity__title">
+              {clarity.not.heading}
+            </h2>
+            <ul className="pw-clarity__not-list">
+              {clarity.not.points.map((point) => (
+                <li key={point}>{point}</li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      </div>
+    );
+  }
+
+  return (
+    <div className={earlyClass}>
+      <section
+        className="pw-clarity__block pw-clarity__definition"
+        aria-labelledby="pw-clarity-def-title"
+      >
+        <div className="pw-home__inner pw-clarity__inner">
+          <div className="pw-clarity__panel pw-clarity__panel--definition">
+            <p className="pw-clarity__eyebrow" aria-hidden="true">
+              SAVEN
+            </p>
+            <h2 id="pw-clarity-def-title" className="pw-clarity__title">
+              {clarity.definition.heading}
+            </h2>
+            <p className="pw-clarity__body">{clarity.definition.body}</p>
+          </div>
+        </div>
+      </section>
 
       <section
         className="pw-clarity__block pw-clarity__chain"

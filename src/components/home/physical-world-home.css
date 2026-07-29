@@ -1091,15 +1091,20 @@ html[data-theme="dark"] a.pw-clarity__go-deeper-cta:focus-visible {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0.75rem;
-  background: #070e18;
-  border: 1px solid color-mix(in srgb, #4a8fd4 25%, transparent);
+  padding: 0.35rem;
+  background: transparent;
 }
 
 .pw-clarity__go-deeper-logo {
-  width: min(100%, 14rem);
+  width: min(100%, 6.5rem);
   height: auto;
   display: block;
+  filter: drop-shadow(0 0 10px color-mix(in srgb, #e07a3d 22%, transparent));
+}
+
+.pw-clarity--late {
+  display: grid;
+  gap: 0;
 }
 
 .pw-clarity--v2 .pw-clarity__panel--go-deeper {

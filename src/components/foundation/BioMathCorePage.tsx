@@ -27,7 +27,7 @@ type BioMathCorePageProps = {
 };
 
 /**
- * BioMath Core leaf — owner-grade illustration panels in themeable chrome (D-0228–D-0237).
+ * BioMath Core leaf — owner-grade illustration panels in themeable chrome (D-0228–D-0239).
  */
 export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
   const titleId = "bmc-page-title";
@@ -79,7 +79,21 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
       </header>
 
       <div className="bmc-page__body">
+        <nav className="bmc-page__toc" aria-label={content.toc.label}>
+          <p className="bmc-page__toc-label">{content.toc.label}</p>
+          <ol className="bmc-page__toc-list">
+            {content.toc.items.map((item) => (
+              <li key={item.id}>
+                <a href={`#${item.id}`} className="bmc-page__toc-link">
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ol>
+        </nav>
+
         <section
+          id="bmc-living"
           className="bmc-page__section bmc-page__living"
           aria-labelledby="bmc-living-title"
         >
@@ -95,6 +109,7 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
         </section>
 
         <section
+          id="bmc-stack"
           className="bmc-page__section bmc-page__stack"
           aria-labelledby="bmc-stack-title"
         >
@@ -112,6 +127,7 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
         </section>
 
         <section
+          id="bmc-dual"
           className="bmc-page__section bmc-page__dual"
           aria-labelledby="bmc-dual-title"
         >
@@ -129,6 +145,7 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
         </section>
 
         <section
+          id="bmc-engine"
           className="bmc-page__section bmc-page__engine"
           aria-labelledby="bmc-engine-title"
         >
@@ -144,6 +161,7 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
         </section>
 
         <section
+          id="bmc-opinion"
           className="bmc-page__section bmc-page__opinion"
           aria-labelledby="bmc-opinion-title"
         >
@@ -162,6 +180,7 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
         </section>
 
         <section
+          id="bmc-blackbox"
           className="bmc-page__section bmc-page__blackbox"
           aria-labelledby="bmc-blackbox-title"
         >
@@ -199,11 +218,36 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
                   </li>
                 ))}
               </ul>
+              <div className="bmc-page__blackbox-policies">
+                <p className="bmc-page__blackbox-policies-intro">
+                  {content.blackBox.policyLinks.intro}
+                </p>
+                <ul className="bmc-page__blackbox-policy-list">
+                  {content.blackBox.policyLinks.links.map((link) => (
+                    <li key={link.href}>
+                      <Link
+                        href={localizePath(locale, link.href as PublishedRoute)}
+                        className="bmc-page__blackbox-policy-link"
+                      >
+                        <span className="bmc-page__blackbox-policy-label">
+                          {link.label}
+                        </span>
+                        {link.note ? (
+                          <span className="bmc-page__blackbox-policy-note">
+                            {link.note}
+                          </span>
+                        ) : null}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </section>
 
         <section
+          id="bmc-output"
           className="bmc-page__section bmc-page__output"
           aria-labelledby="bmc-output-title"
         >
@@ -220,6 +264,7 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
         </section>
 
         <section
+          id="bmc-formula"
           className="bmc-page__section bmc-page__formula"
           aria-labelledby="bmc-formula-title"
         >
@@ -237,6 +282,7 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
         </section>
 
         <section
+          id="bmc-envs"
           className="bmc-page__section bmc-page__envs"
           aria-labelledby="bmc-envs-title"
         >
@@ -253,6 +299,7 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
         </section>
 
         <section
+          id="bmc-sequence"
           className="bmc-page__section bmc-page__sequence"
           aria-labelledby="bmc-sequence-title"
         >
@@ -291,6 +338,7 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
         </section>
 
         <section
+          id="bmc-categories"
           className="bmc-page__section bmc-page__categories"
           aria-labelledby="bmc-categories-title"
           data-bmc-categories="artboard-panels"
@@ -332,6 +380,7 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
         </section>
 
         <section
+          id="bmc-paths"
           className="bmc-page__section bmc-page__paths"
           aria-labelledby="bmc-paths-title"
         >

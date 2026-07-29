@@ -7,9 +7,10 @@ import {
 } from "@/content/biomath-core/scope";
 
 /**
- * BioMath Core leaf page — D-0228–D-0238.
+ * BioMath Core leaf page — D-0228–D-0239.
  * Architecture / In Development model coverage — not an Operational catalog.
  * D-0238: harmonious smaller diagram panels + Black Box sensitive-data storage intent.
+ * D-0239: Black Box → Trust/Legal soft links; TOC; Trust in Continue exploring; no card counts.
  */
 
 export type BioMathCoreSequenceStep = {
@@ -22,7 +23,6 @@ export type BioMathCoreSequenceStep = {
 export type BioMathCoreCategoryCard = {
   id: BioMathCoreCategoryId;
   label: string;
-  serviceCount: number;
   blurb: string;
 };
 
@@ -30,6 +30,11 @@ export type BioMathCorePathLink = {
   label: string;
   href: string;
   note?: string;
+};
+
+export type BioMathCoreTocItem = {
+  id: string;
+  label: string;
 };
 
 export type BioMathCoreLivingPoint = {
@@ -156,6 +161,10 @@ export type BioMathCorePageContent = {
     storageBody: string;
     principlesEyebrow: string;
     principles: readonly BioMathCoreBlackBoxPrinciple[];
+    policyLinks: {
+      intro: string;
+      links: readonly BioMathCorePathLink[];
+    };
   };
   output: {
     heading: string;
@@ -209,6 +218,10 @@ export type BioMathCorePageContent = {
     support: string;
     links: readonly BioMathCorePathLink[];
   };
+  toc: {
+    label: string;
+    items: readonly BioMathCoreTocItem[];
+  };
   note: string;
 };
 
@@ -219,7 +232,7 @@ export const biomathCorePageContent: BioMathCorePageContent = {
     category: "Foundation",
     documentType: "Knowledge",
     status: "Architecture",
-    version: "0.6",
+    version: "0.7",
     lastUpdated: "2026-07-29",
     readingTime: "10 min",
     relatedDomain: "Foundation, Human Data Model, SAVEN",
@@ -426,6 +439,27 @@ export const biomathCorePageContent: BioMathCorePageContent = {
         body: "Keep only what the stated purpose requires; avoid retaining excess human detail.",
       },
     ],
+    policyLinks: {
+      intro:
+        "Architecture intent connects to published site policies. These links explain commitments and limits — they are not certifications, Operational vault claims, or new legal text.",
+      links: [
+        {
+          label: "Trust · Privacy",
+          href: "/trust/privacy/",
+          note: "Organizational privacy commitments",
+        },
+        {
+          label: "Trust · Security",
+          href: "/trust/security/",
+          note: "Security governance commitments",
+        },
+        {
+          label: "Privacy Policy",
+          href: "/legal/privacy-policy/",
+          note: "Website privacy policy",
+        },
+      ],
+    },
   },
   output: {
     heading: "Output: Structured Understanding",
@@ -571,14 +605,13 @@ export const biomathCorePageContent: BioMathCorePageContent = {
     cards: biomathCoreCategoriesEn.map((c) => ({
       id: c.id,
       label: c.label,
-      serviceCount: c.serviceCount,
       blurb: c.blurb,
     })),
   },
   paths: {
     heading: "Continue exploring",
     support:
-      "Human Data, Purpose, Technology, and FAQ deepen the same foundation story.",
+      "Human Data, Purpose, Technology, Trust, and FAQ deepen the same foundation story.",
     links: [
       {
         label: "Human Data",
@@ -606,10 +639,37 @@ export const biomathCorePageContent: BioMathCorePageContent = {
         note: "Full foundation sequence hub",
       },
       {
+        label: "Trust · Privacy",
+        href: "/trust/privacy/",
+        note: "Privacy commitments and limits",
+      },
+      {
+        label: "Trust · Security",
+        href: "/trust/security/",
+        note: "Security governance and reporting",
+      },
+      {
         label: "FAQ",
         href: "/faq/",
         note: "BioMath Core questions and answers",
       },
+    ],
+  },
+  toc: {
+    label: "On this page",
+    items: [
+      { id: "bmc-living", label: "Living Model" },
+      { id: "bmc-stack", label: "Four-layer stack" },
+      { id: "bmc-dual", label: "Dual roles" },
+      { id: "bmc-engine", label: "Engine" },
+      { id: "bmc-opinion", label: "Second Opinion" },
+      { id: "bmc-blackbox", label: "Black Box" },
+      { id: "bmc-output", label: "Output" },
+      { id: "bmc-formula", label: "Formula" },
+      { id: "bmc-envs", label: "Environments" },
+      { id: "bmc-sequence", label: "Sequence" },
+      { id: "bmc-categories", label: "Categories" },
+      { id: "bmc-paths", label: "Continue exploring" },
     ],
   },
   note: "BioMath Core pages describe intended architecture. Status remains Architecture / In Development. They do not imply commercial deployment, clinical use, diagnosis, prescribing, or selling medicines.",

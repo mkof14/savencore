@@ -472,12 +472,14 @@ export function SequenceVisual({ visualLabel, steps }: SequenceVisualProps) {
               </linearGradient>
             </defs>
             <path
+              className="bmc-sequence__helix-path"
               d="M12 28 C70 6, 130 50, 190 28 S310 6, 370 28 S490 50, 550 28 S650 6, 708 28"
               fill="none"
               stroke="url(#bmc-seq-blue)"
               strokeWidth="2.5"
             />
             <path
+              className="bmc-sequence__helix-path bmc-sequence__helix-path--alt"
               d="M12 28 C70 50, 130 6, 190 28 S310 50, 370 28 S490 6, 550 28 S650 50, 708 28"
               fill="none"
               stroke="url(#bmc-seq-orange)"

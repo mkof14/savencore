@@ -187,6 +187,90 @@
   gap: clamp(1.45rem, 3vw, 2.25rem);
 }
 
+/* —— Light on-page TOC (D-0239) —— */
+
+.bmc-page__toc {
+  margin: 0;
+  padding: clamp(0.85rem, 2vw, 1.1rem) clamp(0.9rem, 2.2vw, 1.25rem);
+  border: 1px solid color-mix(in srgb, var(--bmc-navy) 14%, var(--color-border));
+  border-inline-start: 3px solid color-mix(in srgb, var(--bmc-gold) 72%, var(--bmc-orange));
+  background:
+    linear-gradient(
+      165deg,
+      color-mix(in srgb, var(--bmc-off) 70%, var(--color-surface)),
+      color-mix(in srgb, #e8ecf1 40%, var(--color-surface))
+    );
+}
+
+html[data-theme="dark"] .bmc-page__toc {
+  background:
+    linear-gradient(
+      165deg,
+      color-mix(in srgb, var(--bmc-navy) 18%, var(--color-surface)),
+      var(--color-surface)
+    );
+  border-color: color-mix(in srgb, var(--bmc-blue) 22%, var(--color-border));
+  border-inline-start-color: color-mix(in srgb, var(--bmc-gold) 75%, var(--bmc-orange));
+}
+
+.bmc-page__toc-label {
+  margin: 0 0 0.55rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: var(--weight-semibold);
+  color: color-mix(in srgb, var(--bmc-navy) 50%, var(--bmc-gold));
+}
+
+html[data-theme="dark"] .bmc-page__toc-label {
+  color: color-mix(in srgb, var(--bmc-gold) 85%, #fff);
+}
+
+.bmc-page__toc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.55rem;
+}
+
+.bmc-page__toc-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2rem;
+  padding: 0.28rem 0.55rem;
+  border: 1px solid color-mix(in srgb, var(--bmc-navy) 12%, var(--color-border));
+  background: var(--color-surface);
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: 0.8125rem;
+  font-weight: var(--weight-medium);
+  line-height: 1.2;
+  transition: border-color 140ms ease, background 140ms ease, color 140ms ease;
+}
+
+.bmc-page__toc-link:hover,
+.bmc-page__toc-link:focus-visible {
+  border-color: color-mix(in srgb, var(--bmc-gold) 48%, var(--color-border));
+  background: color-mix(in srgb, var(--bmc-gold) 10%, var(--color-surface));
+  color: color-mix(in srgb, var(--bmc-navy) 70%, var(--bmc-gold));
+}
+
+html[data-theme="dark"] .bmc-page__toc-link:hover,
+html[data-theme="dark"] .bmc-page__toc-link:focus-visible {
+  color: color-mix(in srgb, var(--bmc-gold) 90%, #fff);
+}
+
+.bmc-page__toc-link:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--bmc-gold) 70%, var(--bmc-blue));
+  outline-offset: 2px;
+}
+
+.bmc-page__section[id] {
+  scroll-margin-block-start: 5.5rem;
+}
+
 .bmc-page__section-title {
   margin: 0 0 0.65rem;
   font-size: clamp(1.2rem, 2.2vw, 1.55rem);
@@ -651,6 +735,64 @@ html[data-theme="dark"] .bmc-page__blackbox-principles-eyebrow {
   color: var(--color-text-muted);
 }
 
+.bmc-page__blackbox-policies {
+  margin-block-start: 0.35rem;
+  padding-block-start: 0.75rem;
+  border-block-start: 1px solid color-mix(in srgb, var(--bmc-navy) 12%, var(--color-border));
+  display: grid;
+  gap: 0.55rem;
+}
+
+.bmc-page__blackbox-policies-intro {
+  margin: 0;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+
+.bmc-page__blackbox-policy-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.bmc-page__blackbox-policy-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 140ms ease, background 140ms ease;
+}
+
+.bmc-page__blackbox-policy-link:hover,
+.bmc-page__blackbox-policy-link:focus-visible {
+  border-color: color-mix(in srgb, var(--bmc-blue) 45%, var(--color-border));
+  background: color-mix(in srgb, var(--bmc-blue) 8%, var(--color-surface));
+}
+
+.bmc-page__blackbox-policy-link:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--bmc-blue) 70%, var(--bmc-gold));
+  outline-offset: 2px;
+}
+
+.bmc-page__blackbox-policy-label {
+  font-size: 0.8125rem;
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+}
+
+.bmc-page__blackbox-policy-note {
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: var(--color-text-muted);
+}
+
 /* —— Capability illustration panels (D-0234 / D-0238) —— */
 
 .bmc-viz {
@@ -975,6 +1117,35 @@ html[data-theme="dark"] .bmc-figure__formula-op {
   display: block;
 }
 
+.bmc-sequence__helix-path {
+  stroke-dasharray: 18 14;
+  animation: bmc-helix-flow 14s linear infinite;
+}
+
+.bmc-sequence__helix-path--alt {
+  animation-direction: reverse;
+  animation-duration: 16s;
+}
+
+@keyframes bmc-helix-flow {
+  to {
+    stroke-dashoffset: -160;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bmc-sequence__helix-path {
+    animation: none;
+    stroke-dasharray: none;
+  }
+
+  .bmc-page__toc-link,
+  .bmc-page__blackbox-policy-link,
+  .bmc-page__path-link {
+    transition: none;
+  }
+}
+
 .bmc-sequence__list {
   position: relative;
   z-index: 1;
@@ -1070,6 +1241,10 @@ html[data-theme="dark"] .bmc-sequence__step--emphasis .bmc-sequence__label {
     margin-inline: auto;
   }
 
+  .bmc-page__blackbox-prose {
+    min-width: 0;
+  }
+
   .bmc-figure__stack-meta,
   .bmc-figure__dual-meta,
   .bmc-sequence__list {
@@ -1094,6 +1269,50 @@ html[data-theme="dark"] .bmc-sequence__step--emphasis .bmc-sequence__label {
 
   .bmc-page__title {
     max-width: none;
+  }
+
+  .bmc-page__toc {
+    padding: 0.75rem 0.8rem;
+  }
+
+  .bmc-page__toc-list {
+    gap: 0.35rem;
+  }
+
+  .bmc-page__toc-link {
+    min-height: 2.25rem;
+    font-size: 0.75rem;
+    padding: 0.32rem 0.5rem;
+  }
+
+  .bmc-page__section[id] {
+    scroll-margin-block-start: 4.75rem;
+  }
+
+  .bmc-page__category-artboard {
+    padding: 0.65rem;
+    margin-inline: 0;
+    max-width: 100%;
+  }
+
+  .bmc-page__category-grid {
+    gap: 0.55rem;
+  }
+
+  .bmc-page__category-card {
+    padding: 0.75rem 0.7rem;
+  }
+
+  .bmc-page__category-label {
+    font-size: 0.9375rem;
+  }
+
+  .bmc-page__category-blurb {
+    font-size: 0.75rem;
+  }
+
+  .bmc-page__blackbox-policies-intro {
+    font-size: 0.78rem;
   }
 
   .bmc-figure__stack-meta,

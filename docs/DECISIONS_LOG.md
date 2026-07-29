@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-29 (D-0238 — BioMath Core diagram rhythm + Black Box storage)
+**Last updated:** 2026-07-29 (D-0239 — BioMath Core follow-ups: policy links, TOC, Trust paths)
 
 ## Rules
 
@@ -253,7 +253,8 @@
 | D-0235 | 2026-07-29 | BioMath Core unified English diagram series | Active; refined by D-0236 |
 | D-0236 | 2026-07-29 | BioMath Core Engine cache-bust + compact panels + hero band | Active; refined by D-0237 (category panels) |
 | D-0237 | 2026-07-29 | BioMath Core category panels — no counts, Environments chrome | Active; refined by D-0238 |
-| D-0238 | 2026-07-29 | BioMath Core diagram rhythm + Black Box sensitive-data storage intent | Active |
+| D-0238 | 2026-07-29 | BioMath Core diagram rhythm + Black Box sensitive-data storage intent | Active; refined by D-0239 |
+| D-0239 | 2026-07-29 | BioMath Core follow-ups — policy links, TOC, Trust paths, a11y | Active |
 
 ---
 
@@ -2356,7 +2357,7 @@
 ### D-0238 — BioMath Core diagram rhythm + Black Box sensitive-data storage intent
 
 - **Date:** 2026-07-29
-- **Status:** Active
+- **Status:** Active; refined by D-0239
 - **Summary:** Owner requires all BioMath Core diagrams/images to read smaller and more harmonious on the leaf (tighter max-widths, tighter vertical rhythm, smarter Black Box two-column layout) and an expanded Black Box section that explains, in simple language, the intended technical approach for storing personal / sensitive personal information — Architecture / In Development only.
 - **Decision:**
   1. **Smaller harmonious panels** — Default `.bmc-figure` max-width ~40rem (narrow Black Box ~34rem); category artboard ~56rem; tighter body gaps and caption proximity; responsive `sizes` aligned to the new caps — not giant poster scroll.
@@ -2367,6 +2368,23 @@
 - **In scope:** BioMathCorePage / Visuals / CSS; EN biomath-core + dictionaries; D-0238 + AGENTS / SITE_ASSIGNMENT; local + prod proof; commit/push/Vercel prod.
 - **Out of scope:** Inventing certifications/partners/metrics; final legal policy; Operational “we already encrypt everything in production” claims; IA/nav changes.
 - **Implications:** BMC leaf stays illustration-led but scroll-friendly; Black Box is the honest place for sensitive-storage architecture intent without overclaiming.
+
+### D-0239 — BioMath Core follow-ups — policy links, TOC, Trust paths, a11y
+
+- **Date:** 2026-07-29
+- **Status:** Active
+- **Summary:** Owner directs «делаем все по порядку» for actionable BioMath Core gap-review follow-ups in one phase: soft architecture→policy cross-links, docs sync, Continue exploring Trust paths, light on-page TOC, mobile/a11y polish, and stop exposing dead `serviceCount` on page card surface.
+- **Decision:**
+  1. **Black Box soft links** — After storage principles, link to already-published `/trust/privacy/`, `/trust/security/`, and `/legal/privacy-policy/` with framing that architecture intent connects to site policies — **no** new legal text, certifications, or Operational vault claims.
+  2. **Docs sync** — `INFORMATION_ARCHITECTURE.md` / `SITE_ASSIGNMENT.md` / `AGENTS.md` no longer describe count/blurb-on-card category diagram as current; reflect D-0237 no-counts artboard + D-0238 smaller diagrams / Black Box storage + D-0239 links/TOC.
+  3. **Continue exploring** — Add Trust · Privacy and Trust · Security to BMC paths block.
+  4. **On-page TOC** — Compact themeable jump nav (straight corners) for major BMC sections; section `id` anchors with scroll-margin.
+  5. **Mobile / a11y** — Black Box stack + category artboard mobile polish; subtle sequence helix dash motion with `prefers-reduced-motion: reduce` disabling it.
+  6. **Cleanup** — Remove `serviceCount` from `BioMathCoreCategoryCard` / page mapping; counts may remain in `scope.ts` internally only.
+  7. **i18n** — EN canonical + structural dictionary keys for new link/TOC/policy lines across 10 locales (not full owner translation QA).
+- **In scope:** BioMathCorePage / Visuals / CSS; EN biomath-core + dictionaries; D-0239 + AGENTS / SITE_ASSIGNMENT / INFORMATION_ARCHITECTURE; local + prod proof; commit/push/Vercel prod.
+- **Out of scope:** New BioMath Life / SAVEN leaves; final legal packs; SOC2/HIPAA/GDPR certified claims; Operational vault; new photography/KPI dashboards; regenerating diagram WebP series; CMS/analytics; owner translation QA retranslation of prior body.
+- **Implications:** BMC leaf is easier to navigate and honestly bridges architecture intent to published Trust/Legal pages without inventing compliance theater.
 
 ## Pending Owner Decisions
 

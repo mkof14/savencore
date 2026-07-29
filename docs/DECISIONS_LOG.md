@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-29 (D-0221 — closing corner restore + clarity visual)
+**Last updated:** 2026-07-29 (D-0222 — footer Install app type forced smaller)
 
 ## Rules
 
@@ -236,7 +236,8 @@
 | D-0218 | 2026-07-28 | Closing band: denser upper nav + ~2× SAVEN glow + lively hover | Active |
 | D-0219 | 2026-07-28 | Homepage clarity pack (definition, chain, pillars, audience, boundaries) — reversible flag | Active |
 | D-0220 | 2026-07-28 | Analysis backlog execution — legal chrome honesty, clarity v2 density, ops docs, durable Admin JSON/Blob, corner More links, title search, CSP defer | Partially superseded (corner More links → D-0221) |
-| D-0221 | 2026-07-29 | Restore dense closing corner nav; richer clarity cards; smaller footer Install app | Active |
+| D-0221 | 2026-07-29 | Restore dense closing corner nav; richer clarity cards; smaller footer Install app | Partially superseded (Install size → D-0222) |
+| D-0222 | 2026-07-29 | Force footer Install app clearly smaller than column links | Active |
 
 ---
 
@@ -2097,6 +2098,19 @@
 - **In scope:** `ClosingExploreMap`, `HomeClarityPack` + CSS, footer install CSS, D-0221 + AGENTS/IA/SITE_ASSIGNMENT pointers; commit/push/Vercel prod; local + www smoke.
 - **Out of scope:** New routes; inventing facts; neon beyond approved wordmark glow; CMS/full-text search.
 - **Implications:** Closing band again shows full corner destinations without a center toggle; clarity remains flag-gated but reads as site-styled cards.
+
+### D-0222 — Footer Install app type forced clearly smaller
+
+- **Date:** 2026-07-29
+- **Status:** Active
+- **Summary:** Owner bug «ты не сделал меньше шрифт Install app in footer» — D-0221 size did not visibly apply because a later `font: inherit` on `button.install-app.site-footer__install-control` overrode the smaller `font-size`. Force Install clearly below column links and remove the inherit conflict.
+- **Decision:**
+  1. **Install type** — `.site-footer__install-control` (and button/summary variants) use `0.5rem` (mobile) / `0.55rem` (≥860px) with `!important`; column links remain `0.6875rem` / `0.75rem`.
+  2. **No `font: inherit`** on Install control selectors — use `font-family: inherit` only so size is not reset.
+  3. Slightly tighter Install block padding/letter-spacing so the control reads secondary to Resources links.
+- **In scope:** `site-shell.css`, D-0222 + AGENTS / SITE_ASSIGNMENT / IA pointers; verify built CSS; commit/push/Vercel prod; local `:3000`; Russian owner brief.
+- **Out of scope:** Nav/IA changes; new routes; inventing facts.
+- **Implications:** Install app in Resources is visibly secondary to FAQ / security / search links; supersedes D-0221 §3 sizing detail (and D-0215 same-size rule for Install).
 
 ## Pending Owner Decisions
 

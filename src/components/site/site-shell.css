@@ -1332,37 +1332,43 @@ html[data-theme="dark"] .theme-toggle--footer .theme-toggle__icon--moon {
   color: #9ec9e4;
 }
 
-/* PWA install — in Resources column; smaller than column page links (D-0221) */
+/* PWA install — Resources column; clearly smaller than .site-footer__link (D-0222)
+   Links: 0.6875rem / 0.75rem ≥860px. Install: 0.5rem / 0.55rem.
+   Do NOT use `font: inherit` here — it previously overrode the size (D-0221 miss). */
 .site-footer__install {
-  margin-block-start: 0.35rem;
-  padding-block-start: 0.35rem;
+  margin-block-start: 0.25rem;
+  padding-block-start: 0.25rem;
   border-block-start: 1px solid color-mix(in srgb, var(--footer-rule) 80%, transparent);
   min-width: 0;
 }
 
 @media (min-width: 860px) {
   .site-footer__install {
-    margin-block-start: 0.45rem;
-    padding-block-start: 0.4rem;
+    margin-block-start: 0.3rem;
+    padding-block-start: 0.28rem;
   }
 }
 
 .site-footer__install-control,
+a.site-footer__install-control,
 button.site-footer__install-control,
+button.install-app.site-footer__install-control,
+button.install-app.site-footer__text-link,
 .site-footer__install summary.site-footer__install-control {
   appearance: none;
   border: 0;
   background: transparent;
   cursor: pointer;
-  font: inherit;
-  font-size: 0.5625rem;
+  font-family: inherit;
+  font-size: 0.5rem !important; /* 8px — below link 0.6875rem */
   font-weight: 500;
-  letter-spacing: -0.01em;
-  line-height: 1.22;
+  letter-spacing: 0;
+  line-height: 1.15;
   color: var(--footer-ink-soft);
   text-decoration: none;
   text-align: start;
   padding: 0;
+  margin: 0;
   min-height: 0;
   display: inline;
   max-width: 100%;
@@ -1372,10 +1378,13 @@ button.site-footer__install-control,
 
 @media (min-width: 860px) {
   .site-footer__install-control,
+  a.site-footer__install-control,
   button.site-footer__install-control,
+  button.install-app.site-footer__install-control,
+  button.install-app.site-footer__text-link,
   .site-footer__install summary.site-footer__install-control {
-    font-size: 0.625rem;
-    line-height: 1.2;
+    font-size: 0.55rem !important; /* still below link 0.75rem */
+    line-height: 1.15;
   }
 }
 
@@ -1383,21 +1392,13 @@ a.site-footer__install-control:hover,
 a.site-footer__install-control:focus-visible,
 button.site-footer__install-control:hover,
 button.site-footer__install-control:focus-visible,
+button.install-app.site-footer__install-control:hover,
+button.install-app.site-footer__install-control:focus-visible,
 .site-footer__install summary.site-footer__install-control:hover,
 .site-footer__install summary.site-footer__install-control:focus-visible {
   color: var(--color-accent-strong);
   text-decoration: underline;
-  text-underline-offset: 0.2em;
-}
-
-/* PWA install — discreet control (D-0162 / D-0164 / D-0213) */
-button.install-app.site-footer__text-link,
-button.install-app.site-footer__install-control {
-  appearance: none;
-  border: 0;
-  background: transparent;
-  cursor: pointer;
-  font: inherit;
+  text-underline-offset: 0.15em;
 }
 
 .install-app--tip {

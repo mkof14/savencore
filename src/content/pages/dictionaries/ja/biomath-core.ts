@@ -228,4 +228,13 @@ export const dictionary: Record<string, string> = {
   "Purpose": "目的",
   "Technology": "テクノロジー",
   "FAQ": "FAQ",
+  "Architecture / In Development model coverage: 20 categories · 200+ services — not an Operational catalog.": "Architecture / In Development のモデル範囲：20カテゴリ · 200+サービス — Operational カタログではありません。",
+  "What BioMath Core is not": "BioMath Coreではないもの",
+  "Boundaries that match the home clarity statement and category disclaimers — Architecture / In Development only.": "ホームの明確な境界とカテゴリの免責に一致 — Architecture / In Development のみ。",
+  "Not a live storefront or e-commerce catalog.": "ライブの店頭やeコマース・カタログではありません。",
+  "Not medical advice.": "医療アドバイスではありません。",
+  "Not an Operational commercial service list.": "Operational の商用サービス一覧ではありません。",
+  "It does not diagnose conditions, prescribe, or sell medicines.": "診断・処方・医薬品の販売は行いません。",
+  "What it is not": "そうでないもの",
+  "11 min": "11分",
 };

@@ -86,9 +86,10 @@ export function ContactForm({
         body: JSON.stringify({ name, email, subject, message }),
       });
       const result = (await response.json().catch(() => null)) as
-        | { ok?: boolean }
+        | { ok?: boolean; fallback?: string }
         | null;
-      if (response.ok && result?.ok) {
+      // Soft degrade (SMTP unset, rate limit, or send failure) → mailto (D-0243).
+      if (response.ok && result?.ok && result.fallback !== "mailto") {
         setStatus("success");
         return;
       }

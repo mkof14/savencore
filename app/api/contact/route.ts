@@ -2,6 +2,10 @@ import { NextResponse } from "next/server";
 
 import { escapeHtml } from "@/content/admin/email-templates/brand";
 import { isSmtpConfigured, trySendSmtpMail } from "@/lib/admin/smtp";
+import {
+  consumeContactRateLimit,
+  getContactClientKey,
+} from "@/lib/contact-rate-limit";
 
 export const runtime = "nodejs";
 
@@ -14,14 +18,26 @@ function clean(value: unknown, maxLength: number): string {
     .slice(0, maxLength);
 }
 
+function mailtoFallback() {
+  // Soft degrade — same shape as SMTP-unset / send failure (D-0173 / D-0240 / D-0243).
+  // Do not mention rate limits or internal details to the public client.
+  return NextResponse.json({ ok: false, fallback: "mailto" as const });
+}
+
 /**
- * Optional direct-send channel for the Contact form (D-0173 / D-0194).
- * When SMTP_* is unset, or a send attempt fails, the client falls back to
- * mailto so the message still reaches info@savencore.com honestly.
+ * Optional direct-send channel for the Contact form (D-0173 / D-0194 / D-0243).
+ * When SMTP_* is unset, rate-limited, or a send attempt fails, the client falls
+ * back to mailto so the message still reaches info@savencore.com honestly.
  */
 export async function POST(request: Request) {
+  // Soft limit first so bursts degrade to mailto without leaking internals (D-0243).
+  const rate = consumeContactRateLimit(getContactClientKey(request));
+  if (!rate.allowed) {
+    return mailtoFallback();
+  }
+
   if (!isSmtpConfigured()) {
-    return NextResponse.json({ ok: false, fallback: "mailto" as const });
+    return mailtoFallback();
   }
 
   let body: unknown;
@@ -59,10 +75,7 @@ export async function POST(request: Request) {
 
   if (!result.ok) {
     // Do not echo SMTP/transport details to the public client (D-0240).
-    return NextResponse.json({
-      ok: false,
-      fallback: "mailto" as const,
-    });
+    return mailtoFallback();
   }
 
   return NextResponse.json({ ok: true });

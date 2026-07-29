@@ -71,8 +71,8 @@ export const physicalWorldHomeZhCn: PhysicalWorldHomeContent = {
     biomathBridge: {
       eyebrow: "我们是谁",
       title: "BioMath Core → SAVEN",
-      body: "BioMath Core 是人的数据模型的根基——持续汇集并结构化经授权的人类数据，并形成在人类控制下塑造 SAVEN 下一层行动的报告与结论。",
-      scopeLine: "模型覆盖：20 个类别 · 200+ 项服务",
+      body: "BioMath Core 是人的数据模型的根基——持续汇集并结构化经授权的人类数据，并形成在人类控制下塑造 SAVEN 下一层行动的报告与结论。状态仍为 Architecture / In Development。",
+      scopeLine: "模型覆盖：20 个类别 · 200+ 项服务——非 Operational 目录。",
       href: "/foundation/biomath-core/",
       cta: "探索 BioMath Core",
       logoAlt: "BioMath Core",

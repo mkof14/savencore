@@ -27,7 +27,7 @@ type BioMathCorePageProps = {
 };
 
 /**
- * BioMath Core leaf — owner-grade illustration panels in themeable chrome (D-0228–D-0239).
+ * BioMath Core leaf — owner-grade illustration panels in themeable chrome (D-0228–D-0243).
  */
 export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
   const titleId = "bmc-page-title";
@@ -245,6 +245,24 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
               </div>
             </div>
           </div>
+        </section>
+
+        <section
+          id="bmc-what-is-not"
+          className="bmc-page__section bmc-page__what-not"
+          aria-labelledby="bmc-what-is-not-title"
+        >
+          <h2 id="bmc-what-is-not-title" className="bmc-page__section-title">
+            {content.whatIsNot.heading}
+          </h2>
+          <p className="bmc-page__section-support">{content.whatIsNot.support}</p>
+          <ul className="bmc-page__what-not-list">
+            {content.whatIsNot.points.map((point) => (
+              <li key={point} className="bmc-page__what-not-item">
+                {point}
+              </li>
+            ))}
+          </ul>
         </section>
 
         <section

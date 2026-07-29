@@ -796,6 +796,62 @@ html[data-theme="dark"] .bmc-page__blackbox-principles-eyebrow {
   color: var(--color-text-muted);
 }
 
+/* —— What BioMath Core is not (D-0243) —— */
+
+.bmc-page__what-not {
+  margin: 0;
+  padding: clamp(1rem, 2.4vw, 1.35rem) clamp(1rem, 2.6vw, 1.45rem);
+  border: 1px solid color-mix(in srgb, var(--bmc-navy) 14%, var(--color-border));
+  border-inline-start: 3px solid color-mix(in srgb, var(--bmc-orange) 70%, var(--bmc-gold));
+  background:
+    linear-gradient(
+      165deg,
+      color-mix(in srgb, var(--bmc-off) 55%, var(--color-surface)),
+      color-mix(in srgb, var(--bmc-navy) 3%, var(--color-surface))
+    );
+}
+
+html[data-theme="dark"] .bmc-page__what-not {
+  background:
+    linear-gradient(
+      165deg,
+      color-mix(in srgb, var(--bmc-navy) 16%, var(--color-surface)),
+      var(--color-surface)
+    );
+  border-color: color-mix(in srgb, var(--bmc-blue) 20%, var(--color-border));
+}
+
+.bmc-page__what-not .bmc-page__section-title {
+  margin-block-end: 0.35rem;
+}
+
+.bmc-page__what-not .bmc-page__section-support {
+  margin-block-end: 0.85rem;
+}
+
+.bmc-page__what-not-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.bmc-page__what-not-item {
+  margin: 0;
+  padding: 0.65rem 0.8rem;
+  border: 1px solid color-mix(in srgb, var(--bmc-navy) 12%, var(--color-border));
+  background: color-mix(in srgb, var(--color-surface) 88%, transparent);
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: var(--color-text);
+}
+
+html[data-theme="dark"] .bmc-page__what-not-item {
+  background: color-mix(in srgb, var(--bmc-navy) 12%, var(--color-surface));
+  border-color: color-mix(in srgb, var(--bmc-blue) 18%, var(--color-border));
+}
+
 /* —— Capability illustration panels (D-0234 / D-0238) —— */
 
 .bmc-viz {
@@ -1145,8 +1201,13 @@ html[data-theme="dark"] .bmc-figure__formula-op {
 
   .bmc-page__toc-link,
   .bmc-page__blackbox-policy-link,
-  .bmc-page__path-link {
+  .bmc-page__path-link,
+  .bmc-page__category-card {
     transition: none;
+  }
+
+  .bmc-page__hero-glow {
+    filter: none;
   }
 }
 
@@ -1238,6 +1299,11 @@ html[data-theme="dark"] .bmc-sequence__step--emphasis .bmc-sequence__label {
 @media (max-width: 960px) {
   .bmc-page__blackbox-layout {
     grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .bmc-viz--blackbox {
+    order: -1;
   }
 
   .bmc-viz--blackbox .bmc-figure {
@@ -1254,12 +1320,21 @@ html[data-theme="dark"] .bmc-sequence__step--emphasis .bmc-sequence__label {
   .bmc-sequence__list {
     grid-template-columns: 1fr 1fr;
   }
+
+  .bmc-page__what-not-list {
+    gap: 0.5rem;
+  }
 }
 
 @media (max-width: 720px) {
   .bmc-page {
-    --bmc-diagram-max: 100%;
-    --bmc-diagram-narrow: 100%;
+    --bmc-diagram-max: min(100%, 22.5rem);
+    --bmc-diagram-narrow: min(100%, 20rem);
+  }
+
+  .bmc-page__body {
+    gap: clamp(1.15rem, 4vw, 1.65rem);
+    padding-inline: clamp(0.95rem, 4vw, 1.5rem);
   }
 
   .bmc-page__hero-inner {
@@ -1268,7 +1343,7 @@ html[data-theme="dark"] .bmc-sequence__step--emphasis .bmc-sequence__label {
 
   .bmc-page__hero-visual {
     order: -1;
-    max-width: 22rem;
+    max-width: 20rem;
   }
 
   .bmc-page__title {
@@ -1276,35 +1351,48 @@ html[data-theme="dark"] .bmc-sequence__step--emphasis .bmc-sequence__label {
   }
 
   .bmc-page__toc {
-    padding: 0.75rem 0.8rem;
+    padding: 0.7rem 0.75rem;
   }
 
   .bmc-page__toc-list {
-    gap: 0.35rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
   }
 
   .bmc-page__toc-link {
-    min-height: 2.25rem;
+    min-height: 2.5rem;
     font-size: 0.75rem;
-    padding: 0.32rem 0.5rem;
+    padding: 0.4rem 0.65rem;
+    display: inline-flex;
+    align-items: center;
   }
 
   .bmc-page__section[id] {
     scroll-margin-block-start: 4.75rem;
   }
 
+  .bmc-viz {
+    margin-block-start: 0.55rem;
+  }
+
+  .bmc-figure__frame {
+    box-shadow: 0 6px 16px color-mix(in srgb, var(--bmc-navy) 10%, transparent);
+  }
+
   .bmc-page__category-artboard {
-    padding: 0.65rem;
+    padding: 0.55rem;
     margin-inline: 0;
     max-width: 100%;
   }
 
   .bmc-page__category-grid {
-    gap: 0.55rem;
+    gap: 0.65rem;
   }
 
   .bmc-page__category-card {
-    padding: 0.75rem 0.7rem;
+    padding: 0.85rem 0.8rem;
+    min-height: 6.5rem;
   }
 
   .bmc-page__category-label {
@@ -1317,6 +1405,22 @@ html[data-theme="dark"] .bmc-sequence__step--emphasis .bmc-sequence__label {
 
   .bmc-page__blackbox-policies-intro {
     font-size: 0.78rem;
+  }
+
+  .bmc-page__blackbox-policy-link,
+  .bmc-page__path-link {
+    min-height: 2.75rem;
+    padding-block: 0.55rem;
+  }
+
+  .bmc-page__what-not {
+    padding: 0.85rem 0.9rem;
+  }
+
+  .bmc-page__what-not-item {
+    padding: 0.75rem 0.85rem;
+    min-height: 2.75rem;
+    font-size: 0.875rem;
   }
 
   .bmc-figure__stack-meta,

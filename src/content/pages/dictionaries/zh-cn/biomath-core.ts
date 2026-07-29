@@ -228,4 +228,13 @@ export const dictionary: Record<string, string> = {
   "Purpose": "宗旨",
   "Technology": "技术",
   "FAQ": "常见问题",
+  "Architecture / In Development model coverage: 20 categories · 200+ services — not an Operational catalog.": "Architecture / In Development 模型覆盖：20 个类别 · 200+ 项服务——非 Operational 目录。",
+  "What BioMath Core is not": "BioMath Core 不是什么",
+  "Boundaries that match the home clarity statement and category disclaimers — Architecture / In Development only.": "与首页澄清与类别免责声明一致的边界——仅为 Architecture / In Development。",
+  "Not a live storefront or e-commerce catalog.": "不是线上店面或电商目录。",
+  "Not medical advice.": "不是医疗建议。",
+  "Not an Operational commercial service list.": "不是 Operational 商业服务清单。",
+  "It does not diagnose conditions, prescribe, or sell medicines.": "不诊断病症、不开具处方、不销售药品。",
+  "What it is not": "它不是",
+  "11 min": "11 分钟",
 };

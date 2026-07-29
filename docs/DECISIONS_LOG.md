@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-29 (D-0242 — i18n audit — BioMath Core + public UI chrome)
+**Last updated:** 2026-07-29 (D-0243 — Contact rate limit + BMC polish / what-is-not + home sync)
 
 ## Rules
 
@@ -258,6 +258,7 @@
 | D-0240 | 2026-07-29 | Security / SEO / Marketing hygiene | Active |
 | D-0241 | 2026-07-29 | Performance / Downloads / critical-path speed | Active |
 | D-0242 | 2026-07-29 | i18n audit — BioMath Core + public UI chrome | Active |
+| D-0243 | 2026-07-29 | Contact rate limit + BMC mobile / what-is-not / home sync | Active |
 
 ---
 
@@ -2431,6 +2432,22 @@
 - **In scope:** `src/content/pages/dictionaries/*/biomath-core.ts`; `src/i18n/ui/{es,de,fr,ja,zh-cn,ar,he,ru,uk}.ts`; D-0242 entry; type-check; commit/push/Vercel prod.
 - **Out of scope:** New page-body localization campaigns; inventing legal/medical claims; Admin full translation; changing English source copy; CMS/analytics/CMP.
 - **Implications:** Published BioMath Continue exploring / Trust soft-links and public footer labels no longer silently English in localized chrome after D-0239. Residual: Admin English leftovers; home ja/zh-cn clarity structure already localized for biomath bridge; native QA still advised.
+
+### D-0243 — Contact rate limit + BMC mobile / what-is-not / home sync
+
+- **Date:** 2026-07-29
+- **Status:** Active
+- **Summary:** Owner «делай, что сможешь» — ship doable advisory residuals: soft Contact API rate limit with mailto degrade, BioMath Core mobile polish, concise “What BioMath Core is not,” home↔BMC messaging sync, focused translation pass. Skip LinkedIn URL, CSP nonce migration, CMP/analytics, and invented Operational/legal claims.
+- **Decision:**
+  1. **Contact rate limit** — Soft in-memory IP-keyed limit (5 / 15 min / process) on `/api/contact`; when exceeded (or SMTP unset/fail), return the same `{ ok: false, fallback: "mailto" }` shape — no internals leaked (extends D-0240 soft-degrade).
+  2. **BMC mobile polish** — TOC touch targets, Black Box two-column→stack (diagram first), smaller diagram max-widths, category artboard spacing, path/policy touch height; verify/extend `prefers-reduced-motion` (helix, card transform, transitions, hero glow filter).
+  3. **What BioMath Core is not** — Concise themed block after Black Box (storefront / medical advice / Operational catalog / diagnose·prescribe·sell medicines) + TOC anchor; align with existing category disclaimer and home “What we are not.”
+  4. **Home ↔ BMC sync** — BioMath bridge body/scopeLine state Architecture / In Development and not-Operational; BMC reports scopeLine matches the same honesty frame (reports→SAVEN actions unchanged).
+  5. **i18n** — EN canonical + 9-locale dictionaries for new keys; agent-best-effort quality touch on ru/uk/ar/he recent BMC strings; home bridge localized in all 10 locales.
+  6. **Deferred** — LinkedIn (needs owner URL); CSP nonce full migration; care-carousel dual-asset re-encode (already lean ~75–167 KB; skip as low ROI); CMS/analytics/CMP.
+- **In scope:** Contact route + rate-limit helper + ContactForm; BioMathCore page/CSS/EN + dictionaries; home physical-world locales; D-0243 + AGENTS / SITE_ASSIGNMENT pointer; prove rate-limit logic + local/prod 200; commit/push/Vercel prod.
+- **Out of scope:** LinkedIn; CSP nonce migration; new leaves; Operational/medical/legal invention; rewriting D-0240–D-0242.
+- **Implications:** Contact spam bursts soft-degrade without confusing the honest mailto path; BMC boundaries and mobile reading improve without IA expansion. Residual: per-instance memory limit (not edge WAF); CSP `'unsafe-inline'`/`'unsafe-eval'` remains; LinkedIn owner-pending; native translation QA still advised.
 
 ## Pending Owner Decisions
 

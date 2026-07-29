@@ -7,10 +7,11 @@ import {
 } from "@/content/biomath-core/scope";
 
 /**
- * BioMath Core leaf page — D-0228–D-0239.
+ * BioMath Core leaf page — D-0228–D-0243.
  * Architecture / In Development model coverage — not an Operational catalog.
  * D-0238: harmonious smaller diagram panels + Black Box sensitive-data storage intent.
  * D-0239: Black Box → Trust/Legal soft links; TOC; Trust in Continue exploring; no card counts.
+ * D-0243: concise “What BioMath Core is not”; mobile polish; home bridge wording sync.
  */
 
 export type BioMathCoreSequenceStep = {
@@ -203,6 +204,11 @@ export type BioMathCorePageContent = {
     body: string;
     scopeLine: string;
   };
+  whatIsNot: {
+    heading: string;
+    support: string;
+    points: readonly string[];
+  };
   catalog: {
     heading: string;
     support: string;
@@ -232,9 +238,9 @@ export const biomathCorePageContent: BioMathCorePageContent = {
     category: "Foundation",
     documentType: "Knowledge",
     status: "Architecture",
-    version: "0.7",
+    version: "0.8",
     lastUpdated: "2026-07-29",
-    readingTime: "10 min",
+    readingTime: "11 min",
     relatedDomain: "Foundation, Human Data Model, SAVEN",
   },
   label: "Foundation",
@@ -590,7 +596,18 @@ export const biomathCorePageContent: BioMathCorePageContent = {
     eyebrow: "BioMath Core → SAVEN",
     title: "Reports shape next-level actions",
     body: "Information for SAVEN’s next-level actions and commands is formed from BioMath Core reports and conclusions — under human control. Reports inform assistance and command architecture; they do not diagnose conditions, prescribe, or sell medicines.",
-    scopeLine: `Model coverage: ${BIOMATH_CORE_CATEGORY_COUNT} categories · ${BIOMATH_CORE_SERVICES_LABEL} services`,
+    scopeLine: `Architecture / In Development model coverage: ${BIOMATH_CORE_CATEGORY_COUNT} categories · ${BIOMATH_CORE_SERVICES_LABEL} services — not an Operational catalog.`,
+  },
+  whatIsNot: {
+    heading: "What BioMath Core is not",
+    support:
+      "Boundaries that match the home clarity statement and category disclaimers — Architecture / In Development only.",
+    points: [
+      "Not a live storefront or e-commerce catalog.",
+      "Not medical advice.",
+      "Not an Operational commercial service list.",
+      "It does not diagnose conditions, prescribe, or sell medicines.",
+    ],
   },
   catalog: {
     heading: "Complete Services Catalog",
@@ -664,6 +681,7 @@ export const biomathCorePageContent: BioMathCorePageContent = {
       { id: "bmc-engine", label: "Engine" },
       { id: "bmc-opinion", label: "Second Opinion" },
       { id: "bmc-blackbox", label: "Black Box" },
+      { id: "bmc-what-is-not", label: "What it is not" },
       { id: "bmc-output", label: "Output" },
       { id: "bmc-formula", label: "Formula" },
       { id: "bmc-envs", label: "Environments" },

@@ -228,4 +228,13 @@ export const dictionary: Record<string, string> = {
   "Purpose": "Zweck",
   "Technology": "Technologie",
   "FAQ": "FAQ",
+  "Architecture / In Development model coverage: 20 categories · 200+ services — not an Operational catalog.": "Architecture / In Development Modellabdeckung: 20 Kategorien · 200+ Dienste — kein Operational-Katalog.",
+  "What BioMath Core is not": "Was BioMath Core nicht ist",
+  "Boundaries that match the home clarity statement and category disclaimers — Architecture / In Development only.": "Grenzen, die mit Home-Klarheit und Kategorie-Hinweisen übereinstimmen — nur Architecture / In Development.",
+  "Not a live storefront or e-commerce catalog.": "Kein Live-Schaufenster und kein E-Commerce-Katalog.",
+  "Not medical advice.": "Keine medizinische Beratung.",
+  "Not an Operational commercial service list.": "Keine Operational kommerzielle Dienstliste.",
+  "It does not diagnose conditions, prescribe, or sell medicines.": "Es diagnostiziert keine Erkrankungen, verschreibt keine und verkauft keine Arzneimittel.",
+  "What it is not": "Was es nicht ist",
+  "11 min": "11 Min.",
 };

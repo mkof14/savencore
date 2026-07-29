@@ -71,8 +71,8 @@ export const physicalWorldHomeUk: PhysicalWorldHomeContent = {
     biomathBridge: {
       eyebrow: "Хто ми",
       title: "BioMath Core → SAVEN",
-      body: "BioMath Core — фундамент Моделі даних людини: безперервний контекст, що збирає й структурує авторизовані людські дані та формує звіти й висновки, які задають дії SAVEN наступного рівня під контролем людини.",
-      scopeLine: "Охоплення моделі: 20 категорій · 200+ сервісів",
+      body: "BioMath Core — фундамент Моделі даних людини: безперервний контекст, що збирає й структурує авторизовані людські дані та формує звіти й висновки, які задають дії SAVEN наступного рівня під контролем людини. Статус залишається Architecture / In Development.",
+      scopeLine: "Охоплення моделі: 20 категорій · 200+ сервісів — не каталог Operational.",
       href: "/foundation/biomath-core/",
       cta: "Дослідити BioMath Core",
       logoAlt: "BioMath Core",

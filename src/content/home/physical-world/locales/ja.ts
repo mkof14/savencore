@@ -71,8 +71,8 @@ export const physicalWorldHomeJa: PhysicalWorldHomeContent = {
     biomathBridge: {
       eyebrow: "私たちについて",
       title: "BioMath Core → SAVEN",
-      body: "BioMath Coreは人に関するデータのモデルの基盤です——認可された人間データを集め構造化する継続的なコンテキストであり、人の制御のもとでSAVENの次レベルの行動を形づくるレポートと結論を形成します。",
-      scopeLine: "モデル範囲：20カテゴリ · 200+サービス",
+      body: "BioMath Coreは人に関するデータのモデルの基盤です——認可された人間データを集め構造化する継続的なコンテキストであり、人の制御のもとでSAVENの次レベルの行動を形づくるレポートと結論を形成します。ステータスは Architecture / In Development のままです。",
+      scopeLine: "モデル範囲：20カテゴリ · 200+サービス — Operational カタログではありません。",
       href: "/foundation/biomath-core/",
       cta: "BioMath Coreを探る",
       logoAlt: "BioMath Core",

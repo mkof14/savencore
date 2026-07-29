@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-29 (D-0234 — BioMath Core rich illustration panels)
+**Last updated:** 2026-07-29 (D-0235 — BioMath Core unified English diagram series)
 
 ## Rules
 
@@ -249,7 +249,8 @@
 | D-0231 | 2026-07-29 | BioMath Core owner capability images on leaf | Partially superseded by D-0232 (native components primary) |
 | D-0232 | 2026-07-29 | BioMath Core site-native themeable components | Partially superseded by D-0234 (rich illustration panels primary) |
 | D-0233 | 2026-07-29 | Living Model + Four-layer stack visual redesign | Partially superseded by D-0234 (owner-grade panels replace primitive SVG primacy) |
-| D-0234 | 2026-07-29 | BioMath Core rich illustration panels | Active |
+| D-0234 | 2026-07-29 | BioMath Core rich illustration panels | Active; refined by D-0235 (unified English diagram series) |
+| D-0235 | 2026-07-29 | BioMath Core unified English diagram series | Active |
 
 ---
 
@@ -2291,7 +2292,7 @@
 ### D-0234 — BioMath Core rich illustration panels (owner sample quality)
 
 - **Date:** 2026-07-29
-- **Status:** Active
+- **Status:** Active; refined by D-0235
 - **Summary:** Owner rejected D-0232/D-0233 primitive CSS/SVG wireframes as too thin (“примитивно”). BioMath Core capability sections must present **owner-grade dense illustrative panels** matching sample quality — wrapped in **themeable site chrome** (frames, captions, English legends/status) — not childish stick-figure diagrams and not a single full-page dark poster dump.
 - **Decision:**
   1. **Primary visual weight** — Optimized WebP/PNG illustration assets under `public/domain/foundation/biomath-core/diagrams/` (from owner samples + prior D-0231 English capability art). Each figure sits in a framed light or dark artboard panel with English HTML caption/legend.
@@ -2303,6 +2304,21 @@
 - **In scope:** Diagram assets; BioMathCorePage / Visuals / CSS / EN content + dictionaries; D-0234 + AGENTS / SITE_ASSIGNMENT; type-check; local :3000; commit/push/Vercel prod; owner brief.
 - **Out of scope:** Operational catalog; inventing clinical/product claims; restoring primitive SVG as primary capability UI; orbital wallpaper as category primary.
 - **Implications:** BioMath Core leaf must read as premium technical illustration panels with site chrome — visibly closer to owner samples than to simplified wireframes.
+
+### D-0235 — BioMath Core unified English diagram series
+
+- **Date:** 2026-07-29
+- **Status:** Active
+- **Summary:** Owner requested Engine redraw with **English-only** on-image text (prior asset still had Russian title) and a **single coherent visual language** across BioMath Core diagram panels (not mismatched sample dumps).
+- **Decision:**
+  1. **Engine redraw** — `engine-phases.webp` retitled **BioMath Core Engine: 3 Simulation Phases** with English phase labels (Input / Core / Output). Concept preserved: biometric data tags → glowing core → living digital human model. No Russian/Cyrillic on-image.
+  2. **Unified series** — Regenerated matching WebP set under `public/domain/foundation/biomath-core/diagrams/`: Living Model, Four-layer stack, Dual roles, Engine, Second Opinion, Black Box, Output pillars, Formula, Environments. Shared color grammar (deep navy + cyan/orange accents; light blueprint siblings for conceptual panels; dark technical artboards for process panels), consistent framing/typography, straight corners.
+  3. **Chrome** — Themeable site frames/captions/HTML legends remain (D-0234). On-image English is now the primary label language for Engine and sibling panels; HTML legends stay localized.
+  4. **Governance** — Architecture / In Development honesty unchanged; no Operational/medical claim invention; no invented KPI dashboards as primary meaning.
+  5. **Cleanup** — Unused leftover sibling assets not wired in code (`formula-master`, `second-opinion-dual-model`, `second-opinion-tubes`) removed.
+- **In scope:** Diagram WebPs; BioMathCoreVisuals dimensions; EN caption + locale dictionaries; D-0235 + AGENTS / SITE_ASSIGNMENT; verify local + prod; commit/push/Vercel prod.
+- **Out of scope:** Changing IA/nav; inventing Operational products; restoring Russian on-image text.
+- **Implications:** BioMath Core diagrams must read as one illustration family with English on-image labels where text is baked into art.
 
 ## Pending Owner Decisions
 

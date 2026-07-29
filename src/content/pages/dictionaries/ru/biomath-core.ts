@@ -170,7 +170,7 @@ export const dictionary: Record<string, string> = {
   "BioMath Core context engine and SAVEN execution layer as interlocking dual roles": "Движок контекста BioMath Core и слой исполнения SAVEN как взаимосвязанные двойные роли",
   "Illustrative architecture panel: context and execution must interlock for continuous care.": "Иллюстративная архитектурная панель: контекст и исполнение должны сцепляться для непрерывной заботы.",
   "BioMath Core engine — three simulation phases from tagged input through glowing core to digital living human model": "Движок BioMath Core — три фазы симуляции от размеченного входа через светящееся ядро к цифровой живой модели человека",
-  "Illustrative architecture panel: Input → Core → Output (English legend below; Architecture only).": "Иллюстративная архитектурная панель: Input → Core → Output (английская легенда ниже; только Architecture).",
+  "Illustrative architecture panel: Input → Core → Output — English labels on the diagram; Architecture only.": "Иллюстративная архитектурная панель: Input → Core → Output — английские подписи на схеме; только Architecture.",
   "The Dual-Opinion Cognitive Engine — New Signal splits into Local and Systemic opinions, then Unified Conclusion": "Когнитивный движок двойного мнения — новый сигнал делится на локальное и системное мнения, затем единое заключение",
   "One unified Second Opinion architecture: parallel local + systemic reading → verified / unified conclusion.": "Единая архитектура Second Opinion: параллельное локальное + системное чтение → проверенное / единое заключение.",
   "Local Opinion": "Локальное мнение",

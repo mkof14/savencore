@@ -80,8 +80,8 @@ export function LivingModelVisual({
       <DiagramFigure
         src={`${DIAGRAM_BASE}/living-model.webp`}
         alt={visualLabel}
-        width={1024}
-        height={559}
+        width={1536}
+        height={1024}
         caption={caption}
         artboard="light"
         priority
@@ -121,8 +121,8 @@ export function LayerStackVisual({
       <DiagramFigure
         src={`${DIAGRAM_BASE}/layer-stack.webp`}
         alt={visualLabel}
-        width={1024}
-        height={533}
+        width={1536}
+        height={1024}
         caption={caption}
         artboard="light"
       >
@@ -170,8 +170,8 @@ export function DualRolesVisual({
       <DiagramFigure
         src={`${DIAGRAM_BASE}/dual-roles.webp`}
         alt={visualLabel}
-        width={1024}
-        height={560}
+        width={1536}
+        height={1024}
         caption={caption}
         artboard="light"
       >
@@ -213,8 +213,8 @@ export function EngineVisual({ visualLabel, caption, phases }: EngineVisualProps
       <DiagramFigure
         src={`${DIAGRAM_BASE}/engine-phases.webp`}
         alt={visualLabel}
-        width={1024}
-        height={438}
+        width={1536}
+        height={1024}
         caption={caption}
         artboard="dark"
       >
@@ -259,8 +259,8 @@ export function SecondOpinionVisual({
       <DiagramFigure
         src={`${DIAGRAM_BASE}/second-opinion.webp`}
         alt={visualLabel}
-        width={1024}
-        height={567}
+        width={1536}
+        height={1024}
         caption={caption}
         artboard="dark"
       >
@@ -297,8 +297,8 @@ export function BlackBoxVisual({ visualLabel, caption, sides }: BlackBoxVisualPr
       <DiagramFigure
         src={`${DIAGRAM_BASE}/black-box.webp`}
         alt={visualLabel}
-        width={799}
-        height={699}
+        width={1024}
+        height={1024}
         caption={caption}
         artboard="dark"
       >
@@ -336,8 +336,8 @@ export function OutputVisual({
       <DiagramFigure
         src={`${DIAGRAM_BASE}/output-pillars.webp`}
         alt={visualLabel}
-        width={1024}
-        height={581}
+        width={1536}
+        height={1024}
         caption={caption}
         artboard="dark"
       >
@@ -380,8 +380,8 @@ export function FormulaVisual({
       <DiagramFigure
         src={`${DIAGRAM_BASE}/formula.webp`}
         alt={visualLabel}
-        width={1024}
-        height={554}
+        width={1536}
+        height={1024}
         caption={caption}
         artboard="light"
       >
@@ -428,8 +428,8 @@ export function EnvironmentsVisual({
       <DiagramFigure
         src={`${DIAGRAM_BASE}/environments.webp`}
         alt={visualLabel}
-        width={1024}
-        height={568}
+        width={1536}
+        height={1024}
         caption={caption}
         artboard="light"
       >

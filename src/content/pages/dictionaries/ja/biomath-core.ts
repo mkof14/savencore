@@ -171,7 +171,7 @@ export const dictionary: Record<string, string> = {
   "Illustrative architecture panel: one living model at the center of continuous human context.": "説明用アーキテクチャパネル：連続する人間コンテキストの中心にある一つのリビングモデル。",
   "Illustrative architecture panel: four governed layers from philosophy to physical bodies.": "説明用アーキテクチャパネル：哲学から身体までの4つの統治レイヤー。",
   "Illustrative architecture panel: context and execution must interlock for continuous care.": "説明用アーキテクチャパネル：継続ケアのためにコンテキストと実行が連動する必要がある。",
-  "Illustrative architecture panel: Input → Core → Output (English legend below; Architecture only).": "説明用アーキテクチャパネル：Input → Core → Output（下記英語凡例；Architectureのみ）。",
+  "Illustrative architecture panel: Input → Core → Output — English labels on the diagram; Architecture only.": "説明用アーキテクチャパネル：Input → Core → Output — 図中は英語ラベル；Architectureのみ。",
   "One unified Second Opinion architecture: parallel local + systemic reading → verified / unified conclusion.": "統合されたSecond Opinionアーキテクチャ：並列のローカル＋システム読取 → 検証／統合結論。",
   "Illustrative architecture panel: living intelligence and protective control inside one governed glass volume.": "説明用アーキテクチャパネル：統治されたガラス体積内のリビング知能と保護制御。",
   "Illustrative architecture panel: five structured-understanding pillars — not generic advice.": "説明用アーキテクチャパネル：構造化された理解の5本柱 — 一般的な助言ではない。",

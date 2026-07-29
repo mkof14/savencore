@@ -171,7 +171,7 @@ export const dictionary: Record<string, string> = {
   "Illustrative architecture panel: one living model at the center of continuous human context.": "لوحة معمارية توضيحية: نموذج حي واحد في مركز السياق البشري المستمر.",
   "Illustrative architecture panel: four governed layers from philosophy to physical bodies.": "لوحة معمارية توضيحية: أربع طبقات محكومة من الفلسفة إلى الأجسام المادية.",
   "Illustrative architecture panel: context and execution must interlock for continuous care.": "لوحة معمارية توضيحية: يجب أن يتشابك السياق والتنفيذ للرعاية المستمرة.",
-  "Illustrative architecture panel: Input → Core → Output (English legend below; Architecture only).": "لوحة معمارية توضيحية: Input → Core → Output (مفتاح إنجليزي أدناه؛ Architecture فقط).",
+  "Illustrative architecture panel: Input → Core → Output — English labels on the diagram; Architecture only.": "لوحة معمارية توضيحية: Input → Core → Output — تسميات إنجليزية على المخطط؛ Architecture فقط.",
   "One unified Second Opinion architecture: parallel local + systemic reading → verified / unified conclusion.": "بنية Second Opinion موحّدة: قراءة محلية + منظومية متوازية ← استنتاج موثّق / موحّد.",
   "Illustrative architecture panel: living intelligence and protective control inside one governed glass volume.": "لوحة معمارية توضيحية: ذكاء حي وتحكم وقائي داخل حجم زجاجي محكوم واحد.",
   "Illustrative architecture panel: five structured-understanding pillars — not generic advice.": "لوحة معمارية توضيحية: خمسة أعمدة للفهم المنظَّم — ليست نصائح عامة.",

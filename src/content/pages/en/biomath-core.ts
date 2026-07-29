@@ -208,7 +208,7 @@ export const biomathCorePageContent: BioMathCorePageContent = {
     category: "Foundation",
     documentType: "Knowledge",
     status: "Architecture",
-    version: "0.5",
+    version: "0.6",
     lastUpdated: "2026-07-29",
     readingTime: "10 min",
     relatedDomain: "Foundation, Human Data Model, SAVEN",
@@ -311,7 +311,7 @@ export const biomathCorePageContent: BioMathCorePageContent = {
     visualLabel:
       "BioMath Core engine — three simulation phases from tagged input through glowing core to digital living human model",
     caption:
-      "Illustrative architecture panel: Input → Core → Output (English legend below; Architecture only).",
+      "Illustrative architecture panel: Input → Core → Output — English labels on the diagram; Architecture only.",
     phases: [
       {
         id: "input",

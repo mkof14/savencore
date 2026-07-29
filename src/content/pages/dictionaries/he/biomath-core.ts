@@ -171,7 +171,7 @@ export const dictionary: Record<string, string> = {
   "Illustrative architecture panel: one living model at the center of continuous human context.": "לוח ארכיטקטורה מאייר: מודל חי אחד במרכז הקשר האנושי הרציף.",
   "Illustrative architecture panel: four governed layers from philosophy to physical bodies.": "לוח ארכיטקטורה מאייר: ארבע שכבות מנוהלות מהפילוסופיה לגופים פיזיים.",
   "Illustrative architecture panel: context and execution must interlock for continuous care.": "לוח ארכיטקטורה מאייר: הקשר והביצוע חייבים להינעל זה בזה לטיפול רציף.",
-  "Illustrative architecture panel: Input → Core → Output (English legend below; Architecture only).": "לוח ארכיטקטורה מאייר: Input → Core → Output (מקרא באנגלית למטה; Architecture בלבד).",
+  "Illustrative architecture panel: Input → Core → Output — English labels on the diagram; Architecture only.": "לוח ארכיטקטורה מאייר: Input → Core → Output — תוויות באנגלית על התרשים; Architecture בלבד.",
   "One unified Second Opinion architecture: parallel local + systemic reading → verified / unified conclusion.": "ארכיטקטורת Second Opinion מאוחדת: קריאה מקומית + מערכתית במקביל ← מסקנה מאומתת / מאוחדת.",
   "Illustrative architecture panel: living intelligence and protective control inside one governed glass volume.": "לוח ארכיטקטורה מאייר: אינטליגנציה חיה ובקרה מגינה בתוך נפח זכוכית מנוהל אחד.",
   "Illustrative architecture panel: five structured-understanding pillars — not generic advice.": "לוח ארכיטקטורה מאייר: חמישה עמודי הבנה מובנית — לא עצות כלליות.",

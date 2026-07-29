@@ -171,7 +171,7 @@ export const dictionary: Record<string, string> = {
   "Illustrative architecture panel: one living model at the center of continuous human context.": "示意架构面板：处于连续人类语境中心的单一活体模型。",
   "Illustrative architecture panel: four governed layers from philosophy to physical bodies.": "示意架构面板：从哲学到实体的四层受控结构。",
   "Illustrative architecture panel: context and execution must interlock for continuous care.": "示意架构面板：语境与执行必须互锁以实现持续照护。",
-  "Illustrative architecture panel: Input → Core → Output (English legend below; Architecture only).": "示意架构面板：Input → Core → Output（下方英文图例；仅 Architecture）。",
+  "Illustrative architecture panel: Input → Core → Output — English labels on the diagram; Architecture only.": "示意架构面板：Input → Core → Output — 图内英文标签；仅 Architecture。",
   "One unified Second Opinion architecture: parallel local + systemic reading → verified / unified conclusion.": "统一的 Second Opinion 架构：并行局部 + 系统读取 → 已验证 / 统一结论。",
   "Illustrative architecture panel: living intelligence and protective control inside one governed glass volume.": "示意架构面板：受控玻璃体中的活体智能与保护控制。",
   "Illustrative architecture panel: five structured-understanding pillars — not generic advice.": "示意架构面板：结构化理解的五根支柱——非通用建议。",

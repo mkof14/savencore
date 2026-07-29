@@ -171,7 +171,7 @@ export const dictionary: Record<string, string> = {
   "Illustrative architecture panel: one living model at the center of continuous human context.": "Panel de arquitectura ilustrativo: un modelo vivo en el centro del contexto humano continuo.",
   "Illustrative architecture panel: four governed layers from philosophy to physical bodies.": "Panel de arquitectura ilustrativo: cuatro capas gobernadas de la filosofía a los cuerpos físicos.",
   "Illustrative architecture panel: context and execution must interlock for continuous care.": "Panel de arquitectura ilustrativo: contexto y ejecución deben entrelazarse para el cuidado continuo.",
-  "Illustrative architecture panel: Input → Core → Output (English legend below; Architecture only).": "Panel de arquitectura ilustrativo: Input → Core → Output (leyenda en inglés abajo; solo Architecture).",
+  "Illustrative architecture panel: Input → Core → Output — English labels on the diagram; Architecture only.": "Panel de arquitectura ilustrativo: Input → Core → Output — etiquetas en inglés en el diagrama; solo Architecture.",
   "One unified Second Opinion architecture: parallel local + systemic reading → verified / unified conclusion.": "Una arquitectura Second Opinion unificada: lectura local + sistémica en paralelo → conclusión verificada / unificada.",
   "Illustrative architecture panel: living intelligence and protective control inside one governed glass volume.": "Panel de arquitectura ilustrativo: inteligencia viva y control protector dentro de un volumen de vidrio gobernado.",
   "Illustrative architecture panel: five structured-understanding pillars — not generic advice.": "Panel de arquitectura ilustrativo: cinco pilares de comprensión estructurada — no consejos genéricos.",

@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-29 (D-0225 — Explore SAVEN cinematic letter showcase)
+**Last updated:** 2026-07-29 (D-0226 — Explore SAVEN compact tabs polish)
 
 ## Rules
 
@@ -241,6 +241,7 @@
 | D-0223 | 2026-07-29 | Restore always-visible footer Install app; match column link type | Active |
 | D-0224 | 2026-07-29 | Fix Install app help UX (no bare Close); restore media downloads | Active |
 | D-0225 | 2026-07-29 | Explore SAVEN cinematic letter showcase (clarity band) | Active |
+| D-0226 | 2026-07-29 | Explore SAVEN: larger letter tabs + compact band | Active |
 
 ---
 
@@ -2153,6 +2154,19 @@
 - **In scope:** `ExploreSavenShowcase`, `HomeClarityPack`, closing rail label tweak, explore letter WebPs, home CSS, D-0225 + AGENTS / SITE_ASSIGNMENT / IA; type-check; commit/push/Vercel prod; local `:3000`; Russian owner brief.
 - **Out of scope:** Inventing claims; neon outside this band; CMS; changing pillar destinations; ungating when `HOME_CLARITY_V1` is off.
 - **Implications:** Narrow glow exception (with D-0217/D-0218 closing wordmark) for clarity Explore letter band only. Compact pre-D-0225 Explore cards remain unused while clarity is on.
+
+### D-0226 — Explore SAVEN larger letter tabs + compact band
+
+- **Date:** 2026-07-29
+- **Status:** Active
+- **Summary:** Owner feedback on D-0225: letter buttons must read as obvious clickable controls (larger hit targets, stronger hover/selected navy–gold chrome); the whole clarity Explore band must be shorter/more compact (tighter padding, denser title+logo row, cropped/smaller letter heroes). Keep site style — no neon spam.
+- **Decision:**
+  1. **Letter tab affordance** — Enlarge S–A–V–E–N letter badges and tab min-height; stronger gold/navy active fill and hover ring; preserve `role="tablist"` / arrow-key / Home–End keyboard behavior.
+  2. **Compact section** — Reduce section padding, inner gaps, title/logo scale, panel padding; cap letter visual height (~13.5rem desktop / ~11.5rem mobile) with `object-fit: cover` crop; slightly denser copy/CTA.
+  3. **Glow scope unchanged** — Contained soft glow remains inside `.pw-explore-saven` only (D-0225).
+- **In scope:** `ExploreSavenShowcase`, explore-saven CSS in `physical-world-home.css`, D-0226 + AGENTS / SITE_ASSIGNMENT / IA; type-check; commit/push/Vercel prod; local `:3000`; Russian owner brief.
+- **Out of scope:** New letter assets; neon outside this band; changing pillar routes/copy; ungating when `HOME_CLARITY_V1` is off.
+- **Implications:** D-0225 layout remains; density and tab chrome are refined for scanability and vertical budget.
 
 ## Pending Owner Decisions
 

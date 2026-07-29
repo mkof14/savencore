@@ -23,7 +23,7 @@ type HomeClarityPackProps = {
 
 /**
  * Reversible homepage clarity blocks (D-0219 / denser D-0220 / visual D-0221).
- * Explore SAVEN uses cinematic letter panels (D-0225).
+ * Explore SAVEN uses cinematic letter panels (D-0225 / D-0226).
  * Gated by `HOME_CLARITY_V1_ENABLED` — returns null when the flag is off.
  * V2 adds navy/gold/off-white card grammar while keeping support copy visible.
  */

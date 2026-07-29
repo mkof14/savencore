@@ -51,8 +51,8 @@ type ExploreSavenShowcaseProps = {
 };
 
 /**
- * Clarity Explore SAVEN — cinematic letter panels (D-0225).
- * Gated by parent HomeClarityPack / HOME_CLARITY_V1.
+ * Clarity Explore SAVEN — cinematic letter panels (D-0225 / D-0226).
+ * Larger letter tabs + compact band. Gated by HomeClarityPack / HOME_CLARITY_V1.
  * Contained glow only inside this dark band.
  */
 export function ExploreSavenShowcase({
@@ -99,8 +99,8 @@ export function ExploreSavenShowcase({
             <Image
               src="/brand/saven-logo-mark.webp"
               alt=""
-              width={48}
-              height={65}
+              width={36}
+              height={49}
               className="pw-explore-saven__logo"
               draggable={false}
             />
@@ -178,10 +178,10 @@ export function ExploreSavenShowcase({
             <Image
               src={visual.src}
               alt=""
-              width={960}
-              height={960}
+              width={640}
+              height={640}
               className="pw-explore-saven__letter-img"
-              sizes="(max-width: 900px) 88vw, 42vw"
+              sizes="(max-width: 900px) 70vw, 28vw"
               priority={active.id === "support"}
               draggable={false}
             />

@@ -27,7 +27,7 @@ type BioMathCorePageProps = {
 };
 
 /**
- * BioMath Core leaf — owner-grade illustration panels in themeable chrome (D-0228–D-0236).
+ * BioMath Core leaf — owner-grade illustration panels in themeable chrome (D-0228–D-0237).
  */
 export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
   const titleId = "bmc-page-title";
@@ -266,7 +266,7 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
         <section
           className="bmc-page__section bmc-page__categories"
           aria-labelledby="bmc-categories-title"
-          data-bmc-categories="css-cards"
+          data-bmc-categories="artboard-panels"
         >
           <div className="bmc-page__categories-intro">
             <h2 id="bmc-categories-title" className="bmc-page__section-title">
@@ -274,25 +274,31 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
             </h2>
             <p className="bmc-page__section-support">{content.categories.subtitle}</p>
           </div>
-          <ul className="bmc-page__category-grid">
-            {content.categories.cards.map((card) => (
-              <li
-                key={card.id}
-                className={`bmc-page__category-card bmc-page__category-card--${card.id}`}
-              >
-                <div className="bmc-page__category-top">
-                  <span className="bmc-page__category-icon" aria-hidden="true">
-                    <BioMathCoreCategoryIcon id={card.id} />
+          <div className="bmc-page__category-artboard" data-bmc-artboard="categories">
+            <div className="bmc-page__category-artboard-grid" aria-hidden="true" />
+            <ul className="bmc-page__category-grid">
+              {content.categories.cards.map((card) => (
+                <li
+                  key={card.id}
+                  className={`bmc-page__category-card bmc-page__category-card--${card.id}`}
+                >
+                  <span className="bmc-page__category-corners" aria-hidden="true">
+                    <span className="bmc-page__category-corner bmc-page__category-corner--tl" />
+                    <span className="bmc-page__category-corner bmc-page__category-corner--tr" />
+                    <span className="bmc-page__category-corner bmc-page__category-corner--bl" />
+                    <span className="bmc-page__category-corner bmc-page__category-corner--br" />
                   </span>
-                  <span className="bmc-page__category-count">
-                    {card.serviceCount}
+                  <span className="bmc-page__category-mark" aria-hidden="true">
+                    <span className="bmc-page__category-icon">
+                      <BioMathCoreCategoryIcon id={card.id} />
+                    </span>
                   </span>
-                </div>
-                <span className="bmc-page__category-label">{card.label}</span>
-                <span className="bmc-page__category-blurb">{card.blurb}</span>
-              </li>
-            ))}
-          </ul>
+                  <span className="bmc-page__category-label">{card.label}</span>
+                  <span className="bmc-page__category-blurb">{card.blurb}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
           <p className="bmc-page__categories-disclaimer">
             {content.categories.disclaimer}
           </p>

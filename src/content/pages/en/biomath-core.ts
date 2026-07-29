@@ -521,7 +521,7 @@ export const biomathCorePageContent: BioMathCorePageContent = {
   categories: {
     heading: `BioMath Services — Showing ${BIOMATH_CORE_CATEGORY_COUNT} categories`,
     subtitle:
-      "Architecture / In Development model coverage — not a live e-commerce storefront or Operational commercial catalog. Card grid below — not an orbital wallpaper screenshot.",
+      "Architecture / In Development model coverage — not a live e-commerce storefront or Operational commercial catalog. Themeable category panels below — not an orbital wallpaper screenshot.",
     disclaimer:
       "Category cards describe intended model coverage. They are not an Operational storefront, not a claim of live AI-powered services, and not medical advice. They do not diagnose, prescribe, or sell medicines.",
     cards: biomathCoreCategoriesEn.map((c) => ({

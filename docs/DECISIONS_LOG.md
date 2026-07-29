@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-29 (D-0235 — BioMath Core unified English diagram series)
+**Last updated:** 2026-07-29 (D-0237 — BioMath Core category panels)
 
 ## Rules
 
@@ -250,7 +250,9 @@
 | D-0232 | 2026-07-29 | BioMath Core site-native themeable components | Partially superseded by D-0234 (rich illustration panels primary) |
 | D-0233 | 2026-07-29 | Living Model + Four-layer stack visual redesign | Partially superseded by D-0234 (owner-grade panels replace primitive SVG primacy) |
 | D-0234 | 2026-07-29 | BioMath Core rich illustration panels | Active; refined by D-0235 (unified English diagram series) |
-| D-0235 | 2026-07-29 | BioMath Core unified English diagram series | Active |
+| D-0235 | 2026-07-29 | BioMath Core unified English diagram series | Active; refined by D-0236 |
+| D-0236 | 2026-07-29 | BioMath Core Engine cache-bust + compact panels + hero band | Active; refined by D-0237 (category panels) |
+| D-0237 | 2026-07-29 | BioMath Core category panels — no counts, Environments chrome | Active |
 
 ---
 
@@ -2323,7 +2325,7 @@
 ### D-0236 — BioMath Core Engine cache-bust + compact panels + hero band
 
 - **Date:** 2026-07-29
-- **Status:** Active
+- **Status:** Active; refined by D-0237
 - **Summary:** Owner proof showed Russian Engine title still on the live leaf after D-0235. Root cause: same filename (`engine-phases.webp`) allowed Next Image / CDN / browser caches to keep serving the D-0234 Russian bitmap even after the static file was replaced. Also requested smaller diagram display sizes and a sharper BioMath Core top banner.
 - **Decision:**
   1. **Engine cache-bust** — New asset `engine-phases-en-v2.webp` (1920×1280, English title **BioMath Core Engine: 3 Simulation Phases**, Input tags → Core orb/rings → digital human; sample aesthetic; no Cyrillic). Code points only to the new filename; remove the old `engine-phases.webp` path.
@@ -2334,6 +2336,21 @@
 - **In scope:** Engine + hero assets; BioMathCorePage / Visuals / CSS; EN + dictionaries; D-0236 + AGENTS / SITE_ASSIGNMENT; local + prod OCR/hash proof; commit/push/Vercel prod.
 - **Out of scope:** Changing IA/nav; Operational catalog; restoring Russian on-image text; inventing clinical claims.
 - **Implications:** Engine URL must change when replacing on-image language so caches cannot resurrect Russian art; BMC diagrams stay compact; hero matches the diagram-series grammar.
+
+### D-0237 — BioMath Core category panels — no counts, Environments chrome
+
+- **Date:** 2026-07-29
+- **Status:** Active
+- **Summary:** Owner requires the BioMath Services 20-category section to drop per-card service-count digits (e.g. Critical Health **18**), enlarge category titles, and elevate the grid visually toward the **Environments** illustration-panel treatment (themeable framed artboard / diagram chrome from D-0234–D-0236) — still a card grid, not an orbital wallpaper screenshot, and not an Operational storefront.
+- **Decision:**
+  1. **No card counts** — Do not render `serviceCount` on category cards. Counts may remain in the content data model for internal use only.
+  2. **Larger titles** — Category labels use a clearer type hierarchy (≈1–1.125rem).
+  3. **Environments-like chrome** — Wrap the grid in a light/dark themeable artboard (HUD grid motif, framed surface); each card gets accent rule, corner marks, icon mark plate, and richer spacing matching diagram-series grammar.
+  4. **Governance** — Architecture / In Development model coverage disclaimer retained; not Operational commercial catalog; not medical advice (no diagnose / prescribe / sell medicines).
+  5. **i18n** — EN subtitle refined (“Themeable category panels”); all 10 locale dictionaries updated.
+- **In scope:** BioMathCorePage / biomath-core-page.css; EN biomath-core + dictionaries; D-0237 + AGENTS / SITE_ASSIGNMENT; local :3000 + prod proof; commit/push/Vercel prod.
+- **Out of scope:** Restoring orbital wallpaper as primary; inventing Operational live-service claims; changing IA/nav; inventing clinical claims.
+- **Implications:** Category section reads as part of the BMC diagram series, not a plain text dump or KPI count strip.
 
 ## Pending Owner Decisions
 

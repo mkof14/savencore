@@ -4,7 +4,7 @@ type BioMathCoreCategoryIconProps = {
   id: BioMathCoreCategoryId;
 };
 
-/** Compact monoline icons for BioMath Core category cards — no neon (D-0228). */
+/** Compact monoline icons for BioMath Core category panels — no neon (D-0228 / D-0237). */
 export function BioMathCoreCategoryIcon({ id }: BioMathCoreCategoryIconProps) {
   const common = {
     viewBox: "0 0 24 24",

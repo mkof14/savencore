@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-29 (D-0232 — BioMath Core site-native themeable components)
+**Last updated:** 2026-07-29 (D-0233 — Living Model + Four-layer stack visual redesign)
 
 ## Rules
 
@@ -248,6 +248,7 @@
 | D-0230 | 2026-07-29 | BioMath Core capability redesign + home merged bridge | Partially superseded by D-0231 (owner graphics as page assets) |
 | D-0231 | 2026-07-29 | BioMath Core owner capability images on leaf | Partially superseded by D-0232 (native components primary) |
 | D-0232 | 2026-07-29 | BioMath Core site-native themeable components | Active |
+| D-0233 | 2026-07-29 | Living Model + Four-layer stack visual redesign | Active |
 
 ---
 
@@ -2268,6 +2269,22 @@
 - **In scope:** BioMathCorePage / Visuals / CSS / EN content + dictionaries; D-0232 + AGENTS / SITE_ASSIGNMENT; type-check; local :3000; commit/push/Vercel prod; Russian owner brief; proof that categories are CSS cards.
 - **Out of scope:** Operational catalog; inventing clinical/product claims; restoring pasted screenshots as primary UI; additional foundation leaves.
 - **Implications:** Owner must see adapted interactive/site components on the leaf, not “just pictures.” D-0231 assets may remain in `public/` but are not required as primary presentation.
+
+
+### D-0233 — Living Model + Four-layer stack visual redesign
+
+- **Date:** 2026-07-29
+- **Status:** Active
+- **Summary:** Owner requires the BioMath Core leaf sections **One Human = One Living Model** and **Four-layer stack** to be redone as clearer, illustrative site-native visuals (наглядно и визуально) — digital living-human wireframe + numbered principles, and a composed layered stack with critical-dependency callout — inspired by owner sample diagrams but **not** pasted dark neon posters as primary UI. Continues D-0232 themeable component direction.
+- **Decision:**
+  1. **Living Model** — Themeable SVG digital-human silhouette/mesh (ONE / HUMAN badge) plus three numbered principle steps; owner engine-output / living-model references guide metaphor only.
+  2. **Four-layer stack** — Visual stacked plates with distinct layer treatments (strategy slab, core orb, SAVEN helix, body mesh) and **Critical dependency** callout beside the stack; themeable light/dark.
+  3. **Assets** — D-0231 `living-model` / `layer-stack` WebPs remain optional secondary; primary presentation is CSS/SVG components.
+  4. **i18n** — English canonical; new chrome/body strings (`ONE` / `HUMAN` / `Critical dependency` / updated visual label) across page dictionaries for all 10 locales.
+  5. **Unchanged** — Other BMC capability sections, 20-category CSS cards, medical/status disclaimers, home merged bridge (D-0230).
+- **In scope:** BioMathCorePage / Visuals / CSS / EN content + dictionaries; D-0233 + AGENTS / SITE_ASSIGNMENT notes; type-check; local :3000 smoke; commit/push/Vercel prod; owner brief.
+- **Out of scope:** Pasting owner screenshots as primary UI; Operational catalog; inventing clinical/product claims; redesigning Second Opinion / Engine / catalog unless needed for layout flow.
+- **Implications:** Living Model and Four-layer stack read as clear visual compositions matching SAVEN BMC grammar, not plain text lists or dark screenshot dumps.
 
 ## Pending Owner Decisions
 

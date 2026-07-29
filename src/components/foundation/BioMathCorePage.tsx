@@ -26,7 +26,7 @@ type BioMathCorePageProps = {
 };
 
 /**
- * BioMath Core leaf — site-native themeable capability components (D-0228–D-0232).
+ * BioMath Core leaf — site-native themeable capability components (D-0228–D-0233).
  */
 export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
   const titleId = "bmc-page-title";
@@ -78,6 +78,8 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
           <p className="bmc-page__section-support">{content.livingModel.support}</p>
           <LivingModelVisual
             visualLabel={content.livingModel.visualLabel}
+            badgeOne={content.livingModel.badgeOne}
+            badgeHuman={content.livingModel.badgeHuman}
             points={content.livingModel.points}
           />
         </section>
@@ -92,6 +94,7 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
           <p className="bmc-page__section-support">{content.layerStack.support}</p>
           <LayerStackVisual
             layers={content.layerStack.layers}
+            calloutEyebrow={content.layerStack.calloutEyebrow}
             callout={content.layerStack.callout}
           />
         </section>

@@ -7,9 +7,9 @@ import {
 } from "@/content/biomath-core/scope";
 
 /**
- * BioMath Core leaf page — D-0228 / D-0229 / D-0230 / D-0231 / D-0232.
+ * BioMath Core leaf page — D-0228 / D-0229 / D-0230 / D-0231 / D-0232 / D-0233.
  * Architecture / In Development model coverage — not an Operational catalog.
- * D-0232: site-native themeable components (not pasted dark screenshots as primary UI).
+ * D-0232/D-0233: site-native themeable components (not pasted dark screenshots as primary UI).
  */
 
 export type BioMathCoreSequenceStep = {
@@ -106,12 +106,15 @@ export type BioMathCorePageContent = {
     heading: string;
     support: string;
     visualLabel: string;
+    badgeOne: string;
+    badgeHuman: string;
     points: readonly BioMathCoreLivingPoint[];
   };
   layerStack: {
     heading: string;
     support: string;
     layers: readonly BioMathCoreStackLayer[];
+    calloutEyebrow: string;
     callout: string;
   };
   dualRoles: {
@@ -214,7 +217,10 @@ export const biomathCorePageContent: BioMathCorePageContent = {
     heading: "One Human = One Living Model",
     support:
       "A single continuous model of one person — not fragmented profiles reset by each service.",
-    visualLabel: "Living human model at the center of continuous context",
+    visualLabel:
+      "Digital living human model — one continuous person, not fragmented service profiles",
+    badgeOne: "ONE",
+    badgeHuman: "HUMAN",
     points: [
       {
         id: "over-time",
@@ -260,6 +266,7 @@ export const biomathCorePageContent: BioMathCorePageContent = {
         detail: "Where assistance meets the physical world under human control.",
       },
     ],
+    calloutEyebrow: "Critical dependency",
     callout:
       "Understanding is useless without execution. BioMath Core thinks — but cannot act alone.",
   },

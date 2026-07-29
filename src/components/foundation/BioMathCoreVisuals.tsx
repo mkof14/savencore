@@ -13,122 +13,136 @@ import type {
 
 type LivingModelVisualProps = {
   visualLabel: string;
+  badgeOne: string;
+  badgeHuman: string;
   points: readonly BioMathCoreLivingPoint[];
 };
 
-/** Site-native living-model diagram (D-0232) — owner concept adapted, not pasted. */
-export function LivingModelVisual({ visualLabel, points }: LivingModelVisualProps) {
+/** Site-native living human model (D-0233) — digital silhouette + continuous principles. */
+export function LivingModelVisual({
+  visualLabel,
+  badgeOne,
+  badgeHuman,
+  points,
+}: LivingModelVisualProps) {
   return (
-    <div className="bmc-viz bmc-viz--living" role="img" aria-label={visualLabel}>
-      <svg
-        className="bmc-viz__svg bmc-viz__svg--living"
-        viewBox="0 0 640 280"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden="true"
-      >
-        <defs>
-          <radialGradient id="bmc-living-core" cx="50%" cy="45%" r="55%">
-            <stop offset="0%" stopColor="#e07a3d" stopOpacity="0.55" />
-            <stop offset="45%" stopColor="#4a8fd4" stopOpacity="0.35" />
-            <stop offset="100%" stopColor="#0b1524" stopOpacity="0.05" />
-          </radialGradient>
-          <linearGradient id="bmc-living-ring" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#4a8fd4" stopOpacity="0.7" />
-            <stop offset="50%" stopColor="#d4a84b" stopOpacity="0.85" />
-            <stop offset="100%" stopColor="#e07a3d" stopOpacity="0.7" />
-          </linearGradient>
-        </defs>
-        <ellipse
-          cx="320"
-          cy="140"
-          rx="100"
-          ry="100"
-          fill="url(#bmc-living-core)"
-          stroke="url(#bmc-living-ring)"
-          strokeWidth="2.5"
-        />
-        <ellipse
-          cx="320"
-          cy="140"
-          rx="66"
-          ry="66"
-          fill="none"
-          stroke="#d4a84b"
-          strokeOpacity="0.45"
-          strokeWidth="1.25"
-          strokeDasharray="4 6"
-        />
-        <circle cx="320" cy="140" r="30" fill="#0b1524" stroke="#e07a3d" strokeWidth="2" />
-        <text
-          x="320"
-          y="136"
-          textAnchor="middle"
-          fill="#f4f1ea"
-          fontSize="10"
-          fontFamily="var(--font-sans), system-ui, sans-serif"
-          fontWeight="600"
+    <div className="bmc-viz bmc-viz--living" role="group" aria-label={visualLabel}>
+      <div className="bmc-viz__living-stage">
+        <div className="bmc-viz__living-badge" aria-hidden="true">
+          <span className="bmc-viz__living-badge-one">{badgeOne}</span>
+          <span className="bmc-viz__living-badge-human">{badgeHuman}</span>
+        </div>
+        <svg
+          className="bmc-viz__svg bmc-viz__svg--living"
+          viewBox="0 0 220 320"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
         >
-          ONE
-        </text>
-        <text
-          x="320"
-          y="150"
-          textAnchor="middle"
-          fill="#d4a84b"
-          fontSize="9"
-          fontFamily="var(--font-sans), system-ui, sans-serif"
-          fontWeight="600"
-        >
-          HUMAN
-        </text>
-        <circle cx="320" cy="38" r="6" fill="#4a8fd4" />
-        <circle cx="440" cy="108" r="6" fill="#d4a84b" />
-        <circle cx="412" cy="220" r="6" fill="#e07a3d" />
-        <circle cx="228" cy="220" r="6" fill="#4a8fd4" />
-        <circle cx="200" cy="108" r="6" fill="#d4a84b" />
-        <path
-          d="M320 44 Q388 82 434 108"
-          fill="none"
-          stroke="#4a8fd4"
-          strokeOpacity="0.35"
-          strokeWidth="1.25"
-        />
-        <path
-          d="M434 108 Q452 168 412 214"
-          fill="none"
-          stroke="#d4a84b"
-          strokeOpacity="0.35"
-          strokeWidth="1.25"
-        />
-        <path
-          d="M412 214 Q320 252 228 214"
-          fill="none"
-          stroke="#e07a3d"
-          strokeOpacity="0.35"
-          strokeWidth="1.25"
-        />
-        <path
-          d="M228 214 Q188 168 206 108"
-          fill="none"
-          stroke="#4a8fd4"
-          strokeOpacity="0.35"
-          strokeWidth="1.25"
-        />
-        <path
-          d="M206 108 Q248 64 320 44"
-          fill="none"
-          stroke="#d4a84b"
-          strokeOpacity="0.35"
-          strokeWidth="1.25"
-        />
-      </svg>
+          <defs>
+            <linearGradient id="bmc-living-mesh" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#4a8fd4" stopOpacity="0.85" />
+              <stop offset="55%" stopColor="#4a8fd4" stopOpacity="0.45" />
+              <stop offset="100%" stopColor="#e07a3d" stopOpacity="0.55" />
+            </linearGradient>
+            <linearGradient id="bmc-living-fill" x1="20%" y1="0%" x2="80%" y2="100%">
+              <stop offset="0%" stopColor="#4a8fd4" stopOpacity="0.12" />
+              <stop offset="100%" stopColor="#e07a3d" stopOpacity="0.1" />
+            </linearGradient>
+            <radialGradient id="bmc-living-platform" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stopColor="#4a8fd4" stopOpacity="0.35" />
+              <stop offset="70%" stopColor="#4a8fd4" stopOpacity="0.12" />
+              <stop offset="100%" stopColor="#4a8fd4" stopOpacity="0" />
+            </radialGradient>
+          </defs>
+
+          {/* Platform */}
+          <ellipse cx="110" cy="292" rx="72" ry="14" fill="url(#bmc-living-platform)" />
+          <ellipse
+            cx="110"
+            cy="292"
+            rx="58"
+            ry="10"
+            fill="none"
+            stroke="#4a8fd4"
+            strokeOpacity="0.45"
+            strokeWidth="1.25"
+          />
+          <ellipse
+            cx="110"
+            cy="292"
+            rx="38"
+            ry="6"
+            fill="none"
+            stroke="#d4a84b"
+            strokeOpacity="0.4"
+            strokeWidth="1"
+          />
+
+          {/* Mesh grid behind figure */}
+          <g stroke="#4a8fd4" strokeOpacity="0.12" strokeWidth="0.75">
+            <path d="M40 40 H180 M40 70 H180 M40 100 H180 M40 130 H180 M40 160 H180 M40 190 H180 M40 220 H180 M40 250 H180" />
+            <path d="M55 30 V270 M80 30 V270 M110 30 V270 M140 30 V270 M165 30 V270" />
+          </g>
+
+          {/* Digital human silhouette (A-pose wireframe) */}
+          <g fill="url(#bmc-living-fill)" stroke="url(#bmc-living-mesh)" strokeWidth="1.6" strokeLinejoin="round">
+            {/* Head */}
+            <ellipse cx="110" cy="48" rx="18" ry="22" />
+            {/* Neck + torso */}
+            <path d="M102 68 L98 78 L78 96 L72 168 L88 168 L92 118 L110 122 L128 118 L132 168 L148 168 L142 96 L122 78 L118 68 Z" />
+            {/* Arms */}
+            <path d="M78 96 L48 128 L42 158 L54 162 L62 136 L88 108 Z" />
+            <path d="M142 96 L172 128 L178 158 L166 162 L158 136 L132 108 Z" />
+            {/* Legs */}
+            <path d="M88 168 L82 236 L78 278 L94 280 L100 236 L110 178 Z" />
+            <path d="M132 168 L138 236 L142 278 L126 280 L120 236 L110 178 Z" />
+          </g>
+
+          {/* Mesh contour accents */}
+          <g fill="none" stroke="#4a8fd4" strokeOpacity="0.55" strokeWidth="0.9">
+            <path d="M94 88 Q110 96 126 88" />
+            <path d="M86 112 Q110 124 134 112" />
+            <path d="M80 140 Q110 152 140 140" />
+            <ellipse cx="110" cy="48" rx="12" ry="14" />
+          </g>
+
+          {/* Scan / focus nodes */}
+          <g>
+            <circle cx="110" cy="48" r="3.2" fill="#e07a3d" />
+            <circle cx="110" cy="118" r="3.2" fill="#d4a84b" />
+            <circle cx="72" cy="148" r="2.6" fill="#4a8fd4" />
+            <circle cx="148" cy="148" r="2.6" fill="#4a8fd4" />
+            <circle cx="110" cy="210" r="2.8" fill="#e07a3d" />
+          </g>
+
+          {/* HUD callout lines */}
+          <g stroke="#4a8fd4" strokeOpacity="0.4" strokeWidth="1" fill="none">
+            <path d="M128 48 H178" />
+            <path d="M128 118 H178" />
+            <path d="M92 210 H42" />
+          </g>
+          <g fill="#4a8fd4" fillOpacity="0.55">
+            <rect x="178" y="42" width="22" height="6" />
+            <rect x="178" y="54" width="14" height="3" />
+            <rect x="178" y="112" width="22" height="6" />
+            <rect x="178" y="124" width="16" height="3" />
+            <rect x="20" y="204" width="22" height="6" />
+            <rect x="20" y="216" width="14" height="3" />
+          </g>
+        </svg>
+      </div>
+
       <ol className="bmc-viz__living-points">
         {points.map((point, index) => (
-          <li key={point.id} className="bmc-viz__living-point">
+          <li
+            key={point.id}
+            className={`bmc-viz__living-point bmc-viz__living-point--${point.id}`}
+          >
             <span className="bmc-viz__living-index" aria-hidden="true">
               {String(index + 1).padStart(2, "0")}
             </span>
-            <span>{point.body}</span>
+            <span className="bmc-viz__living-point-body">{point.body}</span>
+            <span className="bmc-viz__living-point-mark" aria-hidden="true" />
           </li>
         ))}
       </ol>
@@ -138,34 +152,89 @@ export function LivingModelVisual({ visualLabel, points }: LivingModelVisualProp
 
 type LayerStackVisualProps = {
   layers: readonly BioMathCoreStackLayer[];
+  calloutEyebrow: string;
   callout: string;
 };
 
-export function LayerStackVisual({ layers, callout }: LayerStackVisualProps) {
+export function LayerStackVisual({
+  layers,
+  calloutEyebrow,
+  callout,
+}: LayerStackVisualProps) {
   return (
     <div className="bmc-viz bmc-viz--stack">
-      <ol className="bmc-viz__stack-list">
-        {layers.map((layer, index) => (
-          <li
-            key={layer.id}
-            className={
-              layer.id === "biomath-core"
-                ? "bmc-viz__stack-layer bmc-viz__stack-layer--core"
-                : "bmc-viz__stack-layer"
-            }
-          >
-            <span className="bmc-viz__stack-index" aria-hidden="true">
-              {String(index + 1).padStart(2, "0")}
-            </span>
-            <div className="bmc-viz__stack-copy">
-              <p className="bmc-viz__stack-name">{layer.name}</p>
-              <p className="bmc-viz__stack-role">{layer.role}</p>
-              <p className="bmc-viz__stack-detail">{layer.detail}</p>
-            </div>
-          </li>
-        ))}
-      </ol>
-      <p className="bmc-viz__stack-callout">{callout}</p>
+      <div className="bmc-viz__stack-layout">
+        <ol className="bmc-viz__stack-list" aria-label="Four-layer stack">
+          {layers.map((layer, index) => (
+            <li
+              key={layer.id}
+              className={`bmc-viz__stack-layer bmc-viz__stack-layer--${layer.id}`}
+              style={{ ["--bmc-stack-i" as string]: String(index) }}
+            >
+              <div className="bmc-viz__stack-plate" aria-hidden="true">
+                {layer.id === "saven" ? (
+                  <svg
+                    className="bmc-viz__stack-helix"
+                    viewBox="0 0 120 28"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4 14 C20 2, 40 26, 56 14 S92 2, 116 14"
+                      fill="none"
+                      stroke="#e07a3d"
+                      strokeWidth="2"
+                    />
+                    <path
+                      d="M4 14 C20 26, 40 2, 56 14 S92 26, 116 14"
+                      fill="none"
+                      stroke="#4a8fd4"
+                      strokeWidth="2"
+                    />
+                  </svg>
+                ) : null}
+                {layer.id === "body" ? (
+                  <svg
+                    className="bmc-viz__stack-mesh"
+                    viewBox="0 0 120 28"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8 6 H112 M8 14 H112 M8 22 H112 M24 4 V24 M48 4 V24 M72 4 V24 M96 4 V24"
+                      fill="none"
+                      stroke="#4a8fd4"
+                      strokeOpacity="0.45"
+                      strokeWidth="1"
+                    />
+                    <path
+                      d="M16 8 L40 20 M40 8 L64 20 M64 8 L88 20 M88 8 L112 20"
+                      fill="none"
+                      stroke="#e07a3d"
+                      strokeOpacity="0.35"
+                      strokeWidth="1"
+                    />
+                  </svg>
+                ) : null}
+                {layer.id === "biomath-core" ? (
+                  <span className="bmc-viz__stack-core-orb" />
+                ) : null}
+              </div>
+              <span className="bmc-viz__stack-index" aria-hidden="true">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <div className="bmc-viz__stack-copy">
+                <p className="bmc-viz__stack-name">{layer.name}</p>
+                <p className="bmc-viz__stack-role">{layer.role}</p>
+                <p className="bmc-viz__stack-detail">{layer.detail}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+
+        <aside className="bmc-viz__stack-callout">
+          <p className="bmc-viz__stack-callout-eyebrow">{calloutEyebrow}</p>
+          <p className="bmc-viz__stack-callout-body">{callout}</p>
+        </aside>
+      </div>
     </div>
   );
 }

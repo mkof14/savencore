@@ -37,23 +37,25 @@ export default async function SearchPage({ params, searchParams }: Props) {
   return (
     <article className="site-search-page page">
       <div className="page-shell__inner">
-        <h1 className="site-search-page__title">{ui.search.title}</h1>
-        <p className="site-search-page__lead">{ui.search.lead}</p>
-        <SiteSearchClient
-          locale={localeParam}
-          index={index}
-          initialQuery={initialQuery}
-          labels={{
-            title: ui.search.title,
-            lead: ui.search.lead,
-            placeholder: ui.search.placeholder,
-            submit: ui.search.submit,
-            empty: ui.search.empty,
-            noQuery: ui.search.noQuery,
-            results: ui.search.results,
-            honestNote: ui.search.honestNote,
-          }}
-        />
+        <div className="site-search-page__column">
+          <h1 className="site-search-page__title">{ui.search.title}</h1>
+          <p className="site-search-page__lead">{ui.search.lead}</p>
+          <SiteSearchClient
+            locale={localeParam}
+            index={index}
+            initialQuery={initialQuery}
+            labels={{
+              title: ui.search.title,
+              lead: ui.search.lead,
+              placeholder: ui.search.placeholder,
+              submit: ui.search.submit,
+              empty: ui.search.empty,
+              noQuery: ui.search.noQuery,
+              results: ui.search.results,
+              honestNote: ui.search.honestNote,
+            }}
+          />
+        </div>
       </div>
     </article>
   );

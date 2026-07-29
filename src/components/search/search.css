@@ -1,7 +1,14 @@
-/* Lightweight published-route title search (D-0220) — straight corners, site tokens. */
+/* Lightweight published-route title search (D-0220) — straight corners, site tokens.
+   Layout balance: page-shell__inner centering + reading column (D-0245). */
 
 .site-search-page {
   padding-block: clamp(2rem, 5vw, 3.5rem) clamp(3rem, 8vw, 5rem);
+}
+
+.site-search-page__column {
+  width: 100%;
+  max-width: var(--container-max-md);
+  margin-inline: auto;
 }
 
 .site-search-page__title {
@@ -11,6 +18,7 @@
   font-weight: 600;
   letter-spacing: -0.02em;
   color: var(--color-text);
+  text-wrap: balance;
 }
 
 .site-search-page__lead {
@@ -27,7 +35,8 @@
   gap: 0;
   border: 1px solid var(--color-border);
   background: var(--color-surface);
-  max-width: 36rem;
+  width: 100%;
+  max-width: none;
 }
 
 .site-search__input {

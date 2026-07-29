@@ -16,11 +16,14 @@
   width: 100%;
 }
 
-.site-shell__inner {
+/* Page bodies use page-shell__inner; header/footer use site-shell__inner (D-0245). */
+.site-shell__inner,
+.page-shell__inner {
   width: 100%;
   max-width: var(--container-max-xl);
   margin-inline: auto;
   padding-inline: var(--container-padding-x);
+  box-sizing: border-box;
 }
 
 /* Focus — highly visible, short transition */

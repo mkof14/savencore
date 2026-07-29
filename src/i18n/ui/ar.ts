@@ -313,6 +313,10 @@ export const uiAr: UiMessages = {
     beatWhy: "لماذا",
     beatHow: "كيف",
     hourFramesLabel: "ساعة واحدة من الرعاية",
+    watchTitle: "شاهد SAVEN Core",
+    watchSupport:
+      "عرض تقديمي موجز عن SAVEN Core — أنظمة ذكية بُنيت لدعم حياة الإنسان.",
+    watchEmbedTitle: "فيديو تقديم SAVEN Core",
   },
 
   ko: {

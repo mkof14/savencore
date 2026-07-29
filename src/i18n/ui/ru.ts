@@ -424,6 +424,10 @@ export const uiRu: UiMessages = {
     beatWhy: "Зачем",
     beatHow: "Как",
     hourFramesLabel: "Один час заботы",
+    watchTitle: "Смотрите SAVEN Core",
+    watchSupport:
+      "Краткий обзорный рассказ о SAVEN Core — интеллектуальных системах, созданных поддерживать человеческую жизнь.",
+    watchEmbedTitle: "Презентационное видео SAVEN Core",
   },
 
   ko: {

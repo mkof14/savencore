@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-29 (D-0243 — Contact rate limit + BMC polish / what-is-not + home sync)
+**Last updated:** 2026-07-29 (D-0245 — Search balance + home YouTube feature band)
 
 ## Rules
 
@@ -259,6 +259,8 @@
 | D-0241 | 2026-07-29 | Performance / Downloads / critical-path speed | Active |
 | D-0242 | 2026-07-29 | i18n audit — BioMath Core + public UI chrome | Active |
 | D-0243 | 2026-07-29 | Contact rate limit + BMC mobile / what-is-not / home sync | Active |
+| D-0244 | 2026-07-29 | Theme bootstrap via next/script (React 19 / Next 16.2) | Active |
+| D-0245 | 2026-07-29 | Search page balance + home YouTube feature band | Active |
 
 ---
 
@@ -2461,6 +2463,19 @@
 - **In scope:** `app/layout.tsx`, `app/[locale]/layout.tsx`, `public/theme-bootstrap.js`, D-0244 + AGENTS pointer; local hard-refresh proof + commit/push/Vercel prod.
 - **Out of scope:** Theme API redesign; next-themes package; CSP nonce migration; inventing design tokens.
 - **Implications:** Dev overlay clears; light/dark restore from localStorage remains; beforeInteractive remains root-layout-bound per Next.
+
+### D-0245 — Search page balance + home YouTube feature band
+
+- **Date:** 2026-07-29
+- **Status:** Active
+- **Summary:** Center the published `/search/` reading column (fix missing `.page-shell__inner` container styles that left content hugged to the viewport start) and add a strong, privacy-friendly YouTube presentation band on the homepage after the Explore SAVEN closing map and before `SiteFooter`.
+- **Decision:**
+  1. **Search balance** — Define `.page-shell__inner` alongside `.site-shell__inner` (max-width `--container-max-xl`, `margin-inline: auto`, container padding). Search page uses a centered `--container-max-md` column so title, form, and results read as one intentional composition in LTR and RTL, light and dark.
+  2. **Home YouTube** — Publish `HomeYoutubeFeature` with embed ID `0C1Sk_RAnSw` via `youtube-nocookie.com`, `loading="lazy"`, accessible title, responsive 16:9 frame at `min(100%, 72rem)`, themeable soft band (no neon/glow). Copy: honest presentation/overview only; i18n in all 10 `src/i18n/ui/` locales (`watchTitle` / `watchSupport` / `watchEmbedTitle`).
+  3. **CSP** — No change required: `frame-src` already allows `https://www.youtube-nocookie.com` (D-0240 / prior Media embeds).
+- **In scope:** site-shell + search CSS/page; `HomeYoutubeFeature` + `PhysicalWorldHome`; UI i18n; D-0245 + AGENTS pointer; local proof + commit/push/Vercel prod.
+- **Out of scope:** Full-text search/CMS; inventing Operational claims; additional social embeds; CSP nonce migration; LinkedIn.
+- **Implications:** Search no longer visually left-hugged; home gains an approved media closer matching the existing YouTube social default. Residual: Media/admin embeds may still use `youtube.com/embed` (allowed); optional later switch to nocookie there.
 
 ## Pending Owner Decisions
 

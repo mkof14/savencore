@@ -319,6 +319,10 @@ export const uiUk: UiMessages = {
     beatWhy: "Навіщо",
     beatHow: "Як",
     hourFramesLabel: "Одна година турботи",
+    watchTitle: "Дивіться SAVEN Core",
+    watchSupport:
+      "Короткий оглядовий виступ про SAVEN Core — розумні системи, створені підтримувати людське життя.",
+    watchEmbedTitle: "Презентаційне відео SAVEN Core",
   },
 
   ko: {

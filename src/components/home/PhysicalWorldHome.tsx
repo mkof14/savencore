@@ -9,6 +9,7 @@ import { localizePath } from "@/navigation/locale-path";
 import type { PublishedRoute } from "@/navigation/published-routes";
 
 import { HomeClarityPack } from "./HomeClarityPack";
+import { HomeYoutubeFeature } from "./HomeYoutubeFeature";
 import "./physical-world-home.css";
 
 const HeroLivingMedia = dynamic(
@@ -277,6 +278,9 @@ export function PhysicalWorldHome({ locale }: PhysicalWorldHomeProps) {
           <p>{c.closing.alt}</p>
         </div>
       </section>
+
+      {/* Strong YouTube band after Explore map, before SiteFooter (D-0245) */}
+      <HomeYoutubeFeature locale={locale} />
     </article>
   );
 }

@@ -457,6 +457,10 @@ export const uiEn = {
     beatWhy: "Why",
     beatHow: "How",
     hourFramesLabel: "One hour of care",
+    watchTitle: "Watch SAVEN Core",
+    watchSupport:
+      "A short presentation overview of SAVEN Core — intelligent systems built to support human life.",
+    watchEmbedTitle: "SAVEN Core presentation video",
   },
 
   ko: {

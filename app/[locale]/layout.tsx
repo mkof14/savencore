@@ -21,7 +21,7 @@ import {
   LOCALES,
   type Locale,
 } from "@/config/locales";
-import { experienceFontVariables } from "@/design/fonts";
+import { experienceFontVariablesForLocale } from "@/design/fonts";
 import { buildLocaleLayoutMetadata } from "@/lib/seo/metadata";
 
 type LocaleLayoutProps = {
@@ -75,7 +75,7 @@ export default async function LocaleLayout({
     <html
       lang={getHtmlLang(locale)}
       dir={getTextDirection(locale)}
-      className={experienceFontVariables}
+      className={experienceFontVariablesForLocale(locale)}
       suppressHydrationWarning
     >
       <head>

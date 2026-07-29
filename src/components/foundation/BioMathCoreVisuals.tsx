@@ -26,10 +26,12 @@ type DiagramFigureProps = {
   caption?: string;
   artboard?: DiagramArtboard;
   priority?: boolean;
+  /** Override responsive sizes (default ~40rem panel). */
+  sizes?: string;
   children?: ReactNode;
 };
 
-/** Themeable chrome around owner-grade illustration assets (D-0234). */
+/** Themeable chrome around owner-grade illustration assets (D-0234 / D-0241). */
 function DiagramFigure({
   src,
   alt,
@@ -38,6 +40,7 @@ function DiagramFigure({
   caption,
   artboard = "light",
   priority = false,
+  sizes = "(max-width: 720px) 100vw, (max-width: 1100px) 78vw, 40rem",
   children,
 }: DiagramFigureProps) {
   return (
@@ -52,8 +55,10 @@ function DiagramFigure({
           width={width}
           height={height}
           className="bmc-figure__img"
-          sizes="(max-width: 720px) 100vw, (max-width: 1100px) 78vw, 40rem"
+          sizes={sizes}
+          quality={80}
           priority={priority}
+          loading={priority ? undefined : "lazy"}
         />
       </div>
       {caption ? (
@@ -80,11 +85,10 @@ export function LivingModelVisual({
       <DiagramFigure
         src={`${DIAGRAM_BASE}/living-model.webp`}
         alt={visualLabel}
-        width={1536}
-        height={1024}
+        width={1280}
+        height={853}
         caption={caption}
         artboard="light"
-        priority
       >
         <ol className="bmc-figure__legend" aria-label={visualLabel}>
           {points.map((point, index) => (
@@ -121,8 +125,8 @@ export function LayerStackVisual({
       <DiagramFigure
         src={`${DIAGRAM_BASE}/layer-stack.webp`}
         alt={visualLabel}
-        width={1536}
-        height={1024}
+        width={1280}
+        height={853}
         caption={caption}
         artboard="light"
       >
@@ -170,8 +174,8 @@ export function DualRolesVisual({
       <DiagramFigure
         src={`${DIAGRAM_BASE}/dual-roles.webp`}
         alt={visualLabel}
-        width={1536}
-        height={1024}
+        width={1280}
+        height={853}
         caption={caption}
         artboard="light"
       >
@@ -213,8 +217,8 @@ export function EngineVisual({ visualLabel, caption, phases }: EngineVisualProps
       <DiagramFigure
         src={`${DIAGRAM_BASE}/engine-phases-en-v2.webp`}
         alt={visualLabel}
-        width={1920}
-        height={1280}
+        width={1280}
+        height={853}
         caption={caption}
         artboard="dark"
       >
@@ -259,8 +263,8 @@ export function SecondOpinionVisual({
       <DiagramFigure
         src={`${DIAGRAM_BASE}/second-opinion.webp`}
         alt={visualLabel}
-        width={1536}
-        height={1024}
+        width={1280}
+        height={853}
         caption={caption}
         artboard="dark"
       >
@@ -297,10 +301,11 @@ export function BlackBoxVisual({ visualLabel, caption, sides }: BlackBoxVisualPr
       <DiagramFigure
         src={`${DIAGRAM_BASE}/black-box.webp`}
         alt={visualLabel}
-        width={1024}
-        height={1024}
+        width={960}
+        height={960}
         caption={caption}
         artboard="dark"
+        sizes="(max-width: 720px) 100vw, (max-width: 1100px) 42vw, 34rem"
       >
         <ul className="bmc-figure__legend bmc-figure__legend--sides">
           {sides.map((side) => (
@@ -336,8 +341,8 @@ export function OutputVisual({
       <DiagramFigure
         src={`${DIAGRAM_BASE}/output-pillars.webp`}
         alt={visualLabel}
-        width={1536}
-        height={1024}
+        width={1280}
+        height={853}
         caption={caption}
         artboard="dark"
       >
@@ -380,8 +385,8 @@ export function FormulaVisual({
       <DiagramFigure
         src={`${DIAGRAM_BASE}/formula.webp`}
         alt={visualLabel}
-        width={1536}
-        height={1024}
+        width={1280}
+        height={853}
         caption={caption}
         artboard="light"
       >
@@ -428,8 +433,8 @@ export function EnvironmentsVisual({
       <DiagramFigure
         src={`${DIAGRAM_BASE}/environments.webp`}
         alt={visualLabel}
-        width={1536}
-        height={1024}
+        width={1280}
+        height={853}
         caption={caption}
         artboard="light"
       >

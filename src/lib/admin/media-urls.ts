@@ -92,37 +92,48 @@ function openAttachmentFallback(downloadPath: string): void {
 }
 
 /**
- * Trigger a same-origin attachment download (mobile + desktop) — D-0201 / D-0224.
+ * Trigger a same-origin attachment download (mobile + desktop) — D-0201 / D-0224 / D-0241.
  * Prefer fetch → blob → object URL so desktop and iOS get a real save when the
  * browser honors `download`. Fall back to Apple window.open / assign, or a
  * same-origin anchor click (Content-Disposition: attachment from the API).
+ * Resolves true on success (blob or fallback dispatched); false only when the
+ * fetch path fails and fallback cannot run (should be rare).
  */
-export function triggerMediaDownload(downloadPath: string): void {
-  void (async () => {
-    try {
-      const response = await fetch(downloadPath, {
-        credentials: "same-origin",
-        cache: "no-store",
-      });
-      if (!response.ok) {
-        throw new Error(`download failed: ${response.status}`);
-      }
-      const blob = await response.blob();
-      const name =
-        filenameFromContentDisposition(
-          response.headers.get("Content-Disposition"),
-        ) || "download";
-      const objectUrl = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = objectUrl;
-      a.download = name;
-      a.rel = "noopener";
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      window.setTimeout(() => URL.revokeObjectURL(objectUrl), 2_000);
-    } catch {
-      openAttachmentFallback(downloadPath);
+export async function triggerMediaDownload(
+  downloadPath: string,
+): Promise<boolean> {
+  try {
+    const response = await fetch(downloadPath, {
+      credentials: "same-origin",
+      cache: "no-store",
+    });
+    if (!response.ok) {
+      throw new Error(`download failed: ${response.status}`);
     }
-  })();
+    const blob = await response.blob();
+    if (blob.size === 0) {
+      throw new Error("download failed: empty body");
+    }
+    const name =
+      filenameFromContentDisposition(
+        response.headers.get("Content-Disposition"),
+      ) || "download";
+    const objectUrl = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = objectUrl;
+    a.download = name;
+    a.rel = "noopener";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    window.setTimeout(() => URL.revokeObjectURL(objectUrl), 2_000);
+    return true;
+  } catch {
+    try {
+      openAttachmentFallback(downloadPath);
+      return true;
+    } catch {
+      return false;
+    }
+  }
 }

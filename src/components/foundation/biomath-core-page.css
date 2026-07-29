@@ -269,6 +269,9 @@ html[data-theme="dark"] .bmc-page__toc-link:focus-visible {
 
 .bmc-page__section[id] {
   scroll-margin-block-start: 5.5rem;
+  /* Skip layout/paint for off-screen diagram sections (D-0241). */
+  content-visibility: auto;
+  contain-intrinsic-size: auto 42rem;
 }
 
 .bmc-page__section-title {
@@ -804,6 +807,7 @@ html[data-theme="dark"] .bmc-page__blackbox-principles-eyebrow {
   display: grid;
   gap: 0.5rem;
   max-width: var(--bmc-diagram-max);
+  contain: layout paint style;
 }
 
 .bmc-figure__frame {

@@ -68,11 +68,12 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
             <Image
               src="/domain/foundation/biomath-core/diagrams/bmc-hero-ambient.webp"
               alt={content.hero.visualAlt}
-              width={1400}
-              height={780}
+              width={960}
+              height={535}
               priority
               className="bmc-page__hero-ambient"
               sizes="(max-width: 720px) 88vw, 28rem"
+              quality={80}
             />
           </div>
         </div>

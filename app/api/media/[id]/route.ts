@@ -36,5 +36,5 @@ export async function GET(_request: Request, context: RouteContext) {
     return NextResponse.json({ error: "Not found" }, { status: 404 });
   }
 
-  return mediaFileResponse(payload, "inline", "public, max-age=300");
+  return mediaFileResponse(payload, "inline", "public, max-age=86400, stale-while-revalidate=604800");
 }

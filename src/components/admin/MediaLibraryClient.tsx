@@ -381,7 +381,7 @@ export function MediaLibraryClient({
     window.open(absoluteUrl(item), "_blank", "noopener,noreferrer");
   }
 
-  function downloadItem(item: MediaItem) {
+  async function downloadItem(item: MediaItem) {
     if (isExternalMediaLink(item)) {
       openItem(item);
       return;
@@ -391,8 +391,12 @@ export function MediaLibraryClient({
       flash(null, ui.admin.actionFailed);
       return;
     }
-    triggerMediaDownload(path);
-    flash(ui.admin.actionDownloadStarted, null);
+    const ok = await triggerMediaDownload(path);
+    if (ok) {
+      flash(ui.admin.actionDownloadStarted, null);
+    } else {
+      flash(null, ui.admin.actionFailed);
+    }
   }
 
   const categoryLabel = (category: MediaCategory): string => {
@@ -787,7 +791,7 @@ export function MediaLibraryClient({
                             <button
                               type="button"
                               className="admin-btn"
-                              onClick={() => downloadItem(item)}
+                              onClick={() => void downloadItem(item)}
                             >
                               {ui.admin.actionDownload}
                             </button>
@@ -859,7 +863,7 @@ export function MediaLibraryClient({
                 <button
                   type="button"
                   className="admin-btn"
-                  onClick={() => downloadItem(preview)}
+                  onClick={() => void downloadItem(preview)}
                 >
                   {ui.admin.actionDownload}
                 </button>

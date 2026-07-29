@@ -103,7 +103,7 @@ export function MediaPage({ locale, content, items }: MediaPageProps) {
     await copyLink(item);
   }
 
-  function downloadItem(item: MediaItem) {
+  async function downloadItem(item: MediaItem) {
     if (isExternalMediaLink(item)) {
       window.open(itemHref(item), "_blank", "noopener,noreferrer");
       return;
@@ -115,11 +115,9 @@ export function MediaPage({ locale, content, items }: MediaPageProps) {
     }
     setDownloadingId(item.id);
     setMessage(ui.media.downloading);
-    triggerMediaDownload(downloadPath);
-    window.setTimeout(() => {
-      setDownloadingId((current) => (current === item.id ? null : current));
-      setMessage(ui.media.downloadStarted);
-    }, 900);
+    const ok = await triggerMediaDownload(downloadPath);
+    setDownloadingId((current) => (current === item.id ? null : current));
+    setMessage(ok ? ui.media.downloadStarted : ui.media.actionFailed);
   }
 
   function categoryLabel(category: MediaCategory): string {
@@ -291,7 +289,7 @@ export function MediaPage({ locale, content, items }: MediaPageProps) {
                       <button
                         type="button"
                         className="media-page__action media-page__action--download"
-                        onClick={() => downloadItem(item)}
+                        onClick={() => void downloadItem(item)}
                         disabled={downloadingId === item.id}
                         aria-busy={downloadingId === item.id}
                       >
@@ -354,7 +352,7 @@ export function MediaPage({ locale, content, items }: MediaPageProps) {
               <button
                 type="button"
                 className="media-page__action media-page__action--download"
-                onClick={() => downloadItem(preview)}
+                onClick={() => void downloadItem(preview)}
               >
                 {isExternalMediaLink(preview) ? ui.media.open : ui.media.download}
               </button>

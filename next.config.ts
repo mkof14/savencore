@@ -68,7 +68,7 @@ const nextConfig: NextConfig = {
     formats: ["image/avif", "image/webp"],
     // Local assets under /public only — no remote CMS images in this phase.
     remotePatterns: [],
-    // Align with BioMath ~40rem panels + common hub mastheads (D-0240).
+    // Align with BioMath ~40rem panels + common hub mastheads (D-0241).
     deviceSizes: [640, 750, 828, 1080, 1200, 1280, 1920],
     imageSizes: [64, 96, 128, 256, 384, 448, 640],
   },
@@ -88,7 +88,7 @@ const nextConfig: NextConfig = {
           { key: "Service-Worker-Allowed", value: "/" },
         ],
       },
-      // Immutable-ish static marketing assets (D-0240). Fingerprinted _next/static
+      // Long-cache static marketing assets (D-0241). Fingerprinted _next/static
       // already long-cached by Next; these paths are content-addressed by deploy.
       {
         source: "/domain/:path*",

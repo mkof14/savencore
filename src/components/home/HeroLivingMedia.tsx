@@ -106,9 +106,10 @@ export function HeroLivingMedia() {
             <img
               src={panel.jpg}
               alt=""
-              width={1400}
-              height={933}
+              width={900}
+              height={600}
               decoding="async"
+              loading={i === 0 ? "eager" : "lazy"}
               fetchPriority={i === 0 ? "high" : "low"}
               draggable={false}
             />

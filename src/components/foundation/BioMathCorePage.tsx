@@ -2,6 +2,13 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { BioMathCoreCategoryIcon } from "@/components/foundation/BioMathCoreCategoryIcon";
+import {
+  DualRolesVisual,
+  EnvironmentsVisual,
+  FormulaVisual,
+  LayerStackVisual,
+  LivingModelVisual,
+} from "@/components/foundation/BioMathCoreVisuals";
 import type { Locale } from "@/config/locales";
 import type { BioMathCorePageContent } from "@/content/pages/en/biomath-core";
 import { localizePath } from "@/navigation/locale-path";
@@ -15,8 +22,7 @@ type BioMathCorePageProps = {
 };
 
 /**
- * BioMath Core leaf — transparent logo hero, foundation sequence,
- * reports→actions callout, and 20-category model catalog (D-0228 / D-0229).
+ * BioMath Core leaf — capability diagrams + model catalog (D-0228 / D-0229 / D-0230).
  */
 export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
   const titleId = "bmc-page-title";
@@ -33,8 +39,8 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
               <Image
                 src="/brand/biomath-core-logo.webp"
                 alt={content.hero.logoAlt}
-                width={160}
-                height={166}
+                width={96}
+                height={100}
                 priority
                 className="bmc-page__logo"
               />
@@ -58,6 +64,78 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
       </header>
 
       <div className="bmc-page__body">
+        <section
+          className="bmc-page__section bmc-page__living"
+          aria-labelledby="bmc-living-title"
+        >
+          <h2 id="bmc-living-title" className="bmc-page__section-title">
+            {content.livingModel.heading}
+          </h2>
+          <p className="bmc-page__section-support">{content.livingModel.support}</p>
+          <LivingModelVisual
+            visualLabel={content.livingModel.visualLabel}
+            points={content.livingModel.points}
+          />
+        </section>
+
+        <section
+          className="bmc-page__section bmc-page__stack"
+          aria-labelledby="bmc-stack-title"
+        >
+          <h2 id="bmc-stack-title" className="bmc-page__section-title">
+            {content.layerStack.heading}
+          </h2>
+          <p className="bmc-page__section-support">{content.layerStack.support}</p>
+          <LayerStackVisual
+            layers={content.layerStack.layers}
+            callout={content.layerStack.callout}
+          />
+        </section>
+
+        <section
+          className="bmc-page__section bmc-page__dual"
+          aria-labelledby="bmc-dual-title"
+        >
+          <h2 id="bmc-dual-title" className="bmc-page__section-title">
+            {content.dualRoles.heading}
+          </h2>
+          <p className="bmc-page__section-support">{content.dualRoles.support}</p>
+          <DualRolesVisual
+            biomath={content.dualRoles.biomath}
+            saven={content.dualRoles.saven}
+            banner={content.dualRoles.banner}
+          />
+        </section>
+
+        <section
+          className="bmc-page__section bmc-page__formula"
+          aria-labelledby="bmc-formula-title"
+        >
+          <h2 id="bmc-formula-title" className="bmc-page__section-title">
+            {content.formula.heading}
+          </h2>
+          <p className="bmc-page__section-support">{content.formula.support}</p>
+          <FormulaVisual
+            parts={content.formula.parts}
+            equals={content.formula.equals}
+            equalsDetail={content.formula.equalsDetail}
+          />
+        </section>
+
+        <section
+          className="bmc-page__section bmc-page__envs"
+          aria-labelledby="bmc-envs-title"
+        >
+          <h2 id="bmc-envs-title" className="bmc-page__section-title">
+            {content.environments.heading}
+          </h2>
+          <p className="bmc-page__section-support">{content.environments.support}</p>
+          <EnvironmentsVisual
+            cards={content.environments.cards}
+            footer={content.environments.footer}
+          />
+        </section>
+
         <section
           className="bmc-page__section bmc-page__sequence"
           aria-labelledby="bmc-sequence-title"
@@ -85,34 +163,6 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
               </li>
             ))}
           </ol>
-        </section>
-
-        <section
-          className="bmc-page__section"
-          aria-labelledby="bmc-role-title"
-        >
-          <h2 id="bmc-role-title" className="bmc-page__section-title">
-            {content.role.heading}
-          </h2>
-          {content.role.paragraphs.map((paragraph) => (
-            <p key={paragraph} className="bmc-page__paragraph">
-              {paragraph}
-            </p>
-          ))}
-        </section>
-
-        <section
-          className="bmc-page__section"
-          aria-labelledby="bmc-hdm-title"
-        >
-          <h2 id="bmc-hdm-title" className="bmc-page__section-title">
-            {content.humanData.heading}
-          </h2>
-          {content.humanData.paragraphs.map((paragraph) => (
-            <p key={paragraph} className="bmc-page__paragraph">
-              {paragraph}
-            </p>
-          ))}
         </section>
 
         <section

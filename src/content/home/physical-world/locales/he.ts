@@ -68,20 +68,13 @@ export const physicalWorldHomeHe: PhysicalWorldHomeContent = {
       heading: "מה זה SAVEN",
       body: "SAVEN Core בונה מערכות שמקשרות הבנה אנושית לרובוטים ומכשירים בעולם הפיזי — תחת שליטה אנושית. בינה מלאכותית היא כלי שאנו משתמשים בו ומקדמים למטרה זו; יצירת בינה מלאכותית אינה המטרה.",
     },
-    biomathCallout: {
-      eyebrow: "BioMath Core → SAVEN",
-      title: "דוחות מעצבים פעולות ברמה הבאה",
-      body: "מידע לפעולות ופקודות ברמה הבאה של SAVEN נוצר מדוחות ומסקנות של BioMath Core — תחת שליטה אנושית. בינה מלאכותית היא כלי בנתיב הזה, לא המטרה.",
+    biomathBridge: {
+      eyebrow: "מי אנחנו",
+      title: "BioMath Core → SAVEN",
+      body: "BioMath Core הוא היסוד של מודל הנתונים האנושיים — הקשר רציף שאוסף ומבנה נתונים אנושיים מורשים, ויוצר את הדוחות והמסקנות שמעצבים פעולות ברמה הבאה של SAVEN תחת שליטה אנושית.",
       scopeLine: "כיסוי המודל: 20 קטגוריות · 200+ שירותים",
       href: "/foundation/biomath-core/",
       cta: "חקור את BioMath Core",
-    },
-    goDeeperWho: {
-      eyebrow: "מי אנחנו",
-      heading: "העמיקו",
-      body: "BioMath Core הוא הבסיס של הכול — היסוד שאוסף ומבנה את מודל הנתונים האנושיים, ויוצר את הדוחות והמסקנות שמעצבים פעולות ברמה הבאה של SAVEN תחת שליטה אנושית.",
-      href: "/foundation/biomath-core/",
-      cta: "BioMath Core",
       logoAlt: "BioMath Core",
     },
     chain: {

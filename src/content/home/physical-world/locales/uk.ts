@@ -68,20 +68,13 @@ export const physicalWorldHomeUk: PhysicalWorldHomeContent = {
       heading: "Що таке SAVEN",
       body: "SAVEN Core будує системи, що пов’язують людське розуміння з роботами й пристроями у фізичному світі — під контролем людини. ШІ — інструмент, який ми використовуємо й розвиваємо для цієї мети; створення ШІ — не мета.",
     },
-    biomathCallout: {
-      eyebrow: "BioMath Core → SAVEN",
-      title: "Звіти формують дії наступного рівня",
-      body: "Інформація для дій і команд SAVEN наступного рівня формується зі звітів і висновків BioMath Core — під контролем людини. ШІ — інструмент на цьому шляху, а не мета.",
+    biomathBridge: {
+      eyebrow: "Хто ми",
+      title: "BioMath Core → SAVEN",
+      body: "BioMath Core — фундамент Моделі даних людини: безперервний контекст, що збирає й структурує авторизовані людські дані та формує звіти й висновки, які задають дії SAVEN наступного рівня під контролем людини.",
       scopeLine: "Охоплення моделі: 20 категорій · 200+ сервісів",
       href: "/foundation/biomath-core/",
       cta: "Дослідити BioMath Core",
-    },
-    goDeeperWho: {
-      eyebrow: "Хто ми",
-      heading: "Поглибитись",
-      body: "BioMath Core — основа всього: фундамент, що збирає й структурує Модель даних людини та формує звіти й висновки, які задають дії SAVEN наступного рівня під контролем людини.",
-      href: "/foundation/biomath-core/",
-      cta: "BioMath Core",
       logoAlt: "BioMath Core",
     },
     chain: {

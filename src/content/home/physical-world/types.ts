@@ -48,14 +48,18 @@ export type HomeClarityAudiencePath = {
   links: readonly HomeClarityAudienceLink[];
 };
 
-/** Strong BioMath → SAVEN actions accent (D-0227). */
-export type HomeClarityBiomathCallout = {
+/**
+ * Merged BioMath Core bridge (D-0230) — reports→actions + Who we are / Human Data Model
+ * in one compact panel before “What we are not”.
+ */
+export type HomeClarityBiomathBridge = {
   eyebrow: string;
   title: string;
   body: string;
   scopeLine: string;
   href: string;
   cta: string;
+  logoAlt: string;
 };
 
 /** Reversible clarity blocks (D-0219) — rendered only when the feature flag is on. */
@@ -64,17 +68,8 @@ export type HomeClarityContent = {
     heading: string;
     body: string;
   };
-  /** Gold-accent callout: BioMath Core reports → SAVEN actions (D-0227). */
-  biomathCallout?: HomeClarityBiomathCallout;
-  /** Compact Who we are / Go deeper — BioMath Core as basis (D-0228). */
-  goDeeperWho?: {
-    eyebrow: string;
-    heading: string;
-    body: string;
-    href: string;
-    cta: string;
-    logoAlt: string;
-  };
+  /** Compact BioMath Core → SAVEN + foundation bridge (D-0230; replaces D-0227/D-0228 split cards). */
+  biomathBridge?: HomeClarityBiomathBridge;
   chain: {
     heading: string;
     ariaLabel: string;

@@ -68,20 +68,13 @@ export const physicalWorldHomeFr: PhysicalWorldHomeContent = {
       heading: "Qu’est-ce que SAVEN",
       body: "SAVEN Core construit des systèmes qui relient la compréhension humaine aux robots et appareils dans le monde physique — sous contrôle humain. L’IA est un outil que nous utilisons et faisons progresser à cette fin ; créer de l’IA n’est pas le but.",
     },
-    biomathCallout: {
-      eyebrow: "BioMath Core → SAVEN",
-      title: "Les rapports façonnent les actions de niveau supérieur",
-      body: "L’information pour les actions et commandes de niveau supérieur de SAVEN est formée à partir des rapports et conclusions de BioMath Core — sous contrôle humain. L’IA est un outil sur ce chemin, pas le but.",
+    biomathBridge: {
+      eyebrow: "Qui nous sommes",
+      title: "BioMath Core → SAVEN",
+      body: "BioMath Core est le fondement du Modèle de données humaines — un contexte continu qui rassemble et structure les données humaines autorisées, et forme les rapports et conclusions qui façonnent les actions de niveau supérieur de SAVEN sous contrôle humain.",
       scopeLine: "Couverture du modèle : 20 catégories · 200+ services",
       href: "/foundation/biomath-core/",
       cta: "Explorer BioMath Core",
-    },
-    goDeeperWho: {
-      eyebrow: "Qui nous sommes",
-      heading: "Aller plus loin",
-      body: "BioMath Core est la base de tout — le fondement qui rassemble et structure le Modèle de données humaines, et forme les rapports et conclusions qui informent les actions de niveau supérieur de SAVEN sous contrôle humain.",
-      href: "/foundation/biomath-core/",
-      cta: "BioMath Core",
       logoAlt: "BioMath Core",
     },
     chain: {

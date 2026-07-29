@@ -18,7 +18,7 @@ type HomeClarityPackProps = {
   locale: Locale;
   clarity: HomeClarityContent;
   pillars: readonly ClosingExplorePillar[];
-  /** post-hero: definition + chain + compact explore + audience; post-living: biomath + go deeper + boundaries. */
+  /** post-hero: definition + chain + compact explore + audience; post-living: biomath bridge + boundaries. */
   slot: "post-hero" | "post-living";
 };
 
@@ -32,91 +32,63 @@ function localizePublishedHref(locale: Locale, href: string): string {
   return `${localizePath(locale, path as PublishedRoute)}${hash}`;
 }
 
-function BiomathAndGoDeeper({
+function BiomathBridge({
   locale,
   clarity,
 }: {
   locale: Locale;
   clarity: HomeClarityContent;
 }) {
-  return (
-    <>
-      {clarity.biomathCallout ? (
-        <section
-          className="pw-clarity__block pw-clarity__biomath"
-          aria-labelledby="pw-clarity-biomath-title"
-        >
-          <div className="pw-home__inner pw-clarity__inner">
-            <div className="pw-clarity__panel pw-clarity__panel--biomath">
-              <p className="pw-clarity__eyebrow pw-clarity__eyebrow--biomath">
-                {clarity.biomathCallout.eyebrow}
-              </p>
-              <h2 id="pw-clarity-biomath-title" className="pw-clarity__title">
-                {clarity.biomathCallout.title}
-              </h2>
-              <p className="pw-clarity__body">{clarity.biomathCallout.body}</p>
-              <p className="pw-clarity__biomath-scope">
-                {clarity.biomathCallout.scopeLine}
-              </p>
-              <Link
-                href={localizePublishedHref(locale, clarity.biomathCallout.href)}
-                className="pw-clarity__biomath-cta"
-              >
-                {clarity.biomathCallout.cta}
-                <span aria-hidden="true"> →</span>
-              </Link>
-            </div>
-          </div>
-        </section>
-      ) : null}
+  if (!clarity.biomathBridge) return null;
 
-      {clarity.goDeeperWho ? (
-        <section
-          className="pw-clarity__block pw-clarity__go-deeper"
-          aria-labelledby="pw-clarity-go-deeper-title"
-        >
-          <div className="pw-home__inner pw-clarity__inner">
-            <div className="pw-clarity__panel pw-clarity__panel--go-deeper">
-              <div className="pw-clarity__go-deeper-copy">
-                <p className="pw-clarity__eyebrow pw-clarity__eyebrow--go-deeper">
-                  {clarity.goDeeperWho.eyebrow}
-                </p>
-                <h2
-                  id="pw-clarity-go-deeper-title"
-                  className="pw-clarity__title"
-                >
-                  {clarity.goDeeperWho.heading}
-                </h2>
-                <p className="pw-clarity__body">{clarity.goDeeperWho.body}</p>
-                <Link
-                  href={localizePublishedHref(locale, clarity.goDeeperWho.href)}
-                  className="pw-clarity__go-deeper-cta"
-                >
-                  {clarity.goDeeperWho.cta}
-                  <span aria-hidden="true"> →</span>
-                </Link>
-              </div>
-              <div className="pw-clarity__go-deeper-brand" aria-hidden="true">
-                <Image
-                  src="/brand/biomath-core-logo.webp"
-                  alt=""
-                  width={120}
-                  height={125}
-                  className="pw-clarity__go-deeper-logo"
-                />
-              </div>
-            </div>
+  const bridge = clarity.biomathBridge;
+
+  return (
+    <section
+      className="pw-clarity__block pw-clarity__biomath-bridge"
+      aria-labelledby="pw-clarity-biomath-bridge-title"
+    >
+      <div className="pw-home__inner pw-clarity__inner">
+        <div className="pw-clarity__panel pw-clarity__panel--biomath-bridge">
+          <div className="pw-clarity__biomath-bridge-copy">
+            <p className="pw-clarity__eyebrow pw-clarity__eyebrow--biomath">
+              {bridge.eyebrow}
+            </p>
+            <h2
+              id="pw-clarity-biomath-bridge-title"
+              className="pw-clarity__title"
+            >
+              {bridge.title}
+            </h2>
+            <p className="pw-clarity__body">{bridge.body}</p>
+            <p className="pw-clarity__biomath-scope">{bridge.scopeLine}</p>
+            <Link
+              href={localizePublishedHref(locale, bridge.href)}
+              className="pw-clarity__biomath-cta"
+            >
+              {bridge.cta}
+              <span aria-hidden="true"> →</span>
+            </Link>
           </div>
-        </section>
-      ) : null}
-    </>
+          <div className="pw-clarity__biomath-bridge-brand" aria-hidden="true">
+            <Image
+              src="/brand/biomath-core-logo.webp"
+              alt=""
+              width={72}
+              height={75}
+              className="pw-clarity__biomath-bridge-logo"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 
 /**
  * Reversible homepage clarity blocks (D-0219 / denser D-0220 / visual D-0221).
  * Explore SAVEN uses cinematic letter panels (D-0225 / D-0226).
- * BioMath + Go deeper sit before “What we are not” (D-0229).
+ * Merged BioMath bridge sits before “What we are not” (D-0230).
  * Gated by `HOME_CLARITY_V1_ENABLED` — returns null when the flag is off.
  * V2 adds navy/gold/off-white card grammar while keeping support copy visible.
  */
@@ -143,7 +115,7 @@ export function HomeClarityPack({
       <div
         className={`pw-clarity pw-clarity--late pw-clarity--visual${dense ? " pw-clarity--v2" : ""}`}
       >
-        <BiomathAndGoDeeper locale={locale} clarity={clarity} />
+        <BiomathBridge locale={locale} clarity={clarity} />
         <section
           className="pw-clarity__block pw-clarity--not"
           aria-labelledby="pw-clarity-not-title"

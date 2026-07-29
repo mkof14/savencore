@@ -7,7 +7,7 @@ import {
 } from "@/content/biomath-core/scope";
 
 /**
- * BioMath Core leaf page — D-0228 / D-0229.
+ * BioMath Core leaf page — D-0228 / D-0229 / D-0230.
  * Architecture / In Development model coverage — not an Operational catalog.
  */
 
@@ -30,6 +30,36 @@ export type BioMathCorePathLink = {
   note?: string;
 };
 
+export type BioMathCoreLivingPoint = {
+  id: string;
+  body: string;
+};
+
+export type BioMathCoreStackLayer = {
+  id: string;
+  name: string;
+  role: string;
+  detail: string;
+};
+
+export type BioMathCoreRoleSide = {
+  name: string;
+  title: string;
+  verbs: readonly string[];
+};
+
+export type BioMathCoreFormulaPart = {
+  id: string;
+  label: string;
+  detail: string;
+};
+
+export type BioMathCoreEnvironmentCard = {
+  id: string;
+  label: string;
+  body: string;
+};
+
 export type BioMathCorePageContent = {
   metadata: PageMetadata;
   label: string;
@@ -40,18 +70,42 @@ export type BioMathCorePageContent = {
     logoAlt: string;
     visualAlt: string;
   };
+  livingModel: {
+    heading: string;
+    support: string;
+    visualLabel: string;
+    points: readonly BioMathCoreLivingPoint[];
+  };
+  layerStack: {
+    heading: string;
+    support: string;
+    layers: readonly BioMathCoreStackLayer[];
+    callout: string;
+  };
+  dualRoles: {
+    heading: string;
+    support: string;
+    biomath: BioMathCoreRoleSide;
+    saven: BioMathCoreRoleSide;
+    banner: string;
+  };
+  formula: {
+    heading: string;
+    support: string;
+    parts: readonly BioMathCoreFormulaPart[];
+    equals: string;
+    equalsDetail: string;
+  };
+  environments: {
+    heading: string;
+    support: string;
+    cards: readonly BioMathCoreEnvironmentCard[];
+    footer: string;
+  };
   sequence: {
     heading: string;
     support: string;
     steps: readonly BioMathCoreSequenceStep[];
-  };
-  role: {
-    heading: string;
-    paragraphs: readonly string[];
-  };
-  humanData: {
-    heading: string;
-    paragraphs: readonly string[];
   };
   reportsCallout: {
     eyebrow: string;
@@ -84,9 +138,9 @@ export const biomathCorePageContent: BioMathCorePageContent = {
     category: "Foundation",
     documentType: "Knowledge",
     status: "Architecture",
-    version: "0.2",
+    version: "0.3",
     lastUpdated: "2026-07-29",
-    readingTime: "6 min",
+    readingTime: "8 min",
     relatedDomain: "Foundation, Human Data Model, SAVEN",
   },
   label: "Foundation",
@@ -95,7 +149,127 @@ export const biomathCorePageContent: BioMathCorePageContent = {
   status: "Architecture",
   hero: {
     logoAlt: "BioMath Core",
-    visualAlt: "BioMath Core sphere — structured intelligence at the center of the foundation",
+    visualAlt:
+      "BioMath Core sphere — structured intelligence at the center of the foundation",
+  },
+  livingModel: {
+    heading: "One Human = One Living Model",
+    support:
+      "A single continuous model of one person — not fragmented profiles reset by each service.",
+    visualLabel: "Living human model at the center of continuous context",
+    points: [
+      {
+        id: "over-time",
+        body: "What is happening to this human over time, and why?",
+      },
+      {
+        id: "history",
+        body: "History never resets; context is maintained across services.",
+      },
+      {
+        id: "recalculate",
+        body: "Every new data point recalculates past conclusions.",
+      },
+    ],
+  },
+  layerStack: {
+    heading: "Four-layer stack",
+    support:
+      "From philosophy to physical bodies — one governed path. BioMath Core is the brain and context engine.",
+    layers: [
+      {
+        id: "biomath-life",
+        name: "BioMath Life",
+        role: "Strategy · Philosophy · Standards",
+        detail: "Orientation and human-centered priority for everything below.",
+      },
+      {
+        id: "biomath-core",
+        name: "BioMath Core",
+        role: "Brain · Context Engine",
+        detail: "Organizes authorized human context into living model intelligence.",
+      },
+      {
+        id: "saven",
+        name: "SAVEN",
+        role: "Execution Layer",
+        detail: "Turns conclusions into governed actions, control, and verification.",
+      },
+      {
+        id: "body",
+        name: "Body Layer",
+        role: "Robots · Devices · Humans",
+        detail: "Where assistance meets the physical world under human control.",
+      },
+    ],
+    callout:
+      "Understanding is useless without execution. BioMath Core thinks — but cannot act alone.",
+  },
+  dualRoles: {
+    heading: "Context and execution — dual roles",
+    support:
+      "Two interlocking capabilities. Neither replaces the other; both are required for continuous care architecture.",
+    biomath: {
+      name: "BioMath Core",
+      title: "Context Engine",
+      verbs: ["Thinks", "Analyzes", "Models"],
+    },
+    saven: {
+      name: "SAVEN",
+      title: "Execution Layer",
+      verbs: ["Executes", "Controls", "Verifies"],
+    },
+    banner:
+      "SAVEN maintains continuity where traditional systems break down.",
+  },
+  formula: {
+    heading: "Master Infrastructure Formula",
+    support:
+      "Architecture equation for continuous care — model coverage plus execution plus bodies.",
+    parts: [
+      {
+        id: "biomath",
+        label: "BioMath Core",
+        detail: "20 categories · 200+ services",
+      },
+      {
+        id: "saven",
+        label: "SAVEN",
+        detail: "Execution",
+      },
+      {
+        id: "bodies",
+        label: "Bodies",
+        detail: "Wearables · Robots · Humans",
+      },
+    ],
+    equals: "System of Continuous Care",
+    equalsDetail:
+      "Intended architecture for ongoing assistance under human control — not an Operational product claim.",
+  },
+  environments: {
+    heading: "Environments",
+    support:
+      "Home, hospital, and institution share one helix of context, execution, and verification.",
+    cards: [
+      {
+        id: "home",
+        label: "Home",
+        body: "Daily life context — routines, devices, and family support under permission.",
+      },
+      {
+        id: "hospital",
+        label: "Hospital",
+        body: "Clinical environments where structured context informs assistance architecture.",
+      },
+      {
+        id: "institution",
+        label: "Institution",
+        body: "Care and organizational settings that still require the same continuity logic.",
+      },
+    ],
+    footer:
+      "Policies and roles change; execution and verification logic remains identical.",
   },
   sequence: {
     heading: "Foundation sequence",
@@ -106,21 +280,6 @@ export const biomathCorePageContent: BioMathCorePageContent = {
       { id: "biomath-core", label: "BioMath Core", emphasis: true },
       { id: "saven", label: "SAVEN" },
       { id: "saven-core", label: "SAVEN Core" },
-    ],
-  },
-  role: {
-    heading: "Role in the foundation",
-    paragraphs: [
-      "BioMath Core is the intelligence layer. It organizes human data and context so situations can be interpreted with permissions, privacy, and accountable use.",
-      "It receives orientation from BioMath Life and provides the structured interface that SAVEN and SAVEN Core use. Everything downstream inherits that human-centered priority — it must not invert it.",
-      "AI remains a tool in this path. Human control remains the condition for consequential action.",
-    ],
-  },
-  humanData: {
-    heading: "Human Data Model",
-    paragraphs: [
-      "BioMath Core is the foundation that gathers and structures the Human Data Model — the controlled representation of human context used across the architecture.",
-      "The model organizes authorized signals, history, and changing conditions so systems can interpret context without treating people as unstructured data sources. Access is permissioned; unnecessary exposure must be reduced.",
     ],
   },
   reportsCallout: {
@@ -148,7 +307,8 @@ export const biomathCorePageContent: BioMathCorePageContent = {
   },
   paths: {
     heading: "Continue exploring",
-    support: "Human Data, Purpose, Technology, and FAQ deepen the same foundation story.",
+    support:
+      "Human Data, Purpose, Technology, and FAQ deepen the same foundation story.",
     links: [
       {
         label: "Human Data",

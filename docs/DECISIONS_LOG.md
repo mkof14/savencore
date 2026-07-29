@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-29 (D-0229 — BioMath Core catalog redesign + home section order + transparent logo)
+**Last updated:** 2026-07-29 (D-0230 — BioMath Core capability redesign + home merged bridge)
 
 ## Rules
 
@@ -244,7 +244,8 @@
 | D-0226 | 2026-07-29 | Explore SAVEN: larger letter tabs + compact band | Active |
 | D-0227 | 2026-07-29 | BioMath Core: 20 categories / 200+ services → SAVEN actions | Active |
 | D-0228 | 2026-07-29 | BioMath Core leaf `/foundation/biomath-core/` + home Go deeper | Active |
-| D-0229 | 2026-07-29 | BioMath Core catalog redesign, transparent logo, home order | Active |
+| D-0229 | 2026-07-29 | BioMath Core catalog redesign, transparent logo, home order | Partially superseded by D-0230 (home merge + leaf capability diagrams) |
+| D-0230 | 2026-07-29 | BioMath Core capability redesign + home merged bridge | Active |
 
 ---
 
@@ -2218,6 +2219,21 @@
 - **In scope:** HomeClarityPack order/CSS, BMC page/CSS/content/scope, logo assets, FAQ + foundation dictionaries, D-0229 + AGENTS / SITE_ASSIGNMENT / IA; type-check; commit/push/Vercel; smoke; Russian owner brief.
 - **Out of scope:** Operational commercial catalog; live storefront; inventing additional foundation leaves; neon spam.
 - **Implications:** BioMath Core leaf is the model catalog depth page; home BioMath accents sit lower, just before boundaries.
+
+
+### D-0230 — BioMath Core capability redesign + home merged bridge
+
+- **Date:** 2026-07-29
+- **Status:** Active
+- **Summary:** Owner authorizes (A) replacing home phrasing “basis of everything” with professional Human Data Model / continuous-context wording; (B) smaller BioMath Core logo on home and leaf; (C) merging the two home clarity cards (BioMath → SAVEN callout + Go deeper / Who we are) into **one** compact bridge panel immediately before “What we are not”; (D) full BioMath Core leaf capability redesign with site-native SVG/CSS/HTML diagrams (inspiration only from owner references — not pasted as-is): One Human = One Living Model; four-layer stack; dual roles / puzzle; Master Infrastructure Formula; Environments helix — while keeping transparent small logo, tagline **Where health data becomes daily clarity.**, foundation sequence, reports→SAVEN callout, Complete Services Catalog + 20 categories, Architecture / In Development framing, and medical non-claims. English canonical; i18n all 10 locales.
+- **Decision:**
+  1. **Home** — Single `biomathBridge` panel (Who we are / BioMath Core → SAVEN / Human Data Model foundation + continuous context / 20 categories · 200+ services / Explore BioMath Core + smaller transparent logo). No “everything” wording.
+  2. **Leaf diagrams** — Five capability sections as site-native graphics (navy / gold / soft gray-blue / BMC orange-blue accents; straight corners; limited glow; no neon spam; no Operational product claims).
+  3. **Retained** — Catalog, medical non-claims, foundation sequence links, Architecture / In Development status.
+  4. **i18n** — EN source; home locales + page dictionaries for all 10 locales.
+- **In scope:** HomeClarityPack / types / locales / CSS; BioMathCorePage + Visuals + CSS + EN content + dictionaries; D-0230 + AGENTS / SITE_ASSIGNMENT / IA; type-check; commit/push/Vercel; smoke; Russian owner brief.
+- **Out of scope:** Pasting owner screenshots as public assets; Operational catalog; inventing clinical/product claims; additional foundation leaves.
+- **Implications:** Home BioMath story is one compact bridge; leaf emphasizes power / technology / capabilities while catalog remains model coverage.
 
 ## Pending Owner Decisions
 

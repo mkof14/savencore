@@ -68,20 +68,13 @@ export const physicalWorldHomeDe: PhysicalWorldHomeContent = {
       heading: "Was ist SAVEN",
       body: "SAVEN Core baut Systeme, die menschliches Verständnis mit Robotern und Geräten in der physischen Welt verbinden — unter menschlicher Kontrolle. KI ist ein Werkzeug, das wir dafür nutzen und weiterentwickeln; KI zu erschaffen ist nicht der Zweck.",
     },
-    biomathCallout: {
-      eyebrow: "BioMath Core → SAVEN",
-      title: "Berichte formen Aktionen der nächsten Stufe",
-      body: "Informationen für SAVEN-Aktionen und -Befehle der nächsten Stufe entstehen aus Berichten und Schlussfolgerungen von BioMath Core — unter menschlicher Kontrolle. KI ist ein Werkzeug auf diesem Weg, nicht der Zweck.",
+    biomathBridge: {
+      eyebrow: "Wer wir sind",
+      title: "BioMath Core → SAVEN",
+      body: "BioMath Core ist das Fundament des Modells menschlicher Daten — kontinuierlicher Kontext, der autorisierte menschliche Daten sammelt und strukturiert und die Berichte und Schlussfolgerungen bildet, die SAVEN-Aktionen der nächsten Stufe unter menschlicher Kontrolle formen.",
       scopeLine: "Modellabdeckung: 20 Kategorien · 200+ Dienste",
       href: "/foundation/biomath-core/",
       cta: "BioMath Core erkunden",
-    },
-    goDeeperWho: {
-      eyebrow: "Wer wir sind",
-      heading: "Tiefer gehen",
-      body: "BioMath Core ist die Grundlage von allem — das Fundament, das das Modell menschlicher Daten sammelt und strukturiert und die Berichte und Schlussfolgerungen bildet, die SAVEN-Aktionen der nächsten Stufe unter menschlicher Kontrolle informieren.",
-      href: "/foundation/biomath-core/",
-      cta: "BioMath Core",
       logoAlt: "BioMath Core",
     },
     chain: {

@@ -116,4 +116,9 @@ export const dictionary: Record<string, string> = {
   "Care and organizational settings that still require the same continuity logic.": "Середовища догляду й організації, яким усе одно потрібна та сама логіка безперервності.",
   "Policies and roles change; execution and verification logic remains identical.": "Політики й ролі змінюються; логіка виконання й верифікації лишається тією самою.",
   "Home": "Дім",
+  'One Human = One Living Model — living model sphere with continuous-context callouts': 'Одна людина = одна жива модель — сфера живої моделі з виносками безперервного контексту',
+  'Four-layer stack — BioMath Life, BioMath Core, SAVEN, and Body Layer': 'Чотиришаровий стек — BioMath Life, BioMath Core, SAVEN і Body Layer',
+  'BioMath Core and SAVEN interlocking puzzle — context engine and execution layer': 'Взаємопов’язаний пазл BioMath Core і SAVEN — рушій контексту та шар виконання',
+  'Master Infrastructure Formula — BioMath Core plus SAVEN plus Bodies equals System of Continuous Care': 'Головна формула інфраструктури — BioMath Core + SAVEN + Bodies = System of Continuous Care',
+  'Environments helix — Home, Hospital, and Institution under one continuity logic': 'Спіраль середовищ — Home, Hospital і Institution під однією логікою безперервності',
 };

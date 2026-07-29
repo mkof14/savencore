@@ -116,4 +116,9 @@ export const dictionary: Record<string, string> = {
   "Care and organizational settings that still require the same continuity logic.": "بيئات رعاية وتنظيم ما زالت تتطلب منطق الاستمرارية نفسه.",
   "Policies and roles change; execution and verification logic remains identical.": "تتغير السياسات والأدوار؛ تبقى منطق التنفيذ والتحقق متطابقًا.",
   "Home": "المنزل",
+  'One Human = One Living Model — living model sphere with continuous-context callouts': 'إنسان واحد = نموذج حي واحد — كرة النموذج الحي مع تعليقات السياق المستمر',
+  'Four-layer stack — BioMath Life, BioMath Core, SAVEN, and Body Layer': 'مكدس من أربع طبقات — BioMath Life وBioMath Core وSAVEN وطبقة الأجسام',
+  'BioMath Core and SAVEN interlocking puzzle — context engine and execution layer': 'أحجية متداخلة لـ BioMath Core وSAVEN — محرك السياق وطبقة التنفيذ',
+  'Master Infrastructure Formula — BioMath Core plus SAVEN plus Bodies equals System of Continuous Care': 'صيغة البنية التحتية الرئيسية — BioMath Core + SAVEN + الأجسام = نظام الرعاية المستمرة',
+  'Environments helix — Home, Hospital, and Institution under one continuity logic': 'حلزون البيئات — المنزل والمستشفى والمؤسسة تحت منطق استمرارية واحد',
 };

@@ -7,7 +7,7 @@ import {
 } from "@/content/biomath-core/scope";
 
 /**
- * BioMath Core leaf page — D-0228 / D-0229 / D-0230.
+ * BioMath Core leaf page — D-0228 / D-0229 / D-0230 / D-0231.
  * Architecture / In Development model coverage — not an Operational catalog.
  */
 
@@ -74,17 +74,23 @@ export type BioMathCorePageContent = {
     heading: string;
     support: string;
     visualLabel: string;
+    imageSrc: string;
+    imageAlt: string;
     points: readonly BioMathCoreLivingPoint[];
   };
   layerStack: {
     heading: string;
     support: string;
+    imageSrc: string;
+    imageAlt: string;
     layers: readonly BioMathCoreStackLayer[];
     callout: string;
   };
   dualRoles: {
     heading: string;
     support: string;
+    imageSrc: string;
+    imageAlt: string;
     biomath: BioMathCoreRoleSide;
     saven: BioMathCoreRoleSide;
     banner: string;
@@ -92,6 +98,8 @@ export type BioMathCorePageContent = {
   formula: {
     heading: string;
     support: string;
+    imageSrc: string;
+    imageAlt: string;
     parts: readonly BioMathCoreFormulaPart[];
     equals: string;
     equalsDetail: string;
@@ -99,6 +107,8 @@ export type BioMathCorePageContent = {
   environments: {
     heading: string;
     support: string;
+    imageSrc: string;
+    imageAlt: string;
     cards: readonly BioMathCoreEnvironmentCard[];
     footer: string;
   };
@@ -138,7 +148,7 @@ export const biomathCorePageContent: BioMathCorePageContent = {
     category: "Foundation",
     documentType: "Knowledge",
     status: "Architecture",
-    version: "0.3",
+    version: "0.4",
     lastUpdated: "2026-07-29",
     readingTime: "8 min",
     relatedDomain: "Foundation, Human Data Model, SAVEN",
@@ -157,6 +167,9 @@ export const biomathCorePageContent: BioMathCorePageContent = {
     support:
       "A single continuous model of one person — not fragmented profiles reset by each service.",
     visualLabel: "Living human model at the center of continuous context",
+    imageSrc: "/domain/foundation/biomath-core/living-model.webp",
+    imageAlt:
+      "One Human = One Living Model — living model sphere with continuous-context callouts",
     points: [
       {
         id: "over-time",
@@ -176,6 +189,9 @@ export const biomathCorePageContent: BioMathCorePageContent = {
     heading: "Four-layer stack",
     support:
       "From philosophy to physical bodies — one governed path. BioMath Core is the brain and context engine.",
+    imageSrc: "/domain/foundation/biomath-core/layer-stack.webp",
+    imageAlt:
+      "Four-layer stack — BioMath Life, BioMath Core, SAVEN, and Body Layer",
     layers: [
       {
         id: "biomath-life",
@@ -209,6 +225,9 @@ export const biomathCorePageContent: BioMathCorePageContent = {
     heading: "Context and execution — dual roles",
     support:
       "Two interlocking capabilities. Neither replaces the other; both are required for continuous care architecture.",
+    imageSrc: "/domain/foundation/biomath-core/dual-roles.webp",
+    imageAlt:
+      "BioMath Core and SAVEN interlocking puzzle — context engine and execution layer",
     biomath: {
       name: "BioMath Core",
       title: "Context Engine",
@@ -226,6 +245,9 @@ export const biomathCorePageContent: BioMathCorePageContent = {
     heading: "Master Infrastructure Formula",
     support:
       "Architecture equation for continuous care — model coverage plus execution plus bodies.",
+    imageSrc: "/domain/foundation/biomath-core/formula.webp",
+    imageAlt:
+      "Master Infrastructure Formula — BioMath Core plus SAVEN plus Bodies equals System of Continuous Care",
     parts: [
       {
         id: "biomath",
@@ -251,6 +273,9 @@ export const biomathCorePageContent: BioMathCorePageContent = {
     heading: "Environments",
     support:
       "Home, hospital, and institution share one helix of context, execution, and verification.",
+    imageSrc: "/domain/foundation/biomath-core/environments.webp",
+    imageAlt:
+      "Environments helix — Home, Hospital, and Institution under one continuity logic",
     cards: [
       {
         id: "home",

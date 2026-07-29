@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-29 (D-0230 — BioMath Core capability redesign + home merged bridge)
+**Last updated:** 2026-07-29 (D-0231 — BioMath Core owner capability graphics)
 
 ## Rules
 
@@ -245,7 +245,8 @@
 | D-0227 | 2026-07-29 | BioMath Core: 20 categories / 200+ services → SAVEN actions | Active |
 | D-0228 | 2026-07-29 | BioMath Core leaf `/foundation/biomath-core/` + home Go deeper | Active |
 | D-0229 | 2026-07-29 | BioMath Core catalog redesign, transparent logo, home order | Partially superseded by D-0230 (home merge + leaf capability diagrams) |
-| D-0230 | 2026-07-29 | BioMath Core capability redesign + home merged bridge | Active |
+| D-0230 | 2026-07-29 | BioMath Core capability redesign + home merged bridge | Partially superseded by D-0231 (owner graphics as page assets) |
+| D-0231 | 2026-07-29 | BioMath Core owner capability images on leaf | Active |
 
 ---
 
@@ -2234,6 +2235,21 @@
 - **In scope:** HomeClarityPack / types / locales / CSS; BioMathCorePage + Visuals + CSS + EN content + dictionaries; D-0230 + AGENTS / SITE_ASSIGNMENT / IA; type-check; commit/push/Vercel; smoke; Russian owner brief.
 - **Out of scope:** Pasting owner screenshots as public assets; Operational catalog; inventing clinical/product claims; additional foundation leaves.
 - **Implications:** Home BioMath story is one compact bridge; leaf emphasizes power / technology / capabilities while catalog remains model coverage.
+
+
+### D-0231 — BioMath Core owner capability images on leaf
+
+- **Date:** 2026-07-29
+- **Status:** Active
+- **Summary:** Owner requires the five capability reference graphics to be **published page assets** (not inspiration-only SVG recreations). Supersedes D-0230 item that treated owner screenshots as out-of-scope for pasting. Home merged bridge from D-0230 remains in force.
+- **Decision:**
+  1. **Assets** — Process owner screenshots into `public/domain/foundation/biomath-core/` as WebP (+ PNG companions): `living-model`, `layer-stack`, `dual-roles`, `formula`, `environments`. Keep transparent BMC logo and sphere.
+  2. **Leaf** — Each capability section shows the processed image prominently, with English site-style captions/callouts (navy/gold/off-white). Retain Living Model, Layer stack + critical dependency callout, Dual roles, Formula, Environments, Complete Services Catalog + 20 categories, tagline, medical non-claims, Architecture / In Development status.
+  3. **Home** — Unchanged from D-0230: one merged bridge before “What we are not”; no “basis of everything”; smaller transparent logo.
+  4. **Governance** — Architecture / In Development model coverage — not an Operational storefront.
+- **In scope:** Public assets; BioMathCorePage / Visuals / CSS / EN content + dictionaries; D-0231 + AGENTS / SITE_ASSIGNMENT; type-check; commit/push/Vercel prod; curl proof of asset URLs in HTML; local :3000 restart; Russian owner brief.
+- **Out of scope:** Operational catalog; inventing clinical/product claims; additional foundation leaves.
+- **Implications:** BioMath Core leaf proves owner graphics in production HTML; SVG-only capability presentation is no longer acceptable for these five concepts.
 
 ## Pending Owner Decisions
 

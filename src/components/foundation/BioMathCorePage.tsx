@@ -22,7 +22,7 @@ type BioMathCorePageProps = {
 };
 
 /**
- * BioMath Core leaf — capability diagrams + model catalog (D-0228 / D-0229 / D-0230).
+ * BioMath Core leaf — owner capability graphics + model catalog (D-0228–D-0231).
  */
 export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
   const titleId = "bmc-page-title";
@@ -73,6 +73,8 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
           </h2>
           <p className="bmc-page__section-support">{content.livingModel.support}</p>
           <LivingModelVisual
+            imageSrc={content.livingModel.imageSrc}
+            imageAlt={content.livingModel.imageAlt}
             visualLabel={content.livingModel.visualLabel}
             points={content.livingModel.points}
           />
@@ -87,6 +89,8 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
           </h2>
           <p className="bmc-page__section-support">{content.layerStack.support}</p>
           <LayerStackVisual
+            imageSrc={content.layerStack.imageSrc}
+            imageAlt={content.layerStack.imageAlt}
             layers={content.layerStack.layers}
             callout={content.layerStack.callout}
           />
@@ -101,6 +105,8 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
           </h2>
           <p className="bmc-page__section-support">{content.dualRoles.support}</p>
           <DualRolesVisual
+            imageSrc={content.dualRoles.imageSrc}
+            imageAlt={content.dualRoles.imageAlt}
             biomath={content.dualRoles.biomath}
             saven={content.dualRoles.saven}
             banner={content.dualRoles.banner}
@@ -116,6 +122,8 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
           </h2>
           <p className="bmc-page__section-support">{content.formula.support}</p>
           <FormulaVisual
+            imageSrc={content.formula.imageSrc}
+            imageAlt={content.formula.imageAlt}
             parts={content.formula.parts}
             equals={content.formula.equals}
             equalsDetail={content.formula.equalsDetail}
@@ -131,6 +139,8 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
           </h2>
           <p className="bmc-page__section-support">{content.environments.support}</p>
           <EnvironmentsVisual
+            imageSrc={content.environments.imageSrc}
+            imageAlt={content.environments.imageAlt}
             cards={content.environments.cards}
             footer={content.environments.footer}
           />

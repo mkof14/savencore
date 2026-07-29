@@ -116,4 +116,9 @@ export const dictionary: Record<string, string> = {
   "Care and organizational settings that still require the same continuity logic.": "照护与组织场景仍需要同一套连续性逻辑。",
   "Policies and roles change; execution and verification logic remains identical.": "政策与角色会变；执行与验证逻辑保持相同。",
   "Home": "家庭",
+  'One Human = One Living Model — living model sphere with continuous-context callouts': '一个人＝一个活体模型 — 带连续上下文标注的活体模型球体',
+  'Four-layer stack — BioMath Life, BioMath Core, SAVEN, and Body Layer': '四层堆栈 — BioMath Life、BioMath Core、SAVEN 与 Body Layer',
+  'BioMath Core and SAVEN interlocking puzzle — context engine and execution layer': 'BioMath Core 与 SAVEN 互锁拼图 — 上下文引擎与执行层',
+  'Master Infrastructure Formula — BioMath Core plus SAVEN plus Bodies equals System of Continuous Care': '主基础设施公式 — BioMath Core + SAVEN + Bodies = System of Continuous Care',
+  'Environments helix — Home, Hospital, and Institution under one continuity logic': '环境螺旋 — Home、Hospital 与 Institution 共享同一连续性逻辑',
 };

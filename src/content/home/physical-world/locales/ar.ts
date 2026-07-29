@@ -73,8 +73,16 @@ export const physicalWorldHomeAr: PhysicalWorldHomeContent = {
       title: "التقارير تشكّل إجراءات المستوى التالي",
       body: "تُشكَّل المعلومات لإجراءات وأوامر SAVEN للمستوى التالي من تقارير واستنتاجات BioMath Core — تحت السيطرة البشرية. الذكاء الاصطناعي أداة في هذا المسار، وليس الغرض.",
       scopeLine: "نطاق النموذج: 20 فئة · أكثر من 200 خدمة",
-      href: "/foundation/#biomath-core",
-      cta: "BioMath Core في Foundation",
+      href: "/foundation/biomath-core/",
+      cta: "استكشف BioMath Core",
+    },
+    goDeeperWho: {
+      eyebrow: "من نحن",
+      heading: "تعمّق أكثر",
+      body: "BioMath Core هو أساس كل شيء — الأساس الذي يجمع ويُهيكل نموذج البيانات البشرية، ويشكّل التقارير والاستنتاجات التي تُعلم إجراءات SAVEN للمستوى التالي تحت السيطرة البشرية.",
+      href: "/foundation/biomath-core/",
+      cta: "BioMath Core",
+      logoAlt: "BioMath Core",
     },
     chain: {
       heading: "من الفهم إلى المساعدة",

@@ -73,8 +73,16 @@ export const physicalWorldHomeZhCn: PhysicalWorldHomeContent = {
       title: "报告塑造下一层行动",
       body: "SAVEN 下一层行动与指令的信息，由 BioMath Core 的报告与结论形成——在人类控制之下。AI 是这条路径上的工具，而非目的。",
       scopeLine: "模型覆盖：20 个类别 · 200+ 项服务",
-      href: "/foundation/#biomath-core",
-      cta: "Foundation 上的 BioMath Core",
+      href: "/foundation/biomath-core/",
+      cta: "探索 BioMath Core",
+    },
+    goDeeperWho: {
+      eyebrow: "我们是谁",
+      heading: "深入了解",
+      body: "BioMath Core 是一切的基础——汇集并结构化人的数据模型的根基，并形成在人类控制下为 SAVEN 下一层行动提供依据的报告与结论。",
+      href: "/foundation/biomath-core/",
+      cta: "BioMath Core",
+      logoAlt: "BioMath Core",
     },
     chain: {
       heading: "从理解到协助",

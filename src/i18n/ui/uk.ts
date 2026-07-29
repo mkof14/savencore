@@ -70,6 +70,7 @@ export const uiUk: UiMessages = {
     "footer-applications-research": "Дослідження",
     "footer-trust-ethics": "Етика",
     "footer-company-about": "Про компанію",
+    "footer-company-biomath-core": "BioMath Core",
     "footer-company-mission": "Місія",
     "footer-company-contact": "Контакти",
     "footer-company-investors": "Інвесторам",

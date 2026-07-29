@@ -72,6 +72,7 @@ export const uiEn = {
     "footer-applications-research": "Research",
     "footer-trust-ethics": "Ethics",
     "footer-company-about": "About",
+    "footer-company-biomath-core": "BioMath Core",
     "footer-company-mission": "Mission",
     "footer-company-investors": "Investors",
     "footer-company-investors-contact": "Investor Contact",

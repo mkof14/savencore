@@ -66,6 +66,15 @@ export type HomeClarityContent = {
   };
   /** Gold-accent callout: BioMath Core reports → SAVEN actions (D-0227). */
   biomathCallout?: HomeClarityBiomathCallout;
+  /** Compact Who we are / Go deeper — BioMath Core as basis (D-0228). */
+  goDeeperWho?: {
+    eyebrow: string;
+    heading: string;
+    body: string;
+    href: string;
+    cta: string;
+    logoAlt: string;
+  };
   chain: {
     heading: string;
     ariaLabel: string;

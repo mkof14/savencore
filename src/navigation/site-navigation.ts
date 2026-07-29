@@ -340,6 +340,11 @@ export const footerNavigation: readonly FooterGroup[] = [
     title: "Company",
     links: [
       published("footer-company-about", "About", "/foundation/"),
+      published(
+        "footer-company-biomath-core",
+        "BioMath Core",
+        "/foundation/biomath-core/",
+      ),
       published("footer-company-mission", "Mission", "/purpose/"),
       published("footer-company-investors", "Investors", "/investors/"),
       published(

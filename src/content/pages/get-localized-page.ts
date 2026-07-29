@@ -3,6 +3,7 @@ import { resolveContentLocale, type ContentLocale } from "@/i18n/types";
 import { deepLocalize } from "@/content/pages/localize-content";
 
 import { purposePageContent } from "@/content/pages/en/purpose";
+import { biomathCorePageContent } from "@/content/pages/en/biomath-core";
 import { foundationPageContent } from "@/content/pages/en/foundation";
 import {
   researchPageContent,
@@ -54,12 +55,13 @@ import * as ru from "@/content/pages/dictionaries/ru";
 import * as uk from "@/content/pages/dictionaries/uk";
 import * as zhCn from "@/content/pages/dictionaries/zh-cn";
 
-export const PAGE_CONTENT_KEYS = ['purpose', 'foundation', 'research', 'technology', 'systems', 'applications', 'trust', 'human-data', 'human-data-model', 'data-infrastructure', 'interoperability', 'privacy', 'security', 'artificial-intelligence', 'automation', 'robotics', 'knowledge-engine', 'ai-decision-support', 'safety-layer', 'communication-layer', 'clinical-interfaces', 'robotics-layer', 'drone-systems', 'healthcare', 'home-application', 'hospitals', 'emergency', 'industrial', 'government', 'agriculture', 'research-applications', 'trust-privacy', 'trust-security', 'trust-safety', 'human-oversight', 'transparency', 'ethics-responsible-use', 'limitations'] as const;
+export const PAGE_CONTENT_KEYS = ['purpose', 'biomath-core', 'foundation', 'research', 'technology', 'systems', 'applications', 'trust', 'human-data', 'human-data-model', 'data-infrastructure', 'interoperability', 'privacy', 'security', 'artificial-intelligence', 'automation', 'robotics', 'knowledge-engine', 'ai-decision-support', 'safety-layer', 'communication-layer', 'clinical-interfaces', 'robotics-layer', 'drone-systems', 'healthcare', 'home-application', 'hospitals', 'emergency', 'industrial', 'government', 'agriculture', 'research-applications', 'trust-privacy', 'trust-security', 'trust-safety', 'human-oversight', 'transparency', 'ethics-responsible-use', 'limitations'] as const;
 type PageKey = (typeof PAGE_CONTENT_KEYS)[number];
 type LocalizedDictionaries = Record<PageKey, Record<string, string>>;
 
 function mapDictionaryModule(mod: {
   purpose: Record<string, string>;
+  biomath_core: Record<string, string>;
   foundation: Record<string, string>;
   research: Record<string, string>;
   technology: Record<string, string>;
@@ -100,6 +102,7 @@ function mapDictionaryModule(mod: {
 }): LocalizedDictionaries {
   return {
     purpose: mod.purpose,
+    "biomath-core": mod.biomath_core,
     foundation: mod.foundation,
     research: mod.research,
     technology: mod.technology,
@@ -169,6 +172,10 @@ function getLocalizedPageContent<T>(
 
 export function getPurposePageContent(locale: Locale) {
   return getLocalizedPageContent("purpose", purposePageContent, locale);
+}
+
+export function getBioMathCorePageContent(locale: Locale) {
+  return getLocalizedPageContent("biomath-core", biomathCorePageContent, locale);
 }
 
 export function getFoundationPageContent(locale: Locale) {

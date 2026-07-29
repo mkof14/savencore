@@ -73,8 +73,16 @@ export const physicalWorldHomeFr: PhysicalWorldHomeContent = {
       title: "Les rapports façonnent les actions de niveau supérieur",
       body: "L’information pour les actions et commandes de niveau supérieur de SAVEN est formée à partir des rapports et conclusions de BioMath Core — sous contrôle humain. L’IA est un outil sur ce chemin, pas le but.",
       scopeLine: "Couverture du modèle : 20 catégories · 200+ services",
-      href: "/foundation/#biomath-core",
-      cta: "BioMath Core sur Foundation",
+      href: "/foundation/biomath-core/",
+      cta: "Explorer BioMath Core",
+    },
+    goDeeperWho: {
+      eyebrow: "Qui nous sommes",
+      heading: "Aller plus loin",
+      body: "BioMath Core est la base de tout — le fondement qui rassemble et structure le Modèle de données humaines, et forme les rapports et conclusions qui informent les actions de niveau supérieur de SAVEN sous contrôle humain.",
+      href: "/foundation/biomath-core/",
+      cta: "BioMath Core",
+      logoAlt: "BioMath Core",
     },
     chain: {
       heading: "De la compréhension à l’assistance",

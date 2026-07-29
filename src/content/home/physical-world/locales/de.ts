@@ -73,8 +73,16 @@ export const physicalWorldHomeDe: PhysicalWorldHomeContent = {
       title: "Berichte formen Aktionen der nächsten Stufe",
       body: "Informationen für SAVEN-Aktionen und -Befehle der nächsten Stufe entstehen aus Berichten und Schlussfolgerungen von BioMath Core — unter menschlicher Kontrolle. KI ist ein Werkzeug auf diesem Weg, nicht der Zweck.",
       scopeLine: "Modellabdeckung: 20 Kategorien · 200+ Dienste",
-      href: "/foundation/#biomath-core",
-      cta: "BioMath Core auf Foundation",
+      href: "/foundation/biomath-core/",
+      cta: "BioMath Core erkunden",
+    },
+    goDeeperWho: {
+      eyebrow: "Wer wir sind",
+      heading: "Tiefer gehen",
+      body: "BioMath Core ist die Grundlage von allem — das Fundament, das das Modell menschlicher Daten sammelt und strukturiert und die Berichte und Schlussfolgerungen bildet, die SAVEN-Aktionen der nächsten Stufe unter menschlicher Kontrolle informieren.",
+      href: "/foundation/biomath-core/",
+      cta: "BioMath Core",
+      logoAlt: "BioMath Core",
     },
     chain: {
       heading: "Vom Verständnis zur Unterstützung",

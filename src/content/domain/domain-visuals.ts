@@ -281,6 +281,11 @@ export const DOMAIN_MASTHEAD_BY_HREF: Record<string, DomainMastheadVisual> = {
     mastheadImage: "/domain/company/foundation.webp",
     mastheadAlt: "Foundation path from understanding to physical systems",
   },
+  "/foundation/biomath-core/": {
+    theme: "foundation",
+    mastheadImage: "/domain/foundation/biomath-core-sphere.png",
+    mastheadAlt: "BioMath Core sphere — structured intelligence at the center of the foundation",
+  },
   "/investors/": {
     theme: "investors",
     mastheadImage: "/domain/company/investors.webp",

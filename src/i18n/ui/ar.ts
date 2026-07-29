@@ -70,6 +70,7 @@ export const uiAr: UiMessages = {
     "footer-applications-research": "البحث",
     "footer-trust-ethics": "الأخلاق",
     "footer-company-about": "عن الشركة",
+    "footer-company-biomath-core": "BioMath Core",
     "footer-company-mission": "المهمة",
     "footer-company-contact": "اتصل بنا",
     "footer-company-investors": "المستثمرون",

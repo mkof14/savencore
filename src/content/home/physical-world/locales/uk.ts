@@ -73,8 +73,16 @@ export const physicalWorldHomeUk: PhysicalWorldHomeContent = {
       title: "Звіти формують дії наступного рівня",
       body: "Інформація для дій і команд SAVEN наступного рівня формується зі звітів і висновків BioMath Core — під контролем людини. ШІ — інструмент на цьому шляху, а не мета.",
       scopeLine: "Охоплення моделі: 20 категорій · 200+ сервісів",
-      href: "/foundation/#biomath-core",
-      cta: "BioMath Core у Foundation",
+      href: "/foundation/biomath-core/",
+      cta: "Дослідити BioMath Core",
+    },
+    goDeeperWho: {
+      eyebrow: "Хто ми",
+      heading: "Поглибитись",
+      body: "BioMath Core — основа всього: фундамент, що збирає й структурує Модель даних людини та формує звіти й висновки, які задають дії SAVEN наступного рівня під контролем людини.",
+      href: "/foundation/biomath-core/",
+      cta: "BioMath Core",
+      logoAlt: "BioMath Core",
     },
     chain: {
       heading: "Від розуміння до допомоги",

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import { ExploreSavenShowcase } from "@/components/home/ExploreSavenShowcase";
@@ -118,6 +119,46 @@ export function HomeClarityPack({
                 {clarity.biomathCallout.cta}
                 <span aria-hidden="true"> →</span>
               </Link>
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      {clarity.goDeeperWho ? (
+        <section
+          className="pw-clarity__block pw-clarity__go-deeper"
+          aria-labelledby="pw-clarity-go-deeper-title"
+        >
+          <div className="pw-home__inner pw-clarity__inner">
+            <div className="pw-clarity__panel pw-clarity__panel--go-deeper">
+              <div className="pw-clarity__go-deeper-copy">
+                <p className="pw-clarity__eyebrow pw-clarity__eyebrow--go-deeper">
+                  {clarity.goDeeperWho.eyebrow}
+                </p>
+                <h2
+                  id="pw-clarity-go-deeper-title"
+                  className="pw-clarity__title"
+                >
+                  {clarity.goDeeperWho.heading}
+                </h2>
+                <p className="pw-clarity__body">{clarity.goDeeperWho.body}</p>
+                <Link
+                  href={localizePublishedHref(locale, clarity.goDeeperWho.href)}
+                  className="pw-clarity__go-deeper-cta"
+                >
+                  {clarity.goDeeperWho.cta}
+                  <span aria-hidden="true"> →</span>
+                </Link>
+              </div>
+              <div className="pw-clarity__go-deeper-brand" aria-hidden="true">
+                <Image
+                  src="/brand/biomath-core-logo.png"
+                  alt=""
+                  width={280}
+                  height={94}
+                  className="pw-clarity__go-deeper-logo"
+                />
+              </div>
             </div>
           </div>
         </section>

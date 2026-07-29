@@ -1,4 +1,5 @@
 export { dictionary as purpose } from "./purpose";
+export { dictionary as biomath_core } from "./biomath-core";
 export { dictionary as foundation } from "./foundation";
 export { dictionary as research } from "./research";
 export { dictionary as technology } from "./technology";

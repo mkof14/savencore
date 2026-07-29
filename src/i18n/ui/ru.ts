@@ -70,6 +70,7 @@ export const uiRu: UiMessages = {
     "footer-applications-research": "Исследования",
     "footer-trust-ethics": "Этика",
     "footer-company-about": "О компании",
+    "footer-company-biomath-core": "BioMath Core",
     "footer-company-mission": "Миссия",
     "footer-company-contact": "Контакты",
     "footer-company-investors": "Инвесторам",

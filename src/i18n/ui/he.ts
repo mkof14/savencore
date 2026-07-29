@@ -70,6 +70,7 @@ export const uiHe: UiMessages = {
     "footer-applications-research": "מחקר",
     "footer-trust-ethics": "אתיקה",
     "footer-company-about": "אודות",
+    "footer-company-biomath-core": "BioMath Core",
     "footer-company-mission": "ייעוד",
     "footer-company-contact": "יצירת קשר",
     "footer-company-investors": "משקיעים",

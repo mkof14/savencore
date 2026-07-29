@@ -9,6 +9,7 @@ export const PUBLISHED_ROUTES = [
   "/",
   "/purpose/",
   "/foundation/",
+  "/foundation/biomath-core/",
   "/technology/",
   "/technology/human-data/",
   "/technology/human-data-model/",

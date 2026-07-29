@@ -73,8 +73,16 @@ export const physicalWorldHomeEs: PhysicalWorldHomeContent = {
       title: "Los informes dan forma a las acciones de siguiente nivel",
       body: "La información para las acciones y comandos de siguiente nivel de SAVEN se forma a partir de los informes y conclusiones de BioMath Core — bajo control humano. La IA es una herramienta en ese camino, no el propósito.",
       scopeLine: "Cobertura del modelo: 20 categorías · 200+ servicios",
-      href: "/foundation/#biomath-core",
-      cta: "BioMath Core en Foundation",
+      href: "/foundation/biomath-core/",
+      cta: "Explorar BioMath Core",
+    },
+    goDeeperWho: {
+      eyebrow: "Quiénes somos",
+      heading: "Ir más profundo",
+      body: "BioMath Core es la base de todo — el fundamento que reúne y estructura el Modelo de datos humanos, y forma los informes y conclusiones que informan las acciones de siguiente nivel de SAVEN bajo control humano.",
+      href: "/foundation/biomath-core/",
+      cta: "BioMath Core",
+      logoAlt: "BioMath Core",
     },
     chain: {
       heading: "De la comprensión a la asistencia",

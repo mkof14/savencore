@@ -72,8 +72,16 @@ export const physicalWorldHomeEn: PhysicalWorldHomeContent = {
       title: "Reports shape next-level actions",
       body: "Information for SAVEN’s next-level actions and commands is formed from BioMath Core reports and conclusions — under human control. AI is a tool in that path, not the purpose.",
       scopeLine: "Model coverage: 20 categories · 200+ services",
-      href: "/foundation/#biomath-core",
-      cta: "BioMath Core on Foundation",
+      href: "/foundation/biomath-core/",
+      cta: "Explore BioMath Core",
+    },
+    goDeeperWho: {
+      eyebrow: "Who we are",
+      heading: "Go deeper",
+      body: "BioMath Core is the basis of everything — the foundation that gathers and structures the Human Data Model, and forms the reports and conclusions that inform SAVEN’s next-level actions under human control.",
+      href: "/foundation/biomath-core/",
+      cta: "BioMath Core",
+      logoAlt: "BioMath Core",
     },
     chain: {
       heading: "From understanding to assistance",

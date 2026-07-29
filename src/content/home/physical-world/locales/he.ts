@@ -73,8 +73,16 @@ export const physicalWorldHomeHe: PhysicalWorldHomeContent = {
       title: "דוחות מעצבים פעולות ברמה הבאה",
       body: "מידע לפעולות ופקודות ברמה הבאה של SAVEN נוצר מדוחות ומסקנות של BioMath Core — תחת שליטה אנושית. בינה מלאכותית היא כלי בנתיב הזה, לא המטרה.",
       scopeLine: "כיסוי המודל: 20 קטגוריות · 200+ שירותים",
-      href: "/foundation/#biomath-core",
-      cta: "BioMath Core ב-Foundation",
+      href: "/foundation/biomath-core/",
+      cta: "חקור את BioMath Core",
+    },
+    goDeeperWho: {
+      eyebrow: "מי אנחנו",
+      heading: "העמיקו",
+      body: "BioMath Core הוא הבסיס של הכול — היסוד שאוסף ומבנה את מודל הנתונים האנושיים, ויוצר את הדוחות והמסקנות שמעצבים פעולות ברמה הבאה של SAVEN תחת שליטה אנושית.",
+      href: "/foundation/biomath-core/",
+      cta: "BioMath Core",
+      logoAlt: "BioMath Core",
     },
     chain: {
       heading: "מהבנה לסיוע",

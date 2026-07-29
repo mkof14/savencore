@@ -296,6 +296,7 @@ export const foundationPageContent: TechnicalPageContent = {
   ],
   relatedLinksHeading: "Related Pages",
   relatedLinks: [
+    { label: "BioMath Core", href: "/foundation/biomath-core/" },
     { label: "Purpose", href: "/purpose/" },
     { label: "Technology", href: "/technology/" },
     { label: "Systems", href: "/systems/" },

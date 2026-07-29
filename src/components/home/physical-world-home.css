@@ -1027,6 +1027,97 @@ html[data-theme="dark"] a.pw-clarity__biomath-cta:focus-visible {
   padding: clamp(0.95rem, 2.2vw, 1.25rem) clamp(1rem, 2.4vw, 1.4rem);
 }
 
+.pw-clarity__panel--go-deeper {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.8fr);
+  gap: clamp(1rem, 2.5vw, 1.75rem);
+  align-items: center;
+  padding: clamp(1.1rem, 2.6vw, 1.55rem) clamp(1.1rem, 2.6vw, 1.65rem);
+  border: 1px solid color-mix(in srgb, #4a8fd4 28%, var(--color-border));
+  background:
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, #0b1524 6%, #f7f4ee) 0%,
+      color-mix(in srgb, #4a8fd4 6%, #fff) 100%
+    );
+}
+
+html[data-theme="dark"] .pw-clarity__panel--go-deeper {
+  background:
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, #4a8fd4 12%, #0b1524) 0%,
+      color-mix(in srgb, #121c2c 90%, #1a2438) 100%
+    );
+  border-color: color-mix(in srgb, #4a8fd4 32%, transparent);
+}
+
+.pw-clarity__eyebrow--go-deeper {
+  color: color-mix(in srgb, #4a8fd4 55%, #0b1524);
+}
+
+html[data-theme="dark"] .pw-clarity__eyebrow--go-deeper {
+  color: color-mix(in srgb, #4a8fd4 85%, #fff);
+}
+
+.pw-clarity__go-deeper-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  margin-block-start: 0.85rem;
+  font-size: 0.9375rem;
+  font-weight: var(--weight-semibold);
+  color: color-mix(in srgb, #0b1524 80%, #4a8fd4);
+  text-decoration: none;
+  border-block-end: 1px solid color-mix(in srgb, #4a8fd4 45%, transparent);
+}
+
+a.pw-clarity__go-deeper-cta:hover,
+a.pw-clarity__go-deeper-cta:focus-visible {
+  color: #0b1524;
+  border-block-end-color: #4a8fd4;
+}
+
+html[data-theme="dark"] .pw-clarity__go-deeper-cta {
+  color: color-mix(in srgb, #4a8fd4 88%, #fff);
+}
+
+html[data-theme="dark"] a.pw-clarity__go-deeper-cta:hover,
+html[data-theme="dark"] a.pw-clarity__go-deeper-cta:focus-visible {
+  color: #fff;
+}
+
+.pw-clarity__go-deeper-brand {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.75rem;
+  background: #070e18;
+  border: 1px solid color-mix(in srgb, #4a8fd4 25%, transparent);
+}
+
+.pw-clarity__go-deeper-logo {
+  width: min(100%, 14rem);
+  height: auto;
+  display: block;
+}
+
+.pw-clarity--v2 .pw-clarity__panel--go-deeper {
+  padding: clamp(0.95rem, 2.2vw, 1.25rem) clamp(1rem, 2.4vw, 1.4rem);
+}
+
+@media (max-width: 640px) {
+  .pw-clarity__panel--go-deeper {
+    grid-template-columns: 1fr;
+  }
+
+  .pw-clarity__go-deeper-brand {
+    order: -1;
+    max-width: 16rem;
+    margin-inline: auto;
+  }
+}
+
 .pw-clarity__chain-list {
   list-style: none;
   margin: 0;

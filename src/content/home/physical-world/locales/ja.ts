@@ -73,8 +73,16 @@ export const physicalWorldHomeJa: PhysicalWorldHomeContent = {
       title: "レポートが次レベルの行動を形づくる",
       body: "SAVENの次レベルの行動とコマンドのための情報は、BioMath Coreのレポートと結論から形成されます——人の制御のもとで。AIはその道筋の道具であり、目的ではありません。",
       scopeLine: "モデル範囲：20カテゴリ · 200+サービス",
-      href: "/foundation/#biomath-core",
-      cta: "FoundationのBioMath Core",
+      href: "/foundation/biomath-core/",
+      cta: "BioMath Coreを探る",
+    },
+    goDeeperWho: {
+      eyebrow: "私たちについて",
+      heading: "さらに見る",
+      body: "BioMath Coreはすべての基盤です——人に関するデータのモデルを集め構造化する土台であり、人の制御のもとでSAVENの次レベルの行動を形づくるレポートと結論を形成します。",
+      href: "/foundation/biomath-core/",
+      cta: "BioMath Core",
+      logoAlt: "BioMath Core",
     },
     chain: {
       heading: "理解から支援へ",

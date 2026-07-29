@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-29 (D-0227 — BioMath Core scope accents: 20 categories / 200+ services → SAVEN actions)
+**Last updated:** 2026-07-29 (D-0228 — BioMath Core leaf page + home Go deeper / Who we are)
 
 ## Rules
 
@@ -243,6 +243,7 @@
 | D-0225 | 2026-07-29 | Explore SAVEN cinematic letter showcase (clarity band) | Active |
 | D-0226 | 2026-07-29 | Explore SAVEN: larger letter tabs + compact band | Active |
 | D-0227 | 2026-07-29 | BioMath Core: 20 categories / 200+ services → SAVEN actions | Active |
+| D-0228 | 2026-07-29 | BioMath Core leaf `/foundation/biomath-core/` + home Go deeper | Active |
 
 ---
 
@@ -2183,6 +2184,24 @@
 - **In scope:** `biomath-core/scope.ts`, home clarity types/locales/CSS/`HomeClarityPack`, Foundation + TechnicalPage scope grid, FAQ EN + dictionaries, Purpose / Human Data / Technology one-liners + page dictionaries, D-0227 + AGENTS / SITE_ASSIGNMENT / IA; type-check; commit/push/Vercel prod; smoke; Russian owner brief.
 - **Out of scope:** Inventing Operational commercial catalogs; diagnosis/prescription claims; neon; new leaf routes; CMS.
 - **Implications:** BioMath Core model scope is now a first-class public accent on Home, Foundation, FAQ, and selected depth pages.
+
+
+### D-0228 — BioMath Core leaf page and home Go deeper / Who we are
+
+- **Date:** 2026-07-29
+- **Status:** Active
+- **Summary:** Owner authorizes a published BioMath Core leaf at `/foundation/biomath-core/`, footer Company placement, home clarity “Go deeper / Who we are” compact section, and owner brand assets (logo + sphere). Supersedes D-0227 out-of-scope item “new leaf routes” for this leaf only. Positioning from D-0227 remains in force (reports → SAVEN actions under human control; 20 categories · 200+ services as Architecture / In Development model scope; not diagnosis / prescribe / sell medicines; not Operational commercial catalog).
+- **Decision:**
+  1. **Route** — Publish `/foundation/biomath-core/` (IA path). Register in `published-routes`, App Router page, title search via footer coverage.
+  2. **Page** — Dedicated BioMath Core page: BMC logo + core sphere hero; foundation sequence with BioMath Core emphasis; Human Data Model relationship; reports→SAVEN actions gold callout; Health Categories grid (20) in site-native dark navy cards with limited accent glow (recreated from owner UI reference — not a live AI store); CTAs to Human Data / Purpose / Technology / FAQ / Foundation; status Architecture.
+  3. **Assets** — Owner logo → `public/brand/biomath-core-logo.png`; sphere → `public/domain/foundation/biomath-core-sphere.png`. Reference screenshot stored for design only; UI recreated, not embedded as live storefront.
+  4. **Home** — Clarity pack adds compact Go deeper / Who we are panel (BMC logo + body + CTA). Biomath callout CTA retargets to the leaf.
+  5. **Footer** — Company column: BioMath Core after About.
+  6. **FAQ** — Cross-link BioMath Q&As to the leaf.
+  7. **i18n** — EN canonical page + 9 dictionaries; physical-world home locales; UI `footer-company-biomath-core` in all 10 chrome locales.
+- **In scope:** Leaf page + CSS/icons, assets, published-routes, footer, home clarity types/locales/CSS/`HomeClarityPack`, FAQ links, Foundation related link, domain-visuals masthead map, D-0228 + AGENTS / SITE_ASSIGNMENT / IA; type-check; commit/push/Vercel; smoke; Russian owner brief.
+- **Out of scope:** Operational commercial catalog claims; neon storefront recreation; inventing additional foundation leaves (BioMath Life / SAVEN / SAVEN Core) unless later authorized; CMS.
+- **Implications:** BioMath Core is a first-class public leaf. Foundation hub retains summary scope grid; leaf is the deep page. D-0227 accents remain; home CTA destination is the leaf.
 
 ## Pending Owner Decisions
 

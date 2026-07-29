@@ -48,12 +48,24 @@ export type HomeClarityAudiencePath = {
   links: readonly HomeClarityAudienceLink[];
 };
 
+/** Strong BioMath → SAVEN actions accent (D-0227). */
+export type HomeClarityBiomathCallout = {
+  eyebrow: string;
+  title: string;
+  body: string;
+  scopeLine: string;
+  href: string;
+  cta: string;
+};
+
 /** Reversible clarity blocks (D-0219) — rendered only when the feature flag is on. */
 export type HomeClarityContent = {
   definition: {
     heading: string;
     body: string;
   };
+  /** Gold-accent callout: BioMath Core reports → SAVEN actions (D-0227). */
+  biomathCallout?: HomeClarityBiomathCallout;
   chain: {
     heading: string;
     ariaLabel: string;

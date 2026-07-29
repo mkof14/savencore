@@ -68,6 +68,14 @@ export const physicalWorldHomeEs: PhysicalWorldHomeContent = {
       heading: "Qué es SAVEN",
       body: "SAVEN Core construye sistemas que vinculan la comprensión humana con robots y dispositivos en el mundo físico — bajo control humano. La IA es una herramienta que usamos y avanzamos con ese fin; crear IA no es el propósito.",
     },
+    biomathCallout: {
+      eyebrow: "BioMath Core → SAVEN",
+      title: "Los informes dan forma a las acciones de siguiente nivel",
+      body: "La información para las acciones y comandos de siguiente nivel de SAVEN se forma a partir de los informes y conclusiones de BioMath Core — bajo control humano. La IA es una herramienta en ese camino, no el propósito.",
+      scopeLine: "Cobertura del modelo: 20 categorías · 200+ servicios",
+      href: "/foundation/#biomath-core",
+      cta: "BioMath Core en Foundation",
+    },
     chain: {
       heading: "De la comprensión a la asistencia",
       ariaLabel: "Tres pasos desde la comprensión humana hasta la asistencia física",

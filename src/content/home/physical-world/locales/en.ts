@@ -67,6 +67,14 @@ export const physicalWorldHomeEn: PhysicalWorldHomeContent = {
       heading: "What is SAVEN",
       body: "SAVEN Core links human understanding to robots and devices in the physical world — under human control. AI is a tool for that purpose, not the purpose.",
     },
+    biomathCallout: {
+      eyebrow: "BioMath Core → SAVEN",
+      title: "Reports shape next-level actions",
+      body: "Information for SAVEN’s next-level actions and commands is formed from BioMath Core reports and conclusions — under human control. AI is a tool in that path, not the purpose.",
+      scopeLine: "Model coverage: 20 categories · 200+ services",
+      href: "/foundation/#biomath-core",
+      cta: "BioMath Core on Foundation",
+    },
     chain: {
       heading: "From understanding to assistance",
       ariaLabel: "Three steps from human understanding to physical assistance",

@@ -80,6 +80,7 @@ export const humanDataPageContent: HumanDataPageContent = {
   executiveSummary: [
     "Human Data is information about a person from different sources. SAVEN Core may use it to understand a situation and offer careful help when permission is clear.",
     "It matters because useful assistance needs some human context, and that context must stay limited. The Human Data Model organizes this information and preserves context and relationships before other systems use it.",
+    "BioMath Core builds on that foundation across 20 categories and 200+ services as model scope; its reports and conclusions inform SAVEN next-level actions under human control — not diagnosis, prescribing, or selling medicines.",
   ],
   purposeHeading: "Purpose",
   purpose: [

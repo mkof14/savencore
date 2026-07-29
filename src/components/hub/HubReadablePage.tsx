@@ -251,13 +251,26 @@ export function HubReadablePage({ locale, content }: HubReadablePageProps) {
             {content.sections.map((section) => {
               const body = (
                 <>
-                  {section.paragraphs?.map((paragraph) => (
-                    <p key={paragraph} className="hub-page__section-text">
+                  {section.paragraphs?.map((paragraph, index) => (
+                    <p
+                      key={paragraph}
+                      className={
+                        section.accent === "gold" && index === 1
+                          ? "hub-page__section-text hub-page__section-text--accent"
+                          : "hub-page__section-text"
+                      }
+                    >
                       {paragraph}
                     </p>
                   ))}
                   {section.items && section.items.length > 0 ? (
-                    <ul className="hub-page__plain-list">
+                    <ul
+                      className={
+                        section.itemsLayout === "grid"
+                          ? "hub-page__scope-grid"
+                          : "hub-page__plain-list"
+                      }
+                    >
                       {section.items.map((item) => (
                         <li key={item}>{item}</li>
                       ))}
@@ -287,6 +300,11 @@ export function HubReadablePage({ locale, content }: HubReadablePageProps) {
                 <section
                   key={section.id}
                   id={section.id}
+                  className={
+                    section.accent === "gold"
+                      ? "hub-page__section hub-page__section--gold"
+                      : "hub-page__section"
+                  }
                   aria-labelledby={`${section.id}-heading`}
                 >
                   <h2

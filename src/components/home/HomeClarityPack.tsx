@@ -21,6 +21,16 @@ type HomeClarityPackProps = {
   slot: "post-hero" | "post-living";
 };
 
+function localizePublishedHref(locale: Locale, href: string): string {
+  const hashIndex = href.indexOf("#");
+  if (hashIndex === -1) {
+    return localizePath(locale, href as PublishedRoute);
+  }
+  const path = href.slice(0, hashIndex) || "/";
+  const hash = href.slice(hashIndex);
+  return `${localizePath(locale, path as PublishedRoute)}${hash}`;
+}
+
 /**
  * Reversible homepage clarity blocks (D-0219 / denser D-0220 / visual D-0221).
  * Explore SAVEN uses cinematic letter panels (D-0225 / D-0226).
@@ -83,6 +93,35 @@ export function HomeClarityPack({
           </div>
         </div>
       </section>
+
+      {clarity.biomathCallout ? (
+        <section
+          className="pw-clarity__block pw-clarity__biomath"
+          aria-labelledby="pw-clarity-biomath-title"
+        >
+          <div className="pw-home__inner pw-clarity__inner">
+            <div className="pw-clarity__panel pw-clarity__panel--biomath">
+              <p className="pw-clarity__eyebrow pw-clarity__eyebrow--biomath">
+                {clarity.biomathCallout.eyebrow}
+              </p>
+              <h2 id="pw-clarity-biomath-title" className="pw-clarity__title">
+                {clarity.biomathCallout.title}
+              </h2>
+              <p className="pw-clarity__body">{clarity.biomathCallout.body}</p>
+              <p className="pw-clarity__biomath-scope">
+                {clarity.biomathCallout.scopeLine}
+              </p>
+              <Link
+                href={localizePublishedHref(locale, clarity.biomathCallout.href)}
+                className="pw-clarity__biomath-cta"
+              >
+                {clarity.biomathCallout.cta}
+                <span aria-hidden="true"> →</span>
+              </Link>
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       <section
         className="pw-clarity__block pw-clarity__chain"

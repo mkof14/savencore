@@ -68,6 +68,14 @@ export const physicalWorldHomeJa: PhysicalWorldHomeContent = {
       heading: "SAVEN とは",
       body: "SAVEN Core は、人間の理解を現実世界のロボットやデバイスにつなぐシステムを構築します — 人間の管理下で。AI はその目的のために使い、前進させる道具であり、AI を創ることが目的ではありません。",
     },
+    biomathCallout: {
+      eyebrow: "BioMath Core → SAVEN",
+      title: "レポートが次レベルの行動を形づくる",
+      body: "SAVENの次レベルの行動とコマンドのための情報は、BioMath Coreのレポートと結論から形成されます——人の制御のもとで。AIはその道筋の道具であり、目的ではありません。",
+      scopeLine: "モデル範囲：20カテゴリ · 200+サービス",
+      href: "/foundation/#biomath-core",
+      cta: "FoundationのBioMath Core",
+    },
     chain: {
       heading: "理解から支援へ",
       ariaLabel: "人間の理解から物理的支援までの三段階",

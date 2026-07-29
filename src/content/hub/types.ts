@@ -27,6 +27,10 @@ export type HubSection = {
   items?: readonly string[];
   /** When true, section starts collapsed (progressive disclosure). */
   collapsed?: boolean;
+  /** Gold accent band for model-scope callouts (D-0227). */
+  accent?: "gold";
+  /** Render items as a compact category grid instead of a plain list. */
+  itemsLayout?: "list" | "grid";
 };
 
 /** Editorial scene band — human-help / lab atmosphere imagery (D-0166). */

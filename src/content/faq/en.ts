@@ -166,10 +166,35 @@ export const faqPageEn: FaqPageContent = {
           question: "What is BioMath Core?",
           answer: [
             "The human data and intelligence foundation. It organizes personal context, longitudinal information, signals, patterns, permissions, privacy, and safe personalization.",
+            "Owner-authorized model coverage spans 20 categories and 200+ services. That figure describes Architecture / In Development model scope — not an Operational commercial catalog.",
           ],
           links: [
+            { label: "Foundation", href: "/foundation/" },
             { label: "Human Data", href: "/technology/human-data/" },
             { label: "Human Data Model", href: "/technology/human-data-model/" },
+          ],
+        },
+        {
+          id: "foundation-biomath-categories",
+          question: "Which categories does BioMath Core cover?",
+          answer: [
+            "The published model scope lists 20 categories: Critical Health; Everyday Well-being; Longevity and Anti-Aging; Mental Well-being; Fitness and Performance; Women's Health; Men's Health; Beauty and Skincare; Nutrition and Diet; Sleep and Recovery; Environmental Health; Family Health; Preventive Medicine; Biohacking; Elderly Care; Eye Health; Digital Therapy; Sexual Longevity; Men's Sexual Health; Women's Sexual Health.",
+            "Across those categories, BioMath Core describes 200+ services as model coverage. Status remains Architecture / In Development — not a claim of Operational commercial availability.",
+          ],
+          links: [{ label: "Foundation", href: "/foundation/" }],
+        },
+        {
+          id: "foundation-biomath-reports-actions",
+          question:
+            "How do BioMath Core reports relate to SAVEN actions and commands?",
+          answer: [
+            "Information for SAVEN’s next-level actions and commands is formed from BioMath Core reports and conclusions.",
+            "People remain in control. AI is a tool in that path, not the purpose. Reports inform assistance and command architecture — they do not diagnose medical conditions, prescribe, or sell medicines.",
+          ],
+          links: [
+            { label: "Foundation", href: "/foundation/" },
+            { label: "Purpose", href: "/purpose/" },
+            { label: "Human Oversight", href: "/trust/human-oversight/" },
           ],
         },
         {

@@ -950,6 +950,83 @@ html[data-theme="dark"] .pw-clarity__panel--definition {
   color: var(--color-text);
 }
 
+.pw-clarity__panel--biomath {
+  position: relative;
+  padding: clamp(1.1rem, 2.6vw, 1.55rem) clamp(1.1rem, 2.6vw, 1.65rem);
+  border: 1px solid color-mix(in srgb, #d4a84b 42%, transparent);
+  border-inline-start: 4px solid #d4a84b;
+  background:
+    linear-gradient(
+      125deg,
+      color-mix(in srgb, #d4a84b 14%, #f7f4ee) 0%,
+      color-mix(in srgb, #fff 70%, #f0ebe0) 55%,
+      color-mix(in srgb, #eef2f7 65%, #fff) 100%
+    );
+  box-shadow: 0 1px 0 color-mix(in srgb, #0b1524 6%, transparent);
+}
+
+html[data-theme="dark"] .pw-clarity__panel--biomath {
+  background:
+    linear-gradient(
+      125deg,
+      color-mix(in srgb, #d4a84b 18%, #0b1524) 0%,
+      color-mix(in srgb, #121c2c 88%, #1a2438) 100%
+    );
+  border-color: color-mix(in srgb, #d4a84b 38%, transparent);
+}
+
+.pw-clarity__eyebrow--biomath {
+  color: color-mix(in srgb, #b8862d 55%, #0b1524);
+}
+
+html[data-theme="dark"] .pw-clarity__eyebrow--biomath {
+  color: color-mix(in srgb, #d4a84b 88%, #fff);
+}
+
+.pw-clarity__biomath-scope {
+  margin: 0.75rem 0 0;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.02em;
+  color: color-mix(in srgb, #0b1524 82%, #d4a84b);
+}
+
+html[data-theme="dark"] .pw-clarity__biomath-scope {
+  color: color-mix(in srgb, #d4a84b 92%, #fff);
+}
+
+.pw-clarity__biomath-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  margin-block-start: 0.85rem;
+  font-size: 0.9375rem;
+  font-weight: var(--weight-semibold);
+  color: color-mix(in srgb, #0b1524 88%, #d4a84b);
+  text-decoration: none;
+  border-block-end: 1px solid color-mix(in srgb, #d4a84b 55%, transparent);
+}
+
+a.pw-clarity__biomath-cta:hover,
+a.pw-clarity__biomath-cta:focus-visible {
+  color: #0b1524;
+  border-block-end-color: #d4a84b;
+}
+
+html[data-theme="dark"] .pw-clarity__biomath-cta {
+  color: color-mix(in srgb, #d4a84b 90%, #fff);
+}
+
+html[data-theme="dark"] a.pw-clarity__biomath-cta:hover,
+html[data-theme="dark"] a.pw-clarity__biomath-cta:focus-visible {
+  color: #fff;
+}
+
+.pw-clarity--v2 .pw-clarity__panel--biomath {
+  padding: clamp(0.95rem, 2.2vw, 1.25rem) clamp(1rem, 2.4vw, 1.4rem);
+}
+
 .pw-clarity__chain-list {
   list-style: none;
   margin: 0;

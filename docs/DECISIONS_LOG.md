@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-29 (D-0226 — Explore SAVEN compact tabs polish)
+**Last updated:** 2026-07-29 (D-0227 — BioMath Core scope accents: 20 categories / 200+ services → SAVEN actions)
 
 ## Rules
 
@@ -242,6 +242,7 @@
 | D-0224 | 2026-07-29 | Fix Install app help UX (no bare Close); restore media downloads | Active |
 | D-0225 | 2026-07-29 | Explore SAVEN cinematic letter showcase (clarity band) | Active |
 | D-0226 | 2026-07-29 | Explore SAVEN: larger letter tabs + compact band | Active |
+| D-0227 | 2026-07-29 | BioMath Core: 20 categories / 200+ services → SAVEN actions | Active |
 
 ---
 
@@ -2167,6 +2168,21 @@
 - **In scope:** `ExploreSavenShowcase`, explore-saven CSS in `physical-world-home.css`, D-0226 + AGENTS / SITE_ASSIGNMENT / IA; type-check; commit/push/Vercel prod; local `:3000`; Russian owner brief.
 - **Out of scope:** New letter assets; neon outside this band; changing pillar routes/copy; ungating when `HOME_CLARITY_V1` is off.
 - **Implications:** D-0225 layout remains; density and tab chrome are refined for scanability and vertical budget.
+
+### D-0227 — BioMath Core model scope accents (20 categories / 200+ services → SAVEN actions)
+
+- **Date:** 2026-07-29
+- **Status:** Active
+- **Summary:** Owner authorizes strong public accents that (1) information for SAVEN’s next-level actions and commands is formed from BioMath Core reports and conclusions under human control (AI as tool), and (2) BioMath Core covers **20 categories** and **200+ services** as Architecture / In Development model scope — not an Operational commercial catalog. Medical disclaimer spirit retained: reports inform assistance/command architecture; they do not diagnose, prescribe, or sell medicines.
+- **Decision:**
+  1. **Home clarity accent** — Gold-bordered callout between “What is SAVEN” and the 3-step chain (`HomeClarityPack` biomathCallout): BioMath Core reports → SAVEN next-level actions/commands; scope line “20 categories · 200+ services”; link to `/foundation/#biomath-core`.
+  2. **Foundation BioMath Core** — Expand layer fields (role / relationship / scope / outputs) and add a 20-category scope grid + “200+ services” highlight with Architecture / In Development disclaimer.
+  3. **FAQ** — Dedicated Q&As on BioMath Core coverage (20 / 200+) and reports→actions relationship; all 10 locales.
+  4. **Optional cross-links** — One-liners on Purpose, Human Data, and Technology overview pages.
+  5. **Governance** — Owner-supplied numbers OK as model coverage. No fake deployments/customers. English canonical; translate new UI/FAQ/page strings to all locales. Straight corners; brand gold accents; no neon.
+- **In scope:** `biomath-core/scope.ts`, home clarity types/locales/CSS/`HomeClarityPack`, Foundation + TechnicalPage scope grid, FAQ EN + dictionaries, Purpose / Human Data / Technology one-liners + page dictionaries, D-0227 + AGENTS / SITE_ASSIGNMENT / IA; type-check; commit/push/Vercel prod; smoke; Russian owner brief.
+- **Out of scope:** Inventing Operational commercial catalogs; diagnosis/prescription claims; neon; new leaf routes; CMS.
+- **Implications:** BioMath Core model scope is now a first-class public accent on Home, Foundation, FAQ, and selected depth pages.
 
 ## Pending Owner Decisions
 

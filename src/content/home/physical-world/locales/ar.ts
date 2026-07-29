@@ -68,6 +68,14 @@ export const physicalWorldHomeAr: PhysicalWorldHomeContent = {
       heading: "ما هو SAVEN",
       body: "يبني SAVEN Core أنظمة تربط الفهم البشري بالروبوتات والأجهزة في العالم المادي — تحت السيطرة البشرية. الذكاء الاصطناعي أداة نستخدمها ونطوّرها لهذا الغرض؛ خلق الذكاء الاصطناعي ليس الغاية.",
     },
+    biomathCallout: {
+      eyebrow: "BioMath Core → SAVEN",
+      title: "التقارير تشكّل إجراءات المستوى التالي",
+      body: "تُشكَّل المعلومات لإجراءات وأوامر SAVEN للمستوى التالي من تقارير واستنتاجات BioMath Core — تحت السيطرة البشرية. الذكاء الاصطناعي أداة في هذا المسار، وليس الغرض.",
+      scopeLine: "نطاق النموذج: 20 فئة · أكثر من 200 خدمة",
+      href: "/foundation/#biomath-core",
+      cta: "BioMath Core في Foundation",
+    },
     chain: {
       heading: "من الفهم إلى المساعدة",
       ariaLabel: "ثلاث خطوات من الفهم البشري إلى المساعدة المادية",

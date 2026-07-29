@@ -484,6 +484,9 @@ export function buildFoundationVisual(
       (section) => section.id !== "who-we-are",
     ) ?? [];
 
+  const biomathLayer = content.layers?.find((layer) => layer.id === "biomath-core");
+  const biomathScope = biomathLayer?.scopeGrid;
+
   const sections: HubSection[] = [
     ...(teamSection
       ? [
@@ -491,6 +494,24 @@ export function buildFoundationVisual(
             id: teamSection.id,
             title: teamSection.title,
             paragraphs: teamSection.paragraphs,
+          } satisfies HubSection,
+        ]
+      : []),
+    ...(biomathScope
+      ? [
+          {
+            id: "biomath-core",
+            title: biomathScope.heading,
+            paragraphs: [
+              biomathScope.intro,
+              biomathScope.servicesHighlight,
+              biomathLayer?.fields.find((f) => f.id === "relationship")?.text ??
+                "",
+              biomathScope.disclaimer,
+            ].filter(Boolean),
+            items: biomathScope.categories,
+            accent: "gold",
+            itemsLayout: "grid",
           } satisfies HubSection,
         ]
       : []),
@@ -515,6 +536,10 @@ export function buildFoundationVisual(
     ),
   ];
 
+  const biomathHighlight =
+    biomathLayer?.fields.find((f) => f.id === "relationship")?.text ??
+    content.introduction;
+
   return withVisual("/foundation/", {
     label: content.label,
     title: content.title,
@@ -522,8 +547,10 @@ export function buildFoundationVisual(
     lede: content.introduction,
     highlights: compactHighlights(
       locale,
-      content.introduction,
-      layerItems[0] ?? content.introduction,
+      biomathHighlight,
+      biomathScope
+        ? `${biomathScope.heading} · ${biomathScope.servicesHighlight}`
+        : (layerItems[0] ?? content.introduction),
       content.developmentNote ?? content.introduction,
     ),
     sections,

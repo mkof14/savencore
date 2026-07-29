@@ -52,6 +52,7 @@ export const technologyPageContent: TechnologyPageContent = {
   overviewHeading: "Executive Summary",
   overview: [
     "Shared disciplines such as Human Data, privacy, and artificial intelligence must be clear before systems can help people safely.",
+    "BioMath Core reports and conclusions form information for SAVEN’s next-level actions — under human control — across a model scope of 20 categories and 200+ services (Architecture / In Development).",
     "Choose a discipline below to go deeper, or continue into Systems when you are ready.",
   ],
   categoriesHeading: "Disciplines",

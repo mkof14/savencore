@@ -131,4 +131,6 @@ export const dictionary: Record<string, string> = {
   "Ethics and Responsible Use": "الأخلاقيات والاستخدام المسؤول",
   "Limitations": "القيود",
   "Relationships": "العلاقات",
+  "BioMath Core builds on that foundation across 20 categories and 200+ services as model scope; its reports and conclusions inform SAVEN next-level actions under human control — not diagnosis, prescribing, or selling medicines.": "يبني BioMath Core على هذا الأساس عبر 20 فئة وأكثر من 200 خدمة كنطاق للنموذج؛ وتُعلم تقاريره واستنتاجاته إجراءات SAVEN للمستوى التالي تحت السيطرة البشرية — لا تشخيصاً ولا وصفاً ولا بيع أدوية.",
+
 };

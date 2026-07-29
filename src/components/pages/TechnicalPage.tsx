@@ -108,6 +108,33 @@ export function TechnicalPage({
                 </li>
               ))}
             </ul>
+            {layer.scopeGrid ? (
+              <div
+                className="page-layer__scope"
+                aria-labelledby={`${layer.id}-scope-heading`}
+              >
+                <h3
+                  id={`${layer.id}-scope-heading`}
+                  className="page-layer__scope-heading"
+                >
+                  {layer.scopeGrid.heading}
+                </h3>
+                <p className="page-layer__scope-intro">{layer.scopeGrid.intro}</p>
+                <p className="page-layer__scope-services">
+                  {layer.scopeGrid.servicesHighlight}
+                </p>
+                <ul className="page-layer__scope-grid">
+                  {layer.scopeGrid.categories.map((label) => (
+                    <li key={label} className="page-layer__scope-item">
+                      {label}
+                    </li>
+                  ))}
+                </ul>
+                <p className="page-layer__scope-disclaimer">
+                  {layer.scopeGrid.disclaimer}
+                </p>
+              </div>
+            ) : null}
           </section>
         ))}
 

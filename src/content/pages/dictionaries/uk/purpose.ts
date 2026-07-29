@@ -94,5 +94,7 @@ export const dictionary: Record<string, string> = {
   "Related systems": "Споріднені системи",
   "Related research": "Пов'язані дослідження",
   "Related applications": "Пов'язані програми",
-  "References": "Список літератури"
+  "References": "Список літератури",
+  "BioMath Core reports and conclusions form the information that shapes SAVEN’s next-level actions and commands — under human control, with AI as a tool. That intelligence foundation covers 20 categories and 200+ services as Architecture / In Development model scope.": "Звіти й висновки BioMath Core формують інформацію, що формує дії та команди SAVEN наступного рівня — під контролем людини, з ШІ як інструментом. Ця інтелектуальна основа охоплює 20 категорій і 200+ сервісів як область моделі Architecture / In Development.",
+
 };

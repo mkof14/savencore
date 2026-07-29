@@ -2,6 +2,7 @@ import type {
   FoundationLayerField,
   TechnicalPageContent,
 } from "@/components/pages/page-types";
+import { biomathCoreCategoriesEn } from "@/content/biomath-core/scope";
 import { getFoundationHierarchyEntities } from "@/content/knowledge/entity-registry";
 
 /**
@@ -61,22 +62,22 @@ const foundationLayerDetails: Readonly<
       {
         id: "role",
         title: "Role",
-        text: "The intelligence layer. It turns human-centered understanding into structured models and decision assistance.",
+        text: "The intelligence layer. It turns human-centered understanding into structured models, reports, and conclusions that inform careful assistance.",
       },
       {
         id: "relationship",
         title: "Relationship",
-        text: "Receives orientation from BioMath Life and provides the Human Data Model interface used by SAVEN and SAVEN Core.",
+        text: "Receives orientation from BioMath Life and provides the Human Data Model interface used by SAVEN and SAVEN Core. Information for SAVEN’s next-level actions and commands is formed from BioMath Core reports and conclusions — under human control; AI remains a tool.",
       },
       {
         id: "scope",
         title: "Scope",
-        text: "Personal context, longitudinal information, signals, patterns, permissions, privacy controls and safe personalization logic.",
+        text: "Personal context, longitudinal information, signals, patterns, permissions, privacy controls and safe personalization logic. Owner-authorized model coverage spans 20 categories and 200+ services — Architecture / In Development, not an Operational commercial catalog.",
       },
       {
         id: "outputs",
         title: "Outputs",
-        text: "Structured human-context representations, interpretation methods and governed interfaces for downstream systems.",
+        text: "Structured human-context representations, reports, and conclusions that inform SAVEN next-level actions and commands under human control. Reports inform assistance architecture — they do not diagnose conditions, prescribe, or sell medicines.",
       },
       {
         id: "dependencies",
@@ -236,6 +237,19 @@ export const foundationPageContent: TechnicalPageContent = {
     id: entity.id,
     title: entity.title,
     fields: foundationLayerDetails[entity.id]?.fields ?? [],
+    ...(entity.id === "biomath-core"
+      ? {
+          scopeGrid: {
+            heading: "Model scope: 20 categories",
+            intro:
+              "BioMath Core organizes human-context intelligence across these owner-authorized categories. Coverage describes model architecture — not a live commercial service menu.",
+            servicesHighlight: "200+ services",
+            disclaimer:
+              "Status: Architecture / In Development. Reports and conclusions inform SAVEN assistance and command architecture under human control. They do not diagnose, prescribe, or sell medicines.",
+            categories: biomathCoreCategoriesEn.map((c) => c.label),
+          },
+        }
+      : {}),
   })),
   architectureSections: [
     {

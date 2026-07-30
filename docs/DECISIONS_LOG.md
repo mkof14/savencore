@@ -2609,6 +2609,19 @@
 - **Out of scope:** Changing download API contracts; committing `storage/admin-media/hidden.json`; inventing Operational claims; restoring public In Development stamps.
 - **Implications:** Prod stays honest on downloads vs PWA; Investors locales match EN scope/non-claims framing after D-0252.
 
+### D-0254 — Final public site snapshot freeze
+
+- **Date:** 2026-07-30
+- **Status:** Active
+- **Summary:** Owner request («зафиксируй финальную версию») to freeze/record the final public SAVEN Core website snapshot on git and production.
+- **Decision:**
+  1. Annotated git tag `v2026.07.30-final` marks the final public site snapshot (“Final public site snapshot”).
+  2. Commit SHA of the tagged freeze: `PLACEHOLDER_SHA`.
+  3. Production remains https://www.savencore.com (Vercel prod deploy after tag push).
+- **In scope:** Decision log record; annotated tag; push to origin; Vercel production deploy.
+- **Out of scope:** Committing `storage/admin-media/hidden.json` (soft-hidden media seeds; not intentional freeze content); new product/copy phases; inventing Operational claims.
+- **Implications:** Future work continues from this tagged baseline; recreate or move the tag only with explicit owner approval.
+
 ## Pending Owner Decisions
 
 These are not decisions yet; they are tracked for future resolution:

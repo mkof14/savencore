@@ -105,7 +105,7 @@ export const technologyPageContent: TechnologyPageContent = {
   relatedDomainLinks: [
     { label: "Systems", href: "/systems/" },
     { label: "Foundation", href: "/foundation/" },
-    { label: "Research", href: "/research/" },
+    { label: "Research", href: "/applications/research-applications/" },
     { label: "Applications", href: "/applications/" },
     { label: "Purpose", href: "/purpose/" },
   ],
@@ -116,7 +116,7 @@ export const technologyPageContent: TechnologyPageContent = {
       .map((item) => ({ label: item.label, href: item.href })),
     { label: "Systems", href: "/systems/" },
     { label: "Foundation", href: "/foundation/" },
-    { label: "Research", href: "/research/" },
+    { label: "Research", href: "/applications/research-applications/" },
     { label: "Applications", href: "/applications/" },
     { label: "Purpose", href: "/purpose/" },
   ],

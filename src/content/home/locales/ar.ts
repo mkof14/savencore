@@ -27,7 +27,6 @@ export const homeContentAr: HomeContent = {
     { id: "systems", label: "الأنظمة", href: "/systems/" },
     { id: "applications", label: "التطبيقات", href: "/applications/" },
     { id: "trust", label: "الثقة", href: "/trust/" },
-    { id: "research", label: "البحث", href: "/research/" },
   ],
   explorerDomains: [
     {
@@ -62,28 +61,18 @@ export const homeContentAr: HomeContent = {
       pageIds: trustNavChildren.map((item) => item.id),
       relationships: "تضع حدودًا للتقنية والأنظمة والتطبيقات.",
     },
-    {
-      id: "research",
-      title: "البحث",
-      purpose: "أسئلة وأساليب وأعمال مفتوحة توجه التصميم.",
-      href: "/research/",
-      pageIds: ["research-overview"],
-      relationships: "يوجّه التقنية والأنظمة عبر الأسئلة والأساليب والأدلة.",
-    },
   ],
   domainMapSteps: [
     { id: "technology", label: "التقنية", href: "/technology/", dependency: "يبني" },
     { id: "systems", label: "الأنظمة", href: "/systems/", dependency: "ينسّق" },
     { id: "applications", label: "التطبيقات", href: "/applications/", dependency: "يخدم" },
     { id: "trust", label: "الثقة", href: "/trust/", dependency: "يضبط" },
-    { id: "research", label: "البحث", href: "/research/", dependency: "يوجّه" },
   ],
   platformStatus: [
     { id: "technology", label: "التقنية", stateKey: "complete", complete: true },
     { id: "systems", label: "الأنظمة", stateKey: "complete", complete: true },
     { id: "applications", label: "التطبيقات", stateKey: "complete", complete: true },
     { id: "trust", label: "الثقة", stateKey: "complete", complete: true },
-    { id: "research", label: "البحث", stateKey: "complete", complete: true },
   ],
   featuredConcepts: [
     {
@@ -132,7 +121,6 @@ export const homeContentAr: HomeContent = {
     { id: "systems", title: "استكشف الأنظمة", detail: "كيف تعمل الأجزاء معًا", href: "/systems/" },
     { id: "applications", title: "استكشف التطبيقات", detail: "أماكن وسياقات الاستخدام", href: "/applications/" },
     { id: "trust", title: "استكشف الثقة", detail: "الالتزامات والإشراف والحدود", href: "/trust/" },
-    { id: "research", title: "استكشف البحث", detail: "الأدلة والأسئلة المفتوحة", href: "/research/" },
   ],
   domainMapConstraints: [
     "تضع الثقة حدودًا للتقنية والأنظمة والتطبيقات",

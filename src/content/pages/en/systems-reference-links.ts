@@ -6,7 +6,7 @@ import {
 
 const SITE_LINKS: readonly EngineeringLink[] = [
   { label: "Applications", href: "/applications/" },
-  { label: "Research", href: "/research/" },
+  { label: "Research", href: "/applications/research-applications/" },
   { label: "Foundation", href: "/foundation/" },
   { label: "Purpose", href: "/purpose/" },
 ];

@@ -24,7 +24,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       route === "/systems/" ||
       route === "/applications/" ||
       route === "/trust/" ||
-      route === "/research/" ||
       route === "/labs/" ||
       route === "/purpose/" ||
       route === "/investors/" ||

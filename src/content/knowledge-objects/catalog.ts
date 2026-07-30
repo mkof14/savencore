@@ -75,7 +75,7 @@ const OVERVIEW_ENTRIES: readonly CatalogEntry[] = [
   },
   {
     knowledgeId: "page-research",
-    href: "/research/",
+    href: "/applications/research-applications/",
     title: "Research",
     domain: "Research",
     entityId: "research-areas",

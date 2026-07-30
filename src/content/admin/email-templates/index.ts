@@ -217,7 +217,7 @@ export const EMAIL_TEMPLATES: readonly EmailTemplateDefinition[] = [
       paragraph(
         "Replace this paragraph with an authorized summary. Do not claim operational products, validated clinical outcomes, customer counts, or commercial availability.",
       ),
-      button("Research overview", `${siteUrl}/en/research/`),
+      button("Research Applications", `${siteUrl}/en/applications/research-applications/`),
     ].join(""),
   },
   {

@@ -14,7 +14,6 @@ export type HubVisualTheme =
   | "applications"
   | "technology"
   | "systems"
-  | "research"
   | "trust"
   | "investors"
   | "foundation"
@@ -51,7 +50,6 @@ export const HUB_MASTHEAD: Record<
   applications: hubFromDomain("/applications/", "applications"),
   technology: hubFromDomain("/technology/", "technology"),
   systems: hubFromDomain("/systems/", "systems"),
-  research: hubFromDomain("/research/", "research"),
   trust: hubFromDomain("/trust/", "trust"),
   investors: hubFromDomain("/investors/", "investors"),
   foundation: hubFromDomain("/foundation/", "foundation"),

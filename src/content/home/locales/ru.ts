@@ -27,7 +27,6 @@ export const homeContentRu: HomeContent = {
     { id: "systems", label: "Системы", href: "/systems/" },
     { id: "applications", label: "Применения", href: "/applications/" },
     { id: "trust", label: "Доверие", href: "/trust/" },
-    { id: "research", label: "Исследования", href: "/research/" },
   ],
   explorerDomains: [
     {
@@ -63,28 +62,18 @@ export const homeContentRu: HomeContent = {
       pageIds: trustNavChildren.map((item) => item.id),
       relationships: "Устанавливает границы для технологий, систем и применений.",
     },
-    {
-      id: "research",
-      title: "Исследования",
-      purpose: "Вопросы, методы и открытая работа, направляющие проектирование.",
-      href: "/research/",
-      pageIds: ["research-overview"],
-      relationships: "Направляют технологии и системы через вопросы, методы и доказательства.",
-    },
   ],
   domainMapSteps: [
     { id: "technology", label: "Технологии", href: "/technology/", dependency: "создают" },
     { id: "systems", label: "Системы", href: "/systems/", dependency: "координируют" },
     { id: "applications", label: "Применения", href: "/applications/", dependency: "поддерживают" },
     { id: "trust", label: "Доверие", href: "/trust/", dependency: "регулирует" },
-    { id: "research", label: "Исследования", href: "/research/", dependency: "направляют" },
   ],
   platformStatus: [
     { id: "technology", label: "Технологии", stateKey: "complete", complete: true },
     { id: "systems", label: "Системы", stateKey: "complete", complete: true },
     { id: "applications", label: "Применения", stateKey: "complete", complete: true },
     { id: "trust", label: "Доверие", stateKey: "complete", complete: true },
-    { id: "research", label: "Исследования", stateKey: "complete", complete: true },
   ],
   featuredConcepts: [
     {
@@ -133,7 +122,6 @@ export const homeContentRu: HomeContent = {
     { id: "systems", title: "Изучить системы", detail: "Как компоненты работают вместе", href: "/systems/" },
     { id: "applications", title: "Изучить применения", detail: "Среды и контексты использования", href: "/applications/" },
     { id: "trust", title: "Изучить доверие", detail: "Обязательства, надзор и ограничения", href: "/trust/" },
-    { id: "research", title: "Изучить исследования", detail: "Данные и открытые вопросы", href: "/research/" },
   ],
   domainMapConstraints: [
     "Доверие устанавливает границы для технологий, систем и применений",

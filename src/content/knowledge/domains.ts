@@ -111,7 +111,7 @@ export const knowledgeDomains: readonly KnowledgeDomain[] = [
   {
     id: "research",
     title: "Research",
-    href: "/research/",
+    href: "/applications/research-applications/",
     purpose:
       "Structure research areas, documents and laboratories that shape engineering practice.",
     scope:

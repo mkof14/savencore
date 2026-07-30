@@ -207,7 +207,7 @@ Do **not** present any of the above as shipped features, SKUs, or deployed capab
 | SAVEN Robotics Interface | Via **Systems** hub + Architecture footer | **Yes** | `/systems/saven-robotics-interface/` (distinct from `/systems/robotics-layer/`) |
 | Internal Future Lab | Via **Labs** hub | **Yes** | `/labs/internal-future-lab/` |
 
-**Also published (D-0194 / D-0202 / D-0228):** `/roadmap/` (Direction — no fake years), `/research/areas/`, `/research/notes/`, `/investors/contact/`, `/faq/`, `/resources/report-a-security-issue/`, `/media/`, `/contact/`, `/company/about/` → redirect to `/foundation/`, `/foundation/biomath-core/` (BioMath Core leaf).
+**Also published (D-0194 / D-0202 / D-0228 / D-0247):** `/roadmap/` (Direction — no fake years), `/investors/contact/`, `/faq/`, `/resources/report-a-security-issue/`, `/media/`, `/contact/`, `/company/about/` → redirect to `/foundation/`, `/foundation/biomath-core/` (BioMath Core leaf). **Research hub removed (D-0247):** `/research/`, `/research/areas/`, `/research/notes/` are unpublished (404). Research Applications remains under Applications.
 
 **Scheme A is the live scheme** (IA / Master Spec slugs). Schemes B/C remain historical alternatives only — do not implement alternate short URLs without a new decision.
 
@@ -236,7 +236,7 @@ Do **not** present any of the above as shipped features, SKUs, or deployed capab
 | Systems | Knowledge Engine; AI Decision Support; Safety Layer; Communication Layer; Clinical Interfaces; Robotics Layer; Drone Systems |
 | Applications | Healthcare; Home; Hospitals; Emergency; Industrial; Government; Agriculture; Research Applications |
 | Trust | Privacy; Security; Safety; Human Oversight; Transparency; Ethics; Limitations |
-| Research | Overview (publications / future directions still coming-soon in footer) |
+| Research | **Removed as public hub (D-0247).** Knowledge/status vocabulary and Applications → Research Applications remain. |
 | Labs | Overview; SAVEN Robotics Lab; Internal Future Lab |
 | Flagship Interface | SAVEN Robotics Interface (`/systems/saven-robotics-interface/`) — also listed under footer Architecture |
 | Investors / Contact / Media / Roadmap | `/investors/`, `/investors/contact/`, `/contact/`, `/media/`, `/roadmap/` |

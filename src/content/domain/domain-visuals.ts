@@ -242,21 +242,6 @@ export const DOMAIN_MASTHEAD_BY_HREF: Record<string, DomainMastheadVisual> = {
   },
 
   /* ——— Research / Company ——— */
-  "/research/": {
-    theme: "research",
-    mastheadImage: "/hub/research-masthead.webp",
-    mastheadAlt: "Human and robotic collaboration in a research setting",
-  },
-  "/research/areas/": {
-    theme: "research",
-    mastheadImage: "/hub/research-masthead.webp",
-    mastheadAlt: "Research areas informing SAVEN Core architecture",
-  },
-  "/research/notes/": {
-    theme: "research",
-    mastheadImage: "/hub/research-masthead.webp",
-    mastheadAlt: "Research notes and orientation for SAVEN Core",
-  },
   "/roadmap/": {
     theme: "research",
     mastheadImage: "/hub/research-masthead.webp",

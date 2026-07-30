@@ -276,7 +276,6 @@ export const futureLabPageEn: FlagshipBrochureContent = {
   ],
   note: "Research material describes open questions and directions. It does not claim validated medical devices or deployed infrastructure systems.",
   related: [
-    { label: "Research", href: "/research/" },
     { label: "SAVEN Robotics Lab", href: "/labs/saven-robotics-lab/" },
     { label: "Technology", href: "/technology/" },
   ],
@@ -512,7 +511,7 @@ export const roadmapPageEn: FlagshipBrochureContent = {
   items: [
     "SAVEN Robotics Lab — engineering direction for assistive robotic systems",
     "SAVEN Robotics Interface — shared communication and control workstream",
-    "Research — the areas and notes informing current direction",
+    "Research — open questions that inform architecture and Labs",
     "Contact — ask a direct question about current status",
   ],
   sections: [
@@ -542,7 +541,7 @@ export const roadmapPageEn: FlagshipBrochureContent = {
   related: [
     { label: "Labs", href: "/labs/" },
     { label: "SAVEN Robotics Interface", href: "/systems/saven-robotics-interface/" },
-    { label: "Research", href: "/research/" },
+    { label: "Research Applications", href: "/applications/research-applications/" },
     { label: "Contact", href: "/contact/" },
   ],
 };

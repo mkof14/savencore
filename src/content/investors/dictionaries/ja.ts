@@ -84,5 +84,4 @@ export const dictionary: Record<string, string> = {
   "Where health data becomes daily clarity — modeling and interpretation as Architecture / In Development.": "健康データが日々の明晰さになるところ — Architecture / In Development としてのモデリングと解釈。",
   "Why now": "なぜ今か",
   "Write with “Investor inquiry” in the subject line via Investor Contact or Contact. Public address: info@savencore.com.": "件名に “Investor inquiry” を入れ、Investor Contact または Contact からお書きください。公開アドレス: info@savencore.com。",
-  "© 2026 SAVEN Core. All rights reserved. This page is not an offer to sell securities. Sign In/Up provides authorized access when credentials are configured — not a full investor portal.": "© 2026 SAVEN Core. All rights reserved. このページは有価証券の募集ではありません。Sign In/Up は資格情報が設定されている場合の承認アクセスを提供します — 完全な投資家ポータルではありません。",
 };

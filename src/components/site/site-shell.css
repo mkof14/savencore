@@ -847,7 +847,7 @@ a.site-footer__social-link:focus-visible {
   border: 0;
 }
 
-/* Footer depth map — one forced row of equal section columns (D-0209); accordion on narrow. */
+/* Footer depth map — one forced row of equal section columns (D-0209 / D-0247); accordion on narrow. */
 .site-footer__grid {
   display: grid;
   gap: 0;
@@ -871,7 +871,7 @@ a.site-footer__social-link:focus-visible {
 @media (min-width: 860px) {
   .site-footer__grid {
     display: grid;
-    grid-template-columns: repeat(9, minmax(0, 1fr));
+    grid-template-columns: repeat(8, minmax(0, 1fr));
     grid-template-rows: auto;
     grid-auto-flow: row;
     grid-auto-rows: auto;

@@ -135,7 +135,7 @@ export const systemsPageContent: SystemsPageContent = {
   relatedDomainLinks: [
     { label: "Technology", href: "/technology/" },
     { label: "Applications", href: "/applications/" },
-    { label: "Research", href: "/research/" },
+    { label: "Research", href: "/applications/research-applications/" },
     { label: "Foundation", href: "/foundation/" },
     { label: "Purpose", href: "/purpose/" },
   ],
@@ -147,7 +147,7 @@ export const systemsPageContent: SystemsPageContent = {
     { label: "Technology", href: "/technology/" },
     { label: "Human Data Model", href: "/technology/human-data-model/" },
     { label: "Applications", href: "/applications/" },
-    { label: "Research", href: "/research/" },
+    { label: "Research", href: "/applications/research-applications/" },
     { label: "Foundation", href: "/foundation/" },
     { label: "Purpose", href: "/purpose/" },
   ],

@@ -491,17 +491,6 @@
   color: var(--color-accent-text);
 }
 
-.inv-page__disclaimer {
-  margin: 0;
-  padding-block-start: 0.35rem;
-  font-size: 0.8rem;
-  line-height: var(--leading-body);
-  color: var(--color-text-secondary);
-  max-width: 48rem;
-  border-block-start: 1px solid var(--color-divider);
-  padding-block-start: 1.15rem;
-}
-
 @media (max-width: 860px) {
   .inv-page__hero-inner {
     grid-template-columns: 1fr;

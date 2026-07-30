@@ -280,7 +280,6 @@ export function InvestorsPage({ locale, content }: InvestorsPageProps) {
           </ul>
         </nav>
 
-        <p className="inv-page__disclaimer">{content.disclaimer}</p>
       </div>
     </article>
   );

@@ -611,7 +611,7 @@ export const knowledgeEntities: readonly KnowledgeEntity[] = [
     relatedTrustIds: ["trust-architecture"],
     relatedPageLinks: [
       { label: "Systems", href: "/systems/" },
-      { label: "Research", href: "/research/" },
+      { label: "Research", href: "/applications/research-applications/" },
     ],
     futureTopics: [
       "Knowledge indexes",
@@ -726,7 +726,7 @@ export const knowledgeEntities: readonly KnowledgeEntity[] = [
     relatedApplicationIds: ["research", "healthcare"],
     relatedTrustIds: ["trust-architecture"],
     relatedPageLinks: [
-      { label: "Research", href: "/research/" },
+      { label: "Research", href: "/applications/research-applications/" },
       { label: "Foundation", href: "/foundation/" },
       { label: "Technology", href: "/technology/" },
       { label: "Systems", href: "/systems/" },
@@ -757,7 +757,7 @@ export const knowledgeEntities: readonly KnowledgeEntity[] = [
     relatedApplicationIds: [],
     relatedTrustIds: ["trust-architecture"],
     relatedPageLinks: [
-      { label: "Research", href: "/research/" },
+      { label: "Research", href: "/applications/research-applications/" },
       { label: "Trust", href: "/trust/" },
     ],
     futureTopics: [
@@ -794,7 +794,7 @@ export const knowledgeEntities: readonly KnowledgeEntity[] = [
     relatedApplicationIds: [],
     relatedTrustIds: [],
     relatedPageLinks: [
-      { label: "Research", href: "/research/" },
+      { label: "Research", href: "/applications/research-applications/" },
       { label: "Systems", href: "/systems/" },
       { label: "Foundation", href: "/foundation/" },
     ],
@@ -824,7 +824,7 @@ export const knowledgeEntities: readonly KnowledgeEntity[] = [
     relatedApplicationIds: ["research"],
     relatedTrustIds: [],
     relatedPageLinks: [
-      { label: "Research", href: "/research/" },
+      { label: "Research", href: "/applications/research-applications/" },
       { label: "Foundation", href: "/foundation/" },
     ],
     futureTopics: [
@@ -853,7 +853,7 @@ export const knowledgeEntities: readonly KnowledgeEntity[] = [
     relatedApplicationIds: ["research"],
     relatedTrustIds: ["trust-architecture"],
     relatedPageLinks: [
-      { label: "Research", href: "/research/" },
+      { label: "Research", href: "/applications/research-applications/" },
       { label: "Foundation", href: "/foundation/" },
       { label: "Trust", href: "/trust/" },
     ],
@@ -887,7 +887,7 @@ export const knowledgeEntities: readonly KnowledgeEntity[] = [
     relatedApplicationIds: ["research", "industrial"],
     relatedTrustIds: ["trust-architecture"],
     relatedPageLinks: [
-      { label: "Research", href: "/research/" },
+      { label: "Research", href: "/applications/research-applications/" },
       { label: "Systems", href: "/systems/" },
       { label: "Technology", href: "/technology/" },
     ],
@@ -1155,7 +1155,7 @@ export const knowledgeEntities: readonly KnowledgeEntity[] = [
     relatedTrustIds: ["trust-architecture"],
     relatedPageLinks: [
       { label: "Applications", href: "/applications/" },
-      { label: "Research", href: "/research/" },
+      { label: "Research", href: "/applications/research-applications/" },
       { label: "Foundation", href: "/foundation/" },
     ],
     futureTopics: [
@@ -1435,7 +1435,7 @@ export const knowledgeEntities: readonly KnowledgeEntity[] = [
     relatedPageLinks: [
       { label: "Foundation", href: "/foundation/" },
       { label: "Purpose", href: "/purpose/" },
-      { label: "Research", href: "/research/" },
+      { label: "Research", href: "/applications/research-applications/" },
     ],
     futureTopics: [
       "About page structure",

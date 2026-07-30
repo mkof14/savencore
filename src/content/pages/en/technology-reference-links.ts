@@ -4,7 +4,7 @@ import { technologyNavChildren } from "@/navigation/site-navigation";
 const SITE_REFERENCE_LINKS: readonly EngineeringLink[] = [
   { label: "Systems", href: "/systems/" },
   { label: "Foundation", href: "/foundation/" },
-  { label: "Research", href: "/research/" },
+  { label: "Research", href: "/applications/research-applications/" },
   { label: "Applications", href: "/applications/" },
   { label: "Purpose", href: "/purpose/" },
 ];

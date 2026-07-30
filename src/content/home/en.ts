@@ -262,7 +262,7 @@ export const researchLabsContent = {
       description:
         "Publications, research areas, system models, methods and technical questions that shape the architecture.",
       linkLabel: "Explore research",
-      href: "/research/",
+      href: "/applications/research-applications/",
     },
     {
       id: "labs",

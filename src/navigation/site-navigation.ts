@@ -176,17 +176,17 @@ export const trustMenuEntries: readonly NavLinkItem[] = [
 ] as const;
 
 /**
- * Primary header navigation — important Layer-1 hubs only (D-0153 / D-0194).
+ * Primary header navigation — important Layer-1 hubs only (D-0153 / D-0194 / D-0247).
  * Flat hub links; full leaf lists stay in the footer.
- * Systems restored for Architecture discovery; Purpose remains in footer Company → Mission.
+ * Home is first-class; Trust stays footer-only; Research hub removed (D-0247).
+ * Purpose remains in footer Company → Mission.
  */
 export const primaryNavigation: readonly PrimaryNavItem[] = [
+  { id: "home", label: "Home", href: "/" },
   { id: "labs", label: "Labs", href: "/labs/" },
   { id: "systems", label: "Systems", href: "/systems/" },
   { id: "applications", label: "Applications", href: "/applications/" },
   { id: "technology", label: "Technology", href: "/technology/" },
-  { id: "research", label: "Research", href: "/research/" },
-  { id: "trust", label: "Trust", href: "/trust/" },
   { id: "investors", label: "Investors", href: "/investors/" },
 ] as const;
 
@@ -327,18 +327,10 @@ export const footerNavigation: readonly FooterGroup[] = [
     links: footerLinksFromDomain("trust", trustNavChildren),
   },
   {
-    id: "research",
-    title: "Research",
-    links: [
-      published("footer-research-overview", "Overview", "/research/"),
-      published("footer-research-areas", "Research Areas", "/research/areas/"),
-      published("footer-research-notes", "Research Notes", "/research/notes/"),
-    ],
-  },
-  {
     id: "company",
     title: "Company",
     links: [
+      published("footer-company-home", "Home", "/"),
       published("footer-company-about", "About", "/foundation/"),
       published(
         "footer-company-biomath-core",
@@ -407,8 +399,9 @@ function assertPrimaryNavigation(): void {
 }
 
 /**
- * Every published route except Home and auth utilities must appear in the footer
- * depth map. Legal leaf pages may be covered by the `/legal/` hub + More (D-0181).
+ * Every published route except auth utilities must appear in the footer
+ * depth map (Home included — D-0247). Legal leaf pages may be covered by
+ * the `/legal/` hub + More (D-0181).
  */
 function assertFooterCoversPublishedRoutes(): void {
   const footerHrefs = new Set(
@@ -418,7 +411,6 @@ function assertFooterCoversPublishedRoutes(): void {
   );
   const legalHubCoversLeaves = footerHrefs.has("/legal/");
   for (const route of PUBLISHED_ROUTES) {
-    if (route === "/") continue;
     if (route.startsWith("/auth/")) continue;
     // Thin aliases / redirects covered by primary destinations.
     if (route === "/company/about/") continue;

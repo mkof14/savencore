@@ -84,5 +84,4 @@ export const dictionary: Record<string, string> = {
   "Where health data becomes daily clarity — modeling and interpretation as Architecture / In Development.": "Là où les données de santé deviennent une clarté quotidienne — modélisation et interprétation en Architecture / In Development.",
   "Why now": "Pourquoi maintenant",
   "Write with “Investor inquiry” in the subject line via Investor Contact or Contact. Public address: info@savencore.com.": "Écrivez avec « Investor inquiry » dans l’objet via Investor Contact ou Contact. Adresse publique : info@savencore.com.",
-  "© 2026 SAVEN Core. All rights reserved. This page is not an offer to sell securities. Sign In/Up provides authorized access when credentials are configured — not a full investor portal.": "© 2026 SAVEN Core. Tous droits réservés. Cette page n’est pas une offre de titres. Sign In/Up fournit un accès autorisé lorsque les identifiants sont configurés — pas un portail investisseurs complet.",
 };

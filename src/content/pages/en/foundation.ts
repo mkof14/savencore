@@ -300,6 +300,6 @@ export const foundationPageContent: TechnicalPageContent = {
     { label: "Purpose", href: "/purpose/" },
     { label: "Technology", href: "/technology/" },
     { label: "Systems", href: "/systems/" },
-    { label: "Research", href: "/research/" },
+    { label: "Research", href: "/applications/research-applications/" },
   ],
 };

@@ -677,14 +677,20 @@ export const faqPageEn: FaqPageContent = {
       items: [
         {
           id: "research-what",
-          question: "What Research pages are published?",
+          question: "Where can I learn about research-oriented work?",
           answer: [
-            "Research Overview, Research Areas, and Research Notes. They provide orientation and architecture-linked research framing without inventing publications, citations, or results.",
+            "Research Applications describes careful study contexts. Direction lives on the Roadmap page. The Research Disclaimer Legal page explains that research materials are preliminary. There is no separate Research hub on this site.",
           ],
           links: [
-            { label: "Research", href: "/research/" },
-            { label: "Research Areas", href: "/research/areas/" },
-            { label: "Research Notes", href: "/research/notes/" },
+            {
+              label: "Research Applications",
+              href: "/applications/research-applications/",
+            },
+            { label: "Roadmap", href: "/roadmap/" },
+            {
+              label: "Research Disclaimer",
+              href: "/legal/research-disclaimer/",
+            },
           ],
         },
         {

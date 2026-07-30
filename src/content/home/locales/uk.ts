@@ -27,7 +27,6 @@ export const homeContentUk: HomeContent = {
     { id: "systems", label: "Системи", href: "/systems/" },
     { id: "applications", label: "Застосування", href: "/applications/" },
     { id: "trust", label: "Довіра", href: "/trust/" },
-    { id: "research", label: "Дослідження", href: "/research/" },
   ],
   explorerDomains: [
     {
@@ -62,28 +61,18 @@ export const homeContentUk: HomeContent = {
       pageIds: trustNavChildren.map((item) => item.id),
       relationships: "Встановлює межі для технологій, систем і застосувань.",
     },
-    {
-      id: "research",
-      title: "Дослідження",
-      purpose: "Питання, методи та відкрита робота, що спрямовують проєктування.",
-      href: "/research/",
-      pageIds: ["research-overview"],
-      relationships: "Спрямовують технології та системи через питання, методи й докази.",
-    },
   ],
   domainMapSteps: [
     { id: "technology", label: "Технології", href: "/technology/", dependency: "створюють" },
     { id: "systems", label: "Системи", href: "/systems/", dependency: "координують" },
     { id: "applications", label: "Застосування", href: "/applications/", dependency: "підтримують" },
     { id: "trust", label: "Довіра", href: "/trust/", dependency: "визначає межі" },
-    { id: "research", label: "Дослідження", href: "/research/", dependency: "спрямовують" },
   ],
   platformStatus: [
     { id: "technology", label: "Технології", stateKey: "complete", complete: true },
     { id: "systems", label: "Системи", stateKey: "complete", complete: true },
     { id: "applications", label: "Застосування", stateKey: "complete", complete: true },
     { id: "trust", label: "Довіра", stateKey: "complete", complete: true },
-    { id: "research", label: "Дослідження", stateKey: "complete", complete: true },
   ],
   featuredConcepts: [
     {
@@ -132,7 +121,6 @@ export const homeContentUk: HomeContent = {
     { id: "systems", title: "Дослідити системи", detail: "Як компоненти працюють разом", href: "/systems/" },
     { id: "applications", title: "Дослідити застосування", detail: "Середовища та контексти використання", href: "/applications/" },
     { id: "trust", title: "Дослідити довіру", detail: "Зобов’язання, нагляд і межі", href: "/trust/" },
-    { id: "research", title: "Дослідити дослідження", detail: "Дані та відкриті питання", href: "/research/" },
   ],
   domainMapConstraints: [
     "Довіра встановлює межі для технологій, систем і застосувань",

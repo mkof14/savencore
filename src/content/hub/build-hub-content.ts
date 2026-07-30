@@ -1,5 +1,4 @@
 import type { EditorialPageContent } from "@/components/pages/page-types";
-import type { ResearchPageContent } from "@/components/pages/page-types";
 import type { Locale } from "@/config/locales";
 import type {
   FlagshipBrochureContent,
@@ -49,7 +48,6 @@ import type { TrustPageContent } from "@/content/pages/en/trust";
 import {
   getApplicationsPageContent,
   getPurposePageContent,
-  getResearchPageContent,
   getTechnologyPageContent,
   getTrustPageContent,
 } from "@/content/pages/get-localized-page";
@@ -152,7 +150,7 @@ export function buildFlagshipHub(
       note: content.note,
       related: [
         { label: "Technology", href: "/technology/" },
-        { label: "Research", href: "/research/" },
+        { label: "Research Applications", href: "/applications/research-applications/" },
       ],
     };
   }
@@ -413,89 +411,6 @@ export function buildTechnologyHub(
   };
 }
 
-export function buildResearchHub(
-  content: ResearchPageContent,
-  locale: Locale,
-): HubPageContent {
-  const ui = getUi(locale);
-  const sections: HubSection[] = [
-    {
-      id: "research-areas",
-      title: content.sectionNav?.[0]?.label ?? ui.hub.areas,
-      items: content.areas.map((area) => `${area.title} — ${area.summary}`),
-      collapsed: true,
-    },
-  ];
-
-  if (content.entries && content.entries.length > 0) {
-    sections.push({
-      id: "research-notes",
-      title: content.entriesHeading ?? "Research notes",
-      items: content.entries.map(
-        (entry) => `${entry.title} — ${entry.summary}`,
-      ),
-      collapsed: true,
-    });
-  }
-
-  const topArea = content.areas[0];
-
-  return {
-    label: content.label,
-    title: content.title,
-    ...(content.status ? { status: content.status } : {}),
-    lede: content.introduction,
-    visual: HUB_MASTHEAD.research,
-    highlights: [
-      {
-        id: "what",
-        title: ui.hub.what,
-        text: firstSentence(content.introduction),
-      },
-      {
-        id: "why",
-        title: ui.hub.why,
-        text: firstSentence(
-          topArea
-            ? `${topArea.title}: ${topArea.summary}`
-            : content.introduction,
-        ),
-      },
-      {
-        id: "next",
-        title: ui.hub.next,
-        text: firstSentence(
-          content.areas[1]
-            ? `${content.areas[1].title}: ${content.areas[1].summary}`
-            : content.introduction,
-        ),
-      },
-    ],
-    sections,
-    paths: {
-      heading: ui.hub.explore,
-      links: withPathImages([
-        {
-          label: ui.navEntries["footer-research-areas"],
-          href: "/research/areas/",
-        },
-        {
-          label: ui.navEntries["footer-research-notes"],
-          href: "/research/notes/",
-        },
-      ]),
-    },
-    related: [
-      { label: ui.nav.labs, href: "/labs/" },
-      {
-        label: ui.navEntries["footer-labs-internal-future-lab"],
-        href: "/labs/internal-future-lab/",
-      },
-      { label: ui.nav.technology, href: "/technology/" },
-      ...(content.relatedLinks ?? []),
-    ],
-  };
-}
 
 export function buildTrustHub(
   content: TrustPageContent,
@@ -570,75 +485,6 @@ export function getTechnologyHubContent(locale: Locale): HubPageContent {
   return buildTechnologyHub(getTechnologyPageContent(locale), locale);
 }
 
-export function getResearchHubContent(locale: Locale): HubPageContent {
-  return buildResearchHub(getResearchPageContent(locale), locale);
-}
-
-/** Research → Areas leaf — reuses the already-localized Research page content (D-0194). */
-export function getResearchAreasHubContent(locale: Locale): HubPageContent {
-  const content = getResearchPageContent(locale);
-  const ui = getUi(locale);
-  const visual = domainVisualForHref("/research/areas/");
-  return {
-    label: ui.navEntries["footer-research-areas"],
-    title: ui.navEntries["footer-research-areas"],
-    ...(content.status ? { status: content.status } : {}),
-    lede: content.introduction,
-    visual: {
-      theme: "research",
-      mastheadImage: visual.mastheadImage,
-      mastheadAlt: visual.mastheadAlt,
-    },
-    sections: [
-      {
-        id: "research-areas",
-        title: content.sectionNav?.[0]?.label ?? ui.hub.areas,
-        items: content.areas.map((area) => `${area.title} — ${area.summary}`),
-      },
-    ],
-    related: [
-      { label: ui.nav.research, href: "/research/" },
-      { label: ui.navEntries["footer-research-notes"], href: "/research/notes/" },
-      ...(content.relatedLinks ?? []),
-    ],
-  };
-}
-
-/** Research → Notes leaf — reuses the already-localized Research page content (D-0194). */
-export function getResearchNotesHubContent(locale: Locale): HubPageContent {
-  const content = getResearchPageContent(locale);
-  const ui = getUi(locale);
-  const visual = domainVisualForHref("/research/notes/");
-  const entries = content.entries ?? [];
-  return {
-    label: ui.navEntries["footer-research-notes"],
-    title: ui.navEntries["footer-research-notes"],
-    ...(content.status ? { status: content.status } : {}),
-    lede: content.introduction,
-    visual: {
-      theme: "research",
-      mastheadImage: visual.mastheadImage,
-      mastheadAlt: visual.mastheadAlt,
-    },
-    sections: [
-      {
-        id: "research-notes",
-        title: content.entriesHeading ?? "Research notes",
-        items: entries.map((entry) => `${entry.title} — ${entry.summary}`),
-      },
-    ],
-    ...(entries.length === 0
-      ? {
-          note: "No research notes are published yet. This section grows as orientation material is prepared.",
-        }
-      : {}),
-    related: [
-      { label: ui.nav.research, href: "/research/" },
-      { label: ui.navEntries["footer-research-areas"], href: "/research/areas/" },
-      ...(content.relatedLinks ?? []),
-    ],
-  };
-}
 
 export function getTrustHubContent(locale: Locale): HubPageContent {
   return buildTrustHub(getTrustPageContent(locale), locale);
@@ -686,7 +532,7 @@ export function getLabsHubContent(locale: Locale): HubPageContent {
     },
     related: [
       { label: ui.nav.technology, href: "/technology/" },
-      { label: ui.nav.research, href: "/research/" },
+      { label: ui.nav.applications, href: "/applications/" },
     ],
   };
 }
@@ -840,7 +686,7 @@ export function getRoadmapHubContent(locale: Locale = "en"): HubPageContent {
     ...hub,
     label: ui.navEntries["footer-company-roadmap"] ?? content.title,
     visual: {
-      theme: "research",
+      theme: "foundation",
       mastheadImage: visual.mastheadImage,
       mastheadAlt: visual.mastheadAlt,
     },

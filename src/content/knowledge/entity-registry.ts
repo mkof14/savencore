@@ -57,7 +57,7 @@ function entityHref(entity: KnowledgeEntity): string {
     return mapped;
   }
   if (entity.domain === "research") {
-    return "/research/";
+    return "/applications/research-applications/";
   }
   const domain = knowledgeDomainMap[entity.domain];
   return `${domain.href}#${entity.slug}`;

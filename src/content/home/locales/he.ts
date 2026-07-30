@@ -27,7 +27,6 @@ export const homeContentHe: HomeContent = {
     { id: "systems", label: "מערכות", href: "/systems/" },
     { id: "applications", label: "יישומים", href: "/applications/" },
     { id: "trust", label: "אמון", href: "/trust/" },
-    { id: "research", label: "מחקר", href: "/research/" },
   ],
   explorerDomains: [
     {
@@ -62,28 +61,18 @@ export const homeContentHe: HomeContent = {
       pageIds: trustNavChildren.map((item) => item.id),
       relationships: "מציב גבולות לטכנולוגיה, למערכות וליישומים.",
     },
-    {
-      id: "research",
-      title: "מחקר",
-      purpose: "שאלות, שיטות ועבודה פתוחה שמכוונות את התכנון.",
-      href: "/research/",
-      pageIds: ["research-overview"],
-      relationships: "מנחה את הטכנולוגיה ואת המערכות באמצעות שאלות, שיטות וראיות.",
-    },
   ],
   domainMapSteps: [
     { id: "technology", label: "טכנולוגיה", href: "/technology/", dependency: "בונה" },
     { id: "systems", label: "מערכות", href: "/systems/", dependency: "מתאמות" },
     { id: "applications", label: "יישומים", href: "/applications/", dependency: "משרתים" },
     { id: "trust", label: "אמון", href: "/trust/", dependency: "מגביל" },
-    { id: "research", label: "מחקר", href: "/research/", dependency: "מיידע" },
   ],
   platformStatus: [
     { id: "technology", label: "טכנולוגיה", stateKey: "complete", complete: true },
     { id: "systems", label: "מערכות", stateKey: "complete", complete: true },
     { id: "applications", label: "יישומים", stateKey: "complete", complete: true },
     { id: "trust", label: "אמון", stateKey: "complete", complete: true },
-    { id: "research", label: "מחקר", stateKey: "complete", complete: true },
   ],
   featuredConcepts: [
     {
@@ -132,7 +121,6 @@ export const homeContentHe: HomeContent = {
     { id: "systems", title: "גלו את המערכות", detail: "איך הרכיבים פועלים יחד", href: "/systems/" },
     { id: "applications", title: "גלו את היישומים", detail: "מקומות והקשרי שימוש", href: "/applications/" },
     { id: "trust", title: "גלו את האמון", detail: "מחויבויות, פיקוח וגבולות", href: "/trust/" },
-    { id: "research", title: "גלו את המחקר", detail: "ראיות ושאלות פתוחות", href: "/research/" },
   ],
   domainMapConstraints: [
     "אמון מציב גבולות לטכנולוגיה, למערכות וליישומים",

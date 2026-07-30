@@ -28,7 +28,6 @@ export const homeContentEn: HomeContent = {
     { id: "systems", label: "Systems", href: "/systems/" },
     { id: "applications", label: "Applications", href: "/applications/" },
     { id: "trust", label: "Trust", href: "/trust/" },
-    { id: "research", label: "Research", href: "/research/" },
   ],
   explorerDomains: [
     {
@@ -64,14 +63,6 @@ export const homeContentEn: HomeContent = {
       pageIds: trustNavChildren.map((item) => item.id),
       relationships: "Sets limits for Technology, Systems and Applications.",
     },
-    {
-      id: "research",
-      title: "Research",
-      purpose: "Questions, methods and evidence that guide design.",
-      href: "/research/",
-      pageIds: ["research-overview"],
-      relationships: "Informs Technology and Systems through questions, methods and evidence.",
-    },
   ],
   domainMapSteps: [
     {
@@ -93,12 +84,6 @@ export const homeContentEn: HomeContent = {
       dependency: "serves",
     },
     { id: "trust", label: "Trust", href: "/trust/", dependency: "governs" },
-    {
-      id: "research",
-      label: "Research",
-      href: "/research/",
-      dependency: "informs",
-    },
   ],
   platformStatus: [
     {
@@ -115,12 +100,6 @@ export const homeContentEn: HomeContent = {
       complete: true,
     },
     { id: "trust", label: "Trust", stateKey: "complete", complete: true },
-    {
-      id: "research",
-      label: "Research",
-      stateKey: "complete",
-      complete: true,
-    },
   ],
   featuredConcepts: [
     {
@@ -189,16 +168,9 @@ export const homeContentEn: HomeContent = {
       detail: "Commitments, oversight and limits",
       href: "/trust/",
     },
-    {
-      id: "research",
-      title: "Explore Research",
-      detail: "Evidence and open questions",
-      href: "/research/",
-    },
   ],
   domainMapConstraints: [
     "Trust sets limits for Technology, Systems and Applications",
-    "Research informs Technology and Systems",
     "Applications come after Systems coordination",
   ],
 };

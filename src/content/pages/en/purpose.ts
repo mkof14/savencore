@@ -132,7 +132,7 @@ export const purposePageContent: EditorialPageContent = {
   relatedLinks: [
     { label: "Foundation", href: "/foundation/" },
     { label: "Technology", href: "/technology/" },
-    { label: "Research", href: "/research/" },
+    { label: "Research", href: "/applications/research-applications/" },
     { label: "Trust", href: "/trust/" },
   ],
 };

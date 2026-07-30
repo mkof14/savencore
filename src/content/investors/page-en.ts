@@ -71,7 +71,6 @@ export type InvestorsPageContent = {
     primaryCta: InvestorsLink;
     secondaryCta: InvestorsLink;
   };
-  disclaimer: string;
   explore: {
     heading: string;
     links: readonly InvestorsLink[];
@@ -294,8 +293,6 @@ export const investorsPageContentEn: InvestorsPageContent = {
       href: "/contact/",
     },
   },
-  disclaimer:
-    "© 2026 SAVEN Core. All rights reserved. This page is not an offer to sell securities. Sign In/Up provides authorized access when credentials are configured — not a full investor portal.",
   explore: {
     heading: "Continue exploring",
     links: [

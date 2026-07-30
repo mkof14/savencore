@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-29 (D-0246 — Investors professional page)
+**Last updated:** 2026-07-29 (D-0247 — Nav Home/Trust/Research + Investors chrome + footer completeness)
 
 ## Rules
 
@@ -262,6 +262,7 @@
 | D-0244 | 2026-07-29 | Theme bootstrap via next/script (React 19 / Next 16.2) | Active |
 | D-0245 | 2026-07-29 | Search page balance + home YouTube feature band | Active |
 | D-0246 | 2026-07-29 | Investors professional page (BMC framing, SAVEN-owned) | Active |
+| D-0247 | 2026-07-29 | Nav Home/Trust/Research + Investors chrome + footer completeness | Active |
 
 ---
 
@@ -2492,6 +2493,21 @@
 - **In scope:** Investors page component/CSS/content/dicts; `/investors/` route metadata; flagship Investors + scenes terminology scrub aligning with no-Platform rule; D-0246 + AGENTS pointer; local proof; commit/push/Vercel prod.
 - **Out of scope:** Investor portal; invented financial claims; BMC metrics as SAVEN facts; inventing Inc./entity; nav schema invention; neon decoration.
 - **Implications:** `/en/investors/` is the professional capital-posture brochure. Residual: Investor Contact leaf may still use DomainVisualPage shell; robotics Lab copy may still use “platforms” for physical robot form factors (outside Investors brochure).
+
+### D-0247 — Nav Home/Trust/Research + Investors chrome + footer completeness
+
+- **Date:** 2026-07-29
+- **Status:** Active
+- **Summary:** Owner-authorized navigation and Investors chrome cleanup: remove Investors page body copyright/Sign-In portal tease; make Home first-class in header and footer; keep Trust footer-only; delete the public Research hub and leaves; keep footer as the complete published depth map (8 desktop columns).
+- **Decision:**
+  1. **Investors** — Remove the on-page disclaimer block (“© 2026… Sign In/Up… not a full investor portal”). Site footer copyright remains. Do not invent an investor portal. Risk/engagement “not an offer / not a data room” honesty may remain in body copy.
+  2. **Header** — Primary hubs ≤7: **Home**, Labs, Systems, Applications, Technology, Investors. **Trust** removed from primary header (footer Trust column retained). **Research** removed from primary header.
+  3. **Research hub** — Unpublish `/research/`, `/research/areas/`, `/research/notes/` (routes/content/nav/footer/search index entries removed). Remap former Research outbound links to Research Applications, Roadmap, Labs, or Trust as appropriate. Keep Applications → Research Applications, status vocabulary **Research**, and Legal → Research Disclaimer.
+  4. **Footer** — Add **Home** (`/`) under Company; remove Research column; desktop grid **8** equal columns; every published public route (except auth utilities and thin aliases / Legal More coverage) must appear in the footer depth map.
+  5. **Docs** — AGENTS.md, INFORMATION_ARCHITECTURE.md, SITE_ASSIGNMENT.md updated for as-built nav.
+- **In scope:** `site-navigation` / `published-routes`; Investors page; Research route/content cleanup; home/flagship/FAQ/knowledge href hygiene; UI i18n Home footer key; footer CSS column count; D-0247 + AGENTS pointers; commit/push/Vercel prod.
+- **Out of scope:** Inventing new pages; Trust domain deletion; Research status vocabulary removal; admin/API routes in footer; investor portal.
+- **Implications:** Header is Home-first and shorter on Trust/Research; Research URLs 404; footer remains the honest published sitemap.
 
 ## Pending Owner Decisions
 

@@ -28,8 +28,8 @@ type SiteFooterProps = {
 };
 
 /**
- * Apple-style footer (D-0209 / D-0212 / D-0213): each published section is its own equal column
- * in one forced desktop row — Architecture never stacks under Technology.
+ * Apple-style footer (D-0209 / D-0212 / D-0213 / D-0247): each published section is its own equal column
+ * in one forced desktop row (8 columns after Research removal) — Architecture never stacks under Technology.
  * Install app lives in the Resources column (main link grid); Contact form on `/contact/` only;
  * bottom order: socials → disclaimer → bar.
  */

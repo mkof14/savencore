@@ -106,10 +106,11 @@ function withVisual(
   base: Omit<HubPageContent, "visual">,
 ): HubPageContent {
   const visual = domainVisualForHref(href);
+  const theme = visual.theme === "research" ? "foundation" : visual.theme;
   return {
     ...base,
     visual: {
-      theme: visual.theme,
+      theme,
       mastheadImage: visual.mastheadImage,
       mastheadAlt: visual.mastheadAlt,
       ...(visual.mastheadCollage

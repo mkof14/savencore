@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-30 (D-0252 — public chrome without In Development + BMC 200+)
+**Last updated:** 2026-07-30 (D-0253 — Investors locale repair after D-0252 + downloads verify)
 
 ## Rules
 
@@ -268,6 +268,7 @@
 | D-0250 | 2026-07-30 | Theme bootstrap via useServerInsertedHTML (React 19 / Next 16.2) | Active |
 | D-0251 | 2026-07-30 | BioMath Core diagrams — hover life + section anchor links | Active |
 | D-0252 | 2026-07-30 | Public chrome: remove In Development messaging + BMC 200+ under 20 | Active |
+| D-0253 | 2026-07-30 | Investors locale repair after D-0252 + downloads/PWA verify | Active |
 
 ---
 
@@ -2594,6 +2595,19 @@
 - **In scope:** Home, BioMath Core, Investors, flagship Labs/Interface/roadmap, FAQ/legal/media/foundation/purpose/technology copy, locale dictionaries (10 locales), AGENTS status reminder, D-0252; commit/push/Vercel prod; prove BMC 200+ and key pages HTML without “In Development.”
 - **Out of scope:** Claiming Operational products; inventing metrics/customers; changing admin `statusInDevelopment` badge; rewriting historical Decisions Log entries.
 - **Implications:** Visitor experience reads as quiet professional architecture/scope framing; maturity honesty moves off public stamps into non-claims and Architecture/Research labels only.
+
+### D-0253 — Investors locale repair after D-0252 + downloads/PWA verify
+
+- **Date:** 2026-07-30
+- **Status:** Active
+- **Summary:** Owner-directed audit pass: verify mobile/desktop media downloads and Install app (PWA) behavior; spot-check D-0251–D-0252 translations; push and redeploy. Repair critical Investors dictionary leftovers from D-0252 status-line surgery (including UK “в розробці” / development-status phrasing and truncated/duplicated Architecture labels).
+- **Decision:**
+  1. Media “Download” remains same-origin attachment via `/api/media/download/[id]/` + `triggerMediaDownload` (fetch→blob with iOS/desktop fallbacks). Soft-hidden seeds (`hidden.json`) correctly 404 and must not be committed unless intentional.
+  2. Footer **Install app** remains PWA install / how-to help — not a binary app store download.
+  3. Investors public strings for the Research/Architecture status line and “honesty about scope and non-claims” must not reintroduce development-maturity wording after D-0252.
+- **In scope:** Investors locale dictionaries (9 locales), D-0253 + AGENTS pointer; commit/push/Vercel prod; prove key routes 200 and Investors locale HTML without “в розробці” / broken Architecture leftovers.
+- **Out of scope:** Changing download API contracts; committing `storage/admin-media/hidden.json`; inventing Operational claims; restoring public In Development stamps.
+- **Implications:** Prod stays honest on downloads vs PWA; Investors locales match EN scope/non-claims framing after D-0252.
 
 ## Pending Owner Decisions
 

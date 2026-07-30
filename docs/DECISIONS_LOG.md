@@ -2616,7 +2616,7 @@
 - **Summary:** Owner request («зафиксируй финальную версию») to freeze/record the final public SAVEN Core website snapshot on git and production.
 - **Decision:**
   1. Annotated git tag `v2026.07.30-final` marks the final public site snapshot (“Final public site snapshot”).
-  2. Commit SHA of the tagged freeze: `PLACEHOLDER_SHA`.
+  2. Commit SHA of the tagged freeze: `beeca4511e30a2c3f93cf7b0d068b12c0cd06c64`.
   3. Production remains https://www.savencore.com (Vercel prod deploy after tag push).
 - **In scope:** Decision log record; annotated tag; push to origin; Vercel production deploy.
 - **Out of scope:** Committing `storage/admin-media/hidden.json` (soft-hidden media seeds; not intentional freeze content); new product/copy phases; inventing Operational claims.

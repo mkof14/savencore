@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-29 (D-0248 — Investors polish + related-page sync + translation audit)
+**Last updated:** 2026-07-30 (D-0249 — Home closing SAVEN frame matched to YouTube)
 
 ## Rules
 
@@ -264,6 +264,7 @@
 | D-0246 | 2026-07-29 | Investors professional page (BMC framing, SAVEN-owned) | Active |
 | D-0247 | 2026-07-29 | Nav Home/Trust/Research + Investors chrome + footer completeness | Active |
 | D-0248 | 2026-07-29 | Investors polish + related-page sync + translation audit | Active |
+| D-0249 | 2026-07-30 | Home closing SAVEN frame matched to YouTube frame | Active |
 
 ---
 
@@ -2523,6 +2524,20 @@
 - **In scope:** Investors page/content/CSS/dicts; Contact EN+dicts; flagship Investors/Investor Contact EN+dicts; home investor teaser; Foundation EN+dicts; hub related remap; D-0248 + AGENTS / SITE_ASSIGNMENT pointer; type-check; commit/push/Vercel prod.
 - **Out of scope:** Invented metrics/partners/portal; boiling the ocean on all site Platform product names (e.g. named Drone Platform); counsel packs; CMS.
 - **Implications:** Investors reads as patient-capital brochure aligned with site positioning; residual native QA still recommended for RTL typography and locale idioms.
+
+### D-0249 — Home closing SAVEN frame matched to YouTube frame
+
+- **Date:** 2026-07-30
+- **Status:** Active
+- **Summary:** Owner-authorized: make the dark closing SAVEN artboard outer frame on the home page the same size (and framing rhythm) as the YouTube feature frame immediately below it.
+- **Decision:**
+  1. **Shared media frame** — Closing Explore SAVEN stage and `.pw-youtube__frame` share `--pw-media-frame-max: 72rem`, the same `pw-home__inner` horizontal shell/padding, and the same border + soft shadow with straight corners.
+  2. **Aspect** — YouTube keeps 16:9; closing artboard keeps the existing `saven-closing-bg` natural aspect (no crop, no new photography).
+  3. **Theme** — Page chrome around both frames remains themeable light/dark; the artboard itself stays dark.
+  4. **Fades** — Top/bottom closing fades become section transitions outside the framed artboard (no surface wash over the dark image).
+- **In scope:** `PhysicalWorldHome` closing markup; `physical-world-home.css` closing + YouTube frame; D-0249 + AGENTS pointer; commit/push/Vercel prod.
+- **Out of scope:** New imagery; neon extras; changing Explore hotspots/copy; inventing video or metrics.
+- **Implications:** Home bottom media stack reads as a paired framed sequence (SAVEN artboard → YouTube) with aligned width on mobile and desktop.
 
 ## Pending Owner Decisions
 

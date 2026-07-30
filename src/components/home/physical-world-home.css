@@ -1,6 +1,8 @@
 /* Homepage — living photoreal hero + one care-focused living carousel */
 
 .pw-home {
+  /* Shared media-frame max for closing SAVEN artboard + YouTube (D-0249) */
+  --pw-media-frame-max: 72rem;
   width: 100%;
   max-width: 100%;
   overflow-x: clip;
@@ -2000,7 +2002,7 @@ a.pw-flagships__row-link:focus-visible {
   }
 }
 
-/* ——— Closing meaning band (D-0147 / D-0172) — photo on theme surface ——— */
+/* ——— Closing meaning band (D-0147 / D-0172 / D-0249) — framed artboard ——— */
 
 .pw-closing {
   position: relative;
@@ -2012,28 +2014,32 @@ a.pw-flagships__row-link:focus-visible {
 }
 
 /*
- * Soft top veil — living-block already fades into --color-surface full-bleed.
+ * Soft section transition above the framed artboard — does not wash the dark image.
  */
 .pw-closing__fade-top {
-  position: absolute;
-  inset-inline: 0;
-  top: 0;
-  z-index: 2;
-  height: 2rem;
+  position: relative;
+  z-index: 1;
+  height: clamp(1.25rem, 3vw, 2rem);
   pointer-events: none;
   background: linear-gradient(
     180deg,
-    var(--color-surface) 0%,
-    color-mix(in srgb, var(--color-surface) 35%, transparent) 55%,
-    transparent 100%
+    color-mix(in srgb, var(--color-background) 40%, var(--color-surface)) 0%,
+    var(--color-surface) 100%
   );
 }
 
-/* Bottom blend sits BELOW the banner so tagline stays fully visible */
+/* Same horizontal shell as YouTube band so both frames share inset (D-0249) */
+.pw-closing__shell {
+  position: relative;
+  z-index: 1;
+  padding-block-end: clamp(0.5rem, 1.5vw, 1rem);
+}
+
+/* Bottom blend sits BELOW the framed stage into the YouTube band */
 .pw-closing__fade-bottom {
   position: relative;
   z-index: 1;
-  height: 5.5rem; /* ~88px */
+  height: clamp(2.5rem, 5vw, 4rem);
   pointer-events: none;
   background: linear-gradient(
     180deg,
@@ -2042,12 +2048,20 @@ a.pw-flagships__row-link:focus-visible {
   );
 }
 
+/*
+ * Outer frame matched to .pw-youtube__frame (D-0249):
+ * same max-width, centering, border, shadow, straight corners.
+ * Natural asset aspect kept (no 16:9 crop).
+ */
 .pw-closing__stage {
   position: relative;
   z-index: 1;
-  width: 100%;
-  max-width: 1400px;
+  width: min(100%, var(--pw-media-frame-max, 72rem));
   margin-inline: auto;
+  background: #0b1c33;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 18px 48px color-mix(in srgb, var(--color-text) 8%, transparent);
+  overflow: hidden;
 }
 
 .pw-closing__picture {
@@ -2058,7 +2072,7 @@ a.pw-flagships__row-link:focus-visible {
 }
 
 /*
- * Full-bleed responsive banner: natural aspect ratio from the asset.
+ * Responsive banner inside the matched frame: natural aspect from the asset.
  * No object-fit:cover, no forced min-height, no zoom crop.
  */
 .pw-closing__bg {
@@ -2533,7 +2547,8 @@ a.pw-flagships__row-link:focus-visible {
 
 .pw-youtube__frame {
   position: relative;
-  width: min(100%, 72rem);
+  /* Shared max with .pw-closing__stage (D-0249) */
+  width: min(100%, var(--pw-media-frame-max, 72rem));
   margin-inline: auto;
   aspect-ratio: 16 / 9;
   background: var(--color-surface);

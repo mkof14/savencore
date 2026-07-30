@@ -244,32 +244,35 @@ export function PhysicalWorldHome({ locale }: PhysicalWorldHomeProps) {
       ) : null}
 
       <section className="pw-closing" aria-labelledby="pw-closing-title">
-        {/* Soft top overlay only — never crops the graphic */}
+        {/* Soft section transition above the framed artboard (D-0249) */}
         <div className="pw-closing__fade-top" aria-hidden="true" />
-        <div className="pw-closing__stage">
-          <picture className="pw-closing__picture">
-            <source srcSet="/home/saven-closing-bg.webp" type="image/webp" />
-            <img
-              className="pw-closing__bg"
-              src="/home/saven-closing-bg.jpg"
-              alt=""
-              width={1280}
-              height={853}
-              decoding="async"
-              loading="lazy"
+        {/* Same shell + frame width as HomeYoutubeFeature below (D-0249) */}
+        <div className="pw-home__inner pw-closing__shell">
+          <div className="pw-closing__stage">
+            <picture className="pw-closing__picture">
+              <source srcSet="/home/saven-closing-bg.webp" type="image/webp" />
+              <img
+                className="pw-closing__bg"
+                src="/home/saven-closing-bg.jpg"
+                alt=""
+                width={1024}
+                height={682}
+                decoding="async"
+                loading="lazy"
+              />
+            </picture>
+            <ClosingExploreMap
+              locale={locale}
+              exploreLabel={c.closing.exploreLabel}
+              exploreHint={c.closing.exploreHint}
+              goDeeper={c.closing.goDeeper}
+              pillars={c.closing.map}
+              wordmarkLabel={c.closing.wordmarkLabel}
+              corners={c.closing.corners}
             />
-          </picture>
-          <ClosingExploreMap
-            locale={locale}
-            exploreLabel={c.closing.exploreLabel}
-            exploreHint={c.closing.exploreHint}
-            goDeeper={c.closing.goDeeper}
-            pillars={c.closing.map}
-            wordmarkLabel={c.closing.wordmarkLabel}
-            corners={c.closing.corners}
-          />
+          </div>
         </div>
-        {/* Footer blend after the banner so tagline stays fully visible */}
+        {/* Page blend into YouTube band / footer — outside the framed stage */}
         <div className="pw-closing__fade-bottom" aria-hidden="true" />
         <div className="pw-closing__copy visually-hidden">
           <h2 id="pw-closing-title">{c.closing.heading}</h2>

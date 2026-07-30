@@ -13,7 +13,7 @@ export type ContactPageContent = {
 export const contactPageEn: ContactPageContent = {
   label: "Contact",
   title: "Start a conversation",
-  lede: "Write to SAVEN Core about partnerships, research dialogue, investor inquiry, or general questions. We read carefully and respond when we can.",
+  lede: "Write to SAVEN Core about partnerships, research dialogue, investor inquiry, or general questions. For investor topics, put “Investor inquiry” in the subject. We read carefully and respond when we can.",
   body: [
     "When direct send is configured on this server, this form sends your message straight to info@savencore.com. Otherwise, it prepares the message in your own email app instead — either way, the message reaches the same public address.",
     "Please do not send urgent medical, emergency, or personal health information through this channel.",

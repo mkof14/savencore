@@ -572,8 +572,11 @@ export function getInvestorsHubContent(locale: Locale): HubPageContent {
     if (link.href === "/contact/") {
       return { ...link, label: ui.footer.contact };
     }
-    if (link.href === "/auth/sign-in/") {
-      return { ...link, label: ui.nav.signIn };
+    if (link.href === "/investors/contact/") {
+      return {
+        ...link,
+        label: ui.navEntries["footer-company-investors-contact"],
+      };
     }
     return link;
   });

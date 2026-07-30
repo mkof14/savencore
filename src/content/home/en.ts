@@ -379,21 +379,21 @@ export const companyOverviewContent = {
   },
 } as const;
 
-/** Future Investors page. */
+/** Investors closing teaser (D-0248 — no access/portal tease). */
 export const investorOverviewContent = {
   label: "Investors",
   heading: "Long-term capital for systems that require careful development.",
   paragraphs: [
     "SAVEN Core is intended for investors who understand that human-centered systems, robotics, safety architecture and physical infrastructure require disciplined engineering and staged validation.",
-    "Investor materials may include company architecture, development priorities, research direction, system concepts and future commercialization pathways.",
+    "Public investor materials describe investment posture, foundation sequence, and what we are building under Architecture and In Development — not rounds, valuations, or promised returns.",
   ],
   primaryLink: {
-    label: "Investor overview",
+    label: "Investors",
     href: "/investors/",
   },
   secondaryLink: {
-    label: "Request access",
-    href: "/investors/access/",
+    label: "Investor Contact",
+    href: "/investors/contact/",
   },
 } as const;
 

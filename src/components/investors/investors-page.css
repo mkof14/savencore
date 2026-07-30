@@ -242,11 +242,11 @@
   padding: clamp(2.25rem, 5vw, 3.75rem) var(--container-padding-x, clamp(1.25rem, 4vw, 2.5rem))
     clamp(3rem, 6vw, 4.5rem);
   display: grid;
-  gap: clamp(2.25rem, 5vw, 3.5rem);
+  gap: clamp(2.5rem, 5.5vw, 3.85rem);
 }
 
 .inv-page__section-title {
-  margin: 0 0 0.65rem;
+  margin: 0 0 0.55rem;
   font-family: var(--font-display);
   font-size: clamp(1.35rem, 1.1rem + 0.9vw, 1.75rem);
   letter-spacing: var(--tracking-heading);
@@ -255,11 +255,11 @@
 }
 
 .inv-page__section-support {
-  margin: 0 0 1.35rem;
-  max-width: 42rem;
+  margin: 0 0 1.5rem;
+  max-width: 40rem;
   color: var(--color-text-secondary);
-  font-size: 1.02rem;
-  line-height: var(--leading-body);
+  font-size: 0.98rem;
+  line-height: var(--leading-relaxed);
 }
 
 .inv-page__prose {

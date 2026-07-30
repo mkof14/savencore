@@ -394,7 +394,7 @@ export const investorsPageEn: FlagshipBrochureContent = {
       title: "Perspectives",
       paragraphs: [
         "Public visitors see an engineering and technology showcase: what we are building and why human oversight is non-negotiable.",
-        "Digging investors can follow Layer-2 depth — Technology, Systems, Labs, Trust, and Research — without treating the site as a product brochure or an offer to sell securities.",
+        "Digging investors can follow Layer-2 depth — Technology, Systems, Labs, and Trust — without treating the site as a product brochure or an offer to sell securities.",
       ],
     },
     {
@@ -441,13 +441,13 @@ export const investorsPageEn: FlagshipBrochureContent = {
       ],
     },
   ],
-  note: "This page is structural information only. It is not an offer to sell securities. For conversation, use Contact at info@savencore.com. Sign In/Up provides authorized access when credentials are configured — not a full investor portal.",
+  note: "This page is structural information only. It is not an offer to sell securities. For conversation, use Investor Contact or Contact at info@savencore.com.",
   related: [
     { label: "Home", href: "/" },
     { label: "SAVEN Robotics Lab", href: "/labs/saven-robotics-lab/" },
     { label: "About", href: "/foundation/" },
     { label: "Contact", href: "/contact/" },
-    { label: "Sign In/Up", href: "/auth/sign-in/" },
+    { label: "Investor Contact", href: "/investors/contact/" },
   ],
 };
 
@@ -458,19 +458,17 @@ export const investorsContactPageEn: FlagshipBrochureContent = {
   lede: "Investor conversations start the same way every conversation with SAVEN Core starts — through Contact. There is no separate investor portal, data room, or scheduling system on this site.",
   body: [
     "Write to info@savencore.com with “Investor inquiry” in the subject line, or use the Contact form and note that context in your message. Investor conversations are read from that same public address.",
-    "For structural context before writing — posture, systems potential, and what we share publicly — see the Investors overview.",
+    "For structural context before writing — investment posture, foundation sequence, and what we are building under Architecture and In Development — see the Investors overview.",
   ],
   listHeading: "Continue",
   items: [
     "Contact — start a conversation and mention Investor inquiry in the subject",
     "Investors — structural overview and public posture",
-    "Sign In/Up — authorized access when credentials are configured, not a full investor portal",
   ],
-  note: "This page is structural information only. It is not an offer to sell securities. Investor materials beyond this public site are shared only through direct, authorized conversation at info@savencore.com.",
+  note: "This page is structural information only. It is not an offer to sell securities. Deeper materials, if any, are shared only through authorized direct conversation at info@savencore.com.",
   related: [
     { label: "Contact", href: "/contact/" },
     { label: "Investors", href: "/investors/" },
-    { label: "Sign In/Up", href: "/auth/sign-in/" },
   ],
 };
 

@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-29 (D-0247 — Nav Home/Trust/Research + Investors chrome + footer completeness)
+**Last updated:** 2026-07-29 (D-0248 — Investors polish + related-page sync + translation audit)
 
 ## Rules
 
@@ -263,6 +263,7 @@
 | D-0245 | 2026-07-29 | Search page balance + home YouTube feature band | Active |
 | D-0246 | 2026-07-29 | Investors professional page (BMC framing, SAVEN-owned) | Active |
 | D-0247 | 2026-07-29 | Nav Home/Trust/Research + Investors chrome + footer completeness | Active |
+| D-0248 | 2026-07-29 | Investors polish + related-page sync + translation audit | Active |
 
 ---
 
@@ -2508,6 +2509,20 @@
 - **In scope:** `site-navigation` / `published-routes`; Investors page; Research route/content cleanup; home/flagship/FAQ/knowledge href hygiene; UI i18n Home footer key; footer CSS column count; D-0247 + AGENTS pointers; commit/push/Vercel prod.
 - **Out of scope:** Inventing new pages; Trust domain deletion; Research status vocabulary removal; admin/API routes in footer; investor portal.
 - **Implications:** Header is Home-first and shorter on Trust/Research; Research URLs 404; footer remains the honest published sitemap.
+
+### D-0248 — Investors polish + related-page sync + translation audit
+
+- **Date:** 2026-07-29
+- **Status:** Active
+- **Summary:** Owner-authorized polish of `/investors/` English brochure for clarity/dignity/professionalism; ban list enforced (no Platform / ecosystem / marketing buzz); light sync of Investor Contact, Contact, home Investors teaser, and Foundation “platforms→systems” wording; translation audit across Investors dictionaries + related Contact/flagship keys; D-0247 disclaimer/portal chrome remains gone.
+- **Decision:**
+  1. **Investors EN** — Tighten thesis/CTA/scannability; prefer “continuous path” over stack jargon; keep Architecture / In Development / Research status honesty; no metrics, portal tease, or offer-to-sell language beyond existing risk honesty.
+  2. **Related pages (light)** — Align Contact + Investor Contact subject-line guidance with Investors CTAs; home Investors teaser secondary link → `/investors/contact/` (remove unpublished `/investors/access/` “Request access”); Foundation who-we-are “complex platforms” → “complex systems”; Purpose/Trust had no Platform/ecosystem marketing hits.
+  3. **Translations** — Refresh all 9 Investors locale dictionaries for polished EN keys; localize About/FAQ/Trust/Contact explore labels; keep approved status vocabulary in English; sync Contact + flagship Investors Contact dictionary keys; UI Home footer keys from D-0247 already present across `src/i18n/ui/`.
+  4. **Chrome** — Investor Contact list/related drop Sign-In portal tease (site Sign In/Up remains in header); Investors page body stays free of copyright/portal disclaimer (D-0247).
+- **In scope:** Investors page/content/CSS/dicts; Contact EN+dicts; flagship Investors/Investor Contact EN+dicts; home investor teaser; Foundation EN+dicts; hub related remap; D-0248 + AGENTS / SITE_ASSIGNMENT pointer; type-check; commit/push/Vercel prod.
+- **Out of scope:** Invented metrics/partners/portal; boiling the ocean on all site Platform product names (e.g. named Drone Platform); counsel packs; CMS.
+- **Implications:** Investors reads as patient-capital brochure aligned with site positioning; residual native QA still recommended for RTL typography and locale idioms.
 
 ## Pending Owner Decisions
 

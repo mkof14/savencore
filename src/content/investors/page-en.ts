@@ -1,7 +1,8 @@
 /**
- * Investors premium page — English canonical (D-0246).
+ * Investors premium page — English canonical (D-0246 / D-0248).
  * Framing inspired by BioMath Core investors structure; claims rewritten for SAVEN Core.
  * No invented metrics, rounds, valuations, returns, customers, or Operational products.
+ * Ban list: Platform, ecosystem, and marketing buzzwords (synergy, leverage, disrupt, etc.).
  */
 
 export const INVESTORS_PAGE_HREF = "/investors/" as const;
@@ -80,14 +81,14 @@ export type InvestorsPageContent = {
 export const investorsPageContentEn: InvestorsPageContent = {
   metaTitle: "Investors",
   metaDescription:
-    "Long-term capital posture for SAVEN Core — intelligent systems for the physical world, human care as purpose. Architecture and In Development honesty. Not an offer to sell securities.",
+    "Long-term capital posture for SAVEN Core — intelligent systems for the physical world, with human care as purpose. Architecture and In Development honesty. Not an offer to sell securities.",
   label: "Investors",
   status: "In Development",
   hero: {
     title: "Patient capital for intelligence that serves human life",
     lede: "SAVEN Core builds intelligent systems for the physical world — so people can be helped in hospitals, at home, and wherever life happens.",
     support:
-      "This page describes investment posture, foundation sequence, and what we are building under Architecture and In Development. It does not publish rounds, valuations, revenue, or promised returns.",
+      "This page describes investment posture, the foundation sequence, and what we are building under Architecture and In Development. It does not publish rounds, valuations, revenue, or promised returns.",
     primaryCta: {
       label: "Investor Contact",
       href: "/investors/contact/",
@@ -101,7 +102,7 @@ export const investorsPageContentEn: InvestorsPageContent = {
     heading: "Investment thesis",
     paragraphs: [
       "Intelligent systems built to support human life. AI and robotics are tools — not the purpose. Human support is primary.",
-      "The opportunity is structural: a coherent stack spanning human understanding, BioMath Core clarity, SAVEN orchestration, and physical assistance — with trust and human oversight as requirements, not afterthoughts.",
+      "The opportunity is structural: a continuous path from human understanding and BioMath Core clarity, through SAVEN orchestration, to physical assistance — with trust and human oversight as requirements, not afterthoughts.",
       "We seek mission-aligned partners who understand long-horizon systems building: patient capital, clear governance, and honesty about development status.",
     ],
     points: [
@@ -113,7 +114,7 @@ export const investorsPageContentEn: InvestorsPageContent = {
       {
         id: "human-care",
         title: "Human care as purpose",
-        text: "Turning Intelligence Into Human Care anchors ambition: ease burdens for care teams, families, and people across ages and stages of life.",
+        text: "Turning Intelligence Into Human Care anchors the work: ease burdens for care teams, families, and people across ages and stages of life.",
       },
       {
         id: "disciplined",
@@ -186,7 +187,7 @@ export const investorsPageContentEn: InvestorsPageContent = {
         id: "trust",
         title: "Trust & oversight",
         status: "Architecture",
-        text: "Privacy, security, safety, and human oversight as structural requirements across the stack.",
+        text: "Privacy, security, safety, and human oversight as structural requirements across the work.",
         href: "/trust/",
       },
     ],
@@ -257,7 +258,7 @@ export const investorsPageContentEn: InvestorsPageContent = {
       },
       {
         id: "stack",
-        title: "One coherent stack",
+        title: "One continuous path",
         text: "Understanding → orchestration → physical action is harder as separate islands; SAVEN Core builds for continuity.",
       },
       {
@@ -283,13 +284,13 @@ export const investorsPageContentEn: InvestorsPageContent = {
   cta: {
     heading: "Continue the conversation",
     support:
-      "Write with “Investor inquiry” in the subject line via Investor Contact or Contact. Public address: info@savencore.com.",
+      "Write to info@savencore.com with “Investor inquiry” in the subject line, or use Investor Contact or Contact and note that context. Same public address either way.",
     primaryCta: {
       label: "Investor Contact",
       href: "/investors/contact/",
     },
     secondaryCta: {
-      label: "Open Contact",
+      label: "Contact",
       href: "/contact/",
     },
   },

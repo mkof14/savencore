@@ -39,7 +39,7 @@ export const dictionary: Record<string, string> = {
   "It is structural information only — not investment advice and not an offer to sell securities. Deeper materials, if any, are shared only through authorized direct conversation.": "仅为结构性信息 — 非投资建议，亦非证券发售要约。若有更深材料，仅通过获授权的直接对话分享。",
   "Living orientation toward understanding human signals and everyday clarity.": "面向理解人类信号与日常清晰度的活生生取向。",
   "Long-horizon engineering across Labs, Systems, and Technology — staged evidence before growth stories.": "跨越 Labs、Systems 与 Technology 的长期工程 — 在增长叙事之前先有分阶段证据。",
-  "Long-term capital posture for SAVEN Core — intelligent systems for the physical world, with human care as purpose. Not an offer to sell securities.": "SAVEN Core 的长期资本姿态 — 面向物理世界的智能系统，以人类照护为目的。Architecture 与 状态诚实。并非证券发售要约。",
+  "Long-term capital posture for SAVEN Core — intelligent systems for the physical world, with human care as purpose. Not an offer to sell securities.": "SAVEN Core 的长期资本姿态 — 面向物理世界的智能系统，以人类照护为目的。并非证券发售要约。",
   "One continuous path": "一条连续路径",
   "Operators & domain experts": "运营者与领域专家",
   "Orchestration from understanding toward next-level actions under human control.": "在人类控制下，从理解编排到下一层行动。",

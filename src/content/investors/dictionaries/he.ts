@@ -39,7 +39,7 @@ export const dictionary: Record<string, string> = {
   "It is structural information only — not investment advice and not an offer to sell securities. Deeper materials, if any, are shared only through authorized direct conversation.": "מידע מבני בלבד — לא ייעוץ השקעות ולא הצעה למכירת ני״ע. חומרים עמוקים יותר, אם ישנם, נחלקים רק בשיחה ישירה מורשית.",
   "Living orientation toward understanding human signals and everyday clarity.": "כיוון חי להבנת אותות אנושיים ולבהירות יומיומית.",
   "Long-horizon engineering across Labs, Systems, and Technology — staged evidence before growth stories.": "הנדסה לטווח ארוך לאורך Labs, Systems ו־Technology — ראיות מדורגות לפני סיפורי צמיחה.",
-  "Long-term capital posture for SAVEN Core — intelligent systems for the physical world, with human care as purpose. Not an offer to sell securities.": "עמדת הון ארוכת טווח של SAVEN Core — מערכות חכמות לעולם הפיזי, עם טיפול אנושי כמטרה. כנות סטטוסי Architecture. זו אינה הצעה למכירת ניירות ערך.",
+  "Long-term capital posture for SAVEN Core — intelligent systems for the physical world, with human care as purpose. Not an offer to sell securities.": "עמדת הון ארוכת טווח של SAVEN Core — מערכות חכמות לעולם הפיזי, עם טיפול אנושי כמטרה. זו אינה הצעה למכירת ניירות ערך.",
   "One continuous path": "נתיב רציף אחד",
   "Operators & domain experts": "מפעילים ומומחי תחום",
   "Orchestration from understanding toward next-level actions under human control.": "תזמור מהבנה אל פעולות ברמה הבאה תחת שליטה אנושית.",

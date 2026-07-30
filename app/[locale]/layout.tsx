@@ -8,6 +8,7 @@ import { RegisterServiceWorker } from "@/components/pwa/RegisterServiceWorker";
 import { OrganizationJsonLd } from "@/components/seo/OrganizationJsonLd";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { SiteHeader } from "@/components/site/SiteHeader";
+import { ThemeBootstrap } from "@/components/site/ThemeBootstrap";
 import "@/components/site/site-shell.css";
 import "@/components/experience/experience.css";
 import {
@@ -86,10 +87,11 @@ export default async function LocaleLayout({
           href="/icons/apple-touch-icon.png?v=211"
         />
         <meta name="apple-mobile-web-app-title" content="SAVEN Core" />
-        {/* Theme FOUC bootstrap: next/script beforeInteractive in app/layout.tsx (D-0244). */}
+        {/* Theme FOUC bootstrap: ThemeBootstrap → useServerInsertedHTML (D-0250). */}
         <OrganizationJsonLd />
       </head>
       <body>
+        <ThemeBootstrap />
         <div className="site-shell">
           <SiteHeader locale={locale} />
           <main className="site-shell__main">{children}</main>

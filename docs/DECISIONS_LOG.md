@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-30 (D-0249 — Home closing SAVEN frame matched to YouTube)
+**Last updated:** 2026-07-30 (D-0250 — Theme bootstrap useServerInsertedHTML)
 
 ## Rules
 
@@ -265,6 +265,7 @@
 | D-0247 | 2026-07-29 | Nav Home/Trust/Research + Investors chrome + footer completeness | Active |
 | D-0248 | 2026-07-29 | Investors polish + related-page sync + translation audit | Active |
 | D-0249 | 2026-07-30 | Home closing SAVEN frame matched to YouTube frame | Active |
+| D-0250 | 2026-07-30 | Theme bootstrap via useServerInsertedHTML (React 19 / Next 16.2) | Active |
 
 ---
 
@@ -2538,6 +2539,19 @@
 - **In scope:** `PhysicalWorldHome` closing markup; `physical-world-home.css` closing + YouTube frame; D-0249 + AGENTS pointer; commit/push/Vercel prod.
 - **Out of scope:** New imagery; neon extras; changing Explore hotspots/copy; inventing video or metrics.
 - **Implications:** Home bottom media stack reads as a paired framed sequence (SAVEN artboard → YouTube) with aligned width on mobile and desktop.
+
+### D-0250 — Theme bootstrap via useServerInsertedHTML (React 19 / Next 16.2)
+
+- **Date:** 2026-07-30
+- **Status:** Active
+- **Summary:** Fix Next.js 16.2 / React 19 console error from D-0244: `beforeInteractive` `next/script` in fragment root `app/layout.tsx` cannot run “outside the main document” because locale layout owns `<html>`/`<head>`.
+- **Decision:**
+  1. Remove root `next/script` `beforeInteractive` + `public/theme-bootstrap.js`.
+  2. Inject the same `savencore-theme` localStorage → `data-theme` IIFE via `useServerInsertedHTML` in a small client `ThemeBootstrap` mounted from the locale layout (head insertion stream — before paint, no FOUC).
+  3. Keep locale-owned `<html>`/`<lang>`/`dir` architecture; do not invent middleware-header locale for root html ownership in this phase.
+- **In scope:** `ThemeBootstrap`, `app/layout.tsx`, `app/[locale]/layout.tsx`, remove `public/theme-bootstrap.js`, D-0250 + AGENTS pointer; local hard-refresh proof + commit/push/Vercel prod.
+- **Out of scope:** Theme API redesign; next-themes package; moving `<html>` to root; CSP nonce migration.
+- **Implications:** Clears both D-0244 React script-in-component and D-0250 beforeInteractive-outside-document errors; theme toggle + localStorage restore remain. Supersedes D-0244 implementation mechanism (intent unchanged: FOUC-safe theme bootstrap).
 
 ## Pending Owner Decisions
 

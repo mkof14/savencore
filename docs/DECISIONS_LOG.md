@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-30 (D-0250 — Theme bootstrap useServerInsertedHTML)
+**Last updated:** 2026-07-30 (D-0251 — BioMath Core diagram hover links)
 
 ## Rules
 
@@ -266,6 +266,7 @@
 | D-0248 | 2026-07-29 | Investors polish + related-page sync + translation audit | Active |
 | D-0249 | 2026-07-30 | Home closing SAVEN frame matched to YouTube frame | Active |
 | D-0250 | 2026-07-30 | Theme bootstrap via useServerInsertedHTML (React 19 / Next 16.2) | Active |
+| D-0251 | 2026-07-30 | BioMath Core diagrams — hover life + section anchor links | Active |
 
 ---
 
@@ -2552,6 +2553,32 @@
 - **In scope:** `ThemeBootstrap`, `app/layout.tsx`, `app/[locale]/layout.tsx`, remove `public/theme-bootstrap.js`, D-0250 + AGENTS pointer; local hard-refresh proof + commit/push/Vercel prod.
 - **Out of scope:** Theme API redesign; next-themes package; moving `<html>` to root; CSP nonce migration.
 - **Implications:** Clears both D-0244 React script-in-component and D-0250 beforeInteractive-outside-document errors; theme toggle + localStorage restore remain. Supersedes D-0244 implementation mechanism (intent unchanged: FOUC-safe theme bootstrap).
+
+### D-0251 — BioMath Core diagrams — hover life + section anchor links
+
+- **Date:** 2026-07-30
+- **Status:** Active
+- **Summary:** Make BioMath Core capability diagrams interactive: subtle on-brand hover (scale / brightness / border accent / lift), keyboard-focusable hit-links to stable same-page section anchors (`#bmc-*`), themeable light/dark, `prefers-reduced-motion` respected; straight corners; no neon beyond approved BMC grammar. Catalog heading jumps to categories. Hero ambient links to Living Model.
+- **Decision:**
+  1. Wrap each diagram image frame (and the foundation sequence visual) in an accessible same-page link to its section id.
+  2. Keep D-0238 panel max-widths; legends remain outside the hit-link.
+  3. Localize `diagramNav.openSection` (“Open section”) via Biomath Core content dictionaries (all locales).
+- **Diagram → anchor map:**
+  - Hero ambient → `#bmc-living`
+  - Living Model → `#bmc-living`
+  - Four-layer stack → `#bmc-stack`
+  - Dual roles → `#bmc-dual`
+  - Engine → `#bmc-engine`
+  - Second Opinion → `#bmc-opinion`
+  - Black Box → `#bmc-blackbox`
+  - Output → `#bmc-output`
+  - Formula → `#bmc-formula`
+  - Environments → `#bmc-envs`
+  - Foundation sequence → `#bmc-sequence`
+  - Complete Services Catalog heading → `#bmc-categories`
+- **In scope:** `BioMathCoreVisuals`, `BioMathCorePage`, `biomath-core-page.css`, EN content + 9 locale dicts, D-0251 + AGENTS pointer; commit/push/Vercel prod; prove `/en/foundation/biomath-core/`.
+- **Out of scope:** New leaf pages; Operational claims; inventing metrics; neon/glow circus; changing diagram assets or panel sizing caps.
+- **Implications:** Diagrams double as in-page navigation affordances with shareable hashes; TOC anchors from D-0239 remain authoritative.
 
 ## Pending Owner Decisions
 

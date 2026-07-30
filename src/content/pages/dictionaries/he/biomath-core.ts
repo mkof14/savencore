@@ -237,4 +237,5 @@ export const dictionary: Record<string, string> = {
   "It does not diagnose conditions, prescribe, or sell medicines.": "אינו מאבחן מצבים, אינו רושם ואינו מוכר תרופות.",
   "What it is not": "מה זה אינו",
   "11 min": "11 דק׳",
+  "Open section": "פתח מקטע",
 };

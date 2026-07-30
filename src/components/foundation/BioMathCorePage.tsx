@@ -26,11 +26,16 @@ type BioMathCorePageProps = {
   content: BioMathCorePageContent;
 };
 
+function diagramLinkLabel(openSection: string, heading: string): string {
+  return `${openSection}: ${heading}`;
+}
+
 /**
- * BioMath Core leaf — owner-grade illustration panels in themeable chrome (D-0228–D-0243).
+ * BioMath Core leaf — owner-grade illustration panels in themeable chrome (D-0228–D-0251).
  */
 export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
   const titleId = "bmc-page-title";
+  const openSection = content.diagramNav.openSection;
 
   return (
     <article className="bmc-page" aria-labelledby={titleId}>
@@ -65,16 +70,22 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
               <span className="bmc-page__hero-corner bmc-page__hero-corner--bl" />
               <span className="bmc-page__hero-corner bmc-page__hero-corner--br" />
             </div>
-            <Image
-              src="/domain/foundation/biomath-core/diagrams/bmc-hero-ambient.webp"
-              alt={content.hero.visualAlt}
-              width={960}
-              height={535}
-              priority
-              className="bmc-page__hero-ambient"
-              sizes="(max-width: 720px) 88vw, 28rem"
-              quality={80}
-            />
+            <a
+              className="bmc-figure__hit bmc-page__hero-hit"
+              href="#bmc-living"
+              aria-label={diagramLinkLabel(openSection, content.livingModel.heading)}
+            >
+              <Image
+                src="/domain/foundation/biomath-core/diagrams/bmc-hero-ambient.webp"
+                alt=""
+                width={960}
+                height={535}
+                priority
+                className="bmc-page__hero-ambient"
+                sizes="(max-width: 720px) 88vw, 28rem"
+                quality={80}
+              />
+            </a>
           </div>
         </div>
       </header>
@@ -106,6 +117,8 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
             visualLabel={content.livingModel.visualLabel}
             caption={content.livingModel.caption}
             points={content.livingModel.points}
+            href="#bmc-living"
+            linkLabel={diagramLinkLabel(openSection, content.livingModel.heading)}
           />
         </section>
 
@@ -124,6 +137,8 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
             layers={content.layerStack.layers}
             calloutEyebrow={content.layerStack.calloutEyebrow}
             callout={content.layerStack.callout}
+            href="#bmc-stack"
+            linkLabel={diagramLinkLabel(openSection, content.layerStack.heading)}
           />
         </section>
 
@@ -142,6 +157,8 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
             biomath={content.dualRoles.biomath}
             saven={content.dualRoles.saven}
             banner={content.dualRoles.banner}
+            href="#bmc-dual"
+            linkLabel={diagramLinkLabel(openSection, content.dualRoles.heading)}
           />
         </section>
 
@@ -158,6 +175,8 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
             visualLabel={content.engine.visualLabel}
             caption={content.engine.caption}
             phases={content.engine.phases}
+            href="#bmc-engine"
+            linkLabel={diagramLinkLabel(openSection, content.engine.heading)}
           />
         </section>
 
@@ -177,6 +196,8 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
             resultLabel={content.secondOpinion.resultLabel}
             lanes={content.secondOpinion.lanes}
             insight={content.secondOpinion.insight}
+            href="#bmc-opinion"
+            linkLabel={diagramLinkLabel(openSection, content.secondOpinion.heading)}
           />
         </section>
 
@@ -194,6 +215,8 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
               visualLabel={content.blackBox.visualLabel}
               caption={content.blackBox.caption}
               sides={content.blackBox.sides}
+              href="#bmc-blackbox"
+              linkLabel={diagramLinkLabel(openSection, content.blackBox.heading)}
             />
             <div className="bmc-page__blackbox-prose">
               <h3 className="bmc-page__blackbox-storage-title">
@@ -279,6 +302,8 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
             caption={content.output.caption}
             pillars={content.output.pillars}
             footer={content.output.footer}
+            href="#bmc-output"
+            linkLabel={diagramLinkLabel(openSection, content.output.heading)}
           />
         </section>
 
@@ -297,6 +322,8 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
             parts={content.formula.parts}
             equals={content.formula.equals}
             equalsDetail={content.formula.equalsDetail}
+            href="#bmc-formula"
+            linkLabel={diagramLinkLabel(openSection, content.formula.heading)}
           />
         </section>
 
@@ -314,6 +341,8 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
             caption={content.environments.caption}
             cards={content.environments.cards}
             footer={content.environments.footer}
+            href="#bmc-envs"
+            linkLabel={diagramLinkLabel(openSection, content.environments.heading)}
           />
         </section>
 
@@ -329,10 +358,13 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
           <SequenceVisual
             visualLabel={content.sequence.visualLabel}
             steps={content.sequence.steps}
+            href="#bmc-sequence"
+            linkLabel={diagramLinkLabel(openSection, content.sequence.heading)}
           />
         </section>
 
         <section
+          id="bmc-reports"
           className="bmc-page__section bmc-page__callout"
           aria-labelledby="bmc-reports-title"
         >
@@ -347,11 +379,18 @@ export function BioMathCorePage({ locale, content }: BioMathCorePageProps) {
         </section>
 
         <section
+          id="bmc-catalog"
           className="bmc-page__section bmc-page__catalog"
           aria-labelledby="bmc-catalog-title"
         >
           <h2 id="bmc-catalog-title" className="bmc-page__section-title">
-            {content.catalog.heading}
+            <a
+              className="bmc-page__section-jump"
+              href="#bmc-categories"
+              aria-label={diagramLinkLabel(openSection, content.categories.heading)}
+            >
+              {content.catalog.heading}
+            </a>
           </h2>
           <p className="bmc-page__section-support">{content.catalog.support}</p>
         </section>

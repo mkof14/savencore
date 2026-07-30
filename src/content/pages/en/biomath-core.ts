@@ -12,6 +12,7 @@ import {
  * D-0238: harmonious smaller diagram panels + Black Box sensitive-data storage intent.
  * D-0239: Black Box → Trust/Legal soft links; TOC; Trust in Continue exploring; no card counts.
  * D-0243: concise “What BioMath Core is not”; mobile polish; home bridge wording sync.
+ * D-0251: diagram panels link to section anchors with subtle hover life.
  */
 
 export type BioMathCoreSequenceStep = {
@@ -108,6 +109,10 @@ export type BioMathCorePageContent = {
   hero: {
     logoAlt: string;
     visualAlt: string;
+  };
+  /** Accessible prefix for diagram → section hit-links (D-0251). */
+  diagramNav: {
+    openSection: string;
   };
   livingModel: {
     heading: string;
@@ -251,6 +256,9 @@ export const biomathCorePageContent: BioMathCorePageContent = {
     logoAlt: "BioMath Core",
     visualAlt:
       "BioMath Core ambient panel — engine core and living digital model motif (Architecture illustration)",
+  },
+  diagramNav: {
+    openSection: "Open section",
   },
   livingModel: {
     heading: "One Human = One Living Model",

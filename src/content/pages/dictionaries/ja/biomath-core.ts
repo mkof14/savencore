@@ -237,4 +237,5 @@ export const dictionary: Record<string, string> = {
   "It does not diagnose conditions, prescribe, or sell medicines.": "診断・処方・医薬品の販売は行いません。",
   "What it is not": "そうでないもの",
   "11 min": "11分",
+  "Open section": "セクションを開く",
 };

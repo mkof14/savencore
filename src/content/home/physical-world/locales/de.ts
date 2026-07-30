@@ -71,7 +71,7 @@ export const physicalWorldHomeDe: PhysicalWorldHomeContent = {
     biomathBridge: {
       eyebrow: "Wer wir sind",
       title: "BioMath Core → SAVEN",
-      body: "BioMath Core ist das Fundament des Modells menschlicher Daten — kontinuierlicher Kontext, der autorisierte menschliche Daten sammelt und strukturiert und die Berichte und Schlussfolgerungen bildet, die SAVEN-Aktionen der nächsten Stufe unter menschlicher Kontrolle formen. Status bleibt Architecture / In Development.",
+      body: "BioMath Core ist das Fundament des Modells menschlicher Daten — kontinuierlicher Kontext, der autorisierte menschliche Daten sammelt und strukturiert und die Berichte und Schlussfolgerungen bildet, die SAVEN-Aktionen der nächsten Stufe unter menschlicher Kontrolle formen.",
       scopeLine: "Modellabdeckung: 20 Kategorien · 200+ Dienste — kein Operational-Katalog.",
       href: "/foundation/biomath-core/",
       cta: "BioMath Core erkunden",
@@ -164,13 +164,13 @@ export const physicalWorldHomeDe: PhysicalWorldHomeContent = {
       {
         label: "SAVEN Robotics Lab",
         href: "/labs/saven-robotics-lab/",
-        status: "In Entwicklung",
+        status: "Architektur",
         note: "Unterstützende Robotersysteme — Mobilität, Manipulatoren und Wahrnehmung.",
       },
       {
         label: "SAVEN Robotics Interface",
         href: "/systems/saven-robotics-interface/",
-        status: "In Entwicklung",
+        status: "Architektur",
         note: "Gemeinsame Kommunikation und Steuerung, damit Menschen die Kontrolle behalten.",
       },
       {

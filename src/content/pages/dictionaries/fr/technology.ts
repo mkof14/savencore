@@ -78,6 +78,6 @@ export const dictionary: Record<string, string> = {
   "Related systems": "Systèmes associés",
   "Related research": "Recherche associée",
   "Related applications": "Applications associées",
-  "BioMath Core reports and conclusions form information for SAVEN’s next-level actions — under human control — across a model scope of 20 categories and 200+ services (Architecture / In Development).": "Les rapports et conclusions de BioMath Core forment l’information pour les actions de niveau supérieur de SAVEN — sous contrôle humain — sur une portée de modèle de 20 catégories et plus de 200 services (Architecture / In Development).",
+  "BioMath Core reports and conclusions form information for SAVEN’s next-level actions — under human control — across a model scope of 20 categories and 200+ services (Architecture).": "Les rapports et conclusions de BioMath Core forment l’information pour les actions de niveau supérieur de SAVEN — sous contrôle humain — sur une portée de modèle de 20 catégories et plus de 200 services (Architecture).",
 
 };

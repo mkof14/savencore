@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-30 (D-0251 — BioMath Core diagram hover links)
+**Last updated:** 2026-07-30 (D-0252 — public chrome without In Development + BMC 200+)
 
 ## Rules
 
@@ -267,6 +267,7 @@
 | D-0249 | 2026-07-30 | Home closing SAVEN frame matched to YouTube frame | Active |
 | D-0250 | 2026-07-30 | Theme bootstrap via useServerInsertedHTML (React 19 / Next 16.2) | Active |
 | D-0251 | 2026-07-30 | BioMath Core diagrams — hover life + section anchor links | Active |
+| D-0252 | 2026-07-30 | Public chrome: remove In Development messaging + BMC 200+ under 20 | Active |
 
 ---
 
@@ -2579,6 +2580,20 @@
 - **In scope:** `BioMathCoreVisuals`, `BioMathCorePage`, `biomath-core-page.css`, EN content + 9 locale dicts, D-0251 + AGENTS pointer; commit/push/Vercel prod; prove `/en/foundation/biomath-core/`.
 - **Out of scope:** New leaf pages; Operational claims; inventing metrics; neon/glow circus; changing diagram assets or panel sizing caps.
 - **Implications:** Diagrams double as in-page navigation affordances with shareable hashes; TOC anchors from D-0239 remain authoritative.
+
+### D-0252 — Public chrome: remove In Development messaging + BMC 200+ under 20
+
+- **Date:** 2026-07-30
+- **Status:** Active
+- **Summary:** Owner-directed: (1) BioMath Services / categories section must clearly state **more than 200 services under the 20 categories** (EN + all locale dictionaries). (2) Remove visitor-facing “still being built” maturity messaging site-wide — especially **In Development**, related unfinished-work voice, and prominent “not yet operational” maturity stamps — without claiming **Operational**, “available now,” fake customers, or medical claims.
+- **Decision:**
+  1. Public badges/leads/disclaimers: remove In Development or soften to neutral framing; keep **Architecture** or **Research** where a structural label is needed.
+  2. Do not invent an Operational catalog; medical non-claims and honest “not a storefront / model coverage” BMC wording may remain when they do not read as “we’re still building.”
+  3. Admin chrome and internal docs may retain In Development; FAQ may explain why Admin says In Development.
+  4. Approved status vocabulary remains in docs (Research · Architecture · In Development · …); public chrome does not surface In Development.
+- **In scope:** Home, BioMath Core, Investors, flagship Labs/Interface/roadmap, FAQ/legal/media/foundation/purpose/technology copy, locale dictionaries (10 locales), AGENTS status reminder, D-0252; commit/push/Vercel prod; prove BMC 200+ and key pages HTML without “In Development.”
+- **Out of scope:** Claiming Operational products; inventing metrics/customers; changing admin `statusInDevelopment` badge; rewriting historical Decisions Log entries.
+- **Implications:** Visitor experience reads as quiet professional architecture/scope framing; maturity honesty moves off public stamps into non-claims and Architecture/Research labels only.
 
 ## Pending Owner Decisions
 

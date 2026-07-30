@@ -14,7 +14,7 @@ export const mediaPageEn: MediaPageContent = {
     "Brand assets, documents, presentations, videos, and curated links from SAVEN Core — honest materials for orientation, not invented press claims.",
   body: [
     "This library collects approved public materials: the SAVEN falcon mark, share imagery, and resources operators add for communications.",
-    "Principal systems remain in development. Nothing here invents customers, partners, traction metrics, or operational product status.",
+    "Public materials describe architecture and scope. Nothing here invents customers, partners, traction metrics, or operational product status.",
   ],
   note:
     "For media inquiries, use Contact. Rely only on materials published here or provided in writing.",

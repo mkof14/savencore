@@ -85,7 +85,7 @@ export const systemsPageContent: SystemsPageContent = {
     "The Knowledge Engine preserves shared context. AI Decision Support analyzes that context to support people.",
     "The Safety Layer applies validation, limits, review and escalation. The Communication Layer coordinates approved exchange.",
     "Clinical Interfaces connect care workflows under strict medical boundaries. The Robotics Layer coordinates approved physical interaction. Drone Systems apply that layer to aerial pathways.",
-    "The Robotics Layer and SAVEN Robotics Interface are related but not the same: the Robotics Layer is this index's architecture entry for physical interaction; SAVEN Robotics Interface is the flagship shared communication and control workstream (In Development) where robots and devices actually connect to SAVEN under human command.",
+    "The Robotics Layer and SAVEN Robotics Interface are related but not the same: the Robotics Layer is this index's architecture entry for physical interaction; SAVEN Robotics Interface is the flagship shared communication and control workstream where robots and devices actually connect to SAVEN under human command.",
   ],
   continueHeading: "Where to Continue",
   continue: [

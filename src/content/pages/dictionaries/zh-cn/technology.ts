@@ -78,6 +78,6 @@ export const dictionary: Record<string, string> = {
   "Related systems": "相关系统",
   "Related research": "相关研究",
   "Related applications": "相关应用",
-  "BioMath Core reports and conclusions form information for SAVEN’s next-level actions — under human control — across a model scope of 20 categories and 200+ services (Architecture / In Development).": "BioMath Core 的报告与结论为 SAVEN 下一层行动形成信息——在人类控制之下——覆盖 20 个类别与 200+ 项服务的模型范围（Architecture / In Development）。",
+  "BioMath Core reports and conclusions form information for SAVEN’s next-level actions — under human control — across a model scope of 20 categories and 200+ services (Architecture).": "BioMath Core 的报告与结论为 SAVEN 下一层行动形成信息——在人类控制之下——覆盖 20 个类别与 200+ 项服务的模型范围（Architecture）。",
 
 };

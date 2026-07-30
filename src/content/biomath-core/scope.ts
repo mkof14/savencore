@@ -1,6 +1,6 @@
 /**
  * BioMath Core model scope (D-0227 / D-0229) — owner-authorized coverage.
- * Architecture / In Development model catalog — not an Operational commercial storefront.
+ * Architecture model catalog — not an Operational commercial storefront.
  */
 
 export const BIOMATH_CORE_CATEGORY_COUNT = 20;

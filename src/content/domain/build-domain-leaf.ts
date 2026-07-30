@@ -413,7 +413,7 @@ export function buildSystemsHubVisual(
         id: "naming-bridge",
         title: "Robotics Layer vs. SAVEN Robotics Interface",
         paragraphs: [
-          "These are related but distinct: Robotics Layer is the knowledge and architecture entry documenting how physical interaction fits the Systems index — roles, limits, and coordination points. SAVEN Robotics Interface is the flagship shared communication and control workstream (In Development) where diverse robots and devices actually connect to SAVEN under human command.",
+          "These are related but distinct: Robotics Layer is the knowledge and architecture entry documenting how physical interaction fits the Systems index — roles, limits, and coordination points. SAVEN Robotics Interface is the flagship shared communication and control workstream where diverse robots and devices actually connect to SAVEN under human command.",
           "Read Robotics Layer for the architecture placement; read SAVEN Robotics Interface for the working direction of the interface itself.",
         ],
       },

@@ -23,7 +23,7 @@ export type LabsDataLoopLabels = {
 
 export const labsDataLoopEn: LabsDataLoopLabels = {
   title: "From human understanding to physical action",
-  lede: "An architecture loop in development: human context enters SAVEN, roles and actions are prepared, executive devices act and sense, and context returns — rising to BioMath Core only when needed.",
+  lede: "An architecture loop: human context enters SAVEN, roles and actions are prepared, executive devices act and sense, and context returns — rising to BioMath Core only when needed.",
   humanDataModel: "Human Data Model",
   saven: "SAVEN",
   bioMathCore: "BioMath Core",

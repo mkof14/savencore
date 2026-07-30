@@ -5,7 +5,7 @@ export const dictionary: Record<string, string> = {
   "Limitations makes the boundaries of current public material explicit.": "局限使当前公开材料的边界明确。",
   "A reader-facing account of uncertainty, scope and non-claims.": "面向读者的不确定、范围与非声明说明。",
   "Future updates may add evidence when it is approved and available.": "未来更新可在证据获批准且可用时补充。",
-  "Principal systems remain in development.": "主要系统仍在开发中。",
+  "Principal systems remain in development.": "主要系统通过架构与范围描述。",
   "No deployed products or regulatory approvals are claimed.": "不声称已部署产品或监管批准。",
   "Limits are part of responsible communication.": "边界是负责任沟通的一部分。",
   "Separate architecture from operation.": "将架构与运行分离。",

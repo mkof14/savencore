@@ -18,7 +18,7 @@ export const LEGAL_PAGES: readonly LegalPageContent[] = [
     slug: "privacy-policy",
     title: "Privacy Policy",
     summary:
-      "How SAVEN Core handles information on this public website. Principal systems described elsewhere remain In Development.",
+      "How SAVEN Core handles information on this public website. Principal systems described elsewhere are presented through architecture and scope — not as Operational products.",
     sections: [
       {
         title: "Overview",
@@ -119,7 +119,7 @@ export const LEGAL_PAGES: readonly LegalPageContent[] = [
     slug: "terms-of-use",
     title: "Terms of Use",
     summary:
-      "Terms for using the SAVEN Core public website. Informational content about systems that are principally In Development.",
+      "Terms for using the SAVEN Core public website. Informational content about systems described through architecture and scope.",
     sections: [
       {
         title: "Agreement to terms",
@@ -130,7 +130,7 @@ export const LEGAL_PAGES: readonly LegalPageContent[] = [
       {
         title: "Nature of the website",
         paragraphs: [
-          "The website provides informational material about intelligent systems and related work. Principal systems are in development. The site does not offer operational products for purchase, medical services, or investment solicitations by default.",
+          "The website provides informational material about intelligent systems and related work. Principal systems are described through architecture and scope. The site does not offer operational products for purchase, medical services, or investment solicitations by default.",
         ],
       },
       {
@@ -154,7 +154,7 @@ export const LEGAL_PAGES: readonly LegalPageContent[] = [
       {
         title: "Disclaimers",
         paragraphs: [
-          "Content is provided “as is” for informational purposes. Development-status reminders across the site remain in force. See also Medical Disclaimer and Research Disclaimer.",
+          "Content is provided “as is” for informational purposes. Scope and non-claim reminders across the site remain in force. See also Medical Disclaimer and Research Disclaimer.",
         ],
       },
       {
@@ -413,13 +413,13 @@ export const LEGAL_PAGES: readonly LegalPageContent[] = [
       {
         title: "Safety and evaluation principles",
         paragraphs: [
-          "Safety evaluation, limits, and honest development status are preferred over absolute performance claims.",
+          "Safety evaluation, limits, and honest scope statements are preferred over absolute performance claims.",
         ],
       },
       {
-        title: "Transparency about development status",
+        title: "Transparency about scope",
         paragraphs: [
-          "Principal systems are in development. Approved public statuses include Research, Architecture, In Development, Prototype, Validation, Pilot, and Operational.",
+          "Principal systems are described through architecture and scope. Approved public labels include Research and Architecture. Operational must not be claimed unless true.",
         ],
       },
       {
@@ -491,9 +491,9 @@ export const LEGAL_PAGES: readonly LegalPageContent[] = [
         ],
       },
       {
-        title: "Development-status reminder",
+        title: "Scope reminder",
         paragraphs: [
-          "Systems described on this site are principally in development and must not be read as operational clinical products.",
+          "Systems described on this site must not be read as operational clinical products.",
         ],
       },
       {
@@ -508,12 +508,12 @@ export const LEGAL_PAGES: readonly LegalPageContent[] = [
     slug: "research-disclaimer",
     title: "Research Disclaimer",
     summary:
-      "Limits on interpreting research and development materials published on this website.",
+      "Limits on interpreting research and architecture materials published on this website.",
     sections: [
       {
-        title: "Research and development context",
+        title: "Research and architecture context",
         paragraphs: [
-          "Materials may describe research directions, architecture, and work in progress.",
+          "Materials may describe research directions and architecture.",
         ],
       },
       {

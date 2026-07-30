@@ -5,7 +5,7 @@ export const dictionary: Record<string, string> = {
   "Limitations makes the boundaries of current public material explicit.": "Grenzen macht die Begrenzungen des aktuellen öffentlichen Materials ausdrücklich.",
   "A reader-facing account of uncertainty, scope and non-claims.": "Eine leserorientierte Darstellung von Unsicherheit, Geltungsbereich und Nicht-Aussagen.",
   "Future updates may add evidence when it is approved and available.": "Künftige Aktualisierungen können Belege hinzufügen, wenn sie genehmigt und verfügbar sind.",
-  "Principal systems remain in development.": "Die wesentlichen Systeme befinden sich weiterhin in Entwicklung.",
+  "Principal systems remain in development.": "Die wesentlichen Systeme befinden sich weiterhin als Architektur.",
   "No deployed products or regulatory approvals are claimed.": "Es werden keine eingesetzten Produkte oder behördlichen Zulassungen behauptet.",
   "Limits are part of responsible communication.": "Grenzen sind Teil verantwortungsvoller Kommunikation.",
   "Separate architecture from operation.": "Architektur vom Betrieb trennen.",

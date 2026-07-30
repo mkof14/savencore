@@ -89,7 +89,7 @@ export type FoundationLayerField = {
   text: string;
 };
 
-/** BioMath Core model-scope grid (D-0227) — Architecture / In Development. */
+/** BioMath Core model-scope grid (D-0227) — Architecture. */
 export type FoundationLayerScopeGrid = {
   heading: string;
   intro: string;

@@ -70,7 +70,7 @@ export const physicalWorldHomeEn: PhysicalWorldHomeContent = {
     biomathBridge: {
       eyebrow: "Who we are",
       title: "BioMath Core → SAVEN",
-      body: "BioMath Core is the foundation of the Human Data Model — continuous context that gathers and structures authorized human data, and forms the reports and conclusions that shape SAVEN’s next-level actions under human control. Status remains Architecture / In Development.",
+      body: "BioMath Core is the foundation of the Human Data Model — continuous context that gathers and structures authorized human data, and forms the reports and conclusions that shape SAVEN’s next-level actions under human control.",
       scopeLine: "Model coverage: 20 categories · 200+ services — not an Operational catalog.",
       href: "/foundation/biomath-core/",
       cta: "Explore BioMath Core",
@@ -148,7 +148,7 @@ export const physicalWorldHomeEn: PhysicalWorldHomeContent = {
   flagships: {
     headline: "Where the direction is heading",
     support:
-      "A short look at the flagship workstreams building toward that vision — each shown at its honest, current status.",
+      "A short look at the flagship workstreams building toward that vision.",
     columns: {
       workstream: "Workstream",
       status: "Status",
@@ -158,13 +158,13 @@ export const physicalWorldHomeEn: PhysicalWorldHomeContent = {
       {
         label: "SAVEN Robotics Lab",
         href: "/labs/saven-robotics-lab/",
-        status: "In Development",
+        status: "Architecture",
         note: "Assistive robotic systems — mobility, manipulators, and perception.",
       },
       {
         label: "SAVEN Robotics Interface",
         href: "/systems/saven-robotics-interface/",
-        status: "In Development",
+        status: "Architecture",
         note: "Shared communication and control so people stay in command.",
       },
       {

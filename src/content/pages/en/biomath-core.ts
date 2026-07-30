@@ -8,7 +8,7 @@ import {
 
 /**
  * BioMath Core leaf page — D-0228–D-0243.
- * Architecture / In Development model coverage — not an Operational catalog.
+ * Model coverage — not an Operational catalog.
  * D-0238: harmonious smaller diagram panels + Black Box sensitive-data storage intent.
  * D-0239: Black Box → Trust/Legal soft links; TOC; Trust in Continue exploring; no card counts.
  * D-0243: concise “What BioMath Core is not”; mobile polish; home bridge wording sync.
@@ -403,7 +403,7 @@ export const biomathCorePageContent: BioMathCorePageContent = {
   blackBox: {
     heading: "The Black Box Architecture",
     support:
-      "What looks like a closed box is designed to hold living intelligence and protective control — including technical approaches for storing personal and sensitive personal information. This describes Architecture / In Development intent, not Operational security guarantees.",
+      "What looks like a closed box is designed to hold living intelligence and protective control — including technical approaches for storing personal and sensitive personal information. This describes architecture intent, not Operational security guarantees.",
     visualLabel:
       "The Black Box Architecture — glass cube with intelligence mesh and security shield",
     caption:
@@ -424,7 +424,7 @@ export const biomathCorePageContent: BioMathCorePageContent = {
     storageIntro:
       "Inside the Black Box concept, personal information and sensitive personal information are treated as technical data-storage problems — not as open marketing databases. The goal is to keep human context usable for care continuity while limiting who can reach it, what is kept, and why.",
     storageBody:
-      "The architecture is designed around privacy, controlled access, data minimization, safety, traceability, and human oversight. Protection targets include encryption for data at rest and in transit, permissioned roles, separation of sensitive material from broader system surfaces, and purpose limitation — keep only what a clear purpose requires. These are design targets for systems still in development; they are not claims of a certified live production vault, regulatory approval, or zero risk.",
+      "The architecture is designed around privacy, controlled access, data minimization, safety, traceability, and human oversight. Protection targets include encryption for data at rest and in transit, permissioned roles, separation of sensitive material from broader system surfaces, and purpose limitation — keep only what a clear purpose requires. These are design targets for the architecture; they are not claims of a certified live production vault, regulatory approval, or zero risk.",
     principlesEyebrow: "Architecture intent — not Operational guarantees",
     principles: [
       {
@@ -604,12 +604,12 @@ export const biomathCorePageContent: BioMathCorePageContent = {
     eyebrow: "BioMath Core → SAVEN",
     title: "Reports shape next-level actions",
     body: "Information for SAVEN’s next-level actions and commands is formed from BioMath Core reports and conclusions — under human control. Reports inform assistance and command architecture; they do not diagnose conditions, prescribe, or sell medicines.",
-    scopeLine: `Architecture / In Development model coverage: ${BIOMATH_CORE_CATEGORY_COUNT} categories · ${BIOMATH_CORE_SERVICES_LABEL} services — not an Operational catalog.`,
+    scopeLine: `Model coverage: ${BIOMATH_CORE_CATEGORY_COUNT} categories · ${BIOMATH_CORE_SERVICES_LABEL} services — not an Operational catalog.`,
   },
   whatIsNot: {
     heading: "What BioMath Core is not",
     support:
-      "Boundaries that match the home clarity statement and category disclaimers — Architecture / In Development only.",
+      "Boundaries that match the home clarity statement and category disclaimers.",
     points: [
       "Not a live storefront or e-commerce catalog.",
       "Not medical advice.",
@@ -622,9 +622,8 @@ export const biomathCorePageContent: BioMathCorePageContent = {
     support: `Explore ${BIOMATH_CORE_SERVICES_LABEL} biomathematical health services across ${BIOMATH_CORE_CATEGORY_COUNT} specialized categories.`,
   },
   categories: {
-    heading: `BioMath Services — Showing ${BIOMATH_CORE_CATEGORY_COUNT} categories`,
-    subtitle:
-      "Architecture / In Development model coverage — not a live e-commerce storefront or Operational commercial catalog. Themeable category panels below — not an orbital wallpaper screenshot.",
+    heading: `BioMath Services — ${BIOMATH_CORE_CATEGORY_COUNT} categories · ${BIOMATH_CORE_SERVICES_LABEL} services`,
+    subtitle: `More than 200 services under ${BIOMATH_CORE_CATEGORY_COUNT} categories — model coverage, not a live e-commerce storefront or Operational commercial catalog. Themeable category panels below.`,
     disclaimer:
       "Category cards describe intended model coverage. They are not an Operational storefront, not a claim of live AI-powered services, and not medical advice. They do not diagnose, prescribe, or sell medicines.",
     cards: biomathCoreCategoriesEn.map((c) => ({
@@ -698,5 +697,5 @@ export const biomathCorePageContent: BioMathCorePageContent = {
       { id: "bmc-paths", label: "Continue exploring" },
     ],
   },
-  note: "BioMath Core pages describe intended architecture. Status remains Architecture / In Development. They do not imply commercial deployment, clinical use, diagnosis, prescribing, or selling medicines.",
+  note: "BioMath Core pages describe intended architecture. They do not imply commercial deployment, clinical use, diagnosis, prescribing, or selling medicines.",
 };

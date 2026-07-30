@@ -28,5 +28,5 @@ export const roboticsInterfaceDiagramEn: RoboticsInterfaceDiagramLabels = {
   assistiveForms: "Assistive forms",
   sensors: "Sensors",
   cue: "Communicate · coordinate",
-  note: "Architecture diagram — interoperability concepts in development, not a claim of operational fleets or commercial products.",
+  note: "Architecture diagram — interoperability concepts, not a claim of operational fleets or commercial products.",
 };

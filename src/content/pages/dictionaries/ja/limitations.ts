@@ -5,7 +5,7 @@ export const dictionary: Record<string, string> = {
   "Limitations makes the boundaries of current public material explicit.": "限界は現在の公開資料の境界を明示します。",
   "A reader-facing account of uncertainty, scope and non-claims.": "読者向けの不確実性、対象範囲、非主張の説明。",
   "Future updates may add evidence when it is approved and available.": "将来の更新は、承認され利用可能になったときに根拠を追加する可能性があります。",
-  "Principal systems remain in development.": "主要システムは開発中のままです。",
+  "Principal systems remain in development.": "主要システムはアーキテクチャと範囲として説明のままです。",
   "No deployed products or regulatory approvals are claimed.": "展開済み製品や規制承認は主張されません。",
   "Limits are part of responsible communication.": "限界は責任あるコミュニケーションの一部です。",
   "Separate architecture from operation.": "アーキテクチャと運用を分離します。",

@@ -71,7 +71,7 @@ export const physicalWorldHomeAr: PhysicalWorldHomeContent = {
     biomathBridge: {
       eyebrow: "من نحن",
       title: "BioMath Core → SAVEN",
-      body: "BioMath Core هو أساس نموذج البيانات البشرية — سياق مستمر يجمع ويهيكل البيانات البشرية المصرّح بها، ويشكّل التقارير والاستنتاجات التي تصوغ إجراءات SAVEN للمستوى التالي تحت السيطرة البشرية. تبقى الحالة Architecture / In Development.",
+      body: "BioMath Core هو أساس نموذج البيانات البشرية — سياق مستمر يجمع ويهيكل البيانات البشرية المصرّح بها، ويشكّل التقارير والاستنتاجات التي تصوغ إجراءات SAVEN للمستوى التالي تحت السيطرة البشرية.",
       scopeLine: "نطاق النموذج: 20 فئة · أكثر من 200 خدمة — وليس كتالوجًا Operational.",
       href: "/foundation/biomath-core/",
       cta: "استكشف BioMath Core",
@@ -164,13 +164,13 @@ export const physicalWorldHomeAr: PhysicalWorldHomeContent = {
       {
         label: "SAVEN Robotics Lab",
         href: "/labs/saven-robotics-lab/",
-        status: "في التطوير",
+        status: "الهندسة المعمارية",
         note: "أنظمة روبوتية مساعدة — الحركة والأذرع الآلية والإدراك.",
       },
       {
         label: "SAVEN Robotics Interface",
         href: "/systems/saven-robotics-interface/",
-        status: "في التطوير",
+        status: "الهندسة المعمارية",
         note: "اتصال وتحكم مشتركان لبقاء البشر في موقع القيادة.",
       },
       {

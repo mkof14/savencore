@@ -56,7 +56,7 @@ export const faqPageEn: FaqPageContent = {
   label: "FAQ",
   title: "Questions about SAVEN Core",
   lede: "Clear answers about purpose, foundation, technology, systems, labs, trust, and how to read this site — without inventing products, customers, or guarantees.",
-  note: "Principal systems are in development. Status language and published pages remain the source of truth. Legal pages describe site information practices and terms of use; counsel review remains recommended for regulated jurisdictions.",
+  note: "Public materials describe architecture and scope. Published pages remain the source of truth. Legal pages describe site information practices and terms of use; counsel review remains recommended for regulated jurisdictions.",
   expandAll: "Expand all",
   collapseAll: "Collapse all",
   tocLabel: "Topics",
@@ -127,7 +127,7 @@ export const faqPageEn: FaqPageContent = {
           question: "Who is the website for?",
           answer: [
             "The site should be understandable to the general public, families, healthcare professionals, engineers, researchers, potential employees, partners, investors, and government or institutional visitors.",
-            "A visitor should understand within about twenty seconds that SAVEN Core exists to help people, that BioMath Core is the human intelligence foundation, that SAVEN connects intelligence with physical assistance, that AI and robotics are tools, that systems are in development, and that safety, privacy, and human control are foundational.",
+            "A visitor should understand within about twenty seconds that SAVEN Core exists to help people, that BioMath Core is the human intelligence foundation, that SAVEN connects intelligence with physical assistance, that AI and robotics are tools, and that safety, privacy, and human control are foundational.",
           ],
         },
         {
@@ -166,7 +166,7 @@ export const faqPageEn: FaqPageContent = {
           question: "What is BioMath Core?",
           answer: [
             "The human data and intelligence foundation. It organizes personal context, longitudinal information, signals, patterns, permissions, privacy, and safe personalization.",
-            "Owner-authorized model coverage spans 20 categories and 200+ services. That figure describes Architecture / In Development model scope — not an Operational commercial catalog.",
+            "Owner-authorized model coverage spans 20 categories and 200+ services. That figure describes Architecture model scope — not an Operational commercial catalog.",
           ],
           links: [
             { label: "BioMath Core", href: "/foundation/biomath-core/" },
@@ -180,7 +180,7 @@ export const faqPageEn: FaqPageContent = {
           question: "Which categories does BioMath Core cover?",
           answer: [
             "The published model scope lists 20 categories: Critical Health; Everyday Wellness; Longevity & Anti-Aging; Mental Wellness; Fitness & Performance; Women's Health; Men's Health; Beauty & Skincare; Nutrition & Diet; Sleep & Recovery; Environmental Health; Family Health; Preventive Medicine & Longevity; Biohacking & Performance; Senior Care; Eye-Health Suite; Digital Therapeutics Store; General Sexual Longevity; Men's Sexual Health; Women's Sexual Health.",
-            "Across those categories, BioMath Core describes 200+ services as model coverage. Status remains Architecture / In Development — not a claim of Operational commercial availability.",
+            "Across those categories, BioMath Core describes 200+ services as model coverage. Status remains Architecture — not a claim of Operational commercial availability.",
           ],
           links: [
             { label: "BioMath Core", href: "/foundation/biomath-core/" },
@@ -324,7 +324,7 @@ export const faqPageEn: FaqPageContent = {
           question: "What are SAVEN Systems?",
           answer: [
             "Systems describe how technology areas connect into architecture — including Knowledge Engine, AI Decision Support, Safety Layer, Communication Layer, Clinical Interfaces, Robotics Layer, Drone Systems, and SAVEN Robotics Interface.",
-            "Public content primarily uses Research, Architecture, and In Development status language.",
+            "Public chrome primarily uses Research and Architecture labels where a structural label is needed.",
           ],
           links: [{ label: "Systems", href: "/systems/" }],
         },
@@ -383,7 +383,7 @@ export const faqPageEn: FaqPageContent = {
           id: "systems-robotics-drone",
           question: "What are Robotics Layer and Drone Systems?",
           answer: [
-            "Robotics Layer and Drone Systems describe physical-system architecture directions under development. They are not presented as commercially available fleets or Operational products.",
+            "Robotics Layer and Drone Systems describe physical-system architecture directions. They are not presented as commercially available fleets or Operational products.",
           ],
           links: [
             { label: "Robotics Layer", href: "/systems/robotics-layer/" },
@@ -512,7 +512,7 @@ export const faqPageEn: FaqPageContent = {
       id: "applications",
       title: "Applications and care domains",
       intro:
-        "Human-first application areas are in development. Extensions must not obscure the primary purpose.",
+        "Human-first application areas describe intended architecture and scope. Extensions must not obscure the primary purpose.",
       items: [
         {
           id: "apps-primary",
@@ -526,7 +526,7 @@ export const faqPageEn: FaqPageContent = {
           id: "apps-published",
           question: "Which application pages are published?",
           answer: [
-            "Published application destinations include Healthcare, Home, Hospitals, Emergency, Industrial, Government, Agriculture, and Research Applications — presented with honest In Development / Architecture framing where claims appear.",
+            "Published application destinations include Healthcare, Home, Hospitals, Emergency, Industrial, Government, Agriculture, and Research Applications — presented with Architecture framing and clear non-claims where needed.",
           ],
         },
         {
@@ -554,7 +554,7 @@ export const faqPageEn: FaqPageContent = {
           id: "apps-in-development",
           question: "Are applications ready to buy or deploy?",
           answer: [
-            "No. Principal systems and application concepts are in development. The site must never present development-stage concepts as completed or commercially available products.",
+            "No. Principal systems and application concepts are described through architecture and scope. The site must never present them as completed or commercially available products.",
           ],
         },
       ],
@@ -890,7 +890,7 @@ export const faqPageEn: FaqPageContent = {
           id: "term-interface-vs-layer",
           question: "Interface vs Robotics Layer?",
           answer: [
-            "SAVEN Robotics Interface focuses on device communication, shared tasks, and human command. Robotics Layer describes broader robotics architecture. Both are published Systems destinations and remain in development framing.",
+            "SAVEN Robotics Interface focuses on device communication, shared tasks, and human command. Robotics Layer describes broader robotics architecture. Both are published Systems destinations under Architecture framing.",
           ],
         },
         {
@@ -919,27 +919,27 @@ export const faqPageEn: FaqPageContent = {
     {
       id: "status",
       title: "Status language",
-      intro: "How to read Research, Architecture, In Development, and related labels.",
+      intro: "How to read Research, Architecture, and related labels.",
       items: [
         {
           id: "status-system",
           question: "What status values are approved?",
           answer: [
-            "Research, Architecture, In Development, Prototype, Validation, Pilot, and Operational.",
+            "Research, Architecture, Prototype, Validation, Pilot, and Operational. Public chrome primarily surfaces Research and Architecture.",
           ],
         },
         {
           id: "status-meanings",
           question: "What do the main statuses mean?",
           answer: [
-            "Research — exploratory or foundational investigation. Architecture — system design and structural definition. In Development — active engineering and implementation work. Prototype — early demonstration under controlled conditions. Validation — structured evaluation against defined criteria. Pilot — limited real-world trial under controlled scope. Operational — approved for defined operational use (not claimed unless true).",
+            "Research — exploratory or foundational investigation. Architecture — system design and structural definition. Prototype — early demonstration under controlled conditions. Validation — structured evaluation against defined criteria. Pilot — limited real-world trial under controlled scope. Operational — approved for defined operational use (not claimed unless true). Public pages use Research and Architecture where a structural label is needed.",
           ],
         },
         {
           id: "status-current",
           question: "Which statuses appear most often today?",
           answer: [
-            "Current public content primarily uses Research, Architecture, and In Development. Operational must not be claimed unless true.",
+            "Current public chrome primarily uses Research and Architecture. Operational must not be claimed unless true.",
           ],
         },
         {
@@ -967,7 +967,7 @@ export const faqPageEn: FaqPageContent = {
           id: "not-products",
           question: "Are principal systems commercially available?",
           answer: [
-            "No. All principal systems are currently in development. The website must never present development-stage concepts as completed or commercially available products.",
+            "No. Principal systems are described through architecture and scope. The website must never present them as completed or commercially available products.",
           ],
         },
         {

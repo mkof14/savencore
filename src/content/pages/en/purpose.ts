@@ -27,7 +27,7 @@ export const purposePageContent: EditorialPageContent = {
       title: "Purpose",
       paragraphs: [
         "The primary purpose of SAVEN Core is helping people. SAVEN Core brings human-centered architecture to care, independence, safety and daily life across every age and stage of life.",
-        "BioMath Core reports and conclusions form the information that shapes SAVEN’s next-level actions and commands — under human control, with AI as a tool. That intelligence foundation covers 20 categories and 200+ services as Architecture / In Development model scope.",
+        "BioMath Core reports and conclusions form the information that shapes SAVEN’s next-level actions and commands — under human control, with AI as a tool. That intelligence foundation covers 20 categories and 200+ services as model scope.",
         "Robotics, aerial systems, infrastructure and other technical extensions remain subordinate to that purpose. They must not replace or obscure the human reason for the work.",
       ],
     },

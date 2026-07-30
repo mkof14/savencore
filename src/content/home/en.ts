@@ -385,7 +385,7 @@ export const investorOverviewContent = {
   heading: "Long-term capital for systems that require careful development.",
   paragraphs: [
     "SAVEN Core is intended for investors who understand that human-centered systems, robotics, safety architecture and physical infrastructure require disciplined engineering and staged validation.",
-    "Public investor materials describe investment posture, foundation sequence, and what we are building under Architecture and In Development — not rounds, valuations, or promised returns.",
+    "Public investor materials describe investment posture, foundation sequence, and what we are building — not rounds, valuations, or promised returns.",
   ],
   primaryLink: {
     label: "Investors",

@@ -81,14 +81,14 @@ export type InvestorsPageContent = {
 export const investorsPageContentEn: InvestorsPageContent = {
   metaTitle: "Investors",
   metaDescription:
-    "Long-term capital posture for SAVEN Core — intelligent systems for the physical world, with human care as purpose. Architecture and In Development honesty. Not an offer to sell securities.",
+    "Long-term capital posture for SAVEN Core — intelligent systems for the physical world, with human care as purpose. Not an offer to sell securities.",
   label: "Investors",
-  status: "In Development",
+  status: "Architecture",
   hero: {
     title: "Patient capital for intelligence that serves human life",
     lede: "SAVEN Core builds intelligent systems for the physical world — so people can be helped in hospitals, at home, and wherever life happens.",
     support:
-      "This page describes investment posture, the foundation sequence, and what we are building under Architecture and In Development. It does not publish rounds, valuations, revenue, or promised returns.",
+      "This page describes investment posture, the foundation sequence, and what we are building under clear Architecture framing. It does not publish rounds, valuations, revenue, or promised returns.",
     primaryCta: {
       label: "Investor Contact",
       href: "/investors/contact/",
@@ -103,7 +103,7 @@ export const investorsPageContentEn: InvestorsPageContent = {
     paragraphs: [
       "Intelligent systems built to support human life. AI and robotics are tools — not the purpose. Human support is primary.",
       "The opportunity is structural: a continuous path from human understanding and BioMath Core clarity, through SAVEN orchestration, to physical assistance — with trust and human oversight as requirements, not afterthoughts.",
-      "We seek mission-aligned partners who understand long-horizon systems building: patient capital, clear governance, and honesty about development status.",
+      "We seek mission-aligned partners who understand long-horizon systems building: patient capital, clear governance, and honesty about scope and non-claims.",
     ],
     points: [
       {
@@ -136,7 +136,7 @@ export const investorsPageContentEn: InvestorsPageContent = {
       {
         id: "biomath-core",
         title: "BioMath Core",
-        text: "Where health data becomes daily clarity — modeling and interpretation as Architecture / In Development.",
+        text: "Where health data becomes daily clarity — modeling and interpretation as Architecture.",
       },
       {
         id: "saven",
@@ -158,14 +158,14 @@ export const investorsPageContentEn: InvestorsPageContent = {
       {
         id: "robotics-lab",
         title: "SAVEN Robotics Lab",
-        status: "In Development",
+        status: "Architecture",
         text: "Primary engineering direction for assistive robotic systems: mobility, manipulators, perception, and human–machine interaction.",
         href: "/labs/saven-robotics-lab/",
       },
       {
         id: "interface",
         title: "SAVEN Robotics Interface",
-        status: "In Development",
+        status: "Architecture",
         text: "Shared communication and control path so diverse robots and devices can coordinate under human command.",
         href: "/systems/saven-robotics-interface/",
       },
@@ -179,7 +179,7 @@ export const investorsPageContentEn: InvestorsPageContent = {
       {
         id: "biomath",
         title: "BioMath Core",
-        status: "Architecture · In Development",
+        status: "Architecture",
         text: "Human-data clarity bridge: reports and conclusions that can inform SAVEN next-level actions — not diagnosis, prescription, or Operational e-commerce.",
         href: "/foundation/biomath-core/",
       },
@@ -227,7 +227,7 @@ export const investorsPageContentEn: InvestorsPageContent = {
       {
         id: "institutional",
         title: "Institutional & long-horizon funds",
-        text: "Partners who support durable systems where lasting human needs meet disciplined engineering — with status honesty as a baseline.",
+        text: "Partners who support durable systems where lasting human needs meet disciplined engineering — with clear scope and non-claims as a baseline.",
       },
       {
         id: "family",
@@ -237,7 +237,7 @@ export const investorsPageContentEn: InvestorsPageContent = {
       {
         id: "strategic",
         title: "Strategic & operating partners",
-        text: "Organizations exploring technology collaboration under clear boundaries — Architecture / In Development framing, not invented deployments.",
+        text: "Organizations exploring technology collaboration under clear boundaries — Architecture framing, not invented deployments.",
       },
       {
         id: "operators",
@@ -269,14 +269,14 @@ export const investorsPageContentEn: InvestorsPageContent = {
       {
         id: "honesty",
         title: "Build without hype",
-        text: "Public status stays Research · Architecture · In Development until later stages are true and authorized.",
+        text: "Public status stays Research · Architecture until later stages are true and authorized.",
       },
     ],
   },
   risk: {
     heading: "Risk & status honesty",
     paragraphs: [
-      "All principal systems are in development. Approved public statuses are primarily Research, Architecture, and In Development.",
+      "Public materials describe intended architecture and scope. Approved public labels are primarily Research and Architecture.",
       "This page does not claim Operational products, hospital deployments, regulator approvals, customers, partners, patents, fundraising amounts, or financial performance.",
       "It is structural information only — not investment advice and not an offer to sell securities. Deeper materials, if any, are shared only through authorized direct conversation.",
     ],

@@ -72,7 +72,7 @@ const foundationLayerDetails: Readonly<
       {
         id: "scope",
         title: "Scope",
-        text: "Personal context, longitudinal information, signals, patterns, permissions, privacy controls and safe personalization logic. Owner-authorized model coverage spans 20 categories and 200+ services — Architecture / In Development, not an Operational commercial catalog.",
+        text: "Personal context, longitudinal information, signals, patterns, permissions, privacy controls and safe personalization logic. Owner-authorized model coverage spans 20 categories and 200+ services — model coverage, not an Operational commercial catalog.",
       },
       {
         id: "outputs",
@@ -245,7 +245,7 @@ export const foundationPageContent: TechnicalPageContent = {
               "BioMath Core organizes human-context intelligence across these owner-authorized categories. Coverage describes model architecture — not a live commercial service menu.",
             servicesHighlight: "200+ services",
             disclaimer:
-              "Status: Architecture / In Development. Reports and conclusions inform SAVEN assistance and command architecture under human control. They do not diagnose, prescribe, or sell medicines.",
+              "Reports and conclusions inform SAVEN assistance and command architecture under human control. They do not diagnose, prescribe, or sell medicines.",
             categories: biomathCoreCategoriesEn.map((c) => c.label),
           },
         }

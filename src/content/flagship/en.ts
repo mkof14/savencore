@@ -32,11 +32,11 @@ export type FlagshipBrochureContent = FlagshipPageContent & {
 export const roboticsLabPageEn: FlagshipBrochureContent = {
   kicker: "SAVEN Core",
   title: "SAVEN Robotics Lab",
-  status: "In Development",
+  status: "Architecture",
   lede: "The primary engineering direction for robotic systems that sense, move, and act beside people — mobility, manipulators, and perception under clear human oversight.",
   body: [
     "SAVEN Robotics Lab builds the engineering basis for robots and manipulators meant to help people in real places: standing support, careful object handling, and calm assistance in homes and care settings — always with people remaining in authority.",
-    "Platforms, mobility, control, perception, and human–machine interaction advance as one direction. Public status is In Development: architecture and systems work presented honestly — not as operational hospital fleets or commercial products.",
+    "Platforms, mobility, control, perception, and human–machine interaction advance as one direction. Architecture and systems work are presented honestly — not as operational hospital fleets or commercial products.",
   ],
   listHeading: "Focus areas",
   items: [
@@ -59,8 +59,8 @@ export const roboticsLabPageEn: FlagshipBrochureContent = {
     },
     {
       id: "next",
-      title: "Status",
-      text: "In Development. Architecture and systems work — not operational fleets or clinical products.",
+      title: "Scope",
+      text: "Architecture and systems work — not operational fleets or clinical products.",
     },
   ],
   sections: [
@@ -93,9 +93,9 @@ export const roboticsLabPageEn: FlagshipBrochureContent = {
     },
     {
       id: "status",
-      title: "Development status",
+      title: "How to read this page",
       paragraphs: [
-        "Public status for SAVEN Robotics Lab is In Development. Material on this site describes intended architecture, focus areas, and engineering progress — not operational fleets, clinical approvals, or commercial availability.",
+        "Material on this site describes intended architecture, focus areas, and engineering craft — not operational fleets, clinical approvals, or commercial availability.",
         "Related depth lives in Technology · Robotics, Systems · Robotics Layer, and the SAVEN Robotics Interface workstream for human command and oversight.",
       ],
     },
@@ -111,7 +111,7 @@ export const roboticsLabPageEn: FlagshipBrochureContent = {
 export const roboticsInterfacePageEn: FlagshipBrochureContent = {
   kicker: "SAVEN Core",
   title: "SAVEN Robotics Interface",
-  status: "In Development",
+  status: "Architecture",
   lede: "The shared interface layer that connects diverse robots and devices to SAVEN — so they can communicate, coordinate common tasks, and stay under human command.",
   body: [
     "SAVEN Robotics Interface is an important part of the SAVEN system architecture: a common communication and control path between SAVEN and the many kinds of robots and devices that may work together.",
@@ -132,8 +132,8 @@ export const roboticsInterfacePageEn: FlagshipBrochureContent = {
     },
     {
       id: "next",
-      title: "Status",
-      text: "In Development. Architecture for interoperability and oversight — not a commercial control product.",
+      title: "Scope",
+      text: "Architecture for interoperability and oversight — not a commercial control product.",
     },
   ],
   sections: [
@@ -191,7 +191,7 @@ export const roboticsInterfacePageEn: FlagshipBrochureContent = {
     "Role-based access",
     "Digital mission environment",
   ],
-  note: "Interface work is in development as architecture. It does not claim a commercial control product or deployed operations.",
+  note: "Interface work is presented as architecture. It does not claim a commercial control product or deployed operations.",
   related: [
     { label: "SAVEN Robotics Lab", href: "/labs/saven-robotics-lab/" },
     { label: "Systems", href: "/systems/" },
@@ -284,7 +284,7 @@ export const futureLabPageEn: FlagshipBrochureContent = {
 export const labsHubPageEn: FlagshipBrochureContent = {
   kicker: "SAVEN Core",
   title: "Labs",
-  status: "In Development",
+  status: "Architecture",
   lede: "Where SAVEN Core shapes robotics and future systems that help people in the physical world — engineering labs beside a human command interface.",
   body: [
     "Labs are focused engineering and research environments for machines that can sense, move, and assist. SAVEN Robotics Lab is the primary engineering direction; Internal Future Lab explores what comes next.",
@@ -317,7 +317,7 @@ export const labsHubPageEn: FlagshipBrochureContent = {
       id: "robotics-lab-overview",
       title: "SAVEN Robotics Lab",
       paragraphs: [
-        "Primary engineering direction (In Development): robotic systems, autonomous mobility, robot control, sensors and machine perception, and human–machine interaction.",
+        "Primary engineering direction: robotic systems, autonomous mobility, robot control, sensors and machine perception, and human–machine interaction.",
         "Built to support human care in hospitals, at home, and wherever life happens — without claiming operational deployment.",
       ],
     },
@@ -340,7 +340,7 @@ export const labsHubPageEn: FlagshipBrochureContent = {
 export const investorsPageEn: FlagshipBrochureContent = {
   kicker: "SAVEN Core",
   title: "Investors",
-  status: "In Development",
+  status: "Architecture",
   lede: "For long-term partners who value disciplined engineering for intelligent systems in the physical world — with human care as the enduring purpose.",
   body: [
     "SAVEN Core uses and advances AI alongside robotics, autonomous systems, and engineering technologies meant to operate in real environments.",
@@ -385,7 +385,7 @@ export const investorsPageEn: FlagshipBrochureContent = {
       id: "posture",
       title: "Investment posture",
       paragraphs: [
-        "SAVEN Core seeks partners who understand long-horizon systems building: patient capital, clear governance, and honesty about development status.",
+        "SAVEN Core seeks partners who understand long-horizon systems building: patient capital, clear governance, and honesty about scope and non-claims.",
         "We do not publish funding rounds, valuations, revenue figures, or return forecasts on this site. Those topics belong in appropriate private materials when authorized — never as public performance claims.",
       ],
     },
@@ -407,9 +407,9 @@ export const investorsPageEn: FlagshipBrochureContent = {
     },
     {
       id: "progress",
-      title: "Development progress",
+      title: "Systems progress",
       paragraphs: [
-        "What we can point to publicly is architecture and systems progress under approved statuses: Research, Architecture, and In Development across flagship workstreams.",
+        "What we can point to publicly is architecture and systems progress under approved public framing: Research and Architecture across flagship workstreams.",
         "Milestones mean clearer scopes, published Lab and Interface paths, Trust requirements, and engineering depth for those who choose it — not financial results, customer counts, or deployment claims.",
       ],
     },
@@ -458,7 +458,7 @@ export const investorsContactPageEn: FlagshipBrochureContent = {
   lede: "Investor conversations start the same way every conversation with SAVEN Core starts — through Contact. There is no separate investor portal, data room, or scheduling system on this site.",
   body: [
     "Write to info@savencore.com with “Investor inquiry” in the subject line, or use the Contact form and note that context in your message. Investor conversations are read from that same public address.",
-    "For structural context before writing — investment posture, foundation sequence, and what we are building under Architecture and In Development — see the Investors overview.",
+    "For structural context before writing — investment posture, foundation sequence, and what we are building under Architecture — see the Investors overview.",
   ],
   listHeading: "Continue",
   items: [
@@ -502,7 +502,7 @@ export const roadmapPageEn: FlagshipBrochureContent = {
   status: "Architecture",
   lede: "SAVEN Core moves through three broad horizons rather than a fixed calendar. This page describes the shape of that direction — not delivery dates, product launches, or guarantees.",
   body: [
-    "Work advances through Research, Architecture, and In Development at once, across Labs, Systems, and Research — one workstream can sit in an earlier horizon while a related one moves ahead. The status shown on any individual page always reflects that page's current, honest state.",
+    "Work advances through Research and Architecture at once across Labs and Systems — one workstream can sit in an earlier horizon while a related one moves ahead. Labels describe structure and scope, not commercial availability.",
     "This is a directional summary, not a dated roadmap. It will be updated as work matures; updates do not imply a commitment, offer, or availability claim.",
   ],
   listHeading: "Continue",
@@ -528,14 +528,14 @@ export const roadmapPageEn: FlagshipBrochureContent = {
       ],
     },
     {
-      id: "in-development",
-      title: "In Development",
+      id: "systems-craft",
+      title: "Systems craft",
       paragraphs: [
-        "Architecture becoming engineering: active build work toward something that can eventually be tested — not yet Prototype, Pilot, or Operational.",
+        "Where architecture becomes concrete systems craft — structure, interfaces, and engineering practice presented without commercial-availability claims.",
       ],
     },
   ],
-  note: "This roadmap describes a development horizon and may change. It is not a guarantee of delivery, performance, availability, or regulatory approval.",
+  note: "This roadmap describes directional horizons and may change. It is not a guarantee of delivery, performance, availability, or regulatory approval.",
   related: [
     { label: "Labs", href: "/labs/" },
     { label: "SAVEN Robotics Interface", href: "/systems/saven-robotics-interface/" },

@@ -47,7 +47,7 @@ export const uiFr: UiMessages = {
     videoUnmute: "Activer le son",
     videoEffectsHeading: "Traitement de la vidéo splash",
     videoEffectsApplied:
-      "Appliqué sur cette bande (plein cadre, sans cadre photo) : une vidéo légère dual-format (WebM + MP4, choix mobile) avec une nouvelle coupe (~7,2s à ~1,05×) et un son optionnel (démarre en sourdine), commande Mute, fine légende sous la vidéo, barre de boucle, parallaxe de scroll marquée (±~64px + échelle), projecteur curseur évident sur bureau, zoom Ken Burns jusqu’à ~1,12, vignette nette, grain, étalonnage et fondu. Coins droits ; pas de néon. Mouvement réduit : moins de motion et poster.",
+      "Appliqué sur cette bande (incrustée dans le fond de la page — bords adoucis, sans boîte vidéo nette ni cadre photo) : une vidéo légère dual-format (WebM + MP4, choix mobile) avec une nouvelle coupe qui saute la première scène letterbox (~7,2s à 1,05×, zoom-crop central ~1,14×, cache ?v=d0271) et un son optionnel (démarre en sourdine), commande Mute, fine légende, barre de boucle, parallaxe marquée (±~64px + échelle), projecteur curseur bureau, Ken Burns ~1,06→1,14, vignette/fondu doux vers le fond Lab, grain et étalonnage. Coins droits ; pas de néon. Mouvement réduit : moins de motion et poster.",
     videoEffectsIdeas:
       "Idées futures (non livrées) : coupes chapitres / playlist multi-clips, parallaxe liée au scrub, HDR/AV1 quand le support sera large.",
     note: "De nouvelles expériences peuvent être liées depuis ce hub. Cette page est noindex et absente du menu principal. L’accueil public reste le collage photo.",

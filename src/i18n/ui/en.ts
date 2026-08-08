@@ -470,7 +470,7 @@ export const uiEn = {
     videoUnmute: "Unmute",
     videoEffectsHeading: "Video splash treatment",
     videoEffectsApplied:
-      "Applied on this band (full-bleed, no picture frame): one light dual-format video (WebM + MP4, mobile pick) with a re-cut (~7.2s at slight 1.05× speed) and optional sound (starts muted), Mute control, thin caption below the video, loop progress, strong scroll parallax (±~64px + scale), unmistakable desktop cursor spotlight, Ken Burns zoom to ~1.12, clear vignette, film grain, color grade, and fade-in. Straight corners; no neon chrome. Reduced-motion reduces motion effects and shows the poster.",
+      "Applied on this band (embedded into the page surface — soft feathered edges, no hard video box or picture frame): one light dual-format video (WebM + MP4, mobile pick) with a re-cut that skips the letterboxed first scene (~7.2s at 1.05×, center zoom-crop ~1.14×, cache ?v=d0271) and optional sound (starts muted), Mute control, thin caption below, loop progress, strong scroll parallax (±~64px + scale), desktop cursor spotlight, Ken Burns from ~1.06→1.14, soft themeable vignette/fade into the Lab background, film grain, and color grade. Straight corners; no neon chrome. Reduced-motion reduces motion effects and shows the poster.",
     videoEffectsIdeas:
       "Future ideas (not shipped): chapter cuts / multi-clip playlist, scrub-linked parallax chapters, HDR/AV1 when browser support is broad.",
     note: "New experiments can be linked from this hub. This page is noindex and is not in the primary header menu. The public home stays the living photo collage.",

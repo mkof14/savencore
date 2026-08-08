@@ -47,7 +47,7 @@ export const uiDe: UiMessages = {
     videoUnmute: "Ton an",
     videoEffectsHeading: "Video-Splash-Behandlung",
     videoEffectsApplied:
-      "Auf diesem Band (randlos, kein Bilderrahmen): ein leichtes Dual-Format-Video (WebM + MP4, mobile Auswahl) mit neuem Schnitt (~7,2s bei leicht 1,05× Tempo) und optionalem Ton (startet stumm), Mute-Steuerung, dünne Bildunterschrift unter dem Video, Loop-Fortschritt, starke Scroll-Parallaxe (±~64px + Scale), unverkennbares Desktop-Cursorlicht, Ken-Burns-Zoom bis ~1,12, klare Vignette, Filmkorn, Farbkorrektur und Einblenden. Gerade Ecken; kein Neon. Bei reduzierter Bewegung weniger Motion und Poster.",
+      "Auf diesem Band (in die Seitenfläche eingebettet — weiche Ausblendkanten, kein hartes Videokästchen oder Bilderrahmen): ein leichtes Dual-Format-Video (WebM + MP4, mobile Auswahl) mit neuem Schnitt, der die letterboxte erste Szene überspringt (~7,2s bei 1,05×, Zentrum-Zoom-Crop ~1,14×, Cache ?v=d0271) und optionalem Ton (startet stumm), Mute-Steuerung, dünne Bildunterschrift, Loop-Fortschritt, starke Scroll-Parallaxe (±~64px + Scale), Desktop-Cursorlicht, Ken Burns ~1,06→1,14, weiche thematische Vignette/Ausblendung in den Lab-Hintergrund, Filmkorn und Farbkorrektur. Gerade Ecken; kein Neon. Bei reduzierter Bewegung weniger Motion und Poster.",
     videoEffectsIdeas:
       "Ideen für später (nicht geliefert): Kapitel-Schnitte / Multi-Clip-Playlist, scrub-gekoppelte Parallaxe, HDR/AV1 bei breiter Browserunterstützung.",
     note: "Neue Experimente können von diesem Hub verlinkt werden. Diese Seite ist noindex und nicht im Hauptmenü. Die öffentliche Startseite bleibt die Foto-Collage.",

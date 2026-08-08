@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-08-08 (D-0270 — Lab video: remove frame, amplify effects)
+**Last updated:** 2026-08-08 (D-0271 — Lab video: remove in-file black / embed into page)
 
 ## Rules
 
@@ -285,7 +285,8 @@
 | D-0267 | 2026-08-08 | Retire particle experiment; light Lab video + cinematic effects | Active |
 | D-0268 | 2026-08-08 | Lab splash: one video only — remove depth blur duplicate | Active |
 | D-0269 | 2026-08-08 | Lab video band — designed cut, sound/mute, parallax, cursor light, editorial frame | Superseded (framing) by D-0270 |
-| D-0270 | 2026-08-08 | Lab video — remove editorial frame; amplify parallax / cursor / Ken Burns / grade | Active |
+| D-0270 | 2026-08-08 | Lab video — remove editorial frame; amplify parallax / cursor / Ken Burns / grade | Superseded (cut/chrome edges) by D-0271 |
+| D-0271 | 2026-08-08 | Lab video — skip in-file black first scene; soft embed into page background | Active |
 
 ---
 
@@ -2864,6 +2865,20 @@
 - **In scope:** `public/lab/video/*`; `LabVideoHero` + Lab CSS/page; UI i18n (10 locales); D-0270 / AGENTS / SITE_ASSIGNMENT; commit/push/Vercel prod.
 - **Out of scope:** Public home video; inventing Operational claims; header Lab link.
 - **Implications:** Lab splash reads as a bold full-bleed experiment band; D-0269 framing chrome is retired. Home collage unchanged (D-0261).
+
+### D-0271 — Lab video — remove in-file black first scene; embed into page
+
+- **Date:** 2026-08-08
+- **Status:** Active
+- **Summary:** Owner feedback on D-0270: black frame still visible in the first scene; preferred look is video **embedded into the Lab page background**, not a centered rectangle with clear edges.
+- **Diagnosis:** Black bars were **in the MP4** (source letterbox ~69px top/bottom + dark right edge for ~0–2.0s of `S989898_gwr_video_mvp.mp4`). D-0270 `ss=1.20` still included that intro. CSS stage/`__media` `#061022` and hard vignette also read as a dark box.
+- **Decision:**
+  1. **Re-encode** from Desktop original: `ss=2.15`, `t=7.60`, center zoom-crop `scale=1.14` → crop 1280×720 (mobile 854×480), `setpts`/`atempo` 1.05 → ~7.2s; audio retained; poster refreshed; cache-bust `?v=d0271`.
+  2. **CSS embed:** Remove hard `#061022` stage/media fills; soft alpha mask + themeable feather fades (top/sides/bottom → `--color-background`); softer vignette into page surface; Ken Burns `1.06→1.14` with `object-fit: cover`; Mute/caption/progress stay minimal — no frame chrome.
+  3. Still one video plane (D-0268); Lab-only; not on public home; `/lab/` noindex / footer Resources (D-0263). `prefers-reduced-motion` reduces parallax/Ken Burns; poster OK.
+- **In scope:** `public/lab/video/*`; `LabVideoHero` + Lab CSS/page; UI i18n (10 locales); D-0271 / AGENTS / SITE_ASSIGNMENT; commit/push/Vercel prod.
+- **Out of scope:** Public home video; inventing Operational claims; header Lab link.
+- **Implications:** First scene no longer shows letterbox black; band reads as continuous with the Lab page in light and dark themes. D-0270 cut/edge treatment superseded for this feedback.
 
 ## Pending Owner Decisions
 

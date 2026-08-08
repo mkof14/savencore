@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const CACHE = "d0270";
+const CACHE = "d0271";
 const POSTER_SRC = `/lab/video/s989898-gwr-mvp-poster.webp?v=${CACHE}`;
 const MUTE_KEY = "savencore-lab-video-muted";
 
@@ -37,9 +37,10 @@ function pickSources(): SourceSet {
 }
 
 /**
- * Lab splash video band (D-0266–D-0270) — owner preview only; not on public home.
- * Full-bleed single video + poster; obvious cinematic CSS (Ken Burns / vignette / grain /
- * grade / parallax / cursor light); mute control; caption strip below. No editorial frame.
+ * Lab splash video band (D-0266–D-0271) — owner preview only; not on public home.
+ * Full-bleed single video embedded into page surface (soft feathered edges; no hard box);
+ * cinematic CSS (Ken Burns / soft vignette / grain / grade / parallax / cursor light);
+ * mute control; caption strip below. No editorial frame / stage chrome.
  */
 export function LabVideoHero({ copy }: { copy: LabVideoHeroCopy }) {
   const rootRef = useRef<HTMLDivElement>(null);

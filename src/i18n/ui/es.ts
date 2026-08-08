@@ -46,7 +46,7 @@ export const uiEs: UiMessages = {
     videoUnmute: "Activar sonido",
     videoEffectsHeading: "Tratamiento del vídeo splash",
     videoEffectsApplied:
-      "Aplicado en esta banda (a sangre, sin marco): un vídeo ligero en doble formato (WebM + MP4, selección móvil) con un re-corte (~7,2s a velocidad ligera 1,05×) y sonido opcional (empieza en silencio), control Mute, pie de foto fino bajo el vídeo, progreso del bucle, parallax fuerte al hacer scroll (±~64px + escala), foco de cursor inconfundible en escritorio, zoom Ken Burns hasta ~1,12, viñeta clara, grano, gradación y fundido. Esquinas rectas; sin neón. Con movimiento reducido: menos motion y póster.",
+      "Aplicado en esta banda (integrado en el fondo de la página — bordes suaves, sin caja dura ni marco): un vídeo ligero en doble formato (WebM + MP4, selección móvil) con un re-corte que omite la primera escena con franjas negras (~7,2s a 1,05×, zoom-recorte central ~1,14×, caché ?v=d0271) y sonido opcional (empieza en silencio), control Mute, pie de foto fino, progreso del bucle, parallax fuerte (±~64px + escala), foco de cursor en escritorio, Ken Burns ~1,06→1,14, viñeta/fundido suave al fondo del Lab, grano y gradación. Esquinas rectas; sin neón. Con movimiento reducido: menos motion y póster.",
     videoEffectsIdeas:
       "Ideas futuras (no publicadas): cortes por capítulos / lista multi-clip, parallax ligado al scrub, HDR/AV1 cuando el soporte sea amplio.",
     note: "Pueden enlazarse nuevos experimentos desde este hub. Esta página es noindex y no está en el menú principal. La portada pública sigue siendo el collage fotográfico.",

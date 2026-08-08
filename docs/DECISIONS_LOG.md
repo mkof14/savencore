@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-08-08 (D-0271 — Lab video: remove in-file black / embed into page)
+**Last updated:** 2026-08-08 (D-0272 — Lab video: clear picture + overlay/links)
 
 ## Rules
 
@@ -286,7 +286,8 @@
 | D-0268 | 2026-08-08 | Lab splash: one video only — remove depth blur duplicate | Active |
 | D-0269 | 2026-08-08 | Lab video band — designed cut, sound/mute, parallax, cursor light, editorial frame | Superseded (framing) by D-0270 |
 | D-0270 | 2026-08-08 | Lab video — remove editorial frame; amplify parallax / cursor / Ken Burns / grade | Superseded (cut/chrome edges) by D-0271 |
-| D-0271 | 2026-08-08 | Lab video — skip in-file black first scene; soft embed into page background | Active |
+| D-0271 | 2026-08-08 | Lab video — skip in-file black first scene; soft embed into page background | Active (grain/vignette/grade retired by D-0272) |
+| D-0272 | 2026-08-08 | Lab video — remove grain/heavy darkenings; overlay copy + explore links | Active |
 
 ---
 
@@ -2879,6 +2880,19 @@
 - **In scope:** `public/lab/video/*`; `LabVideoHero` + Lab CSS/page; UI i18n (10 locales); D-0271 / AGENTS / SITE_ASSIGNMENT; commit/push/Vercel prod.
 - **Out of scope:** Public home video; inventing Operational claims; header Lab link.
 - **Implications:** First scene no longer shows letterbox black; band reads as continuous with the Lab page in light and dark themes. D-0270 cut/edge treatment superseded for this feedback.
+
+### D-0272 — Lab video — clear picture, overlay copy, explore links
+
+- **Date:** 2026-08-08
+- **Status:** Active
+- **Summary:** Owner feedback on D-0271: disliked film grain (“клетка”) and heavy darkenings; asked to remove them and propose more interesting Lab solutions — text overlay, links, and related ideas.
+- **Decision:**
+  1. **Remove** film-grain SVG overlay and heavy vignette / muddy color-grade layers; keep only a very light themeable feather into the page (prefer almost none at the bottom). Soft alpha mask page-embed (D-0271) retained — no hard black frame.
+  2. **Add** tasteful on-video overlay (eyebrow + short line); glass-light CTA row linking only to published routes: Home `/`, BioMath Core `/foundation/biomath-core/`, Robotics Interface `/systems/saven-robotics-interface/`, Contact `/contact/` — honest Lab experiment labels; no Operational / Platform / ecosystem claims.
+  3. **Ship now (without grain/vignette):** soft progress + clickable chapter ticks; light side ambient matching page background; scroll-linked caption opacity. Keep Mute, strong parallax, Ken Burns; soften cursor spotlight. Cache-bust `?v=d0272`. Lab `/lab/` only; not public home. Full UI i18n (10 locales).
+- **In scope:** `LabVideoHero` + Lab CSS/page; UI i18n (10 locales); D-0272 / AGENTS / SITE_ASSIGNMENT; commit/push/Vercel prod.
+- **Out of scope:** Public home video; inventing Operational claims; header Lab link; multi-clip playlist.
+- **Implications:** Lab splash reads clearer and more interactive while staying embedded in the page surface. D-0271 grain/vignette/grade treatment superseded for this feedback.
 
 ## Pending Owner Decisions
 

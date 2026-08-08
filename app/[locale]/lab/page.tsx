@@ -12,7 +12,7 @@ type Props = {
 };
 
 /**
- * Experiments hub (D-0263 / D-0266–D-0271) — sandbox for novelties without touching the public home.
+ * Experiments hub (D-0263 / D-0266–D-0272) — sandbox for novelties without touching the public home.
  * Linked from footer Resources only; robots noindex + sitemap excluded.
  */
 export async function generateMetadata({ params }: Props) {
@@ -36,10 +36,26 @@ export default async function LabPage({ params }: Props) {
   return (
     <article className="site-lab-page page">
       <LabVideoHero
+        locale={localeParam}
         copy={{
+          overlayEyebrow: ui.lab.videoOverlayEyebrow,
+          overlayLine: ui.lab.videoOverlayLine,
           caption: ui.lab.videoCaption,
           mute: ui.lab.videoMute,
           unmute: ui.lab.videoUnmute,
+          linksLabel: ui.lab.videoLinksLabel,
+          links: [
+            { href: "/", label: ui.lab.videoLinkHome },
+            {
+              href: "/foundation/biomath-core/",
+              label: ui.lab.videoLinkBiomath,
+            },
+            {
+              href: "/systems/saven-robotics-interface/",
+              label: ui.lab.videoLinkInterface,
+            },
+            { href: "/contact/", label: ui.lab.videoLinkContact },
+          ],
         }}
       />
       <div className="page-shell__inner site-lab-page__body">

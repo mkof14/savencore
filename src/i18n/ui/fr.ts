@@ -41,15 +41,22 @@ export const uiFr: UiMessages = {
     eyebrow: "Test / Lab / Expériences",
     title: "Lab",
     lead: "Un espace pour essayer de nouvelles fonctions sans modifier le site public. Ce qui figure ici sont des expériences — pas des affirmations produit.",
+    videoOverlayEyebrow: "Expérience Lab",
+    videoOverlayLine: "Une coupe de travail — des systèmes pour le soin humain.",
     videoCaption:
       "Une coupe de travail — des systèmes façonnés pour le soin humain dans le monde physique.",
     videoMute: "Couper le son",
     videoUnmute: "Activer le son",
+    videoLinksLabel: "Pages publiées depuis cette expérience Lab",
+    videoLinkHome: "Accueil",
+    videoLinkBiomath: "BioMath Core",
+    videoLinkInterface: "Interface robotique",
+    videoLinkContact: "Contact",
     videoEffectsHeading: "Traitement de la vidéo splash",
     videoEffectsApplied:
-      "Appliqué sur cette bande (incrustée dans le fond de la page — bords adoucis, sans boîte vidéo nette ni cadre photo) : une vidéo légère dual-format (WebM + MP4, choix mobile) avec une nouvelle coupe qui saute la première scène letterbox (~7,2s à 1,05×, zoom-crop central ~1,14×, cache ?v=d0271) et un son optionnel (démarre en sourdine), commande Mute, fine légende, barre de boucle, parallaxe marquée (±~64px + échelle), projecteur curseur bureau, Ken Burns ~1,06→1,14, vignette/fondu doux vers le fond Lab, grain et étalonnage. Coins droits ; pas de néon. Mouvement réduit : moins de motion et poster.",
+      "Appliqué sur cette bande (incrustée dans le fond de la page — bords adoucis, sans boîte vidéo nette ni cadre photo) : une vidéo légère dual-format (WebM + MP4, choix mobile) avec une nouvelle coupe qui saute la première scène letterbox (~7,2s à 1,05×, zoom-crop central ~1,14×, cache ?v=d0272) et un son optionnel (démarre en sourdine), commande Mute, texte en surimpression, liens glass-light vers des pages publiées, repères de chapitre sur une barre douce, légende qui s’estompe au défilement, parallaxe marquée (±~64px + échelle), lumière curseur adoucie, Ken Burns ~1,06→1,14 et ambiance latérale légère vers le fond Lab — sans grain, vignette lourde ni étalonnage boueux. Coins droits ; pas de néon. Mouvement réduit : moins de motion et poster.",
     videoEffectsIdeas:
-      "Idées futures (non livrées) : coupes chapitres / playlist multi-clips, parallaxe liée au scrub, HDR/AV1 quand le support sera large.",
+      "Idées futures (non livrées) : playlist multi-clips, parallaxe liée au scrub, titres de chapitre, HDR/AV1 quand le support sera large.",
     note: "De nouvelles expériences peuvent être liées depuis ce hub. Cette page est noindex et absente du menu principal. L’accueil public reste le collage photo.",
   },
 

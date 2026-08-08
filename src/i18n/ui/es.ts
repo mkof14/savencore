@@ -40,15 +40,22 @@ export const uiEs: UiMessages = {
     eyebrow: "Prueba / Lab / Experimentos",
     title: "Lab",
     lead: "Un espacio seguro para probar funciones nuevas sin alterar el sitio público. Lo que hay aquí son experimentos — no afirmaciones de producto.",
+    videoOverlayEyebrow: "Experimento Lab",
+    videoOverlayLine: "Un corte de trabajo — sistemas para el cuidado humano.",
     videoCaption:
       "Un corte de trabajo — sistemas pensados para el cuidado humano en el mundo físico.",
     videoMute: "Silenciar",
     videoUnmute: "Activar sonido",
+    videoLinksLabel: "Páginas publicadas desde este experimento Lab",
+    videoLinkHome: "Inicio",
+    videoLinkBiomath: "BioMath Core",
+    videoLinkInterface: "Interfaz de robótica",
+    videoLinkContact: "Contacto",
     videoEffectsHeading: "Tratamiento del vídeo splash",
     videoEffectsApplied:
-      "Aplicado en esta banda (integrado en el fondo de la página — bordes suaves, sin caja dura ni marco): un vídeo ligero en doble formato (WebM + MP4, selección móvil) con un re-corte que omite la primera escena con franjas negras (~7,2s a 1,05×, zoom-recorte central ~1,14×, caché ?v=d0271) y sonido opcional (empieza en silencio), control Mute, pie de foto fino, progreso del bucle, parallax fuerte (±~64px + escala), foco de cursor en escritorio, Ken Burns ~1,06→1,14, viñeta/fundido suave al fondo del Lab, grano y gradación. Esquinas rectas; sin neón. Con movimiento reducido: menos motion y póster.",
+      "Aplicado en esta banda (integrado en el fondo de la página — bordes suaves, sin caja dura ni marco): un vídeo ligero en doble formato (WebM + MP4, selección móvil) con un re-corte que omite la primera escena con franjas negras (~7,2s a 1,05×, zoom-recorte central ~1,14×, caché ?v=d0272) y sonido opcional (empieza en silencio), control Mute, texto superpuesto, enlaces glass-light a páginas publicadas, marcas de capítulo en una barra suave, pie de foto que se atenúa al hacer scroll, parallax fuerte (±~64px + escala), luz de cursor suavizada, Ken Burns ~1,06→1,14 y ambiente lateral ligero al fondo del Lab — sin grano, viñeta pesada ni gradación turbia. Esquinas rectas; sin neón. Con movimiento reducido: menos motion y póster.",
     videoEffectsIdeas:
-      "Ideas futuras (no publicadas): cortes por capítulos / lista multi-clip, parallax ligado al scrub, HDR/AV1 cuando el soporte sea amplio.",
+      "Ideas futuras (no publicadas): lista multi-clip, parallax ligado al scrub, títulos de capítulo, HDR/AV1 cuando el soporte sea amplio.",
     note: "Pueden enlazarse nuevos experimentos desde este hub. Esta página es noindex y no está en el menú principal. La portada pública sigue siendo el collage fotográfico.",
   },
 

@@ -1,4 +1,4 @@
-/* Experiments hub — themeable shell (D-0263 / D-0266–D-0271). */
+/* Experiments hub — themeable shell (D-0263 / D-0266–D-0272). */
 
 .site-lab-page {
   padding-block: 0 clamp(3rem, 8vw, 5rem);
@@ -10,8 +10,8 @@
   --lab-video-max-h: 72vh;
   --lab-cx: 50%;
   --lab-cy: 42%;
-  --lab-feather-y: clamp(3.5rem, 10vh, 7rem);
-  --lab-feather-x: clamp(1.5rem, 5vw, 4rem);
+  --lab-feather-y: clamp(2.5rem, 7vh, 5rem);
+  --lab-feather-x: clamp(1.25rem, 4vw, 3rem);
   width: 100%;
   margin: 0 0 clamp(1.25rem, 3.5vw, 2.25rem);
   padding: 0;
@@ -31,30 +31,30 @@
     linear-gradient(
       to bottom,
       transparent 0%,
-      #000 12%,
-      #000 78%,
+      #000 10%,
+      #000 82%,
       transparent 100%
     ),
     linear-gradient(
       to right,
       transparent 0%,
-      #000 8%,
-      #000 92%,
+      #000 6%,
+      #000 94%,
       transparent 100%
     );
   mask-image:
     linear-gradient(
       to bottom,
       transparent 0%,
-      #000 12%,
-      #000 78%,
+      #000 10%,
+      #000 82%,
       transparent 100%
     ),
     linear-gradient(
       to right,
       transparent 0%,
-      #000 8%,
-      #000 92%,
+      #000 6%,
+      #000 94%,
       transparent 100%
     );
   -webkit-mask-composite: source-in;
@@ -77,7 +77,8 @@
   object-fit: cover;
   object-position: center;
   background: transparent;
-  filter: contrast(1.12) saturate(1.18) brightness(0.94) sepia(0.06);
+  /* Clear picture — no muddy darken / sepia grade. */
+  filter: contrast(1.04) saturate(1.06);
   transform-origin: 50% 42%;
   animation: site-lab-kenburns 14s ease-in-out infinite alternate;
   opacity: 0;
@@ -89,55 +90,29 @@
 }
 
 .site-lab-video-hero__media--static {
-  filter: contrast(1.08) saturate(1.1) brightness(0.96) sepia(0.05);
+  filter: contrast(1.03) saturate(1.04);
   animation: none;
   opacity: 1;
 }
 
-.site-lab-video-hero__grade {
+/* Subtle side ambient matching the page — not a black box or heavy vignette. */
+.site-lab-video-hero__ambient {
   position: absolute;
   inset: 0;
   z-index: 2;
   pointer-events: none;
   background:
     linear-gradient(
-      118deg,
-      color-mix(in srgb, #0a2240 28%, transparent) 0%,
-      transparent 40%,
-      color-mix(in srgb, #2a1810 18%, transparent) 100%
+      to right,
+      color-mix(in srgb, var(--color-background) 42%, transparent) 0%,
+      transparent 18%
     ),
     linear-gradient(
-      to bottom,
-      color-mix(in srgb, #102238 14%, transparent) 0%,
-      transparent 40%
+      to left,
+      color-mix(in srgb, var(--color-background) 42%, transparent) 0%,
+      transparent 18%
     );
-  mix-blend-mode: soft-light;
-  opacity: 1;
-}
-
-.site-lab-video-hero__grain {
-  position: absolute;
-  inset: 0;
-  z-index: 3;
-  pointer-events: none;
-  opacity: 0.18;
-  mix-blend-mode: overlay;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.7'/%3E%3C/svg%3E");
-  background-size: 140px 140px;
-}
-
-.site-lab-video-hero__vignette {
-  position: absolute;
-  inset: 0;
-  z-index: 4;
-  pointer-events: none;
-  /* Soft atmospheric falloff — not a hard dark box around the clip. */
-  background: radial-gradient(
-    ellipse 78% 70% at 50% 42%,
-    transparent 28%,
-    color-mix(in srgb, var(--color-background) 22%, transparent) 62%,
-    color-mix(in srgb, var(--color-background) 55%, transparent) 100%
-  );
+  opacity: 0.85;
 }
 
 .site-lab-video-hero__cursor {
@@ -146,15 +121,14 @@
   z-index: 5;
   pointer-events: none;
   opacity: 0;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.25s ease;
   background: radial-gradient(
-    circle 28rem at var(--lab-cx) var(--lab-cy),
-    rgba(255, 214, 170, 0.38) 0%,
-    rgba(180, 210, 255, 0.18) 22%,
-    rgba(120, 160, 220, 0.06) 48%,
-    transparent 70%
+    circle 22rem at var(--lab-cx) var(--lab-cy),
+    rgba(255, 220, 190, 0.16) 0%,
+    rgba(180, 210, 255, 0.08) 28%,
+    transparent 62%
   );
-  mix-blend-mode: screen;
+  mix-blend-mode: soft-light;
 }
 
 .site-lab-video-hero.is-pointer-fine.is-cursor-active .site-lab-video-hero__cursor,
@@ -163,7 +137,7 @@
   opacity: 1;
 }
 
-/* Themeable feather into Lab page surface — four sides. */
+/* Very light themeable feather into Lab page — prefer almost none at bottom. */
 .site-lab-video-hero__fade {
   position: absolute;
   inset: 0;
@@ -172,68 +146,142 @@
   background:
     linear-gradient(
       to bottom,
-      var(--color-background) 0%,
-      color-mix(in srgb, var(--color-background) 55%, transparent) 28%,
-      transparent calc(var(--lab-feather-y) + 8%)
+      color-mix(in srgb, var(--color-background) 55%, transparent) 0%,
+      transparent calc(var(--lab-feather-y) * 0.7)
     ),
     linear-gradient(
       to top,
-      var(--color-background) 0%,
-      color-mix(in srgb, var(--color-background) 62%, transparent) 32%,
-      transparent calc(var(--lab-feather-y) + 10%)
+      color-mix(in srgb, var(--color-background) 28%, transparent) 0%,
+      transparent calc(var(--lab-feather-y) * 0.55)
     ),
     linear-gradient(
       to right,
-      var(--color-background) 0%,
-      color-mix(in srgb, var(--color-background) 45%, transparent) 40%,
+      color-mix(in srgb, var(--color-background) 35%, transparent) 0%,
       transparent var(--lab-feather-x)
     ),
     linear-gradient(
       to left,
-      var(--color-background) 0%,
-      color-mix(in srgb, var(--color-background) 45%, transparent) 40%,
+      color-mix(in srgb, var(--color-background) 35%, transparent) 0%,
       transparent var(--lab-feather-x)
     );
+}
+
+.site-lab-video-hero__overlay {
+  position: absolute;
+  z-index: 8;
+  inset-block-start: clamp(1.35rem, 4vw, 2.5rem);
+  inset-inline-start: clamp(1rem, 3.5vw, 2.25rem);
+  max-width: min(22rem, 72%);
+  pointer-events: none;
+}
+
+.site-lab-video-hero__overlay-eyebrow {
+  margin: 0 0 0.4rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--color-text) 78%, transparent);
+  text-shadow: 0 1px 12px color-mix(in srgb, var(--color-background) 55%, transparent);
+}
+
+.site-lab-video-hero__overlay-line {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 2.2vw, 1.45rem);
+  font-weight: 550;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  color: var(--color-text);
+  text-wrap: balance;
+  text-shadow: 0 1px 18px color-mix(in srgb, var(--color-background) 65%, transparent);
+}
+
+.site-lab-video-hero__links {
+  position: absolute;
+  z-index: 9;
+  inset-block-end: clamp(2.1rem, 5vw, 3rem);
+  inset-inline-start: clamp(1rem, 3vw, 2rem);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  max-width: min(36rem, calc(100% - 7rem));
+}
+
+.site-lab-video-hero__link {
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+  padding: 0.42rem 0.7rem;
+  border: 1px solid color-mix(in srgb, var(--color-text) 18%, transparent);
+  background: color-mix(in srgb, var(--color-background) 48%, transparent);
+  color: var(--color-text);
+  font: inherit;
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  text-decoration: none;
+  backdrop-filter: blur(8px);
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease;
+}
+
+.site-lab-video-hero__link:hover,
+.site-lab-video-hero__link:focus-visible {
+  border-color: color-mix(in srgb, var(--color-text) 36%, transparent);
+  background: color-mix(in srgb, var(--color-background) 72%, transparent);
+  outline: none;
+}
+
+.site-lab-video-hero__link:focus-visible {
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-text) 24%, transparent);
 }
 
 .site-lab-video-hero__mute {
   position: absolute;
   z-index: 9;
-  inset-block-end: clamp(1.35rem, 3.5vw, 2rem);
+  inset-block-end: clamp(2.1rem, 5vw, 3rem);
   inset-inline-end: clamp(1rem, 2.5vw, 1.5rem);
   margin: 0;
   padding: 0.4rem 0.65rem;
-  border: 1px solid color-mix(in srgb, var(--color-text) 22%, transparent);
-  background: color-mix(in srgb, var(--color-background) 62%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-text) 18%, transparent);
+  background: color-mix(in srgb, var(--color-background) 48%, transparent);
   color: var(--color-text);
   font: inherit;
   font-size: 0.75rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   cursor: pointer;
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(8px);
 }
 
 .site-lab-video-hero__mute:hover,
 .site-lab-video-hero__mute:focus-visible {
-  border-color: color-mix(in srgb, var(--color-text) 40%, transparent);
-  background: color-mix(in srgb, var(--color-background) 78%, transparent);
+  border-color: color-mix(in srgb, var(--color-text) 36%, transparent);
+  background: color-mix(in srgb, var(--color-background) 72%, transparent);
   outline: none;
 }
 
 .site-lab-video-hero__mute:focus-visible {
-  box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-text) 28%, transparent);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-text) 24%, transparent);
+}
+
+.site-lab-video-hero__progress-wrap {
+  position: absolute;
+  inset-inline: 12%;
+  bottom: clamp(0.7rem, 1.8vw, 1.1rem);
+  z-index: 8;
+  height: 10px;
+  pointer-events: none;
 }
 
 .site-lab-video-hero__progress {
   position: absolute;
-  inset-inline: 12%;
-  bottom: clamp(0.85rem, 2.2vw, 1.35rem);
-  z-index: 8;
+  inset-inline: 0;
+  bottom: 4px;
   height: 2px;
   border-radius: 0;
   background: color-mix(in srgb, var(--color-text) 12%, transparent);
-  pointer-events: none;
   overflow: hidden;
 }
 
@@ -241,7 +289,7 @@
   display: block;
   width: 100%;
   height: 100%;
-  background: color-mix(in srgb, var(--color-text) 55%, #c4a574);
+  background: color-mix(in srgb, var(--color-text) 45%, #c4a574);
   transform: scaleX(0);
   transform-origin: left center;
   will-change: transform;
@@ -251,8 +299,42 @@
   transform-origin: right center;
 }
 
+.site-lab-video-hero__chapters {
+  position: absolute;
+  inset: 0;
+  pointer-events: auto;
+}
+
+.site-lab-video-hero__chapter {
+  position: absolute;
+  bottom: 2px;
+  width: 7px;
+  height: 7px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid color-mix(in srgb, var(--color-text) 35%, transparent);
+  background: color-mix(in srgb, var(--color-background) 40%, transparent);
+  transform: translateX(-50%);
+  cursor: pointer;
+}
+
+[dir="rtl"] .site-lab-video-hero__chapter {
+  transform: translateX(50%);
+}
+
+.site-lab-video-hero__chapter.is-passed {
+  background: color-mix(in srgb, var(--color-text) 40%, #c4a574);
+  border-color: color-mix(in srgb, var(--color-text) 50%, #c4a574);
+}
+
+.site-lab-video-hero__chapter:hover,
+.site-lab-video-hero__chapter:focus-visible {
+  outline: none;
+  border-color: color-mix(in srgb, var(--color-text) 55%, transparent);
+}
+
 .site-lab-video-hero__caption {
-  margin: 0.35rem clamp(0.85rem, 3vw, 1.5rem) 0;
+  margin: 0.45rem clamp(0.85rem, 3vw, 1.5rem) 0;
   max-width: 40rem;
   font-family: var(--font-display);
   font-size: clamp(0.88rem, 1.4vw, 1.05rem);
@@ -261,6 +343,7 @@
   line-height: 1.4;
   color: var(--color-text-secondary);
   text-wrap: balance;
+  transition: opacity 0.15s linear;
 }
 
 @keyframes site-lab-kenburns {
@@ -293,6 +376,11 @@
   .site-lab-video-hero__progress-bar {
     transition: none;
   }
+
+  .site-lab-video-hero__caption {
+    opacity: 1 !important;
+    transition: none;
+  }
 }
 
 @media (pointer: coarse) {
@@ -303,12 +391,16 @@
 
 @media (max-width: 768px) {
   .site-lab-video-hero {
-    --lab-feather-y: clamp(2.75rem, 9vh, 5rem);
-    --lab-feather-x: clamp(1rem, 4vw, 2rem);
+    --lab-feather-y: clamp(2rem, 8vh, 4rem);
+    --lab-feather-x: clamp(0.85rem, 3.5vw, 1.75rem);
   }
 
-  .site-lab-video-hero__grain {
-    opacity: 0.14;
+  .site-lab-video-hero__overlay {
+    max-width: min(18rem, 78%);
+  }
+
+  .site-lab-video-hero__links {
+    max-width: calc(100% - 5.5rem);
   }
 
   .site-lab-video-hero__caption {

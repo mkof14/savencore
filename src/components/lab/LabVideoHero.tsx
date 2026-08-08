@@ -1,10 +1,15 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
-const CACHE = "d0271";
+import type { Locale } from "@/config/locales";
+import { localizePath } from "@/navigation/locale-path";
+
+const CACHE = "d0272";
 const POSTER_SRC = `/lab/video/s989898-gwr-mvp-poster.webp?v=${CACHE}`;
 const MUTE_KEY = "savencore-lab-video-muted";
+const CHAPTER_MARKS = [0, 0.33, 0.66] as const;
 
 type SourceSet = { webm: string; mp4: string };
 
@@ -18,10 +23,19 @@ const MOBILE: SourceSet = {
   mp4: `/lab/video/s989898-gwr-mvp-mobile.mp4?v=${CACHE}`,
 };
 
+export type LabVideoHeroLink = {
+  href: string;
+  label: string;
+};
+
 export type LabVideoHeroCopy = {
+  overlayEyebrow: string;
+  overlayLine: string;
   caption: string;
   mute: string;
   unmute: string;
+  linksLabel: string;
+  links: LabVideoHeroLink[];
 };
 
 function pickSources(): SourceSet {
@@ -37,14 +51,21 @@ function pickSources(): SourceSet {
 }
 
 /**
- * Lab splash video band (D-0266–D-0271) — owner preview only; not on public home.
+ * Lab splash video band (D-0266–D-0272) — owner preview only; not on public home.
  * Full-bleed single video embedded into page surface (soft feathered edges; no hard box);
- * cinematic CSS (Ken Burns / soft vignette / grain / grade / parallax / cursor light);
- * mute control; caption strip below. No editorial frame / stage chrome.
+ * clear video (no grain / heavy vignette / heavy grade); overlay copy + explore links;
+ * chapter ticks, light ambient sides, scroll-linked caption; mute / parallax / soft cursor.
  */
-export function LabVideoHero({ copy }: { copy: LabVideoHeroCopy }) {
+export function LabVideoHero({
+  locale,
+  copy,
+}: {
+  locale: Locale;
+  copy: LabVideoHeroCopy;
+}) {
   const rootRef = useRef<HTMLDivElement>(null);
   const parallaxRef = useRef<HTMLDivElement>(null);
+  const captionRef = useRef<HTMLParagraphElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [allowMotion, setAllowMotion] = useState(false);
   const [finePointer, setFinePointer] = useState(false);
@@ -142,6 +163,14 @@ export function LabVideoHero({ copy }: { copy: LabVideoHeroCopy }) {
       const y = Math.max(-64, Math.min(64, t * -92));
       const s = 1 + Math.min(0.06, Math.abs(t) * 0.08);
       layer.style.transform = `translate3d(0, ${y.toFixed(2)}px, 0) scale(${s.toFixed(4)})`;
+
+      /* Scroll-linked caption opacity — fades as the band leaves the viewport. */
+      const caption = captionRef.current;
+      if (caption) {
+        const visible =
+          Math.min(1, Math.max(0, (rect.bottom - 48) / Math.max(rect.height, 1)));
+        caption.style.opacity = visible.toFixed(3);
+      }
     };
     const onScroll = () => {
       cancelAnimationFrame(raf);
@@ -155,6 +184,7 @@ export function LabVideoHero({ copy }: { copy: LabVideoHeroCopy }) {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
       layer.style.transform = "";
+      if (captionRef.current) captionRef.current.style.opacity = "";
     };
   }, [allowMotion, ready]);
 
@@ -199,6 +229,13 @@ export function LabVideoHero({ copy }: { copy: LabVideoHeroCopy }) {
       main.muted = next;
       if (!next) void main.play().catch(() => {});
     }
+  };
+
+  const seekToFraction = (fraction: number) => {
+    const main = videoRef.current;
+    if (!main || !Number.isFinite(main.duration) || main.duration <= 0) return;
+    main.currentTime = Math.max(0, Math.min(0.98, fraction)) * main.duration;
+    void main.play().catch(() => {});
   };
 
   return (
@@ -248,13 +285,33 @@ export function LabVideoHero({ copy }: { copy: LabVideoHeroCopy }) {
           )}
         </div>
 
-        <div className="site-lab-video-hero__grade" aria-hidden="true" />
-        <div className="site-lab-video-hero__grain" aria-hidden="true" />
-        <div className="site-lab-video-hero__vignette" aria-hidden="true" />
+        <div className="site-lab-video-hero__ambient" aria-hidden="true" />
         {finePointer && allowMotion ? (
           <div className="site-lab-video-hero__cursor" aria-hidden="true" />
         ) : null}
         <div className="site-lab-video-hero__fade" aria-hidden="true" />
+
+        <div className="site-lab-video-hero__overlay">
+          <p className="site-lab-video-hero__overlay-eyebrow">
+            {copy.overlayEyebrow}
+          </p>
+          <p className="site-lab-video-hero__overlay-line">{copy.overlayLine}</p>
+        </div>
+
+        <nav
+          className="site-lab-video-hero__links"
+          aria-label={copy.linksLabel}
+        >
+          {copy.links.map((link) => (
+            <Link
+              key={link.href}
+              className="site-lab-video-hero__link"
+              href={localizePath(locale, link.href)}
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
 
         {allowMotion ? (
           <button
@@ -269,23 +326,46 @@ export function LabVideoHero({ copy }: { copy: LabVideoHeroCopy }) {
         ) : null}
 
         {allowMotion ? (
-          <div
-            className="site-lab-video-hero__progress"
-            role="progressbar"
-            aria-valuemin={0}
-            aria-valuemax={100}
-            aria-valuenow={Math.round(progress * 100)}
-            aria-hidden="true"
-          >
-            <span
-              className="site-lab-video-hero__progress-bar"
-              style={{ transform: `scaleX(${Math.max(0, Math.min(1, progress))})` }}
-            />
+          <div className="site-lab-video-hero__progress-wrap">
+            <div
+              className="site-lab-video-hero__progress"
+              role="progressbar"
+              aria-valuemin={0}
+              aria-valuemax={100}
+              aria-valuenow={Math.round(progress * 100)}
+              aria-hidden="true"
+            >
+              <span
+                className="site-lab-video-hero__progress-bar"
+                style={{
+                  transform: `scaleX(${Math.max(0, Math.min(1, progress))})`,
+                }}
+              />
+            </div>
+            <div className="site-lab-video-hero__chapters" aria-hidden="true">
+              {CHAPTER_MARKS.map((mark) => (
+                <button
+                  key={mark}
+                  type="button"
+                  className={[
+                    "site-lab-video-hero__chapter",
+                    progress >= mark ? "is-passed" : "",
+                  ]
+                    .filter(Boolean)
+                    .join(" ")}
+                  style={{ insetInlineStart: `${mark * 100}%` }}
+                  tabIndex={-1}
+                  onClick={() => seekToFraction(mark)}
+                />
+              ))}
+            </div>
           </div>
         ) : null}
       </div>
 
-      <p className="site-lab-video-hero__caption">{copy.caption}</p>
+      <p ref={captionRef} className="site-lab-video-hero__caption">
+        {copy.caption}
+      </p>
     </div>
   );
 }

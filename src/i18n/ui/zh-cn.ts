@@ -37,14 +37,21 @@ export const uiZhCn: UiMessages = {
     eyebrow: "测试 / Lab / 实验",
     title: "Lab",
     lead: "在不影响公开站点的前提下尝试新功能的沙盒。这里的内容是实验，不是产品声明。",
+    videoOverlayEyebrow: "Lab 实验",
+    videoOverlayLine: "一段工作剪辑——为人类照护而塑造的系统。",
     videoCaption: "一段工作剪辑——为物理世界中的人类照护而塑造的系统。",
     videoMute: "静音",
     videoUnmute: "取消静音",
+    videoLinksLabel: "从此 Lab 实验前往已发布页面",
+    videoLinkHome: "首页",
+    videoLinkBiomath: "BioMath Core",
+    videoLinkInterface: "机器人接口",
+    videoLinkContact: "联系",
     videoEffectsHeading: "视频开场处理",
     videoEffectsApplied:
-      "本区带已应用（融入页面背景——柔和羽化边缘，无硬边视频框或画框）：一条轻量双格式视频（WebM + MP4，移动端优选）、跳过带黑边的首场重新剪辑（约 7.2 秒、1.05×、中心放大裁切约 1.14×、缓存 ?v=d0271）、可选声音（默认静音）、Mute 控件、细字幕、循环进度、明显滚动视差（约 ±64px + 缩放）、桌面光标聚光灯、Ken Burns 约 1.06→1.14、柔和主题化暗角/淡入 Lab 背景、胶片颗粒与调色。直角边；无霓虹。减少动态时减弱动效并显示海报。",
+      "本区带已应用（融入页面背景——柔和羽化边缘，无硬边视频框或画框）：一条轻量双格式视频（WebM + MP4，移动端优选）、跳过带黑边的首场重新剪辑（约 7.2 秒、1.05×、中心放大裁切约 1.14×、缓存 ?v=d0272）、可选声音（默认静音）、Mute 控件、克制的文字叠层、前往已发布页面的 glass-light 链接、柔和进度条上的章节标记、随滚动淡出的说明、明显滚动视差（约 ±64px + 缩放）、减弱的桌面光标光、Ken Burns 约 1.06→1.14，以及融入 Lab 背景的轻侧氛围——无胶片颗粒、重暗角或浑浊调色。直角边；无霓虹。减少动态时减弱动效并显示海报。",
     videoEffectsIdeas:
-      "后续想法（未上线）：章节剪辑 / 多片段播放列表、与 scrub 联动的视差、浏览器支持更广时的 HDR/AV1。",
+      "后续想法（未上线）：多片段播放列表、与 scrub 联动的视差、章节标题、浏览器支持更广时的 HDR/AV1。",
     note: "可从此中心链接新实验。此页为 noindex，不在主导航中。公开首页仍为实景照片拼贴。",
   },
 

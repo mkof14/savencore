@@ -465,11 +465,16 @@ export const uiEn = {
     eyebrow: "Test / Lab / Experiments",
     title: "Lab",
     lead: "A sandbox for trying new features without changing the public site. Surfaces here are experiments — not product claims.",
+    videoFrameEyebrow: "Lab experiment",
+    videoCaption: "A working cut — systems shaped for human care in the physical world.",
+    videoWatchChip: "Watch · Lab",
+    videoMute: "Mute",
+    videoUnmute: "Unmute",
     videoEffectsHeading: "Video splash treatment",
     videoEffectsApplied:
-      "Applied on this band: one light dual-format video (WebM + MP4, mobile pick), Ken Burns scale, soft vignette, bottom fade into the page, fine film grain, slight color grade, and a smooth fade-in when ready. Straight corners; no neon chrome. Reduced-motion shows the poster only.",
+      "Applied on this band: one light dual-format video (WebM + MP4, mobile pick) with a tighter editorial cut and optional sound (starts muted), editorial frame with corner marks, restrained caption, Watch · Lab chip, thin loop progress, subtle scroll parallax, desktop cursor light, Ken Burns scale, soft vignette, bottom fade, fine film grain, slight color grade, and a smooth fade-in. Straight corners; no neon chrome. Reduced-motion reduces motion effects and shows the poster.",
     videoEffectsIdeas:
-      "Future ideas (not shipped): scroll parallax scrub, interactive cursor light, chapter cuts / multi-clip playlist, subtle audio bed with mute control, HDR/AV1 when browser support is broad.",
+      "Future ideas (not shipped): chapter cuts / multi-clip playlist, scrub-linked parallax chapters, HDR/AV1 when browser support is broad.",
     note: "New experiments can be linked from this hub. This page is noindex and is not in the primary header menu. The public home stays the living photo collage.",
   },
 

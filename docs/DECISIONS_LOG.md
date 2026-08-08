@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-08-08 (D-0268 — Lab single video; remove depth blur duplicate)
+**Last updated:** 2026-08-08 (D-0269 — Lab video band: designed cut + interaction polish)
 
 ## Rules
 
@@ -284,6 +284,7 @@
 | D-0266 | 2026-08-08 | Lab video splash — GWR MVP preview band on `/lab/` | Active |
 | D-0267 | 2026-08-08 | Retire particle experiment; light Lab video + cinematic effects | Active |
 | D-0268 | 2026-08-08 | Lab splash: one video only — remove depth blur duplicate | Active |
+| D-0269 | 2026-08-08 | Lab video band — designed cut, sound/mute, parallax, cursor light, editorial frame | Active |
 
 ---
 
@@ -2831,6 +2832,22 @@
 - **In scope:** `LabVideoHero`, Lab CSS, Lab effects copy (10 locales), D-0268 / AGENTS / SITE_ASSIGNMENT notes; commit/push/Vercel prod.
 - **Out of scope:** New master export; home hero video; audio; parallax/cursor effects (ideas only until approved).
 - **Implications:** One visible video plane; less decode/bandwidth on desktop.
+
+### D-0269 — Lab video band — designed cut, sound/mute, parallax, cursor light, editorial frame
+
+- **Date:** 2026-08-08
+- **Status:** Active
+- **Summary:** Owner requests the Lab splash feel designed (not “an AI video dropped in”), still **Lab-only** — not moved to the public home.
+- **Decision:**
+  1. **Cut:** Re-encode from Desktop original `S989898_gwr_video_mvp.mp4` with intentional in/out (`ss=0.42`, `t=8.40` → ~8.4s), trim settle / bright end; keep light dual-format desktop + mobile WebM/MP4 + poster; cache-bust `?v=d0269`. **Audio retained** in encodes.
+  2. **Sound + mute:** Video may have audio; **default muted** for autoplay policy; accessible Mute/Unmute control; optional mute preference in `sessionStorage` (`savencore-lab-video-muted`).
+  3. **Interaction (Lab only):** Subtle scroll parallax on the media layer; soft radial **cursor light** on fine pointer / desktop only (hidden for coarse/touch); keep Ken Burns / vignette / grain / grade / fade when helpful.
+  4. **Framing / copy:** Editorial shell (border, corner marks), eyebrow “Lab experiment” (localized), restrained caption on scrim, “Watch · Lab” chip, thin loop progress indicator. Honest Lab tone — no Operational claims, no Platform/ecosystem vocabulary.
+  5. **`prefers-reduced-motion`:** Reduce/disable parallax and Ken Burns; poster OK; mute control available when video plays (motion path).
+  6. Still one video plane (D-0268); not on public home; `/lab/` remains noindex / footer Resources discovery (D-0263).
+- **In scope:** `public/lab/video/*` re-encodes; `LabVideoHero` + Lab CSS/page; UI i18n (10 locales); D-0269 / AGENTS / SITE_ASSIGNMENT; commit/push/Vercel prod.
+- **Out of scope:** Public home video hero; multi-clip playlist; inventing Operational claims; header Lab link.
+- **Implications:** Lab splash reads as a designed experiment band with optional sound and light interaction; home collage unchanged (D-0261).
 
 ## Pending Owner Decisions
 

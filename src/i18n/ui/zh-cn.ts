@@ -37,11 +37,16 @@ export const uiZhCn: UiMessages = {
     eyebrow: "测试 / Lab / 实验",
     title: "Lab",
     lead: "在不影响公开站点的前提下尝试新功能的沙盒。这里的内容是实验，不是产品声明。",
+    videoFrameEyebrow: "Lab 实验",
+    videoCaption: "一段工作剪辑——为物理世界中的人类照护而塑造的系统。",
+    videoWatchChip: "观看 · Lab",
+    videoMute: "静音",
+    videoUnmute: "取消静音",
     videoEffectsHeading: "视频开场处理",
     videoEffectsApplied:
-      "本区带已应用：一条轻量双格式视频（WebM + MP4，移动端优选）、Ken Burns 缩放、柔和暗角、底部渐变衔接到页面、细腻胶片颗粒、轻微调色以及就绪后的平滑淡入。直角边；无霓虹。减少动态时仅显示海报。",
+      "本区带已应用：一条轻量双格式视频（WebM + MP4，移动端优选）与更有意图的剪辑、可选声音（默认静音）、带角标的编辑画框、克制字幕、观看 · Lab 标签、细循环进度、轻微滚动视差、桌面光标光、Ken Burns 缩放、柔和暗角、底部渐变、细腻胶片颗粒、轻微调色以及就绪后的平滑淡入。直角边；无霓虹。减少动态时减弱动效并显示海报。",
     videoEffectsIdeas:
-      "后续想法（未上线）：滚动视差、交互光标光、章节剪辑 / 多片段播放列表、带静音的轻音频、浏览器支持更广时的 HDR/AV1。",
+      "后续想法（未上线）：章节剪辑 / 多片段播放列表、与 scrub 联动的视差、浏览器支持更广时的 HDR/AV1。",
     note: "可从此中心链接新实验。此页为 noindex，不在主导航中。公开首页仍为实景照片拼贴。",
   },
 

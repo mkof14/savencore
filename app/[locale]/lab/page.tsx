@@ -12,7 +12,7 @@ type Props = {
 };
 
 /**
- * Experiments hub (D-0263 / D-0266 / D-0267) — sandbox for novelties without touching the public home.
+ * Experiments hub (D-0263 / D-0266–D-0269) — sandbox for novelties without touching the public home.
  * Linked from footer Resources only; robots noindex + sitemap excluded.
  */
 export async function generateMetadata({ params }: Props) {
@@ -35,7 +35,15 @@ export default async function LabPage({ params }: Props) {
 
   return (
     <article className="site-lab-page page">
-      <LabVideoHero />
+      <LabVideoHero
+        copy={{
+          frameEyebrow: ui.lab.videoFrameEyebrow,
+          caption: ui.lab.videoCaption,
+          watchChip: ui.lab.videoWatchChip,
+          mute: ui.lab.videoMute,
+          unmute: ui.lab.videoUnmute,
+        }}
+      />
       <div className="page-shell__inner site-lab-page__body">
         <div className="site-lab-page__column">
           <p className="site-lab-page__eyebrow">{ui.lab.eyebrow}</p>

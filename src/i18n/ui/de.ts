@@ -41,11 +41,17 @@ export const uiDe: UiMessages = {
     eyebrow: "Test / Lab / Experimente",
     title: "Lab",
     lead: "Ein Sandkasten für neue Funktionen, ohne die öffentliche Website zu ändern. Was hier steht, sind Experimente — keine Produktversprechen.",
+    videoFrameEyebrow: "Lab-Experiment",
+    videoCaption:
+      "Ein Arbeitsausschnitt — Systeme für menschliche Fürsorge in der physischen Welt.",
+    videoWatchChip: "Ansehen · Lab",
+    videoMute: "Ton aus",
+    videoUnmute: "Ton an",
     videoEffectsHeading: "Video-Splash-Behandlung",
     videoEffectsApplied:
-      "Auf diesem Band: ein leichtes Dual-Format-Video (WebM + MP4, mobile Auswahl), Ken-Burns-Skalierung, weiche Vignette, unterer Verlauf in die Seite, feines Filmkorn, leichte Farbkorrektur und sanftes Einblenden bei Bereitschaft. Gerade Ecken; kein Neon-Chrome. Bei reduzierter Bewegung nur Poster.",
+      "Auf diesem Band: ein leichtes Dual-Format-Video (WebM + MP4, mobile Auswahl) mit strengerem editorialem Schnitt und optionalem Ton (startet stumm), editorialer Rahmen mit Eckmarken, zurückhaltende Bildunterschrift, Ansehen · Lab-Chip, dünner Loop-Fortschritt, dezente Scroll-Parallaxe, Desktop-Cursorlicht, Ken-Burns-Skalierung, weiche Vignette, unterer Verlauf, feines Filmkorn, leichte Farbkorrektur und sanftes Einblenden. Gerade Ecken; kein Neon-Chrome. Bei reduzierter Bewegung weniger Motion und Poster.",
     videoEffectsIdeas:
-      "Ideen für später (nicht geliefert): Scroll-Parallaxe, interaktives Cursorlicht, Kapitel-Schnitte / Multi-Clip-Playlist, dezentes Audio mit Mute, HDR/AV1 bei breiter Browserunterstützung.",
+      "Ideen für später (nicht geliefert): Kapitel-Schnitte / Multi-Clip-Playlist, scrub-gekoppelte Parallaxe, HDR/AV1 bei breiter Browserunterstützung.",
     note: "Neue Experimente können von diesem Hub verlinkt werden. Diese Seite ist noindex und nicht im Hauptmenü. Die öffentliche Startseite bleibt die Foto-Collage.",
   },
 

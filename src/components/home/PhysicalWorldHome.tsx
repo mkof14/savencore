@@ -101,9 +101,9 @@ const LIVING_SRC: Record<
 };
 
 /**
- * Homepage — living photoreal collage hero (D-0261 rollback),
+ * Homepage — living photoreal collage hero (D-0261),
  * optional clarity pack (D-0219), care living carousel, then closing meaning band.
- * Particle morph experiments live at `/preview/particle-hero/` only.
+ * Particle morph experiments retired (D-0267); Lab video lives at `/lab/` only.
  */
 export function PhysicalWorldHome({ locale }: PhysicalWorldHomeProps) {
   const c = getPhysicalWorldHomeContent(locale);

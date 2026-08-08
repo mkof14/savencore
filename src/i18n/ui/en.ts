@@ -459,34 +459,18 @@ export const uiEn = {
     watchSupport:
       "A short presentation overview of SAVEN Core — intelligent systems built to support human life.",
     watchEmbedTitle: "SAVEN Core presentation video",
-    particleHeroLabel: "Particle morph visualization",
-    particlePreviewTitle: "Particle hero experiment",
-    particlePreviewLead:
-      "Internal test page for the WebGL particle morph. The public home uses the living photo collage.",
   },
 
   lab: {
     eyebrow: "Test / Lab / Experiments",
     title: "Lab",
     lead: "A sandbox for trying new features without changing the public site. Surfaces here are experiments — not product claims.",
-    experimentsHeading: "Experiment surfaces",
-    featuredBadge: "Featured experiment",
-    particleHeroTitle: "Robots help people",
-    particleHeroLead:
-      "A particle story experiment: SAVEN helps enable understanding, then physical assistance, then a care moment. Canvas is images only. The public home stays the photo collage.",
-    beatsLabel: "Story beats",
-    beatUnderstanding: "Understanding",
-    beatUnderstandingNote:
-      "Human context and energy — the system side that supports care.",
-    beatAssistance: "Assistance",
-    beatAssistanceNote:
-      "A robotic arm brings water — physical help under human control.",
-    beatCare: "Care",
-    beatCareNote:
-      "A humanoid assist moment — robots help people where life happens.",
-    openExperiment: "Open experiment",
-    backToLab: "← Back to Lab",
-    note: "New experiments can be linked from this hub. This page is noindex and is not in the primary header menu.",
+    videoEffectsHeading: "Video splash treatment",
+    videoEffectsApplied:
+      "Applied on this band: light dual-format video (WebM + MP4, mobile pick), Ken Burns scale, soft vignette, bottom fade into the page, fine film grain, slight color grade, optional blurred depth layer (desktop), and a smooth fade-in when ready. Straight corners; no neon chrome. Reduced-motion shows the poster only.",
+    videoEffectsIdeas:
+      "Future ideas (not shipped): scroll parallax scrub, interactive cursor light, chapter cuts / multi-clip playlist, subtle audio bed with mute control, HDR/AV1 when browser support is broad.",
+    note: "New experiments can be linked from this hub. This page is noindex and is not in the primary header menu. The public home stays the living photo collage.",
   },
 
   ko: {

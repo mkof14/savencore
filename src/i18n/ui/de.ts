@@ -40,22 +40,13 @@ export const uiDe: UiMessages = {
   lab: {
     eyebrow: "Test / Lab / Experimente",
     title: "Lab",
-    lead: "Eine Sandbox, um neue Funktionen auszuprobieren, ohne die öffentliche Website zu ändern. Hier sind Experimente — keine Produktversprechen.",
-    experimentsHeading: "Experimentflächen",
-    featuredBadge: "Hervorgehobenes Experiment",
-    particleHeroTitle: "Roboter helfen Menschen",
-    particleHeroLead:
-      "Ein Partikel-Story-Experiment: SAVEN hilft, Verständnis zu ermöglichen, dann physische Unterstützung, dann einen Care-Moment. Canvas nur Bilder. Die öffentliche Startseite bleibt die Foto-Collage.",
-    beatsLabel: "Story-Beats",
-    beatUnderstanding: "Verstehen",
-    beatUnderstandingNote: "Menschlicher Kontext und Energie — die Systemseite, die Care unterstützt.",
-    beatAssistance: "Unterstützung",
-    beatAssistanceNote: "Ein Roboterarm reicht Wasser — physische Hilfe unter menschlicher Kontrolle.",
-    beatCare: "Care",
-    beatCareNote: "Ein humanoider Assistenzmoment — Roboter helfen Menschen dort, wo Leben stattfindet.",
-    openExperiment: "Experiment öffnen",
-    backToLab: "← Zurück zum Lab",
-    note: "Neue Experimente können von diesem Hub verlinkt werden. Diese Seite ist noindex und nicht im Hauptmenü.",
+    lead: "Ein Sandkasten für neue Funktionen, ohne die öffentliche Website zu ändern. Was hier steht, sind Experimente — keine Produktversprechen.",
+    videoEffectsHeading: "Video-Splash-Behandlung",
+    videoEffectsApplied:
+      "Auf diesem Band: leichtes Dual-Format-Video (WebM + MP4, mobile Auswahl), Ken-Burns-Skalierung, weiche Vignette, unterer Verlauf in die Seite, feines Filmkorn, leichte Farbkorrektur, optionale unscharfe Tiefenebene (Desktop) und sanftes Einblenden bei Bereitschaft. Gerade Ecken; kein Neon-Chrome. Bei reduzierter Bewegung nur Poster.",
+    videoEffectsIdeas:
+      "Ideen für später (nicht geliefert): Scroll-Parallaxe, interaktives Cursorlicht, Kapitel-Schnitte / Multi-Clip-Playlist, dezentes Audio mit Mute, HDR/AV1 bei breiter Browserunterstützung.",
+    note: "Neue Experimente können von diesem Hub verlinkt werden. Diese Seite ist noindex und nicht im Hauptmenü. Die öffentliche Startseite bleibt die Foto-Collage.",
   },
 
   medicalDisclaimer: {
@@ -63,7 +54,7 @@ export const uiDe: UiMessages = {
       "SAVEN Core stellt über diese Website keine Diagnosen, verschreibt und verkauft keine Arzneimittel und leistet keine Notfallversorgung. Wir entwickeln Systeme zur Unterstützung von Ärztinnen und Ärzten, medizinischem Personal und Menschen. Website-Inhalte sind informativ — keine medizinische Beratung.",
     linkLabel: "Medizinischer Haftungsausschluss",
   },
-  home: { developmentStatus: "Architektur", architectureOverview: "Die Idee auf einen Blick", architectureOverviewText: "Von Menschen und Informationen zu Systemen, die im Alltag unterstützen — innerhalb klarer Grenzen.", knowledgeExplorer: "Entdecken", majorDomains: "Hauptthemen", publishedPages: "Seiten hier", relationships: "Wie es zusammenhängt", domainMap: "Entdecken", architectureDependencies: "Wie die Themen zusammenpassen", currentStatus: "Fortschritt", platformProgress: "Themen", featuredConcepts: "Entdecken", startWithCore: "Einige Ideen für den Einstieg", continueExploring: "Weiter", chooseEntrance: "Wählen Sie einen Ausgangspunkt", knowledgeId: "Dokument-ID", complete: "Abgeschlossen", inProgress: "Aktiv", planned: "Reserviert", understand: "Verstehen", explore: "Erkunden", discover: "Entdecken", continue: "Weiter", beatWhat: "Was", beatWho: "Wer", beatWhy: "Warum", beatHow: "Wie", hourFramesLabel: "Eine Stunde Fürsorge", watchTitle: "SAVEN Core ansehen", watchSupport: "Eine kurze Präsentationsübersicht zu SAVEN Core — intelligente Systeme, die menschliches Leben unterstützen sollen.", watchEmbedTitle: "SAVEN Core Präsentationsvideo", particleHeroLabel: "Partikel-Morph-Visualisierung", particlePreviewTitle: "Particle-Hero-Experiment", particlePreviewLead: "Interne Testseite für den WebGL-Partikel-Morph. Die öffentliche Startseite nutzt die Foto-Collage." },
+  home: { developmentStatus: "Architektur", architectureOverview: "Die Idee auf einen Blick", architectureOverviewText: "Von Menschen und Informationen zu Systemen, die im Alltag unterstützen — innerhalb klarer Grenzen.", knowledgeExplorer: "Entdecken", majorDomains: "Hauptthemen", publishedPages: "Seiten hier", relationships: "Wie es zusammenhängt", domainMap: "Entdecken", architectureDependencies: "Wie die Themen zusammenpassen", currentStatus: "Fortschritt", platformProgress: "Themen", featuredConcepts: "Entdecken", startWithCore: "Einige Ideen für den Einstieg", continueExploring: "Weiter", chooseEntrance: "Wählen Sie einen Ausgangspunkt", knowledgeId: "Dokument-ID", complete: "Abgeschlossen", inProgress: "Aktiv", planned: "Reserviert", understand: "Verstehen", explore: "Erkunden", discover: "Entdecken", continue: "Weiter", beatWhat: "Was", beatWho: "Wer", beatWhy: "Warum", beatHow: "Wie", hourFramesLabel: "Eine Stunde Fürsorge", watchTitle: "SAVEN Core ansehen", watchSupport: "Eine kurze Präsentationsübersicht zu SAVEN Core — intelligente Systeme, die menschliches Leben unterstützen sollen.", watchEmbedTitle: "SAVEN Core Präsentationsvideo" },
   ko: { ...uiEn.ko, document: "Dokument", passport: "Dokumentinformationen", knowledgeId: "Dokument-ID", domain: "Themenbereich", type: "Dokumenttyp", status: "Status", version: "Version", evidence: "Evidenz", maturity: "Status", readingTime: "Lesezeit", lastReview: "Letzte Überprüfung", owner: "Verantwortlich", engineeringObject: "Seiteninformationen", currentPosition: "Sie sind hier", nextReading: "Nächste Leseempfehlung", notYetAssigned: "Nicht angegeben", dependencies: "Verwandte Konzepte", dependencyGraph: "Verwandte Konzepte", incoming: "Verwendet von", outgoing: "Basiert auf", nonePublished: "Keine", knowledgeGraph: "Verbindungen", parents: "Übergeordnete Themen", children: "Enthaltene Themen", consumers: "Verwendet von", providers: "Basiert auf", lifecycle: "Dokumentverlauf", created: "Erstellt", reviewed: "Überprüft", published: "Veröffentlicht", updated: "Aktualisiert", nextReview: "Nächste Überprüfung", deprecated: "Veraltet", futureRevision: "Überarbeitung", versionHistory: "Versionen", previousVersion: "Vorherige Version", summaryOfChanges: "Was sich geändert hat", date: "Datum", readingPaths: "Leseempfehlungen", level2Kicker: "Als Nächstes", level2Title: "Verwandte Lektüre und Konzepte", level3Kicker: "Details", level3Title: "Dokumentinformationen für Fachleute" },
   scope: { definition: "Definition", "current-scope": "Was dies abdeckt", "future-scope": "Was als Nächstes kommt", "human-oversight": "Menschliche Aufsicht", "safety-boundary": "Sicherheitsgrenze", "engineering-note": "Hinweise", limitation: "Grenze" },
   callout: { information: "Information", definition: "Definition", "engineering-note": "Hinweise", important: "Wichtig", "current-scope": "Was dies abdeckt", "future-scope": "Was als Nächstes kommt", relationship: "Verbindung" },

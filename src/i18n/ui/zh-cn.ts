@@ -36,22 +36,13 @@ export const uiZhCn: UiMessages = {
   lab: {
     eyebrow: "测试 / Lab / 实验",
     title: "Lab",
-    lead: "在不影响公开站点的前提下试验新功能的沙盒。此处为实验表面——不是产品主张。",
-    experimentsHeading: "实验表面",
-    featuredBadge: "精选实验",
-    particleHeroTitle: "机器人帮助人",
-    particleHeroLead:
-      "粒子故事实验：SAVEN 帮助实现理解，再是身体协助，再是照护时刻。画布仅为图像。公开首页仍为照片拼贴。",
-    beatsLabel: "故事节拍",
-    beatUnderstanding: "理解",
-    beatUnderstandingNote: "人的情境与能量 — 支持照护的系统一侧。",
-    beatAssistance: "协助",
-    beatAssistanceNote: "机械臂递水 — 在人的掌控下提供身体帮助。",
-    beatCare: "照护",
-    beatCareNote: "人形协助瞬间 — 机器人在生活发生的地方帮助人。",
-    openExperiment: "打开实验",
-    backToLab: "← 返回 Lab",
-    note: "可从此中心链接新实验。本页为 noindex，且不在主导航菜单中。",
+    lead: "在不影响公开站点的前提下尝试新功能的沙盒。这里的内容是实验，不是产品声明。",
+    videoEffectsHeading: "视频开场处理",
+    videoEffectsApplied:
+      "本区带已应用：轻量双格式视频（WebM + MP4，移动端优选）、Ken Burns 缩放、柔和暗角、底部渐变衔接到页面、细腻胶片颗粒、轻微调色、可选模糊景深层（桌面）以及就绪后的平滑淡入。直角边；无霓虹。减少动态时仅显示海报。",
+    videoEffectsIdeas:
+      "后续想法（未上线）：滚动视差、交互光标光、章节剪辑 / 多片段播放列表、带静音的轻音频、浏览器支持更广时的 HDR/AV1。",
+    note: "可从此中心链接新实验。此页为 noindex，不在主导航中。公开首页仍为实景照片拼贴。",
   },
 
   medicalDisclaimer: {
@@ -59,7 +50,7 @@ export const uiZhCn: UiMessages = {
       "SAVEN Core 不会通过本网站进行医疗诊断、开具或销售药品，也不提供紧急医疗护理。我们开发旨在支持医生、医护人员和人们的系统。网站内容仅供信息参考——并非医疗建议。",
     linkLabel: "医疗免责声明",
   },
-  home: { developmentStatus: "架构", architectureOverview: "一览核心理念", architectureOverviewText: "从人和信息到支持日常生活的系统——始终遵循明确的边界。", knowledgeExplorer: "探索", majorDomains: "主要主题", publishedPages: "这里的页面", relationships: "如何关联", domainMap: "发现", architectureDependencies: "主题如何衔接", currentStatus: "进展", platformProgress: "主题", featuredConcepts: "发现", startWithCore: "从几个核心理念开始", continueExploring: "继续", chooseEntrance: "选择起点", knowledgeId: "文档 ID", complete: "完成", inProgress: "活跃", planned: "保留", understand: "了解", explore: "探索", discover: "发现", continue: "继续", beatWhat: "是什么", beatWho: "为谁", beatWhy: "为什么", beatHow: "怎么做", hourFramesLabel: "一小时的照护", watchTitle: "观看 SAVEN Core", watchSupport: "SAVEN Core 的简短介绍概览——为支持人类生活而打造的智能系统。", watchEmbedTitle: "SAVEN Core 介绍视频", particleHeroLabel: "粒子形态演变视觉", particlePreviewTitle: "粒子英雄实验", particlePreviewLead: "WebGL 粒子变形的内部测试页。公开首页使用实景照片拼贴。" },
+  home: { developmentStatus: "架构", architectureOverview: "一览核心理念", architectureOverviewText: "从人和信息到支持日常生活的系统——始终遵循明确的边界。", knowledgeExplorer: "探索", majorDomains: "主要主题", publishedPages: "这里的页面", relationships: "如何关联", domainMap: "发现", architectureDependencies: "主题如何衔接", currentStatus: "进展", platformProgress: "主题", featuredConcepts: "发现", startWithCore: "从几个核心理念开始", continueExploring: "继续", chooseEntrance: "选择起点", knowledgeId: "文档 ID", complete: "完成", inProgress: "活跃", planned: "保留", understand: "了解", explore: "探索", discover: "发现", continue: "继续", beatWhat: "是什么", beatWho: "为谁", beatWhy: "为什么", beatHow: "怎么做", hourFramesLabel: "一小时的照护", watchTitle: "观看 SAVEN Core", watchSupport: "SAVEN Core 的简短介绍概览——为支持人类生活而打造的智能系统。", watchEmbedTitle: "SAVEN Core 介绍视频" },
   ko: { ...uiEn.ko, document: "文档", passport: "文档信息", knowledgeId: "文档 ID", domain: "主题领域", type: "文档类型", status: "状态", version: "版本", evidence: "依据", maturity: "状态", readingTime: "阅读时间", lastReview: "最近审核", owner: "负责人", engineeringObject: "页面信息", currentPosition: "当前位置", nextReading: "建议接着阅读", notYetAssigned: "未指定", dependencies: "相关概念", dependencyGraph: "相关概念", incoming: "被以下内容使用", outgoing: "依赖于", nonePublished: "无", knowledgeGraph: "关联", parents: "更广泛的主题", children: "包含的主题", consumers: "被以下内容使用", providers: "构建于", lifecycle: "文档历史", created: "已创建", reviewed: "已审核", published: "已发布", updated: "已更新", nextReview: "下次审核", deprecated: "已弃用", futureRevision: "修订", versionHistory: "版本", previousVersion: "上一版本", summaryOfChanges: "变更内容", date: "日期", readingPaths: "建议阅读", level2Kicker: "下一步", level2Title: "相关阅读与概念", level3Kicker: "详情", level3Title: "面向专业人士的文档信息" },
   scope: { definition: "定义", "current-scope": "涵盖内容", "future-scope": "下一步内容", "human-oversight": "人工监督", "safety-boundary": "安全边界", "engineering-note": "说明", limitation: "限制" },
   callout: { information: "信息", definition: "定义", "engineering-note": "说明", important: "重要", "current-scope": "涵盖内容", "future-scope": "下一步内容", relationship: "关联" },

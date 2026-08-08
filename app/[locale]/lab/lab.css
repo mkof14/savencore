@@ -1,34 +1,161 @@
-/* Experiments hub — themeable shell matching search/resources pages (D-0263 / D-0266). */
+/* Experiments hub — themeable shell (D-0263 / D-0266 / D-0267). */
 
 .site-lab-page {
   padding-block: 0 clamp(3rem, 8vw, 5rem);
 }
 
-/* Full-bleed video splash (D-0266) — dark frame, straight corners; no text overlay. */
+/* Full-bleed video splash — cinematic stack; straight corners; no neon chrome. */
 .site-lab-video-hero {
+  --lab-video-min-h: clamp(56vh, 62vh, 70vh);
+  --lab-video-max-h: 70vh;
   width: 100%;
   margin: 0 0 clamp(1.5rem, 4vw, 2.5rem);
   background: #061022;
 }
 
 .site-lab-video-hero__frame {
+  position: relative;
   width: 100%;
-  min-height: clamp(56vh, 62vh, 70vh);
-  max-height: 70vh;
+  min-height: var(--lab-video-min-h);
+  max-height: var(--lab-video-max-h);
   overflow: hidden;
-  border-block-end: 1px solid color-mix(in srgb, #0a1628 70%, var(--color-border));
-  background: #061022;
+  border-block-end: 1px solid
+    color-mix(in srgb, #0a1628 70%, var(--color-border));
+  background:
+    #061022
+    url("/lab/video/s989898-gwr-mvp-poster.webp?v=d0267") center / cover
+    no-repeat;
+  isolation: isolate;
 }
 
+.site-lab-video-hero__depth,
 .site-lab-video-hero__media {
+  position: absolute;
+  inset: 0;
   display: block;
   width: 100%;
   height: 100%;
-  min-height: clamp(56vh, 62vh, 70vh);
-  max-height: 70vh;
   object-fit: cover;
   object-position: center;
   background: #061022;
+}
+
+.site-lab-video-hero__depth {
+  z-index: 0;
+  transform: scale(1.12);
+  filter: blur(18px) saturate(1.05) brightness(0.72);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.9s ease;
+}
+
+.site-lab-video-hero__media {
+  z-index: 1;
+  filter: contrast(1.06) saturate(1.08) brightness(0.96);
+  transform-origin: 50% 45%;
+  animation: site-lab-kenburns 18s ease-in-out infinite alternate;
+  opacity: 0;
+  transition: opacity 0.9s ease;
+}
+
+.site-lab-video-hero.is-ready .site-lab-video-hero__media,
+.site-lab-video-hero.is-ready .site-lab-video-hero__depth {
+  opacity: 1;
+}
+
+.site-lab-video-hero.is-ready .site-lab-video-hero__depth {
+  opacity: 0.55;
+}
+
+.site-lab-video-hero__media--static {
+  position: absolute;
+  filter: contrast(1.04) saturate(1.04) brightness(0.97);
+  animation: none;
+}
+
+.site-lab-video-hero__grade {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      115deg,
+      color-mix(in srgb, #0a1628 28%, transparent) 0%,
+      transparent 42%,
+      color-mix(in srgb, #1a2a40 18%, transparent) 100%
+    );
+  mix-blend-mode: soft-light;
+  opacity: 0.85;
+}
+
+.site-lab-video-hero__grain {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0.09;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+  background-size: 160px 160px;
+}
+
+.site-lab-video-hero__vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 78% 72% at 50% 42%,
+    transparent 40%,
+    rgba(4, 10, 22, 0.55) 100%
+  );
+}
+
+.site-lab-video-hero__fade {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 5;
+  height: min(42%, 12rem);
+  pointer-events: none;
+  background: linear-gradient(
+    to top,
+    var(--color-background) 0%,
+    color-mix(in srgb, var(--color-background) 55%, transparent) 45%,
+    transparent 100%
+  );
+}
+
+@keyframes site-lab-kenburns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.06);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-lab-video-hero__media {
+    animation: none;
+    opacity: 1;
+    transition: none;
+  }
+
+  .site-lab-video-hero__depth {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .site-lab-video-hero__depth {
+    display: none;
+  }
+
+  .site-lab-video-hero__grain {
+    opacity: 0.06;
+  }
 }
 
 .site-lab-page__body {
@@ -75,114 +202,17 @@
   color: var(--color-text);
 }
 
-.site-lab-page__list {
-  margin: 0 0 1.75rem;
-  padding: 0;
-  list-style: none;
-  display: grid;
-  gap: 0.75rem;
-}
-
-.site-lab-page__item {
-  margin: 0;
-}
-
-.site-lab-page__link {
-  display: grid;
-  gap: 0.35rem;
-  padding: 1rem 1.1rem;
-  border: 1px solid var(--color-border);
-  background: var(--color-surface);
-  color: inherit;
-  text-decoration: none;
-  transition:
-    border-color 0.15s ease,
-    background-color 0.15s ease;
-}
-
-.site-lab-page__link:hover,
-.site-lab-page__link:focus-visible {
-  border-color: var(--color-accent);
-  background: var(--color-surface-muted);
-  outline: none;
-}
-
-.site-lab-page__link:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 2px;
-}
-
-.site-lab-page__link-title {
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: var(--color-text);
-}
-
-.site-lab-page__link-lead {
+.site-lab-page__effects,
+.site-lab-page__effects-ideas {
+  margin: 0 0 0.85rem;
+  max-width: 40rem;
   font-size: 0.95rem;
-  line-height: 1.45;
+  line-height: 1.5;
   color: var(--color-text-secondary);
 }
 
-.site-lab-page__link-cta {
-  margin-top: 0.25rem;
-  font-size: 0.8rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--color-accent);
-}
-
-.site-lab-page__feature {
-  display: grid;
-  gap: 0;
-  margin: 0 0 1.75rem;
-  border: 1px solid var(--color-border);
-  background: var(--color-surface);
-  color: inherit;
-  text-decoration: none;
-  overflow: hidden;
-  transition:
-    border-color 0.15s ease,
-    background-color 0.15s ease;
-}
-
-.site-lab-page__feature:hover,
-.site-lab-page__feature:focus-visible {
-  border-color: var(--color-accent);
-  background: var(--color-surface-muted);
-  outline: none;
-}
-
-.site-lab-page__feature:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 2px;
-}
-
-.site-lab-page__feature-media {
-  display: block;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  background: #061022;
-}
-
-.site-lab-page__feature-body {
-  display: grid;
-  gap: 0.35rem;
-  padding: 1rem 1.1rem 1.15rem;
-}
-
-.site-lab-page__feature-badge {
-  font-size: 0.7rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-accent);
-}
-
-.site-lab-page__story {
-  font-size: 0.85rem;
-  letter-spacing: 0.02em;
-  color: var(--color-text-secondary);
+.site-lab-page__effects-ideas {
+  margin-bottom: 1.75rem;
 }
 
 .site-lab-page__note {

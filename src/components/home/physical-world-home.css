@@ -1,4 +1,4 @@
-/* Homepage — particle morph stage (D-0255) + brand copy + care living carousel */
+/* Homepage — living photoreal collage + brand copy + care living carousel */
 
 .pw-home {
   /* Shared media-frame max for closing SAVEN artboard + YouTube (D-0249) */
@@ -17,81 +17,7 @@
   padding-inline: var(--container-padding-x);
 }
 
-/* ——— Particle hero stage (D-0255) ——— */
-/* Full-bleed dark artboard; images/particles only — no text on canvas. */
-
-.pw-particle-hero {
-  position: relative;
-  width: 100%;
-  max-width: 100%;
-  /* D-0260 — cinematic but less dominant than full-viewport (~0.9 scale feel) */
-  min-height: 58vh;
-  min-height: 58svh;
-  height: min(68svh, 68vh);
-  max-height: 72vh;
-  margin-inline: auto;
-  /* Deep navy — matches particle clear; poster covers load gap (D-0256) */
-  background: #061022;
-  overflow: hidden;
-  isolation: isolate;
-  border-radius: 0;
-}
-
-.pw-particle-hero--shell {
-  /* Dynamic import placeholder — same geometry + poster bg */
-  min-height: 58vh;
-  min-height: 58svh;
-  height: min(68svh, 68vh);
-  max-height: 72vh;
-  background:
-    #061022
-    url("/home/particle-hero/poster.webp") center / cover no-repeat;
-}
-
-.pw-particle-hero__canvas,
-.pw-particle-hero__poster {
-  position: absolute;
-  inset: 0;
-  display: block;
-  width: 100%;
-  height: 100%;
-  border-radius: 0;
-}
-
-.pw-particle-hero__poster {
-  object-fit: cover;
-  object-position: center;
-  z-index: 0;
-  background: #061022;
-  transition: opacity 0.5s ease;
-  opacity: 1;
-}
-
-.pw-particle-hero__poster.is-faded {
-  /* Hide single-frame poster once WebGL is live — never leave a collage underlay */
-  opacity: 0;
-  pointer-events: none;
-}
-
-.pw-particle-hero__canvas {
-  z-index: 1;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.5s ease;
-}
-
-.pw-particle-hero__canvas.is-live {
-  opacity: 1;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .pw-particle-hero__canvas {
-    display: none;
-  }
-}
-
 /* ——— Hero: brand copy + living photoreal collage (D-0261 public home) ——— */
-/* Particle morph experiments: `/preview/particle-hero/` only (not public home). */
 
 .pw-hero {
   /* Atmospheric field stays dark in both themes (D-0172); page shell flips. */

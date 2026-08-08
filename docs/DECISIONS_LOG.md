@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-08-08 (D-0266 — Lab video splash / GWR MVP preview)
+**Last updated:** 2026-08-08 (D-0267 — retire Lab particles; light Lab video + cinematic stack)
 
 ## Rules
 
@@ -282,6 +282,7 @@
 | D-0264 | 2026-08-08 | Lab particle experiment — human + energy waves (preview) | Active |
 | D-0265 | 2026-08-08 | Lab particle story — Understanding → Assistance → Care | Active |
 | D-0266 | 2026-08-08 | Lab video splash — GWR MVP preview band on `/lab/` | Active |
+| D-0267 | 2026-08-08 | Retire particle experiment; light Lab video + cinematic effects | Active |
 
 ---
 
@@ -2804,6 +2805,21 @@
 - **In scope:** Video + poster assets, `LabVideoHero`, Lab page + CSS, D-0266 docs; commit/push/Vercel prod; local `/en/lab/` verify.
 - **Out of scope:** Public home video hero; inventing Operational claims; header Lab link; compressing/re-encoding the owner source clip.
 - **Implications:** Lab hub gains a video splash above the experiment list; particle story card (D-0265) remains below.
+
+### D-0267 — Retire particle experiment; light Lab video + cinematic effects
+
+- **Date:** 2026-08-08
+- **Status:** Active
+- **Summary:** Owner retires the particle/dots experiment entirely and continues the Lab video path with light multi-format delivery plus a curated modern cinematic stack on `/lab/` only. Public home photo collage stays.
+- **Decision:**
+  1. **Retire particles:** Delete `/preview/particle-hero/`, `HeroParticleScene` / `HeroParticleStage` / `LabParticleScene` / `LabParticleStage` + CSS, bake scripts, and all `public/home/particle-hero/**` + `public/lab/particle/**` assets (large `.bin.gz`). Remove Lab hub links/cards to the particle preview. Keep `/lab/` footer discovery.
+  2. **Light video:** Re-encode GWR MVP splash to dual sources — desktop `*.webm` (VP9) + `*.mp4` (H.264) and mobile `*-mobile.*` (540p); poster WebP from first frame. Target roughly **~0.5–1.1MB** per variant (far below the prior ~14MB). `LabVideoHero` picks mobile/desktop via `matchMedia` / `saveData`, `preload` none/metadata, loads when in view, pauses offscreen (`IntersectionObserver`), `prefers-reduced-motion` → poster only, muted loop playsInline autoplay.
+  3. **Cinematic stack (Lab only):** Ken Burns slow scale, soft vignette + bottom gradient fade into Lab content, fine film grain, slight CSS color grade, optional blurred duplicated video depth layer (desktop only), smooth fade-in when ready. Straight corners; no neon chrome UI.
+  4. Lab page documents applied effects + residual future ideas (parallax scrub, cursor light, chapter cuts, etc.).
+  5. Supersedes D-0261–D-0265 particle preview path for discovery; D-0255–D-0265 particle runtime/assets are retired from the repo. D-0266 video path continues and is optimized here.
+- **In scope:** Deletions above; video re-encodes; `LabVideoHero` + Lab CSS/page; UI i18n (10 locales); AGENTS / SITE_ASSIGNMENT / D-0267; commit/push/Vercel prod; prove home collage, Lab video, particle 404s, smaller video bytes.
+- **Out of scope:** Public home video hero; inventing Operational claims; re-adding WebGL particle morph; header Lab link.
+- **Implications:** ~135MB+ particle binaries removed from the tree; Lab splash is mobile-friendly; experiments hub is video-forward.
 
 ## Pending Owner Decisions
 

@@ -3,47 +3,71 @@
 import { useEffect, useRef, useState } from "react";
 
 /**
- * Home particle hero (D-0255) — WebGL2 morph engine from owner-approved reference.
- * COUNT=650000, stride 28 bytes (7 floats), 46s loop:
- * HUMAN → INTERFACE → ROBOT → WATER → HUMAN.
+ * Home particle hero (D-0255 / D-0256) — WebGL2 morph stage.
+ * COUNT=650000, stride 28 bytes (7 floats), ~24.5s snappy loop:
+ * intro → HUMAN → LOGO → TOUCH → WATER → RETURN → HUMAN.
  *
- * Assets: gzipped Float32 buffers under /home/particle-hero/*.bin.gz
- * (decompressed client-side). prefers-reduced-motion → static poster.
+ * Buffers rebaked from owner 5-panel reference (D-0256).
+ * Assets: /home/particle-hero/*.bin.gz — client DecompressionStream.
+ * prefers-reduced-motion → static poster (no WebGL thrash).
  *
- * Performance: desktop prefers full COUNT + DPR≤2.5. Mobile tries full COUNT
- * first; if sustained frame time is high, lowers DPR then subsamples (½).
+ * Performance: desktop full COUNT + DPR≤2.5; mobile tries full COUNT,
+ * then may lower DPR or subsample (½) if sustained frame time is high.
  */
 
 const COUNT = 650_000;
-const STRIDE = 28; // bytes
-const FLOATS_PER = STRIDE / 4; // 7
-const LOOP_S = 46;
+const STRIDE = 28;
+const FLOATS_PER = STRIDE / 4;
+const LOOP_S = 24.5;
+const INTRO_S = 1.25;
 const ASSET_BASE = "/home/particle-hero";
 const POSTER = `${ASSET_BASE}/poster.webp`;
 
-const TARGETS = ["HUMAN", "INTERFACE", "ROBOT", "WATER"] as const;
+const TARGETS = ["HUMAN", "LOGO", "TOUCH", "WATER", "RETURN"] as const;
 type MorphKey = (typeof TARGETS)[number];
 
+const FILE: Record<MorphKey, string> = {
+  HUMAN: "human",
+  LOGO: "logo",
+  TOUCH: "touch",
+  WATER: "water",
+  RETURN: "return",
+};
+
+/** Brighter, sharper points + scatter uniform for intro converge. */
 const VS = `#version 300 es
 precision highp float;
 layout(location=0)in vec2 p0;layout(location=1)in vec3 c0;layout(location=2)in float s0;layout(location=3)in float seed;
 layout(location=4)in vec2 p1;layout(location=5)in vec3 c1;layout(location=6)in float s1;
-uniform float m,time,dpr,wave,light;uniform vec2 asp;out vec3 col;
+uniform float m,time,dpr,wave,light,scatter;uniform vec2 asp;out vec3 col;
 float ez(float x){x=clamp(x,0.,1.);return x*x*(3.-2.*x);}
 void main(){
- float lm=ez((m-seed*.028)/.972);vec2 p=mix(p0,p1,lm);float arc=sin(3.14159*lm);
- p+=vec2(sin(time*.24+seed*107.),cos(time*.21+seed*83.))*(.000022+fract(seed*23.)*.000060);
- float q1=sin(p.x*22.-time*.92+seed*.5),q2=sin(p.x*13.-time*.54+seed*1.1);
- p.y+=(q1*.0037+q2*.0019)*wave;p.x+=cos(p.y*16.-time*.62+seed*.8)*.00135*wave;
- p+=vec2(sin(seed*211.+time*.085)*.0038,cos(seed*167.+time*.07)*.0025)*arc;
+ float lm=ez((m-seed*.022)/.978);vec2 p=mix(p0,p1,lm);float arc=sin(3.14159*lm);
+ // Ambient shimmer (active on holds too)
+ p+=vec2(sin(time*.32+seed*107.),cos(time*.28+seed*83.))*(.000035+fract(seed*23.)*.000085);
+ float q1=sin(p.x*20.-time*1.05+seed*.5),q2=sin(p.x*12.-time*.62+seed*1.1);
+ p.y+=(q1*.0042+q2*.0022)*wave;p.x+=cos(p.y*15.-time*.72+seed*.8)*.00155*wave;
+ p+=vec2(sin(seed*211.+time*.11)*.0042,cos(seed*167.+time*.09)*.0028)*arc;
+ // Intro: converge from scatter
+ vec2 rnd=vec2(fract(seed*47.13),fract(seed*91.77));
+ p=mix(p, rnd, clamp(scatter,0.,1.));
  gl_Position=vec4((p.x*2.-1.)*asp.x,-(p.y*2.-1.)*asp.y,0,1);
- gl_PointSize=clamp(mix(s0,s1,lm)*dpr*(1.02+.028*sin(time*.48+seed*53.)),1.,2.85*dpr);
- col=mix(c0,c1,lm)*light;
+ float psz=mix(s0,s1,lm)*dpr*(0.78+.018*sin(time*.55+seed*53.));
+ gl_PointSize=clamp(psz,0.85,1.72*dpr);
+ col=mix(c0,c1,lm)*light*(1.-scatter*.55);
 }`;
 
 const FS = `#version 300 es
 precision highp float;in vec3 col;out vec4 o;
-void main(){float d=length(gl_PointCoord-.5);float a=smoothstep(.49,.004,d)+smoothstep(.5,.032,d)*.042;if(a<.001)discard;o=vec4(col*(1.+a*.11),a);}`;
+void main(){
+ float d=length(gl_PointCoord-.5);
+ float core=smoothstep(.42,.0,d);
+ float halo=smoothstep(.5,.08,d)*.085;
+ float a=core+halo;
+ if(a<.002)discard;
+ vec3 c=col*(1.18+core*.28);
+ o=vec4(c,a);
+}`;
 
 function prefersReducedMotion(): boolean {
   if (typeof window === "undefined") return true;
@@ -62,7 +86,6 @@ async function loadBinGz(url: string): Promise<Float32Array> {
   const res = await fetch(url);
   if (!res.ok) throw new Error(`Failed to load ${url}: ${res.status}`);
   if (!res.body || typeof DecompressionStream === "undefined") {
-    // Fallback: try raw ArrayBuffer (if host already decoded) — unlikely for .gz.
     const ab = await res.arrayBuffer();
     return new Float32Array(ab);
   }
@@ -110,20 +133,17 @@ function compile(gl: WebGL2RenderingContext, type: number, src: string) {
 }
 
 type HeroParticleSceneProps = {
-  /** Localized accessible name for the decorative stage */
   ariaLabel: string;
 };
 
 export function HeroParticleScene({ ariaLabel }: HeroParticleSceneProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const wrapRef = useRef<HTMLDivElement | null>(null);
-  // Client-only component (dynamic ssr:false) — safe to read matchMedia on init.
   const [mode, setMode] = useState<"loading" | "webgl" | "poster">(() =>
     prefersReducedMotion() ? "poster" : "loading",
   );
 
   useEffect(() => {
-    // Initial state already poster when reduced-motion; avoid sync setState here.
     if (prefersReducedMotion()) return;
 
     const canvas = canvasRef.current;
@@ -149,19 +169,17 @@ export function HeroParticleScene({ ariaLabel }: HeroParticleSceneProps) {
 
     (async () => {
       try {
-        const [human, iface, robot, water] = await Promise.all(
-          TARGETS.map((k) =>
-            loadBinGz(`${ASSET_BASE}/${k.toLowerCase()}.bin.gz`),
-          ),
+        const loaded = await Promise.all(
+          TARGETS.map((k) => loadBinGz(`${ASSET_BASE}/${FILE[k]}.bin.gz`)),
         );
-        if (cancelled || !human || !iface || !robot || !water) return;
-
-        const buffers: Record<MorphKey, Float32Array> = {
-          HUMAN: human,
-          INTERFACE: iface,
-          ROBOT: robot,
-          WATER: water,
-        };
+        if (cancelled) return;
+        const buffers = {} as Record<MorphKey, Float32Array>;
+        for (let i = 0; i < TARGETS.length; i++) {
+          const key = TARGETS[i];
+          const buf = loaded[i];
+          if (!key || !buf) throw new Error("buffer load incomplete");
+          buffers[key] = buf;
+        }
 
         gl = canvas.getContext("webgl2", {
           alpha: false,
@@ -204,11 +222,12 @@ export function HeroParticleScene({ ariaLabel }: HeroParticleSceneProps) {
         const ud = gl.getUniformLocation(program, "dpr");
         const uw = gl.getUniformLocation(program, "wave");
         const ul = gl.getUniformLocation(program, "light");
+        const us = gl.getUniformLocation(program, "scatter");
         const ua = gl.getUniformLocation(program, "asp");
 
         const pair = (A: MorphKey, B: MorphKey) => {
           if (!gl) return;
-          const key = A + B + keepEvery;
+          const key = `${A}|${B}|${keepEvery}`;
           if (key === lastPair) return;
           lastPair = key;
           gl.bindBuffer(gl.ARRAY_BUFFER, ba);
@@ -255,6 +274,7 @@ export function HeroParticleScene({ ariaLabel }: HeroParticleSceneProps) {
           t: number,
           w: number,
           l: number,
+          scatter = 0,
         ) => {
           if (!gl) return;
           pair(A, B);
@@ -262,18 +282,18 @@ export function HeroParticleScene({ ariaLabel }: HeroParticleSceneProps) {
           gl.uniform1f(ut, t);
           gl.uniform1f(uw, w);
           gl.uniform1f(ul, l);
+          gl.uniform1f(us, scatter);
           gl.drawArrays(gl.POINTS, 0, drawCount);
         };
 
         const applySubsample = (every: number) => {
           if (every === keepEvery || !gl) return;
           keepEvery = every;
-          active = {
-            HUMAN: subsample(buffers.HUMAN, every),
-            INTERFACE: subsample(buffers.INTERFACE, every),
-            ROBOT: subsample(buffers.ROBOT, every),
-            WATER: subsample(buffers.WATER, every),
-          };
+          const next = {} as Record<MorphKey, Float32Array>;
+          for (const k of TARGETS) {
+            next[k] = subsample(buffers[k], every);
+          }
+          active = next;
           drawCount = active.HUMAN.length / FLOATS_PER;
           lastPair = "";
         };
@@ -286,6 +306,11 @@ export function HeroParticleScene({ ariaLabel }: HeroParticleSceneProps) {
         let lastN = start;
         let adapted = false;
 
+        /**
+         * Snappy timeline (~24.5s) — short holds with continuous wave:
+         * 0–1.25 intro converge → HUMAN
+         * HUMAN hold → morph LOGO → hold → TOUCH → hold → WATER → hold → RETURN → morph HUMAN
+         */
         const frame = (n: number) => {
           if (cancelled || !gl) return;
           const dt = n - lastN;
@@ -294,7 +319,6 @@ export function HeroParticleScene({ ariaLabel }: HeroParticleSceneProps) {
             frameSamples += 1;
             frameTimeSum += dt;
           }
-          // After ~90 frames, if sustained > ~36ms (~28fps), adapt once.
           if (!adapted && frameSamples >= 90) {
             const avg = frameTimeSum / frameSamples;
             if (avg > 36) {
@@ -312,18 +336,75 @@ export function HeroParticleScene({ ariaLabel }: HeroParticleSceneProps) {
 
           const e = ((n - start) / 1000) % LOOP_S;
           const t = n / 1000;
-          gl.clearColor(0.01, 0.037, 0.08, 1);
+          gl.clearColor(0.012, 0.042, 0.095, 1);
           gl.clear(gl.COLOR_BUFFER_BIT);
 
-          if (e < 6.5) draw("HUMAN", "INTERFACE", smoothstep(0.2, 6.5, e), t, 0.52, 1.34);
-          else if (e < 8.5) draw("INTERFACE", "INTERFACE", 0, t, 0.2, 1.38);
-          else if (e < 16.5)
-            draw("INTERFACE", "ROBOT", smoothstep(8.5, 16.5, e), t, 0.46, 1.34);
-          else if (e < 21.5) draw("ROBOT", "ROBOT", 0, t, 0.1, 1.31);
-          else if (e < 31.5)
-            draw("ROBOT", "WATER", smoothstep(21.5, 31.5, e), t, 0.38, 1.31);
-          else if (e < 38.5) draw("WATER", "WATER", 0, t, 0.08, 1.3);
-          else draw("WATER", "HUMAN", smoothstep(38.5, 46, e), t, 0.34, 1.27);
+          // Hold wave stays lively (not frozen)
+          const holdWave = 0.38;
+          const morphWave = 0.58;
+          const holdLight = 1.72;
+          const morphLight = 1.68;
+
+          if (e < INTRO_S) {
+            const u = smoothstep(0, INTRO_S, e);
+            const scatter = 1 - u;
+            draw("HUMAN", "HUMAN", 0, t, 0.45 + 0.2 * u, 0.55 + 1.2 * u, scatter);
+          } else if (e < 2.35) {
+            draw("HUMAN", "HUMAN", 0, t, holdWave, holdLight);
+          } else if (e < 5.6) {
+            draw(
+              "HUMAN",
+              "LOGO",
+              smoothstep(2.35, 5.6, e),
+              t,
+              morphWave,
+              morphLight,
+            );
+          } else if (e < 6.7) {
+            draw("LOGO", "LOGO", 0, t, holdWave, 1.78);
+          } else if (e < 10.0) {
+            draw(
+              "LOGO",
+              "TOUCH",
+              smoothstep(6.7, 10.0, e),
+              t,
+              morphWave,
+              morphLight,
+            );
+          } else if (e < 11.15) {
+            draw("TOUCH", "TOUCH", 0, t, holdWave, holdLight);
+          } else if (e < 14.5) {
+            draw(
+              "TOUCH",
+              "WATER",
+              smoothstep(11.15, 14.5, e),
+              t,
+              morphWave,
+              morphLight,
+            );
+          } else if (e < 15.65) {
+            draw("WATER", "WATER", 0, t, holdWave * 0.95, holdLight);
+          } else if (e < 19.0) {
+            draw(
+              "WATER",
+              "RETURN",
+              smoothstep(15.65, 19.0, e),
+              t,
+              morphWave,
+              morphLight,
+            );
+          } else if (e < 20.15) {
+            draw("RETURN", "RETURN", 0, t, holdWave, holdLight);
+          } else {
+            draw(
+              "RETURN",
+              "HUMAN",
+              smoothstep(20.15, LOOP_S, e),
+              t,
+              morphWave * 0.9,
+              morphLight,
+            );
+          }
 
           raf = requestAnimationFrame(frame);
         };
@@ -352,28 +433,29 @@ export function HeroParticleScene({ ariaLabel }: HeroParticleSceneProps) {
       role="img"
       aria-label={ariaLabel}
     >
-      {(mode === "poster" || mode === "loading") && (
-        // eslint-disable-next-line @next/next/no-img-element -- decorative LCP poster / reduced-motion
-        <img
-          className="pw-particle-hero__poster"
-          src={POSTER}
-          alt=""
-          width={1280}
-          height={720}
-          decoding="async"
-          fetchPriority={mode === "loading" ? "high" : "auto"}
+      {/* Strong poster always under canvas — no black void while bins load */}
+      {/* eslint-disable-next-line @next/next/no-img-element -- decorative LCP / reduced-motion */}
+      <img
+        className={`pw-particle-hero__poster${mode === "webgl" ? " is-under" : ""}`}
+        src={POSTER}
+        alt=""
+        width={1600}
+        height={900}
+        decoding="async"
+        fetchPriority="high"
+        aria-hidden="true"
+      />
+      {mode !== "poster" && (
+        <canvas
+          ref={canvasRef}
+          className="pw-particle-hero__canvas"
           aria-hidden="true"
+          style={{
+            opacity: mode === "webgl" ? 1 : 0,
+            pointerEvents: "none",
+          }}
         />
       )}
-      <canvas
-        ref={canvasRef}
-        className="pw-particle-hero__canvas"
-        aria-hidden="true"
-        style={{
-          opacity: mode === "webgl" ? 1 : 0,
-          pointerEvents: "none",
-        }}
-      />
     </div>
   );
 }

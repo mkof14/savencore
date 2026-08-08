@@ -14,6 +14,7 @@ const HeroParticleScene = dynamic(
       <div
         className="pw-particle-hero pw-particle-hero--shell"
         aria-hidden="true"
+        role="presentation"
       />
     ),
   },

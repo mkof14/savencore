@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-08-08 (D-0255 — Home particle morph hero from approved WebGL reference)
+**Last updated:** 2026-08-08 (D-0256 — Particle hero densify / rebake / snappy loop)
 
 ## Rules
 
@@ -271,6 +271,7 @@
 | D-0253 | 2026-07-30 | Investors locale repair after D-0252 + downloads/PWA verify | Active |
 | D-0254 | 2026-07-30 | Final public site snapshot freeze | Active |
 | D-0255 | 2026-08-08 | Home particle morph hero (WebGL; approved reference) | Active |
+| D-0256 | 2026-08-08 | Particle hero densify, rebake from 5-panel refs, snappy loop | Active |
 
 ---
 
@@ -2640,6 +2641,20 @@
 - **In scope:** `HeroParticleScene`, `PhysicalWorldHome` layout + CSS, particle-hero public assets, UI i18n aria string, D-0255 + AGENTS / SITE_ASSIGNMENT pointers; commit/push/Vercel prod; prove home WebGL canvas + bin.gz HTTP 200.
 - **Out of scope:** Replacing the care living carousel; inventing Operational/product claims; committing the 97MB reference HTML; neon decoration outside this approved particle scene.
 - **Implications:** Home first paint downloads ~46MB of particle buffers (gzipped) after the stage mounts — acceptable per owner for this hero; reduced-motion and poster path remain light.
+
+### D-0256 — Particle hero densify, rebake from 5-panel refs, snappy loop
+
+- **Date:** 2026-08-08
+- **Status:** Active
+- **Summary:** Owner-directed quality upgrade (A→B→C) so the home particle stage matches the dense blue/orange reference aesthetic — not sparse/dark/blotchy — with snappier pacing and a bright load poster.
+- **Decision:**
+  1. **A — Render & timing:** Raise brightness/contrast (`light` ~1.7, fragment core/halo boost); smaller `gl_PointSize` (max ~1.72×DPR) for sharper density; shorten loop from **46s → ~24.5s** with holds **~1.1–1.2s** and continuous ambient wave/shimmer on holds (not frozen).
+  2. **B — Rebake buffers:** Replace D-0255 HTML-extracted sparse buffers with luminance/saturation-weighted samples from the owner **5-panel** reference collage (UI chrome masked). Five scene files at COUNT **650000**: `human`, `logo`, `touch`, `water`, `return` under `public/home/particle-hero/*.bin.gz` (~12MB each gzipped; ~62MB total). Bake script: `scripts/bake-particle-hero.py`. Bright `poster.webp` from the human panel.
+  3. **C — Wow polish:** ~1.25s scatter→converge intro; poster always shown under canvas while bins load (no black void); smooth morph easing retained; `prefers-reduced-motion` → high-quality static poster.
+  4. Morph path: **intro → HUMAN → LOGO → TOUCH → WATER → RETURN → HUMAN**. No ASSIST/nav form chrome in targets. D-0255 layout (particle-first, copy below) remains.
+- **In scope:** `HeroParticleScene` shaders/timeline, rebaked bins + poster, bake script, CSS load poster, D-0256 + AGENTS pointer; commit/push/Vercel prod.
+- **Out of scope:** Inventing Operational claims; committing the 97MB reference HTML; changing care carousel / non-home pages.
+- **Implications / limits:** Source panels in the collage are low native resolution (~600×80 before upscale) — density and color match the aesthetic via importance sampling + upscale/enhance, but facial micro-detail cannot exceed the source. Total particle download rises (~62MB gzipped for five scenes).
 
 ## Pending Owner Decisions
 

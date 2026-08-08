@@ -27,6 +27,7 @@
   min-height: 70vh;
   min-height: 70svh;
   height: min(100svh, 100vh);
+  /* Deep navy — matches particle clear; poster covers load gap (D-0256) */
   background: #061022;
   overflow: hidden;
   isolation: isolate;
@@ -34,10 +35,13 @@
 }
 
 .pw-particle-hero--shell {
-  /* Dynamic import placeholder — same geometry as live stage */
+  /* Dynamic import placeholder — same geometry + poster bg */
   min-height: 70vh;
   min-height: 70svh;
   height: min(100svh, 100vh);
+  background:
+    #061022
+    url("/home/particle-hero/poster.webp") center / cover no-repeat;
 }
 
 .pw-particle-hero__canvas,
@@ -55,11 +59,17 @@
   object-position: center;
   z-index: 0;
   background: #061022;
+  transition: opacity 0.45s ease;
+}
+
+.pw-particle-hero__poster.is-under {
+  /* Keep poster painted under canvas during first frames / GPU warm-up */
+  opacity: 1;
 }
 
 .pw-particle-hero__canvas {
   z-index: 1;
-  transition: opacity 0.35s ease;
+  transition: opacity 0.45s ease;
 }
 
 @media (prefers-reduced-motion: reduce) {

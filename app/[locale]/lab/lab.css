@@ -1,4 +1,4 @@
-/* Experiments hub — themeable shell (D-0263 / D-0266–D-0272). */
+/* Experiments hub — themeable shell (D-0263 / D-0266–D-0273). */
 
 .site-lab-page {
   padding-block: 0 clamp(3rem, 8vw, 5rem);
@@ -26,13 +26,13 @@
   overflow: hidden;
   background: transparent;
   isolation: isolate;
-  /* Soft alpha mask so the band dissolves into the Lab page — not a hard rectangle. */
+  /* Vertically + horizontally symmetric soft alpha mask into Lab page surface. */
   -webkit-mask-image:
     linear-gradient(
       to bottom,
       transparent 0%,
-      #000 10%,
-      #000 82%,
+      #000 13%,
+      #000 87%,
       transparent 100%
     ),
     linear-gradient(
@@ -46,8 +46,8 @@
     linear-gradient(
       to bottom,
       transparent 0%,
-      #000 10%,
-      #000 82%,
+      #000 13%,
+      #000 87%,
       transparent 100%
     ),
     linear-gradient(
@@ -137,7 +137,7 @@
   opacity: 1;
 }
 
-/* Very light themeable feather into Lab page — prefer almost none at bottom. */
+/* Symmetric themeable feather into Lab page — equal top/bottom and left/right. */
 .site-lab-video-hero__fade {
   position: absolute;
   inset: 0;
@@ -146,13 +146,13 @@
   background:
     linear-gradient(
       to bottom,
-      color-mix(in srgb, var(--color-background) 55%, transparent) 0%,
-      transparent calc(var(--lab-feather-y) * 0.7)
+      color-mix(in srgb, var(--color-background) 48%, transparent) 0%,
+      transparent var(--lab-feather-y)
     ),
     linear-gradient(
       to top,
-      color-mix(in srgb, var(--color-background) 28%, transparent) 0%,
-      transparent calc(var(--lab-feather-y) * 0.55)
+      color-mix(in srgb, var(--color-background) 48%, transparent) 0%,
+      transparent var(--lab-feather-y)
     ),
     linear-gradient(
       to right,

@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import type { Locale } from "@/config/locales";
 import { localizePath } from "@/navigation/locale-path";
 
-const CACHE = "d0272";
+const CACHE = "d0273";
 const POSTER_SRC = `/lab/video/s989898-gwr-mvp-poster.webp?v=${CACHE}`;
 const MUTE_KEY = "savencore-lab-video-muted";
 const CHAPTER_MARKS = [0, 0.33, 0.66] as const;
@@ -51,8 +51,8 @@ function pickSources(): SourceSet {
 }
 
 /**
- * Lab splash video band (D-0266–D-0272) — owner preview only; not on public home.
- * Full-bleed single video embedded into page surface (soft feathered edges; no hard box);
+ * Lab splash video band (D-0266–D-0273) — owner preview only; not on public home.
+ * Full-bleed single video embedded into page surface (symmetric soft feathered edges; no hard box);
  * clear video (no grain / heavy vignette / heavy grade); overlay copy + explore links;
  * chapter ticks, light ambient sides, scroll-linked caption; mute / parallax / soft cursor.
  */

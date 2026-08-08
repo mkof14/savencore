@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-08-08 (D-0272 — Lab video: clear picture + overlay/links)
+**Last updated:** 2026-08-08 (D-0273 — Lab video: symmetric top/bottom page-embed)
 
 ## Rules
 
@@ -288,6 +288,7 @@
 | D-0270 | 2026-08-08 | Lab video — remove editorial frame; amplify parallax / cursor / Ken Burns / grade | Superseded (cut/chrome edges) by D-0271 |
 | D-0271 | 2026-08-08 | Lab video — skip in-file black first scene; soft embed into page background | Active (grain/vignette/grade retired by D-0272) |
 | D-0272 | 2026-08-08 | Lab video — remove grain/heavy darkenings; overlay copy + explore links | Active |
+| D-0273 | 2026-08-08 | Lab video — symmetric soft blend into page background (top = bottom) | Active |
 
 ---
 
@@ -2893,6 +2894,19 @@
 - **In scope:** `LabVideoHero` + Lab CSS/page; UI i18n (10 locales); D-0272 / AGENTS / SITE_ASSIGNMENT; commit/push/Vercel prod.
 - **Out of scope:** Public home video; inventing Operational claims; header Lab link; multi-clip playlist.
 - **Implications:** Lab splash reads clearer and more interactive while staying embedded in the page surface. D-0271 grain/vignette/grade treatment superseded for this feedback.
+
+### D-0273 — Lab video — symmetric soft blend into page background
+
+- **Date:** 2026-08-08
+- **Status:** Active
+- **Summary:** Owner feedback on D-0272 soft-embed: asked for **symmetric** top and bottom blend into the Lab page background so both edges dissolve equally smoothly — not an asymmetric mask (top solid by 10% while bottom only started fading at 82%) or unequal fade strengths (top 55% vs bottom 28%).
+- **Decision:**
+  1. **Mask:** Vertically symmetric `-webkit-mask-image` / `mask-image`: transparent 0% → solid by ~13% → solid until ~87% → transparent 100%. Keep left/right soft and symmetric (transparent 0% → solid 6% → solid 94% → transparent 100%).
+  2. **Fade overlays:** Equal top/bottom strength — both `color-mix(... --color-background 48%)` over full `--lab-feather-y`; left/right remain equal at 35% over `--lab-feather-x`. Page `--color-background` shows through faded edges (no black box).
+  3. Do **not** reintroduce grain / vignette / heavy darkening. Cache-bust `?v=d0273`. Lab `/lab/` only; not public home. Overlay/links/chapters/mute/parallax/Ken Burns from D-0272 retained.
+- **In scope:** Lab CSS (`lab.css`) + `LabVideoHero` cache tag; D-0273 / AGENTS / SITE_ASSIGNMENT; commit/push/Vercel prod.
+- **Out of scope:** Public home video; inventing Operational claims; grain/vignette return.
+- **Implications:** Lab splash embeds evenly into the page surface at top and bottom. Asymmetric D-0272 feather preference (“almost none at bottom”) superseded for this feedback.
 
 ## Pending Owner Decisions
 

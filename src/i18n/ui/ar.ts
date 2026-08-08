@@ -73,7 +73,7 @@ export const uiAr: UiMessages = {
     "footer-company-investors-contact": "تواصل للمستثمرين",
     "footer-company-media": "الوسائط",
     "footer-company-roadmap": "خارطة الطريق",
-    "footer-resources-search": "بحث",
+    "footer-resources-search": "بحث", "footer-resources-lab": "Lab",
     "footer-resources-faq": "الأسئلة الشائعة",
     "footer-resources-security-issue": "مشكلة أمنية",
     "footer-labs-overview": "نظرة عامة",
@@ -272,6 +272,18 @@ export const uiAr: UiMessages = {
   },
 
     search: { title: "بحث", lead: "اعثر على الصفحات المنشورة حسب العنوان. بحث خفيف في خريطة الموقع — وليس نظام إدارة محتوى للنص الكامل.", placeholder: "ابحث في عناوين الصفحات…", submit: "بحث", noQuery: "اكتب بضعة أحرف لتصفية عناوين الصفحات المنشورة.", empty: "لا توجد صفحات منشورة مطابقة. جرّب كلمة أخرى أو تصفّح خريطة التذييل.", results: "{count} صفحات مطابقة", honestNote: "يغطي البحث عناوين الصفحات المنشورة وتسميات التنقل فقط — وليس نصوص المستندات أو محتوى الإدارة الخاص.", navLabel: "بحث" },
+
+  lab: {
+    eyebrow: "اختبار / Lab / تجارب",
+    title: "Lab",
+    lead: "مساحة آمنة لتجربة ميزات جديدة دون تغيير الموقع العام. ما هنا تجارب — وليست ادّعاءات منتج.",
+    experimentsHeading: "أسطح التجارب",
+    particleHeroTitle: "Particle hero",
+    particleHeroLead:
+      "معاينة تحويل الجسيمات WebGL. الصفحة الرئيسية العامة تستخدم كولاج الصور.",
+    openExperiment: "فتح التجربة",
+    note: "يمكن ربط تجارب جديدة من هذا المركز. هذه الصفحة noindex وليست في القائمة الرئيسية.",
+  },
 
   medicalDisclaimer: {
     short:

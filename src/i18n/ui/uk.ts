@@ -73,7 +73,7 @@ export const uiUk: UiMessages = {
     "footer-company-investors-contact": "Контакт для інвесторів",
     "footer-company-media": "Медіа",
     "footer-company-roadmap": "Дорожня карта",
-    "footer-resources-search": "Пошук",
+    "footer-resources-search": "Пошук", "footer-resources-lab": "Lab",
     "footer-resources-faq": "FAQ",
     "footer-resources-security-issue": "Проблема безпеки",
     "footer-labs-overview": "Огляд",
@@ -278,6 +278,18 @@ export const uiUk: UiMessages = {
   },
 
     search: { title: "Пошук", lead: "Знаходьте опубліковані сторінки за назвою. Легкий пошук по карті сайту — не повнотекстова CMS.", placeholder: "Пошук назв сторінок…", submit: "Шукати", noQuery: "Введіть кілька літер, щоб відфільтрувати назви опублікованих сторінок.", empty: "Немає відповідних опублікованих сторінок. Спробуйте інше слово або перегляньте карту в підвалі.", results: "{count} відповідних сторінок", honestNote: "Пошук охоплює лише назви опублікованих сторінок і мітки навігації — не тіла документів і не приватний Admin.", navLabel: "Пошук" },
+
+  lab: {
+    eyebrow: "Тест / Lab / Експерименти",
+    title: "Lab",
+    lead: "Пісочниця для нових функцій без змін публічного сайту. Тут експерименти — не продуктові заяви.",
+    experimentsHeading: "Експериментальні поверхні",
+    particleHeroTitle: "Particle hero",
+    particleHeroLead:
+      "Попередній перегляд WebGL-морфінгу часток. Публічна головна використовує фотоколаж.",
+    openExperiment: "Відкрити експеримент",
+    note: "Нові експерименти можна додавати до цього хабу. Сторінка noindex і не в головному меню.",
+  },
 
   medicalDisclaimer: {
     short:

@@ -73,7 +73,7 @@ export const uiHe: UiMessages = {
     "footer-company-investors-contact": "יצירת קשר למשקיעים",
     "footer-company-media": "מדיה",
     "footer-company-roadmap": "מפת דרכים",
-    "footer-resources-search": "חיפוש",
+    "footer-resources-search": "חיפוש", "footer-resources-lab": "Lab",
     "footer-resources-faq": "שאלות נפוצות",
     "footer-resources-security-issue": "בעיית אבטחה",
     "footer-labs-overview": "סקירה",
@@ -270,6 +270,18 @@ export const uiHe: UiMessages = {
   },
 
     search: { title: "חיפוש", lead: "מצאו דפים מפורסמים לפי כותרת. חיפוש קל של מפת האתר — לא CMS לטקסט מלא.", placeholder: "חיפוש כותרות דפים…", submit: "חיפוש", noQuery: "הקלידו כמה אותיות כדי לסנן כותרות דפים מפורסמים.", empty: "אין דפים מפורסמים תואמים. נסו מילה אחרת או עיינו במפת הכותרת התחתונה.", results: "{count} דפים תואמים", honestNote: "החיפוש מכסה רק כותרות דפים מפורסמים ותוויות ניווט — לא גופי מסמכים או תוכן Admin פרטי.", navLabel: "חיפוש" },
+
+  lab: {
+    eyebrow: "בדיקה / Lab / ניסויים",
+    title: "Lab",
+    lead: "ארגז חול לניסוי תכונות חדשות בלי לשנות את האתר הציבורי. כאן ניסויים — לא טענות מוצר.",
+    experimentsHeading: "משטחי ניסוי",
+    particleHeroTitle: "Particle hero",
+    particleHeroLead:
+      "תצוגה מקדימה של מורף חלקיקי WebGL. דף הבית הציבורי משתמש בקולאז׳ התמונות.",
+    openExperiment: "פתיחת ניסוי",
+    note: "ניתן לקשר ניסויים חדשים ממרכז זה. הדף הוא noindex ואינו בתפריט הראשי.",
+  },
 
   medicalDisclaimer: {
     short:

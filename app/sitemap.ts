@@ -5,8 +5,8 @@ import { LOCALES } from "@/config/locales";
 import { localizePath } from "@/navigation/locale-path";
 import { PUBLISHED_ROUTES } from "@/navigation/published-routes";
 
-/** Routes excluded from the public sitemap (auth, drafts stay crawlable with draft meta). */
-const SITEMAP_EXCLUDED = new Set<string>(["/auth/sign-in/"]);
+/** Routes excluded from the public sitemap (auth, lab sandbox — D-0263). */
+const SITEMAP_EXCLUDED = new Set<string>(["/auth/sign-in/", "/lab/"]);
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();

@@ -6,7 +6,7 @@ export const uiZhCn: UiMessages = {
   language: "语言", menu: "菜单", close: "关闭", open: "打开", skipToContent: "跳至内容",
   nav: { home: "首页", technology: "技术", systems: "系统", applications: "应用", trust: "信任", research: "研究", purpose: "宗旨", foundation: "基础", labs: "实验室", investors: "投资者", signIn: "登录 / 注册" },
   navEntries: { ...uiEn.navEntries, "technology-overview": "技术", "technology-human-data": "人的数据", "technology-human-data-model": "人的数据模型", "technology-data-infrastructure": "数据基础设施", "technology-interoperability": "互操作性", "technology-privacy": "隐私", "technology-security": "安全", "technology-artificial-intelligence": "人工智能", "technology-automation": "自动化", "technology-robotics": "机器人技术", "systems-overview": "系统", "systems-knowledge-engine": "知识引擎", "systems-ai-decision-support": "AI 决策支持", "systems-safety-layer": "安全层", "systems-communication-layer": "通信层", "systems-clinical-interfaces": "临床接口", "systems-robotics-layer": "机器人层", "systems-drone-systems": "无人机系统", "systems-saven-robotics-interface": "SAVEN 机器人接口", "applications-overview": "应用领域", "applications-healthcare": "医疗健康", "applications-home": "家庭应用", "applications-hospitals": "医院", "applications-emergency": "紧急情况", "applications-industrial": "工业", "applications-government": "政府", "applications-agriculture": "农业", "applications-research-applications": "研究应用", "trust-overview": "信任", "trust-privacy": "隐私", "trust-security": "安全", "trust-safety": "保障", "trust-human-oversight": "人工监督", "trust-transparency": "透明度", "trust-ethics": "伦理与负责任使用", "trust-limitations": "局限", "footer-technology-overview": "概览", "footer-systems-overview": "概览", "footer-applications-overview": "概览", "footer-trust-overview": "概览", "footer-applications-research": "研究", "footer-trust-ethics": "伦理", "footer-company-about": "关于",
-    "footer-company-home": "首页", "footer-company-biomath-core": "BioMath Core", "footer-company-mission": "使命", "footer-company-investors-contact": "投资者联系", "footer-company-roadmap": "路线图", "footer-resources-search": "搜索",
+    "footer-company-home": "首页", "footer-company-biomath-core": "BioMath Core", "footer-company-mission": "使命", "footer-company-investors-contact": "投资者联系", "footer-company-roadmap": "路线图", "footer-resources-search": "搜索", "footer-resources-lab": "Lab",
     "footer-resources-faq": "常见问题", "footer-resources-security-issue": "安全问题", "sign-in": "登录 / 注册", "footer-company-contact": "联系", "footer-company-investors": "投资者", "footer-company-media": "媒体", "footer-labs-overview": "概览", "footer-labs-saven-robotics-lab": "SAVEN Robotics Lab", "footer-labs-internal-future-lab": "Future Lab", "footer-systems-saven-robotics-interface": "机器人接口", "footer-legal-privacy-policy": "隐私政策", "footer-legal-terms-of-use": "使用条款", "footer-legal-cookie-policy": "Cookie 政策", "footer-legal-cookie-preferences": "Cookie 偏好", "footer-legal-accessibility-statement": "无障碍声明", "footer-legal-security": "安全", "footer-legal-responsible-ai": "负责任的人工智能", "footer-legal-medical-disclaimer": "医疗免责声明", "footer-legal-research-disclaimer": "研究免责声明", "footer-legal-intellectual-property": "知识产权", "footer-legal-trademark-notice": "商标声明", "footer-legal-copyright": "版权声明", "footer-legal-data-rights": "数据权利", "footer-legal-regional-privacy-rights": "地区隐私权", "footer-legal-do-not-sell-or-share": "请勿出售或共享", "footer-legal-legal-notices": "法律声明", "footer-legal-more": "更多"},
   footer: { ...uiEn.footer, copyrightLabel: "Copyright", themeToLight: "切换到浅色主题", themeToDark: "切换到深色主题", signIn: "登录 / 注册", admin: "管理", technology: "技术", systems: "系统", architecture: "架构", applications: "应用领域", trust: "信任", research: "研究", labs: "实验室", about: "关于 SAVEN Core", resources: "资源", company: "公司", legal: "法律信息", more: "更多", contact: "联系我们", plannedNote: "", comingSoon: "", copyright: "© 2026 SAVEN Core. 保留所有权利。", copyrightShort: "© SAVEN Core", rightsReserved: "保留所有权利。", privacy: "隐私", terms: "条款", cookies: "Cookie", theme: "主题", themeLight: "浅色", themeDark: "深色", version: "版本", tagline: "人类数据。\n互联系统。\n负责任的技术。" },
   social: { ...uiEn.social, navLabel: "社交网络", notConfigured: "链接尚未配置" },
@@ -32,6 +32,18 @@ export const uiZhCn: UiMessages = {
   },
   legal: {"lastUpdated":"最近更新","related":"法律页面","draftNote":"本网站的站点政策与使用条款——并非完整的多司法辖区监管合规套件。咨询：info@savencore.com。","indexTitle":"法律信息","indexLead":"面向公众网站的隐私、条款、Cookie、无障碍、安全及相关声明。这些是网站政策——并非每个司法辖区的律师认证套件。Cookie 偏好说明当前无实时同意 CMP——请使用浏览器设置或联系我们。"},
     search: { title: "搜索", lead: "按标题查找已发布页面。轻量站点地图搜索——不是全文 CMS。", placeholder: "搜索页面标题…", submit: "搜索", noQuery: "输入几个字母以筛选已发布页面标题。", empty: "没有匹配的已发布页面。请换个词，或浏览页脚地图。", results: "{count} 个匹配页面", honestNote: "搜索仅覆盖已发布页面标题与导航标签——不包括文档正文或私有管理内容。", navLabel: "搜索" },
+
+  lab: {
+    eyebrow: "测试 / Lab / 实验",
+    title: "Lab",
+    lead: "在不影响公开站点的前提下试验新功能的沙盒。此处为实验表面——不是产品主张。",
+    experimentsHeading: "实验表面",
+    particleHeroTitle: "Particle hero",
+    particleHeroLead:
+      "WebGL 粒子变形预览。公开首页使用实景照片拼贴。",
+    openExperiment: "打开实验",
+    note: "可从此中心链接新实验。本页为 noindex，且不在主导航菜单中。",
+  },
 
   medicalDisclaimer: {
     short:

@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-08-08 (D-0262 — Dark clarity / Explore SAVEN gray-blue cards)
+**Last updated:** 2026-08-08 (D-0263 — Test / Lab experiments hub)
 
 ## Rules
 
@@ -278,6 +278,7 @@
 | D-0260 | 2026-08-08 | Official logo INTERFACE + sharper HUMAN + living holds + smaller stage | Active |
 | D-0261 | 2026-08-08 | Rollback home to photo collage; particle morph → preview only | Active |
 | D-0262 | 2026-08-08 | Dark clarity / Explore SAVEN cards → gray-blue slate | Active |
+| D-0263 | 2026-08-08 | Test / Lab experiments hub (`/lab/`) + footer Resources link | Active |
 
 ---
 
@@ -2741,6 +2742,21 @@
 - **In scope:** Home clarity CSS + this decision entry; commit/push/Vercel prod.
 - **Out of scope:** Light theme, biomath bridge, flagship gateway, inventing Operational claims.
 - **Implications:** Dark home cards read as soft slate gray-blue; gold accents remain the accent language.
+
+### D-0263 — Test / Lab experiments hub (`/lab/`) + footer Resources link
+
+- **Date:** 2026-08-08
+- **Status:** Active
+- **Summary:** Owner wants a dedicated test/lab page to iterate on novelties safely without breaking the main site, with a footer link for access.
+- **Decision:**
+  1. Publish **`/lab/`** as a locale-scoped experiments hub (English canonical labels: Test / Lab / Experiments). Distinct from product **`/labs/`** (Robotics Lab / Future Lab).
+  2. Hub lists existing experiment surfaces (at least `/preview/particle-hero/`); future experiments may be added here. Themeable page-shell layout; not a marketing leaf.
+  3. **SEO:** `noIndex` metadata, `robots.txt` disallow `/*/lab/`, proxy `X-Robots-Tag`, sitemap exclusion. Not in primary header menu.
+  4. **Footer:** Resources column link **Lab** (`footer-resources-lab`) in all 10 UI locales. Route in `PUBLISHED_ROUTES` so footer assert passes.
+  5. Partially supersedes D-0261 “not in footer” for particle access: particle preview remains out of primary chrome; discovery is via Lab hub, not a direct footer leaf to `/preview/`.
+- **In scope:** `app/[locale]/lab/`, published routes, footer nav, robots/sitemap/proxy, UI i18n (10 locales), D-0263 + AGENTS / SITE_ASSIGNMENT pointers; commit/push/Vercel prod; local dev restart.
+- **Out of scope:** Putting Lab in header hubs; inventing Operational claims; deleting particle bins; changing product `/labs/` marketing pages.
+- **Implications:** Safe sandbox for novelties; public home and marketing leaves stay stable; Lab is discoverable via footer Resources.
 
 ## Pending Owner Decisions
 

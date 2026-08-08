@@ -78,6 +78,7 @@ export const uiEn = {
     "footer-company-roadmap": "Roadmap",
     "footer-resources-faq": "FAQ",
     "footer-resources-search": "Search",
+    "footer-resources-lab": "Lab",
     "footer-resources-security-issue": "Security Issue",
     "footer-labs-overview": "Overview",
     "footer-labs-saven-robotics-lab": "SAVEN Robotics Lab",
@@ -462,6 +463,18 @@ export const uiEn = {
     particlePreviewTitle: "Particle hero experiment",
     particlePreviewLead:
       "Internal test page for the WebGL particle morph. The public home uses the living photo collage.",
+  },
+
+  lab: {
+    eyebrow: "Test / Lab / Experiments",
+    title: "Lab",
+    lead: "A sandbox for trying new features without changing the public site. Surfaces here are experiments — not product claims.",
+    experimentsHeading: "Experiment surfaces",
+    particleHeroTitle: "Particle hero",
+    particleHeroLead:
+      "WebGL particle morph preview. The public home uses the living photo collage.",
+    openExperiment: "Open experiment",
+    note: "New experiments can be linked from this hub. This page is noindex and is not in the primary header menu.",
   },
 
   ko: {

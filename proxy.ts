@@ -16,7 +16,7 @@ export function proxy(request: NextRequest) {
 
   const response = NextResponse.next();
 
-  // Auth, admin, and preview surfaces should not be indexed (D-0162 / D-0240).
+  // Auth, admin, preview, and lab sandbox should not be indexed (D-0162 / D-0240 / D-0263).
   const segments = pathname.split("/").filter(Boolean);
   const locale = segments[0];
   const rest = segments.slice(1).join("/");
@@ -26,7 +26,9 @@ export function proxy(request: NextRequest) {
     if (
       rest.startsWith("auth/") ||
       rest.startsWith("admin/") ||
-      rest.startsWith("preview/")
+      rest.startsWith("preview/") ||
+      rest === "lab" ||
+      rest.startsWith("lab/")
     ) {
       response.headers.set("X-Robots-Tag", "noindex, nofollow");
     }

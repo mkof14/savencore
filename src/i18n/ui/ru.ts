@@ -73,7 +73,7 @@ export const uiRu: UiMessages = {
     "footer-company-investors-contact": "Контакт для инвесторов",
     "footer-company-media": "Медиа",
     "footer-company-roadmap": "Дорожная карта",
-    "footer-resources-search": "Поиск",
+    "footer-resources-search": "Поиск", "footer-resources-lab": "Lab",
     "footer-resources-faq": "FAQ",
     "footer-resources-security-issue": "Проблема безопасности",
     "footer-labs-overview": "Обзор",
@@ -383,6 +383,18 @@ export const uiRu: UiMessages = {
   },
 
     search: { title: "Поиск", lead: "Находите опубликованные страницы по названию. Лёгкий поиск по карте сайта — не полнотекстовая CMS.", placeholder: "Поиск названий страниц…", submit: "Искать", noQuery: "Введите несколько букв, чтобы отфильтровать названия опубликованных страниц.", empty: "Нет подходящих опубликованных страниц. Попробуйте другое слово или карту в подвале.", results: "{count} подходящих страниц", honestNote: "Поиск охватывает только названия опубликованных страниц и подписи навигации — не тексты документов и не закрытый Admin.", navLabel: "Поиск" },
+
+  lab: {
+    eyebrow: "Тест / Lab / Эксперименты",
+    title: "Lab",
+    lead: "Песочница для новых функций без изменений публичного сайта. Здесь эксперименты — не продуктовые заявления.",
+    experimentsHeading: "Экспериментальные поверхности",
+    particleHeroTitle: "Particle hero",
+    particleHeroLead:
+      "Превью WebGL-морфинга частиц. Публичная главная использует фото-коллаж.",
+    openExperiment: "Открыть эксперимент",
+    note: "Новые эксперименты можно добавлять в этот хаб. Страница noindex и не в главном меню.",
+  },
 
   medicalDisclaimer: {
     short:

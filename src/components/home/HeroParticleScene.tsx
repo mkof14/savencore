@@ -3,40 +3,51 @@
 import { useEffect, useRef, useState } from "react";
 
 /**
- * Home particle hero (D-0259) — WebGL2 morph.
+ * Home particle hero (D-0260) — WebGL2 morph with living hold micro-morphs.
  *
  * COUNT=650000, stride 28 (p.xy, c.rgb, size, seed).
- *   HUMAN → INTERFACE → ROBOT → WATER → HUMAN
+ *   HUMAN ↔ HUMAN_ALT → INTERFACE → ROBOT ↔ ROBOT_ALT → WATER ↔ WATER_ALT → HUMAN
  *
- * D-0259: HUMAN + INTERFACE rebaked for clean dense aesthetic
- * (brand flame mark + collage human 16:9). ROBOT/WATER remain HTML.
- * Poster = improved HUMAN frame. Cache-bust `?v=d0259`.
+ * INTERFACE from official `public/brand/saven-logo.png`.
+ * HUMAN sharper collage 16:9 bake; ROBOT/WATER HTML primaries + warped alts.
+ * Poster = HUMAN. Cache-bust `?v=d0260`.
  */
 
 const COUNT = 650_000;
 const STRIDE = 28;
 const FLOATS_PER = STRIDE / 4;
-const LOOP_S = 24;
+const LOOP_S = 26;
 const INTRO_S = 1.35;
-const ASSET_VER = "d0259";
+const ASSET_VER = "d0260";
 const ASSET_BASE = "/home/particle-hero";
 const POSTER = `${ASSET_BASE}/poster.webp?v=${ASSET_VER}`;
 
-const TARGETS = ["HUMAN", "INTERFACE", "ROBOT", "WATER"] as const;
+const TARGETS = [
+  "HUMAN",
+  "HUMAN_ALT",
+  "INTERFACE",
+  "ROBOT",
+  "ROBOT_ALT",
+  "WATER",
+  "WATER_ALT",
+] as const;
 type MorphKey = (typeof TARGETS)[number];
 
 const FILE: Record<MorphKey, string> = {
   HUMAN: "human",
+  HUMAN_ALT: "human-alt",
   INTERFACE: "interface",
   ROBOT: "robot",
+  ROBOT_ALT: "robot-alt",
   WATER: "water",
+  WATER_ALT: "water-alt",
 };
 
 /**
  * Vertex/fragment aligned with owner HTML reference, plus:
  * - `scatter` uniform for intro converge
- * - slightly brighter fragment bloom
- * - hold shimmer stays active (wave not frozen to ~0)
+ * - brighter fragment bloom
+ * - hold shimmer stays active
  */
 const VS = `#version 300 es
 precision highp float;
@@ -50,11 +61,9 @@ void main(){
  float q1=sin(p.x*22.-time*.92+seed*.5),q2=sin(p.x*13.-time*.54+seed*1.1);
  p.y+=(q1*.0037+q2*.0019)*wave;p.x+=cos(p.y*16.-time*.62+seed*.8)*.00135*wave;
  p+=vec2(sin(seed*211.+time*.085)*.0038,cos(seed*167.+time*.07)*.0025)*arc;
- // Intro converge from scatter
  vec2 rnd=vec2(fract(seed*47.13),fract(seed*91.77));
  p=mix(p, rnd, clamp(scatter,0.,1.));
  gl_Position=vec4((p.x*2.-1.)*asp.x,-(p.y*2.-1.)*asp.y,0,1);
- // Slightly larger clamp so dense HUMAN/logo buffers pop on site chrome
  float psz=mix(s0,s1,lm)*dpr*(1.08+.035*sin(time*.48+seed*53.));
  gl_PointSize=clamp(psz,1.05,3.55*dpr);
  col=mix(c0,c1,lm)*light*(1.-scatter*.5);
@@ -119,6 +128,14 @@ function subsample(src: Float32Array, keepEvery: number): Float32Array {
 function smoothstep(a: number, b: number, x: number): number {
   const t = Math.max(0, Math.min(1, (x - a) / (b - a)));
   return t * t * (3 - 2 * t);
+}
+
+/** Ping-pong 0→1→0 over duration (living hold micro-morph). */
+function pingPong(localT: number, duration: number): number {
+  if (duration <= 0) return 0;
+  const u = ((localT % (duration * 2)) + duration * 2) % (duration * 2);
+  if (u <= duration) return smoothstep(0, duration, u);
+  return 1 - smoothstep(duration, duration * 2, u);
 }
 
 function compile(gl: WebGL2RenderingContext, type: number, src: string) {
@@ -309,9 +326,8 @@ export function HeroParticleScene({ ariaLabel }: HeroParticleSceneProps) {
         let adapted = false;
 
         /**
-         * Snappy ~24s loop (HTML was 46s with long holds).
-         * intro → HUMAN → INTERFACE → ROBOT → WATER → HUMAN
-         * Holds keep wave/shimmer (not frozen).
+         * ~26s loop with living hold micro-morphs (ping-pong alt buffers).
+         * intro → HUMAN↔ALT → INTERFACE → ROBOT↔ALT → WATER↔ALT → HUMAN
          */
         const frame = (n: number) => {
           if (cancelled || !gl) return;
@@ -341,14 +357,12 @@ export function HeroParticleScene({ ariaLabel }: HeroParticleSceneProps) {
           gl.clearColor(0.01, 0.037, 0.08, 1);
           gl.clear(gl.COLOR_BUFFER_BIT);
 
-          const holdW = 0.34;
+          const holdW = 0.36;
           const morphW = 0.55;
-          // Strong light so rebaked HUMAN + flame logo pop
-          const holdL = 2.05;
-          const morphL = 1.88;
-          const logoL = 2.15;
+          const holdL = 2.08;
+          const morphL = 1.9;
+          const logoL = 2.18;
 
-          // Strong intro → longer HUMAN → short readable logo (~1.4s) → robot/water
           if (e < INTRO_S) {
             const u = smoothstep(0, INTRO_S, e);
             draw(
@@ -357,50 +371,56 @@ export function HeroParticleScene({ ariaLabel }: HeroParticleSceneProps) {
               0,
               t,
               0.42 + 0.18 * u,
-              0.55 + 1.35 * u,
+              0.55 + 1.4 * u,
               1 - u,
             );
-          } else if (e < 4.2) {
-            draw("HUMAN", "HUMAN", 0, t, holdW, holdL);
-          } else if (e < 6.4) {
+          } else if (e < 5.0) {
+            // Living HUMAN: breath / face micro-morph ping-pong
+            const m = pingPong(e - INTRO_S, 1.55);
+            draw("HUMAN", "HUMAN_ALT", m, t, holdW, holdL);
+          } else if (e < 7.1) {
             draw(
               "HUMAN",
               "INTERFACE",
-              smoothstep(4.2, 6.4, e),
+              smoothstep(5.0, 7.1, e),
               t,
               morphW,
               morphL,
             );
-          } else if (e < 7.8) {
-            // ~1.4s logo hold — readable, not lingering
-            draw("INTERFACE", "INTERFACE", 0, t, holdW * 0.9, logoL);
-          } else if (e < 11.2) {
+          } else if (e < 8.5) {
+            // Short readable logo hold (~1.4s)
+            draw("INTERFACE", "INTERFACE", 0, t, holdW * 0.85, logoL);
+          } else if (e < 11.8) {
             draw(
               "INTERFACE",
               "ROBOT",
-              smoothstep(7.8, 11.2, e),
+              smoothstep(8.5, 11.8, e),
               t,
               morphW,
               morphL,
             );
-          } else if (e < 12.5) {
-            draw("ROBOT", "ROBOT", 0, t, holdW * 0.85, holdL * 0.95);
-          } else if (e < 16.6) {
+          } else if (e < 13.6) {
+            // ROBOT living lean / arm
+            const m = pingPong(e - 11.8, 0.95);
+            draw("ROBOT", "ROBOT_ALT", m, t, holdW * 0.88, holdL * 0.96);
+          } else if (e < 17.6) {
             draw(
               "ROBOT",
               "WATER",
-              smoothstep(12.5, 16.6, e),
+              smoothstep(13.6, 17.6, e),
               t,
               morphW * 0.9,
               morphL,
             );
-          } else if (e < 17.9) {
-            draw("WATER", "WATER", 0, t, holdW * 0.75, holdL * 0.95);
+          } else if (e < 20.2) {
+            // WATER living hand reach / glass pass
+            const m = pingPong(e - 17.6, 1.15);
+            draw("WATER", "WATER_ALT", m, t, holdW * 0.78, holdL * 0.98);
           } else {
             draw(
               "WATER",
               "HUMAN",
-              smoothstep(17.9, LOOP_S, e),
+              smoothstep(20.2, LOOP_S, e),
               t,
               morphW * 0.85,
               morphL,

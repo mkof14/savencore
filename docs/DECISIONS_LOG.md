@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-08-08 (D-0259 — Fix HUMAN + INTERFACE particle scenes)
+**Last updated:** 2026-08-08 (D-0260 — Official logo + living micro-morphs + smaller stage)
 
 ## Rules
 
@@ -275,6 +275,7 @@
 | D-0257 | 2026-08-08 | Particle hero true 16:9 frames — never display 5-panel sheet | Active |
 | D-0258 | 2026-08-08 | Restore professional HTML particle buffers (quality recovery) | Active |
 | D-0259 | 2026-08-08 | Fix HUMAN + INTERFACE particle scenes (clean logo / dense human) | Active |
+| D-0260 | 2026-08-08 | Official logo INTERFACE + sharper HUMAN + living holds + smaller stage | Active |
 
 ---
 
@@ -2700,6 +2701,21 @@
 - **In scope:** `human.bin.gz`, `interface.bin.gz`, `poster.webp`, `HeroParticleScene`, preload, docs/AGENTS; commit/push/Vercel prod; prove new human/interface hashes ≠ D-0258.
 - **Out of scope:** Replacing ROBOT/WATER; inventing Operational claims; displaying the 5-panel sheet.
 - **Implications:** Hard-refresh required (`/home/*` long cache). Logo should read as clean blue/orange SAVEN flame; first scene denser blue/orange profile + waves.
+
+### D-0260 — Official logo INTERFACE + sharper HUMAN + living holds + smaller stage
+
+- **Date:** 2026-08-08
+- **Status:** Active
+- **Summary:** Owner: use official SAVEN logo; sharper first HUMAN; shrink particle stage; bring people/hands to life via intra-scene micro-morphs.
+- **Decision:**
+  1. **INTERFACE:** Bake from official brand mark `public/brand/saven-logo.png` (1024² — best repo mark) large on true 16:9 with soft brand glow; dense silhouette-fill particles (COUNT **650000**).
+  2. **HUMAN:** Sharper collage panel-1 → 16:9 bake at higher sample res (2560×1440→1920×1080), stronger silhouette fill + unsharp; `human-alt.bin.gz` for breath/face micro-morph.
+  3. **Living holds:** Ping-pong micro-morph during holds — HUMAN↔HUMAN_ALT, ROBOT↔ROBOT_ALT, WATER↔WATER_ALT (alts warped from HTML robot/water for arm lean / hand-glass reach). Not full Hollywood mime (no multi-frame video source).
+  4. **Stage size:** CSS max ~68svh / max-height 72vh (was full viewport) — cinematic, less dominant.
+  5. Cache-bust `?v=d0260`. Bake helper: `scripts/bake-particle-hero-d0260.py`. ROBOT/WATER primaries remain HTML.
+- **In scope:** New/updated bins + poster, `HeroParticleScene`, CSS, preload, docs; commit/push/Vercel prod.
+- **Out of scope:** Displaying 5-panel sheet; inventing Operational claims; true facial performance capture.
+- **Implications:** Hard-refresh required. Extra ~3 alt buffers (~38MB gzipped total added vs 4-scene set).
 
 ## Pending Owner Decisions
 

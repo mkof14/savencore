@@ -24,9 +24,12 @@
   position: relative;
   width: 100%;
   max-width: 100%;
-  min-height: 70vh;
-  min-height: 70svh;
-  height: min(100svh, 100vh);
+  /* D-0260 — cinematic but less dominant than full-viewport (~0.9 scale feel) */
+  min-height: 58vh;
+  min-height: 58svh;
+  height: min(68svh, 68vh);
+  max-height: 72vh;
+  margin-inline: auto;
   /* Deep navy — matches particle clear; poster covers load gap (D-0256) */
   background: #061022;
   overflow: hidden;
@@ -36,9 +39,10 @@
 
 .pw-particle-hero--shell {
   /* Dynamic import placeholder — same geometry + poster bg */
-  min-height: 70vh;
-  min-height: 70svh;
-  height: min(100svh, 100vh);
+  min-height: 58vh;
+  min-height: 58svh;
+  height: min(68svh, 68vh);
+  max-height: 72vh;
   background:
     #061022
     url("/home/particle-hero/poster.webp") center / cover no-repeat;

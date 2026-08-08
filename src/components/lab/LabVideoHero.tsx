@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import type { Locale } from "@/config/locales";
 import { localizePath } from "@/navigation/locale-path";
 
-const CACHE = "d0273";
+const CACHE = "d0274";
 const POSTER_SRC = `/lab/video/s989898-gwr-mvp-poster.webp?v=${CACHE}`;
 const MUTE_KEY = "savencore-lab-video-muted";
 const CHAPTER_MARKS = [0, 0.33, 0.66] as const;
@@ -159,10 +159,9 @@ export function LabVideoHero({
       const viewH = window.innerHeight || 1;
       const mid = rect.top + rect.height / 2;
       const t = (mid - viewH / 2) / viewH;
-      /* Strong Lab parallax — must read when scrolling (±~64px + slight scale). */
-      const y = Math.max(-64, Math.min(64, t * -92));
-      const s = 1 + Math.min(0.06, Math.abs(t) * 0.08);
-      layer.style.transform = `translate3d(0, ${y.toFixed(2)}px, 0) scale(${s.toFixed(4)})`;
+      /* Light parallax only — no scale (D-0274 restores original framing). */
+      const y = Math.max(-18, Math.min(18, t * -28));
+      layer.style.transform = `translate3d(0, ${y.toFixed(2)}px, 0)`;
 
       /* Scroll-linked caption opacity — fades as the band leaves the viewport. */
       const caption = captionRef.current;

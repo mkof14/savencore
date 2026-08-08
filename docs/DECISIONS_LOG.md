@@ -289,6 +289,7 @@
 | D-0271 | 2026-08-08 | Lab video — skip in-file black first scene; soft embed into page background | Active (grain/vignette/grade retired by D-0272) |
 | D-0272 | 2026-08-08 | Lab video — remove grain/heavy darkenings; overlay copy + explore links | Active |
 | D-0273 | 2026-08-08 | Lab video — symmetric soft blend into page background (top = bottom) | Active |
+| D-0274 | 2026-08-08 | Lab video — restore original frame size (no zoom crop) | Active |
 
 ---
 
@@ -2907,6 +2908,19 @@
 - **In scope:** Lab CSS (`lab.css`) + `LabVideoHero` cache tag; D-0273 / AGENTS / SITE_ASSIGNMENT; commit/push/Vercel prod.
 - **Out of scope:** Public home video; inventing Operational claims; grain/vignette return.
 - **Implications:** Lab splash embeds evenly into the page surface at top and bottom. Asymmetric D-0272 feather preference (“almost none at bottom”) superseded for this feedback.
+
+### D-0274 — Lab video — restore original frame size (no zoom crop)
+
+- **Date:** 2026-08-08
+- **Status:** Active
+- **Summary:** Owner feedback: video was over-enlarged and the top was cut off; restore original framing/size.
+- **Decision:**
+  1. Re-encode Lab splash from Desktop original **without** center zoom-crop (`scale=1.14` removed). Keep intro skip `ss=2.15` / `t=7.6` only to avoid letterbox black; native 1280×720 framing. Cache-bust `?v=d0274`.
+  2. CSS: Stage locked to **16:9** (`aspect-ratio`, width capped by `70vh`) so tall viewports no longer crop the top; Ken Burns **1.0→1.03**; parallax inset `-4%/-2%`; parallax JS no longer scales the media layer.
+  3. Keep symmetric soft page-bleed (D-0273); no grain/vignette return; Lab `/lab/` only.
+- **In scope:** `public/lab/video/*`, `LabVideoHero` cache tag, `lab.css`, D-0274 notes; commit/push/Vercel prod.
+- **Out of scope:** Public home video; inventing Operational claims.
+- **Implications:** Framing matches the original MVP composition again; top subject is no longer cropped by zoom.
 
 ## Pending Owner Decisions
 

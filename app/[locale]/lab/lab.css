@@ -1,4 +1,4 @@
-/* Experiments hub — themeable shell (D-0263 / D-0266–D-0273). */
+/* Experiments hub — themeable shell (D-0263 / D-0266–D-0274). */
 
 .site-lab-page {
   padding-block: 0 clamp(3rem, 8vw, 5rem);
@@ -6,8 +6,6 @@
 
 /* Full-bleed video splash — bleeds into page surface; soft feathered edges; no hard video box. */
 .site-lab-video-hero {
-  --lab-video-min-h: clamp(56vh, 64vh, 72vh);
-  --lab-video-max-h: 72vh;
   --lab-cx: 50%;
   --lab-cy: 42%;
   --lab-feather-y: clamp(2.5rem, 7vh, 5rem);
@@ -20,9 +18,11 @@
 
 .site-lab-video-hero__stage {
   position: relative;
-  width: 100%;
-  min-height: var(--lab-video-min-h);
-  max-height: var(--lab-video-max-h);
+  /* Native 16:9 framing (D-0274) — no tall crop that shears the top of the shot. */
+  width: min(100%, calc(70vh * 16 / 9));
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+  margin-inline: auto;
   overflow: hidden;
   background: transparent;
   isolation: isolate;
@@ -63,7 +63,7 @@
 
 .site-lab-video-hero__parallax {
   position: absolute;
-  inset: -22% -8%;
+  inset: -4% -2%;
   z-index: 1;
   will-change: transform;
 }
@@ -79,8 +79,8 @@
   background: transparent;
   /* Clear picture — no muddy darken / sepia grade. */
   filter: contrast(1.04) saturate(1.06);
-  transform-origin: 50% 42%;
-  animation: site-lab-kenburns 14s ease-in-out infinite alternate;
+  transform-origin: 50% 50%;
+  animation: site-lab-kenburns 18s ease-in-out infinite alternate;
   opacity: 0;
   transition: opacity 0.85s ease;
 }
@@ -348,10 +348,10 @@
 
 @keyframes site-lab-kenburns {
   from {
-    transform: scale(1.06);
+    transform: scale(1);
   }
   to {
-    transform: scale(1.14);
+    transform: scale(1.03);
   }
 }
 
@@ -360,11 +360,11 @@
     animation: none;
     opacity: 1;
     transition: none;
-    transform: scale(1.06);
+    transform: scale(1);
   }
 
   .site-lab-video-hero__parallax {
-    inset: -6% -4%;
+    inset: 0;
     transform: none !important;
     will-change: auto;
   }

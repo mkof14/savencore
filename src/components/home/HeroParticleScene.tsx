@@ -3,25 +3,22 @@
 import { useEffect, useRef, useState } from "react";
 
 /**
- * Home particle hero (D-0258) — WebGL2 morph from owner-approved HTML engine.
+ * Home particle hero (D-0259) — WebGL2 morph.
  *
  * COUNT=650000, stride 28 (p.xy, c.rgb, size, seed).
- * Scenes restored from `/343434.html` professional buffers:
  *   HUMAN → INTERFACE → ROBOT → WATER → HUMAN
  *
- * D-0256/D-0257 collage rebakes removed — those looked like the low-res
- * storyboard sheet. Poster = single frame rendered from HUMAN buffer.
- *
- * A-level polish on top of the HTML engine: brighter light, continuous
- * shimmer on holds, shorter ~24s loop, intro converge, cache-bust.
+ * D-0259: HUMAN + INTERFACE rebaked for clean dense aesthetic
+ * (brand flame mark + collage human 16:9). ROBOT/WATER remain HTML.
+ * Poster = improved HUMAN frame. Cache-bust `?v=d0259`.
  */
 
 const COUNT = 650_000;
 const STRIDE = 28;
 const FLOATS_PER = STRIDE / 4;
 const LOOP_S = 24;
-const INTRO_S = 1.2;
-const ASSET_VER = "d0258";
+const INTRO_S = 1.35;
+const ASSET_VER = "d0259";
 const ASSET_BASE = "/home/particle-hero";
 const POSTER = `${ASSET_BASE}/poster.webp?v=${ASSET_VER}`;
 
@@ -57,9 +54,9 @@ void main(){
  vec2 rnd=vec2(fract(seed*47.13),fract(seed*91.77));
  p=mix(p, rnd, clamp(scatter,0.,1.));
  gl_Position=vec4((p.x*2.-1.)*asp.x,-(p.y*2.-1.)*asp.y,0,1);
- // Match HTML point sizing (professional buffers already encode small s0/s1)
- float psz=mix(s0,s1,lm)*dpr*(1.02+.028*sin(time*.48+seed*53.));
- gl_PointSize=clamp(psz,1.,2.85*dpr);
+ // Slightly larger clamp so dense HUMAN/logo buffers pop on site chrome
+ float psz=mix(s0,s1,lm)*dpr*(1.08+.035*sin(time*.48+seed*53.));
+ gl_PointSize=clamp(psz,1.05,3.55*dpr);
  col=mix(c0,c1,lm)*light*(1.-scatter*.5);
 }`;
 
@@ -67,9 +64,9 @@ const FS = `#version 300 es
 precision highp float;in vec3 col;out vec4 o;
 void main(){
  float d=length(gl_PointCoord-.5);
- float a=smoothstep(.49,.004,d)+smoothstep(.5,.032,d)*.055;
+ float a=smoothstep(.49,.003,d)+smoothstep(.5,.028,d)*.07;
  if(a<.001)discard;
- o=vec4(col*(1.2+a*.2),a);
+ o=vec4(col*(1.28+a*.24),a);
 }`;
 
 function prefersReducedMotion(): boolean {
@@ -344,12 +341,14 @@ export function HeroParticleScene({ ariaLabel }: HeroParticleSceneProps) {
           gl.clearColor(0.01, 0.037, 0.08, 1);
           gl.clear(gl.COLOR_BUFFER_BIT);
 
-          const holdW = 0.32;
-          const morphW = 0.52;
-          // Brighter than HTML baseline (~1.3–1.38) for first-look wow on site chrome
-          const holdL = 1.85;
-          const morphL = 1.72;
+          const holdW = 0.34;
+          const morphW = 0.55;
+          // Strong light so rebaked HUMAN + flame logo pop
+          const holdL = 2.05;
+          const morphL = 1.88;
+          const logoL = 2.15;
 
+          // Strong intro → longer HUMAN → short readable logo (~1.4s) → robot/water
           if (e < INTRO_S) {
             const u = smoothstep(0, INTRO_S, e);
             draw(
@@ -357,50 +356,51 @@ export function HeroParticleScene({ ariaLabel }: HeroParticleSceneProps) {
               "HUMAN",
               0,
               t,
-              0.4 + 0.15 * u,
-              0.5 + 1.1 * u,
+              0.42 + 0.18 * u,
+              0.55 + 1.35 * u,
               1 - u,
             );
-          } else if (e < 2.4) {
+          } else if (e < 4.2) {
             draw("HUMAN", "HUMAN", 0, t, holdW, holdL);
-          } else if (e < 6.0) {
+          } else if (e < 6.4) {
             draw(
               "HUMAN",
               "INTERFACE",
-              smoothstep(2.4, 6.0, e),
+              smoothstep(4.2, 6.4, e),
               t,
               morphW,
               morphL,
             );
-          } else if (e < 7.2) {
-            draw("INTERFACE", "INTERFACE", 0, t, holdW, 1.92);
-          } else if (e < 11.0) {
+          } else if (e < 7.8) {
+            // ~1.4s logo hold — readable, not lingering
+            draw("INTERFACE", "INTERFACE", 0, t, holdW * 0.9, logoL);
+          } else if (e < 11.2) {
             draw(
               "INTERFACE",
               "ROBOT",
-              smoothstep(7.2, 11.0, e),
+              smoothstep(7.8, 11.2, e),
               t,
               morphW,
               morphL,
             );
-          } else if (e < 12.3) {
-            draw("ROBOT", "ROBOT", 0, t, holdW * 0.85, holdL);
-          } else if (e < 16.5) {
+          } else if (e < 12.5) {
+            draw("ROBOT", "ROBOT", 0, t, holdW * 0.85, holdL * 0.95);
+          } else if (e < 16.6) {
             draw(
               "ROBOT",
               "WATER",
-              smoothstep(12.3, 16.5, e),
+              smoothstep(12.5, 16.6, e),
               t,
               morphW * 0.9,
               morphL,
             );
-          } else if (e < 17.8) {
-            draw("WATER", "WATER", 0, t, holdW * 0.75, holdL);
+          } else if (e < 17.9) {
+            draw("WATER", "WATER", 0, t, holdW * 0.75, holdL * 0.95);
           } else {
             draw(
               "WATER",
               "HUMAN",
-              smoothstep(17.8, LOOP_S, e),
+              smoothstep(17.9, LOOP_S, e),
               t,
               morphW * 0.85,
               morphL,

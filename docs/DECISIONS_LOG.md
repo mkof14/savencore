@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-08-08 (D-0258 — Restore professional HTML particle buffers)
+**Last updated:** 2026-08-08 (D-0259 — Fix HUMAN + INTERFACE particle scenes)
 
 ## Rules
 
@@ -274,6 +274,7 @@
 | D-0256 | 2026-08-08 | Particle hero densify, rebake from 5-panel refs, snappy loop | Active |
 | D-0257 | 2026-08-08 | Particle hero true 16:9 frames — never display 5-panel sheet | Active |
 | D-0258 | 2026-08-08 | Restore professional HTML particle buffers (quality recovery) | Active |
+| D-0259 | 2026-08-08 | Fix HUMAN + INTERFACE particle scenes (clean logo / dense human) | Active |
 
 ---
 
@@ -2684,6 +2685,21 @@
 - **In scope:** Extracted bins + poster, `HeroParticleScene`, preload/docs/AGENTS, D-0258; commit/push/Vercel prod; prove original bins load (not 5-panel sheet).
 - **Out of scope:** Re-introducing collage rebakes as primary; inventing Operational claims.
 - **Implications / honest quality:** Visual quality should approach the standalone HTML file (same particle data + near-same shaders). Slight differences remain (site chrome, DPR/cover framing, shorter loop, brighter light). Not a pixel-identical port of the full-screen HTML page.
+
+### D-0259 — Fix HUMAN + INTERFACE particle scenes (clean logo / dense human)
+
+- **Date:** 2026-08-08
+- **Status:** Active
+- **Summary:** Owner («первая сцена плохо, лого плохо») rejected HTML INTERFACE (blotchy gray/prismatic swirl + sparse rings) and sparse first HUMAN. Rebake those two scenes; keep ROBOT/WATER from HTML if still OK.
+- **Decision:**
+  1. **INTERFACE:** Replace HTML logo buffer. Bake from owner best logo reference — brand flame mark `public/brand/saven-logo-mark.png` large on true **16:9**, soft ambient from collage panel 2; dense silhouette-fill sampling (COUNT **650000**, stride **28**); bias to blue/orange flame, suppress gray/ring noise.
+  2. **HUMAN:** Rebake from collage panel 1 → 16:9 cover-crop with gray/hot remapped to blue/orange + silhouette fill (preferred over sparse HTML ghost + ASSIST chrome). Poster = improved HUMAN frame.
+  3. **ROBOT / WATER:** Unchanged HTML buffers from D-0258.
+  4. **Runtime:** Stronger intro → longer HUMAN hold; short logo hold (~1.4s); brighter light / slightly larger points; cache-bust `?v=d0259`.
+  5. Bake helper: `scripts/bake-particle-hero-d0259.py`.
+- **In scope:** `human.bin.gz`, `interface.bin.gz`, `poster.webp`, `HeroParticleScene`, preload, docs/AGENTS; commit/push/Vercel prod; prove new human/interface hashes ≠ D-0258.
+- **Out of scope:** Replacing ROBOT/WATER; inventing Operational claims; displaying the 5-panel sheet.
+- **Implications:** Hard-refresh required (`/home/*` long cache). Logo should read as clean blue/orange SAVEN flame; first scene denser blue/orange profile + waves.
 
 ## Pending Owner Decisions
 

@@ -40,15 +40,13 @@ export const uiEs: UiMessages = {
     eyebrow: "Prueba / Lab / Experimentos",
     title: "Lab",
     lead: "Un espacio seguro para probar funciones nuevas sin alterar el sitio público. Lo que hay aquí son experimentos — no afirmaciones de producto.",
-    videoFrameEyebrow: "Experimento Lab",
     videoCaption:
       "Un corte de trabajo — sistemas pensados para el cuidado humano en el mundo físico.",
-    videoWatchChip: "Ver · Lab",
     videoMute: "Silenciar",
     videoUnmute: "Activar sonido",
     videoEffectsHeading: "Tratamiento del vídeo splash",
     videoEffectsApplied:
-      "Aplicado en esta banda: un vídeo ligero en doble formato (WebM + MP4, selección móvil) con un corte editorial más preciso y sonido opcional (empieza en silencio), marco editorial con marcas de esquina, pie de foto contenido, chip Ver · Lab, progreso fino del bucle, parallax sutil al hacer scroll, luz de cursor en escritorio, escala Ken Burns, viñeta suave, degradado inferior, grano fino, ligera gradación y fundido al estar listo. Esquinas rectas; sin cromo neón. Con movimiento reducido: menos motion y póster.",
+      "Aplicado en esta banda (a sangre, sin marco): un vídeo ligero en doble formato (WebM + MP4, selección móvil) con un re-corte (~7,2s a velocidad ligera 1,05×) y sonido opcional (empieza en silencio), control Mute, pie de foto fino bajo el vídeo, progreso del bucle, parallax fuerte al hacer scroll (±~64px + escala), foco de cursor inconfundible en escritorio, zoom Ken Burns hasta ~1,12, viñeta clara, grano, gradación y fundido. Esquinas rectas; sin neón. Con movimiento reducido: menos motion y póster.",
     videoEffectsIdeas:
       "Ideas futuras (no publicadas): cortes por capítulos / lista multi-clip, parallax ligado al scrub, HDR/AV1 cuando el soporte sea amplio.",
     note: "Pueden enlazarse nuevos experimentos desde este hub. Esta página es noindex y no está en el menú principal. La portada pública sigue siendo el collage fotográfico.",

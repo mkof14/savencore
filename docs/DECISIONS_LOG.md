@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-08-08 (D-0269 — Lab video band: designed cut + interaction polish)
+**Last updated:** 2026-08-08 (D-0270 — Lab video: remove frame, amplify effects)
 
 ## Rules
 
@@ -284,7 +284,8 @@
 | D-0266 | 2026-08-08 | Lab video splash — GWR MVP preview band on `/lab/` | Active |
 | D-0267 | 2026-08-08 | Retire particle experiment; light Lab video + cinematic effects | Active |
 | D-0268 | 2026-08-08 | Lab splash: one video only — remove depth blur duplicate | Active |
-| D-0269 | 2026-08-08 | Lab video band — designed cut, sound/mute, parallax, cursor light, editorial frame | Active |
+| D-0269 | 2026-08-08 | Lab video band — designed cut, sound/mute, parallax, cursor light, editorial frame | Superseded (framing) by D-0270 |
+| D-0270 | 2026-08-08 | Lab video — remove editorial frame; amplify parallax / cursor / Ken Burns / grade | Active |
 
 ---
 
@@ -2848,6 +2849,21 @@
 - **In scope:** `public/lab/video/*` re-encodes; `LabVideoHero` + Lab CSS/page; UI i18n (10 locales); D-0269 / AGENTS / SITE_ASSIGNMENT; commit/push/Vercel prod.
 - **Out of scope:** Public home video hero; multi-clip playlist; inventing Operational claims; header Lab link.
 - **Implications:** Lab splash reads as a designed experiment band with optional sound and light interaction; home collage unchanged (D-0261).
+
+### D-0270 — Lab video — remove editorial frame; amplify effects (owner visibility)
+
+- **Date:** 2026-08-08
+- **Status:** Active
+- **Summary:** Owner feedback on D-0269: only Mute was noticeable; editorial frame disliked; parallax / cursor light / cut / other effects not perceived.
+- **Decision:**
+  1. **Remove editorial frame completely** — no `__shell` border, no corner marks, no picture-frame padding. Full-bleed video stage edge-to-edge within the Lab page.
+  2. **Amplify Lab-only effects until obvious:** scroll parallax ≈ ±64px with slight scale; larger warmer/cooler cursor spotlight (`var(--lab-cx)` / `--lab-cy`, opacity 1 when active — not ~0); Ken Burns 1 → 1.12; stronger vignette / grain / grade (clear, not muddy).
+  3. **Chrome simplification:** Keep Mute/Unmute. Caption moves to a thin strip **below** the video. Remove Watch chip, corner marks, heavy eyebrow overlay. Thin loop progress retained.
+  4. **Cut:** Re-encode from Desktop `S989898_gwr_video_mvp.mp4` with clearly different in/out (`ss=1.20`, `t=7.60` → ~7.2s after `setpts`/`atempo` 1.05); audio retained; cache-bust `?v=d0270`.
+  5. Still one video plane (D-0268); Lab-only; not on public home; `/lab/` remains noindex / footer Resources (D-0263). `prefers-reduced-motion` reduces parallax/Ken Burns; poster OK.
+- **In scope:** `public/lab/video/*`; `LabVideoHero` + Lab CSS/page; UI i18n (10 locales); D-0270 / AGENTS / SITE_ASSIGNMENT; commit/push/Vercel prod.
+- **Out of scope:** Public home video; inventing Operational claims; header Lab link.
+- **Implications:** Lab splash reads as a bold full-bleed experiment band; D-0269 framing chrome is retired. Home collage unchanged (D-0261).
 
 ## Pending Owner Decisions
 

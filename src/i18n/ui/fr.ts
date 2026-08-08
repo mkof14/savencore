@@ -41,15 +41,13 @@ export const uiFr: UiMessages = {
     eyebrow: "Test / Lab / Expériences",
     title: "Lab",
     lead: "Un espace pour essayer de nouvelles fonctions sans modifier le site public. Ce qui figure ici sont des expériences — pas des affirmations produit.",
-    videoFrameEyebrow: "Expérience Lab",
     videoCaption:
       "Une coupe de travail — des systèmes façonnés pour le soin humain dans le monde physique.",
-    videoWatchChip: "Voir · Lab",
     videoMute: "Couper le son",
     videoUnmute: "Activer le son",
     videoEffectsHeading: "Traitement de la vidéo splash",
     videoEffectsApplied:
-      "Appliqué sur cette bande : une vidéo légère dual-format (WebM + MP4, choix mobile) avec une coupe éditoriale plus nette et un son optionnel (démarre en sourdine), cadre éditorial avec marques d’angle, légende sobre, pastille Voir · Lab, fine barre de boucle, parallaxe de scroll discrète, lumière curseur sur bureau, échelle Ken Burns, vignette douce, fondu bas, grain fin, léger étalonnage et fondu à l’apparition. Coins droits ; pas de chrome néon. Mouvement réduit : moins de motion et poster.",
+      "Appliqué sur cette bande (plein cadre, sans cadre photo) : une vidéo légère dual-format (WebM + MP4, choix mobile) avec une nouvelle coupe (~7,2s à ~1,05×) et un son optionnel (démarre en sourdine), commande Mute, fine légende sous la vidéo, barre de boucle, parallaxe de scroll marquée (±~64px + échelle), projecteur curseur évident sur bureau, zoom Ken Burns jusqu’à ~1,12, vignette nette, grain, étalonnage et fondu. Coins droits ; pas de néon. Mouvement réduit : moins de motion et poster.",
     videoEffectsIdeas:
       "Idées futures (non livrées) : coupes chapitres / playlist multi-clips, parallaxe liée au scrub, HDR/AV1 quand le support sera large.",
     note: "De nouvelles expériences peuvent être liées depuis ce hub. Cette page est noindex et absente du menu principal. L’accueil public reste le collage photo.",

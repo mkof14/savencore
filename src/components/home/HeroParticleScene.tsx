@@ -3,41 +3,44 @@
 import { useEffect, useRef, useState } from "react";
 
 /**
- * Home particle hero (D-0255 / D-0256 / D-0257) — WebGL2 morph stage.
- * COUNT=650000, stride 28 bytes (7 floats), ~24.5s snappy loop:
- * intro → HUMAN → LOGO → TOUCH → WATER → RETURN → HUMAN.
+ * Home particle hero (D-0258) — WebGL2 morph from owner-approved HTML engine.
  *
- * D-0257: each scene is a true 16:9 cinematic frame cropped from the
- * owner 5-panel sheet (sheet is bake source only — never the hero image).
- * Assets: /home/particle-hero/*.bin.gz — client DecompressionStream.
- * prefers-reduced-motion → single-frame poster (no WebGL thrash).
+ * COUNT=650000, stride 28 (p.xy, c.rgb, size, seed).
+ * Scenes restored from `/343434.html` professional buffers:
+ *   HUMAN → INTERFACE → ROBOT → WATER → HUMAN
  *
- * Performance: desktop full COUNT + DPR≤2.5; mobile tries full COUNT,
- * then may lower DPR or subsample (½) if sustained frame time is high.
+ * D-0256/D-0257 collage rebakes removed — those looked like the low-res
+ * storyboard sheet. Poster = single frame rendered from HUMAN buffer.
+ *
+ * A-level polish on top of the HTML engine: brighter light, continuous
+ * shimmer on holds, shorter ~24s loop, intro converge, cache-bust.
  */
 
 const COUNT = 650_000;
 const STRIDE = 28;
 const FLOATS_PER = STRIDE / 4;
-const LOOP_S = 24.5;
-const INTRO_S = 1.25;
-/** Bust long-cache static headers when bins/poster change (D-0257). */
-const ASSET_VER = "d0257";
+const LOOP_S = 24;
+const INTRO_S = 1.2;
+const ASSET_VER = "d0258";
 const ASSET_BASE = "/home/particle-hero";
 const POSTER = `${ASSET_BASE}/poster.webp?v=${ASSET_VER}`;
 
-const TARGETS = ["HUMAN", "LOGO", "TOUCH", "WATER", "RETURN"] as const;
+const TARGETS = ["HUMAN", "INTERFACE", "ROBOT", "WATER"] as const;
 type MorphKey = (typeof TARGETS)[number];
 
 const FILE: Record<MorphKey, string> = {
   HUMAN: "human",
-  LOGO: "logo",
-  TOUCH: "touch",
+  INTERFACE: "interface",
+  ROBOT: "robot",
   WATER: "water",
-  RETURN: "return",
 };
 
-/** Brighter, sharper points + scatter uniform for intro converge. */
+/**
+ * Vertex/fragment aligned with owner HTML reference, plus:
+ * - `scatter` uniform for intro converge
+ * - slightly brighter fragment bloom
+ * - hold shimmer stays active (wave not frozen to ~0)
+ */
 const VS = `#version 300 es
 precision highp float;
 layout(location=0)in vec2 p0;layout(location=1)in vec3 c0;layout(location=2)in float s0;layout(location=3)in float seed;
@@ -45,31 +48,28 @@ layout(location=4)in vec2 p1;layout(location=5)in vec3 c1;layout(location=6)in f
 uniform float m,time,dpr,wave,light,scatter;uniform vec2 asp;out vec3 col;
 float ez(float x){x=clamp(x,0.,1.);return x*x*(3.-2.*x);}
 void main(){
- float lm=ez((m-seed*.022)/.978);vec2 p=mix(p0,p1,lm);float arc=sin(3.14159*lm);
- // Ambient shimmer (active on holds too)
- p+=vec2(sin(time*.32+seed*107.),cos(time*.28+seed*83.))*(.000035+fract(seed*23.)*.000085);
- float q1=sin(p.x*20.-time*1.05+seed*.5),q2=sin(p.x*12.-time*.62+seed*1.1);
- p.y+=(q1*.0042+q2*.0022)*wave;p.x+=cos(p.y*15.-time*.72+seed*.8)*.00155*wave;
- p+=vec2(sin(seed*211.+time*.11)*.0042,cos(seed*167.+time*.09)*.0028)*arc;
- // Intro: converge from scatter
+ float lm=ez((m-seed*.028)/.972);vec2 p=mix(p0,p1,lm);float arc=sin(3.14159*lm);
+ p+=vec2(sin(time*.24+seed*107.),cos(time*.21+seed*83.))*(.000022+fract(seed*23.)*.000060);
+ float q1=sin(p.x*22.-time*.92+seed*.5),q2=sin(p.x*13.-time*.54+seed*1.1);
+ p.y+=(q1*.0037+q2*.0019)*wave;p.x+=cos(p.y*16.-time*.62+seed*.8)*.00135*wave;
+ p+=vec2(sin(seed*211.+time*.085)*.0038,cos(seed*167.+time*.07)*.0025)*arc;
+ // Intro converge from scatter
  vec2 rnd=vec2(fract(seed*47.13),fract(seed*91.77));
  p=mix(p, rnd, clamp(scatter,0.,1.));
  gl_Position=vec4((p.x*2.-1.)*asp.x,-(p.y*2.-1.)*asp.y,0,1);
- float psz=mix(s0,s1,lm)*dpr*(0.78+.018*sin(time*.55+seed*53.));
- gl_PointSize=clamp(psz,0.85,1.72*dpr);
- col=mix(c0,c1,lm)*light*(1.-scatter*.55);
+ // Match HTML point sizing (professional buffers already encode small s0/s1)
+ float psz=mix(s0,s1,lm)*dpr*(1.02+.028*sin(time*.48+seed*53.));
+ gl_PointSize=clamp(psz,1.,2.85*dpr);
+ col=mix(c0,c1,lm)*light*(1.-scatter*.5);
 }`;
 
 const FS = `#version 300 es
 precision highp float;in vec3 col;out vec4 o;
 void main(){
  float d=length(gl_PointCoord-.5);
- float core=smoothstep(.42,.0,d);
- float halo=smoothstep(.5,.08,d)*.085;
- float a=core+halo;
- if(a<.002)discard;
- vec3 c=col*(1.18+core*.28);
- o=vec4(c,a);
+ float a=smoothstep(.49,.004,d)+smoothstep(.5,.032,d)*.055;
+ if(a<.001)discard;
+ o=vec4(col*(1.2+a*.2),a);
 }`;
 
 function prefersReducedMotion(): boolean {
@@ -90,14 +90,16 @@ async function loadBinGz(url: string): Promise<Float32Array> {
   if (!res.ok) throw new Error(`Failed to load ${url}: ${res.status}`);
   if (!res.body || typeof DecompressionStream === "undefined") {
     const ab = await res.arrayBuffer();
+    if (ab.byteLength !== COUNT * STRIDE) {
+      throw new Error(`Unexpected buffer size for ${url}: ${ab.byteLength}`);
+    }
     return new Float32Array(ab);
   }
   const stream = res.body.pipeThrough(new DecompressionStream("gzip"));
   const ab = await new Response(stream).arrayBuffer();
-  const expected = COUNT * STRIDE;
-  if (ab.byteLength !== expected) {
+  if (ab.byteLength !== COUNT * STRIDE) {
     throw new Error(
-      `Unexpected buffer size for ${url}: ${ab.byteLength} (expected ${expected})`,
+      `Unexpected buffer size for ${url}: ${ab.byteLength} (expected ${COUNT * STRIDE})`,
     );
   }
   return new Float32Array(ab);
@@ -178,6 +180,7 @@ export function HeroParticleScene({ ariaLabel }: HeroParticleSceneProps) {
           ),
         );
         if (cancelled) return;
+
         const buffers = {} as Record<MorphKey, Float32Array>;
         for (let i = 0; i < TARGETS.length; i++) {
           const key = TARGETS[i];
@@ -190,7 +193,6 @@ export function HeroParticleScene({ ariaLabel }: HeroParticleSceneProps) {
           alpha: false,
           antialias: true,
           powerPreference: "high-performance",
-          desynchronized: true,
         });
         if (!gl) {
           setMode("poster");
@@ -295,9 +297,7 @@ export function HeroParticleScene({ ariaLabel }: HeroParticleSceneProps) {
           if (every === keepEvery || !gl) return;
           keepEvery = every;
           const next = {} as Record<MorphKey, Float32Array>;
-          for (const k of TARGETS) {
-            next[k] = subsample(buffers[k], every);
-          }
+          for (const k of TARGETS) next[k] = subsample(buffers[k], every);
           active = next;
           drawCount = active.HUMAN.length / FLOATS_PER;
           lastPair = "";
@@ -312,9 +312,9 @@ export function HeroParticleScene({ ariaLabel }: HeroParticleSceneProps) {
         let adapted = false;
 
         /**
-         * Snappy timeline (~24.5s) — short holds with continuous wave:
-         * 0–1.25 intro converge → HUMAN
-         * HUMAN hold → morph LOGO → hold → TOUCH → hold → WATER → hold → RETURN → morph HUMAN
+         * Snappy ~24s loop (HTML was 46s with long holds).
+         * intro → HUMAN → INTERFACE → ROBOT → WATER → HUMAN
+         * Holds keep wave/shimmer (not frozen).
          */
         const frame = (n: number) => {
           if (cancelled || !gl) return;
@@ -341,73 +341,69 @@ export function HeroParticleScene({ ariaLabel }: HeroParticleSceneProps) {
 
           const e = ((n - start) / 1000) % LOOP_S;
           const t = n / 1000;
-          gl.clearColor(0.012, 0.042, 0.095, 1);
+          gl.clearColor(0.01, 0.037, 0.08, 1);
           gl.clear(gl.COLOR_BUFFER_BIT);
 
-          // Hold wave stays lively (not frozen)
-          const holdWave = 0.38;
-          const morphWave = 0.58;
-          const holdLight = 1.72;
-          const morphLight = 1.68;
+          const holdW = 0.32;
+          const morphW = 0.52;
+          // Brighter than HTML baseline (~1.3–1.38) for first-look wow on site chrome
+          const holdL = 1.85;
+          const morphL = 1.72;
 
           if (e < INTRO_S) {
             const u = smoothstep(0, INTRO_S, e);
-            const scatter = 1 - u;
-            draw("HUMAN", "HUMAN", 0, t, 0.45 + 0.2 * u, 0.55 + 1.2 * u, scatter);
-          } else if (e < 2.35) {
-            draw("HUMAN", "HUMAN", 0, t, holdWave, holdLight);
-          } else if (e < 5.6) {
             draw(
               "HUMAN",
-              "LOGO",
-              smoothstep(2.35, 5.6, e),
+              "HUMAN",
+              0,
               t,
-              morphWave,
-              morphLight,
+              0.4 + 0.15 * u,
+              0.5 + 1.1 * u,
+              1 - u,
             );
-          } else if (e < 6.7) {
-            draw("LOGO", "LOGO", 0, t, holdWave, 1.78);
-          } else if (e < 10.0) {
+          } else if (e < 2.4) {
+            draw("HUMAN", "HUMAN", 0, t, holdW, holdL);
+          } else if (e < 6.0) {
             draw(
-              "LOGO",
-              "TOUCH",
-              smoothstep(6.7, 10.0, e),
+              "HUMAN",
+              "INTERFACE",
+              smoothstep(2.4, 6.0, e),
               t,
-              morphWave,
-              morphLight,
+              morphW,
+              morphL,
             );
-          } else if (e < 11.15) {
-            draw("TOUCH", "TOUCH", 0, t, holdWave, holdLight);
-          } else if (e < 14.5) {
+          } else if (e < 7.2) {
+            draw("INTERFACE", "INTERFACE", 0, t, holdW, 1.92);
+          } else if (e < 11.0) {
             draw(
-              "TOUCH",
+              "INTERFACE",
+              "ROBOT",
+              smoothstep(7.2, 11.0, e),
+              t,
+              morphW,
+              morphL,
+            );
+          } else if (e < 12.3) {
+            draw("ROBOT", "ROBOT", 0, t, holdW * 0.85, holdL);
+          } else if (e < 16.5) {
+            draw(
+              "ROBOT",
               "WATER",
-              smoothstep(11.15, 14.5, e),
+              smoothstep(12.3, 16.5, e),
               t,
-              morphWave,
-              morphLight,
+              morphW * 0.9,
+              morphL,
             );
-          } else if (e < 15.65) {
-            draw("WATER", "WATER", 0, t, holdWave * 0.95, holdLight);
-          } else if (e < 19.0) {
-            draw(
-              "WATER",
-              "RETURN",
-              smoothstep(15.65, 19.0, e),
-              t,
-              morphWave,
-              morphLight,
-            );
-          } else if (e < 20.15) {
-            draw("RETURN", "RETURN", 0, t, holdWave, holdLight);
+          } else if (e < 17.8) {
+            draw("WATER", "WATER", 0, t, holdW * 0.75, holdL);
           } else {
             draw(
-              "RETURN",
+              "WATER",
               "HUMAN",
-              smoothstep(20.15, LOOP_S, e),
+              smoothstep(17.8, LOOP_S, e),
               t,
-              morphWave * 0.9,
-              morphLight,
+              morphW * 0.85,
+              morphL,
             );
           }
 
@@ -415,7 +411,10 @@ export function HeroParticleScene({ ariaLabel }: HeroParticleSceneProps) {
         };
         raf = requestAnimationFrame(frame);
       } catch (err) {
-        console.warn("[HeroParticleScene] WebGL/bin load failed; poster fallback", err);
+        console.warn(
+          "[HeroParticleScene] WebGL/bin load failed; poster fallback",
+          err,
+        );
         if (!cancelled) setMode("poster");
       }
     })();
@@ -439,7 +438,6 @@ export function HeroParticleScene({ ariaLabel }: HeroParticleSceneProps) {
       role="img"
       aria-label={ariaLabel}
     >
-      {/* Single-frame poster only (never the 5-panel sheet). Covers load gap. */}
       {/* eslint-disable-next-line @next/next/no-img-element -- decorative LCP / reduced-motion */}
       <img
         className={`pw-particle-hero__poster${mode === "webgl" ? " is-faded" : ""}`}

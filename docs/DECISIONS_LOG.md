@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-08-08 (D-0257 — Particle hero true 16:9 frames; never show sheet)
+**Last updated:** 2026-08-08 (D-0258 — Restore professional HTML particle buffers)
 
 ## Rules
 
@@ -273,6 +273,7 @@
 | D-0255 | 2026-08-08 | Home particle morph hero (WebGL; approved reference) | Active |
 | D-0256 | 2026-08-08 | Particle hero densify, rebake from 5-panel refs, snappy loop | Active |
 | D-0257 | 2026-08-08 | Particle hero true 16:9 frames — never display 5-panel sheet | Active |
+| D-0258 | 2026-08-08 | Restore professional HTML particle buffers (quality recovery) | Active |
 
 ---
 
@@ -2669,6 +2670,20 @@
 - **In scope:** `scripts/bake-particle-hero.py`, rebaked bins + poster, `HeroParticleScene` asset URLs / poster fade, CSS, D-0257 + AGENTS pointer; commit/push/Vercel prod.
 - **Out of scope:** Publishing the collage image; inventing Operational claims.
 - **Implications:** Owner should hard-refresh once (long-cache on `/home/*`); new `?v=` query bypasses stale bins/poster. Source panel resolution remains the quality ceiling.
+
+### D-0258 — Restore professional HTML particle buffers (quality recovery)
+
+- **Date:** 2026-08-08
+- **Status:** Active
+- **Summary:** Owner («все плохо») rejected D-0256/D-0257 collage-rebaked particle quality. Restore the professionally baked buffers from the approved WebGL HTML reference and realign the runtime engine.
+- **Decision:**
+  1. **Root cause of “все плохо”:** Collage sampling from a low-res 5-panel sheet cannot match the dense proprietary particle fields in `343434.html`. Additional point-size/light changes on muddier data made the hero look sparse/muddy/storyboard-like.
+  2. **Restore source of truth:** Extract again `HUMAN` / `INTERFACE` / `ROBOT` / `WATER` Float32 buffers (COUNT **650000**, stride **28**) from the HTML into `public/home/particle-hero/{human,interface,robot,water}.bin.gz`. Remove collage-only `logo` / `touch` / `return` bins.
+  3. **Runtime:** `HeroParticleScene` uses HTML-aligned shaders + additive blend; A-level polish — brighter light (~1.55–1.68), continuous hold shimmer, ~**24s** snappy loop, intro converge, single-frame HUMAN poster, cache-bust `?v=d0258`. Sheet never displayed.
+  4. Extract helper: `scripts/extract-particle-hero-from-html.py`.
+- **In scope:** Extracted bins + poster, `HeroParticleScene`, preload/docs/AGENTS, D-0258; commit/push/Vercel prod; prove original bins load (not 5-panel sheet).
+- **Out of scope:** Re-introducing collage rebakes as primary; inventing Operational claims.
+- **Implications / honest quality:** Visual quality should approach the standalone HTML file (same particle data + near-same shaders). Slight differences remain (site chrome, DPR/cover framing, shorter loop, brighter light). Not a pixel-identical port of the full-screen HTML page.
 
 ## Pending Owner Decisions
 

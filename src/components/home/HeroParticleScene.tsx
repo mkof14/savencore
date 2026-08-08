@@ -3,13 +3,14 @@
 import { useEffect, useRef, useState } from "react";
 
 /**
- * Home particle hero (D-0255 / D-0256) — WebGL2 morph stage.
+ * Home particle hero (D-0255 / D-0256 / D-0257) — WebGL2 morph stage.
  * COUNT=650000, stride 28 bytes (7 floats), ~24.5s snappy loop:
  * intro → HUMAN → LOGO → TOUCH → WATER → RETURN → HUMAN.
  *
- * Buffers rebaked from owner 5-panel reference (D-0256).
+ * D-0257: each scene is a true 16:9 cinematic frame cropped from the
+ * owner 5-panel sheet (sheet is bake source only — never the hero image).
  * Assets: /home/particle-hero/*.bin.gz — client DecompressionStream.
- * prefers-reduced-motion → static poster (no WebGL thrash).
+ * prefers-reduced-motion → single-frame poster (no WebGL thrash).
  *
  * Performance: desktop full COUNT + DPR≤2.5; mobile tries full COUNT,
  * then may lower DPR or subsample (½) if sustained frame time is high.
@@ -20,8 +21,10 @@ const STRIDE = 28;
 const FLOATS_PER = STRIDE / 4;
 const LOOP_S = 24.5;
 const INTRO_S = 1.25;
+/** Bust long-cache static headers when bins/poster change (D-0257). */
+const ASSET_VER = "d0257";
 const ASSET_BASE = "/home/particle-hero";
-const POSTER = `${ASSET_BASE}/poster.webp`;
+const POSTER = `${ASSET_BASE}/poster.webp?v=${ASSET_VER}`;
 
 const TARGETS = ["HUMAN", "LOGO", "TOUCH", "WATER", "RETURN"] as const;
 type MorphKey = (typeof TARGETS)[number];
@@ -170,7 +173,9 @@ export function HeroParticleScene({ ariaLabel }: HeroParticleSceneProps) {
     (async () => {
       try {
         const loaded = await Promise.all(
-          TARGETS.map((k) => loadBinGz(`${ASSET_BASE}/${FILE[k]}.bin.gz`)),
+          TARGETS.map((k) =>
+            loadBinGz(`${ASSET_BASE}/${FILE[k]}.bin.gz?v=${ASSET_VER}`),
+          ),
         );
         if (cancelled) return;
         const buffers = {} as Record<MorphKey, Float32Array>;
@@ -409,7 +414,8 @@ export function HeroParticleScene({ ariaLabel }: HeroParticleSceneProps) {
           raf = requestAnimationFrame(frame);
         };
         raf = requestAnimationFrame(frame);
-      } catch {
+      } catch (err) {
+        console.warn("[HeroParticleScene] WebGL/bin load failed; poster fallback", err);
         if (!cancelled) setMode("poster");
       }
     })();
@@ -433,10 +439,10 @@ export function HeroParticleScene({ ariaLabel }: HeroParticleSceneProps) {
       role="img"
       aria-label={ariaLabel}
     >
-      {/* Strong poster always under canvas — no black void while bins load */}
+      {/* Single-frame poster only (never the 5-panel sheet). Covers load gap. */}
       {/* eslint-disable-next-line @next/next/no-img-element -- decorative LCP / reduced-motion */}
       <img
-        className={`pw-particle-hero__poster${mode === "webgl" ? " is-under" : ""}`}
+        className={`pw-particle-hero__poster${mode === "webgl" ? " is-faded" : ""}`}
         src={POSTER}
         alt=""
         width={1600}
@@ -448,12 +454,8 @@ export function HeroParticleScene({ ariaLabel }: HeroParticleSceneProps) {
       {mode !== "poster" && (
         <canvas
           ref={canvasRef}
-          className="pw-particle-hero__canvas"
+          className={`pw-particle-hero__canvas${mode === "webgl" ? " is-live" : ""}`}
           aria-hidden="true"
-          style={{
-            opacity: mode === "webgl" ? 1 : 0,
-            pointerEvents: "none",
-          }}
         />
       )}
     </div>

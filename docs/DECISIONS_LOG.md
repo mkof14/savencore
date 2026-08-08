@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-08-08 (D-0256 — Particle hero densify / rebake / snappy loop)
+**Last updated:** 2026-08-08 (D-0257 — Particle hero true 16:9 frames; never show sheet)
 
 ## Rules
 
@@ -272,6 +272,7 @@
 | D-0254 | 2026-07-30 | Final public site snapshot freeze | Active |
 | D-0255 | 2026-08-08 | Home particle morph hero (WebGL; approved reference) | Active |
 | D-0256 | 2026-08-08 | Particle hero densify, rebake from 5-panel refs, snappy loop | Active |
+| D-0257 | 2026-08-08 | Particle hero true 16:9 frames — never display 5-panel sheet | Active |
 
 ---
 
@@ -2655,6 +2656,19 @@
 - **In scope:** `HeroParticleScene` shaders/timeline, rebaked bins + poster, bake script, CSS load poster, D-0256 + AGENTS pointer; commit/push/Vercel prod.
 - **Out of scope:** Inventing Operational claims; committing the 97MB reference HTML; changing care carousel / non-home pages.
 - **Implications / limits:** Source panels in the collage are low native resolution (~600×80 before upscale) — density and color match the aesthetic via importance sampling + upscale/enhance, but facial micro-detail cannot exceed the source. Total particle download rises (~62MB gzipped for five scenes).
+
+### D-0257 — Particle hero true 16:9 frames — never display 5-panel sheet
+
+- **Date:** 2026-08-08
+- **Status:** Active
+- **Summary:** Owner rejected the live hero looking like their vertical 5-panel reference collage («просто мой референс, так не годится»). Fix so the hero is one full-bleed cinematic frame at a time with live WebGL morph — never the stacked storyboard sheet.
+- **Decision:**
+  1. **Root cause:** D-0256 bake kept each panel’s ultra-wide strip aspect (~7–8:1) and mapped UV as if 16:9, producing storyboard-banner geometry instead of cinematic full-bleed frames. The 5-panel sheet must be bake source only.
+  2. **Rebake:** Crop five panels separately; cover-crop each into a true **1920×1080** artboard with per-scene focal points; sample COUNT **650000** per scene. Guardrail aborts if a buffer looks like a stacked multi-panel sheet. Poster = single human 16:9 frame only.
+  3. **Runtime:** Cache-bust particle assets (`?v=d0257`); fade out poster once WebGL is live; console-warn on bin/WebGL failure → poster fallback. Morph path unchanged: intro → HUMAN → LOGO → TOUCH → WATER → RETURN → HUMAN (~24.5s).
+- **In scope:** `scripts/bake-particle-hero.py`, rebaked bins + poster, `HeroParticleScene` asset URLs / poster fade, CSS, D-0257 + AGENTS pointer; commit/push/Vercel prod.
+- **Out of scope:** Publishing the collage image; inventing Operational claims.
+- **Implications:** Owner should hard-refresh once (long-cache on `/home/*`); new `?v=` query bypasses stale bins/poster. Source panel resolution remains the quality ceiling.
 
 ## Pending Owner Decisions
 

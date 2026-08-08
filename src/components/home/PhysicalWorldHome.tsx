@@ -131,7 +131,7 @@ export function PhysicalWorldHome({ locale }: PhysicalWorldHomeProps) {
       <link
         rel="preload"
         as="image"
-        href="/home/particle-hero/poster.webp"
+        href="/home/particle-hero/poster.webp?v=d0257"
         type="image/webp"
       />
       <HeroParticleStage ariaLabel={ui.home.particleHeroLabel} />

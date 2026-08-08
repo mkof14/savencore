@@ -50,6 +50,9 @@ yarn-error.log*
 
 # local verification artifacts
 /tmp/
+/tmp-particle-frames/
+/tmp-diag-*
+/tmp-particle-hero-shot*.png
 
 # admin media uploads (keep directory markers)
 /storage/admin-media/files/*

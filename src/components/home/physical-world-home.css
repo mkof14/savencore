@@ -59,17 +59,25 @@
   object-position: center;
   z-index: 0;
   background: #061022;
-  transition: opacity 0.45s ease;
+  transition: opacity 0.5s ease;
+  opacity: 1;
 }
 
-.pw-particle-hero__poster.is-under {
-  /* Keep poster painted under canvas during first frames / GPU warm-up */
-  opacity: 1;
+.pw-particle-hero__poster.is-faded {
+  /* Hide single-frame poster once WebGL is live — never leave a collage underlay */
+  opacity: 0;
+  pointer-events: none;
 }
 
 .pw-particle-hero__canvas {
   z-index: 1;
-  transition: opacity 0.45s ease;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+.pw-particle-hero__canvas.is-live {
+  opacity: 1;
 }
 
 @media (prefers-reduced-motion: reduce) {

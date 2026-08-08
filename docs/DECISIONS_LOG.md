@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-08-08 (D-0261 — Rollback home to photo collage; particle preview)
+**Last updated:** 2026-08-08 (D-0262 — Dark clarity / Explore SAVEN gray-blue cards)
 
 ## Rules
 
@@ -277,6 +277,7 @@
 | D-0259 | 2026-08-08 | Fix HUMAN + INTERFACE particle scenes (clean logo / dense human) | Active |
 | D-0260 | 2026-08-08 | Official logo INTERFACE + sharper HUMAN + living holds + smaller stage | Active |
 | D-0261 | 2026-08-08 | Rollback home to photo collage; particle morph → preview only | Active |
+| D-0262 | 2026-08-08 | Dark clarity / Explore SAVEN cards → gray-blue slate | Active |
 
 ---
 
@@ -2730,6 +2731,16 @@
 - **In scope:** `PhysicalWorldHome`, preview page + CSS, home CSS comment, UI i18n preview title/lead (10 locales), D-0261 + AGENTS / SITE_ASSIGNMENT pointers; commit/push/Vercel prod.
 - **Out of scope:** Deleting ~60MB particle bins; inventing Operational claims; adding particle link to public chrome.
 - **Implications:** Home first screen is photos again. Particle R&D continues only via direct preview URL.
+
+### D-0262 — Dark clarity / Explore SAVEN cards → gray-blue slate
+
+- **Date:** 2026-08-08
+- **Status:** Active
+- **Summary:** Owner wants dark-theme home clarity / Explore SAVEN cards to read soft gray-blue (серо-синий), not deep navy.
+- **Decision:** In `physical-world-home.css`, replace deep navy mixes (`#0b1524` / `#1a2438`) on dark definition panel, chain-link, pillar, and Explore SAVEN tabs/letter chips/panel with gray-blue slate (`#3a4454` / `#4a5568` / `#2f3848` / `#3d4a5c`). Dark hover overrides keep chain-link and pillar from snapping back to navy via `--color-surface`. Gold/amber accents and light theme unchanged.
+- **In scope:** Home clarity CSS + this decision entry; commit/push/Vercel prod.
+- **Out of scope:** Light theme, biomath bridge, flagship gateway, inventing Operational claims.
+- **Implications:** Dark home cards read as soft slate gray-blue; gold accents remain the accent language.
 
 ## Pending Owner Decisions
 

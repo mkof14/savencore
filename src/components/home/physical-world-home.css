@@ -1023,8 +1023,8 @@ html[data-theme="dark"] .pw-clarity__panel--definition {
   background:
     linear-gradient(
       135deg,
-      color-mix(in srgb, #0b1524 88%, #1a2438) 0%,
-      color-mix(in srgb, #121c2c 90%, #d4a84b) 100%
+      color-mix(in srgb, #3a4454 82%, #4a5568) 0%,
+      color-mix(in srgb, #2f3848 88%, #d4a84b) 100%
     );
   border-color: color-mix(in srgb, #8a9bb4 28%, transparent);
 }
@@ -1210,7 +1210,7 @@ html[data-theme="dark"] a.pw-clarity__biomath-cta:focus-visible {
 }
 
 html[data-theme="dark"] .pw-clarity__chain-link {
-  background: color-mix(in srgb, #0b1524 72%, #1a2438);
+  background: color-mix(in srgb, #3a4454 68%, #4a5568);
   border-color: color-mix(in srgb, #8a9bb4 28%, transparent);
   border-block-start-color: #d4a84b;
 }
@@ -1222,6 +1222,11 @@ a.pw-clarity__chain-link:focus-visible {
   background: color-mix(in srgb, #d4a84b 10%, var(--color-surface));
   color: var(--color-text);
   transform: translateY(-1px);
+}
+
+html[data-theme="dark"] a.pw-clarity__chain-link:hover,
+html[data-theme="dark"] a.pw-clarity__chain-link:focus-visible {
+  background: color-mix(in srgb, #d4a84b 14%, #4a5568);
 }
 
 a.pw-clarity__chain-link:focus-visible {
@@ -1279,7 +1284,7 @@ a.pw-clarity__chain-link:focus-visible {
 }
 
 html[data-theme="dark"] .pw-clarity__pillar {
-  background: color-mix(in srgb, #0b1524 78%, #1a2438);
+  background: color-mix(in srgb, #3a4454 72%, #4a5568);
   border-color: color-mix(in srgb, #8a9bb4 26%, transparent);
 }
 
@@ -1288,6 +1293,11 @@ a.pw-clarity__pillar:focus-visible {
   border-color: color-mix(in srgb, #d4a84b 55%, transparent);
   background: color-mix(in srgb, #d4a84b 8%, var(--color-surface));
   transform: translateY(-1px);
+}
+
+html[data-theme="dark"] a.pw-clarity__pillar:hover,
+html[data-theme="dark"] a.pw-clarity__pillar:focus-visible {
+  background: color-mix(in srgb, #d4a84b 12%, #4a5568);
 }
 
 a.pw-clarity__pillar:focus-visible {
@@ -1641,7 +1651,7 @@ html[data-theme="dark"] .pw-clarity__not-list li {
   min-height: 3rem;
   padding: 0.55rem 0.95rem 0.55rem 0.65rem;
   border: 1px solid color-mix(in srgb, #8a9bb4 36%, transparent);
-  background: color-mix(in srgb, #0b1524 72%, #1a2438);
+  background: color-mix(in srgb, #3a4454 68%, #4a5568);
   color: color-mix(in srgb, #c5d4ea 90%, #fff);
   font: inherit;
   font-size: 0.8125rem;
@@ -1664,7 +1674,7 @@ html[data-theme="dark"] .pw-clarity__not-list li {
   height: 2rem;
   flex-shrink: 0;
   border: 1px solid color-mix(in srgb, #d4a84b 55%, transparent);
-  background: color-mix(in srgb, #0b1524 55%, #1c2a40);
+  background: color-mix(in srgb, #2f3848 58%, #3d4a5c);
   color: #f7f4ee;
   font-size: 1.05rem;
   font-weight: 800;
@@ -1681,7 +1691,7 @@ html[data-theme="dark"] .pw-clarity__not-list li {
 .pw-explore-saven__tab:hover,
 .pw-explore-saven__tab:focus-visible {
   border-color: color-mix(in srgb, #d4a84b 72%, transparent);
-  background: color-mix(in srgb, #122038 70%, #0b1524);
+  background: color-mix(in srgb, #4a5568 72%, #3a4454);
   color: #f2f6fc;
   box-shadow:
     inset 0 1px 0 color-mix(in srgb, #fff 8%, transparent),
@@ -1693,15 +1703,15 @@ html[data-theme="dark"] .pw-clarity__not-list li {
 .pw-explore-saven__tab:focus-visible .pw-explore-saven__tab-letter {
   border-color: #d4a84b;
   color: #fff8ea;
-  background: color-mix(in srgb, #0b1524 40%, #d4a84b);
+  background: color-mix(in srgb, #3a4454 40%, #d4a84b);
 }
 
 .pw-explore-saven__tab.is-active {
   border-color: #d4a84b;
   background: linear-gradient(
     180deg,
-    color-mix(in srgb, #1a2740 55%, #d4a84b) 0%,
-    color-mix(in srgb, #0b1524 82%, #d4a84b) 100%
+    color-mix(in srgb, #4a5568 55%, #d4a84b) 0%,
+    color-mix(in srgb, #3a4454 78%, #d4a84b) 100%
   );
   color: #f7f4ee;
   box-shadow:
@@ -1712,7 +1722,7 @@ html[data-theme="dark"] .pw-clarity__not-list li {
 
 .pw-explore-saven__tab.is-active .pw-explore-saven__tab-letter {
   border-color: #f0c35a;
-  background: color-mix(in srgb, #0b1524 28%, #d4a84b);
+  background: color-mix(in srgb, #3a4454 28%, #d4a84b);
   color: #0b1524;
   box-shadow: 0 0 10px color-mix(in srgb, #d4a84b 35%, transparent);
 }
@@ -1755,8 +1765,8 @@ html[data-theme="dark"] .pw-clarity__not-list li {
   background:
     linear-gradient(
       135deg,
-      color-mix(in srgb, #101826 88%, transparent) 0%,
-      color-mix(in srgb, #07090f 94%, transparent) 100%
+      color-mix(in srgb, #3a4454 78%, #2f3848) 0%,
+      color-mix(in srgb, #2f3848 88%, #3d4a5c) 100%
     );
 }
 

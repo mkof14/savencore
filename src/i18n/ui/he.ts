@@ -276,10 +276,12 @@ export const uiHe: UiMessages = {
     title: "Lab",
     lead: "ארגז חול לניסוי תכונות חדשות בלי לשנות את האתר הציבורי. כאן ניסויים — לא טענות מוצר.",
     experimentsHeading: "משטחי ניסוי",
-    particleHeroTitle: "Particle hero",
+    featuredBadge: "ניסוי מומלץ",
+    particleHeroTitle: "אדם + גלי אנרגיה",
     particleHeroLead:
-      "תצוגה מקדימה של מורף חלקיקי WebGL. דף הבית הציבורי משתמש בקולאז׳ התמונות.",
+      "מורף חלקיקי WebGL — דמות נקודתית עם זרמי אנרגיה של SAVEN. תמונות בלבד על הקנבס. דף הבית נשאר קולאז׳ תמונות.",
     openExperiment: "פתיחת ניסוי",
+    backToLab: "← חזרה ל-Lab",
     note: "ניתן לקשר ניסויים חדשים ממרכז זה. הדף הוא noindex ואינו בתפריט הראשי.",
   },
 

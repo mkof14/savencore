@@ -470,10 +470,12 @@ export const uiEn = {
     title: "Lab",
     lead: "A sandbox for trying new features without changing the public site. Surfaces here are experiments — not product claims.",
     experimentsHeading: "Experiment surfaces",
-    particleHeroTitle: "Particle hero",
+    featuredBadge: "Featured experiment",
+    particleHeroTitle: "Human + energy waves",
     particleHeroLead:
-      "WebGL particle morph preview. The public home uses the living photo collage.",
+      "WebGL particle morph — point-cloud human figure with flowing SAVEN energy streams. Images only on the canvas. The public home stays the photo collage.",
     openExperiment: "Open experiment",
+    backToLab: "← Back to Lab",
     note: "New experiments can be linked from this hub. This page is noindex and is not in the primary header menu.",
   },
 

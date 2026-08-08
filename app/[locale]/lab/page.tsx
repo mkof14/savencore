@@ -13,7 +13,7 @@ type Props = {
 };
 
 /**
- * Experiments hub (D-0263) — sandbox for novelties without touching the public home.
+ * Experiments hub (D-0263 / D-0264) — sandbox for novelties without touching the public home.
  * Linked from footer Resources only; robots noindex + sitemap excluded.
  */
 export async function generateMetadata({ params }: Props) {
@@ -29,19 +29,11 @@ export async function generateMetadata({ params }: Props) {
   });
 }
 
-const EXPERIMENTS = [
-  {
-    id: "particle-hero",
-    href: "/preview/particle-hero/",
-    titleKey: "particleHeroTitle" as const,
-    leadKey: "particleHeroLead" as const,
-  },
-] as const;
-
 export default async function LabPage({ params }: Props) {
   const { locale: localeParam } = await params;
   if (!isLocale(localeParam)) notFound();
   const ui = getUi(localeParam);
+  const experimentHref = localizePath(localeParam, "/preview/particle-hero/");
 
   return (
     <article className="site-lab-page page">
@@ -54,26 +46,36 @@ export default async function LabPage({ params }: Props) {
           <h2 className="site-lab-page__section-title">
             {ui.lab.experimentsHeading}
           </h2>
-          <ul className="site-lab-page__list">
-            {EXPERIMENTS.map((item) => (
-              <li key={item.id} className="site-lab-page__item">
-                <Link
-                  href={localizePath(localeParam, item.href)}
-                  className="site-lab-page__link"
-                >
-                  <span className="site-lab-page__link-title">
-                    {ui.lab[item.titleKey]}
-                  </span>
-                  <span className="site-lab-page__link-lead">
-                    {ui.lab[item.leadKey]}
-                  </span>
-                  <span className="site-lab-page__link-cta">
-                    {ui.lab.openExperiment}
-                  </span>
-                </Link>
-              </li>
-            ))}
-          </ul>
+
+          {/* Featured particle experiment (D-0264) */}
+          <Link
+            href={experimentHref}
+            className="site-lab-page__feature"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element -- experiment poster */}
+            <img
+              className="site-lab-page__feature-media"
+              src="/lab/particle/poster.webp?v=d0264"
+              alt=""
+              width={1600}
+              height={900}
+              decoding="async"
+            />
+            <span className="site-lab-page__feature-body">
+              <span className="site-lab-page__feature-badge">
+                {ui.lab.featuredBadge}
+              </span>
+              <span className="site-lab-page__link-title">
+                {ui.lab.particleHeroTitle}
+              </span>
+              <span className="site-lab-page__link-lead">
+                {ui.lab.particleHeroLead}
+              </span>
+              <span className="site-lab-page__link-cta">
+                {ui.lab.openExperiment}
+              </span>
+            </span>
+          </Link>
 
           <p className="site-lab-page__note">{ui.lab.note}</p>
         </div>

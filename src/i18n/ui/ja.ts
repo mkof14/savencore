@@ -41,10 +41,12 @@ export const uiJa: UiMessages = {
     title: "Lab",
     lead: "公開サイトを変えずに新機能を試すためのサンドボックスです。ここにあるのは実験であり、製品としての主張ではありません。",
     experimentsHeading: "実験サーフェス",
-    particleHeroTitle: "Particle hero",
+    featuredBadge: "注目の実験",
+    particleHeroTitle: "人間 + エネルギー波",
     particleHeroLead:
-      "WebGLパーティクルモーフのプレビュー。公開ホームはフォトコラージュを使います。",
+      "WebGLパーティクルモーフ — ポイントクラウドの人体とSAVENのエネルギー流。キャンバスは画像のみ。公開ホームはフォトコラージュのままです。",
     openExperiment: "実験を開く",
+    backToLab: "← Lab に戻る",
     note: "新しい実験はこのハブからリンクできます。このページはnoindexで、メインメニューにはありません。",
   },
 

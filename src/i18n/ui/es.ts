@@ -41,10 +41,12 @@ export const uiEs: UiMessages = {
     title: "Lab",
     lead: "Un espacio seguro para probar funciones nuevas sin alterar el sitio público. Lo que hay aquí son experimentos — no afirmaciones de producto.",
     experimentsHeading: "Superficies de experimento",
-    particleHeroTitle: "Particle hero",
+    featuredBadge: "Experimento destacado",
+    particleHeroTitle: "Humano + ondas de energía",
     particleHeroLead:
-      "Vista previa del morph de partículas WebGL. La portada pública usa el collage fotográfico.",
+      "Morph de partículas WebGL — figura en nube de puntos con flujos de energía SAVEN. Solo imágenes en el lienzo. La portada pública sigue siendo el collage fotográfico.",
     openExperiment: "Abrir experimento",
+    backToLab: "← Volver a Lab",
     note: "Pueden enlazarse nuevos experimentos desde este hub. Esta página es noindex y no está en el menú principal.",
   },
 

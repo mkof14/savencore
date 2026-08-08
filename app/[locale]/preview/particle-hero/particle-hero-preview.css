@@ -1,4 +1,4 @@
-/* Preview-only chrome for particle morph experiments (D-0261). */
+/* Preview chrome for Lab particle experiment (D-0264). Canvas itself has no text. */
 
 .particle-hero-preview {
   display: flex;
@@ -32,19 +32,33 @@
 }
 
 .particle-hero-preview__lead {
-  margin: 0;
-  max-width: 40rem;
+  margin: 0 0 0.65rem;
+  max-width: 42rem;
   font-size: 0.95rem;
   line-height: 1.45;
   opacity: 0.85;
 }
 
-.particle-hero-preview .pw-particle-hero {
+.particle-hero-preview__back {
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+.particle-hero-preview__back a {
+  color: #9ec4ff;
+  text-decoration: none;
+}
+
+.particle-hero-preview__back a:hover,
+.particle-hero-preview__back a:focus-visible {
+  text-decoration: underline;
+  outline: none;
+}
+
+.particle-hero-preview .lab-particle-stage {
   flex: 1 1 auto;
   width: 100%;
-  /* Full experiment stage on preview — taller than public home had after D-0260 shrink */
   min-height: 70vh;
   min-height: 70svh;
   height: min(86svh, 86vh);
-  max-height: none;
 }

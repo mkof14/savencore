@@ -38,10 +38,12 @@ export const uiZhCn: UiMessages = {
     title: "Lab",
     lead: "在不影响公开站点的前提下试验新功能的沙盒。此处为实验表面——不是产品主张。",
     experimentsHeading: "实验表面",
-    particleHeroTitle: "Particle hero",
+    featuredBadge: "精选实验",
+    particleHeroTitle: "人体 + 能量波",
     particleHeroLead:
-      "WebGL 粒子变形预览。公开首页使用实景照片拼贴。",
+      "WebGL 粒子变形 — 点云人体与 SAVEN 能量流。画布仅图像。公开首页仍为照片拼贴。",
     openExperiment: "打开实验",
+    backToLab: "← 返回 Lab",
     note: "可从此中心链接新实验。本页为 noindex，且不在主导航菜单中。",
   },
 

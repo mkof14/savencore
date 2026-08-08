@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-08-08 (D-0263 — Test / Lab experiments hub)
+**Last updated:** 2026-08-08 (D-0264 — Lab particle human+waves experiment)
 
 ## Rules
 
@@ -279,6 +279,7 @@
 | D-0261 | 2026-08-08 | Rollback home to photo collage; particle morph → preview only | Active |
 | D-0262 | 2026-08-08 | Dark clarity / Explore SAVEN cards → gray-blue slate | Active |
 | D-0263 | 2026-08-08 | Test / Lab experiments hub (`/lab/`) + footer Resources link | Active |
+| D-0264 | 2026-08-08 | Lab particle experiment — human + energy waves (preview) | Active |
 
 ---
 
@@ -2757,6 +2758,20 @@
 - **In scope:** `app/[locale]/lab/`, published routes, footer nav, robots/sitemap/proxy, UI i18n (10 locales), D-0263 + AGENTS / SITE_ASSIGNMENT pointers; commit/push/Vercel prod; local dev restart.
 - **Out of scope:** Putting Lab in header hubs; inventing Operational claims; deleting particle bins; changing product `/labs/` marketing pages.
 - **Implications:** Safe sandbox for novelties; public home and marketing leaves stay stable; Lab is discoverable via footer Resources.
+
+### D-0264 — Lab particle experiment — human + energy waves (preview)
+
+- **Date:** 2026-08-08
+- **Status:** Active
+- **Summary:** Owner requests quality particle animation tests on Lab (not public home) using new cinematic hero references — human point-cloud + SAVEN energy waves; images only on canvas.
+- **Decision:**
+  1. Bake three 16:9 frames from owner refs S010101 / S111 / S333 (UI/text masked) into `public/lab/particle/{wave-a,wave-b,wave-c}.bin.gz` (COUNT **650000**).
+  2. New `LabParticleScene` morph loop (~18s) with continuous wave motion; cache-bust `?v=d0264`.
+  3. Live WebGL on `/preview/particle-hero/`; `/lab/` features a prominent poster card linking to it. Public home unchanged (photo collage — D-0261).
+  4. noindex retained on Lab + preview.
+- **In scope:** Bake script, lab particle assets, LabParticleScene/Stage, Lab hub feature card, preview page, UI i18n, D-0264 docs; commit/push/Vercel prod.
+- **Out of scope:** Putting particle on public home; inventing Operational claims; nav/header Lab link.
+- **Implications:** Experiments iterate via Lab → preview; home first screen stays photos.
 
 ## Pending Owner Decisions
 

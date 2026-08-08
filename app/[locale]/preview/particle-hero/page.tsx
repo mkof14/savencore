@@ -1,10 +1,12 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import { HeroParticleStage } from "@/components/home/HeroParticleStage";
-import "@/components/home/physical-world-home.css";
+import { LabParticleStage } from "@/components/lab/LabParticleStage";
+import "@/components/lab/lab-particle.css";
 import { isLocale } from "@/config/locales";
 import { getUi } from "@/i18n/ui";
 import { buildPageMetadata } from "@/lib/seo/metadata";
+import { localizePath } from "@/navigation/locale-path";
 
 import "./particle-hero-preview.css";
 
@@ -13,8 +15,8 @@ type Props = {
 };
 
 /**
- * Internal experiment surface for the particle morph hero (D-0261).
- * Not linked from public nav/footer. Robots: noindex (proxy + metadata).
+ * Lab particle experiment (D-0264) — human + energy waves, images only on canvas.
+ * Discoverable via `/lab/`. Robots: noindex.
  */
 export async function generateMetadata({ params }: Props) {
   const { locale: localeParam } = await params;
@@ -23,8 +25,8 @@ export async function generateMetadata({ params }: Props) {
   return buildPageMetadata({
     locale: localeParam,
     path: "/preview/particle-hero/",
-    title: ui.home.particlePreviewTitle,
-    description: ui.home.particlePreviewLead,
+    title: ui.lab.particleHeroTitle,
+    description: ui.lab.particleHeroLead,
     noIndex: true,
   });
 }
@@ -37,15 +39,16 @@ export default async function ParticleHeroPreviewPage({ params }: Props) {
   return (
     <article className="particle-hero-preview">
       <header className="particle-hero-preview__chrome">
-        <p className="particle-hero-preview__eyebrow">{ui.media.preview}</p>
+        <p className="particle-hero-preview__eyebrow">{ui.lab.eyebrow}</p>
         <h1 className="particle-hero-preview__title">
-          {ui.home.particlePreviewTitle}
+          {ui.lab.particleHeroTitle}
         </h1>
-        <p className="particle-hero-preview__lead">
-          {ui.home.particlePreviewLead}
+        <p className="particle-hero-preview__lead">{ui.lab.particleHeroLead}</p>
+        <p className="particle-hero-preview__back">
+          <Link href={localizePath(localeParam, "/lab/")}>{ui.lab.backToLab}</Link>
         </p>
       </header>
-      <HeroParticleStage ariaLabel={ui.home.particleHeroLabel} />
+      <LabParticleStage ariaLabel={ui.home.particleHeroLabel} />
     </article>
   );
 }

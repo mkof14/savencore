@@ -42,10 +42,12 @@ export const uiDe: UiMessages = {
     title: "Lab",
     lead: "Eine Sandbox, um neue Funktionen auszuprobieren, ohne die öffentliche Website zu ändern. Hier sind Experimente — keine Produktversprechen.",
     experimentsHeading: "Experimentflächen",
-    particleHeroTitle: "Particle hero",
+    featuredBadge: "Hervorgehobenes Experiment",
+    particleHeroTitle: "Mensch + Energiewellen",
     particleHeroLead:
-      "WebGL-Partikel-Morph-Vorschau. Die öffentliche Startseite nutzt die Foto-Collage.",
+      "WebGL-Partikel-Morph — Punktwolken-Figur mit fließenden SAVEN-Energieströmen. Nur Bilder auf der Leinwand. Die öffentliche Startseite bleibt die Foto-Collage.",
     openExperiment: "Experiment öffnen",
+    backToLab: "← Zurück zum Lab",
     note: "Neue Experimente können von diesem Hub verlinkt werden. Diese Seite ist noindex und nicht im Hauptmenü.",
   },
 

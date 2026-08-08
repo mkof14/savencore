@@ -278,10 +278,12 @@ export const uiAr: UiMessages = {
     title: "Lab",
     lead: "مساحة آمنة لتجربة ميزات جديدة دون تغيير الموقع العام. ما هنا تجارب — وليست ادّعاءات منتج.",
     experimentsHeading: "أسطح التجارب",
-    particleHeroTitle: "Particle hero",
+    featuredBadge: "تجربة مميزة",
+    particleHeroTitle: "إنسان + موجات الطاقة",
     particleHeroLead:
-      "معاينة تحويل الجسيمات WebGL. الصفحة الرئيسية العامة تستخدم كولاج الصور.",
+      "تحويل جسيمات WebGL — شكل بشري نقطي مع تيارات طاقة SAVEN. الصور فقط على اللوحة. الصفحة الرئيسية تبقى كولاج الصور.",
     openExperiment: "فتح التجربة",
+    backToLab: "← العودة إلى Lab",
     note: "يمكن ربط تجارب جديدة من هذا المركز. هذه الصفحة noindex وليست في القائمة الرئيسية.",
   },
 

@@ -319,6 +319,7 @@ export const uiUk: UiMessages = {
     watchSupport:
       "Короткий оглядовий виступ про SAVEN Core — розумні системи, створені підтримувати людське життя.",
     watchEmbedTitle: "Презентаційне відео SAVEN Core",
+    particleHeroLabel: "Візуалізація морфінгу часток",
   },
 
   ko: {

@@ -424,6 +424,7 @@ export const uiRu: UiMessages = {
     watchSupport:
       "Краткий обзорный рассказ о SAVEN Core — интеллектуальных системах, созданных поддерживать человеческую жизнь.",
     watchEmbedTitle: "Презентационное видео SAVEN Core",
+    particleHeroLabel: "Визуализация морфинга частиц",
   },
 
   ko: {

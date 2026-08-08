@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-07-30 (D-0253 — Investors locale repair after D-0252 + downloads verify)
+**Last updated:** 2026-08-08 (D-0255 — Home particle morph hero from approved WebGL reference)
 
 ## Rules
 
@@ -269,6 +269,8 @@
 | D-0251 | 2026-07-30 | BioMath Core diagrams — hover life + section anchor links | Active |
 | D-0252 | 2026-07-30 | Public chrome: remove In Development messaging + BMC 200+ under 20 | Active |
 | D-0253 | 2026-07-30 | Investors locale repair after D-0252 + downloads/PWA verify | Active |
+| D-0254 | 2026-07-30 | Final public site snapshot freeze | Active |
+| D-0255 | 2026-08-08 | Home particle morph hero (WebGL; approved reference) | Active |
 
 ---
 
@@ -2621,6 +2623,23 @@
 - **In scope:** Decision log record; annotated tag; push to origin; Vercel production deploy.
 - **Out of scope:** Committing `storage/admin-media/hidden.json` (soft-hidden media seeds; not intentional freeze content); new product/copy phases; inventing Operational claims.
 - **Implications:** Future work continues from this tagged baseline; recreate or move the tag only with explicit owner approval.
+
+### D-0255 — Home particle morph hero (WebGL; approved reference)
+
+- **Date:** 2026-08-08
+- **Status:** Active
+- **Summary:** Owner-authorized ChatGPT/WebGL particle morph stage at the top of the homepage — images/particles only (no text on the canvas), extracted from the approved reference HTML (not committed as a 97MB monolith).
+- **Decision:**
+  1. First viewport visual is a full-bleed dark particle artboard (`HeroParticleScene`, dynamic `ssr: false`) using the reference WebGL2 engine: **650000** points, stride **28** bytes, **46s** loop morphing **HUMAN → INTERFACE → ROBOT → WATER → HUMAN**.
+  2. Particle buffers are source of truth as gzipped Float32 binaries under `public/home/particle-hero/{human,interface,robot,water}.bin.gz` (~10–12MB each; ~46MB total). Client decompresses via `DecompressionStream`. Do **not** commit the reference HTML as one file.
+  3. Brand copy (Intelligence for the Physical World. + supporting lines) sits **below** the particle stage — no HTML headlines/CTAs overlaid on the canvas. Living photoreal help collage is superseded as the upper hero media.
+  4. `prefers-reduced-motion: reduce` → static poster (`poster.webp`). Canvas is decorative (`aria-hidden`); section has localized `particleHeroLabel` across 10 UI locales.
+  5. Performance: desktop prefers full COUNT + DPR ≤ 2.5; mobile tries full COUNT first, then may lower DPR or subsample (½) if sustained frame time is high. Cover aspect matches reference 16:9 logical framing. Cleanup on unmount (cancel rAF, lose WebGL context).
+  6. Owner explicitly authorizes this futuristic particle visual for the home hero (overrides general “no neon / no futuristic decoration” caution for this approved scene only). No Operational claims in surrounding copy.
+  7. Git LFS was not available in the environment; binaries are committed as ordinary files (each well under GitHub’s hard limit).
+- **In scope:** `HeroParticleScene`, `PhysicalWorldHome` layout + CSS, particle-hero public assets, UI i18n aria string, D-0255 + AGENTS / SITE_ASSIGNMENT pointers; commit/push/Vercel prod; prove home WebGL canvas + bin.gz HTTP 200.
+- **Out of scope:** Replacing the care living carousel; inventing Operational/product claims; committing the 97MB reference HTML; neon decoration outside this approved particle scene.
+- **Implications:** Home first paint downloads ~46MB of particle buffers (gzipped) after the stage mounts — acceptable per owner for this hero; reduced-motion and poster path remain light.
 
 ## Pending Owner Decisions
 

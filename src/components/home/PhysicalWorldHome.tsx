@@ -5,17 +5,14 @@ import { BrandName } from "@/components/brand/BrandName";
 import { HOME_CLARITY_V1_ENABLED } from "@/config/home-clarity";
 import type { Locale } from "@/config/locales";
 import { getPhysicalWorldHomeContent } from "@/content/home/physical-world/get-physical-world-content";
+import { getUi } from "@/i18n/ui";
 import { localizePath } from "@/navigation/locale-path";
 import type { PublishedRoute } from "@/navigation/published-routes";
 
+import { HeroParticleStage } from "./HeroParticleStage";
 import { HomeClarityPack } from "./HomeClarityPack";
 import { HomeYoutubeFeature } from "./HomeYoutubeFeature";
 import "./physical-world-home.css";
-
-const HeroLivingMedia = dynamic(
-  () => import("./HeroLivingMedia").then((mod) => mod.HeroLivingMedia),
-  { ssr: true },
-);
 
 const LivingDomains = dynamic(
   () => import("./LivingDomains").then((mod) => mod.LivingDomains),
@@ -101,11 +98,12 @@ const LIVING_SRC: Record<
 };
 
 /**
- * Homepage — first seconds: what SAVEN is (living photoreal hero),
+ * Homepage — particle morph stage first (D-0255), then brand copy,
  * optional clarity pack (D-0219), care living carousel, then closing meaning band.
  */
 export function PhysicalWorldHome({ locale }: PhysicalWorldHomeProps) {
   const c = getPhysicalWorldHomeContent(locale);
+  const ui = getUi(locale);
   const livingScenes = c.living.scenes.map((scene) => {
     const media = LIVING_SRC[scene.id];
     if (!media) {
@@ -129,16 +127,16 @@ export function PhysicalWorldHome({ locale }: PhysicalWorldHomeProps) {
 
   return (
     <article className="pw-home">
-      {/* LCP hint for the dominant hero collage panel */}
+      {/* LCP hint for particle stage poster (reduced-motion / pre-WebGL) */}
       <link
         rel="preload"
         as="image"
-        href="/home/hero-collage/01-manipulator.webp"
+        href="/home/particle-hero/poster.webp"
         type="image/webp"
       />
-      <header className="pw-hero">
+      <HeroParticleStage ariaLabel={ui.home.particleHeroLabel} />
+      <header className="pw-hero pw-hero--after-particles">
         <div className="pw-hero__copy">
-          <div className="pw-hero__scrim" aria-hidden="true" />
           <div className="pw-hero__grain" aria-hidden="true" />
           <div className="pw-home__inner pw-hero__frame">
             <p className="pw-hero__brand">
@@ -155,7 +153,6 @@ export function PhysicalWorldHome({ locale }: PhysicalWorldHomeProps) {
             <p className="pw-hero__cue">{c.cue}</p>
           </div>
         </div>
-        <HeroLivingMedia />
       </header>
 
       {showClarity && c.clarity ? (

@@ -458,6 +458,7 @@ export const uiEn = {
     watchSupport:
       "A short presentation overview of SAVEN Core — intelligent systems built to support human life.",
     watchEmbedTitle: "SAVEN Core presentation video",
+    particleHeroLabel: "Particle morph visualization",
   },
 
   ko: {

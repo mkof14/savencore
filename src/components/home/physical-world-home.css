@@ -1,4 +1,4 @@
-/* Homepage — living photoreal hero + one care-focused living carousel */
+/* Homepage — particle morph stage (D-0255) + brand copy + care living carousel */
 
 .pw-home {
   /* Shared media-frame max for closing SAVEN artboard + YouTube (D-0249) */
@@ -17,9 +17,59 @@
   padding-inline: var(--container-padding-x);
 }
 
-/* ——— Hero ——— */
-/* Two columns: copy (start) + collage (end). No text-over-photo stacking.
-   Grid writing-mode mirrors for RTL (ar/he): copy on start side. */
+/* ——— Particle hero stage (D-0255) ——— */
+/* Full-bleed dark artboard; images/particles only — no text on canvas. */
+
+.pw-particle-hero {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  min-height: 70vh;
+  min-height: 70svh;
+  height: min(100svh, 100vh);
+  background: #061022;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: 0;
+}
+
+.pw-particle-hero--shell {
+  /* Dynamic import placeholder — same geometry as live stage */
+  min-height: 70vh;
+  min-height: 70svh;
+  height: min(100svh, 100vh);
+}
+
+.pw-particle-hero__canvas,
+.pw-particle-hero__poster {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+}
+
+.pw-particle-hero__poster {
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+  background: #061022;
+}
+
+.pw-particle-hero__canvas {
+  z-index: 1;
+  transition: opacity 0.35s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pw-particle-hero__canvas {
+    display: none;
+  }
+}
+
+/* ——— Hero copy (below particle stage) ——— */
+/* Brand copy sits under the particle band (D-0255). Collage media column retired. */
 
 .pw-hero {
   /* Atmospheric field stays dark in both themes (D-0172); page shell flips. */
@@ -39,6 +89,12 @@
   color: var(--pw-hero-ink);
 }
 
+.pw-hero--after-particles {
+  min-height: 0;
+  display: block;
+  grid-template-columns: none;
+}
+
 .pw-hero__copy {
   position: relative;
   z-index: 2;
@@ -50,6 +106,20 @@
   max-width: 100%;
   background: var(--pw-hero-field);
   color: var(--pw-hero-ink);
+}
+
+.pw-hero--after-particles .pw-hero__copy {
+  justify-content: center;
+  width: 100%;
+}
+
+.pw-hero--after-particles .pw-hero__frame.pw-home__inner {
+  width: 100%;
+  max-width: var(--container-max-2xl);
+  margin-inline: auto;
+  padding-block: clamp(2.75rem, 8vh, 5.5rem);
+  padding-inline: var(--container-padding-x);
+  text-align: start;
 }
 
 /* Soft seam into collage only — does not wash photos */
@@ -375,9 +445,18 @@
     min-height: auto;
   }
 
+  .pw-hero--after-particles {
+    grid-template-rows: none;
+    display: block;
+  }
+
   .pw-hero__copy {
     align-items: flex-start;
     justify-content: flex-start;
+  }
+
+  .pw-hero--after-particles .pw-hero__copy {
+    justify-content: center;
   }
 
   .pw-hero__scrim {

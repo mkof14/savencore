@@ -311,6 +311,7 @@ export const uiHe: UiMessages = {
     watchSupport:
       "סקירת מצגת קצרה של SAVEN Core — מערכות חכמות שנבנות לתמוך בחיי אדם.",
     watchEmbedTitle: "סרטון מצגת של SAVEN Core",
+    particleHeroLabel: "ויזואליזציית חלקיקים משתנה",
   },
 
   ko: {

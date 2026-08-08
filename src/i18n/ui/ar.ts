@@ -313,6 +313,7 @@ export const uiAr: UiMessages = {
     watchSupport:
       "عرض تقديمي موجز عن SAVEN Core — أنظمة ذكية بُنيت لدعم حياة الإنسان.",
     watchEmbedTitle: "فيديو تقديم SAVEN Core",
+    particleHeroLabel: "تصوير جسيمات متحولة",
   },
 
   ko: {

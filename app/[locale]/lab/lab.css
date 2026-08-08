@@ -1,4 +1,4 @@
-/* Experiments hub — themeable shell (D-0263 / D-0266–D-0274). */
+/* Experiments hub — themeable shell (D-0263 / D-0266–D-0275). */
 
 .site-lab-page {
   padding-block: 0 clamp(3rem, 8vw, 5rem);
@@ -269,9 +269,9 @@
 .site-lab-video-hero__progress-wrap {
   position: absolute;
   inset-inline: 12%;
-  bottom: clamp(0.7rem, 1.8vw, 1.1rem);
-  z-index: 8;
-  height: 10px;
+  bottom: clamp(0.55rem, 1.6vw, 0.95rem);
+  z-index: 10;
+  height: 18px;
   pointer-events: none;
 }
 
@@ -307,35 +307,60 @@
 
 .site-lab-video-hero__chapter {
   position: absolute;
-  bottom: 2px;
-  width: 7px;
-  height: 7px;
+  bottom: 0;
+  width: 18px;
+  height: 18px;
   margin: 0;
   padding: 0;
+  border: none;
+  background: transparent;
+  transform: translateX(-50%);
+  cursor: pointer;
+}
+
+.site-lab-video-hero__chapter::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 4px;
+  width: 8px;
+  height: 8px;
   border: 1px solid color-mix(in srgb, var(--color-text) 35%, transparent);
   background: color-mix(in srgb, var(--color-background) 40%, transparent);
   transform: translateX(-50%);
-  cursor: pointer;
 }
 
 [dir="rtl"] .site-lab-video-hero__chapter {
   transform: translateX(50%);
 }
 
-.site-lab-video-hero__chapter.is-passed {
+.site-lab-video-hero__chapter.is-passed::after {
   background: color-mix(in srgb, var(--color-text) 40%, #c4a574);
   border-color: color-mix(in srgb, var(--color-text) 50%, #c4a574);
 }
 
-.site-lab-video-hero__chapter:hover,
+.site-lab-video-hero__chapter.is-active::after {
+  background: color-mix(in srgb, var(--color-text) 55%, #c4a574);
+  border-color: color-mix(in srgb, var(--color-text) 65%, #c4a574);
+}
+
+.site-lab-video-hero__chapter:hover::after,
+.site-lab-video-hero__chapter:focus-visible::after {
+  border-color: color-mix(in srgb, var(--color-text) 55%, transparent);
+}
+
 .site-lab-video-hero__chapter:focus-visible {
   outline: none;
-  border-color: color-mix(in srgb, var(--color-text) 55%, transparent);
+}
+
+.site-lab-video-hero__chapter:focus-visible::after {
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-text) 28%, transparent);
 }
 
 .site-lab-video-hero__caption {
   margin: 0.45rem clamp(0.85rem, 3vw, 1.5rem) 0;
   max-width: 40rem;
+  min-height: 1.5em;
   font-family: var(--font-display);
   font-size: clamp(0.88rem, 1.4vw, 1.05rem);
   font-weight: 500;
@@ -344,6 +369,22 @@
   color: var(--color-text-secondary);
   text-wrap: balance;
   transition: opacity 0.15s linear;
+}
+
+.site-lab-video-hero__caption-text {
+  display: inline-block;
+  animation: site-lab-caption-in 0.35s ease;
+}
+
+@keyframes site-lab-caption-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.2em);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes site-lab-kenburns {
@@ -380,6 +421,10 @@
   .site-lab-video-hero__caption {
     opacity: 1 !important;
     transition: none;
+  }
+
+  .site-lab-video-hero__caption-text {
+    animation: none;
   }
 }
 

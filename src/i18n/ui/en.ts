@@ -468,6 +468,13 @@ export const uiEn = {
     videoOverlayEyebrow: "Lab experiment",
     videoOverlayLine: "A working cut — systems shaped for human care.",
     videoCaption: "A working cut — systems shaped for human care in the physical world.",
+    videoCaptionUnderstanding: "Understanding — the story begins with people.",
+    videoCaptionAssistance: "Assistance — support shaped for real settings.",
+    videoCaptionCare: "Care — the aim of this Lab preview.",
+    videoChaptersLabel: "Video chapters",
+    videoChapterUnderstanding: "Chapter: Understanding",
+    videoChapterAssistance: "Chapter: Assistance",
+    videoChapterCare: "Chapter: Care",
     videoMute: "Mute",
     videoUnmute: "Unmute",
     videoLinksLabel: "Published pages from this Lab experiment",
@@ -477,9 +484,9 @@ export const uiEn = {
     videoLinkContact: "Contact",
     videoEffectsHeading: "Video splash treatment",
     videoEffectsApplied:
-      "Applied on this band (embedded into the page surface — soft feathered edges, no hard video box or picture frame): one light dual-format video (WebM + MP4, mobile pick) with a re-cut that skips the letterboxed first scene (~7.2s at 1.05×, center zoom-crop ~1.14×, cache ?v=d0272) and optional sound (starts muted), Mute control, tasteful text overlay, glass-light links to published pages, chapter ticks on a soft progress bar, scroll-linked caption fade, strong scroll parallax (±~64px + scale), softened desktop cursor light, Ken Burns from ~1.06→1.14, and light side ambient into the Lab background — no film grain, heavy vignette, or muddy grade. Straight corners; no neon chrome. Reduced-motion reduces motion effects and shows the poster.",
+      "Applied on this band (embedded into the page surface — soft feathered edges, no hard video box or picture frame): one light dual-format video (WebM + MP4, mobile pick) with a re-cut that skips the letterboxed first scene (~7.6s loop, original 16:9 framing, cache ?v=d0275), optional sound (starts muted), Mute control, tasteful text overlay, glass-light links to published pages, clickable chapter ticks that jump to scene times, timed captions along Understanding → Assistance → Care, scroll-linked caption fade, light scroll parallax, softened desktop cursor light, gentle Ken Burns, and light side ambient into the Lab background — no film grain, heavy vignette, or muddy grade. Straight corners; no neon chrome. Reduced-motion reduces motion effects and shows the poster.",
     videoEffectsIdeas:
-      "Future ideas (not shipped): multi-clip playlist, scrub-linked parallax chapters, captioned chapter titles, HDR/AV1 when browser support is broad.",
+      "Future ideas (not shipped): multi-clip playlist, scrub-linked parallax depth, HDR/AV1 when browser support is broad.",
     note: "New experiments can be linked from this hub. This page is noindex and is not in the primary header menu. The public home stays the living photo collage.",
   },
 

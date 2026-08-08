@@ -45,6 +45,13 @@ export const uiFr: UiMessages = {
     videoOverlayLine: "Une coupe de travail — des systèmes pour le soin humain.",
     videoCaption:
       "Une coupe de travail — des systèmes façonnés pour le soin humain dans le monde physique.",
+    videoCaptionUnderstanding: "Compréhension — l’histoire commence par les personnes.",
+    videoCaptionAssistance: "Assistance — un soutien pensé pour des contextes réels.",
+    videoCaptionCare: "Soin — le but de cet aperçu Lab.",
+    videoChaptersLabel: "Chapitres vidéo",
+    videoChapterUnderstanding: "Chapitre : Compréhension",
+    videoChapterAssistance: "Chapitre : Assistance",
+    videoChapterCare: "Chapitre : Soin",
     videoMute: "Couper le son",
     videoUnmute: "Activer le son",
     videoLinksLabel: "Pages publiées depuis cette expérience Lab",
@@ -54,9 +61,9 @@ export const uiFr: UiMessages = {
     videoLinkContact: "Contact",
     videoEffectsHeading: "Traitement de la vidéo splash",
     videoEffectsApplied:
-      "Appliqué sur cette bande (incrustée dans le fond de la page — bords adoucis, sans boîte vidéo nette ni cadre photo) : une vidéo légère dual-format (WebM + MP4, choix mobile) avec une nouvelle coupe qui saute la première scène letterbox (~7,2s à 1,05×, zoom-crop central ~1,14×, cache ?v=d0272) et un son optionnel (démarre en sourdine), commande Mute, texte en surimpression, liens glass-light vers des pages publiées, repères de chapitre sur une barre douce, légende qui s’estompe au défilement, parallaxe marquée (±~64px + échelle), lumière curseur adoucie, Ken Burns ~1,06→1,14 et ambiance latérale légère vers le fond Lab — sans grain, vignette lourde ni étalonnage boueux. Coins droits ; pas de néon. Mouvement réduit : moins de motion et poster.",
+      "Appliqué sur cette bande (incrustée dans le fond de la page — bords adoucis, sans boîte vidéo nette ni cadre photo) : une vidéo légère dual-format (WebM + MP4, choix mobile) avec une nouvelle coupe qui saute la première scène letterbox (~7,6s en boucle, cadrage 16:9 d’origine, cache ?v=d0275), son optionnel (démarre en sourdine), commande Mute, texte en surimpression, liens glass-light vers des pages publiées, repères de chapitre cliquables qui sautent aux temps de scène, légendes temporisées Compréhension → Assistance → Soin, légende qui s’estompe au défilement, parallaxe légère, lumière curseur adoucie, Ken Burns doux et ambiance latérale légère vers le fond Lab — sans grain, vignette lourde ni étalonnage boueux. Coins droits ; pas de néon. Mouvement réduit : moins de motion et poster.",
     videoEffectsIdeas:
-      "Idées futures (non livrées) : playlist multi-clips, parallaxe liée au scrub, titres de chapitre, HDR/AV1 quand le support sera large.",
+      "Idées futures (non livrées) : playlist multi-clips, parallaxe de profondeur liée au scrub, HDR/AV1 quand le support sera large.",
     note: "De nouvelles expériences peuvent être liées depuis ce hub. Cette page est noindex et absente du menu principal. L’accueil public reste le collage photo.",
   },
 

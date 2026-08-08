@@ -44,6 +44,13 @@ export const uiEs: UiMessages = {
     videoOverlayLine: "Un corte de trabajo — sistemas para el cuidado humano.",
     videoCaption:
       "Un corte de trabajo — sistemas pensados para el cuidado humano en el mundo físico.",
+    videoCaptionUnderstanding: "Comprensión — la historia empieza con las personas.",
+    videoCaptionAssistance: "Asistencia — apoyo pensado para entornos reales.",
+    videoCaptionCare: "Cuidado — el propósito de esta vista previa Lab.",
+    videoChaptersLabel: "Capítulos del vídeo",
+    videoChapterUnderstanding: "Capítulo: Comprensión",
+    videoChapterAssistance: "Capítulo: Asistencia",
+    videoChapterCare: "Capítulo: Cuidado",
     videoMute: "Silenciar",
     videoUnmute: "Activar sonido",
     videoLinksLabel: "Páginas publicadas desde este experimento Lab",
@@ -53,9 +60,9 @@ export const uiEs: UiMessages = {
     videoLinkContact: "Contacto",
     videoEffectsHeading: "Tratamiento del vídeo splash",
     videoEffectsApplied:
-      "Aplicado en esta banda (integrado en el fondo de la página — bordes suaves, sin caja dura ni marco): un vídeo ligero en doble formato (WebM + MP4, selección móvil) con un re-corte que omite la primera escena con franjas negras (~7,2s a 1,05×, zoom-recorte central ~1,14×, caché ?v=d0272) y sonido opcional (empieza en silencio), control Mute, texto superpuesto, enlaces glass-light a páginas publicadas, marcas de capítulo en una barra suave, pie de foto que se atenúa al hacer scroll, parallax fuerte (±~64px + escala), luz de cursor suavizada, Ken Burns ~1,06→1,14 y ambiente lateral ligero al fondo del Lab — sin grano, viñeta pesada ni gradación turbia. Esquinas rectas; sin neón. Con movimiento reducido: menos motion y póster.",
+      "Aplicado en esta banda (integrado en el fondo de la página — bordes suaves, sin caja dura ni marco): un vídeo ligero en doble formato (WebM + MP4, selección móvil) con un re-corte que omite la primera escena con franjas negras (~7,6s, encuadre 16:9 original, caché ?v=d0275), sonido opcional (empieza en silencio), control Mute, texto superpuesto, enlaces glass-light a páginas publicadas, marcas de capítulo clicables que saltan a cada escena, subtítulos temporizados Comprensión → Asistencia → Cuidado, pie que se atenúa al hacer scroll, parallax ligero, luz de cursor suavizada, Ken Burns suave y ambiente lateral ligero al fondo del Lab — sin grano, viñeta pesada ni gradación turbia. Esquinas rectas; sin neón. Con movimiento reducido: menos motion y póster.",
     videoEffectsIdeas:
-      "Ideas futuras (no publicadas): lista multi-clip, parallax ligado al scrub, títulos de capítulo, HDR/AV1 cuando el soporte sea amplio.",
+      "Ideas futuras (no publicadas): lista multi-clip, parallax de profundidad ligado al scrub, HDR/AV1 cuando el soporte sea amplio.",
     note: "Pueden enlazarse nuevos experimentos desde este hub. Esta página es noindex y no está en el menú principal. La portada pública sigue siendo el collage fotográfico.",
   },
 

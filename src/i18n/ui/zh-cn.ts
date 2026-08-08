@@ -40,6 +40,13 @@ export const uiZhCn: UiMessages = {
     videoOverlayEyebrow: "Lab 实验",
     videoOverlayLine: "一段工作剪辑——为人类照护而塑造的系统。",
     videoCaption: "一段工作剪辑——为物理世界中的人类照护而塑造的系统。",
+    videoCaptionUnderstanding: "理解——故事从人开始。",
+    videoCaptionAssistance: "协助——面向真实场景的支持。",
+    videoCaptionCare: "照护——本次 Lab 预览的目标。",
+    videoChaptersLabel: "视频章节",
+    videoChapterUnderstanding: "章节：理解",
+    videoChapterAssistance: "章节：协助",
+    videoChapterCare: "章节：照护",
     videoMute: "静音",
     videoUnmute: "取消静音",
     videoLinksLabel: "从此 Lab 实验前往已发布页面",
@@ -49,9 +56,9 @@ export const uiZhCn: UiMessages = {
     videoLinkContact: "联系",
     videoEffectsHeading: "视频开场处理",
     videoEffectsApplied:
-      "本区带已应用（融入页面背景——柔和羽化边缘，无硬边视频框或画框）：一条轻量双格式视频（WebM + MP4，移动端优选）、跳过带黑边的首场重新剪辑（约 7.2 秒、1.05×、中心放大裁切约 1.14×、缓存 ?v=d0272）、可选声音（默认静音）、Mute 控件、克制的文字叠层、前往已发布页面的 glass-light 链接、柔和进度条上的章节标记、随滚动淡出的说明、明显滚动视差（约 ±64px + 缩放）、减弱的桌面光标光、Ken Burns 约 1.06→1.14，以及融入 Lab 背景的轻侧氛围——无胶片颗粒、重暗角或浑浊调色。直角边；无霓虹。减少动态时减弱动效并显示海报。",
+      "本区带已应用（融入页面背景——柔和羽化边缘，无硬边视频框或画框）：一条轻量双格式视频（WebM + MP4，移动端优选）、跳过带黑边的首场重新剪辑（约 7.6 秒循环、原始 16:9、缓存 ?v=d0275）、可选声音（默认静音）、Mute 控件、克制的文字叠层、前往已发布页面的 glass-light 链接、可点击并跳转到场景时间的章节标记、理解 → 协助 → 照护的定时说明、随滚动淡出的说明、轻滚动视差、减弱的桌面光标光、轻柔 Ken Burns，以及融入 Lab 背景的轻侧氛围——无胶片颗粒、重暗角或浑浊调色。直角边；无霓虹。减少动态时减弱动效并显示海报。",
     videoEffectsIdeas:
-      "后续想法（未上线）：多片段播放列表、与 scrub 联动的视差、章节标题、浏览器支持更广时的 HDR/AV1。",
+      "后续想法（未上线）：多片段播放列表、与 scrub 联动的深度视差、浏览器支持更广时的 HDR/AV1。",
     note: "可从此中心链接新实验。此页为 noindex，不在主导航中。公开首页仍为实景照片拼贴。",
   },
 

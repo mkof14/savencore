@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-08-08 (D-0273 — Lab video: symmetric top/bottom page-embed)
+**Last updated:** 2026-08-08 (D-0275 — Lab video: chapter scrub + timed captions)
 
 ## Rules
 
@@ -290,6 +290,7 @@
 | D-0272 | 2026-08-08 | Lab video — remove grain/heavy darkenings; overlay copy + explore links | Active |
 | D-0273 | 2026-08-08 | Lab video — symmetric soft blend into page background (top = bottom) | Active |
 | D-0274 | 2026-08-08 | Lab video — restore original frame size (no zoom crop) | Active |
+| D-0275 | 2026-08-08 | Lab video — chapter scrub + timed captions (Understanding → Assistance → Care) | Active |
 
 ---
 
@@ -2921,6 +2922,19 @@
 - **In scope:** `public/lab/video/*`, `LabVideoHero` cache tag, `lab.css`, D-0274 notes; commit/push/Vercel prod.
 - **Out of scope:** Public home video; inventing Operational claims.
 - **Implications:** Framing matches the original MVP composition again; top subject is no longer cropped by zoom.
+
+### D-0275 — Lab video — chapter scrub + timed captions
+
+- **Date:** 2026-08-08
+- **Status:** Active
+- **Summary:** Owner asked to see the next Lab video experiment: clickable chapter ticks that jump to scene times, plus short timed captions along Understanding → Assistance → Care.
+- **Decision:**
+  1. Chapter ticks on `/lab/` are functional (not decorative): three absolute scene times across the ~7.6s loop (`0` / `~2.5s` / `~5.1s`) seek `video.currentTime` and resume playback. Accessible labels; larger hit targets. Cache-bust `?v=d0275`.
+  2. Timed captions: one phrase at a time under the band, changing with video time — Understanding → Assistance → Care — honest Lab/preview language only (no Operational / deployment claims). Scroll-linked fade retained; reduced-motion shows static poster + fallback caption.
+  3. Keep D-0273 symmetric soft page-embed and D-0274 original 16:9 framing; do not reintroduce grain, vignette, zoom-crop, editorial frame, or depth-blur second video. Mute-by-default retained. Lab `/lab/` only — not public home.
+- **In scope:** `LabVideoHero`, `lab.css`, Lab page copy wiring, UI i18n (10 locales), D-0275 / AGENTS / SITE_ASSIGNMENT; commit/push/Vercel prod.
+- **Out of scope:** Public home video; inventing Operational claims, products, metrics, customers, or partners.
+- **Implications:** Lab splash chapters become a scrub affordance; captions narrate the cut without claiming deployed product status.
 
 ## Pending Owner Decisions
 

@@ -6,10 +6,20 @@ import { useEffect, useRef, useState } from "react";
 import type { Locale } from "@/config/locales";
 import { localizePath } from "@/navigation/locale-path";
 
-const CACHE = "d0274";
+const CACHE = "d0275";
 const POSTER_SRC = `/lab/video/s989898-gwr-mvp-poster.webp?v=${CACHE}`;
 const MUTE_KEY = "savencore-lab-video-muted";
-const CHAPTER_MARKS = [0, 0.33, 0.66] as const;
+/** Nominal loop length after ss=2.15 / t=7.6 cut (D-0271/D-0274). */
+const LOOP_SECONDS = 7.6;
+
+type ChapterId = "understanding" | "assistance" | "care";
+
+/** Absolute scene times (seconds) across the ~7.6s Lab cut. */
+const CHAPTERS: readonly { id: ChapterId; at: number }[] = [
+  { id: "understanding", at: 0 },
+  { id: "assistance", at: 2.5 },
+  { id: "care", at: 5.1 },
+] as const;
 
 type SourceSet = { webm: string; mp4: string };
 
@@ -31,7 +41,11 @@ export type LabVideoHeroLink = {
 export type LabVideoHeroCopy = {
   overlayEyebrow: string;
   overlayLine: string;
+  /** Fallback / reduced-motion caption. */
   caption: string;
+  captions: Record<ChapterId, string>;
+  chaptersLabel: string;
+  chapterLabels: Record<ChapterId, string>;
   mute: string;
   unmute: string;
   linksLabel: string;
@@ -50,11 +64,26 @@ function pickSources(): SourceSet {
   return narrow || saveData ? MOBILE : DESKTOP;
 }
 
+function chapterIndexAt(time: number): number {
+  let idx = 0;
+  for (let i = 0; i < CHAPTERS.length; i++) {
+    const mark = CHAPTERS[i];
+    if (mark && time + 0.02 >= mark.at) idx = i;
+  }
+  return idx;
+}
+
+const FIRST_CHAPTER = { id: "understanding" as const, at: 0 };
+
+function chapterAt(index: number): { id: ChapterId; at: number } {
+  return CHAPTERS[index] ?? FIRST_CHAPTER;
+}
+
 /**
- * Lab splash video band (D-0266–D-0273) — owner preview only; not on public home.
+ * Lab splash video band (D-0266–D-0275) — owner preview only; not on public home.
  * Full-bleed single video embedded into page surface (symmetric soft feathered edges; no hard box);
  * clear video (no grain / heavy vignette / heavy grade); overlay copy + explore links;
- * chapter ticks, light ambient sides, scroll-linked caption; mute / parallax / soft cursor.
+ * clickable chapter ticks, timed captions, light ambient sides, scroll-linked caption; mute / parallax / soft cursor.
  */
 export function LabVideoHero({
   locale,
@@ -74,6 +103,8 @@ export function LabVideoHero({
   const [shouldLoad, setShouldLoad] = useState(false);
   const [muted, setMuted] = useState(true);
   const [progress, setProgress] = useState(0);
+  const [chapterIndex, setChapterIndex] = useState(0);
+  const [duration, setDuration] = useState(LOOP_SECONDS);
 
   useEffect(() => {
     const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -212,12 +243,20 @@ export function LabVideoHero({
     };
   }, [allowMotion, finePointer]);
 
-  const onCanPlay = () => setReady(true);
+  const onCanPlay = () => {
+    const main = videoRef.current;
+    if (main && Number.isFinite(main.duration) && main.duration > 0) {
+      setDuration(main.duration);
+    }
+    setReady(true);
+  };
 
   const onTimeUpdate = () => {
     const main = videoRef.current;
     if (!main || !Number.isFinite(main.duration) || main.duration <= 0) return;
+    setDuration(main.duration);
     setProgress(main.currentTime / main.duration);
+    setChapterIndex(chapterIndexAt(main.currentTime));
   };
 
   const toggleMute = () => {
@@ -230,12 +269,24 @@ export function LabVideoHero({
     }
   };
 
-  const seekToFraction = (fraction: number) => {
+  const seekToSeconds = (seconds: number) => {
     const main = videoRef.current;
-    if (!main || !Number.isFinite(main.duration) || main.duration <= 0) return;
-    main.currentTime = Math.max(0, Math.min(0.98, fraction)) * main.duration;
+    if (!main) return;
+    const dur =
+      Number.isFinite(main.duration) && main.duration > 0
+        ? main.duration
+        : LOOP_SECONDS;
+    main.currentTime = Math.max(0, Math.min(dur * 0.98, seconds));
+    setProgress(main.currentTime / dur);
+    setChapterIndex(chapterIndexAt(main.currentTime));
     void main.play().catch(() => {});
   };
+
+  const activeChapter = chapterAt(chapterIndex);
+  const timedCaption = allowMotion
+    ? copy.captions[activeChapter.id]
+    : copy.caption;
+  const spanForTicks = duration > 0 ? duration : LOOP_SECONDS;
 
   return (
     <div
@@ -341,29 +392,48 @@ export function LabVideoHero({
                 }}
               />
             </div>
-            <div className="site-lab-video-hero__chapters" aria-hidden="true">
-              {CHAPTER_MARKS.map((mark) => (
-                <button
-                  key={mark}
-                  type="button"
-                  className={[
-                    "site-lab-video-hero__chapter",
-                    progress >= mark ? "is-passed" : "",
-                  ]
-                    .filter(Boolean)
-                    .join(" ")}
-                  style={{ insetInlineStart: `${mark * 100}%` }}
-                  tabIndex={-1}
-                  onClick={() => seekToFraction(mark)}
-                />
-              ))}
+            <div
+              className="site-lab-video-hero__chapters"
+              role="group"
+              aria-label={copy.chaptersLabel}
+            >
+              {CHAPTERS.map((chapter) => {
+                const fraction = chapter.at / spanForTicks;
+                const passed = progress * spanForTicks >= chapter.at - 0.02;
+                return (
+                  <button
+                    key={chapter.id}
+                    type="button"
+                    className={[
+                      "site-lab-video-hero__chapter",
+                      passed ? "is-passed" : "",
+                      activeChapter.id === chapter.id ? "is-active" : "",
+                    ]
+                      .filter(Boolean)
+                      .join(" ")}
+                    style={{ insetInlineStart: `${fraction * 100}%` }}
+                    aria-label={copy.chapterLabels[chapter.id]}
+                    aria-current={
+                      activeChapter.id === chapter.id ? "true" : undefined
+                    }
+                    onClick={() => seekToSeconds(chapter.at)}
+                  />
+                );
+              })}
             </div>
           </div>
         ) : null}
       </div>
 
-      <p ref={captionRef} className="site-lab-video-hero__caption">
-        {copy.caption}
+      <p
+        ref={captionRef}
+        className="site-lab-video-hero__caption"
+        aria-live="polite"
+        data-chapter={activeChapter.id}
+      >
+        <span key={activeChapter.id} className="site-lab-video-hero__caption-text">
+          {timedCaption}
+        </span>
       </p>
     </div>
   );

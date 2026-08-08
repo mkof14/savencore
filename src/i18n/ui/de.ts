@@ -45,6 +45,13 @@ export const uiDe: UiMessages = {
     videoOverlayLine: "Ein Arbeitsausschnitt — Systeme für menschliche Fürsorge.",
     videoCaption:
       "Ein Arbeitsausschnitt — Systeme für menschliche Fürsorge in der physischen Welt.",
+    videoCaptionUnderstanding: "Verstehen — die Geschichte beginnt bei den Menschen.",
+    videoCaptionAssistance: "Unterstützung — Hilfe für reale Situationen.",
+    videoCaptionCare: "Fürsorge — das Ziel dieser Lab-Vorschau.",
+    videoChaptersLabel: "Videokapitel",
+    videoChapterUnderstanding: "Kapitel: Verstehen",
+    videoChapterAssistance: "Kapitel: Unterstützung",
+    videoChapterCare: "Kapitel: Fürsorge",
     videoMute: "Ton aus",
     videoUnmute: "Ton an",
     videoLinksLabel: "Veröffentlichte Seiten aus diesem Lab-Experiment",
@@ -54,9 +61,9 @@ export const uiDe: UiMessages = {
     videoLinkContact: "Kontakt",
     videoEffectsHeading: "Video-Splash-Behandlung",
     videoEffectsApplied:
-      "Auf diesem Band (in die Seitenfläche eingebettet — weiche Ausblendkanten, kein hartes Videokästchen oder Bilderrahmen): ein leichtes Dual-Format-Video (WebM + MP4, mobile Auswahl) mit neuem Schnitt, der die letterboxte erste Szene überspringt (~7,2s bei 1,05×, Zentrum-Zoom-Crop ~1,14×, Cache ?v=d0272) und optionalem Ton (startet stumm), Mute-Steuerung, dezenter Text-Overlay, glass-light Links zu veröffentlichten Seiten, Kapitelmarken auf einer weichen Fortschrittsleiste, Bildunterschrift mit Scroll-Verblassen, starke Scroll-Parallaxe (±~64px + Scale), abgemildertes Desktop-Cursorlicht, Ken Burns ~1,06→1,14 und leichtes seitliches Ambient in den Lab-Hintergrund — ohne Filmkorn, schwere Vignette oder trübe Farbkorrektur. Gerade Ecken; kein Neon. Bei reduzierter Bewegung weniger Motion und Poster.",
+      "Auf diesem Band (in die Seitenfläche eingebettet — weiche Ausblendkanten, kein hartes Videokästchen oder Bilderrahmen): ein leichtes Dual-Format-Video (WebM + MP4, mobile Auswahl) mit neuem Schnitt, der die letterboxte erste Szene überspringt (~7,6s Schleife, originales 16:9, Cache ?v=d0275), optionalem Ton (startet stumm), Mute-Steuerung, dezenter Text-Overlay, glass-light Links zu veröffentlichten Seiten, klickbare Kapitelmarken mit Sprung zu Szenenzeitpunkten, zeitgesteuerte Untertitel Verstehen → Unterstützung → Fürsorge, Bildunterschrift mit Scroll-Verblassen, leichte Scroll-Parallaxe, abgemildertes Desktop-Cursorlicht, sanftes Ken Burns und leichtes seitliches Ambient in den Lab-Hintergrund — ohne Filmkorn, schwere Vignette oder trübe Farbkorrektur. Gerade Ecken; kein Neon. Bei reduzierter Bewegung weniger Motion und Poster.",
     videoEffectsIdeas:
-      "Ideen für später (nicht geliefert): Multi-Clip-Playlist, scrub-gekoppelte Parallaxe, Kapitel-Titel, HDR/AV1 bei breiter Browserunterstützung.",
+      "Ideen für später (nicht geliefert): Multi-Clip-Playlist, scrub-gekoppelte Tiefenparallaxe, HDR/AV1 bei breiter Browserunterstützung.",
     note: "Neue Experimente können von diesem Hub verlinkt werden. Diese Seite ist noindex und nicht im Hauptmenü. Die öffentliche Startseite bleibt die Foto-Collage.",
   },
 

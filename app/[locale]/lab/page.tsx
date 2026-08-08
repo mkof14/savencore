@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { LabVideoHero } from "@/components/lab/LabVideoHero";
 import { isLocale } from "@/config/locales";
 import { getUi } from "@/i18n/ui";
 import { buildPageMetadata } from "@/lib/seo/metadata";
@@ -13,7 +14,7 @@ type Props = {
 };
 
 /**
- * Experiments hub (D-0263 / D-0265) — sandbox for novelties without touching the public home.
+ * Experiments hub (D-0263 / D-0265 / D-0266) — sandbox for novelties without touching the public home.
  * Linked from footer Resources only; robots noindex + sitemap excluded.
  */
 export async function generateMetadata({ params }: Props) {
@@ -37,7 +38,8 @@ export default async function LabPage({ params }: Props) {
 
   return (
     <article className="site-lab-page page">
-      <div className="page-shell__inner">
+      <LabVideoHero />
+      <div className="page-shell__inner site-lab-page__body">
         <div className="site-lab-page__column">
           <p className="site-lab-page__eyebrow">{ui.lab.eyebrow}</p>
           <h1 className="site-lab-page__title">{ui.lab.title}</h1>

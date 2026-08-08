@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-08-08 (D-0265 — Lab particle story: robots help people)
+**Last updated:** 2026-08-08 (D-0266 — Lab video splash / GWR MVP preview)
 
 ## Rules
 
@@ -281,6 +281,7 @@
 | D-0263 | 2026-08-08 | Test / Lab experiments hub (`/lab/`) + footer Resources link | Active |
 | D-0264 | 2026-08-08 | Lab particle experiment — human + energy waves (preview) | Active |
 | D-0265 | 2026-08-08 | Lab particle story — Understanding → Assistance → Care | Active |
+| D-0266 | 2026-08-08 | Lab video splash — GWR MVP preview band on `/lab/` | Active |
 
 ---
 
@@ -2788,6 +2789,21 @@
 - **In scope:** Bake script, lab particle assets, LabParticleScene, Lab hub + preview chrome, UI i18n (10 locales), D-0265 docs; commit/push/Vercel prod.
 - **Out of scope:** Public home particle; inventing Operational claims; header Lab link.
 - **Implications:** Supersedes D-0264 Lab particle asset set and story for the preview experiment; discovery path unchanged (`/lab/` → `/preview/particle-hero/`).
+
+### D-0266 — Lab video splash — GWR MVP preview band on `/lab/`
+
+- **Date:** 2026-08-08
+- **Status:** Active
+- **Summary:** Owner supplies a ~10s h264 clip (`S989898_gwr_video_mvp.mp4`, ~14MB, 1280×720) as a full-bleed splash / top background on the Lab experiments hub for preview. Not on the public home.
+- **Decision:**
+  1. Serve from `public/lab/video/s989898-gwr-mvp.mp4` with poster `s989898-gwr-mvp-poster.webp`.
+  2. `LabVideoHero` client band at the top of `/lab/` (~56–70vh, `object-fit: cover`, muted / playsInline / autoPlay / loop, dark straight-corner frame); no text overlay on the video.
+  3. `prefers-reduced-motion: reduce` → static poster only.
+  4. Public home unchanged (photo collage — D-0261). Lab remains noindex / footer Resources discovery (D-0263).
+  5. Note: ~14MB first-load weight for the splash video; acceptable for Lab sandbox preview only.
+- **In scope:** Video + poster assets, `LabVideoHero`, Lab page + CSS, D-0266 docs; commit/push/Vercel prod; local `/en/lab/` verify.
+- **Out of scope:** Public home video hero; inventing Operational claims; header Lab link; compressing/re-encoding the owner source clip.
+- **Implications:** Lab hub gains a video splash above the experiment list; particle story card (D-0265) remains below.
 
 ## Pending Owner Decisions
 

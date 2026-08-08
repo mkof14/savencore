@@ -1,7 +1,38 @@
-/* Experiments hub — themeable shell matching search/resources pages (D-0263). */
+/* Experiments hub — themeable shell matching search/resources pages (D-0263 / D-0266). */
 
 .site-lab-page {
-  padding-block: clamp(2rem, 5vw, 3.5rem) clamp(3rem, 8vw, 5rem);
+  padding-block: 0 clamp(3rem, 8vw, 5rem);
+}
+
+/* Full-bleed video splash (D-0266) — dark frame, straight corners; no text overlay. */
+.site-lab-video-hero {
+  width: 100%;
+  margin: 0 0 clamp(1.5rem, 4vw, 2.5rem);
+  background: #061022;
+}
+
+.site-lab-video-hero__frame {
+  width: 100%;
+  min-height: clamp(56vh, 62vh, 70vh);
+  max-height: 70vh;
+  overflow: hidden;
+  border-block-end: 1px solid color-mix(in srgb, #0a1628 70%, var(--color-border));
+  background: #061022;
+}
+
+.site-lab-video-hero__media {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: clamp(56vh, 62vh, 70vh);
+  max-height: 70vh;
+  object-fit: cover;
+  object-position: center;
+  background: #061022;
+}
+
+.site-lab-page__body {
+  padding-block-start: clamp(0.5rem, 2vw, 1rem);
 }
 
 .site-lab-page__column {

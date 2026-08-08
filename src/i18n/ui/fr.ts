@@ -43,7 +43,7 @@ export const uiFr: UiMessages = {
     lead: "Un espace pour essayer de nouvelles fonctions sans modifier le site public. Ce qui figure ici sont des expériences — pas des affirmations produit.",
     videoEffectsHeading: "Traitement de la vidéo splash",
     videoEffectsApplied:
-      "Appliqué sur cette bande : vidéo légère dual-format (WebM + MP4, choix mobile), échelle Ken Burns, vignette douce, fondu bas vers la page, grain fin, légère étalonnage, couche de profondeur floue optionnelle (bureau) et fondu à l’apparition. Coins droits ; pas de chrome néon. Mouvement réduit → poster seul.",
+      "Appliqué sur cette bande : une vidéo légère dual-format (WebM + MP4, choix mobile), échelle Ken Burns, vignette douce, fondu bas vers la page, grain fin, légère étalonnage et fondu à l’apparition. Coins droits ; pas de chrome néon. Mouvement réduit → poster seul.",
     videoEffectsIdeas:
       "Idées futures (non livrées) : parallaxe au scroll, lumière curseur interactive, coupes chapitres / playlist multi-clips, audio discret avec mute, HDR/AV1 quand le support sera large.",
     note: "De nouvelles expériences peuvent être liées depuis ce hub. Cette page est noindex et absente du menu principal. L’accueil public reste le collage photo.",

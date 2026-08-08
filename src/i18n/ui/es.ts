@@ -42,7 +42,7 @@ export const uiEs: UiMessages = {
     lead: "Un espacio seguro para probar funciones nuevas sin alterar el sitio público. Lo que hay aquí son experimentos — no afirmaciones de producto.",
     videoEffectsHeading: "Tratamiento del vídeo splash",
     videoEffectsApplied:
-      "Aplicado en esta banda: vídeo ligero en doble formato (WebM + MP4, selección móvil), escala Ken Burns, viñeta suave, degradado inferior hacia la página, grano fino, ligera gradación de color, capa de profundidad difuminada opcional (escritorio) y fundido al estar listo. Esquinas rectas; sin cromo neón. Con movimiento reducido solo se muestra el póster.",
+      "Aplicado en esta banda: un vídeo ligero en doble formato (WebM + MP4, selección móvil), escala Ken Burns, viñeta suave, degradado inferior hacia la página, grano fino, ligera gradación de color y fundido al estar listo. Esquinas rectas; sin cromo neón. Con movimiento reducido solo se muestra el póster.",
     videoEffectsIdeas:
       "Ideas futuras (no publicadas): parallax al hacer scroll, luz interactiva del cursor, cortes por capítulos / lista multi-clip, audio sutil con control de silencio, HDR/AV1 cuando el soporte sea amplio.",
     note: "Pueden enlazarse nuevos experimentos desde este hub. Esta página es noindex y no está en el menú principal. La portada pública sigue siendo el collage fotográfico.",

@@ -43,7 +43,7 @@ export const uiDe: UiMessages = {
     lead: "Ein Sandkasten für neue Funktionen, ohne die öffentliche Website zu ändern. Was hier steht, sind Experimente — keine Produktversprechen.",
     videoEffectsHeading: "Video-Splash-Behandlung",
     videoEffectsApplied:
-      "Auf diesem Band: leichtes Dual-Format-Video (WebM + MP4, mobile Auswahl), Ken-Burns-Skalierung, weiche Vignette, unterer Verlauf in die Seite, feines Filmkorn, leichte Farbkorrektur, optionale unscharfe Tiefenebene (Desktop) und sanftes Einblenden bei Bereitschaft. Gerade Ecken; kein Neon-Chrome. Bei reduzierter Bewegung nur Poster.",
+      "Auf diesem Band: ein leichtes Dual-Format-Video (WebM + MP4, mobile Auswahl), Ken-Burns-Skalierung, weiche Vignette, unterer Verlauf in die Seite, feines Filmkorn, leichte Farbkorrektur und sanftes Einblenden bei Bereitschaft. Gerade Ecken; kein Neon-Chrome. Bei reduzierter Bewegung nur Poster.",
     videoEffectsIdeas:
       "Ideen für später (nicht geliefert): Scroll-Parallaxe, interaktives Cursorlicht, Kapitel-Schnitte / Multi-Clip-Playlist, dezentes Audio mit Mute, HDR/AV1 bei breiter Browserunterstützung.",
     note: "Neue Experimente können von diesem Hub verlinkt werden. Diese Seite ist noindex und nicht im Hauptmenü. Die öffentliche Startseite bleibt die Foto-Collage.",

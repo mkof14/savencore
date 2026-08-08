@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-08-08 (D-0267 — retire Lab particles; light Lab video + cinematic stack)
+**Last updated:** 2026-08-08 (D-0268 — Lab single video; remove depth blur duplicate)
 
 ## Rules
 
@@ -283,6 +283,7 @@
 | D-0265 | 2026-08-08 | Lab particle story — Understanding → Assistance → Care | Active |
 | D-0266 | 2026-08-08 | Lab video splash — GWR MVP preview band on `/lab/` | Active |
 | D-0267 | 2026-08-08 | Retire particle experiment; light Lab video + cinematic effects | Active |
+| D-0268 | 2026-08-08 | Lab splash: one video only — remove depth blur duplicate | Active |
 
 ---
 
@@ -2820,6 +2821,16 @@
 - **In scope:** Deletions above; video re-encodes; `LabVideoHero` + Lab CSS/page; UI i18n (10 locales); AGENTS / SITE_ASSIGNMENT / D-0267; commit/push/Vercel prod; prove home collage, Lab video, particle 404s, smaller video bytes.
 - **Out of scope:** Public home video hero; inventing Operational claims; re-adding WebGL particle morph; header Lab link.
 - **Implications:** ~135MB+ particle binaries removed from the tree; Lab splash is mobile-friendly; experiments hub is video-forward.
+
+### D-0268 — Lab splash: one video only (remove depth blur duplicate)
+
+- **Date:** 2026-08-08
+- **Status:** Active
+- **Summary:** Owner reported Lab showing two videos. Root cause was the desktop cinematic depth layer: a second `<video>` with blur/scale behind the main media.
+- **Decision:** Remove the `__depth` background video and related CSS entirely. Keep a single muted looping video + poster with Ken Burns, vignette, grain, grade, fade-in, mobile source pick, offscreen pause, and reduced-motion → poster. Lab stays preview-only (`/lab/`); not on public home.
+- **In scope:** `LabVideoHero`, Lab CSS, Lab effects copy (10 locales), D-0268 / AGENTS / SITE_ASSIGNMENT notes; commit/push/Vercel prod.
+- **Out of scope:** New master export; home hero video; audio; parallax/cursor effects (ideas only until approved).
+- **Implications:** One visible video plane; less decode/bandwidth on desktop.
 
 ## Pending Owner Decisions
 

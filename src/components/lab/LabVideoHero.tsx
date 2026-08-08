@@ -2,18 +2,18 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const POSTER_SRC = "/lab/video/s989898-gwr-mvp-poster.webp?v=d0267";
+const POSTER_SRC = "/lab/video/s989898-gwr-mvp-poster.webp?v=d0268";
 
 type SourceSet = { webm: string; mp4: string };
 
 const DESKTOP: SourceSet = {
-  webm: "/lab/video/s989898-gwr-mvp.webm?v=d0267",
-  mp4: "/lab/video/s989898-gwr-mvp.mp4?v=d0267",
+  webm: "/lab/video/s989898-gwr-mvp.webm?v=d0268",
+  mp4: "/lab/video/s989898-gwr-mvp.mp4?v=d0268",
 };
 
 const MOBILE: SourceSet = {
-  webm: "/lab/video/s989898-gwr-mvp-mobile.webm?v=d0267",
-  mp4: "/lab/video/s989898-gwr-mvp-mobile.mp4?v=d0267",
+  webm: "/lab/video/s989898-gwr-mvp-mobile.webm?v=d0268",
+  mp4: "/lab/video/s989898-gwr-mvp-mobile.mp4?v=d0268",
 };
 
 function pickSources(): SourceSet {
@@ -29,31 +29,27 @@ function pickSources(): SourceSet {
 }
 
 /**
- * Lab splash video band (D-0266 / D-0267) — owner preview only; not on public home.
- * Light dual-format sources, viewport/connection pick, pause offscreen,
- * reduced-motion → poster; cinematic CSS stack (Ken Burns, vignette, grain, grade).
+ * Lab splash video band (D-0266 / D-0267 / D-0268) — owner preview only; not on public home.
+ * Single muted looping video + poster; cinematic CSS (Ken Burns, vignette, grain, grade).
+ * No duplicated depth/blur video layer (D-0268).
  */
 export function LabVideoHero() {
   const rootRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const depthRef = useRef<HTMLVideoElement>(null);
   const [allowMotion, setAllowMotion] = useState(false);
   const [sources, setSources] = useState<SourceSet>(DESKTOP);
-  const [useDepth, setUseDepth] = useState(false);
   const [ready, setReady] = useState(false);
   const [shouldLoad, setShouldLoad] = useState(false);
 
   useEffect(() => {
     const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const narrow = window.matchMedia("(max-width: 768px)");
     const sync = () => {
-      const motionOk = !motion.matches;
-      setAllowMotion(motionOk);
+      setAllowMotion(!motion.matches);
       setSources(pickSources());
-      setUseDepth(motionOk && !narrow.matches);
     };
     sync();
     motion.addEventListener("change", sync);
+    const narrow = window.matchMedia("(max-width: 768px)");
     narrow.addEventListener("change", sync);
     return () => {
       motion.removeEventListener("change", sync);
@@ -67,14 +63,11 @@ export function LabVideoHero() {
     let visible = false;
     const syncPlayback = () => {
       const main = videoRef.current;
-      const depth = depthRef.current;
       if (!main) return;
       if (visible) {
         void main.play().catch(() => {});
-        if (depth) void depth.play().catch(() => {});
       } else {
         main.pause();
-        depth?.pause();
       }
     };
     const io = new IntersectionObserver(
@@ -87,7 +80,7 @@ export function LabVideoHero() {
     );
     io.observe(root);
     return () => io.disconnect();
-  }, [allowMotion, useDepth, shouldLoad, sources]);
+  }, [allowMotion, shouldLoad, sources]);
 
   useEffect(() => {
     if (!shouldLoad || !allowMotion) return;
@@ -95,12 +88,7 @@ export function LabVideoHero() {
     if (!main) return;
     main.load();
     void main.play().catch(() => {});
-    const depth = depthRef.current;
-    if (depth) {
-      depth.load();
-      void depth.play().catch(() => {});
-    }
-  }, [shouldLoad, allowMotion, sources, useDepth]);
+  }, [shouldLoad, allowMotion, sources]);
 
   const onCanPlay = () => setReady(true);
 
@@ -112,41 +100,24 @@ export function LabVideoHero() {
     >
       <div className="site-lab-video-hero__frame">
         {allowMotion ? (
-          <>
-            {useDepth && shouldLoad ? (
-              <video
-                ref={depthRef}
-                className="site-lab-video-hero__depth"
-                muted
-                playsInline
-                loop
-                preload="none"
-                poster={POSTER_SRC}
-                onCanPlay={onCanPlay}
-              >
+          <video
+            ref={videoRef}
+            className="site-lab-video-hero__media"
+            muted
+            playsInline
+            loop
+            preload={shouldLoad ? "metadata" : "none"}
+            poster={POSTER_SRC}
+            onCanPlay={onCanPlay}
+            onLoadedData={onCanPlay}
+          >
+            {shouldLoad ? (
+              <>
                 <source src={sources.webm} type="video/webm" />
                 <source src={sources.mp4} type="video/mp4" />
-              </video>
+              </>
             ) : null}
-            <video
-              ref={videoRef}
-              className="site-lab-video-hero__media"
-              muted
-              playsInline
-              loop
-              preload={shouldLoad ? "metadata" : "none"}
-              poster={POSTER_SRC}
-              onCanPlay={onCanPlay}
-              onLoadedData={onCanPlay}
-            >
-              {shouldLoad ? (
-                <>
-                  <source src={sources.webm} type="video/webm" />
-                  <source src={sources.mp4} type="video/mp4" />
-                </>
-              ) : null}
-            </video>
-          </>
+          </video>
         ) : (
           // eslint-disable-next-line @next/next/no-img-element -- lab experiment poster
           <img

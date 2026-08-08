@@ -467,7 +467,7 @@ export const uiEn = {
     lead: "A sandbox for trying new features without changing the public site. Surfaces here are experiments — not product claims.",
     videoEffectsHeading: "Video splash treatment",
     videoEffectsApplied:
-      "Applied on this band: light dual-format video (WebM + MP4, mobile pick), Ken Burns scale, soft vignette, bottom fade into the page, fine film grain, slight color grade, optional blurred depth layer (desktop), and a smooth fade-in when ready. Straight corners; no neon chrome. Reduced-motion shows the poster only.",
+      "Applied on this band: one light dual-format video (WebM + MP4, mobile pick), Ken Burns scale, soft vignette, bottom fade into the page, fine film grain, slight color grade, and a smooth fade-in when ready. Straight corners; no neon chrome. Reduced-motion shows the poster only.",
     videoEffectsIdeas:
       "Future ideas (not shipped): scroll parallax scrub, interactive cursor light, chapter cuts / multi-clip playlist, subtle audio bed with mute control, HDR/AV1 when browser support is broad.",
     note: "New experiments can be linked from this hub. This page is noindex and is not in the primary header menu. The public home stays the living photo collage.",

@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-08-08 (D-0260 — Official logo + living micro-morphs + smaller stage)
+**Last updated:** 2026-08-08 (D-0261 — Rollback home to photo collage; particle preview)
 
 ## Rules
 
@@ -276,6 +276,7 @@
 | D-0258 | 2026-08-08 | Restore professional HTML particle buffers (quality recovery) | Active |
 | D-0259 | 2026-08-08 | Fix HUMAN + INTERFACE particle scenes (clean logo / dense human) | Active |
 | D-0260 | 2026-08-08 | Official logo INTERFACE + sharper HUMAN + living holds + smaller stage | Active |
+| D-0261 | 2026-08-08 | Rollback home to photo collage; particle morph → preview only | Active |
 
 ---
 
@@ -2716,6 +2717,19 @@
 - **In scope:** New/updated bins + poster, `HeroParticleScene`, CSS, preload, docs; commit/push/Vercel prod.
 - **Out of scope:** Displaying 5-panel sheet; inventing Operational claims; true facial performance capture.
 - **Implications:** Hard-refresh required. Extra ~3 alt buffers (~38MB gzipped total added vs 4-scene set).
+
+### D-0261 — Rollback home to photo collage; particle morph → preview only
+
+- **Date:** 2026-08-08
+- **Status:** Active
+- **Summary:** Owner («оживление скринов сделали все еще хуже, давай отмотаем все до начала, сделай старый главный экран, с фото… на отдельной тестовой странице делать эксперименты») rejects particle living-mime quality on the public home. Restore the pre–particle-hero living photoreal collage; isolate particle experiments to a preview route.
+- **Decision:**
+  1. **Public home:** Restore `HeroLivingMedia` collage as the upper hero (brand copy + photos). Remove `HeroParticleStage` from `PhysicalWorldHome`. Preload collage LCP image again.
+  2. **Experiments:** Particle morph (`HeroParticleStage` / bins / bake scripts) remains in repo and is mounted only at `/[locale]/preview/particle-hero/` — not in main nav/footer. `noIndex` + existing `/*/preview/` robots disallow + proxy `X-Robots-Tag`.
+  3. D-0255–D-0260 particle work is **superseded for the public home first viewport** (kept as preview experiment history).
+- **In scope:** `PhysicalWorldHome`, preview page + CSS, home CSS comment, UI i18n preview title/lead (10 locales), D-0261 + AGENTS / SITE_ASSIGNMENT pointers; commit/push/Vercel prod.
+- **Out of scope:** Deleting ~60MB particle bins; inventing Operational claims; adding particle link to public chrome.
+- **Implications:** Home first screen is photos again. Particle R&D continues only via direct preview URL.
 
 ## Pending Owner Decisions
 

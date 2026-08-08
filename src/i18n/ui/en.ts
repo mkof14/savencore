@@ -459,6 +459,9 @@ export const uiEn = {
       "A short presentation overview of SAVEN Core — intelligent systems built to support human life.",
     watchEmbedTitle: "SAVEN Core presentation video",
     particleHeroLabel: "Particle morph visualization",
+    particlePreviewTitle: "Particle hero experiment",
+    particlePreviewLead:
+      "Internal test page for the WebGL particle morph. The public home uses the living photo collage.",
   },
 
   ko: {

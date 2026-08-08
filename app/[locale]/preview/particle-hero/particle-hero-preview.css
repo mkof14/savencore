@@ -1,0 +1,50 @@
+/* Preview-only chrome for particle morph experiments (D-0261). */
+
+.particle-hero-preview {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: calc(100vh - 4.75rem);
+  background: #061022;
+  color: #e8eef8;
+}
+
+.particle-hero-preview__chrome {
+  width: 100%;
+  max-width: var(--container-max-2xl, 72rem);
+  margin-inline: auto;
+  padding: 1.25rem var(--container-padding-x, 1.25rem) 1rem;
+}
+
+.particle-hero-preview__eyebrow {
+  margin: 0 0 0.35rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.particle-hero-preview__title {
+  margin: 0 0 0.4rem;
+  font-size: clamp(1.25rem, 2.4vw, 1.75rem);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.particle-hero-preview__lead {
+  margin: 0;
+  max-width: 40rem;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  opacity: 0.85;
+}
+
+.particle-hero-preview .pw-particle-hero {
+  flex: 1 1 auto;
+  width: 100%;
+  /* Full experiment stage on preview — taller than public home had after D-0260 shrink */
+  min-height: 70vh;
+  min-height: 70svh;
+  height: min(86svh, 86vh);
+  max-height: none;
+}

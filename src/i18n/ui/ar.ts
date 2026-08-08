@@ -314,6 +314,8 @@ export const uiAr: UiMessages = {
       "عرض تقديمي موجز عن SAVEN Core — أنظمة ذكية بُنيت لدعم حياة الإنسان.",
     watchEmbedTitle: "فيديو تقديم SAVEN Core",
     particleHeroLabel: "تصوير جسيمات متحولة",
+    particlePreviewTitle: "تجربة بطل الجسيمات",
+    particlePreviewLead: "صفحة اختبار داخلية لتحويل الجسيمات. الصفحة الرئيسية العامة تستخدم كولاج الصور.",
   },
 
   ko: {

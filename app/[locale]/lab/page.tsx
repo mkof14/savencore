@@ -12,7 +12,7 @@ type Props = {
 };
 
 /**
- * Experiments hub (D-0263 / D-0266–D-0275) — sandbox for novelties without touching the public home.
+ * Experiments hub (D-0263 / D-0266–D-0276) — sandbox for novelties without touching the public home.
  * Linked from footer Resources only; robots noindex + sitemap excluded.
  */
 export async function generateMetadata({ params }: Props) {

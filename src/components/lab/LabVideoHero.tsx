@@ -6,19 +6,19 @@ import { useEffect, useRef, useState } from "react";
 import type { Locale } from "@/config/locales";
 import { localizePath } from "@/navigation/locale-path";
 
-const CACHE = "d0275";
+const CACHE = "d0276";
 const POSTER_SRC = `/lab/video/s989898-gwr-mvp-poster.webp?v=${CACHE}`;
 const MUTE_KEY = "savencore-lab-video-muted";
-/** Nominal loop length after ss=2.15 / t=7.6 cut (D-0271/D-0274). */
-const LOOP_SECONDS = 7.6;
+/** Nominal loop length from master t=0 (D-0276 — opening dots-person restored). */
+const LOOP_SECONDS = 10;
 
 type ChapterId = "understanding" | "assistance" | "care";
 
-/** Absolute scene times (seconds) across the ~7.6s Lab cut. */
+/** Absolute scene times (seconds) across the ~10s Lab cut. */
 const CHAPTERS: readonly { id: ChapterId; at: number }[] = [
   { id: "understanding", at: 0 },
-  { id: "assistance", at: 2.5 },
-  { id: "care", at: 5.1 },
+  { id: "assistance", at: 3.8 },
+  { id: "care", at: 6.5 },
 ] as const;
 
 type SourceSet = { webm: string; mp4: string };
@@ -80,7 +80,7 @@ function chapterAt(index: number): { id: ChapterId; at: number } {
 }
 
 /**
- * Lab splash video band (D-0266–D-0275) — owner preview only; not on public home.
+ * Lab splash video band (D-0266–D-0276) — owner preview only; not on public home.
  * Full-bleed single video embedded into page surface (symmetric soft feathered edges; no hard box);
  * clear video (no grain / heavy vignette / heavy grade); overlay copy + explore links;
  * clickable chapter ticks, timed captions, light ambient sides, scroll-linked caption; mute / parallax / soft cursor.

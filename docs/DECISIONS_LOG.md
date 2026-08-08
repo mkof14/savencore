@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-08-08 (D-0275 — Lab video: chapter scrub + timed captions)
+**Last updated:** 2026-08-08 (D-0276 — Lab video: restore opening dots-person scene)
 
 ## Rules
 
@@ -286,11 +286,12 @@
 | D-0268 | 2026-08-08 | Lab splash: one video only — remove depth blur duplicate | Active |
 | D-0269 | 2026-08-08 | Lab video band — designed cut, sound/mute, parallax, cursor light, editorial frame | Superseded (framing) by D-0270 |
 | D-0270 | 2026-08-08 | Lab video — remove editorial frame; amplify parallax / cursor / Ken Burns / grade | Superseded (cut/chrome edges) by D-0271 |
-| D-0271 | 2026-08-08 | Lab video — skip in-file black first scene; soft embed into page background | Active (grain/vignette/grade retired by D-0272) |
+| D-0271 | 2026-08-08 | Lab video — skip in-file black first scene; soft embed into page background | Soft embed Active; intro skip superseded by D-0276 (grain/vignette/grade retired by D-0272) |
 | D-0272 | 2026-08-08 | Lab video — remove grain/heavy darkenings; overlay copy + explore links | Active |
 | D-0273 | 2026-08-08 | Lab video — symmetric soft blend into page background (top = bottom) | Active |
-| D-0274 | 2026-08-08 | Lab video — restore original frame size (no zoom crop) | Active |
-| D-0275 | 2026-08-08 | Lab video — chapter scrub + timed captions (Understanding → Assistance → Care) | Active |
+| D-0274 | 2026-08-08 | Lab video — restore original frame size (no zoom crop) | Active (intro skip portion superseded by D-0276) |
+| D-0275 | 2026-08-08 | Lab video — chapter scrub + timed captions (Understanding → Assistance → Care) | Active (chapter times retimed by D-0276) |
+| D-0276 | 2026-08-08 | Lab video — restore opening dots-person scene (no aggressive intro skip) | Active |
 
 ---
 
@@ -2935,6 +2936,19 @@
 - **In scope:** `LabVideoHero`, `lab.css`, Lab page copy wiring, UI i18n (10 locales), D-0275 / AGENTS / SITE_ASSIGNMENT; commit/push/Vercel prod.
 - **Out of scope:** Public home video; inventing Operational claims, products, metrics, customers, or partners.
 - **Implications:** Lab splash chapters become a scrub affordance; captions narrate the cut without claiming deployed product status.
+
+### D-0276 — Lab video — restore opening dots-person scene
+
+- **Date:** 2026-08-08
+- **Status:** Active
+- **Summary:** Owner feedback (RU): the first scene where a person is made of dots/points disappeared from the Lab video splash. Diagnosis: D-0271 / D-0274 `ss=2.15` intro skip removed the letterboxed opening that **is** the dots-person scene (master ~0–2.0s), not pure black.
+- **Decision:**
+  1. Re-encode Lab splash from Desktop original `S989898_gwr_video_mvp.mp4` from **master t=0** through full ~10s — **no** `ss=2.15` (or similar) intro skip. Keep **original 16:9 framing** (no `scale=1.14` zoom-crop). Owner prioritizes the dots-person scene; mild source letterbox on that opening may remain. Poster refreshed from first frame. Cache-bust `?v=d0276`.
+  2. Retimed chapter absolute times + timed captions on the ~10s loop: Understanding `0` (dots-person) → Assistance `~3.8s` → Care `~6.5s`. Soft symmetric page-embed, mute-by-default, clear picture (no grain/vignette/frame/depth-blur) retained. Lab `/lab/` only — not public home.
+  3. Supersedes the overly aggressive letterbox intro skip from D-0271 / D-0274. Soft page-embed (D-0271) and original framing without zoom-crop (D-0274) remain in force otherwise.
+- **In scope:** `public/lab/video/*`, `LabVideoHero` (CACHE / LOOP / CHAPTERS), UI i18n (10 locales) Lab effects copy, D-0276 / AGENTS / SITE_ASSIGNMENT; commit/push/Vercel prod.
+- **Out of scope:** Public home video; inventing Operational claims, products, metrics, customers, or partners.
+- **Implications:** Lab splash again opens on the dots-person beat; chapter scrub still narrates Understanding → Assistance → Care without deployment claims.
 
 ## Pending Owner Decisions
 

@@ -1,4 +1,4 @@
-/* Preview chrome for Lab particle experiment (D-0264). Canvas itself has no text. */
+/* Preview chrome for Lab particle story (D-0265). Canvas itself has no text. */
 
 .particle-hero-preview {
   display: flex;
@@ -32,11 +32,57 @@
 }
 
 .particle-hero-preview__lead {
-  margin: 0 0 0.65rem;
-  max-width: 42rem;
+  margin: 0 0 0.85rem;
+  max-width: 44rem;
   font-size: 0.95rem;
   line-height: 1.45;
   opacity: 0.85;
+}
+
+.particle-hero-preview__beats {
+  margin: 0 0 0.85rem;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.55rem;
+  max-width: 44rem;
+}
+
+.particle-hero-preview__beat {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.65rem;
+  align-items: start;
+}
+
+.particle-hero-preview__beat-index {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.35rem;
+  height: 1.35rem;
+  margin-top: 0.1rem;
+  border: 1px solid rgba(158, 196, 255, 0.45);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #9ec4ff;
+}
+
+.particle-hero-preview__beat-copy {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.particle-hero-preview__beat-label {
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.particle-hero-preview__beat-note {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  opacity: 0.8;
 }
 
 .particle-hero-preview__back {

@@ -3,7 +3,7 @@
 import dynamic from "next/dynamic";
 
 /**
- * Client boundary for the Lab particle experiment (D-0264).
+ * Client boundary for the Lab particle experiment (D-0265).
  * `next/dynamic` with `ssr: false` is only legal inside Client Components.
  */
 const LabParticleScene = dynamic(

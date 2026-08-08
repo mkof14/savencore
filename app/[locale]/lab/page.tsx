@@ -13,7 +13,7 @@ type Props = {
 };
 
 /**
- * Experiments hub (D-0263 / D-0264) — sandbox for novelties without touching the public home.
+ * Experiments hub (D-0263 / D-0265) — sandbox for novelties without touching the public home.
  * Linked from footer Resources only; robots noindex + sitemap excluded.
  */
 export async function generateMetadata({ params }: Props) {
@@ -47,7 +47,7 @@ export default async function LabPage({ params }: Props) {
             {ui.lab.experimentsHeading}
           </h2>
 
-          {/* Featured particle experiment (D-0264) */}
+          {/* Featured particle story (D-0265) */}
           <Link
             href={experimentHref}
             className="site-lab-page__feature"
@@ -55,7 +55,7 @@ export default async function LabPage({ params }: Props) {
             {/* eslint-disable-next-line @next/next/no-img-element -- experiment poster */}
             <img
               className="site-lab-page__feature-media"
-              src="/lab/particle/poster.webp?v=d0264"
+              src="/lab/particle/poster.webp?v=d0265"
               alt=""
               width={1600}
               height={900}
@@ -70,6 +70,13 @@ export default async function LabPage({ params }: Props) {
               </span>
               <span className="site-lab-page__link-lead">
                 {ui.lab.particleHeroLead}
+              </span>
+              <span className="site-lab-page__story">
+                {ui.lab.beatUnderstanding}
+                <span aria-hidden="true"> → </span>
+                {ui.lab.beatAssistance}
+                <span aria-hidden="true"> → </span>
+                {ui.lab.beatCare}
               </span>
               <span className="site-lab-page__link-cta">
                 {ui.lab.openExperiment}

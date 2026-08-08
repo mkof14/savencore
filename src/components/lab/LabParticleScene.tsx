@@ -3,31 +3,31 @@
 import { useEffect, useRef, useState } from "react";
 
 /**
- * Lab particle experiment (D-0264) — WebGL2 morph of human + energy waves.
+ * Lab particle story (D-0265) — WebGL2 morph:
+ *   UNDERSTAND (system / waves) → ASSIST (robot arm) → CARE (humanoid) → loop
  *
- * COUNT=650000, stride 28. Three cinematic frames (images only, no UI text):
- *   WAVE_A → WAVE_B → WAVE_C → WAVE_A
- *
- * Assets under `/lab/particle/`. Cache-bust `?v=d0264`.
+ * COUNT=650000, stride 28. Canvas = images only (ASSIST HUD masked in bake).
+ * Captions live outside the canvas on the preview page.
+ * Assets under `/lab/particle/`. Cache-bust `?v=d0265`.
  * Not used on the public home (D-0261).
  */
 
 const COUNT = 650_000;
 const STRIDE = 28;
 const FLOATS_PER = STRIDE / 4;
-const LOOP_S = 18;
+const LOOP_S = 20;
 const INTRO_S = 1.1;
-const ASSET_VER = "d0264";
+const ASSET_VER = "d0265";
 const ASSET_BASE = "/lab/particle";
 const POSTER = `${ASSET_BASE}/poster.webp?v=${ASSET_VER}`;
 
-const TARGETS = ["WAVE_A", "WAVE_B", "WAVE_C"] as const;
+const TARGETS = ["UNDERSTAND", "ASSIST", "CARE"] as const;
 type MorphKey = (typeof TARGETS)[number];
 
 const FILE: Record<MorphKey, string> = {
-  WAVE_A: "wave-a",
-  WAVE_B: "wave-b",
-  WAVE_C: "wave-c",
+  UNDERSTAND: "understand",
+  ASSIST: "assist",
+  CARE: "care",
 };
 
 const VS = `#version 300 es
@@ -288,7 +288,7 @@ export function LabParticleScene({ ariaLabel }: LabParticleSceneProps) {
           const next = {} as Record<MorphKey, Float32Array>;
           for (const k of TARGETS) next[k] = subsample(buffers[k], every);
           active = next;
-          drawCount = active.WAVE_A.length / FLOATS_PER;
+          drawCount = active.UNDERSTAND.length / FLOATS_PER;
           lastPair = "";
         };
 
@@ -301,8 +301,9 @@ export function LabParticleScene({ ariaLabel }: LabParticleSceneProps) {
         let adapted = false;
 
         /**
-         * ~18s loop: intro → A hold → A→B → B hold → B→C → C hold → C→A
-         * Short holds, continuous wave motion.
+         * ~20s story loop:
+         * intro → Understanding → Assistance → Care → Understanding
+         * Short holds, continuous motion on holds.
          */
         const frame = (n: number) => {
           if (cancelled || !gl) return;
@@ -332,51 +333,51 @@ export function LabParticleScene({ ariaLabel }: LabParticleSceneProps) {
           gl.clearColor(0.008, 0.028, 0.065, 1);
           gl.clear(gl.COLOR_BUFFER_BIT);
 
-          const holdW = 0.55;
-          const morphW = 0.72;
-          const holdL = 2.15;
-          const morphL = 2.0;
+          const holdW = 0.52;
+          const morphW = 0.7;
+          const holdL = 2.12;
+          const morphL = 1.98;
 
           if (e < INTRO_S) {
             const u = smoothstep(0, INTRO_S, e);
             draw(
-              "WAVE_A",
-              "WAVE_A",
+              "UNDERSTAND",
+              "UNDERSTAND",
               0,
               t,
               0.5 + 0.2 * u,
               0.6 + 1.4 * u,
               1 - u,
             );
-          } else if (e < 3.2) {
-            draw("WAVE_A", "WAVE_A", 0, t, holdW, holdL);
-          } else if (e < 6.4) {
+          } else if (e < 3.6) {
+            draw("UNDERSTAND", "UNDERSTAND", 0, t, holdW, holdL);
+          } else if (e < 7.0) {
             draw(
-              "WAVE_A",
-              "WAVE_B",
-              smoothstep(3.2, 6.4, e),
+              "UNDERSTAND",
+              "ASSIST",
+              smoothstep(3.6, 7.0, e),
               t,
               morphW,
               morphL,
             );
-          } else if (e < 8.2) {
-            draw("WAVE_B", "WAVE_B", 0, t, holdW, holdL);
-          } else if (e < 11.6) {
+          } else if (e < 9.0) {
+            draw("ASSIST", "ASSIST", 0, t, holdW * 0.9, holdL);
+          } else if (e < 12.6) {
             draw(
-              "WAVE_B",
-              "WAVE_C",
-              smoothstep(8.2, 11.6, e),
+              "ASSIST",
+              "CARE",
+              smoothstep(9.0, 12.6, e),
               t,
               morphW,
               morphL,
             );
-          } else if (e < 13.4) {
-            draw("WAVE_C", "WAVE_C", 0, t, holdW, holdL);
+          } else if (e < 14.8) {
+            draw("CARE", "CARE", 0, t, holdW * 0.85, holdL);
           } else {
             draw(
-              "WAVE_C",
-              "WAVE_A",
-              smoothstep(13.4, LOOP_S, e),
+              "CARE",
+              "UNDERSTAND",
+              smoothstep(14.8, LOOP_S, e),
               t,
               morphW,
               morphL,

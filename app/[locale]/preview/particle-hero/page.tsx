@@ -15,8 +15,8 @@ type Props = {
 };
 
 /**
- * Lab particle experiment (D-0264) — human + energy waves, images only on canvas.
- * Discoverable via `/lab/`. Robots: noindex.
+ * Lab particle story (D-0265) — Understanding → Assistance → Care.
+ * Captions outside the canvas only. Discoverable via `/lab/`. noindex.
  */
 export async function generateMetadata({ params }: Props) {
   const { locale: localeParam } = await params;
@@ -36,6 +36,12 @@ export default async function ParticleHeroPreviewPage({ params }: Props) {
   if (!isLocale(localeParam)) notFound();
   const ui = getUi(localeParam);
 
+  const beats = [
+    { label: ui.lab.beatUnderstanding, note: ui.lab.beatUnderstandingNote },
+    { label: ui.lab.beatAssistance, note: ui.lab.beatAssistanceNote },
+    { label: ui.lab.beatCare, note: ui.lab.beatCareNote },
+  ] as const;
+
   return (
     <article className="particle-hero-preview">
       <header className="particle-hero-preview__chrome">
@@ -44,6 +50,21 @@ export default async function ParticleHeroPreviewPage({ params }: Props) {
           {ui.lab.particleHeroTitle}
         </h1>
         <p className="particle-hero-preview__lead">{ui.lab.particleHeroLead}</p>
+        <ol className="particle-hero-preview__beats" aria-label={ui.lab.beatsLabel}>
+          {beats.map((beat, i) => (
+            <li key={beat.label} className="particle-hero-preview__beat">
+              <span className="particle-hero-preview__beat-index">{i + 1}</span>
+              <span className="particle-hero-preview__beat-copy">
+                <span className="particle-hero-preview__beat-label">
+                  {beat.label}
+                </span>
+                <span className="particle-hero-preview__beat-note">
+                  {beat.note}
+                </span>
+              </span>
+            </li>
+          ))}
+        </ol>
         <p className="particle-hero-preview__back">
           <Link href={localizePath(localeParam, "/lab/")}>{ui.lab.backToLab}</Link>
         </p>

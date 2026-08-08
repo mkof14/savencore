@@ -471,9 +471,19 @@ export const uiEn = {
     lead: "A sandbox for trying new features without changing the public site. Surfaces here are experiments — not product claims.",
     experimentsHeading: "Experiment surfaces",
     featuredBadge: "Featured experiment",
-    particleHeroTitle: "Human + energy waves",
+    particleHeroTitle: "Robots help people",
     particleHeroLead:
-      "WebGL particle morph — point-cloud human figure with flowing SAVEN energy streams. Images only on the canvas. The public home stays the photo collage.",
+      "A particle story experiment: SAVEN helps enable understanding, then physical assistance, then a care moment. Canvas is images only. The public home stays the photo collage.",
+    beatsLabel: "Story beats",
+    beatUnderstanding: "Understanding",
+    beatUnderstandingNote:
+      "Human context and energy — the system side that supports care.",
+    beatAssistance: "Assistance",
+    beatAssistanceNote:
+      "A robotic arm brings water — physical help under human control.",
+    beatCare: "Care",
+    beatCareNote:
+      "A humanoid assist moment — robots help people where life happens.",
     openExperiment: "Open experiment",
     backToLab: "← Back to Lab",
     note: "New experiments can be linked from this hub. This page is noindex and is not in the primary header menu.",

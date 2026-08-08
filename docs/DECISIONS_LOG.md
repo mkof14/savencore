@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-08-08 (D-0264 — Lab particle human+waves experiment)
+**Last updated:** 2026-08-08 (D-0265 — Lab particle story: robots help people)
 
 ## Rules
 
@@ -280,6 +280,7 @@
 | D-0262 | 2026-08-08 | Dark clarity / Explore SAVEN cards → gray-blue slate | Active |
 | D-0263 | 2026-08-08 | Test / Lab experiments hub (`/lab/`) + footer Resources link | Active |
 | D-0264 | 2026-08-08 | Lab particle experiment — human + energy waves (preview) | Active |
+| D-0265 | 2026-08-08 | Lab particle story — Understanding → Assistance → Care | Active |
 
 ---
 
@@ -2772,6 +2773,21 @@
 - **In scope:** Bake script, lab particle assets, LabParticleScene/Stage, Lab hub feature card, preview page, UI i18n, D-0264 docs; commit/push/Vercel prod.
 - **Out of scope:** Putting particle on public home; inventing Operational claims; nav/header Lab link.
 - **Implications:** Experiments iterate via Lab → preview; home first screen stays photos.
+
+### D-0265 — Lab particle story — Understanding → Assistance → Care (preview)
+
+- **Date:** 2026-08-08
+- **Status:** Active
+- **Summary:** Owner supplies three new cinematic frames for a clear Lab story: robots help people; SAVEN helps enable that. Not on the public home.
+- **Decision:**
+  1. Bake 16:9 dense buffers (COUNT **650000**) from owner screenshots into `public/lab/particle/{understand,assist,care}.bin.gz` + poster; replace D-0264 `wave-*` assets.
+  2. Mask/blur **SAVEN ASSIST** HUD text blocks and related UI chrome in bake; keep humans, robots, glass, energy waves, and product **SAVEN** marks on robot bodies.
+  3. Morph loop (~20s): **Understanding** (system / waves) → **Assistance** (robot arm) → **Care** (humanoid) → loop; continuous hold motion; cache-bust `?v=d0265`.
+  4. Optional English (localized) captions **outside** the WebGL canvas on `/preview/particle-hero/` and story strip on `/lab/` feature card. No Operational claims; no Platform/ecosystem buzz.
+  5. Public home remains photo collage (D-0261). Lab + preview remain noindex.
+- **In scope:** Bake script, lab particle assets, LabParticleScene, Lab hub + preview chrome, UI i18n (10 locales), D-0265 docs; commit/push/Vercel prod.
+- **Out of scope:** Public home particle; inventing Operational claims; header Lab link.
+- **Implications:** Supersedes D-0264 Lab particle asset set and story for the preview experiment; discovery path unchanged (`/lab/` → `/preview/particle-hero/`).
 
 ## Pending Owner Decisions
 

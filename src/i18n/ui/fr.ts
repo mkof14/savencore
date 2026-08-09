@@ -48,6 +48,9 @@ export const uiFr: UiMessages = {
     videoCaptionUnderstanding: "Compréhension — l’histoire commence par les personnes.",
     videoCaptionAssistance: "Assistance — un soutien pensé pour des contextes réels.",
     videoCaptionCare: "Soin — le but de cet aperçu Lab.",
+    videoCaptionSiteUnderstanding: "Compréhension — les personnes et le nom apparaissent.",
+    videoCaptionSiteAssistance: "Assistance — un soutien pensé pour le quotidien.",
+    videoCaptionSiteCare: "Soin — des systèmes visant le soin humain tout au long de la vie.",
     videoCaptionSavenUnderstanding: "Compréhension — le nom prend forme.",
     videoCaptionSavenAssistance: "Assistance — des formes de soutien dans un cadre Lab.",
     videoCaptionSavenCare: "Soin — un regard plus proche sur des systèmes pour les personnes.",
@@ -56,6 +59,7 @@ export const uiFr: UiMessages = {
     videoChapterAssistance: "Chapitre : Assistance",
     videoChapterCare: "Chapitre : Soin",
     videoSwitcherLabel: "Vidéos Lab",
+    videoClipSite: "Site",
     videoClipGwr: "GWR",
     videoClipSaven: "SAVEN",
     videoMute: "Couper le son",
@@ -67,7 +71,7 @@ export const uiFr: UiMessages = {
     videoLinkContact: "Contact",
     videoEffectsHeading: "Traitement de la vidéo splash",
     videoEffectsApplied:
-      "Appliqué sur cette bande (incrustée dans le fond de la page — bords adoucis, sans boîte vidéo nette ni cadre photo) : un sélecteur compact de playlist multi-clips (GWR + SAVEN ; prêt pour d’autres), chaque clip léger dual-format (WebM + MP4, choix mobile). GWR conserve la scène d’ouverture de la personne en points depuis le master t=0 (~10s) ; SAVEN est la coupe marque S-2 (~10s après retrait du noir pur initial seulement). Cadrage 16:9 d’origine, cache ?v=d0277 ; son optionnel (démarre en sourdine), Mute, texte en surimpression, liens glass-light, chapitres cliquables et légendes Compréhension → Assistance → Soin par clip actif, légende au défilement, parallaxe légère, lumière curseur, Ken Burns et ambiance latérale — sans grain, vignette lourde ni étalonnage boueux. Coins droits ; pas de néon. Mouvement réduit : moins de motion et poster.",
+      "Appliqué sur cette bande (incrustée dans le fond de la page — bords adoucis, sans boîte vidéo nette ni cadre photo) : un sélecteur compact de playlist multi-clips (Site + GWR + SAVEN ; prêt pour d’autres), chaque clip léger dual-format (WebM + MP4, choix mobile). Site est le clip principal par défaut issu du master SAVEN_site 1 (~60s, sans trim noir) ; GWR conserve la scène d’ouverture de la personne en points depuis le master t=0 (~10s) ; SAVEN est la coupe marque S-2 (~10s après retrait du noir pur initial seulement). Cadrage 16:9 d’origine, cache ?v=d0278 ; son optionnel (démarre en sourdine), Mute, texte en surimpression, liens glass-light, chapitres cliquables et légendes Compréhension → Assistance → Soin par clip actif, légende au défilement, parallaxe légère, lumière curseur, Ken Burns et ambiance latérale — sans grain, vignette lourde ni étalonnage boueux. Coins droits ; pas de néon. Mouvement réduit : moins de motion et poster.",
     videoEffectsIdeas:
       "Idées futures (non livrées) : d’autres clips Lab dans le même sélecteur, parallaxe de profondeur liée au scrub, HDR/AV1 quand le support sera large.",
     note: "De nouvelles expériences peuvent être liées depuis ce hub. Cette page est noindex et absente du menu principal. L’accueil public reste le collage photo.",

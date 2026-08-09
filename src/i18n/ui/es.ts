@@ -47,6 +47,9 @@ export const uiEs: UiMessages = {
     videoCaptionUnderstanding: "Comprensión — la historia empieza con las personas.",
     videoCaptionAssistance: "Asistencia — apoyo pensado para entornos reales.",
     videoCaptionCare: "Cuidado — el propósito de esta vista previa Lab.",
+    videoCaptionSiteUnderstanding: "Comprensión — las personas y el nombre entran en vista.",
+    videoCaptionSiteAssistance: "Asistencia — apoyo pensado para entornos cotidianos.",
+    videoCaptionSiteCare: "Cuidado — sistemas orientados al cuidado humano a lo largo de la vida.",
     videoCaptionSavenUnderstanding: "Comprensión — el nombre toma forma.",
     videoCaptionSavenAssistance: "Asistencia — formas de apoyo en un entorno Lab.",
     videoCaptionSavenCare: "Cuidado — una mirada más cercana a sistemas para las personas.",
@@ -55,6 +58,7 @@ export const uiEs: UiMessages = {
     videoChapterAssistance: "Capítulo: Asistencia",
     videoChapterCare: "Capítulo: Cuidado",
     videoSwitcherLabel: "Vídeos Lab",
+    videoClipSite: "Site",
     videoClipGwr: "GWR",
     videoClipSaven: "SAVEN",
     videoMute: "Silenciar",
@@ -66,7 +70,7 @@ export const uiEs: UiMessages = {
     videoLinkContact: "Contacto",
     videoEffectsHeading: "Tratamiento del vídeo splash",
     videoEffectsApplied:
-      "Aplicado en esta banda (integrado en el fondo de la página — bordes suaves, sin caja dura ni marco): un conmutador compacto de lista multi-clip (GWR + SAVEN; listo para más), cada clip ligero en doble formato (WebM + MP4, selección móvil). GWR conserva la escena inicial de la persona de puntos desde el master t=0 (~10s); SAVEN es el corte de marca S-2 (~10s tras quitar solo el negro puro inicial). Encuadre 16:9 original, caché ?v=d0277; sonido opcional (empieza en silencio), Mute, texto superpuesto, enlaces glass-light, marcas de capítulo y subtítulos Comprensión → Asistencia → Cuidado por clip activo, pie al scroll, parallax ligero, luz de cursor, Ken Burns y ambiente lateral — sin grano, viñeta pesada ni gradación turbia. Esquinas rectas; sin neón. Con movimiento reducido: menos motion y póster.",
+      "Aplicado en esta banda (integrado en el fondo de la página — bordes suaves, sin caja dura ni marco): un conmutador compacto de lista multi-clip (Site + GWR + SAVEN; listo para más), cada clip ligero en doble formato (WebM + MP4, selección móvil). Site es el corte principal por defecto del master SAVEN_site 1 (~60s, sin recorte de negro); GWR conserva la escena inicial de la persona de puntos desde el master t=0 (~10s); SAVEN es el corte de marca S-2 (~10s tras quitar solo el negro puro inicial). Encuadre 16:9 original, caché ?v=d0278; sonido opcional (empieza en silencio), Mute, texto superpuesto, enlaces glass-light, marcas de capítulo y subtítulos Comprensión → Asistencia → Cuidado por clip activo, pie al scroll, parallax ligero, luz de cursor, Ken Burns y ambiente lateral — sin grano, viñeta pesada ni gradación turbia. Esquinas rectas; sin neón. Con movimiento reducido: menos motion y póster.",
     videoEffectsIdeas:
       "Ideas futuras (no publicadas): más clips Lab en el mismo conmutador, parallax de profundidad ligado al scrub, HDR/AV1 cuando el soporte sea amplio.",
     note: "Pueden enlazarse nuevos experimentos desde este hub. Esta página es noindex y no está en el menú principal. La portada pública sigue siendo el collage fotográfico.",

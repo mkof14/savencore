@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-08-08 (D-0277 — Lab video: second clip + multi-clip switcher)
+**Last updated:** 2026-08-08 (D-0278 — Lab video: Site main clip first in playlist)
 
 ## Rules
 
@@ -293,6 +293,7 @@
 | D-0275 | 2026-08-08 | Lab video — chapter scrub + timed captions (Understanding → Assistance → Care) | Active (chapter times retimed by D-0276) |
 | D-0276 | 2026-08-08 | Lab video — restore opening dots-person scene (no aggressive intro skip) | Active |
 | D-0277 | 2026-08-08 | Lab video — second clip (SAVEN) + extensible multi-clip switcher | Active |
+| D-0278 | 2026-08-08 | Lab video — Site main clip first (SAVEN_site 1) in playlist switcher | Active |
 
 ---
 
@@ -2963,6 +2964,20 @@
 - **In scope:** `public/lab/video/s2-*`, `LabVideoHero` + Lab CSS/page, UI i18n (10 locales), D-0277 / AGENTS / SITE_ASSIGNMENT; commit/push/Vercel prod.
 - **Out of scope:** Public home video; inventing Operational claims, products, metrics, customers, or partners; inventing additional clip product names beyond owner **SAVEN** + neutral GWR Lab label.
 - **Implications:** Lab band is a small extensible playlist; adding another clip is primarily assets + one array entry + i18n label/captions.
+
+### D-0278 — Lab video — Site main clip first (SAVEN_site 1) in playlist switcher
+
+- **Date:** 2026-08-08
+- **Status:** Active
+- **Summary:** Owner supplies Desktop master `SAVEN_site 1.mp4` (~60.5s, 1280×720) and asks to put this video **first / main** in the Lab playlist switcher (default selected on load). Keep prior GWR (S989898) and SAVEN (S-2) clips accessible after it.
+- **Decision:**
+  1. Encode into `public/lab/video/saven-site-1*.{mp4,webm}` + poster WebP at the same light dual-format quality as D-0277 (desktop 1280×720 + mobile 854×480; WebM VP9 + MP4 H.264). **No zoom-crop.** Opening has content (no pure-black head trim). Cache-bust `?v=d0278`.
+  2. Prepend as playlist index 0 / default. Order: **Site** → **GWR** → **SAVEN**. Label **Site** from filename stem `SAVEN_site` — short neutral Lab label so it does not collide with existing clip label **SAVEN** (S-2). Not a new product name.
+  3. Site chapters / timed captions from actual scenes (~60.5s): Understanding at 0 (brand/people), Assistance at ~7s (everyday support), Care at ~18s (care settings). GWR and SAVEN keep prior beats. Soft page-embed / original 16:9 / mute / switcher UX retained. Lab `/lab/` only — not public home.
+- **Assumption:** Owner did not supply a display name; **Site** is derived neutrally from the master filename and is preferred over a second “SAVEN” switcher label.
+- **In scope:** `public/lab/video/saven-site-1*`, `LabVideoHero` + Lab page, UI i18n (10 locales), D-0278 / AGENTS / SITE_ASSIGNMENT; commit/push/Vercel prod.
+- **Out of scope:** Public home video; inventing Operational claims, products, metrics, customers, or partners; replacing GWR/SAVEN clips.
+- **Implications:** Default Lab splash is the longer Site cut; switcher still exposes GWR and SAVEN.
 
 ## Pending Owner Decisions
 

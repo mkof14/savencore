@@ -6,11 +6,12 @@ import { useEffect, useRef, useState } from "react";
 import type { Locale } from "@/config/locales";
 import { localizePath } from "@/navigation/locale-path";
 
-const CACHE = "d0277";
+const CACHE = "d0278";
 const MUTE_KEY = "savencore-lab-video-muted";
 
 type ChapterId = "understanding" | "assistance" | "care";
-type ClipLabelKey = "gwr" | "saven";
+type ClipLabelKey = "site" | "gwr" | "saven";
+type CaptionBeats = "site" | "saven";
 
 type SourceSet = { webm: string; mp4: string };
 
@@ -22,10 +23,33 @@ type LabVideoClip = {
   loopSeconds: number;
   chapters: readonly { id: ChapterId; at: number }[];
   /** When set, uses clip-specific caption strings from copy.clipCaptions. */
-  captionBeats?: "saven";
+  captionBeats?: CaptionBeats;
 };
 
 const CLIPS: readonly LabVideoClip[] = [
+  {
+    id: "site",
+    labelKey: "site",
+    poster: `/lab/video/saven-site-1-poster.webp?v=${CACHE}`,
+    loopSeconds: 60.52,
+    sources: {
+      desktop: {
+        webm: `/lab/video/saven-site-1.webm?v=${CACHE}`,
+        mp4: `/lab/video/saven-site-1.mp4?v=${CACHE}`,
+      },
+      mobile: {
+        webm: `/lab/video/saven-site-1-mobile.webm?v=${CACHE}`,
+        mp4: `/lab/video/saven-site-1-mobile.mp4?v=${CACHE}`,
+      },
+    },
+    /* Master SAVEN_site 1: brand/people → home assistance → care settings (~60.5s; no black trim). */
+    chapters: [
+      { id: "understanding", at: 0 },
+      { id: "assistance", at: 7 },
+      { id: "care", at: 18 },
+    ],
+    captionBeats: "site",
+  },
   {
     id: "gwr",
     labelKey: "gwr",
@@ -83,8 +107,8 @@ export type LabVideoHeroCopy = {
   /** Fallback / reduced-motion caption. */
   caption: string;
   captions: Record<ChapterId, string>;
-  /** Optional per-clip caption beats (e.g. SAVEN mark cut). */
-  clipCaptions?: Partial<Record<"saven", Record<ChapterId, string>>>;
+  /** Optional per-clip caption beats (e.g. Site cut / SAVEN mark cut). */
+  clipCaptions?: Partial<Record<CaptionBeats, Record<ChapterId, string>>>;
   chaptersLabel: string;
   chapterLabels: Record<ChapterId, string>;
   switcherLabel: string;
@@ -120,7 +144,7 @@ function chapterIndexAt(
 }
 
 /**
- * Lab splash video band (D-0266–D-0277) — owner preview only; not on public home.
+ * Lab splash video band (D-0266–D-0278) — owner preview only; not on public home.
  * Multi-clip playlist switcher; full-bleed video soft-embedded into page surface;
  * clear picture; overlay + explore links; chapter scrub + timed captions per active clip.
  */
@@ -345,10 +369,9 @@ export function LabVideoHero({
   };
 
   const activeChapter = chapters[chapterIndex] ?? firstChapter;
-  const clipCaptionSet =
-    activeClip.captionBeats === "saven"
-      ? copy.clipCaptions?.saven
-      : undefined;
+  const clipCaptionSet = activeClip.captionBeats
+    ? copy.clipCaptions?.[activeClip.captionBeats]
+    : undefined;
   const timedCaption = allowMotion
     ? (clipCaptionSet?.[activeChapter.id] ?? copy.captions[activeChapter.id])
     : copy.caption;

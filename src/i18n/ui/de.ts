@@ -48,6 +48,9 @@ export const uiDe: UiMessages = {
     videoCaptionUnderstanding: "Verstehen — die Geschichte beginnt bei den Menschen.",
     videoCaptionAssistance: "Unterstützung — Hilfe für reale Situationen.",
     videoCaptionCare: "Fürsorge — das Ziel dieser Lab-Vorschau.",
+    videoCaptionSiteUnderstanding: "Verstehen — Menschen und der Name kommen in den Blick.",
+    videoCaptionSiteAssistance: "Unterstützung — Hilfe für Alltagssituationen.",
+    videoCaptionSiteCare: "Fürsorge — Systeme mit dem Ziel menschlicher Fürsorge.",
     videoCaptionSavenUnderstanding: "Verstehen — der Name nimmt Gestalt an.",
     videoCaptionSavenAssistance: "Unterstützung — Formen der Hilfe in einer Lab-Umgebung.",
     videoCaptionSavenCare: "Fürsorge — ein näherer Blick auf Systeme für Menschen.",
@@ -56,6 +59,7 @@ export const uiDe: UiMessages = {
     videoChapterAssistance: "Kapitel: Unterstützung",
     videoChapterCare: "Kapitel: Fürsorge",
     videoSwitcherLabel: "Lab-Videos",
+    videoClipSite: "Site",
     videoClipGwr: "GWR",
     videoClipSaven: "SAVEN",
     videoMute: "Ton aus",
@@ -67,7 +71,7 @@ export const uiDe: UiMessages = {
     videoLinkContact: "Kontakt",
     videoEffectsHeading: "Video-Splash-Behandlung",
     videoEffectsApplied:
-      "Auf diesem Band (in die Seitenfläche eingebettet — weiche Ausblendkanten, kein hartes Videokästchen oder Bilderrahmen): ein kompakter Multi-Clip-Playlist-Umschalter (GWR + SAVEN; erweiterbar), jedes Clip leicht Dual-Format (WebM + MP4, mobile Auswahl). GWR behält die öffnende Punkte-Person-Szene ab Master t=0 (~10s); SAVEN ist der S-2-Marken-Schnitt (~10s nach Entfernen nur des reinen Schwarzheads). Originales 16:9, Cache ?v=d0277; optionaler Ton (startet stumm), Mute, dezenter Text-Overlay, glass-light Links, klickbare Kapitel und zeitgesteuerte Untertitel Verstehen → Unterstützung → Fürsorge je aktivem Clip, Scroll-Verblassen, leichte Parallaxe, Cursorlicht, Ken Burns und seitliches Ambient — ohne Filmkorn, schwere Vignette oder trübe Farbkorrektur. Gerade Ecken; kein Neon. Bei reduzierter Bewegung weniger Motion und Poster.",
+      "Auf diesem Band (in die Seitenfläche eingebettet — weiche Ausblendkanten, kein hartes Videokästchen oder Bilderrahmen): ein kompakter Multi-Clip-Playlist-Umschalter (Site + GWR + SAVEN; erweiterbar), jedes Clip leicht Dual-Format (WebM + MP4, mobile Auswahl). Site ist der Standard-Hauptclip aus Master SAVEN_site 1 (~60s, ohne Schwarz-Trim); GWR behält die öffnende Punkte-Person-Szene ab Master t=0 (~10s); SAVEN ist der S-2-Marken-Schnitt (~10s nach Entfernen nur des reinen Schwarzheads). Originales 16:9, Cache ?v=d0278; optionaler Ton (startet stumm), Mute, dezenter Text-Overlay, glass-light Links, klickbare Kapitel und zeitgesteuerte Untertitel Verstehen → Unterstützung → Fürsorge je aktivem Clip, Scroll-Verblassen, leichte Parallaxe, Cursorlicht, Ken Burns und seitliches Ambient — ohne Filmkorn, schwere Vignette oder trübe Farbkorrektur. Gerade Ecken; kein Neon. Bei reduzierter Bewegung weniger Motion und Poster.",
     videoEffectsIdeas:
       "Ideen für später (nicht geliefert): weitere Lab-Clips im selben Umschalter, scrub-gekoppelte Tiefenparallaxe, HDR/AV1 bei breiter Browserunterstützung.",
     note: "Neue Experimente können von diesem Hub verlinkt werden. Diese Seite ist noindex und nicht im Hauptmenü. Die öffentliche Startseite bleibt die Foto-Collage.",

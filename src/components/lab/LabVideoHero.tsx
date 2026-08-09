@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import type { Locale } from "@/config/locales";
 import { localizePath } from "@/navigation/locale-path";
 
-const CACHE = "d0278";
+const CACHE = "d0279";
 const MUTE_KEY = "savencore-lab-video-muted";
 
 type ChapterId = "understanding" | "assistance" | "care";
@@ -144,9 +144,10 @@ function chapterIndexAt(
 }
 
 /**
- * Lab splash video band (D-0266–D-0278) — owner preview only; not on public home.
+ * Lab splash video band (D-0266–D-0279) — owner preview only; not on public home.
  * Multi-clip playlist switcher; full-bleed video soft-embedded into page surface;
  * clear picture; overlay + explore links; chapter scrub + timed captions per active clip.
+ * Mobile: interactive chrome below the stage (D-0279); desktop keeps on-stage overlay.
  */
 export function LabVideoHero({
   locale,
@@ -432,6 +433,16 @@ export function LabVideoHero({
         ) : null}
         <div className="site-lab-video-hero__fade" aria-hidden="true" />
 
+        <div className="site-lab-video-hero__overlay">
+          <p className="site-lab-video-hero__overlay-eyebrow">
+            {copy.overlayEyebrow}
+          </p>
+          <p className="site-lab-video-hero__overlay-line">{copy.overlayLine}</p>
+        </div>
+      </div>
+
+      {/* Interactive chrome: overlaid on desktop; below stage on mobile (D-0279). */}
+      <div className="site-lab-video-hero__controls">
         <div
           className="site-lab-video-hero__switcher"
           role="group"
@@ -459,39 +470,34 @@ export function LabVideoHero({
           })}
         </div>
 
-        <div className="site-lab-video-hero__overlay">
-          <p className="site-lab-video-hero__overlay-eyebrow">
-            {copy.overlayEyebrow}
-          </p>
-          <p className="site-lab-video-hero__overlay-line">{copy.overlayLine}</p>
-        </div>
-
-        <nav
-          className="site-lab-video-hero__links"
-          aria-label={copy.linksLabel}
-        >
-          {copy.links.map((link) => (
-            <Link
-              key={link.href}
-              className="site-lab-video-hero__link"
-              href={localizePath(locale, link.href)}
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
-
-        {allowMotion ? (
-          <button
-            type="button"
-            className="site-lab-video-hero__mute"
-            onClick={toggleMute}
-            aria-pressed={!muted}
-            aria-label={muted ? copy.unmute : copy.mute}
+        <div className="site-lab-video-hero__toolbar">
+          <nav
+            className="site-lab-video-hero__links"
+            aria-label={copy.linksLabel}
           >
-            {muted ? copy.unmute : copy.mute}
-          </button>
-        ) : null}
+            {copy.links.map((link) => (
+              <Link
+                key={link.href}
+                className="site-lab-video-hero__link"
+                href={localizePath(locale, link.href)}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+
+          {allowMotion ? (
+            <button
+              type="button"
+              className="site-lab-video-hero__mute"
+              onClick={toggleMute}
+              aria-pressed={!muted}
+              aria-label={muted ? copy.unmute : copy.mute}
+            >
+              {muted ? copy.unmute : copy.mute}
+            </button>
+          ) : null}
+        </div>
 
         {allowMotion ? (
           <div className="site-lab-video-hero__progress-wrap">

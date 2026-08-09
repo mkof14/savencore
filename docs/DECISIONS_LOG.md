@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-08-08 (D-0278 — Lab video: Site main clip first in playlist)
+**Last updated:** 2026-08-08 (D-0279 — Lab video: mobile controls below stage)
 
 ## Rules
 
@@ -294,6 +294,7 @@
 | D-0276 | 2026-08-08 | Lab video — restore opening dots-person scene (no aggressive intro skip) | Active |
 | D-0277 | 2026-08-08 | Lab video — second clip (SAVEN) + extensible multi-clip switcher | Active |
 | D-0278 | 2026-08-08 | Lab video — Site main clip first (SAVEN_site 1) in playlist switcher | Active |
+| D-0279 | 2026-08-08 | Lab video — mobile: move interactive controls below the video stage | Active |
 
 ---
 
@@ -2978,6 +2979,18 @@
 - **In scope:** `public/lab/video/saven-site-1*`, `LabVideoHero` + Lab page, UI i18n (10 locales), D-0278 / AGENTS / SITE_ASSIGNMENT; commit/push/Vercel prod.
 - **Out of scope:** Public home video; inventing Operational claims, products, metrics, customers, or partners; replacing GWR/SAVEN clips.
 - **Implications:** Default Lab splash is the longer Site cut; switcher still exposes GWR and SAVEN.
+
+### D-0279 — Lab video — mobile: interactive controls below the video stage
+
+- **Date:** 2026-08-08
+- **Status:** Active
+- **Summary:** Owner (RU): on mobile, remove all buttons from the video screen and place them after the video so they do not obstruct viewing.
+- **Decision:**
+  1. On `/lab/` at the existing mobile breakpoint (`max-width: 768px`), move all **interactive** Lab video chrome below the 16:9 stage: playlist switcher (Site / GWR / SAVEN), mute, explore/glass links, chapter ticks / progress. Desktop keeps current on-stage overlay.
+  2. Non-interactive overlay copy and timed caption text may remain (captions already sit under the stage); soft page-embed / original 16:9 / playlist / mute / chapters / captions behavior preserved. No grain, frame, or zoom-crop regressions. Cache-bust `?v=d0279`. Lab `/lab/` only — not public home.
+- **In scope:** `LabVideoHero` + `lab.css`; D-0279 / AGENTS / SITE_ASSIGNMENT; commit/push/Vercel prod.
+- **Out of scope:** Public home; inventing Operational claims; new i18n strings (none required); asset re-encodes.
+- **Implications:** Mobile Lab viewers get a clean picture plane; controls remain fully usable in a stack under the video.
 
 ## Pending Owner Decisions
 

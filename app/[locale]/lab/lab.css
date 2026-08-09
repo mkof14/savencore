@@ -1,4 +1,4 @@
-/* Experiments hub — themeable shell (D-0263 / D-0266–D-0277). */
+/* Experiments hub — themeable shell (D-0263 / D-0266–D-0279). */
 
 .site-lab-page {
   padding-block: 0 clamp(3rem, 8vw, 5rem);
@@ -10,6 +10,8 @@
   --lab-cy: 42%;
   --lab-feather-y: clamp(2.5rem, 7vh, 5rem);
   --lab-feather-x: clamp(1.25rem, 4vw, 3rem);
+  --lab-stage-width: min(100%, calc(70vh * 16 / 9));
+  position: relative;
   width: 100%;
   margin: 0 0 clamp(1.25rem, 3.5vw, 2.25rem);
   padding: 0;
@@ -19,7 +21,7 @@
 .site-lab-video-hero__stage {
   position: relative;
   /* Native 16:9 framing (D-0274) — no tall crop that shears the top of the shot. */
-  width: min(100%, calc(70vh * 16 / 9));
+  width: var(--lab-stage-width);
   max-width: 100%;
   aspect-ratio: 16 / 9;
   margin-inline: auto;
@@ -164,6 +166,38 @@
       color-mix(in srgb, var(--color-background) 35%, transparent) 0%,
       transparent var(--lab-feather-x)
     );
+}
+
+/*
+ * Interactive chrome layer — desktop: overlaid on the 16:9 stage;
+ * mobile (≤768px): in-flow stack below the picture (D-0279).
+ */
+.site-lab-video-hero__controls {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: var(--lab-stage-width);
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+  margin-inline: auto;
+  pointer-events: none;
+}
+
+.site-lab-video-hero__controls > .site-lab-video-hero__switcher,
+.site-lab-video-hero__controls .site-lab-video-hero__link,
+.site-lab-video-hero__controls .site-lab-video-hero__mute,
+.site-lab-video-hero__controls .site-lab-video-hero__chapter {
+  pointer-events: auto;
+}
+
+/* Desktop: toolbar is a positioning context so links/mute keep stage corners. */
+.site-lab-video-hero__toolbar {
+  position: absolute;
+  inset: 0;
+  z-index: 9;
+  pointer-events: none;
 }
 
 /* Compact multi-clip playlist — straight corners, glass-light, no neon pills. */
@@ -495,21 +529,86 @@
     --lab-feather-x: clamp(0.85rem, 3.5vw, 1.75rem);
   }
 
+  /* Clean picture on mobile — all interactive chrome below the stage (D-0279). */
+  .site-lab-video-hero__controls {
+    position: static;
+    aspect-ratio: auto;
+    width: 100%;
+    max-width: var(--lab-stage-width);
+    margin: 0.65rem auto 0;
+    padding-inline: 0.85rem;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.55rem;
+    pointer-events: auto;
+  }
+
+  .site-lab-video-hero__controls > * {
+    pointer-events: auto;
+  }
+
   .site-lab-video-hero__overlay {
-    max-width: min(16rem, 56%);
+    /* Subtle non-interactive labels only — no buttons on the picture. */
+    max-width: min(18rem, 72%);
+    inset-block-start: clamp(1rem, 3.5vw, 1.5rem);
+    inset-inline-start: clamp(0.85rem, 3vw, 1.25rem);
   }
 
   .site-lab-video-hero__switcher {
-    max-width: min(12rem, 48%);
+    position: static;
+    inset: auto;
+    z-index: auto;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: stretch;
+    max-width: none;
+    width: 100%;
   }
 
   .site-lab-video-hero__switcher-btn {
-    padding: 0.34rem 0.5rem;
-    font-size: 0.65rem;
+    flex: 1 1 0;
+    padding: 0.48rem 0.5rem;
+    font-size: 0.68rem;
+    text-align: center;
+  }
+
+  .site-lab-video-hero__toolbar {
+    position: static;
+    inset: auto;
+    z-index: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.45rem;
+    pointer-events: auto;
   }
 
   .site-lab-video-hero__links {
-    max-width: calc(100% - 5.5rem);
+    position: static;
+    inset: auto;
+    z-index: auto;
+    max-width: none;
+    flex: 1 1 auto;
+  }
+
+  .site-lab-video-hero__mute {
+    position: static;
+    inset: auto;
+    z-index: auto;
+    flex: 0 0 auto;
+  }
+
+  .site-lab-video-hero__progress-wrap {
+    position: relative;
+    inset: auto;
+    bottom: auto;
+    z-index: auto;
+    width: 100%;
+    height: 22px;
+    margin: 0.1rem 0 0;
+    pointer-events: none;
   }
 
   .site-lab-video-hero__caption {

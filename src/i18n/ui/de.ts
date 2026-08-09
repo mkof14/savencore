@@ -48,10 +48,16 @@ export const uiDe: UiMessages = {
     videoCaptionUnderstanding: "Verstehen — die Geschichte beginnt bei den Menschen.",
     videoCaptionAssistance: "Unterstützung — Hilfe für reale Situationen.",
     videoCaptionCare: "Fürsorge — das Ziel dieser Lab-Vorschau.",
+    videoCaptionSavenUnderstanding: "Verstehen — der Name nimmt Gestalt an.",
+    videoCaptionSavenAssistance: "Unterstützung — Formen der Hilfe in einer Lab-Umgebung.",
+    videoCaptionSavenCare: "Fürsorge — ein näherer Blick auf Systeme für Menschen.",
     videoChaptersLabel: "Videokapitel",
     videoChapterUnderstanding: "Kapitel: Verstehen",
     videoChapterAssistance: "Kapitel: Unterstützung",
     videoChapterCare: "Kapitel: Fürsorge",
+    videoSwitcherLabel: "Lab-Videos",
+    videoClipGwr: "GWR",
+    videoClipSaven: "SAVEN",
     videoMute: "Ton aus",
     videoUnmute: "Ton an",
     videoLinksLabel: "Veröffentlichte Seiten aus diesem Lab-Experiment",
@@ -61,9 +67,9 @@ export const uiDe: UiMessages = {
     videoLinkContact: "Kontakt",
     videoEffectsHeading: "Video-Splash-Behandlung",
     videoEffectsApplied:
-      "Auf diesem Band (in die Seitenfläche eingebettet — weiche Ausblendkanten, kein hartes Videokästchen oder Bilderrahmen): ein leichtes Dual-Format-Video (WebM + MP4, mobile Auswahl), das die öffnende Punkte-Person-Szene ab Master t=0 behält (~10s Schleife, originales 16:9, Cache ?v=d0276; leichtes Quell-Letterbox kann in dieser Öffnung bleiben), optionalem Ton (startet stumm), Mute-Steuerung, dezenter Text-Overlay, glass-light Links zu veröffentlichten Seiten, klickbare Kapitelmarken mit Sprung zu Szenenzeitpunkten, zeitgesteuerte Untertitel Verstehen → Unterstützung → Fürsorge, Bildunterschrift mit Scroll-Verblassen, leichte Scroll-Parallaxe, abgemildertes Desktop-Cursorlicht, sanftes Ken Burns und leichtes seitliches Ambient in den Lab-Hintergrund — ohne Filmkorn, schwere Vignette oder trübe Farbkorrektur. Gerade Ecken; kein Neon. Bei reduzierter Bewegung weniger Motion und Poster.",
+      "Auf diesem Band (in die Seitenfläche eingebettet — weiche Ausblendkanten, kein hartes Videokästchen oder Bilderrahmen): ein kompakter Multi-Clip-Playlist-Umschalter (GWR + SAVEN; erweiterbar), jedes Clip leicht Dual-Format (WebM + MP4, mobile Auswahl). GWR behält die öffnende Punkte-Person-Szene ab Master t=0 (~10s); SAVEN ist der S-2-Marken-Schnitt (~10s nach Entfernen nur des reinen Schwarzheads). Originales 16:9, Cache ?v=d0277; optionaler Ton (startet stumm), Mute, dezenter Text-Overlay, glass-light Links, klickbare Kapitel und zeitgesteuerte Untertitel Verstehen → Unterstützung → Fürsorge je aktivem Clip, Scroll-Verblassen, leichte Parallaxe, Cursorlicht, Ken Burns und seitliches Ambient — ohne Filmkorn, schwere Vignette oder trübe Farbkorrektur. Gerade Ecken; kein Neon. Bei reduzierter Bewegung weniger Motion und Poster.",
     videoEffectsIdeas:
-      "Ideen für später (nicht geliefert): Multi-Clip-Playlist, scrub-gekoppelte Tiefenparallaxe, HDR/AV1 bei breiter Browserunterstützung.",
+      "Ideen für später (nicht geliefert): weitere Lab-Clips im selben Umschalter, scrub-gekoppelte Tiefenparallaxe, HDR/AV1 bei breiter Browserunterstützung.",
     note: "Neue Experimente können von diesem Hub verlinkt werden. Diese Seite ist noindex und nicht im Hauptmenü. Die öffentliche Startseite bleibt die Foto-Collage.",
   },
 

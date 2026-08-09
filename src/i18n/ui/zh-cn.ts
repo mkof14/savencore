@@ -43,10 +43,16 @@ export const uiZhCn: UiMessages = {
     videoCaptionUnderstanding: "理解——故事从人开始。",
     videoCaptionAssistance: "协助——面向真实场景的支持。",
     videoCaptionCare: "照护——本次 Lab 预览的目标。",
+    videoCaptionSavenUnderstanding: "理解——名称逐渐成形。",
+    videoCaptionSavenAssistance: "协助——Lab 场景中的支持形态。",
+    videoCaptionSavenCare: "照护——更近距离地看为人所塑造的系统。",
     videoChaptersLabel: "视频章节",
     videoChapterUnderstanding: "章节：理解",
     videoChapterAssistance: "章节：协助",
     videoChapterCare: "章节：照护",
+    videoSwitcherLabel: "Lab 视频",
+    videoClipGwr: "GWR",
+    videoClipSaven: "SAVEN",
     videoMute: "静音",
     videoUnmute: "取消静音",
     videoLinksLabel: "从此 Lab 实验前往已发布页面",
@@ -56,9 +62,9 @@ export const uiZhCn: UiMessages = {
     videoLinkContact: "联系",
     videoEffectsHeading: "视频开场处理",
     videoEffectsApplied:
-      "本区带已应用（融入页面背景——柔和羽化边缘，无硬边视频框或画框）：一条轻量双格式视频（WebM + MP4，移动端优选），保留母带 t=0 起的点阵人物开场（约 10 秒循环、原始 16:9、缓存 ?v=d0276；该开场可能仍有轻微源片黑边）、可选声音（默认静音）、Mute 控件、克制的文字叠层、前往已发布页面的 glass-light 链接、可点击并跳转到场景时间的章节标记、理解 → 协助 → 照护的定时说明、随滚动淡出的说明、轻滚动视差、减弱的桌面光标光、轻柔 Ken Burns，以及融入 Lab 背景的轻侧氛围——无胶片颗粒、重暗角或浑浊调色。直角边；无霓虹。减少动态时减弱动效并显示海报。",
+      "本区带已应用（融入页面背景——柔和羽化边缘，无硬边视频框或画框）：紧凑的多片段播放列表切换（GWR + SAVEN；可扩展），每条均为轻量双格式（WebM + MP4，移动端优选）。GWR 保留母带 t=0 起的点阵人物开场（约 10 秒）；SAVEN 为 S-2 品牌剪辑（仅去掉纯黑片头后约 10 秒）。原始 16:9、缓存 ?v=d0277；可选声音（默认静音）、Mute、文字叠层、glass-light 链接、按活动片段的章节与理解 → 协助 → 照护定时说明、随滚动淡出、轻视差、光标光、Ken Burns 与侧氛围——无胶片颗粒、重暗角或浑浊调色。直角边；无霓虹。减少动态时减弱动效并显示海报。",
     videoEffectsIdeas:
-      "后续想法（未上线）：多片段播放列表、与 scrub 联动的深度视差、浏览器支持更广时的 HDR/AV1。",
+      "后续想法（未上线）：在同一切换器中加入更多 Lab 片段、与 scrub 联动的深度视差、浏览器支持更广时的 HDR/AV1。",
     note: "可从此中心链接新实验。此页为 noindex，不在主导航中。公开首页仍为实景照片拼贴。",
   },
 

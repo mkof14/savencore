@@ -12,7 +12,7 @@ type Props = {
 };
 
 /**
- * Experiments hub (D-0263 / D-0266–D-0276) — sandbox for novelties without touching the public home.
+ * Experiments hub (D-0263 / D-0266–D-0277) — sandbox for novelties without touching the public home.
  * Linked from footer Resources only; robots noindex + sitemap excluded.
  */
 export async function generateMetadata({ params }: Props) {
@@ -46,11 +46,23 @@ export default async function LabPage({ params }: Props) {
             assistance: ui.lab.videoCaptionAssistance,
             care: ui.lab.videoCaptionCare,
           },
+          clipCaptions: {
+            saven: {
+              understanding: ui.lab.videoCaptionSavenUnderstanding,
+              assistance: ui.lab.videoCaptionSavenAssistance,
+              care: ui.lab.videoCaptionSavenCare,
+            },
+          },
           chaptersLabel: ui.lab.videoChaptersLabel,
           chapterLabels: {
             understanding: ui.lab.videoChapterUnderstanding,
             assistance: ui.lab.videoChapterAssistance,
             care: ui.lab.videoChapterCare,
+          },
+          switcherLabel: ui.lab.videoSwitcherLabel,
+          clipLabels: {
+            gwr: ui.lab.videoClipGwr,
+            saven: ui.lab.videoClipSaven,
           },
           mute: ui.lab.videoMute,
           unmute: ui.lab.videoUnmute,

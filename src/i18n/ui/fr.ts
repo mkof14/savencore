@@ -48,10 +48,16 @@ export const uiFr: UiMessages = {
     videoCaptionUnderstanding: "Compréhension — l’histoire commence par les personnes.",
     videoCaptionAssistance: "Assistance — un soutien pensé pour des contextes réels.",
     videoCaptionCare: "Soin — le but de cet aperçu Lab.",
+    videoCaptionSavenUnderstanding: "Compréhension — le nom prend forme.",
+    videoCaptionSavenAssistance: "Assistance — des formes de soutien dans un cadre Lab.",
+    videoCaptionSavenCare: "Soin — un regard plus proche sur des systèmes pour les personnes.",
     videoChaptersLabel: "Chapitres vidéo",
     videoChapterUnderstanding: "Chapitre : Compréhension",
     videoChapterAssistance: "Chapitre : Assistance",
     videoChapterCare: "Chapitre : Soin",
+    videoSwitcherLabel: "Vidéos Lab",
+    videoClipGwr: "GWR",
+    videoClipSaven: "SAVEN",
     videoMute: "Couper le son",
     videoUnmute: "Activer le son",
     videoLinksLabel: "Pages publiées depuis cette expérience Lab",
@@ -61,9 +67,9 @@ export const uiFr: UiMessages = {
     videoLinkContact: "Contact",
     videoEffectsHeading: "Traitement de la vidéo splash",
     videoEffectsApplied:
-      "Appliqué sur cette bande (incrustée dans le fond de la page — bords adoucis, sans boîte vidéo nette ni cadre photo) : une vidéo légère dual-format (WebM + MP4, choix mobile) qui conserve la scène d’ouverture de la personne en points depuis le master t=0 (~10s en boucle, cadrage 16:9 d’origine, cache ?v=d0276 ; un léger letterbox source peut rester sur cette ouverture), son optionnel (démarre en sourdine), commande Mute, texte en surimpression, liens glass-light vers des pages publiées, repères de chapitre cliquables qui sautent aux temps de scène, légendes temporisées Compréhension → Assistance → Soin, légende qui s’estompe au défilement, parallaxe légère, lumière curseur adoucie, Ken Burns doux et ambiance latérale légère vers le fond Lab — sans grain, vignette lourde ni étalonnage boueux. Coins droits ; pas de néon. Mouvement réduit : moins de motion et poster.",
+      "Appliqué sur cette bande (incrustée dans le fond de la page — bords adoucis, sans boîte vidéo nette ni cadre photo) : un sélecteur compact de playlist multi-clips (GWR + SAVEN ; prêt pour d’autres), chaque clip léger dual-format (WebM + MP4, choix mobile). GWR conserve la scène d’ouverture de la personne en points depuis le master t=0 (~10s) ; SAVEN est la coupe marque S-2 (~10s après retrait du noir pur initial seulement). Cadrage 16:9 d’origine, cache ?v=d0277 ; son optionnel (démarre en sourdine), Mute, texte en surimpression, liens glass-light, chapitres cliquables et légendes Compréhension → Assistance → Soin par clip actif, légende au défilement, parallaxe légère, lumière curseur, Ken Burns et ambiance latérale — sans grain, vignette lourde ni étalonnage boueux. Coins droits ; pas de néon. Mouvement réduit : moins de motion et poster.",
     videoEffectsIdeas:
-      "Idées futures (non livrées) : playlist multi-clips, parallaxe de profondeur liée au scrub, HDR/AV1 quand le support sera large.",
+      "Idées futures (non livrées) : d’autres clips Lab dans le même sélecteur, parallaxe de profondeur liée au scrub, HDR/AV1 quand le support sera large.",
     note: "De nouvelles expériences peuvent être liées depuis ce hub. Cette page est noindex et absente du menu principal. L’accueil public reste le collage photo.",
   },
 

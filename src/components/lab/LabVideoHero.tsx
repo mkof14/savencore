@@ -6,32 +6,71 @@ import { useEffect, useRef, useState } from "react";
 import type { Locale } from "@/config/locales";
 import { localizePath } from "@/navigation/locale-path";
 
-const CACHE = "d0276";
-const POSTER_SRC = `/lab/video/s989898-gwr-mvp-poster.webp?v=${CACHE}`;
+const CACHE = "d0277";
 const MUTE_KEY = "savencore-lab-video-muted";
-/** Nominal loop length from master t=0 (D-0276 — opening dots-person restored). */
-const LOOP_SECONDS = 10;
 
 type ChapterId = "understanding" | "assistance" | "care";
-
-/** Absolute scene times (seconds) across the ~10s Lab cut. */
-const CHAPTERS: readonly { id: ChapterId; at: number }[] = [
-  { id: "understanding", at: 0 },
-  { id: "assistance", at: 3.8 },
-  { id: "care", at: 6.5 },
-] as const;
+type ClipLabelKey = "gwr" | "saven";
 
 type SourceSet = { webm: string; mp4: string };
 
-const DESKTOP: SourceSet = {
-  webm: `/lab/video/s989898-gwr-mvp.webm?v=${CACHE}`,
-  mp4: `/lab/video/s989898-gwr-mvp.mp4?v=${CACHE}`,
+type LabVideoClip = {
+  id: string;
+  labelKey: ClipLabelKey;
+  sources: { desktop: SourceSet; mobile: SourceSet };
+  poster: string;
+  loopSeconds: number;
+  chapters: readonly { id: ChapterId; at: number }[];
+  /** When set, uses clip-specific caption strings from copy.clipCaptions. */
+  captionBeats?: "saven";
 };
 
-const MOBILE: SourceSet = {
-  webm: `/lab/video/s989898-gwr-mvp-mobile.webm?v=${CACHE}`,
-  mp4: `/lab/video/s989898-gwr-mvp-mobile.mp4?v=${CACHE}`,
-};
+const CLIPS: readonly LabVideoClip[] = [
+  {
+    id: "gwr",
+    labelKey: "gwr",
+    poster: `/lab/video/s989898-gwr-mvp-poster.webp?v=${CACHE}`,
+    loopSeconds: 10,
+    sources: {
+      desktop: {
+        webm: `/lab/video/s989898-gwr-mvp.webm?v=${CACHE}`,
+        mp4: `/lab/video/s989898-gwr-mvp.mp4?v=${CACHE}`,
+      },
+      mobile: {
+        webm: `/lab/video/s989898-gwr-mvp-mobile.webm?v=${CACHE}`,
+        mp4: `/lab/video/s989898-gwr-mvp-mobile.mp4?v=${CACHE}`,
+      },
+    },
+    chapters: [
+      { id: "understanding", at: 0 },
+      { id: "assistance", at: 3.8 },
+      { id: "care", at: 6.5 },
+    ],
+  },
+  {
+    id: "saven",
+    labelKey: "saven",
+    poster: `/lab/video/s2-gwr-mvp-poster.webp?v=${CACHE}`,
+    loopSeconds: 9.85,
+    sources: {
+      desktop: {
+        webm: `/lab/video/s2-gwr-mvp.webm?v=${CACHE}`,
+        mp4: `/lab/video/s2-gwr-mvp.mp4?v=${CACHE}`,
+      },
+      mobile: {
+        webm: `/lab/video/s2-gwr-mvp-mobile.webm?v=${CACHE}`,
+        mp4: `/lab/video/s2-gwr-mvp-mobile.mp4?v=${CACHE}`,
+      },
+    },
+    /* Encoded from master after ~0.15s pure-black skip: logo → Lab forms → closer support. */
+    chapters: [
+      { id: "understanding", at: 0 },
+      { id: "assistance", at: 4.3 },
+      { id: "care", at: 6.8 },
+    ],
+    captionBeats: "saven",
+  },
+] as const;
 
 export type LabVideoHeroLink = {
   href: string;
@@ -44,16 +83,20 @@ export type LabVideoHeroCopy = {
   /** Fallback / reduced-motion caption. */
   caption: string;
   captions: Record<ChapterId, string>;
+  /** Optional per-clip caption beats (e.g. SAVEN mark cut). */
+  clipCaptions?: Partial<Record<"saven", Record<ChapterId, string>>>;
   chaptersLabel: string;
   chapterLabels: Record<ChapterId, string>;
+  switcherLabel: string;
+  clipLabels: Record<ClipLabelKey, string>;
   mute: string;
   unmute: string;
   linksLabel: string;
   links: LabVideoHeroLink[];
 };
 
-function pickSources(): SourceSet {
-  if (typeof window === "undefined") return DESKTOP;
+function pickSourceSet(clip: LabVideoClip): SourceSet {
+  if (typeof window === "undefined") return clip.sources.desktop;
   const narrow = window.matchMedia("(max-width: 768px)").matches;
   const saveData =
     "connection" in navigator &&
@@ -61,29 +104,25 @@ function pickSources(): SourceSet {
       (navigator as Navigator & { connection?: { saveData?: boolean } })
         .connection?.saveData,
     );
-  return narrow || saveData ? MOBILE : DESKTOP;
+  return narrow || saveData ? clip.sources.mobile : clip.sources.desktop;
 }
 
-function chapterIndexAt(time: number): number {
+function chapterIndexAt(
+  chapters: readonly { id: ChapterId; at: number }[],
+  time: number,
+): number {
   let idx = 0;
-  for (let i = 0; i < CHAPTERS.length; i++) {
-    const mark = CHAPTERS[i];
+  for (let i = 0; i < chapters.length; i++) {
+    const mark = chapters[i];
     if (mark && time + 0.02 >= mark.at) idx = i;
   }
   return idx;
 }
 
-const FIRST_CHAPTER = { id: "understanding" as const, at: 0 };
-
-function chapterAt(index: number): { id: ChapterId; at: number } {
-  return CHAPTERS[index] ?? FIRST_CHAPTER;
-}
-
 /**
- * Lab splash video band (D-0266–D-0276) — owner preview only; not on public home.
- * Full-bleed single video embedded into page surface (symmetric soft feathered edges; no hard box);
- * clear video (no grain / heavy vignette / heavy grade); overlay copy + explore links;
- * clickable chapter ticks, timed captions, light ambient sides, scroll-linked caption; mute / parallax / soft cursor.
+ * Lab splash video band (D-0266–D-0277) — owner preview only; not on public home.
+ * Multi-clip playlist switcher; full-bleed video soft-embedded into page surface;
+ * clear picture; overlay + explore links; chapter scrub + timed captions per active clip.
  */
 export function LabVideoHero({
   locale,
@@ -96,15 +135,20 @@ export function LabVideoHero({
   const parallaxRef = useRef<HTMLDivElement>(null);
   const captionRef = useRef<HTMLParagraphElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [clipIndex, setClipIndex] = useState(0);
   const [allowMotion, setAllowMotion] = useState(false);
   const [finePointer, setFinePointer] = useState(false);
-  const [sources, setSources] = useState<SourceSet>(DESKTOP);
+  const [sources, setSources] = useState<SourceSet>(CLIPS[0]!.sources.desktop);
   const [ready, setReady] = useState(false);
   const [shouldLoad, setShouldLoad] = useState(false);
   const [muted, setMuted] = useState(true);
   const [progress, setProgress] = useState(0);
   const [chapterIndex, setChapterIndex] = useState(0);
-  const [duration, setDuration] = useState(LOOP_SECONDS);
+  const [duration, setDuration] = useState(CLIPS[0]!.loopSeconds);
+
+  const activeClip = CLIPS[clipIndex] ?? CLIPS[0]!;
+  const chapters = activeClip.chapters;
+  const firstChapter = chapters[0] ?? { id: "understanding" as const, at: 0 };
 
   useEffect(() => {
     const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -112,7 +156,7 @@ export function LabVideoHero({
     const sync = () => {
       setAllowMotion(!motion.matches);
       setFinePointer(fine.matches);
-      setSources(pickSources());
+      setSources(pickSourceSet(activeClip));
     };
     sync();
     motion.addEventListener("change", sync);
@@ -124,7 +168,7 @@ export function LabVideoHero({
       fine.removeEventListener("change", sync);
       narrow.removeEventListener("change", sync);
     };
-  }, []);
+  }, [activeClip]);
 
   useEffect(() => {
     try {
@@ -169,15 +213,20 @@ export function LabVideoHero({
     );
     io.observe(root);
     return () => io.disconnect();
-  }, [allowMotion, shouldLoad, sources]);
+  }, [allowMotion, shouldLoad, sources, clipIndex]);
 
   useEffect(() => {
     if (!shouldLoad || !allowMotion) return;
     const main = videoRef.current;
     if (!main) return;
+    setReady(false);
+    setProgress(0);
+    setChapterIndex(0);
+    setDuration(activeClip.loopSeconds);
     main.load();
+    main.currentTime = 0;
     void main.play().catch(() => {});
-  }, [shouldLoad, allowMotion, sources]);
+  }, [shouldLoad, allowMotion, sources, clipIndex, activeClip.loopSeconds]);
 
   useEffect(() => {
     if (!allowMotion) return;
@@ -194,11 +243,12 @@ export function LabVideoHero({
       const y = Math.max(-18, Math.min(18, t * -28));
       layer.style.transform = `translate3d(0, ${y.toFixed(2)}px, 0)`;
 
-      /* Scroll-linked caption opacity — fades as the band leaves the viewport. */
       const caption = captionRef.current;
       if (caption) {
-        const visible =
-          Math.min(1, Math.max(0, (rect.bottom - 48) / Math.max(rect.height, 1)));
+        const visible = Math.min(
+          1,
+          Math.max(0, (rect.bottom - 48) / Math.max(rect.height, 1)),
+        );
         caption.style.opacity = visible.toFixed(3);
       }
     };
@@ -256,7 +306,7 @@ export function LabVideoHero({
     if (!main || !Number.isFinite(main.duration) || main.duration <= 0) return;
     setDuration(main.duration);
     setProgress(main.currentTime / main.duration);
-    setChapterIndex(chapterIndexAt(main.currentTime));
+    setChapterIndex(chapterIndexAt(chapters, main.currentTime));
   };
 
   const toggleMute = () => {
@@ -269,24 +319,41 @@ export function LabVideoHero({
     }
   };
 
+  const selectClip = (index: number) => {
+    if (index === clipIndex || index < 0 || index >= CLIPS.length) return;
+    setClipIndex(index);
+    const next = CLIPS[index]!;
+    setSources(pickSourceSet(next));
+    setReady(false);
+    setProgress(0);
+    setChapterIndex(0);
+    setDuration(next.loopSeconds);
+    setShouldLoad(true);
+  };
+
   const seekToSeconds = (seconds: number) => {
     const main = videoRef.current;
     if (!main) return;
     const dur =
       Number.isFinite(main.duration) && main.duration > 0
         ? main.duration
-        : LOOP_SECONDS;
+        : activeClip.loopSeconds;
     main.currentTime = Math.max(0, Math.min(dur * 0.98, seconds));
     setProgress(main.currentTime / dur);
-    setChapterIndex(chapterIndexAt(main.currentTime));
+    setChapterIndex(chapterIndexAt(chapters, main.currentTime));
     void main.play().catch(() => {});
   };
 
-  const activeChapter = chapterAt(chapterIndex);
+  const activeChapter = chapters[chapterIndex] ?? firstChapter;
+  const clipCaptionSet =
+    activeClip.captionBeats === "saven"
+      ? copy.clipCaptions?.saven
+      : undefined;
   const timedCaption = allowMotion
-    ? copy.captions[activeChapter.id]
+    ? (clipCaptionSet?.[activeChapter.id] ?? copy.captions[activeChapter.id])
     : copy.caption;
-  const spanForTicks = duration > 0 ? duration : LOOP_SECONDS;
+  const spanForTicks = duration > 0 ? duration : activeClip.loopSeconds;
+  const posterSrc = activeClip.poster;
 
   return (
     <div
@@ -305,12 +372,13 @@ export function LabVideoHero({
           {allowMotion ? (
             <video
               ref={videoRef}
+              key={activeClip.id}
               className="site-lab-video-hero__media"
               muted={muted}
               playsInline
               loop
               preload={shouldLoad ? "metadata" : "none"}
-              poster={POSTER_SRC}
+              poster={posterSrc}
               onCanPlay={onCanPlay}
               onLoadedData={onCanPlay}
               onTimeUpdate={onTimeUpdate}
@@ -326,7 +394,7 @@ export function LabVideoHero({
             // eslint-disable-next-line @next/next/no-img-element -- lab experiment poster
             <img
               className="site-lab-video-hero__media site-lab-video-hero__media--static"
-              src={POSTER_SRC}
+              src={posterSrc}
               alt=""
               width={1280}
               height={720}
@@ -340,6 +408,33 @@ export function LabVideoHero({
           <div className="site-lab-video-hero__cursor" aria-hidden="true" />
         ) : null}
         <div className="site-lab-video-hero__fade" aria-hidden="true" />
+
+        <div
+          className="site-lab-video-hero__switcher"
+          role="group"
+          aria-label={copy.switcherLabel}
+        >
+          {CLIPS.map((clip, index) => {
+            const selected = index === clipIndex;
+            return (
+              <button
+                key={clip.id}
+                type="button"
+                className={[
+                  "site-lab-video-hero__switcher-btn",
+                  selected ? "is-active" : "",
+                ]
+                  .filter(Boolean)
+                  .join(" ")}
+                aria-pressed={selected}
+                aria-current={selected ? "true" : undefined}
+                onClick={() => selectClip(index)}
+              >
+                {copy.clipLabels[clip.labelKey]}
+              </button>
+            );
+          })}
+        </div>
 
         <div className="site-lab-video-hero__overlay">
           <p className="site-lab-video-hero__overlay-eyebrow">
@@ -397,12 +492,12 @@ export function LabVideoHero({
               role="group"
               aria-label={copy.chaptersLabel}
             >
-              {CHAPTERS.map((chapter) => {
+              {chapters.map((chapter) => {
                 const fraction = chapter.at / spanForTicks;
                 const passed = progress * spanForTicks >= chapter.at - 0.02;
                 return (
                   <button
-                    key={chapter.id}
+                    key={`${activeClip.id}-${chapter.id}`}
                     type="button"
                     className={[
                       "site-lab-video-hero__chapter",
@@ -430,8 +525,12 @@ export function LabVideoHero({
         className="site-lab-video-hero__caption"
         aria-live="polite"
         data-chapter={activeChapter.id}
+        data-clip={activeClip.id}
       >
-        <span key={activeChapter.id} className="site-lab-video-hero__caption-text">
+        <span
+          key={`${activeClip.id}-${activeChapter.id}`}
+          className="site-lab-video-hero__caption-text"
+        >
           {timedCaption}
         </span>
       </p>

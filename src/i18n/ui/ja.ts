@@ -47,10 +47,16 @@ export const uiJa: UiMessages = {
     videoCaptionUnderstanding: "理解 — 物語は人から始まります。",
     videoCaptionAssistance: "支援 — 実際の場のためのサポート。",
     videoCaptionCare: "ケア — この Lab プレビューの目的。",
+    videoCaptionSavenUnderstanding: "理解 — 名前が形になります。",
+    videoCaptionSavenAssistance: "支援 — Lab の場におけるサポートの形。",
+    videoCaptionSavenCare: "ケア — 人のために形づくられるシステムへの、より近い視点。",
     videoChaptersLabel: "動画チャプター",
     videoChapterUnderstanding: "チャプター：理解",
     videoChapterAssistance: "チャプター：支援",
     videoChapterCare: "チャプター：ケア",
+    videoSwitcherLabel: "Lab 動画",
+    videoClipGwr: "GWR",
+    videoClipSaven: "SAVEN",
     videoMute: "ミュート",
     videoUnmute: "ミュート解除",
     videoLinksLabel: "この Lab 実験から公開ページへ",
@@ -60,9 +66,9 @@ export const uiJa: UiMessages = {
     videoLinkContact: "お問い合わせ",
     videoEffectsHeading: "動画スプラッシュの演出",
     videoEffectsApplied:
-      "この帯に適用（ページ背景に溶け込む・柔らかいフェザー縁、硬い動画枠や額縁なし）：軽量デュアル形式の動画1本（WebM + MP4、モバイル選択）、マスター t=0 からの点描パーソン開幕シーンを保持（約10秒ループ、元の16:9、キャッシュ ?v=d0276；開幕に軽いソース letterbox が残る場合あり）、任意の音声（開始時はミュート）、Mute 操作、控えめなテキストオーバーレイ、公開ページへの glass-light リンク、シーン時刻へジャンプするクリック可能なチャプター印、理解 → 支援 → ケアの時間連動キャプション、スクロール連動のキャプション、軽いスクロールパララックス、弱めたデスクトップ・カーソルライト、穏やかな Ken Burns、Lab背景へ馴染む軽い側面アンビエント — グレイン・強いビネット・濁ったグレードなし。直角コーナー、ネオンなし。動きを抑える設定ではモーションを弱め、ポスターを表示。",
+      "この帯に適用（ページ背景に溶け込む・柔らかいフェザー縁、硬い動画枠や額縁なし）：コンパクトなマルチクリップ・プレイリスト切替（GWR + SAVEN；追加可能）、各クリップは軽量デュアル形式（WebM + MP4、モバイル選択）。GWR はマスター t=0 からの点描パーソン開幕を保持（約10秒）；SAVEN は S-2 マークカット（純粋な黒頭のみ除去後、約10秒）。元の16:9、キャッシュ ?v=d0277；任意音声（開始ミュート）、Mute、控えめなテキスト、glass-light リンク、アクティブクリップごとのチャプターと理解 → 支援 → ケアの時間連動キャプション、スクロール連動、軽いパララックス、カーソルライト、Ken Burns、側面アンビエント — グレイン・強いビネット・濁ったグレードなし。直角コーナー、ネオンなし。動きを抑える設定ではモーションを弱め、ポスターを表示。",
     videoEffectsIdeas:
-      "将来のアイデア（未実装）：複数クリップ再生、スクラブ連動の奥行きパララックス、広い対応時の HDR/AV1。",
+      "将来のアイデア（未実装）：同じ切替への追加 Lab クリップ、スクラブ連動の奥行きパララックス、広い対応時の HDR/AV1。",
     note: "新しい実験はこのハブからリンクできます。このページは noindex で、主要ヘッダーメニューにはありません。公開ホームは写真コラージュのままです。",
   },
 

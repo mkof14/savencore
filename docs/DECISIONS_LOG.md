@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-08-08 (D-0276 — Lab video: restore opening dots-person scene)
+**Last updated:** 2026-08-08 (D-0277 — Lab video: second clip + multi-clip switcher)
 
 ## Rules
 
@@ -292,6 +292,7 @@
 | D-0274 | 2026-08-08 | Lab video — restore original frame size (no zoom crop) | Active (intro skip portion superseded by D-0276) |
 | D-0275 | 2026-08-08 | Lab video — chapter scrub + timed captions (Understanding → Assistance → Care) | Active (chapter times retimed by D-0276) |
 | D-0276 | 2026-08-08 | Lab video — restore opening dots-person scene (no aggressive intro skip) | Active |
+| D-0277 | 2026-08-08 | Lab video — second clip (SAVEN) + extensible multi-clip switcher | Active |
 
 ---
 
@@ -2949,6 +2950,19 @@
 - **In scope:** `public/lab/video/*`, `LabVideoHero` (CACHE / LOOP / CHAPTERS), UI i18n (10 locales) Lab effects copy, D-0276 / AGENTS / SITE_ASSIGNMENT; commit/push/Vercel prod.
 - **Out of scope:** Public home video; inventing Operational claims, products, metrics, customers, or partners.
 - **Implications:** Lab splash again opens on the dots-person beat; chapter scrub still narrates Understanding → Assistance → Care without deployment claims.
+
+### D-0277 — Lab video — second clip (SAVEN) + extensible multi-clip switcher
+
+- **Date:** 2026-08-08
+- **Status:** Active
+- **Summary:** Owner requests a second Lab splash clip from Desktop master `S-2_gwr_video_mvp.mp4`, display name **SAVEN**, plus a small cool video switcher designed as a multi-clip playlist (more clips later) — not a one-off toggle. Keep existing GWR / S989898 cut with dots-person opening (D-0276).
+- **Decision:**
+  1. Encode S-2 into `public/lab/video/s2-gwr-mvp*.{mp4,webm}` + poster WebP at the same light dual-format quality as D-0276 (desktop 1280×720 + mobile 854×480; WebM VP9 + MP4 H.264). **No zoom-crop.** Strip only pure-black head (~0.15s); keep full opening logo/mark. Cache-bust `?v=d0277`.
+  2. Refactor `LabVideoHero` to a clips array `{ id, labelKey, sources, poster, chapters?, captionBeats? }`. First clip label **GWR** (neutral stem from existing master filename / Lab cut — not a new product name); second **SAVEN** (brand proper noun across locales). Compact straight-corner glass-light switcher with aria / current clip; mute, chapter scrub, and timed captions follow the active clip (SAVEN chapters retimed to logo → Lab forms → closer support; honest Lab caption beats). Soft page-embed / original 16:9 (D-0273 / D-0274) retained. Lab `/lab/` only — not public home.
+  3. Switch loads new sources, plays from start (muted default), resets progress/chapters/captions; reduced-motion still shows poster. UI strings in all 10 locales.
+- **In scope:** `public/lab/video/s2-*`, `LabVideoHero` + Lab CSS/page, UI i18n (10 locales), D-0277 / AGENTS / SITE_ASSIGNMENT; commit/push/Vercel prod.
+- **Out of scope:** Public home video; inventing Operational claims, products, metrics, customers, or partners; inventing additional clip product names beyond owner **SAVEN** + neutral GWR Lab label.
+- **Implications:** Lab band is a small extensible playlist; adding another clip is primarily assets + one array entry + i18n label/captions.
 
 ## Pending Owner Decisions
 

@@ -471,10 +471,16 @@ export const uiEn = {
     videoCaptionUnderstanding: "Understanding — the story begins with people.",
     videoCaptionAssistance: "Assistance — support shaped for real settings.",
     videoCaptionCare: "Care — the aim of this Lab preview.",
+    videoCaptionSavenUnderstanding: "Understanding — the name takes shape.",
+    videoCaptionSavenAssistance: "Assistance — forms of support in a Lab setting.",
+    videoCaptionSavenCare: "Care — a closer look at systems shaped for people.",
     videoChaptersLabel: "Video chapters",
     videoChapterUnderstanding: "Chapter: Understanding",
     videoChapterAssistance: "Chapter: Assistance",
     videoChapterCare: "Chapter: Care",
+    videoSwitcherLabel: "Lab videos",
+    videoClipGwr: "GWR",
+    videoClipSaven: "SAVEN",
     videoMute: "Mute",
     videoUnmute: "Unmute",
     videoLinksLabel: "Published pages from this Lab experiment",
@@ -484,9 +490,9 @@ export const uiEn = {
     videoLinkContact: "Contact",
     videoEffectsHeading: "Video splash treatment",
     videoEffectsApplied:
-      "Applied on this band (embedded into the page surface — soft feathered edges, no hard video box or picture frame): one light dual-format video (WebM + MP4, mobile pick) that keeps the opening dots-person scene from master t=0 (~10s loop, original 16:9 framing, cache ?v=d0276; mild source letterbox may remain on that opening), optional sound (starts muted), Mute control, tasteful text overlay, glass-light links to published pages, clickable chapter ticks that jump to scene times, timed captions along Understanding → Assistance → Care, scroll-linked caption fade, light scroll parallax, softened desktop cursor light, gentle Ken Burns, and light side ambient into the Lab background — no film grain, heavy vignette, or muddy grade. Straight corners; no neon chrome. Reduced-motion reduces motion effects and shows the poster.",
+      "Applied on this band (embedded into the page surface — soft feathered edges, no hard video box or picture frame): a small multi-clip playlist switcher (GWR + SAVEN; ready for more), each clip light dual-format (WebM + MP4, mobile pick). GWR keeps the opening dots-person scene from master t=0 (~10s); SAVEN is the S-2 mark cut (~10s after stripping pure-black head only). Original 16:9 framing, cache ?v=d0277; optional sound (starts muted), Mute control, tasteful text overlay, glass-light links to published pages, clickable chapter ticks and timed captions Understanding → Assistance → Care per active clip, scroll-linked caption fade, light scroll parallax, softened desktop cursor light, gentle Ken Burns, and light side ambient into the Lab background — no film grain, heavy vignette, or muddy grade. Straight corners; no neon chrome. Reduced-motion reduces motion effects and shows the poster.",
     videoEffectsIdeas:
-      "Future ideas (not shipped): multi-clip playlist, scrub-linked parallax depth, HDR/AV1 when browser support is broad.",
+      "Future ideas (not shipped): more Lab clips in the same switcher, scrub-linked parallax depth, HDR/AV1 when browser support is broad.",
     note: "New experiments can be linked from this hub. This page is noindex and is not in the primary header menu. The public home stays the living photo collage.",
   },
 

@@ -33,6 +33,20 @@ export type TechnologyPageContent = {
   referenceLinks: readonly EngineeringLink[];
   developmentNote: string;
   sectionNav: readonly { id: string; label: string }[];
+  assistanceLayers?: {
+    heading: string;
+    intro: string;
+    items: readonly { title: string; text: string }[];
+  };
+  hardwareFlex?: {
+    heading: string;
+    body: string;
+    items: readonly string[];
+  };
+  developmentPath?: {
+    heading: string;
+    items: readonly string[];
+  };
 };
 
 export const technologyPageContent: TechnologyPageContent = {
@@ -46,15 +60,65 @@ export const technologyPageContent: TechnologyPageContent = {
     relatedDomain: "Foundation, Research, Applications",
   },
   label: "Technology",
-  title: "Engineering foundations for physical intelligence.",
+  title: "The SAVEN Human Assistance Layer",
   introduction:
-    "Technology is the shared engineering base for SAVEN Core — the disciplines needed before systems can assist people under clear limits.",
+    "SAVEN develops the intelligence, interaction, personalization, integration, and safety-oriented technology connecting robotic systems with people. The value is not limited to building mechanical robots.",
   overviewHeading: "Executive Summary",
   overview: [
-    "Shared disciplines such as Human Data, privacy, and artificial intelligence must be clear before systems can help people safely.",
-    "BioMath Core reports and conclusions form information for SAVEN’s next-level actions — under human control — across a model scope of 20 categories and 200+ services (Architecture).",
-    "Choose a discipline below to go deeper, or continue into Systems when you are ready.",
+    "One intelligence approach. Multiple robotic forms. SAVEN is being developed as a hardware-flexible intelligence and integration approach for compatible robotic systems.",
+    "Five technology layers guide the work: perception, human movement understanding, assistance intelligence, personalization, and safety and control.",
+    "Choose a discipline below to go deeper, or continue into Systems, Labs, and Partners.",
   ],
+  assistanceLayers: {
+    heading: "Human Assistance Layer",
+    intro:
+      "These layers describe the development model. They are not claimed as certified, deployed capabilities.",
+    items: [
+      {
+        title: "Perception",
+        text: "Understanding people, movement, surroundings, objects, and context through compatible sensors and robotic systems.",
+      },
+      {
+        title: "Human Movement Understanding",
+        text: "Interpreting movement patterns and physical interaction to help determine when and how assistance may be appropriate.",
+      },
+      {
+        title: "Assistance Intelligence",
+        text: "Software and AI designed to coordinate robotic assistance according to the task, environment, system capabilities, and user context.",
+      },
+      {
+        title: "Personalization",
+        text: "Adapting interaction and assistance to individual preferences, routines, capabilities, and permitted data.",
+      },
+      {
+        title: "Safety & Control",
+        text: "Designing human oversight, operational limits, interruption mechanisms, system monitoring, and safe-state behaviors into human-robot interaction.",
+      },
+    ],
+  },
+  hardwareFlex: {
+    heading: "Hardware-Agnostic Approach",
+    body: "The future of assistive robotics will not be defined by one machine. SAVEN’s technology direction should not depend on a single robot manufacturer, mechanical architecture, or form factor. Compatibility with specific commercial robots is not implied unless an integration exists.",
+    items: [
+      "Humanoid robots",
+      "Mobile robots",
+      "Robotic arms",
+      "Wearable robotics",
+      "Rehabilitation systems",
+      "Future assistive devices",
+    ],
+  },
+  developmentPath: {
+    heading: "From Research to Real-World Assistance",
+    items: [
+      "01 Research — human needs, use cases, interaction models, safety requirements.",
+      "02 Integration — sensors, AI, robotics platforms, software.",
+      "03 Prototype — controlled interaction, movement, tasks, user interfaces.",
+      "04 Validation — safety, usability, performance, human feedback.",
+      "05 Pilot programs — selected environments, partners, professional oversight.",
+      "06 Deployment — defined applications, qualified platforms, operational support.",
+    ],
+  },
   categoriesHeading: "Disciplines",
   relationshipsHeading: "Technology Relationships",
   relationshipsIntro:

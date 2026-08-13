@@ -21,6 +21,7 @@ export const uiEn = {
     foundation: "Foundation",
     labs: "Labs",
     investors: "Investors",
+    partners: "Partners",
     signIn: "Sign In/Up",
   },
 
@@ -59,6 +60,7 @@ export const uiEn = {
     "trust-human-oversight": "Human Oversight",
     "trust-transparency": "Transparency",
     "trust-ethics": "Ethics and Responsible Use",
+    "trust-responsible-development": "Responsible Development",
     "trust-limitations": "Limitations",
     // Footer hub labels (Overview) + leaf ids resolve via domain keys above (D-0132).
     "footer-technology-overview": "Overview",
@@ -74,6 +76,7 @@ export const uiEn = {
     "footer-company-investors": "Investors",
     "footer-company-investors-contact": "Investor Contact",
     "footer-company-media": "Media",
+    "footer-company-partners": "Partners",
     "footer-company-contact": "Contact",
     "footer-company-roadmap": "Roadmap",
     "footer-resources-faq": "FAQ",
@@ -88,6 +91,7 @@ export const uiEn = {
     "sign-in": "Sign In/Up",
     "footer-legal-privacy-policy": "Privacy Policy",
     "footer-legal-terms-of-use": "Terms of Use",
+    "footer-legal-disclaimer": "Disclaimer",
     "footer-legal-cookie-policy": "Cookie Policy",
     "footer-legal-cookie-preferences": "Cookie Preferences",
     "footer-legal-accessibility-statement": "Accessibility Statement",
@@ -127,6 +131,10 @@ export const uiEn = {
     rightsReserved: "All rights reserved.",
     privacy: "Privacy",
     terms: "Terms",
+    disclaimer: "Disclaimer",
+    responsibleDevelopment: "Responsible Development",
+    developmentNote:
+      "SAVEN is a technology development initiative. Certain content depicts research directions, development concepts, and potential future applications.",
     cookies: "Cookies",
     theme: "Theme",
     themeLight: "Light",
@@ -421,7 +429,7 @@ export const uiEn = {
 
   medicalDisclaimer: {
     short:
-      "SAVEN Core does not diagnose medical conditions, prescribe or sell medicines, or provide emergency care through this website. We develop systems intended to support doctors, medical workers, and people. Website content is informational — not medical advice.",
+      "Website content is informational — not medical advice. SAVEN does not diagnose conditions, prescribe medicines, or provide emergency care through this website.",
     linkLabel: "Medical Disclaimer",
   },
 
@@ -457,7 +465,7 @@ export const uiEn = {
     hourFramesLabel: "One hour of care",
     watchTitle: "Watch SAVEN Core",
     watchSupport:
-      "A short presentation overview of SAVEN Core — intelligent systems built to support human life.",
+      "A short presentation overview of SAVEN — intelligence for robots that help people.",
     watchEmbedTitle: "SAVEN Core presentation video",
   },
 
@@ -465,8 +473,11 @@ export const uiEn = {
     eyebrow: "Test / Lab / Experiments",
     title: "Lab",
     lead: "A sandbox for trying new features without changing the public site. Surfaces here are experiments — not product claims.",
-    videoOverlayEyebrow: "Lab experiment",
+    videoOverlayEyebrow: "Concept visualization",
     videoOverlayLine: "A working cut — systems shaped for human care.",
+    conceptLabel: "Concept visualization",
+    conceptNote:
+      "This video illustrates SAVEN’s development vision and potential applications of human-assistance robotics. Depicted systems and capabilities may include concepts under research or development and should not be interpreted as demonstrations of a commercially available SAVEN product.",
     videoCaption: "A working cut — systems shaped for human care in the physical world.",
     videoCaptionUnderstanding: "Understanding — the story begins with people.",
     videoCaptionAssistance: "Assistance — support shaped for real settings.",
@@ -605,14 +616,27 @@ export const uiEn = {
   contact: {
     formHeading: "Message",
     nameLabel: "Name",
+    organizationLabel: "Organization",
+    roleLabel: "Role",
     emailLabel: "Email",
+    websiteLabel: "Company website (optional)",
+    inquiryTypeLabel: "Inquiry type",
+    inquiryGeneral: "General Inquiry",
+    inquiryRobotics: "Robotics Partnership",
+    inquiryTechnology: "Technology Partnership",
+    inquiryResearch: "Research Collaboration",
+    inquiryRehab: "Rehabilitation / Clinical Research",
+    inquiryCare: "Senior Living / Care",
+    inquiryInvestor: "Investor Inquiry",
+    inquiryMedia: "Media",
     subjectLabel: "Subject (optional)",
     messageLabel: "Message",
+    medicalNote: "Please do not submit confidential medical information through this form.",
     submit: "Send message",
     submitMailto: "Open in email app",
     success: "Message sent. We will reply when we can.",
     successMailto: "Your email app should open with the message ready to send.",
-    error: "Please complete name, email, and message.",
+    error: "Please complete name, email, inquiry type, and message.",
     fallbackNote:
       "Direct send is not configured on this server. Your email app will open instead so the message still goes to info@savencore.com.",
   },

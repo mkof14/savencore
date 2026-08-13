@@ -264,6 +264,17 @@
   pointer-events: none;
 }
 
+.site-lab-video-hero__concept {
+  margin: 0 0 0.35rem;
+  width: fit-content;
+  padding: 0.15rem 0.4rem;
+  font-size: 0.625rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--color-text) 82%, transparent);
+  background: color-mix(in srgb, var(--color-background) 55%, transparent);
+}
+
 .site-lab-video-hero__overlay-eyebrow {
   margin: 0 0 0.4rem;
   font-size: 0.72rem;

@@ -154,6 +154,96 @@ export function HomeClarityPack({
         </div>
       </section>
 
+      {clarity.purpose ? (
+        <section
+          className="pw-clarity__block pw-clarity__purpose"
+          aria-labelledby="pw-clarity-purpose-title"
+        >
+          <div className="pw-home__inner pw-clarity__inner">
+            <h2 id="pw-clarity-purpose-title" className="pw-clarity__title">
+              {clarity.purpose.heading}
+            </h2>
+            <p className="pw-clarity__body">{clarity.purpose.body}</p>
+            <ul className="pw-clarity__app-cards">
+              {clarity.purpose.cards.map((card) => (
+                <li key={`${card.title}-${card.href}`}>
+                  <Link
+                    href={localizePublishedHref(locale, card.href)}
+                    className="pw-clarity__app-card"
+                  >
+                    {card.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      ) : null}
+
+      {clarity.layers ? (
+        <section
+          className="pw-clarity__block pw-clarity__layers"
+          aria-labelledby="pw-clarity-layers-title"
+        >
+          <div className="pw-home__inner pw-clarity__inner">
+            <h2 id="pw-clarity-layers-title" className="pw-clarity__title">
+              {clarity.layers.heading}
+            </h2>
+            <p className="pw-clarity__body">{clarity.layers.intro}</p>
+            <ol className="pw-clarity__layer-list">
+              {clarity.layers.items.map((item) => (
+                <li key={item.title} className="pw-clarity__layer">
+                  <h3 className="pw-clarity__layer-title">{item.title}</h3>
+                  <p className="pw-clarity__layer-text">{item.text}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+      ) : null}
+
+      {clarity.hardware ? (
+        <section
+          className="pw-clarity__block pw-clarity__hardware"
+          aria-labelledby="pw-clarity-hardware-title"
+        >
+          <div className="pw-home__inner pw-clarity__inner">
+            <h2 id="pw-clarity-hardware-title" className="pw-clarity__title">
+              {clarity.hardware.heading}
+            </h2>
+            <p className="pw-clarity__body">{clarity.hardware.body}</p>
+            <ol className="pw-clarity__hardware-forms">
+              {clarity.hardware.forms.map((form) => (
+                <li key={form}>{form}</li>
+              ))}
+            </ol>
+            <p className="pw-clarity__hardware-hub">{clarity.hardware.hub}</p>
+          </div>
+        </section>
+      ) : null}
+
+      {clarity.path ? (
+        <section
+          className="pw-clarity__block pw-clarity__path"
+          aria-labelledby="pw-clarity-path-title"
+        >
+          <div className="pw-home__inner pw-clarity__inner">
+            <h2 id="pw-clarity-path-title" className="pw-clarity__title">
+              {clarity.path.heading}
+            </h2>
+            <ol className="pw-clarity__path-stages">
+              {clarity.path.stages.map((stage) => (
+                <li key={stage.n} className="pw-clarity__path-stage">
+                  <span className="pw-clarity__path-n">{stage.n}</span>
+                  <h3 className="pw-clarity__path-stage-title">{stage.title}</h3>
+                  <p className="pw-clarity__path-stage-text">{stage.text}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+      ) : null}
+
       <section
         className="pw-clarity__block pw-clarity__chain"
         aria-labelledby="pw-clarity-chain-title"

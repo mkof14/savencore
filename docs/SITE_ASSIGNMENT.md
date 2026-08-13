@@ -71,7 +71,7 @@ The site must feel like a **confident, simple, large-company product surface** �
 
 | Layer | Text |
 |-------|------|
-| **Primary line** | Intelligence for the Physical World. |
+| **Primary line** | Intelligence for Robots That Help People (D-0280; prior “Intelligence for the Physical World.” retained as supporting physical-world framing in Systems/closing) |
 | **Supporting** | SAVEN Core develops intelligent systems that connect artificial intelligence with the physical world, building technologies for autonomous physical systems. |
 | **Explanation** | SAVEN Core applies and advances AI alongside robotics, autonomous systems and engineering technologies designed to operate in the real world. |
 

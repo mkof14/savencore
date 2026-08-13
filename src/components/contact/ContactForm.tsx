@@ -13,24 +13,44 @@ type ContactFormProps = {
 
 type FormStatus = "idle" | "sending" | "success" | "mailto" | "error";
 
+const INQUIRY_KEYS = [
+  "inquiryGeneral",
+  "inquiryRobotics",
+  "inquiryTechnology",
+  "inquiryResearch",
+  "inquiryRehab",
+  "inquiryCare",
+  "inquiryInvestor",
+  "inquiryMedia",
+] as const;
+
 function buildMailto(
   to: string,
   name: string,
   fromEmail: string,
+  organization: string,
+  role: string,
+  website: string,
+  inquiryType: string,
   subject: string,
   message: string,
 ): string {
   const lines = [
     `Name: ${name}`,
     `Email: ${fromEmail}`,
+    organization ? `Organization: ${organization}` : "",
+    role ? `Role: ${role}` : "",
+    website ? `Website: ${website}` : "",
+    inquiryType ? `Inquiry type: ${inquiryType}` : "",
     "",
     message,
-  ];
+  ].filter((line, index, all) => line !== "" || all[index - 1] !== "");
   const params = new URLSearchParams();
   const trimmedSubject = subject.trim();
+  const inquiryPrefix = inquiryType ? `[${inquiryType}] ` : "";
   params.set(
     "subject",
-    trimmedSubject || `SAVEN Core contact from ${name}`,
+    trimmedSubject || `${inquiryPrefix}SAVEN Core contact from ${name}`,
   );
   params.set("body", lines.join("\n"));
   return `mailto:${to}?${params.toString()}`;
@@ -43,7 +63,11 @@ export function ContactForm({
   smtpConfigured,
 }: ContactFormProps) {
   const nameId = useId();
+  const organizationId = useId();
+  const roleId = useId();
   const emailId = useId();
+  const websiteId = useId();
+  const inquiryId = useId();
   const subjectId = useId();
   const messageId = useId();
   const statusId = useId();
@@ -55,11 +79,15 @@ export function ContactForm({
     const form = event.currentTarget;
     const data = new FormData(form);
     const name = String(data.get("name") ?? "").trim();
+    const organization = String(data.get("organization") ?? "").trim();
+    const role = String(data.get("role") ?? "").trim();
     const email = String(data.get("email") ?? "").trim();
+    const website = String(data.get("website") ?? "").trim();
+    const inquiryType = String(data.get("inquiryType") ?? "").trim();
     const subject = String(data.get("subject") ?? "").trim();
     const message = String(data.get("message") ?? "").trim();
 
-    if (!name || !email || !message) {
+    if (!name || !email || !message || !inquiryType) {
       setStatus("error");
       return;
     }
@@ -68,6 +96,10 @@ export function ContactForm({
       emailAddress,
       name,
       email,
+      organization,
+      role,
+      website,
+      inquiryType,
       subject,
       message,
     );
@@ -83,12 +115,20 @@ export function ContactForm({
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, subject, message }),
+        body: JSON.stringify({
+          name,
+          organization,
+          role,
+          email,
+          website,
+          inquiryType,
+          subject,
+          message,
+        }),
       });
       const result = (await response.json().catch(() => null)) as
         | { ok?: boolean; fallback?: string }
         | null;
-      // Soft degrade (SMTP unset, rate limit, or send failure) → mailto (D-0243).
       if (response.ok && result?.ok && result.fallback !== "mailto") {
         setStatus("success");
         return;
@@ -106,6 +146,7 @@ export function ContactForm({
       <p className="contact-page__form-note">
         {smtpConfigured ? formNote : labels.fallbackNote}
       </p>
+      <p className="contact-page__form-note">{labels.medicalNote}</p>
 
       <div className="contact-page__fields">
         <div className="contact-page__field">
@@ -124,6 +165,34 @@ export function ContactForm({
         </div>
 
         <div className="contact-page__field">
+          <label className="contact-page__field-label" htmlFor={organizationId}>
+            {labels.organizationLabel}
+          </label>
+          <input
+            id={organizationId}
+            className="contact-page__input"
+            type="text"
+            name="organization"
+            autoComplete="organization"
+            maxLength={160}
+          />
+        </div>
+
+        <div className="contact-page__field">
+          <label className="contact-page__field-label" htmlFor={roleId}>
+            {labels.roleLabel}
+          </label>
+          <input
+            id={roleId}
+            className="contact-page__input"
+            type="text"
+            name="role"
+            autoComplete="organization-title"
+            maxLength={120}
+          />
+        </div>
+
+        <div className="contact-page__field">
           <label className="contact-page__field-label" htmlFor={emailId}>
             {labels.emailLabel}
           </label>
@@ -137,6 +206,43 @@ export function ContactForm({
             required
             maxLength={200}
           />
+        </div>
+
+        <div className="contact-page__field">
+          <label className="contact-page__field-label" htmlFor={websiteId}>
+            {labels.websiteLabel}
+          </label>
+          <input
+            id={websiteId}
+            className="contact-page__input"
+            type="url"
+            name="website"
+            autoComplete="url"
+            inputMode="url"
+            maxLength={240}
+          />
+        </div>
+
+        <div className="contact-page__field">
+          <label className="contact-page__field-label" htmlFor={inquiryId}>
+            {labels.inquiryTypeLabel}
+          </label>
+          <select
+            id={inquiryId}
+            className="contact-page__input"
+            name="inquiryType"
+            required
+            defaultValue=""
+          >
+            <option value="" disabled>
+              {labels.inquiryTypeLabel}
+            </option>
+            {INQUIRY_KEYS.map((key) => (
+              <option key={key} value={labels[key]}>
+                {labels[key]}
+              </option>
+            ))}
+          </select>
         </div>
 
         <div className="contact-page__field contact-page__field--full">

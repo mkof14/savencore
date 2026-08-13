@@ -140,6 +140,11 @@ export const trustNavChildren: readonly NavLinkItem[] = [
     label: "Ethics and Responsible Use",
     href: "/trust/ethics-and-responsible-use/",
   },
+  {
+    id: "trust-responsible-development",
+    label: "Responsible Development",
+    href: "/trust/responsible-development/",
+  },
   { id: "trust-limitations", label: "Limitations", href: "/trust/limitations/" },
 ] as const;
 
@@ -188,6 +193,7 @@ export const primaryNavigation: readonly PrimaryNavItem[] = [
   { id: "applications", label: "Applications", href: "/applications/" },
   { id: "technology", label: "Technology", href: "/technology/" },
   { id: "investors", label: "Investors", href: "/investors/" },
+  { id: "partners", label: "Partners", href: "/partners/" },
 ] as const;
 
 /** Utility chrome links (Sign In/Up). */
@@ -203,6 +209,11 @@ export const legalNavChildren: readonly NavLinkItem[] = [
     href: "/legal/privacy-policy/",
   },
   { id: "legal-terms-of-use", label: "Terms of Use", href: "/legal/terms-of-use/" },
+  {
+    id: "legal-disclaimer",
+    label: "Disclaimer",
+    href: "/legal/disclaimer/",
+  },
   {
     id: "legal-cookie-policy",
     label: "Cookie Policy",
@@ -270,7 +281,7 @@ export const legalNavChildren: readonly NavLinkItem[] = [
 export const FOOTER_LEGAL_PRIMARY_IDS = [
   "legal-privacy-policy",
   "legal-terms-of-use",
-  "legal-cookie-policy",
+  "legal-disclaimer",
   "legal-accessibility-statement",
   "legal-security",
   "legal-responsible-ai",
@@ -345,6 +356,7 @@ export const footerNavigation: readonly FooterGroup[] = [
         "/investors/contact/",
       ),
       published("footer-company-media", "Media", "/media/"),
+      published("footer-company-partners", "Partners", "/partners/"),
       published("footer-company-contact", "Contact", "/contact/"),
       published("footer-company-roadmap", "Roadmap", "/roadmap/"),
     ],

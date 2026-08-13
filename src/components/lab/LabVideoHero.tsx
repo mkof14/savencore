@@ -104,6 +104,7 @@ export type LabVideoHeroLink = {
 export type LabVideoHeroCopy = {
   overlayEyebrow: string;
   overlayLine: string;
+  conceptLabel?: string;
   /** Fallback / reduced-motion caption. */
   caption: string;
   captions: Record<ChapterId, string>;
@@ -434,6 +435,9 @@ export function LabVideoHero({
         <div className="site-lab-video-hero__fade" aria-hidden="true" />
 
         <div className="site-lab-video-hero__overlay">
+          {copy.conceptLabel ? (
+            <p className="site-lab-video-hero__concept">{copy.conceptLabel}</p>
+          ) : null}
           <p className="site-lab-video-hero__overlay-eyebrow">
             {copy.overlayEyebrow}
           </p>

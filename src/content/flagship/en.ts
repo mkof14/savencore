@@ -33,24 +33,24 @@ export const roboticsLabPageEn: FlagshipBrochureContent = {
   kicker: "SAVEN Core",
   title: "SAVEN Robotics Lab",
   status: "Architecture",
-  lede: "The primary engineering direction for robotic systems that sense, move, and act beside people — mobility, manipulators, and perception under clear human oversight.",
+  lede: "SAVEN Robotics Lab is the development and integration environment behind SAVEN’s human-assistance robotics program — intelligence, integration, and human-interaction technologies for robots to work safely and naturally around people.",
   body: [
-    "SAVEN Robotics Lab builds the engineering basis for robots and manipulators meant to help people in real places: standing support, careful object handling, and calm assistance in homes and care settings — always with people remaining in authority.",
-    "Platforms, mobility, control, perception, and human–machine interaction advance as one direction. Architecture and systems work are presented honestly — not as operational hospital fleets or commercial products.",
+    "The Lab describes an R&D program: human-robot interaction, robotics integration, movement intelligence, perception, physical assistance, personalization, safety architecture, AI-assisted control, simulation, prototype development, partner integrations, and real-world validation.",
+    "Work is presented as architecture and development — not as a claim of a large physical laboratory, operational fleets, or commercial products.",
   ],
   listHeading: "Focus areas",
   items: [
-    "Robotic systems — platforms and physical architectures for assistive work",
-    "Autonomous mobility — movement through shared human spaces with limits made visible",
-    "Robot control — stable, governable motion under human command",
-    "Sensors and machine perception — understanding people, places, and physical context",
-    "Human–machine interaction — clear interfaces so people stay in charge",
+    "Human-robot interaction and physical assistance",
+    "Robotics integration across compatible platforms",
+    "Movement intelligence, perception, and AI-assisted control",
+    "Personalization and safety architecture",
+    "Simulation, prototype development, partner integrations, and validation",
   ],
   highlights: [
     {
       id: "what",
       title: "What we build",
-      text: "Engineering for assistive robots, manipulators, mobility, control, perception, and human–machine interaction.",
+      text: "Human-assistance intelligence and robotics integration — interaction, perception, movement, personalization, and safety architecture.",
     },
     {
       id: "why",
@@ -85,7 +85,7 @@ export const roboticsLabPageEn: FlagshipBrochureContent = {
       title: "Workstreams",
       items: [
         "Robotic systems — platforms and physical architectures for assistive work",
-        "Autonomous mobility — movement through shared human spaces with limits made visible",
+        "Mobility in shared human spaces — with limits made visible",
         "Robot control — stable, governable motion under human command",
         "Sensors and machine perception — understanding people, places, and physical context",
         "Human–machine interaction — clear interfaces so people stay in charge",
@@ -213,7 +213,7 @@ export const futureLabPageEn: FlagshipBrochureContent = {
   items: [
     "Advanced forms of robotics",
     "Embodied AI",
-    "Autonomous decision-making",
+    "Decision-support under human oversight",
     "Human–machine interaction",
     "New sensor systems",
     "Modeling of physical environments",
@@ -256,7 +256,7 @@ export const futureLabPageEn: FlagshipBrochureContent = {
       items: [
         "Advanced forms of robotics",
         "Embodied AI",
-        "Autonomous decision-making",
+        "Decision-support under human oversight",
         "Human–machine interaction",
         "New sensor systems",
         "Modeling of physical environments",
@@ -325,7 +325,7 @@ export const labsHubPageEn: FlagshipBrochureContent = {
       id: "future-lab-overview",
       title: "Internal Future Lab",
       paragraphs: [
-        "Research environment (Research status) — a deliberate new name beyond classic R&D: advanced robotics forms, embodied AI, autonomous decision-making, new sensing, physical-environment modeling, and non-standard engineering concepts.",
+        "Research environment (Research status) — a deliberate new name beyond classic R&D: advanced robotics forms, embodied AI, decision-support under human oversight, new sensing, physical-environment modeling, and non-standard engineering concepts.",
       ],
     },
   ],

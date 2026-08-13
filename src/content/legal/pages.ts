@@ -39,14 +39,15 @@ export const LEGAL_PAGES: readonly LegalPageContent[] = [
         title: "Scope of this policy",
         paragraphs: [
           "This policy covers information collected through the public website and related public channels we operate (for example Contact when used, and Sign In when enabled).",
+          "Website data practices are separate from future SAVEN product data practices. This policy does not claim that the website currently collects biometric, health, movement, video, audio, robotics, or BioMath Core data.",
           "It does not cover unpublished products, clinical systems, investor portals beyond what this site publishes, or third-party sites we link to.",
         ],
       },
       {
         title: "Information we may collect",
         paragraphs: [
-          "Depending on which features you use, we may process: technical logs needed to operate and secure the site; language and theme preferences stored on your device; information you voluntarily submit via Contact or similar forms; and account credentials or identity tokens if Sign In is enabled.",
-          "We do not run marketing analytics or advertising trackers on this site unless a later update of this policy says otherwise.",
+          "Depending on which features you use, we may process: technical logs needed to operate and secure the site (which may include IP address, browser or device information, and request metadata); language and theme preferences stored on your device; information you voluntarily submit via Contact or similar forms (name, email, organization, role, inquiry type, optional website, and message); and account credentials or identity tokens if Sign In is enabled.",
+          "We do not currently operate a newsletter signup on this website. We do not run marketing analytics or advertising trackers on this site unless a later update of this policy says otherwise. Cookie Preferences explains that no live consent CMP is active.",
         ],
       },
       {
@@ -98,7 +99,9 @@ export const LEGAL_PAGES: readonly LegalPageContent[] = [
       {
         title: "Children’s privacy",
         paragraphs: [
-          "This informational website is not directed at children. We do not knowingly collect personal information from children through this site. If you believe a child has provided information, contact info@savencore.com so we can delete it.",
+          "This public website is not intended to knowingly collect personal information directly from children where prohibited by applicable law. The website does not provide unsupervised services to children and does not create children’s accounts.",
+          "Imagery on the site may depict family environments as a long-term area for human-centered robotics. That does not mean SAVEN currently offers childcare or unsupervised monitoring.",
+          "If you believe a child has provided information through this site, contact info@savencore.com so we can delete it.",
         ],
       },
       {
@@ -130,7 +133,25 @@ export const LEGAL_PAGES: readonly LegalPageContent[] = [
       {
         title: "Nature of the website",
         paragraphs: [
-          "The website provides informational material about intelligent systems and related work. Principal systems are described through architecture and scope. The site does not offer operational products for purchase, medical services, or investment solicitations by default.",
+          "The website provides informational material about intelligent systems, research directions, development programs, and potential applications. Principal systems are described through architecture and scope. The site does not offer operational products for purchase, medical services, or investment solicitations by default.",
+        ],
+      },
+      {
+        title: "Development-stage information",
+        paragraphs: [
+          "Certain features, systems, or capabilities presented on this website may be under research, development, integration, testing, or conceptual evaluation and may not be commercially available.",
+        ],
+      },
+      {
+        title: "Concept visualizations",
+        paragraphs: [
+          "Images, videos, animations, renderings, and demonstrations may include conceptual or simulated representations intended to illustrate possible applications or development directions. They should not be interpreted as demonstrations of a commercially available SAVEN product unless explicitly stated.",
+        ],
+      },
+      {
+        title: "Forward-looking statements",
+        paragraphs: [
+          "Statements concerning future technologies, capabilities, integrations, products, partnerships, markets, or commercialization plans describe current goals or expectations and may change as development progresses.",
         ],
       },
       {
@@ -154,7 +175,7 @@ export const LEGAL_PAGES: readonly LegalPageContent[] = [
       {
         title: "Disclaimers",
         paragraphs: [
-          "Content is provided “as is” for informational purposes. Scope and non-claim reminders across the site remain in force. See also Medical Disclaimer and Research Disclaimer.",
+          "Content is provided “as is” for informational purposes. Scope and non-claim reminders across the site remain in force. See also Disclaimer, Medical Disclaimer, and Research Disclaimer.",
         ],
       },
       {
@@ -180,6 +201,62 @@ export const LEGAL_PAGES: readonly LegalPageContent[] = [
         title: "Changes",
         paragraphs: [
           "We may update these terms. The “Last updated” date will change when we do. Material changes should be reviewed before continued use.",
+        ],
+      },
+      {
+        title: "Contact",
+        paragraphs: [
+          CONTACT_LINE,
+        ],
+      },
+    ],
+  },
+  {
+    slug: "disclaimer",
+    title: "SAVEN Disclaimer",
+    summary:
+      "Development status, concept visualizations, medical limits, safety, and forward-looking information for the SAVEN public website.",
+    sections: [
+      {
+        title: "Development Status",
+        paragraphs: [
+          "SAVEN describes technologies, research directions, development programs, potential applications, and future product concepts. Certain features, systems, or capabilities presented on this website may be under research, development, integration, testing, or conceptual evaluation and may not be commercially available.",
+        ],
+      },
+      {
+        title: "Concept Visualizations",
+        paragraphs: [
+          "Images, videos, animations, renderings, and demonstrations may include conceptual or simulated representations intended to illustrate possible applications or development directions.",
+        ],
+      },
+      {
+        title: "No Medical Advice",
+        paragraphs: [
+          "Information on this website is provided for general informational purposes and is not medical advice, diagnosis, or treatment.",
+        ],
+      },
+      {
+        title: "Medical and Rehabilitation Applications",
+        paragraphs: [
+          "Any future SAVEN product intended for regulated medical use would be subject to applicable development, testing, validation, regulatory, and authorization requirements before being marketed for that intended use.",
+        ],
+      },
+      {
+        title: "Safety",
+        paragraphs: [
+          "Robotic systems involve physical and technical risks. Actual capabilities and safety requirements depend on hardware, software, environment, intended use, configuration, supervision, and other factors. No technology can guarantee prevention of falls or injury.",
+        ],
+      },
+      {
+        title: "Forward-Looking Information",
+        paragraphs: [
+          "Statements concerning future technologies, capabilities, integrations, products, partnerships, markets, or commercialization plans describe current goals or expectations and may change as development progresses.",
+        ],
+      },
+      {
+        title: "Third-Party Technologies",
+        paragraphs: [
+          "References to categories of third-party technologies or platforms do not imply endorsement, partnership, certification, compatibility, or commercial relationship unless explicitly stated.",
         ],
       },
       {

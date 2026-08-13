@@ -386,6 +386,37 @@ export function buildTechnologyHub(
       },
     ],
     sections: [
+      ...(content.assistanceLayers
+        ? [
+            {
+              id: "assistance-layers",
+              title: content.assistanceLayers.heading,
+              paragraphs: [content.assistanceLayers.intro],
+              items: content.assistanceLayers.items.map(
+                (item) => `${item.title} — ${item.text}`,
+              ),
+            },
+          ]
+        : []),
+      ...(content.hardwareFlex
+        ? [
+            {
+              id: "hardware-flex",
+              title: content.hardwareFlex.heading,
+              paragraphs: [content.hardwareFlex.body],
+              items: content.hardwareFlex.items,
+            },
+          ]
+        : []),
+      ...(content.developmentPath
+        ? [
+            {
+              id: "development-path",
+              title: content.developmentPath.heading,
+              items: content.developmentPath.items,
+            },
+          ]
+        : []),
       {
         id: "principles",
         title: content.principlesHeading,

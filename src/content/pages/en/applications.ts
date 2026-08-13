@@ -48,9 +48,9 @@ export const applicationsPageContent: ApplicationsPageContent = {
     relatedDomain: "Technology, Systems, Trust",
   },
   label: "Applications Overview",
-  title: "Where intelligent systems may support real life.",
+  title: "Where intelligent assistance can help people.",
   introduction:
-    "Applications describe the places SAVEN Core systems are intended to help — starting with care and everyday life. These pages explain contexts and architecture, not products already in use.",
+    "Physical capability alone does not create useful human assistance. These pages describe human problems, the role of robotics, and SAVEN’s intended technology role — mobility, rehabilitation support, independent living, everyday assistance, and care environments. They explain contexts and architecture, not promised outcomes or products already in use.",
   developmentNote: APPLICATIONS_DEVELOPMENT_NOTE,
   definitionTerm: "Application",
   definition:
@@ -92,7 +92,7 @@ export const applicationsPageContent: ApplicationsPageContent = {
     {
       id: "healthcare",
       title: "Healthcare",
-      responsibility: "Bounded support around care contexts and review.",
+      responsibility: "Rehabilitation support and care environments — professionals remain at the center of clinical decisions.",
       relationship: "Human care environment",
       href: "/applications/healthcare/",
       role: "endpoint",
@@ -101,7 +101,7 @@ export const applicationsPageContent: ApplicationsPageContent = {
     {
       id: "home",
       title: "Home Application",
-      responsibility: "Independence and daily routines under permissions.",
+      responsibility: "Independent living and everyday physical assistance — practical tasks, not medical claims.",
       relationship: "Home environment",
       href: "/applications/home/",
       role: "endpoint",

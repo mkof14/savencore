@@ -3,10 +3,10 @@ import type { PhysicalWorldHomeContent } from "@/content/home/physical-world/typ
 /** Simplified Chinese Layer-1 homepage body — Physical World home. */
 export const physicalWorldHomeZhCn: PhysicalWorldHomeContent = {
   brand: "SAVEN Core",
-  heroLine: "面向物理世界的智能。",
+  heroLine: "帮助人的机器人智能",
   oneBreath:
-    "我们运用并改进能在真实世界中运作的人工智能与机器人技术 — 让机器在人的控制下感知、移动并提供协助。",
-  builds: ["人工智能", "机器人技术", "自主系统"],
+    "SAVEN 开发面向机器人的智能人体协助技术——连接感知、运动、个性化、安全与人机交互，帮助机器人系统在物理世界中支持人。",
+  builds: ["人工智能", "机器人技术", "人体协助"],
   buildsLabel: "我们构建什么",
   tagline: "把智能转化为对人的关怀",
   cue: "可在页脚探索 Labs、Interface、Technology 等内容。",

@@ -225,6 +225,11 @@ export const DOMAIN_MASTHEAD_BY_HREF: Record<string, DomainMastheadVisual> = {
     mastheadImage: "/domain/trust/ethics.webp",
     mastheadAlt: "Ethics and responsible use",
   },
+  "/trust/responsible-development/": {
+    theme: "trust",
+    mastheadImage: "/domain/trust/ethics.webp",
+    mastheadAlt: "Responsible development principles",
+  },
   "/trust/limitations/": {
     theme: "trust",
     mastheadImage: "/domain/trust/limitations.webp",
@@ -280,6 +285,11 @@ export const DOMAIN_MASTHEAD_BY_HREF: Record<string, DomainMastheadVisual> = {
     theme: "investors",
     mastheadImage: "/domain/company/investors.webp",
     mastheadAlt: "Long-horizon engineering campus atmosphere for investor conversation",
+  },
+  "/partners/": {
+    theme: "investors",
+    mastheadImage: "/domain/company/investors.webp",
+    mastheadAlt: "Long-horizon engineering atmosphere for partnership conversation",
   },
   "/contact/": {
     theme: "foundation",

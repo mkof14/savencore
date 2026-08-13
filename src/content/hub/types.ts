@@ -1,3 +1,4 @@
+import type { PartnerFormulaLabels } from "@/components/partners/PartnerFormula";
 import type { HubVisualTheme } from "@/content/hub/hub-visuals";
 import type { LabsDataLoopLabels } from "@/content/labs/data-loop";
 import type { RoboticsInterfaceDiagramLabels } from "@/content/systems/robotics-interface-diagram";
@@ -50,6 +51,10 @@ export type HubDiagram =
   | {
       kind: "robotics-interface";
       labels: RoboticsInterfaceDiagramLabels;
+    }
+  | {
+      kind: "partner-formula";
+      labels: PartnerFormulaLabels;
     };
 
 export type HubPageContent = {

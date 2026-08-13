@@ -42,10 +42,31 @@ export type HomeClarityAudienceLink = {
 };
 
 export type HomeClarityAudiencePath = {
-  id: "care" | "technology" | "investors";
+  id: "care" | "technology" | "investors" | "partners";
   label: string;
   description: string;
   links: readonly HomeClarityAudienceLink[];
+};
+
+export type HomeHeroCta = {
+  label: string;
+  href: string;
+};
+
+export type HomePurposeCard = {
+  title: string;
+  href: string;
+};
+
+export type HomeLayerItem = {
+  title: string;
+  text: string;
+};
+
+export type HomePathStage = {
+  n: string;
+  title: string;
+  text: string;
 };
 
 /**
@@ -70,6 +91,30 @@ export type HomeClarityContent = {
   };
   /** Compact BioMath Core → SAVEN + foundation bridge (D-0230; replaces D-0227/D-0228 split cards). */
   biomathBridge?: HomeClarityBiomathBridge;
+  /** People-first purpose band immediately after the hero definition (D-0280). */
+  purpose?: {
+    heading: string;
+    body: string;
+    cards: readonly HomePurposeCard[];
+  };
+  /** Five human-assistance technology layers (D-0280). */
+  layers?: {
+    heading: string;
+    intro: string;
+    items: readonly HomeLayerItem[];
+  };
+  /** Hardware-flexible architecture (D-0280). */
+  hardware?: {
+    heading: string;
+    body: string;
+    forms: readonly string[];
+    hub: string;
+  };
+  /** Research → deployment path without dates (D-0280). */
+  path?: {
+    heading: string;
+    stages: readonly HomePathStage[];
+  };
   chain: {
     heading: string;
     ariaLabel: string;
@@ -98,6 +143,14 @@ export type PhysicalWorldHomeContent = {
   buildsLabel: string;
   tagline: string;
   cue: string;
+  /** Hero actions (D-0280). Explore / Partner; optional Technology link. */
+  heroCtas?: {
+    primary: HomeHeroCta;
+    secondary: HomeHeroCta;
+    tertiary?: HomeHeroCta;
+  };
+  /** Small concept-visualization caption on the hero collage (D-0280). */
+  conceptLabel?: string;
   /** Single post-hero living carousel (care / help scenes only). */
   living: {
     headline: string;

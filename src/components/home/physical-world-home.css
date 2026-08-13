@@ -386,6 +386,60 @@
   color: color-mix(in srgb, var(--pw-hero-ink) 58%, transparent);
 }
 
+.pw-hero__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem 0.85rem;
+  margin: 0;
+}
+
+.pw-hero__cta {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.5rem;
+  padding: 0.45rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  border: 1px solid transparent;
+}
+
+.pw-hero__cta--primary {
+  background: var(--color-accent);
+  color: var(--pw-hero-field);
+}
+
+.pw-hero__cta--secondary {
+  border-color: color-mix(in srgb, var(--pw-hero-ink) 28%, transparent);
+  color: var(--pw-hero-ink);
+}
+
+.pw-hero__cta--tertiary {
+  padding-inline: 0.15rem;
+  min-height: auto;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: color-mix(in srgb, var(--pw-hero-ink) 62%, transparent);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.pw-hero__concept {
+  position: absolute;
+  z-index: 2;
+  inset-block-end: 0.65rem;
+  inset-inline-start: 0.75rem;
+  margin: 0;
+  padding: 0.2rem 0.45rem;
+  font-size: 0.6875rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, #f5f3ee 78%, transparent);
+  background: color-mix(in srgb, #0a1018 55%, transparent);
+}
+
 @media (max-width: 900px) {
   .pw-hero {
     grid-template-columns: 1fr;
@@ -562,6 +616,20 @@
 .pw-domains__theater {
   position: relative;
   width: 100%;
+}
+
+.pw-domains__concept {
+  position: absolute;
+  z-index: 2;
+  inset-block-end: 0.65rem;
+  inset-inline-start: 0.75rem;
+  margin: 0;
+  padding: 0.2rem 0.45rem;
+  font-size: 0.6875rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, #f5f3ee 78%, transparent);
+  background: color-mix(in srgb, #0a1018 55%, transparent);
 }
 
 .pw-domains__stage {
@@ -1069,6 +1137,113 @@ html[data-theme="dark"] a.pw-clarity__biomath-cta:focus-visible {
   height: auto;
   display: block;
   filter: drop-shadow(0 0 8px color-mix(in srgb, #e07a3d 20%, transparent));
+}
+
+.pw-clarity__app-cards {
+  list-style: none;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
+  gap: 0.65rem;
+}
+
+.pw-clarity__app-card {
+  display: flex;
+  align-items: center;
+  min-height: 3.25rem;
+  padding: 0.7rem 0.85rem;
+  text-decoration: none;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1px solid color-mix(in srgb, var(--color-text) 12%, transparent);
+}
+
+a.pw-clarity__app-card:hover,
+a.pw-clarity__app-card:focus-visible {
+  border-color: color-mix(in srgb, var(--color-accent) 55%, transparent);
+}
+
+.pw-clarity__layer-list,
+.pw-clarity__path-stages,
+.pw-clarity__hardware-forms {
+  list-style: none;
+  margin: 1.25rem 0 0;
+  padding: 0;
+}
+
+.pw-clarity__layer-list {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.pw-clarity__layer {
+  padding: 0.85rem 0;
+  border-block-start: 1px solid color-mix(in srgb, var(--color-text) 12%, transparent);
+}
+
+.pw-clarity__layer-title {
+  margin: 0 0 0.35rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.pw-clarity__layer-text {
+  margin: 0;
+  max-width: 42rem;
+  font-size: 0.975rem;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+}
+
+.pw-clarity__hardware-forms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.pw-clarity__hardware-forms li {
+  padding: 0.35rem 0.7rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  border: 1px solid color-mix(in srgb, var(--color-text) 14%, transparent);
+}
+
+.pw-clarity__hardware-hub {
+  margin: 1rem 0 0;
+  font-size: 1rem;
+  font-weight: 650;
+}
+
+.pw-clarity__path-stages {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10.5rem, 1fr));
+  gap: 0.85rem;
+}
+
+.pw-clarity__path-n {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-accent);
+}
+
+.pw-clarity__path-stage-title {
+  margin: 0.2rem 0 0.3rem;
+  font-size: 1rem;
+}
+
+.pw-clarity__path-stage-text {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: var(--color-text-secondary);
 }
 
 .pw-clarity--late {

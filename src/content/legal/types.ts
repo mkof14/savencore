@@ -23,7 +23,7 @@ export const LEGAL_SITE_NOTICE =
 /** @deprecated Use LEGAL_SITE_NOTICE — kept only to avoid stale imports during transition. */
 export const LEGAL_DRAFT_BANNER = LEGAL_SITE_NOTICE;
 
-export const LEGAL_LAST_UPDATED = "28 July 2026";
+export const LEGAL_LAST_UPDATED = "13 August 2026";
 
 const SITE_NOTICE_BY_LOCALE: Record<ContentLocale, string> = {
   en: LEGAL_SITE_NOTICE,

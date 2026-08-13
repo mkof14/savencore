@@ -35,6 +35,8 @@ type LivingDomainsProps = {
   /** Optional stage “why this is SAVEN” (D-0219 clarity). */
   whyLabel?: string;
   whyLine?: string;
+  /** Small concept-visualization caption on the theater (D-0281). */
+  conceptLabel?: string;
 };
 
 const ADVANCE_MS = 4500;
@@ -54,6 +56,7 @@ export function LivingDomains({
   className,
   whyLabel,
   whyLine,
+  conceptLabel,
 }: LivingDomainsProps) {
   const [allowMotion, setAllowMotion] = useState(false);
   const [active, setActive] = useState(0);
@@ -150,6 +153,9 @@ export function LivingDomains({
             </picture>
           ))}
           <div className="pw-domains__veil" />
+          {conceptLabel ? (
+            <p className="pw-domains__concept">{conceptLabel}</p>
+          ) : null}
         </div>
 
         <div className="pw-home__inner pw-domains__caption">

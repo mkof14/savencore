@@ -12,11 +12,11 @@ export type ContactPageContent = {
 
 export const contactPageEn: ContactPageContent = {
   label: "Contact",
-  title: "Start a conversation",
-  lede: "Write to SAVEN Core about partnerships, research dialogue, investor inquiry, or general questions. For investor topics, put “Investor inquiry” in the subject. We read carefully and respond when we can.",
+  title: "Let’s Build What Comes Next",
+  lede: "Write to SAVEN about robotics partnerships, technology collaboration, research, rehabilitation or care conversations, investor inquiry, media, or general questions.",
   body: [
     "When direct send is configured on this server, this form sends your message straight to info@savencore.com. Otherwise, it prepares the message in your own email app instead — either way, the message reaches the same public address.",
-    "Please do not send urgent medical, emergency, or personal health information through this channel.",
+    "Please do not submit confidential medical information through this form. Do not send urgent medical, emergency, or personal health information through this channel.",
   ],
   email: "info@savencore.com",
   emailNote: "Primary public address",

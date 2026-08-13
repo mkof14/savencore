@@ -49,11 +49,15 @@ export async function POST(request: Request) {
 
   const record = body as Record<string, unknown>;
   const name = clean(record.name, 120);
+  const organization = clean(record.organization, 160);
+  const role = clean(record.role, 120);
   const email = clean(record.email, 200);
+  const website = clean(record.website, 240);
+  const inquiryType = clean(record.inquiryType, 80);
   const subject = clean(record.subject, 160);
   const message = clean(record.message, MAX_FIELD_LENGTH);
 
-  if (!name || !email || !message) {
+  if (!name || !email || !message || !inquiryType) {
     return NextResponse.json(
       { error: "Missing required fields." },
       { status: 400 },
@@ -63,13 +67,19 @@ export async function POST(request: Request) {
   const html = `
     <p><strong>Name:</strong> ${escapeHtml(name)}</p>
     <p><strong>Email:</strong> ${escapeHtml(email)}</p>
+    ${organization ? `<p><strong>Organization:</strong> ${escapeHtml(organization)}</p>` : ""}
+    ${role ? `<p><strong>Role:</strong> ${escapeHtml(role)}</p>` : ""}
+    ${website ? `<p><strong>Website:</strong> ${escapeHtml(website)}</p>` : ""}
+    <p><strong>Inquiry type:</strong> ${escapeHtml(inquiryType)}</p>
     ${subject ? `<p><strong>Subject:</strong> ${escapeHtml(subject)}</p>` : ""}
     <p style="white-space:pre-wrap;">${escapeHtml(message)}</p>
   `;
 
   const result = await trySendSmtpMail({
     to: [CONTACT_ADDRESS],
-    subject: subject || `SAVEN Core contact from ${name}`,
+    subject:
+      subject ||
+      `[${inquiryType}] SAVEN Core contact from ${name}`,
     html,
   });
 

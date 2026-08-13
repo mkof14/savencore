@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-08-08 (D-0279 — Lab video: mobile controls below stage)
+**Last updated:** 2026-08-13 (D-0281 — Complete D-0280 follow-through)
 
 ## Rules
 
@@ -295,6 +295,8 @@
 | D-0277 | 2026-08-08 | Lab video — second clip (SAVEN) + extensible multi-clip switcher | Active |
 | D-0278 | 2026-08-08 | Lab video — Site main clip first (SAVEN_site 1) in playlist switcher | Active |
 | D-0279 | 2026-08-08 | Lab video — mobile: move interactive controls below the video stage | Active |
+| D-0280 | 2026-08-13 | Master positioning, credibility, partner/investor, safety, FAQ, and legal update | Active |
+| D-0281 | 2026-08-13 | Complete D-0280 follow-through: i18n, partner formula, unused home catalog, concept labels | Active |
 
 ---
 
@@ -2991,6 +2993,37 @@
 - **In scope:** `LabVideoHero` + `lab.css`; D-0279 / AGENTS / SITE_ASSIGNMENT; commit/push/Vercel prod.
 - **Out of scope:** Public home; inventing Operational claims; new i18n strings (none required); asset re-encodes.
 - **Implications:** Mobile Lab viewers get a clean picture plane; controls remain fully usable in a stack under the video.
+
+### D-0280 — Master positioning, credibility, partner/investor, safety, FAQ, and legal update
+
+- **Date:** 2026-08-13
+- **Status:** Active
+- **Summary:** Owner-authorized evolution of the existing site (not a redesign): human-assistance robotics positioning, hardware-flexible architecture, investor/partner readiness, safety and FAQ, disclaimer and responsible-development pages, contact segmentation, concept-visualization labels, and claims hygiene. Legal and technical precision support the story; the site must not become a defensive disclaimer wall.
+- **Decision:**
+  1. **Positioning:** SAVEN develops intelligent technologies that help robotic systems assist people with mobility, physical tasks, rehabilitation support, and everyday activities. Not presented simply as a humanoid-robot company. Hero: **Intelligence for Robots That Help People** with Explore SAVEN / Partner With Us CTAs. Development-stage language (`developing`, `designed to`, `exploring`) used selectively — not in every sentence.
+  2. **Keep existing IA and visual identity.** Do not delete published routes. Header stays ≤7 hubs: Home, Labs, Systems, Applications, Technology, Investors, **Partners**. Map recommended Safety / About / Robotics Lab onto existing `/trust/safety/`, `/foundation/`, `/labs/saven-robotics-lab/`.
+  3. **New published pages:** `/partners/` (Build With SAVEN), `/legal/disclaimer/`, `/trust/responsible-development/`. FAQ rewritten into About / Technology / Rehabilitation & Health / Daily Life / Privacy / Availability / Investors. Contact form adds organization, role, inquiry type, optional website, and a medical-information warning.
+  4. **Legal:** Privacy distinguishes website vs future product data (no claim that the site collects biometric/health/robotics/BioMath data). Terms add development-stage, concept visualization, and forward-looking sections. Footer uses a short development notice plus Privacy / Terms / Disclaimer / Responsible Development / Contact. Entity remains **SAVEN Core** public brand only — `[LEGAL ENTITY REQUIRED]`.
+  5. **Claims:** Soften BioMath category blurbs that read like live clinical products; remove hero “Autonomous systems”; Future Lab “autonomous decision-making” → decision-support under human oversight. Concept visualization labels on home collage and Lab video. No invented customers, partners, patents, certifications, or availability.
+- **In scope:** Home clarity pack, Technology/Applications/Labs/Investors/Purpose/Healthcare copy, new Partners/Disclaimer/Responsible Development routes, FAQ, Contact, Privacy/Terms, footer notice, Lab concept label, UI i18n, D-0280 notes.
+- **Out of scope:** Logo/brand identity change; inventing legal entity, team, partnerships, product availability, market statistics, or regulatory status; public-home video; redesign of visual system.
+- **Implications:** Visitors should understand opportunity and value first; legal pages and precise development language support credibility for investors, robotics partners, and care organizations.
+
+### D-0281 — Complete D-0280 follow-through (i18n, partner formula, unused catalog, live review)
+
+- **Date:** 2026-08-13
+- **Status:** Active
+- **Summary:** Owner asked to execute the D-0280 QC recommendations, then launch the site and report. Legal entity and counsel review remain owner/counsel items — not invented.
+- **Decision:**
+  1. Keep public brand **SAVEN Core** only. Formal legal entity, address, and governing law stay `[LEGAL ENTITY REQUIRED]` until owner confirmation. Counsel review of Privacy/Terms/Disclaimer remains recommended (D-0216/D-0220).
+  2. Remove unused legacy Home catalog and unused HomeHero / KnowledgeExplorer / DomainMap / PlatformStatus / FeaturedConcepts / ContinueExploring components. Live homepage remains Physical World home.
+  3. Add a Partners visual formula: your robotics platform + SAVEN human-assistance intelligence + a defined application = a potential integrated solution. Do not name specific commercial robots.
+  4. Concept-visualization labels on the hero collage and the living care theater (plus existing Lab video label).
+  5. Contact remains SMTP when configured, else mailto to `info@savencore.com`, including investor and partnership inquiry types. No second invented address.
+  6. Translate D-0280 UI chrome and homepage extras across all 10 locales; fill FAQ/legal/contact/partners/responsible-development dictionaries for missing English keys. English remains canonical.
+- **In scope:** Partner formula component, home locale extras, living-theater concept label, unused catalog removal, UI i18n, dictionary fill, D-0281 notes, local site launch/review.
+- **Out of scope:** Inventing legal entity, partners, pilots, certifications, or market statistics; production deploy unless separately requested; counsel-certified legal packs.
+- **Implications:** D-0280 positioning stays; remaining owner items are entity name and counsel review.
 
 ## Pending Owner Decisions
 

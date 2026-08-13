@@ -5,10 +5,10 @@
 
 export const SITE_NAME = "SAVEN Core";
 export const SITE_TAGLINE = "Turning Intelligence Into Human Care";
-export const SITE_DEFAULT_TITLE = "SAVEN Core — Intelligence for the Physical World";
-/** Default share/JSON-LD description — primary positioning + supporting line (Master Spec / D-0002). */
+export const SITE_DEFAULT_TITLE = "SAVEN Core — Intelligence for Robots That Help People";
+/** Default share/JSON-LD description — primary positioning (D-0280). */
 export const SITE_DEFAULT_DESCRIPTION =
-  "Intelligent systems built to support human life. SAVEN Core develops intelligent systems that help people in hospitals, at home and wherever life happens — connecting AI and robotics under human control.";
+  "SAVEN develops intelligent human-assistance technologies for robotics — connecting perception, movement, personalization, safety, and human interaction to help robotic systems support people in the physical world.";
 
 /** Canonical production origin. Override with NEXT_PUBLIC_SITE_URL when needed. */
 export const SITE_URL =

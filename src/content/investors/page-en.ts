@@ -81,16 +81,16 @@ export type InvestorsPageContent = {
 export const investorsPageContentEn: InvestorsPageContent = {
   metaTitle: "Investors",
   metaDescription:
-    "Long-term capital posture for SAVEN Core — intelligent systems for the physical world, with human care as purpose. Not an offer to sell securities.",
+    "Why SAVEN: human-assistance intelligence for robotics across compatible systems. Long-horizon capital posture — not an offer to sell securities.",
   label: "Investors",
   status: "Architecture",
   hero: {
-    title: "Patient capital for intelligence that serves human life",
-    lede: "SAVEN Core builds intelligent systems for the physical world — so people can be helped in hospitals, at home, and wherever life happens.",
+    title: "Why SAVEN",
+    lede: "Robotics is moving closer to people. The challenge is no longer only making robots capable of movement — it is making physical assistance useful, adaptable, understandable, and appropriate for real human environments.",
     support:
       "This page describes investment posture, the foundation sequence, and what we are building under clear Architecture framing. It does not publish rounds, valuations, revenue, or promised returns.",
     primaryCta: {
-      label: "Investor Contact",
+      label: "Investor Inquiries",
       href: "/investors/contact/",
     },
     secondaryCta: {
@@ -108,18 +108,28 @@ export const investorsPageContentEn: InvestorsPageContent = {
     points: [
       {
         id: "physical-world",
-        title: "Physical-world intelligence",
-        text: "Systems meant to operate beside people — perception, control, interfaces, and assistive action under visible human authority.",
+        title: "Large human need",
+        text: "Mobility, aging, rehabilitation, labor constraints, and independent living create persistent demand for physical assistance.",
       },
       {
         id: "human-care",
-        title: "Human care as purpose",
-        text: "Turning Intelligence Into Human Care anchors the work: ease burdens for care teams, families, and people across ages and stages of life.",
+        title: "Intelligence opportunity",
+        text: "SAVEN focuses on the human-assistance intelligence and integration layer that can potentially operate across compatible robotic systems.",
       },
       {
         id: "disciplined",
-        title: "Architecture before spectacle",
-        text: "What we are building is discussed through craft, responsibility, and staged evidence — never invented growth metrics or return promises.",
+        title: "Platform potential",
+        text: "A reusable assistance layer can potentially support multiple robotic systems and application categories — healthcare, rehabilitation, senior living, home assistance, work environments, and consumer applications.",
+      },
+      {
+        id: "hardware",
+        title: "Fragmented hardware market",
+        text: "Multiple robot architectures are emerging. SAVEN can work with robotics manufacturers instead of competing with every hardware company.",
+      },
+      {
+        id: "robotics-advancing",
+        title: "Robotics is advancing",
+        text: "Robotic hardware, sensing, AI, and control systems are improving rapidly. Human assistance still requires technology beyond mechanical movement.",
       },
     ],
   },

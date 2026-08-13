@@ -153,10 +153,43 @@ export function PhysicalWorldHome({ locale }: PhysicalWorldHomeProps) {
               ))}
             </ul>
             <p className="pw-hero__tagline">{c.tagline}</p>
-            <p className="pw-hero__cue">{c.cue}</p>
+            {c.heroCtas ? (
+              <div className="pw-hero__ctas">
+                <Link
+                  className="pw-hero__cta pw-hero__cta--primary"
+                  href={localizePath(locale, c.heroCtas.primary.href as PublishedRoute)}
+                >
+                  {c.heroCtas.primary.label}
+                </Link>
+                <Link
+                  className="pw-hero__cta pw-hero__cta--secondary"
+                  href={localizePath(
+                    locale,
+                    c.heroCtas.secondary.href as PublishedRoute,
+                  )}
+                >
+                  {c.heroCtas.secondary.label}
+                </Link>
+                {c.heroCtas.tertiary ? (
+                  <Link
+                    className="pw-hero__cta pw-hero__cta--tertiary"
+                    href={localizePath(
+                      locale,
+                      c.heroCtas.tertiary.href as PublishedRoute,
+                    )}
+                  >
+                    {c.heroCtas.tertiary.label}
+                  </Link>
+                ) : null}
+              </div>
+            ) : (
+              <p className="pw-hero__cue">{c.cue}</p>
+            )}
           </div>
         </div>
-        <HeroLivingMedia />
+        <HeroLivingMedia
+          {...(c.conceptLabel ? { conceptLabel: c.conceptLabel } : {})}
+        />
       </header>
 
       {showClarity && c.clarity ? (
@@ -181,6 +214,7 @@ export function PhysicalWorldHome({ locale }: PhysicalWorldHomeProps) {
           {...(showClarity && c.living.whyLabel && c.living.whyLine
             ? { whyLabel: c.living.whyLabel, whyLine: c.living.whyLine }
             : {})}
+          {...(c.conceptLabel ? { conceptLabel: c.conceptLabel } : {})}
         />
         <div className="pw-home__inner pw-domains__deepen-row">
           <p className="pw-domains__deepen">

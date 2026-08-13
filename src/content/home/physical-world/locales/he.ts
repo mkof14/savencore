@@ -3,10 +3,10 @@ import type { PhysicalWorldHomeContent } from "@/content/home/physical-world/typ
 /** Hebrew Layer-1 homepage body — Physical World home. */
 export const physicalWorldHomeHe: PhysicalWorldHomeContent = {
   brand: "SAVEN Core",
-  heroLine: "אינטליגנציה לעולם הפיזי.",
+  heroLine: "אינטליגנציה לרובוטים שעוזרים לאנשים",
   oneBreath:
-    "אנחנו משתמשים ומשפרים בינה מלאכותית עם רובוטיקה לעולם האמיתי — כדי שמכונות יוכלו לחוש, לנוע ולסייע תחת פיקוח אנושי.",
-  builds: ["בינה מלאכותית", "רובוטיקה", "מערכות אוטונומיות"],
+    "SAVEN מפתחת טכנולוגיות חכמות לסיוע אנושי ברובוטיקה — חיבור תפיסה, תנועה, התאמה אישית, בטיחות ואינטראקציה אנושית כדי שמערכות רובוטיות יוכלו לתמוך באנשים בעולם הפיזי.",
+  builds: ["בינה מלאכותית", "רובוטיקה", "סיוע אנושי"],
   buildsLabel: "מה אנחנו בונים",
   tagline: "להפוך אינטליגנציה לטיפול אנושי",
   cue: "מעבדות, ממשק, טכנולוגיה ועוד — בתחתית האתר.",

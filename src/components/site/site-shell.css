@@ -1072,6 +1072,16 @@ a.site-footer__link--more:focus-visible {
   max-width: 52rem;
   width: 100%;
   box-sizing: border-box;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.site-footer__medical p {
+  margin: 0;
+}
+
+.site-footer__notice-links {
+  font-size: 0.75rem;
 }
 
 html[data-theme="dark"] .site-footer__medical {

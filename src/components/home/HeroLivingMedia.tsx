@@ -54,7 +54,11 @@ const STEP_MS = 3200;
  * Hero media column: living photoreal help collage,
  * or a static collage when reduced-motion is preferred.
  */
-export function HeroLivingMedia() {
+export function HeroLivingMedia({
+  conceptLabel,
+}: {
+  conceptLabel?: string;
+}) {
   const [allowMotion, setAllowMotion] = useState(false);
   const [active, setActive] = useState(0);
   const [transitionsOn, setTransitionsOn] = useState(false);
@@ -83,7 +87,7 @@ export function HeroLivingMedia() {
   }, [allowMotion]);
 
   return (
-    <div className="pw-hero__media" aria-hidden="true">
+    <div className="pw-hero__media">
       <div
         className={
           transitionsOn
@@ -92,6 +96,7 @@ export function HeroLivingMedia() {
               ? "pw-hero__collage is-living"
               : "pw-hero__collage"
         }
+        aria-hidden="true"
       >
         {PANELS.map((panel, i) => (
           <picture
@@ -116,6 +121,9 @@ export function HeroLivingMedia() {
           </picture>
         ))}
       </div>
+      {conceptLabel ? (
+        <p className="pw-hero__concept">{conceptLabel}</p>
+      ) : null}
     </div>
   );
 }

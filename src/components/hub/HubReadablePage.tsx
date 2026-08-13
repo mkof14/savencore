@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { HubStoryIcon } from "@/components/hub/HubStoryIcon";
 import { LabsDataLoop } from "@/components/labs/LabsDataLoop";
+import { PartnerFormula } from "@/components/partners/PartnerFormula";
 import { RoboticsInterfaceDiagram } from "@/components/systems/RoboticsInterfaceDiagram";
 import type { Locale } from "@/config/locales";
 import { SITE_FALCON_MARK_PATH } from "@/config/site";
@@ -109,6 +110,9 @@ export function HubReadablePage({ locale, content }: HubReadablePageProps) {
         ) : null}
         {content.diagram?.kind === "robotics-interface" ? (
           <RoboticsInterfaceDiagram labels={content.diagram.labels} />
+        ) : null}
+        {content.diagram?.kind === "partner-formula" ? (
+          <PartnerFormula labels={content.diagram.labels} />
         ) : null}
 
         {content.highlights && content.highlights.length > 0 ? (

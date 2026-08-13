@@ -19,6 +19,7 @@ export const uiUk: UiMessages = {
     foundation: "Основа",
     labs: "Лаби",
     investors: "Інвесторам",
+    partners: "Партнерам",
     signIn: "Вхід / Реєстрація",
   },
 
@@ -81,8 +82,9 @@ export const uiUk: UiMessages = {
     "footer-labs-internal-future-lab": "Future Lab",
     "footer-systems-saven-robotics-interface": "Роботичний інтерфейс",
     "systems-saven-robotics-interface": "Роботичний інтерфейс SAVEN",
-   "sign-in": "Увійти / Зареєструватися", "footer-legal-privacy-policy": "Політика конфіденційності", "footer-legal-terms-of-use": "Умови використання", "footer-legal-cookie-policy": "Політика файлів cookie", "footer-legal-cookie-preferences": "Налаштування файлів cookie", "footer-legal-accessibility-statement": "Заява про доступність", "footer-legal-security": "Безпека", "footer-legal-responsible-ai": "Відповідальний ШІ", "footer-legal-medical-disclaimer": "Медичне застереження", "footer-legal-research-disclaimer": "Дослідницьке застереження", "footer-legal-intellectual-property": "Інтелектуальна власність", "footer-legal-trademark-notice": "Повідомлення про торговельну марку", "footer-legal-copyright": "Повідомлення про авторське право", "footer-legal-data-rights": "Права на дані", "footer-legal-regional-privacy-rights": "Регіональні права на конфіденційність", "footer-legal-do-not-sell-or-share": "Не продавати й не передавати", "footer-legal-legal-notices": "Юридичні повідомлення", "footer-legal-more": "Ще"},
+   "sign-in": "Увійти / Зареєструватися", "footer-legal-privacy-policy": "Політика конфіденційності", "footer-legal-terms-of-use": "Умови використання", "footer-legal-disclaimer": "Відмова від відповідальності", "footer-company-partners": "Партнерам", "trust-responsible-development": "Відповідальна розробка", "footer-legal-cookie-policy": "Політика файлів cookie", "footer-legal-cookie-preferences": "Налаштування файлів cookie", "footer-legal-accessibility-statement": "Заява про доступність", "footer-legal-security": "Безпека", "footer-legal-responsible-ai": "Відповідальний ШІ", "footer-legal-medical-disclaimer": "Медичне застереження", "footer-legal-research-disclaimer": "Дослідницьке застереження", "footer-legal-intellectual-property": "Інтелектуальна власність", "footer-legal-trademark-notice": "Повідомлення про торговельну марку", "footer-legal-copyright": "Повідомлення про авторське право", "footer-legal-data-rights": "Права на дані", "footer-legal-regional-privacy-rights": "Регіональні права на конфіденційність", "footer-legal-do-not-sell-or-share": "Не продавати й не передавати", "footer-legal-legal-notices": "Юридичні повідомлення", "footer-legal-more": "Ще"},
   footer: {
+    ...uiEn.footer,
     technology: "Технології",
     systems: "Системи",
     architecture: "Архітектура",
@@ -104,6 +106,10 @@ export const uiUk: UiMessages = {
     copyrightLabel: "Copyright",
     privacy: "Конфіденційність",
     terms: "Умови",
+    disclaimer: "Відмова від відповідальності",
+    responsibleDevelopment: "Відповідальна розробка",
+    developmentNote:
+      "SAVEN — технологічна програма розробки. Частина матеріалів показує дослідницькі напрями, концепції розробки та можливі майбутні застосування.",
     cookies: "Файли cookie",
     theme: "Тема",
     themeLight: "Світла",
@@ -279,7 +285,7 @@ export const uiUk: UiMessages = {
 
     search: { title: "Пошук", lead: "Знаходьте опубліковані сторінки за назвою. Легкий пошук по карті сайту — не повнотекстова CMS.", placeholder: "Пошук назв сторінок…", submit: "Шукати", noQuery: "Введіть кілька літер, щоб відфільтрувати назви опублікованих сторінок.", empty: "Немає відповідних опублікованих сторінок. Спробуйте інше слово або перегляньте карту в підвалі.", results: "{count} відповідних сторінок", honestNote: "Пошук охоплює лише назви опублікованих сторінок і мітки навігації — не тіла документів і не приватний Admin.", navLabel: "Пошук" },
 
-  lab: {
+  lab: { ...uiEn.lab,
     eyebrow: "Тест / Lab / Експерименти",
     title: "Lab",
     lead: "Пісочниця для нових функцій без змін публічного сайту. Тут експерименти — не продуктові заяви.",
@@ -460,18 +466,32 @@ export const uiUk: UiMessages = {
       "У меню браузера виберіть «Встановити застосунок» або «На екран „Додому“», щоб установити SAVEN Core.",
   },
 
-  contact: {
+  contact: { ...uiEn.contact,
     formHeading: "Повідомлення",
     nameLabel: "Ім’я",
+    organizationLabel: "Організація",
+    roleLabel: "Посада",
     emailLabel: "Електронна пошта",
+    websiteLabel: "Сайт компанії (необов’язково)",
+    inquiryTypeLabel: "Тип звернення",
+    inquiryGeneral: "Загальне звернення",
+    inquiryRobotics: "Робототехнічне партнерство",
+    inquiryTechnology: "Технологічне партнерство",
+    inquiryResearch: "Дослідницька співпраця",
+    inquiryRehab: "Реабілітація / клінічні дослідження",
+    inquiryCare: "Проживання літніх / догляд",
+    inquiryInvestor: "Інвесторський запит",
+    inquiryMedia: "Медіа",
     subjectLabel: "Тема (необов’язково)",
     messageLabel: "Повідомлення",
+    medicalNote:
+      "Будь ласка, не надсилайте конфіденційну медичну інформацію через цю форму.",
     submit: "Надіслати повідомлення",
     submitMailto: "Відкрити в поштовому застосунку",
     success: "Повідомлення надіслано. Ми відповімо, щойно зможемо.",
     successMailto:
       "Має відкритися ваш поштовий застосунок із готовим повідомленням.",
-    error: "Будь ласка, заповніть ім’я, пошту та повідомлення.",
+    error: "Будь ласка, заповніть ім’я, пошту, тип звернення та повідомлення.",
     fallbackNote:
       "Пряме надсилання не налаштоване на цьому сервері. Натомість відкриється ваш поштовий застосунок, щоб повідомлення все одно дійшло до info@savencore.com.",
   },

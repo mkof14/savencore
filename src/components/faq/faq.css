@@ -240,6 +240,18 @@
 .faq-page__section--not-claiming {
   --faq-accent: #8a4f4f;
 }
+.faq-page__section--health {
+  --faq-accent: #8a4f4f;
+}
+.faq-page__section--daily {
+  --faq-accent: #3f7a52;
+}
+.faq-page__section--privacy-data {
+  --faq-accent: #2f6f6a;
+}
+.faq-page__section--availability {
+  --faq-accent: #5a6b78;
+}
 
 .faq-page__toc-link--about {
   border-inline-start-color: #c4a35a;
@@ -285,6 +297,18 @@
 }
 .faq-page__toc-link--not-claiming {
   border-inline-start-color: #8a4f4f;
+}
+.faq-page__toc-link--health {
+  border-inline-start-color: #8a4f4f;
+}
+.faq-page__toc-link--daily {
+  border-inline-start-color: #3f7a52;
+}
+.faq-page__toc-link--privacy-data {
+  border-inline-start-color: #2f6f6a;
+}
+.faq-page__toc-link--availability {
+  border-inline-start-color: #5a6b78;
 }
 
 .faq-page__section-head {

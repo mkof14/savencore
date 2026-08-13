@@ -40,6 +40,7 @@ export default async function LabPage({ params }: Props) {
         copy={{
           overlayEyebrow: ui.lab.videoOverlayEyebrow,
           overlayLine: ui.lab.videoOverlayLine,
+          conceptLabel: ui.lab.conceptLabel,
           caption: ui.lab.videoCaption,
           captions: {
             understanding: ui.lab.videoCaptionUnderstanding,
@@ -92,6 +93,7 @@ export default async function LabPage({ params }: Props) {
           <p className="site-lab-page__eyebrow">{ui.lab.eyebrow}</p>
           <h1 className="site-lab-page__title">{ui.lab.title}</h1>
           <p className="site-lab-page__lead">{ui.lab.lead}</p>
+          <p className="site-lab-page__effects">{ui.lab.conceptNote}</p>
 
           <h2 className="site-lab-page__section-title">
             {ui.lab.videoEffectsHeading}

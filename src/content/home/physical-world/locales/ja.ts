@@ -3,10 +3,10 @@ import type { PhysicalWorldHomeContent } from "@/content/home/physical-world/typ
 /** Japanese Layer-1 homepage body — Physical World home. */
 export const physicalWorldHomeJa: PhysicalWorldHomeContent = {
   brand: "SAVEN Core",
-  heroLine: "物理世界のための知能。",
+  heroLine: "人を助けるロボットのための知能",
   oneBreath:
-    "私たちは現実世界で働くロボティクスとともに AI を活用・洗練します — 機械が人の制御のもとで感知し、動き、支援できるように。",
-  builds: ["人工知能", "ロボティクス", "自律システム"],
+    "SAVEN はロボティクスのための知的な人支援技術を開発しています。知覚、動き、個別化、安全、人とのインタラクションをつなぎ、ロボットシステムが物理世界で人を支えられるようにします。",
+  builds: ["人工知能", "ロボティクス", "人への支援"],
   buildsLabel: "私たちがつくるもの",
   tagline: "知能を人のケアへつなぐ",
   cue: "Labs、Interface、Technology などはフッターからご覧ください。",

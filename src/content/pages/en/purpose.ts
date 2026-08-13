@@ -8,7 +8,7 @@ export const purposePageContent: EditorialPageContent = {
   label: "Purpose",
   title: "Intelligent systems built to support human life.",
   introduction:
-    "SAVEN Core builds systems that support people in hospitals, at home, and in everyday life. Human purpose comes first — then architecture, engineering, and careful assistance.",
+    "People live in environments designed around human physical abilities. When mobility, strength, age, injury, disability, or circumstances change, ordinary tasks can become difficult. Robotics creates an opportunity to bring intelligent physical assistance into those environments. SAVEN is being built around that problem.",
   status: "Reference architecture",
   sectionNav: [
     { id: "purpose", label: "Purpose" },
@@ -26,7 +26,7 @@ export const purposePageContent: EditorialPageContent = {
       id: "purpose",
       title: "Purpose",
       paragraphs: [
-        "The primary purpose of SAVEN Core is helping people. SAVEN Core brings human-centered architecture to care, independence, safety and daily life across every age and stage of life.",
+        "Why SAVEN exists: people sometimes need physical assistance. SAVEN develops intelligent technologies that help robotic systems assist people with mobility, physical tasks, rehabilitation support, and everyday activities.",
         "BioMath Core reports and conclusions form the information that shapes SAVEN’s next-level actions and commands — under human control, with AI as a tool. That intelligence foundation covers 20 categories and 200+ services as model scope.",
         "Robotics, aerial systems, infrastructure and other technical extensions remain subordinate to that purpose. They must not replace or obscure the human reason for the work.",
       ],

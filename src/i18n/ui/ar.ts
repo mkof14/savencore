@@ -19,6 +19,7 @@ export const uiAr: UiMessages = {
     foundation: "الأساس",
     labs: "المختبرات",
     investors: "المستثمرون",
+    partners: "الشركاء",
     signIn: "تسجيل الدخول / التسجيل",
   },
 
@@ -81,8 +82,9 @@ export const uiAr: UiMessages = {
     "footer-labs-internal-future-lab": "مختبر المستقبل",
     "footer-systems-saven-robotics-interface": "واجهة الروبوتات",
     "systems-saven-robotics-interface": "واجهة روبوتات SAVEN",
-   "sign-in": "تسجيل الدخول / الاشتراك", "footer-legal-privacy-policy": "سياسة الخصوصية", "footer-legal-terms-of-use": "شروط الاستخدام", "footer-legal-cookie-policy": "سياسة ملفات تعريف الارتباط", "footer-legal-cookie-preferences": "تفضيلات ملفات تعريف الارتباط", "footer-legal-accessibility-statement": "بيان إمكانية الوصول", "footer-legal-security": "الأمان", "footer-legal-responsible-ai": "الذكاء الاصطناعي المسؤول", "footer-legal-medical-disclaimer": "إخلاء مسؤولية طبية", "footer-legal-research-disclaimer": "إخلاء مسؤولية بحثية", "footer-legal-intellectual-property": "الملكية الفكرية", "footer-legal-trademark-notice": "إشعار العلامة التجارية", "footer-legal-copyright": "إشعار حقوق النشر", "footer-legal-data-rights": "حقوق البيانات", "footer-legal-regional-privacy-rights": "حقوق الخصوصية الإقليمية", "footer-legal-do-not-sell-or-share": "عدم البيع أو المشاركة", "footer-legal-legal-notices": "إشعارات قانونية", "footer-legal-more": "المزيد"},
+   "sign-in": "تسجيل الدخول / الاشتراك", "footer-legal-privacy-policy": "سياسة الخصوصية", "footer-legal-terms-of-use": "شروط الاستخدام", "footer-legal-disclaimer": "إخلاء المسؤولية", "footer-company-partners": "الشركاء", "trust-responsible-development": "تطوير مسؤول", "footer-legal-cookie-policy": "سياسة ملفات تعريف الارتباط", "footer-legal-cookie-preferences": "تفضيلات ملفات تعريف الارتباط", "footer-legal-accessibility-statement": "بيان إمكانية الوصول", "footer-legal-security": "الأمان", "footer-legal-responsible-ai": "الذكاء الاصطناعي المسؤول", "footer-legal-medical-disclaimer": "إخلاء مسؤولية طبية", "footer-legal-research-disclaimer": "إخلاء مسؤولية بحثية", "footer-legal-intellectual-property": "الملكية الفكرية", "footer-legal-trademark-notice": "إشعار العلامة التجارية", "footer-legal-copyright": "إشعار حقوق النشر", "footer-legal-data-rights": "حقوق البيانات", "footer-legal-regional-privacy-rights": "حقوق الخصوصية الإقليمية", "footer-legal-do-not-sell-or-share": "عدم البيع أو المشاركة", "footer-legal-legal-notices": "إشعارات قانونية", "footer-legal-more": "المزيد"},
   footer: {
+    ...uiEn.footer,
     technology: "التقنية",
     systems: "الأنظمة",
     architecture: "الهندسة المعمارية",
@@ -104,6 +106,10 @@ export const uiAr: UiMessages = {
     copyrightLabel: "حقوق النشر",
     privacy: "الخصوصية",
     terms: "الشروط",
+    disclaimer: "إخلاء المسؤولية",
+    responsibleDevelopment: "تطوير مسؤول",
+    developmentNote:
+      "SAVEN مبادرة لتطوير التقنيات. يعرض بعض المحتوى اتجاهات بحثية ومفاهيم تطوير وتطبيقات مستقبلية محتملة.",
     cookies: "ملفات تعريف الارتباط",
     theme: "المظهر",
     themeLight: "فاتح",
@@ -273,7 +279,7 @@ export const uiAr: UiMessages = {
 
     search: { title: "بحث", lead: "اعثر على الصفحات المنشورة حسب العنوان. بحث خفيف في خريطة الموقع — وليس نظام إدارة محتوى للنص الكامل.", placeholder: "ابحث في عناوين الصفحات…", submit: "بحث", noQuery: "اكتب بضعة أحرف لتصفية عناوين الصفحات المنشورة.", empty: "لا توجد صفحات منشورة مطابقة. جرّب كلمة أخرى أو تصفّح خريطة التذييل.", results: "{count} صفحات مطابقة", honestNote: "يغطي البحث عناوين الصفحات المنشورة وتسميات التنقل فقط — وليس نصوص المستندات أو محتوى الإدارة الخاص.", navLabel: "بحث" },
 
-  lab: {
+  lab: { ...uiEn.lab,
     eyebrow: "اختبار / Lab / تجارب",
     title: "Lab",
     lead: "بيئة آمنة لتجربة ميزات جديدة دون تغيير الموقع العام. ما هنا تجارب — وليس ادعاءات منتج.",
@@ -453,17 +459,31 @@ export const uiAr: UiMessages = {
       "من قائمة المتصفح اختر تثبيت التطبيق أو إضافة إلى الشاشة الرئيسية لتثبيت SAVEN Core.",
   },
 
-  contact: {
+  contact: { ...uiEn.contact,
     formHeading: "رسالة",
     nameLabel: "الاسم",
+    organizationLabel: "المنظمة",
+    roleLabel: "الدور",
     emailLabel: "البريد الإلكتروني",
+    websiteLabel: "موقع الشركة (اختياري)",
+    inquiryTypeLabel: "نوع الاستفسار",
+    inquiryGeneral: "استفسار عام",
+    inquiryRobotics: "شراكة روبوتات",
+    inquiryTechnology: "شراكة تقنية",
+    inquiryResearch: "تعاون بحثي",
+    inquiryRehab: "إعادة تأهيل / بحث سريري",
+    inquiryCare: "سكن كبار السن / رعاية",
+    inquiryInvestor: "استفسار مستثمر",
+    inquiryMedia: "إعلام",
     subjectLabel: "الموضوع (اختياري)",
     messageLabel: "الرسالة",
+    medicalNote:
+      "يرجى عدم إرسال معلومات طبية سرية عبر هذا النموذج.",
     submit: "إرسال الرسالة",
     submitMailto: "فتح في تطبيق البريد",
     success: "تم إرسال الرسالة. سنرد عندما نتمكن من ذلك.",
     successMailto: "يفترض أن يفتح تطبيق بريدك مع الرسالة جاهزة للإرسال.",
-    error: "يرجى إكمال الاسم والبريد والرسالة.",
+    error: "يرجى إكمال الاسم والبريد ونوع الاستفسار والرسالة.",
     fallbackNote:
       "الإرسال المباشر غير مُفعَّل على هذا الخادم. سيفتح تطبيق البريد لديك بدلاً من ذلك حتى تصل الرسالة إلى info@savencore.com.",
   },

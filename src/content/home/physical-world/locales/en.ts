@@ -2,13 +2,19 @@ import type { PhysicalWorldHomeContent } from "@/content/home/physical-world/typ
 
 export const physicalWorldHomeEn: PhysicalWorldHomeContent = {
   brand: "SAVEN Core",
-  heroLine: "Intelligence for the Physical World.",
+  heroLine: "Intelligence for Robots That Help People",
   oneBreath:
-    "We use and refine AI with robotics that work in the real world — so machines can sense, move, and assist under human control.",
-  builds: ["Artificial intelligence", "Robotics", "Autonomous systems"],
+    "SAVEN develops intelligent human-assistance technologies for robotics — connecting perception, movement, personalization, safety, and human interaction to help robotic systems support people in the physical world.",
+  builds: ["Artificial intelligence", "Robotics", "Human assistance"],
   buildsLabel: "What we build",
   tagline: "Turning Intelligence Into Human Care",
-  cue: "Explore Labs, Interface, Technology, and more in the footer.",
+  cue: "Technology & Research",
+  heroCtas: {
+    primary: { label: "Explore SAVEN", href: "/technology/" },
+    secondary: { label: "Partner With Us", href: "/partners/" },
+    tertiary: { label: "Technology & Research", href: "/labs/saven-robotics-lab/" },
+  },
+  conceptLabel: "Concept visualization",
   living: {
     headline: "Care where life happens.",
     support:
@@ -27,7 +33,7 @@ export const physicalWorldHomeEn: PhysicalWorldHomeContent = {
       {
         id: "children-family",
         label: "Children & family",
-        line: "Gentle help under the care of people who love them.",
+        line: "Family environments are a long-term area for human-centered robotics — with adult supervision and age-appropriate design.",
       },
       {
         id: "emergency",
@@ -65,12 +71,99 @@ export const physicalWorldHomeEn: PhysicalWorldHomeContent = {
   clarity: {
     definition: {
       heading: "What is SAVEN",
-      body: "SAVEN Core links human understanding to robots and devices in the physical world — under human control. AI is a tool for that purpose, not the purpose.",
+      body: "SAVEN develops intelligent technologies that help robotic systems assist people with mobility, physical tasks, rehabilitation support, and everyday activities. The work is broader than a single humanoid robot — it is a hardware-flexible intelligence and integration approach.",
+    },
+    purpose: {
+      heading: "Technology Built Around People",
+      body: "Robotics is moving from controlled industrial environments into places built for people — homes, rehabilitation environments, care settings, workplaces, and everyday life. SAVEN is focused on the intelligence and interaction technologies required for robots to understand human activity, adapt assistance, and support physical tasks in ways that are practical, intuitive, and increasingly personalized.",
+      cards: [
+        { title: "Mobility", href: "/applications/home/" },
+        { title: "Physical Assistance", href: "/applications/home/" },
+        { title: "Rehabilitation Support", href: "/applications/healthcare/" },
+        { title: "Independent Living", href: "/applications/home/" },
+        { title: "Everyday Tasks", href: "/applications/home/" },
+        { title: "Human-Robot Interaction", href: "/labs/saven-robotics-lab/" },
+      ],
+    },
+    layers: {
+      heading: "The SAVEN Human Assistance Layer",
+      intro:
+        "SAVEN’s value is not limited to building mechanical robots. The architecture is designed as a human-assistance intelligence layer that can work across compatible robotic systems.",
+      items: [
+        {
+          title: "Perception",
+          text: "Understanding people, movement, surroundings, objects, and context through compatible sensors and robotic systems.",
+        },
+        {
+          title: "Human Movement Understanding",
+          text: "Interpreting movement patterns and physical interaction to help determine when and how assistance may be appropriate.",
+        },
+        {
+          title: "Assistance Intelligence",
+          text: "Software and AI designed to coordinate robotic assistance according to the task, environment, system capabilities, and user context.",
+        },
+        {
+          title: "Personalization",
+          text: "Adapting interaction and assistance to individual preferences, routines, capabilities, and permitted data.",
+        },
+        {
+          title: "Safety & Control",
+          text: "Designing human oversight, operational limits, interruption mechanisms, system monitoring, and safe-state behaviors into human-robot interaction.",
+        },
+      ],
+    },
+    hardware: {
+      heading: "Intelligence Beyond a Single Robot",
+      body: "The future of assistive robotics will not be defined by one machine. Different environments and tasks require different robotic systems. SAVEN is being developed as a hardware-flexible intelligence and integration approach capable of working across compatible robotic platforms. One intelligence approach. Multiple robotic forms.",
+      forms: [
+        "Humanoid robots",
+        "Mobile robots",
+        "Robotic arms",
+        "Wearable robotics",
+        "Rehabilitation systems",
+        "Future assistive devices",
+      ],
+      hub: "SAVEN Human Assistance Intelligence",
+    },
+    path: {
+      heading: "From Research to Real-World Assistance",
+      stages: [
+        {
+          n: "01",
+          title: "Research",
+          text: "Human needs, use cases, interaction models, and safety requirements.",
+        },
+        {
+          n: "02",
+          title: "Integration",
+          text: "Sensors, AI, robotics platforms, and software.",
+        },
+        {
+          n: "03",
+          title: "Prototype",
+          text: "Controlled interaction, movement, tasks, and user interfaces.",
+        },
+        {
+          n: "04",
+          title: "Validation",
+          text: "Safety, usability, performance, and human feedback.",
+        },
+        {
+          n: "05",
+          title: "Pilot Programs",
+          text: "Selected environments, partners, and professional oversight.",
+        },
+        {
+          n: "06",
+          title: "Deployment",
+          text: "Defined applications, qualified platforms, and operational support.",
+        },
+      ],
     },
     biomathBridge: {
       eyebrow: "Who we are",
       title: "BioMath Core → SAVEN",
-      body: "BioMath Core is the foundation of the Human Data Model — continuous context that gathers and structures authorized human data, and forms the reports and conclusions that shape SAVEN’s next-level actions under human control.",
+      body: "Robotic assistance becomes more useful when technology can understand the person — not only the task. SAVEN may connect with BioMath Core capabilities to explore more personalized interaction using authorized information about individual routines, movement, preferences, and relevant human context. Personal information is used only through appropriate permissions and applicable privacy controls.",
       scopeLine: "Model coverage: 20 categories · 200+ services — not an Operational catalog.",
       href: "/foundation/biomath-core/",
       cta: "Explore BioMath Core",
@@ -103,7 +196,7 @@ export const physicalWorldHomeEn: PhysicalWorldHomeContent = {
     },
     audience: {
       heading: "Where do you want to begin?",
-      support: "Care & purpose · technology & systems · investors.",
+      support: "Care & purpose · technology & systems · partners · investors.",
       paths: [
         {
           id: "care",
@@ -112,6 +205,7 @@ export const physicalWorldHomeEn: PhysicalWorldHomeContent = {
           links: [
             { label: "Purpose", href: "/purpose/" },
             { label: "Applications", href: "/applications/" },
+            { label: "Safety", href: "/trust/safety/" },
           ],
         },
         {
@@ -129,6 +223,12 @@ export const physicalWorldHomeEn: PhysicalWorldHomeContent = {
           ],
         },
         {
+          id: "partners",
+          label: "Build with SAVEN",
+          description: "Your robotics platform plus SAVEN human-assistance intelligence.",
+          links: [{ label: "Partners", href: "/partners/" }],
+        },
+        {
           id: "investors",
           label: "Investors",
           description: "Long-horizon, mission-aligned capital — honest status.",
@@ -139,9 +239,9 @@ export const physicalWorldHomeEn: PhysicalWorldHomeContent = {
     not: {
       heading: "What we are not",
       points: [
-        "We do not exist to create AI — AI is a tool we use and advance for human support.",
-        "We do not diagnose medical conditions through this website.",
-        "We do not prescribe or sell medicines.",
+        "AI is a tool for human assistance — not the purpose of the company.",
+        "This website does not diagnose medical conditions or provide medical advice.",
+        "SAVEN does not prescribe or sell medicines.",
       ],
     },
   },
@@ -208,6 +308,7 @@ export const physicalWorldHomeEn: PhysicalWorldHomeContent = {
         { label: "Robotics Interface", href: "/systems/saven-robotics-interface/" },
         { label: "Internal Future Lab", href: "/labs/internal-future-lab/" },
         { label: "Trust", href: "/trust/" },
+        { label: "Partners", href: "/partners/" },
         { label: "Contact", href: "/contact/" },
         { label: "FAQ", href: "/faq/" },
       ],
@@ -233,7 +334,7 @@ export const physicalWorldHomeEn: PhysicalWorldHomeContent = {
         id: "verification",
         label: "Verification",
         meaning:
-          "Safety, trust, and human oversight before any claim of autonomy.",
+          "Safety, trust, and human oversight are part of the architecture — not an afterthought.",
         href: "/trust/human-oversight/",
         cta: "Human Oversight",
       },

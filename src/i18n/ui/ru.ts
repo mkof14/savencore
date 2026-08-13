@@ -19,6 +19,7 @@ export const uiRu: UiMessages = {
     foundation: "Основа",
     labs: "Лабы",
     investors: "Инвесторам",
+    partners: "Партнёрам",
     signIn: "Вход / Регистрация",
   },
 
@@ -81,8 +82,9 @@ export const uiRu: UiMessages = {
     "footer-labs-internal-future-lab": "Future Lab",
     "footer-systems-saven-robotics-interface": "Робототехнический интерфейс",
     "systems-saven-robotics-interface": "Робототехнический интерфейс SAVEN",
-   "sign-in": "Вход / Регистрация", "footer-legal-privacy-policy": "Политика конфиденциальности", "footer-legal-terms-of-use": "Условия использования", "footer-legal-cookie-policy": "Политика cookie", "footer-legal-cookie-preferences": "Настройки cookie", "footer-legal-accessibility-statement": "Заявление о доступности", "footer-legal-security": "Безопасность", "footer-legal-responsible-ai": "Ответственный ИИ", "footer-legal-medical-disclaimer": "Медицинский отказ от ответственности", "footer-legal-research-disclaimer": "Исследовательский отказ от ответственности", "footer-legal-intellectual-property": "Интеллектуальная собственность", "footer-legal-trademark-notice": "Уведомление о товарных знаках", "footer-legal-copyright": "Уведомление об авторских правах", "footer-legal-data-rights": "Права на данные", "footer-legal-regional-privacy-rights": "Региональные права на конфиденциальность", "footer-legal-do-not-sell-or-share": "Не продавать и не передавать", "footer-legal-legal-notices": "Юридические уведомления", "footer-legal-more": "Ещё"},
+   "sign-in": "Вход / Регистрация", "footer-legal-privacy-policy": "Политика конфиденциальности", "footer-legal-terms-of-use": "Условия использования", "footer-legal-disclaimer": "Отказ от ответственности", "footer-company-partners": "Партнёрам", "trust-responsible-development": "Ответственная разработка", "footer-legal-cookie-policy": "Политика cookie", "footer-legal-cookie-preferences": "Настройки cookie", "footer-legal-accessibility-statement": "Заявление о доступности", "footer-legal-security": "Безопасность", "footer-legal-responsible-ai": "Ответственный ИИ", "footer-legal-medical-disclaimer": "Медицинский отказ от ответственности", "footer-legal-research-disclaimer": "Исследовательский отказ от ответственности", "footer-legal-intellectual-property": "Интеллектуальная собственность", "footer-legal-trademark-notice": "Уведомление о товарных знаках", "footer-legal-copyright": "Уведомление об авторских правах", "footer-legal-data-rights": "Права на данные", "footer-legal-regional-privacy-rights": "Региональные права на конфиденциальность", "footer-legal-do-not-sell-or-share": "Не продавать и не передавать", "footer-legal-legal-notices": "Юридические уведомления", "footer-legal-more": "Ещё"},
   footer: {
+    ...uiEn.footer,
     technology: "Технологии",
     systems: "Системы",
     architecture: "Архитектура",
@@ -104,6 +106,10 @@ export const uiRu: UiMessages = {
     copyrightLabel: "Copyright",
     privacy: "Конфиденциальность",
     terms: "Условия",
+    disclaimer: "Отказ от ответственности",
+    responsibleDevelopment: "Ответственная разработка",
+    developmentNote:
+      "SAVEN — технологическая программа разработки. Часть материалов показывает исследовательские направления, концепции разработки и возможные будущие применения.",
     cookies: "Файлы cookie",
     theme: "Тема",
     themeLight: "Светлая",
@@ -384,7 +390,7 @@ export const uiRu: UiMessages = {
 
     search: { title: "Поиск", lead: "Находите опубликованные страницы по названию. Лёгкий поиск по карте сайта — не полнотекстовая CMS.", placeholder: "Поиск названий страниц…", submit: "Искать", noQuery: "Введите несколько букв, чтобы отфильтровать названия опубликованных страниц.", empty: "Нет подходящих опубликованных страниц. Попробуйте другое слово или карту в подвале.", results: "{count} подходящих страниц", honestNote: "Поиск охватывает только названия опубликованных страниц и подписи навигации — не тексты документов и не закрытый Admin.", navLabel: "Поиск" },
 
-  lab: {
+  lab: { ...uiEn.lab,
     eyebrow: "Тест / Lab / Эксперименты",
     title: "Lab",
     lead: "Песочница для новых функций без изменения публичного сайта. Здесь эксперименты — не продуктовые заявления.",
@@ -565,18 +571,32 @@ export const uiRu: UiMessages = {
       "В меню браузера выберите «Установить приложение» или «На экран „Домой“», чтобы установить SAVEN Core.",
   },
 
-  contact: {
+  contact: { ...uiEn.contact,
     formHeading: "Сообщение",
     nameLabel: "Имя",
+    organizationLabel: "Организация",
+    roleLabel: "Должность",
     emailLabel: "Электронная почта",
+    websiteLabel: "Сайт компании (необязательно)",
+    inquiryTypeLabel: "Тип обращения",
+    inquiryGeneral: "Общий вопрос",
+    inquiryRobotics: "Робототехническое партнёрство",
+    inquiryTechnology: "Технологическое партнёрство",
+    inquiryResearch: "Исследовательское сотрудничество",
+    inquiryRehab: "Реабилитация / клинические исследования",
+    inquiryCare: "Проживание пожилых / уход",
+    inquiryInvestor: "Инвесторский запрос",
+    inquiryMedia: "СМИ",
     subjectLabel: "Тема (необязательно)",
     messageLabel: "Сообщение",
+    medicalNote:
+      "Пожалуйста, не отправляйте конфиденциальную медицинскую информацию через эту форму.",
     submit: "Отправить сообщение",
     submitMailto: "Открыть в почтовом приложении",
     success: "Сообщение отправлено. Мы ответим, как только сможем.",
     successMailto:
       "Должно открыться ваше почтовое приложение с готовым сообщением.",
-    error: "Пожалуйста, заполните имя, почту и сообщение.",
+    error: "Пожалуйста, заполните имя, почту, тип обращения и сообщение.",
     fallbackNote:
       "Прямая отправка не настроена на этом сервере. Вместо этого откроется ваше почтовое приложение, чтобы сообщение всё равно дошло до info@savencore.com.",
   },

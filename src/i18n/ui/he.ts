@@ -19,6 +19,7 @@ export const uiHe: UiMessages = {
     foundation: "יסוד",
     labs: "מעבדות",
     investors: "משקיעים",
+    partners: "שותפים",
     signIn: "התחברות / הרשמה",
   },
 
@@ -81,8 +82,9 @@ export const uiHe: UiMessages = {
     "footer-labs-internal-future-lab": "מעבדת העתיד",
     "footer-systems-saven-robotics-interface": "ממשק רובוטיקה",
     "systems-saven-robotics-interface": "ממשק הרובוטיקה של SAVEN",
-   "sign-in": "התחברות / הרשמה", "footer-legal-privacy-policy": "מדיניות פרטיות", "footer-legal-terms-of-use": "תנאי שימוש", "footer-legal-cookie-policy": "מדיניות עוגיות", "footer-legal-cookie-preferences": "העדפות עוגיות", "footer-legal-accessibility-statement": "הצהרת נגישות", "footer-legal-security": "אבטחה", "footer-legal-responsible-ai": "בינה מלאכותית אחראית", "footer-legal-medical-disclaimer": "כתב ויתור רפואי", "footer-legal-research-disclaimer": "כתב ויתור מחקרי", "footer-legal-intellectual-property": "קניין רוחני", "footer-legal-trademark-notice": "הודעת סימן מסחרי", "footer-legal-copyright": "הודעת זכויות יוצרים", "footer-legal-data-rights": "זכויות מידע", "footer-legal-regional-privacy-rights": "זכויות פרטיות אזוריות", "footer-legal-do-not-sell-or-share": "אל תמכרו או תשתפו", "footer-legal-legal-notices": "הודעות משפטיות", "footer-legal-more": "עוד"},
+   "sign-in": "התחברות / הרשמה", "footer-legal-privacy-policy": "מדיניות פרטיות", "footer-legal-terms-of-use": "תנאי שימוש", "footer-legal-disclaimer": "כתב ויתור", "footer-company-partners": "שותפים", "trust-responsible-development": "פיתוח אחראי", "footer-legal-cookie-policy": "מדיניות עוגיות", "footer-legal-cookie-preferences": "העדפות עוגיות", "footer-legal-accessibility-statement": "הצהרת נגישות", "footer-legal-security": "אבטחה", "footer-legal-responsible-ai": "בינה מלאכותית אחראית", "footer-legal-medical-disclaimer": "כתב ויתור רפואי", "footer-legal-research-disclaimer": "כתב ויתור מחקרי", "footer-legal-intellectual-property": "קניין רוחני", "footer-legal-trademark-notice": "הודעת סימן מסחרי", "footer-legal-copyright": "הודעת זכויות יוצרים", "footer-legal-data-rights": "זכויות מידע", "footer-legal-regional-privacy-rights": "זכויות פרטיות אזוריות", "footer-legal-do-not-sell-or-share": "אל תמכרו או תשתפו", "footer-legal-legal-notices": "הודעות משפטיות", "footer-legal-more": "עוד"},
   footer: {
+    ...uiEn.footer,
     technology: "טכנולוגיה",
     systems: "מערכות",
     architecture: "ארכיטקטורה",
@@ -104,6 +106,10 @@ export const uiHe: UiMessages = {
     copyrightLabel: "זכויות יוצרים",
     privacy: "פרטיות",
     terms: "תנאים",
+    disclaimer: "כתב ויתור",
+    responsibleDevelopment: "פיתוח אחראי",
+    developmentNote:
+      "SAVEN היא יוזמת פיתוח טכנולוגי. חלק מהתוכן מציג כיווני מחקר, מושגי פיתוח ויישומים עתידיים אפשריים.",
     cookies: "עוגיות",
     theme: "ערכת נושא",
     themeLight: "בהיר",
@@ -271,7 +277,7 @@ export const uiHe: UiMessages = {
 
     search: { title: "חיפוש", lead: "מצאו דפים מפורסמים לפי כותרת. חיפוש קל של מפת האתר — לא CMS לטקסט מלא.", placeholder: "חיפוש כותרות דפים…", submit: "חיפוש", noQuery: "הקלידו כמה אותיות כדי לסנן כותרות דפים מפורסמים.", empty: "אין דפים מפורסמים תואמים. נסו מילה אחרת או עיינו במפת הכותרת התחתונה.", results: "{count} דפים תואמים", honestNote: "החיפוש מכסה רק כותרות דפים מפורסמים ותוויות ניווט — לא גופי מסמכים או תוכן Admin פרטי.", navLabel: "חיפוש" },
 
-  lab: {
+  lab: { ...uiEn.lab,
     eyebrow: "בדיקה / Lab / ניסויים",
     title: "Lab",
     lead: "ארגז חול לניסיון פיצ'רים חדשים בלי לשנות את האתר הציבורי. מה שכאן הוא ניסויים — לא טענות מוצר.",
@@ -451,17 +457,31 @@ export const uiHe: UiMessages = {
       "בתפריט הדפדפן בחרו התקנת אפליקציה או הוספה למסך הבית כדי להתקין את SAVEN Core.",
   },
 
-  contact: {
+  contact: { ...uiEn.contact,
     formHeading: "הודעה",
     nameLabel: "שם",
+    organizationLabel: "ארגון",
+    roleLabel: "תפקיד",
     emailLabel: "דוא״ל",
+    websiteLabel: "אתר החברה (אופציונלי)",
+    inquiryTypeLabel: "סוג פנייה",
+    inquiryGeneral: "פנייה כללית",
+    inquiryRobotics: "שותפות רובוטיקה",
+    inquiryTechnology: "שותפות טכנולוגית",
+    inquiryResearch: "שיתוף פעולה מחקרי",
+    inquiryRehab: "שיקום / מחקר קליני",
+    inquiryCare: "מגורים לגיל השלישי / טיפול",
+    inquiryInvestor: "פניית משקיעים",
+    inquiryMedia: "תקשורת",
     subjectLabel: "נושא (אופציונלי)",
     messageLabel: "הודעה",
+    medicalNote:
+      "אין לשלוח מידע רפואי סודי דרך טופס זה.",
     submit: "שליחת הודעה",
     submitMailto: "פתיחה באפליקציית הדוא״ל",
     success: "ההודעה נשלחה. נשיב כשנוכל.",
     successMailto: "אפליקציית הדוא״ל אמורה להיפתח עם ההודעה מוכנה לשליחה.",
-    error: "נא למלא שם, דוא״ל והודעה.",
+    error: "נא למלא שם, דוא״ל, סוג פנייה והודעה.",
     fallbackNote:
       "שליחה ישירה אינה מוגדרת בשרת זה. במקום זאת תיפתח אפליקציית הדוא״ל שלך כדי שההודעה עדיין תגיע אל info@savencore.com.",
   },

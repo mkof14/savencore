@@ -3,10 +3,10 @@ import type { PhysicalWorldHomeContent } from "@/content/home/physical-world/typ
 /** German Layer-1 homepage body — Physical World home. */
 export const physicalWorldHomeDe: PhysicalWorldHomeContent = {
   brand: "SAVEN Core",
-  heroLine: "Intelligenz für die physische Welt.",
+  heroLine: "Intelligenz für Roboter, die Menschen helfen",
   oneBreath:
-    "Wir nutzen und verfeinern KI mit Robotik für die reale Welt — damit Maschinen unter menschlicher Kontrolle wahrnehmen, sich bewegen und unterstützen können.",
-  builds: ["Künstliche Intelligenz", "Robotik", "Autonome Systeme"],
+    "SAVEN entwickelt intelligente Technologien zur menschlichen Unterstützung in der Robotik — Wahrnehmung, Bewegung, Personalisierung, Sicherheit und Interaktion, damit robotische Systeme Menschen in der physischen Welt unterstützen können.",
+  builds: ["Künstliche Intelligenz", "Robotik", "Menschliche Unterstützung"],
   buildsLabel: "Was wir bauen",
   tagline: "Intelligenz in menschliche Fürsorge verwandeln",
   cue: "Labs, Interface, Technologie und mehr finden Sie im Footer.",

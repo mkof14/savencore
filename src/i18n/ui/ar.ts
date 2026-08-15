@@ -91,6 +91,7 @@ export const uiAr: UiMessages = {
     architecture: "الهندسة المعمارية",
     applications: "التطبيقات",
     trust: "الثقة",
+    trustLegal: "ثقة · قانون",
     research: "البحث",
     labs: "المختبرات",
     about: "عن SAVEN Core",

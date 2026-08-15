@@ -282,14 +282,16 @@ export const FOOTER_LEGAL_PRIMARY_IDS = [
   "legal-privacy-policy",
   "legal-terms-of-use",
   "legal-disclaimer",
+  "legal-medical-disclaimer",
   "legal-accessibility-statement",
   "legal-security",
   "legal-responsible-ai",
 ] as const;
 
 /**
- * Footer — public site map + Layer 2 depth (D-0132 / D-0154 / D-0188).
- * Published destinations only, grouped by domain. Legal column restored.
+ * Footer — public site map + Layer 2 depth (D-0132 / D-0154 / D-0188 / D-0292).
+ * Published destinations only, grouped by domain.
+ * Trust · Legal share one column; Resources column removed (D-0292).
  * Architecture = Systems domain depth map (pages document architecture; routes stay /systems/*).
  */
 export const footerNavigation: readonly FooterGroup[] = [
@@ -325,6 +327,7 @@ export const footerNavigation: readonly FooterGroup[] = [
         "Future Lab",
         "/labs/internal-future-lab/",
       ),
+      published("footer-resources-lab", "Lab", "/lab/"),
     ],
   },
   {
@@ -333,9 +336,31 @@ export const footerNavigation: readonly FooterGroup[] = [
     links: footerLinksFromDomain("applications", applicationsNavChildren),
   },
   {
-    id: "trust",
-    title: "Trust",
-    links: footerLinksFromDomain("trust", trustNavChildren),
+    id: "trustLegal",
+    title: "Trust · Legal",
+    links: [
+      ...footerLinksFromDomain("trust", trustNavChildren).flatMap((link) => {
+        if (link.status !== "published" || link.href !== "/trust/security/") {
+          return [link];
+        }
+        return [
+          link,
+          published(
+            "footer-resources-security-issue",
+            "Security Issue",
+            "/resources/report-a-security-issue/",
+          ),
+        ];
+      }),
+      ...FOOTER_LEGAL_PRIMARY_IDS.map((id) => {
+        const item = legalNavChildren.find((child) => child.id === id);
+        if (!item) {
+          throw new Error(`Unknown primary legal footer id: ${id}`);
+        }
+        return published(`footer-${item.id}`, item.label, item.href);
+      }),
+      published("footer-legal-more", "More", "/legal/"),
+    ],
   },
   {
     id: "company",
@@ -360,34 +385,7 @@ export const footerNavigation: readonly FooterGroup[] = [
       published("footer-company-media", "Media", "/media/"),
       published("footer-company-contact", "Contact", "/contact/"),
       published("footer-company-roadmap", "Roadmap", "/roadmap/"),
-    ],
-  },
-  {
-    id: "resources",
-    title: "Resources",
-    links: [
       published("footer-resources-faq", "FAQ", "/faq/"),
-      published("footer-resources-search", "Search", "/search/"),
-      published("footer-resources-lab", "Lab", "/lab/"),
-      published(
-        "footer-resources-security-issue",
-        "Security Issue",
-        "/resources/report-a-security-issue/",
-      ),
-    ],
-  },
-  {
-    id: "legal",
-    title: "Legal",
-    links: [
-      ...FOOTER_LEGAL_PRIMARY_IDS.map((id) => {
-        const item = legalNavChildren.find((child) => child.id === id);
-        if (!item) {
-          throw new Error(`Unknown primary legal footer id: ${id}`);
-        }
-        return published(`footer-${item.id}`, item.label, item.href);
-      }),
-      published("footer-legal-more", "More", "/legal/"),
     ],
   },
 ] as const;
@@ -415,7 +413,7 @@ function assertPrimaryNavigation(): void {
 /**
  * Every published route except auth utilities must appear in the footer
  * depth map (Home included — D-0247). Legal leaf pages may be covered by
- * the `/legal/` hub + More (D-0181).
+ * the `/legal/` hub + More (D-0181). Search is header chrome only (D-0292).
  */
 function assertFooterCoversPublishedRoutes(): void {
   const footerHrefs = new Set(
@@ -426,6 +424,8 @@ function assertFooterCoversPublishedRoutes(): void {
   const legalHubCoversLeaves = footerHrefs.has("/legal/");
   for (const route of PUBLISHED_ROUTES) {
     if (route.startsWith("/auth/")) continue;
+    // Header Search — not duplicated in the footer depth map (D-0292).
+    if (route === "/search/") continue;
     // Thin aliases / redirects covered by primary destinations.
     if (route === "/company/about/") continue;
     if (
@@ -435,7 +435,7 @@ function assertFooterCoversPublishedRoutes(): void {
     ) {
       continue;
     }
-    // Business section leaves covered by Company → Business hub (D-0288).
+    // Business section leaves covered by Company → Business hub (D-0291).
     if (
       footerHrefs.has("/business/") &&
       route.startsWith("/business/") &&

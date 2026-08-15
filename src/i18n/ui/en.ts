@@ -117,6 +117,7 @@ export const uiEn = {
     architecture: "Architecture",
     applications: "Applications",
     trust: "Trust",
+    trustLegal: "Trust · Legal",
     research: "Research",
     labs: "Labs",
     about: "About",

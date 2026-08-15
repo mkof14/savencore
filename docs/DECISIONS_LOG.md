@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-08-15 (D-0289 — Business visual life)
+**Last updated:** 2026-08-15 (D-0294 — Footer notice no duplicate Legal links)
 
 ## Rules
 
@@ -303,8 +303,13 @@
 | D-0285 | 2026-08-14 | Business / Partners theme contrast + body i18n | Active |
 | D-0286 | 2026-08-14 | Business — where economic value can be created | Active |
 | D-0287 | 2026-08-15 | Business restructure — 7 sections + sticky nav | Active |
-| D-0288 | 2026-08-15 | Business section leaves under /business/ + back nav | Active |
+| D-0288 | 2026-08-15 | Business section leaves under /business/ + back nav | Superseded (D-0290) |
 | D-0289 | 2026-08-15 | Business visual life — domain imagery + hub/section atmosphere | Active |
+| D-0290 | 2026-08-15 | Business continuous page + sticky section nav (supersedes D-0288 leaves as primary) | Superseded (D-0291) |
+| D-0291 | 2026-08-15 | Business section leaves restored — visual hub + short pages | Active |
+| D-0292 | 2026-08-15 | Footer — merge Trust & Legal; remove Resources column | Active |
+| D-0293 | 2026-08-15 | Footer — compact exclusive accordion on all breakpoints | Active |
+| D-0294 | 2026-08-15 | Footer notice — drop duplicate Legal/Trust link strip | Active |
 
 ---
 
@@ -3121,7 +3126,7 @@
 ### D-0288 — Business section leaves (sub-routes + back navigation)
 
 - **Date:** 2026-08-15
-- **Status:** Active
+- **Status:** Superseded by D-0290 (continuous page + redirects)
 - **Summary:** Owner requested Business side navigation to open dedicated pages under Business (not landing-style in-page scroll), with a back control and calm top-of-page transitions.
 - **Decision:**
   1. Keep `/business/` as the Business hub overview.
@@ -3145,6 +3150,73 @@
 - **In scope:** BusinessPage shell, BusinessSectionBody/Nav, business-page.css, visuals map, this decision / AGENTS phase line.
 - **Out of scope:** New assets; pricing/revenue claims; inventing partners/customers/metrics beyond approved MarketsandMarkets figures already authorized.
 - **Implications:** Business reads as part of the living SAVEN visual system while remaining a calm hub of section pages.
+
+### D-0290 — Business continuous page + sticky section navigation
+
+- **Date:** 2026-08-15
+- **Status:** Superseded by D-0291 (section leaves restored)
+- **Summary:** Owner corrected Business information architecture: the seven topics must live on one continuous `/business/` page with sticky in-page section navigation — not separate leaf pages as the primary reading experience (D-0288 leaves superseded as primary).
+- **Decision:**
+  1. Primary URL `/[locale]/business/` contains all seven sections in order (Market Context → … → What We Know Today), starting immediately after the hero (no “Explore Business” index block).
+  2. Desktop: quiet sticky left nav (~248px) with **Business** + seven section labels (no 01–07 numbering), scroll-spy + hash anchors (`#market-context`, `#human-data`, `#saven-physical-systems`, `#where-value-is-created`, `#applications`, `#why-the-timing-matters`, `#what-we-know-today`).
+  3. Mobile: compact “Business Sections” control; same anchors; no permanent sidebar.
+  4. One **Sources & Market Data** and one **Continue Exploring** at the bottom only.
+  5. Legacy `/business/[section]/` routes redirect permanently to the matching hash on `/business/` (no duplicate public bodies). D-0288 leaf IA is retired as primary; content model and commercial limits from D-0284–D-0289 remain.
+- **In scope:** Business shell/nav/section body, section id/hash map, redirects, published routes / sitemap exclusions, this decision / AGENTS.
+- **Out of scope:** Content rewrite; pricing/revenue; changing Human Data Model / BioMath Core; inventing new figures.
+- **Implications:** Visitors can read Business continuously or jump by section without leaving `/business/`.
+
+### D-0291 — Business section leaves restored (visual hub + short pages)
+
+- **Date:** 2026-08-15
+- **Status:** Active
+- **Summary:** Owner rejected the long continuous Business “book” experience (D-0290). Restore separate short section pages with stylish visual presentation; names only (no numbering); ← Back to Business.
+- **Decision:**
+  1. `/business/` is a visual hub of image cards into seven leaves (no report-style 01–07; no long multi-section scroll body).
+  2. Each topic is a dedicated leaf under `/business/[section]/` with compact visual hero, ← Back, and side/mobile nav of **names only** (real Links — not scroll-spy).
+  3. Section content from D-0287 remains; no new commercial claims. Legacy slugs `why-timing-matters` / `what-we-know` redirect to canonical leaf paths.
+  4. D-0290 continuous-page IA is superseded as primary reading experience.
+- **In scope:** Business shell/nav/routes/visuals/CSS, this decision / AGENTS.
+- **Out of scope:** Content rewrite; pricing/revenue; inventing figures; restoring 01–13 report numbering.
+- **Implications:** Business reads as a set of short visual pages, not one long document.
+
+### D-0292 — Footer: merge Trust & Legal; remove Resources column
+
+- **Date:** 2026-08-15
+- **Status:** Active
+- **Summary:** Owner asked to combine Trust and Legal in the footer, remove the Resources column (it mixed unrelated utilities), drop Search from the footer (header already has Search), and place Security Issue next to Trust Security.
+- **Decision:**
+  1. Replace separate Trust + Legal footer columns with one **Trust & Legal** column (trust leaves, then primary legal links + More).
+  2. Remove the Resources column. Relocate: **Security Issue** immediately after Trust **Security**; **FAQ** under Company; **Lab** under Labs; **Install app** under Company.
+  3. Do not list **Search** in the footer (header chrome only); `/search/` remains published but is excepted from the footer depth-map assert.
+  4. Desktop footer grid becomes six equal columns.
+- **In scope:** `site-navigation` footer groups, SiteFooter Install placement, footer grid CSS, UI footer titles (10 locales), this decision / AGENTS.
+- **Out of scope:** Changing Trust/Legal page bodies; removing `/search/` as a route; inventing new destinations.
+- **Implications:** Footer columns group by meaning; Search is not duplicated; Security Issue sits with Security.
+
+### D-0293 — Footer: compact exclusive accordion (all breakpoints)
+
+- **Date:** 2026-08-15
+- **Status:** Active
+- **Summary:** Owner feedback: after the Trust · Legal merge the footer looked overloaded. Make it more collected and expandable.
+- **Decision:**
+  1. Footer depth-map groups use `<details>` accordion at **all** breakpoints (not mobile-only). Default: all sections collapsed — titles visible, links on demand.
+  2. Exclusive accordion via shared `name="site-footer-nav"` so opening one section closes others (collected map).
+  3. Keep the six-column desktop title row and full published link inventory; do not remove destinations — only progressive disclosure.
+  4. Slightly tighten vertical padding so the closed state reads as a compact band.
+- **In scope:** `SiteFooter.tsx`, `site-shell.css` footer grid/group styles, this decision / AGENTS.
+- **Out of scope:** Changing footer link inventory / IA groups (D-0292); socials / disclaimer / bar chrome redesign.
+- **Implications:** Desktop visitors no longer see the full depth map expanded by default; Layer-2 destinations remain one click away under each section title.
+
+### D-0294 — Footer notice: no duplicate Legal / Trust link strip
+
+- **Date:** 2026-08-15
+- **Status:** Active
+- **Summary:** Owner noted the footer medical/development notice duplicated Privacy · Terms · Disclaimer · Responsible Development · Contact, which already appear under Trust · Legal.
+- **Decision:** On `placement="footer"`, `MedicalDisclaimerNotice` is text-only: development line + short medical disclaimer. No Privacy / Terms / Disclaimer / Responsible Development / Contact / Medical Disclaimer links in that box — those destinations stay under Trust · Legal (Medical Disclaimer added to the primary legal list). Legal-page placement may keep the strip for on-page orientation.
+- **In scope:** `MedicalDisclaimerNotice.tsx`, this decision.
+- **Out of scope:** Removing the protective medical short line; changing Trust · Legal column inventory.
+- **Implications:** Footer notice is quieter; Legal destinations are reached via the accordion column (or legal pages), not a second strip.
 
 ## Pending Owner Decisions
 

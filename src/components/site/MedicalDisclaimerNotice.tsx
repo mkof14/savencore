@@ -7,13 +7,14 @@ import type { PublishedRoute } from "@/navigation/published-routes";
 
 type MedicalDisclaimerNoticeProps = {
   locale: Locale;
-  /** footer | legal — compact development notice plus legal links. */
+  /** footer | legal — footer is text-only; legal pages keep a short policy strip (D-0294). */
   placement: "footer" | "legal";
 };
 
 /**
- * Footer / legal notice (D-0211 / D-0280) — short development line,
- * not a wall of disclaimers.
+ * Footer / legal notice (D-0211 / D-0280 / D-0294).
+ * Footer: development + medical short only — no policy links (Trust · Legal already lists them).
+ * Legal pages: keep the compact policy link strip for on-page orientation.
  */
 export function MedicalDisclaimerNotice({
   locale,
@@ -28,6 +29,15 @@ export function MedicalDisclaimerNotice({
     placement === "footer"
       ? "site-footer__medical-link"
       : "legal-page__medical-link";
+
+  if (placement === "footer") {
+    return (
+      <div className={className} role="note">
+        <p className="site-footer__development-note">{ui.footer.developmentNote}</p>
+        <p>{ui.medicalDisclaimer.short}</p>
+      </div>
+    );
+  }
 
   const links: { href: PublishedRoute; label: string }[] = [
     { href: "/legal/privacy-policy/", label: ui.footer.privacy },

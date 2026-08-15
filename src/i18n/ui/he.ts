@@ -91,6 +91,7 @@ export const uiHe: UiMessages = {
     architecture: "ארכיטקטורה",
     applications: "יישומים",
     trust: "אמון",
+    trustLegal: "אמון · משפט",
     research: "מחקר",
     labs: "מעבדות",
     about: "אודות SAVEN Core",

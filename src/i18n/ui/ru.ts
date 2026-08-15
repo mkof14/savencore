@@ -91,6 +91,7 @@ export const uiRu: UiMessages = {
     architecture: "Архитектура",
     applications: "Применения",
     trust: "Доверие",
+    trustLegal: "Доверие · Право",
     research: "Исследования",
     labs: "Лаборатории",
     about: "О SAVEN Core",

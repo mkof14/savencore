@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
 
 import { BrandName } from "@/components/brand/BrandName";
 import { SavenLogo } from "@/components/brand/SavenLogo";
@@ -28,30 +27,20 @@ type SiteFooterProps = {
 };
 
 /**
- * Apple-style footer (D-0209 / D-0212 / D-0213 / D-0247): each published section is its own equal column
- * in one forced desktop row (8 columns after Research removal) — Architecture never stacks under Technology.
- * Install app lives in the Resources column (main link grid); Contact form on `/contact/` only;
+ * Compact expandable footer depth map (D-0293 / D-0292):
+ * section titles stay visible; links open on demand (exclusive accordion).
+ * Install app lives in the Company column; Contact form on `/contact/` only;
  * bottom order: socials → disclaimer → bar.
  */
-/** Layer 2 depth map — published domain destinations + Architecture + Legal. */
 export function SiteFooter({
   locale,
   showAdminLink = false,
 }: SiteFooterProps) {
   const ui = getUi(locale);
-  const [isCompact, setIsCompact] = useState(false);
   const taglineLines = ui.footer.tagline
     .split("\n")
     .map((line) => line.trim())
     .filter(Boolean);
-
-  useEffect(() => {
-    const media = window.matchMedia("(max-width: 859px)");
-    const sync = () => setIsCompact(media.matches);
-    sync();
-    media.addEventListener("change", sync);
-    return () => media.removeEventListener("change", sync);
-  }, []);
 
   const groups = footerNavigation
     .map((group) => ({
@@ -59,76 +48,6 @@ export function SiteFooter({
       links: group.links.filter(isFooterLinkPublished),
     }))
     .filter((group) => group.links.length > 0);
-
-  const renderGroup = (group: (typeof groups)[number]) => {
-    const title = getFooterGroupTitle(locale, group.id, group.title);
-    const headingId = `footer-${group.id}`;
-    const isLegal = group.id === "legal";
-    const groupClass = `site-footer__group${isLegal ? " site-footer__group--legal" : ""}`;
-
-    const installItem =
-      group.id === "resources" ? (
-        <li key="footer-install-app" className="site-footer__install-item">
-          <InstallAppControl locale={locale} placement="footer" />
-        </li>
-      ) : null;
-
-    if (isCompact) {
-      return (
-        <details key={group.id} className={groupClass}>
-          <summary className="site-footer__group-title" id={headingId}>
-            {title}
-          </summary>
-          <ul className="site-footer__list" aria-labelledby={headingId}>
-            {group.links.map((link) => (
-              <li key={link.id}>
-                <Link
-                  href={localizePath(locale, link.href)}
-                  className={
-                    link.id === "footer-legal-more"
-                      ? "site-footer__link site-footer__link--more"
-                      : "site-footer__link"
-                  }
-                >
-                  {getNavEntryLabel(locale, link.id, link.label)}
-                </Link>
-              </li>
-            ))}
-            {installItem}
-          </ul>
-        </details>
-      );
-    }
-
-    return (
-      <section
-        key={group.id}
-        className={groupClass}
-        aria-labelledby={headingId}
-      >
-        <h2 className="site-footer__group-title" id={headingId}>
-          {title}
-        </h2>
-        <ul className="site-footer__list">
-          {group.links.map((link) => (
-            <li key={link.id}>
-              <Link
-                href={localizePath(locale, link.href)}
-                className={
-                  link.id === "footer-legal-more"
-                    ? "site-footer__link site-footer__link--more"
-                    : "site-footer__link"
-                }
-              >
-                {getNavEntryLabel(locale, link.id, link.label)}
-              </Link>
-            </li>
-          ))}
-          {installItem}
-        </ul>
-      </section>
-    );
-  };
 
   return (
     <footer className="site-footer">
@@ -150,14 +69,48 @@ export function SiteFooter({
         </div>
 
         <div className="site-footer__grid">
-          {groups.map((group, columnIndex) => (
-            <div
-              key={group.id}
-              className={`site-footer__column site-footer__column--${columnIndex + 1}`}
-            >
-              {renderGroup(group)}
-            </div>
-          ))}
+          {groups.map((group, columnIndex) => {
+            const title = getFooterGroupTitle(locale, group.id, group.title);
+            const headingId = `footer-${group.id}`;
+            const isTrustLegal = group.id === "trustLegal";
+            const groupClass = `site-footer__group${isTrustLegal ? " site-footer__group--legal" : ""}`;
+            const installItem =
+              group.id === "company" ? (
+                <li key="footer-install-app" className="site-footer__install-item">
+                  <InstallAppControl locale={locale} placement="footer" />
+                </li>
+              ) : null;
+
+            return (
+              <div
+                key={group.id}
+                className={`site-footer__column site-footer__column--${columnIndex + 1}`}
+              >
+                <details className={groupClass} name="site-footer-nav">
+                  <summary className="site-footer__group-title" id={headingId}>
+                    {title}
+                  </summary>
+                  <ul className="site-footer__list" aria-labelledby={headingId}>
+                    {group.links.map((link) => (
+                      <li key={link.id}>
+                        <Link
+                          href={localizePath(locale, link.href)}
+                          className={
+                            link.id === "footer-legal-more"
+                              ? "site-footer__link site-footer__link--more"
+                              : "site-footer__link"
+                          }
+                        >
+                          {getNavEntryLabel(locale, link.id, link.label)}
+                        </Link>
+                      </li>
+                    ))}
+                    {installItem}
+                  </ul>
+                </details>
+              </div>
+            );
+          })}
         </div>
 
         <div className="site-footer__social-row">

@@ -15,9 +15,10 @@ type SiteHeaderProps = {
 };
 
 /**
- * Layer-1 chrome — logo, important hubs, Sign In/Up, theme, language (D-0153–D-0156).
+ * Layer-1 chrome — logo, important hubs, Search, theme, language, Sign In/Up (D-0153–D-0156 / D-0283).
  * Full leaf map remains in the footer. Install app lives in the footer only (D-0164).
  * Logo tone="dark" base; light theme flips ink via CSS (D-0171).
+ * Sign In/Up sits after language (D-0283).
  */
 export function SiteHeader({ locale }: SiteHeaderProps) {
   const ui = getUi(locale);
@@ -43,18 +44,18 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
           >
             {ui.search.navLabel}
           </Link>
-          <Link
-            href={localizePath(locale, "/auth/sign-in/")}
-            className="site-header__text-link"
-          >
-            {ui.nav.signIn}
-          </Link>
           <ThemeSwitch locale={locale} placement="header" />
           <LanguageSelector
             locale={locale}
             idPrefix="header-language"
             direction="down"
           />
+          <Link
+            href={localizePath(locale, "/auth/sign-in/")}
+            className="site-header__text-link"
+          >
+            {ui.nav.signIn}
+          </Link>
         </div>
 
         <div className="site-header__mobile-controls">

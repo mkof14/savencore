@@ -141,7 +141,7 @@ export const roboticsInterfacePageEn: FlagshipBrochureContent = {
       id: "role",
       title: "Role in the SAVEN system",
       paragraphs: [
-        "SAVEN sits at the center of analysis, roles, events, and actions. The Robotics Interface is the layer through which executive devices connect — exchanging commands, telemetry, and task context so heterogeneous machines can participate in shared work.",
+        "SAVEN sits at the center of analysis, roles, events, and assistance coordination. The Robotics Interface is the architecture layer through which connected robotic and device systems exchange commands, telemetry, and task context so heterogeneous machines can participate in shared work under human control.",
         "Interoperability is the point: one architecture for many device kinds, so care-oriented physical assistance can grow without inventing a separate stack for every form factor.",
       ],
     },
@@ -149,7 +149,7 @@ export const roboticsInterfacePageEn: FlagshipBrochureContent = {
       id: "devices",
       title: "Device diversity (architecture concepts)",
       paragraphs: [
-        "The Interface is designed around classes of executive devices as architecture concepts — not product SKUs or deployment claims:",
+        "The Interface is designed around classes of connected robotic and device systems as architecture concepts — not product SKUs or deployment claims:",
       ],
       items: [
         "Manipulators — careful reach, hold, and handoff under visible limits",
@@ -288,7 +288,7 @@ export const labsHubPageEn: FlagshipBrochureContent = {
   lede: "Where SAVEN Core shapes robotics and future systems that help people in the physical world — engineering labs beside a human command interface.",
   body: [
     "Labs are focused engineering and research environments for machines that can sense, move, and assist. SAVEN Robotics Lab is the primary engineering direction; Internal Future Lab explores what comes next.",
-    "Human context from the Human Data Model flows into SAVEN, which prepares roles, events, and real actions for executive devices — robots, manipulators, sensors — then collects what happens and processes it again. When needed, understanding rises to BioMath Core. The SAVEN Robotics Interface keeps people in command as capability grows.",
+    "Human context from the Human Data Model flows into SAVEN, which is designed to prepare roles, events, and assistance coordination for connected robotic and device systems — robots, manipulators, sensors — then collect what happens and process it again. When needed, BioMath Core may contribute specialized analysis or reports. Physical action depends on the connected system under human control, system limits, and safety requirements. The SAVEN Robotics Interface keeps people in command as capability grows.",
   ],
   listHeading: "Labs",
   items: [

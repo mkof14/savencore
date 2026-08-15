@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-08-13 (D-0281 — Complete D-0280 follow-through)
+**Last updated:** 2026-08-15 (D-0289 — Business visual life)
 
 ## Rules
 
@@ -297,6 +297,14 @@
 | D-0279 | 2026-08-08 | Lab video — mobile: move interactive controls below the video stage | Active |
 | D-0280 | 2026-08-13 | Master positioning, credibility, partner/investor, safety, FAQ, and legal update | Active |
 | D-0281 | 2026-08-13 | Complete D-0280 follow-through: i18n, partner formula, unused home catalog, concept labels | Active |
+| D-0282 | 2026-08-14 | Public-copy consistency corrections (HDM≠BioMath; execution/status; legal/FAQ hygiene) | Active |
+| D-0283 | 2026-08-14 | Partners footer-only; Sign In/Up after language; Partners hub style | Active |
+| D-0284 | 2026-08-14 | Business page — SAVEN economic logic + restrained digital-health evidence | Active |
+| D-0285 | 2026-08-14 | Business / Partners theme contrast + body i18n | Active |
+| D-0286 | 2026-08-14 | Business — where economic value can be created | Active |
+| D-0287 | 2026-08-15 | Business restructure — 7 sections + sticky nav | Active |
+| D-0288 | 2026-08-15 | Business section leaves under /business/ + back nav | Active |
+| D-0289 | 2026-08-15 | Business visual life — domain imagery + hub/section atmosphere | Active |
 
 ---
 
@@ -3024,6 +3032,119 @@
 - **In scope:** Partner formula component, home locale extras, living-theater concept label, unused catalog removal, UI i18n, dictionary fill, D-0281 notes, local site launch/review.
 - **Out of scope:** Inventing legal entity, partners, pilots, certifications, or market statistics; production deploy unless separately requested; counsel-certified legal packs.
 - **Implications:** D-0280 positioning stays; remaining owner items are entity name and counsel review.
+
+### D-0282 — Public-copy consistency corrections
+
+- **Date:** 2026-08-14
+- **Status:** Active
+- **Summary:** Owner-authorized correction pass (not redesign): remove BioMath≡Human Data Model wording, soften overstated execution/deployment language, clean legal drafting/FAQ entity Q, reduce generic investor phrases, clarify care ≠ medical-only and Continuous Care as care-related architecture.
+- **Decision:**
+  1. Preserve Human Data Model, mission slogans, BioMath Core, SAVEN / SAVEN Core / SAVEN Robotics Lab, hardware-flexible approach, and Human Assistance Layer as explanation (not a replacement model).
+  2. Prefer architecture/orchestration language over automatic “executes / commands / real actions” claims unless clearly design-tense and tied to connected systems under human control.
+  3. Remove public FAQ “Is the legal entity name fully confirmed?”; keep entity/address/governing law unpublished until owner publishes facts — do not invent them.
+  4. Do not add commercial model, IP/moat claims, or new named frameworks in this pass.
+- **In scope:** Targeted English content + locale biomath/HDM corrections + legal/FAQ/investors/partners/home consistency edits.
+- **Out of scope:** Redesign, new positioning, commercial model, inventing entity/jurisdiction facts.
+- **Implications:** Remaining owner decisions: formal SAVEN/SAVEN Core corporate definition, legal entity/address/governing law, Bodies tagline preference, Sign In public purpose, application-emphasis refinements.
+
+### D-0283 — Partners footer-only; Sign In after language; Partners hub style
+
+- **Date:** 2026-08-14
+- **Status:** Active
+- **Summary:** Owner asked to keep Partners only in the footer, align the Partners page with site hub grammar, and move Sign In/Up to the right of the language control.
+- **Decision:**
+  1. Remove Partners from primary header navigation; keep `/partners/` published and listed under footer Company.
+  2. Header utility order: Search → theme → language → Sign In/Up. Mobile menu: language, then Sign In/Up.
+  3. Partners page remains `DomainVisualPage` / hub shell; masthead uses foundation platform-craft atmosphere; partnership formula uses Labs-style diagram surround (navy stage, gold-tinted panel).
+- **In scope:** `primaryNavigation`, SiteHeader, MobileNavigation, Partners content/visuals, PartnerFormula CSS, AGENTS/decisions notes.
+- **Out of scope:** Removing Partners route; inventing partners/customers; redesign of Investors or other hubs.
+- **Implications:** Header hubs are six items (≤7). Partners discovery is footer + homepage/FAQ contextual links.
+
+### D-0284 — Business page (economic logic; restrained market evidence)
+
+- **Date:** 2026-08-14
+- **Status:** Active
+- **Summary:** Owner authorized a public Business page explaining why SAVEN can become economically important, using MarketsandMarkets Digital Health Market — Global Forecast to 2030 only for supported external figures. Not a TAM/fundraising/sales page.
+- **Decision:**
+  1. Publish `/business/` titled **Business** (not “Market Opportunity” / “Why Invest”).
+  2. Navigation: footer Company after Partners (with Investors / Partners). Not in primary header hubs.
+  3. Preserve Human Data Model, BioMath Core, mission, hardware-flexible approach; no revenue forecasts, pricing, customers, or commercial model.
+  4. External figures used only with explicit disclaimer that they describe global digital health, not SAVEN market size. Source: MarketsandMarkets, September 2025.
+  5. English canonical for page body; UI chrome labels localized; full body localization may follow later.
+- **In scope:** Business content/component/CSS/route, published routes, footer, sitemap, Investors/Partners cross-links, i18n chrome, this decision.
+- **Out of scope:** Header hub addition; TAM/SAM/SOM; fundraising; inventing customers/revenue; full 10-locale body translation in this pass.
+- **Implications:** Business explains economic logic; Investors remains capital conversation path; Partners remains cooperation path.
+
+### D-0285 — Business / Partners theme contrast + localization
+
+- **Date:** 2026-08-14
+- **Status:** Active
+- **Summary:** Owner requested clearer Business and Partners pages, theme-safe titles (especially Business light theme on dark hero), site-grammar visuals, and full body translation to the nine non-English locales.
+- **Decision:**
+  1. Business hero and navy evidence/chain/share blocks use forced light ink (`#eef3f7` / gold accents); never light-theme body ink on dark atmospheric surfaces. Section cards keep high-contrast body text in light and dark.
+  2. Partners masthead label/status use light/gold ink; partner-formula stage keeps light text on navy; Partners story beats and audience list use clearer surface cards under `hub-page--partner-formula`.
+  3. Business page body localized via `deepLocalize` + `src/content/business/dictionaries/*` for es/de/fr/ja/zh-cn/ar/he/uk/ru. Partners dictionaries remapped to current EN keys (lede, masthead alt, begin line, Business related label).
+  4. No inventing market claims, partners, revenue, or entity facts. MarketsandMarkets figures remain numeric with existing disclaimer.
+- **In scope:** Business/Partners CSS and components, Business dictionaries + getter, Partners dictionaries, Decisions Log / AGENTS phase line.
+- **Out of scope:** Header hub addition for Business or Partners; redesign of other hubs; inventing commercial claims.
+- **Implications:** Business and Partners stay readable in both themes; non-EN locales show localized body copy with English fallback for any omitted keys.
+
+### D-0286 — Business page: where economic value can be created
+
+- **Date:** 2026-08-14
+- **Status:** Active
+- **Summary:** Owner authorized a Business-page section explaining how SAVEN can participate economically when its technology is used — without a final pricing model, revenue forecasts, TAM/SAM/SOM, or sales-site framing.
+- **Decision:**
+  1. Add section **How Economic Value Can Be Created** on `/business/` covering basic economic logic, four relationship groups (robotics/device companies, organizations, individuals, specialized services), development before mass deployment, a money-flow diagram (Physical system → SAVEN → Use + potential relationships), **The Machine Is Not the Entire Business**, value before/during/over time, and different commercial structures by application.
+  2. Preserve Human Data Model, BioMath Core (optional, not mandatory), hardware-flexible approach, and Architecture framing. Do not invent customers, contracts, subscriptions, fees, margins, or volumes.
+  3. MarketsandMarkets remains adjacent-market context only — not SAVEN revenue proof.
+  4. Localize new strings across nine non-English dictionaries; English remains canonical.
+- **In scope:** Business content, component, CSS, dictionaries, this decision.
+- **Out of scope:** Pricing page; Revenue page; approved payment model; inventing commercial claims listed in the owner brief.
+- **Implications:** Investors/partners can see where economic value *can* exist without mistaking Architecture for an active revenue model.
+
+### D-0287 — Business page restructure (7 sections + sticky nav)
+
+- **Date:** 2026-08-15
+- **Status:** Active
+- **Summary:** Owner authorized restructuring `/business/` from a long 01–13 report-like layout into seven scannable sections with sticky desktop navigation and a compact mobile section selector. Content shortened by consolidating duplicates; no new commercial model.
+- **Decision:**
+  1. Keep one Business route. Public structure: Market Context; Human Data; SAVEN & Physical Systems; Where Value Is Created; Applications; Why the Timing Matters; What We Know Today. Sources become a secondary footer block.
+  2. Desktop: sticky left Business nav (~240px) with scroll-spy + hash URLs. Mobile: compact sticky “Business Sections” select. No public 01–13 numbering.
+  3. Remove defensive hero line (“not a market report…”) and consolidate repeated disclaimers; keep only material limits (market ≠ SAVEN size; BioMath not automatic control; compatibility not universal; examples ≠ product promises).
+  4. Preserve Human Data Model, BioMath Core role, hardware-flexible approach, MarketsandMarkets supporting figures ($162.1B / $573.53B / 23.6% / 43.4% North America as compact fact), and existing explore links once at the end.
+  5. Localize restructured strings across nine non-English dictionaries; English remains canonical.
+- **In scope:** Business content, BusinessPage, BusinessSectionNav, CSS, dictionaries, Decisions Log / AGENTS phase line.
+- **Out of scope:** Splitting into multiple Business routes; pricing/revenue pages; inventing commercial models or new market reports.
+- **Implications:** Business reads as a website with jump navigation; market data supports SAVEN rather than dominating the page.
+
+### D-0288 — Business section leaves (sub-routes + back navigation)
+
+- **Date:** 2026-08-15
+- **Status:** Active
+- **Summary:** Owner requested Business side navigation to open dedicated pages under Business (not landing-style in-page scroll), with a back control and calm top-of-page transitions.
+- **Decision:**
+  1. Keep `/business/` as the Business hub overview.
+  2. Publish seven section leaves: `/business/market-context/`, `/human-data/`, `/saven-physical-systems/`, `/where-value-is-created/`, `/applications/`, `/why-timing-matters/`, `/what-we-know/`.
+  3. Side nav and mobile selector use real Next.js Links / router pushes (no scroll-spy / `scrollIntoView` jumps). Section pages include **← Back to Business**.
+  4. Footer depth map covers leaves via the Business hub (same pattern as Legal leaves). Content model and commercial limits from D-0284–D-0287 remain unchanged.
+- **In scope:** Business routes, shell/nav/section body, published routes, dictionaries, this decision.
+- **Out of scope:** Pricing/revenue pages; inventing commercial models; changing Human Data Model / BioMath Core roles.
+- **Implications:** Business behaves like a documentation/hub site rather than a long landing scroll.
+
+### D-0289 — Business visual life (domain imagery + atmosphere)
+
+- **Date:** 2026-08-15
+- **Status:** Active
+- **Summary:** Owner asked for Business hub/leaves to feel less dry — more life, visuality, and SAVEN site grammar (navy/gold, straight corners, approved imagery).
+- **Decision:**
+  1. Map each Business section to an existing `public/domain/` asset (company / technology / applications / systems) with gold | blue | slate accent variants — no new photography.
+  2. Hub presents image cards (index + Open →); section leaves use compact hero + image frame, ← Back in hero, prev/next pager between leaves.
+  3. Soft atmosphere (grid wash, gold/blue radials, restrained rise motion with reduced-motion respect); side nav numbered; leaf body titles are a11y-only (hero carries the visible title); Market Context leads with evidence tiles.
+  4. Commercial and positioning limits from D-0284–D-0288 unchanged.
+- **In scope:** BusinessPage shell, BusinessSectionBody/Nav, business-page.css, visuals map, this decision / AGENTS phase line.
+- **Out of scope:** New assets; pricing/revenue claims; inventing partners/customers/metrics beyond approved MarketsandMarkets figures already authorized.
+- **Implications:** Business reads as part of the living SAVEN visual system while remaining a calm hub of section pages.
 
 ## Pending Owner Decisions
 

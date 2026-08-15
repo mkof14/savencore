@@ -18,7 +18,7 @@ export const physicalWorldHomeEn: PhysicalWorldHomeContent = {
   living: {
     headline: "Care where life happens.",
     support:
-      "A vision of intelligent systems assisting people — in hospitals, at home, and wherever care is needed — under human control.",
+      "A vision of intelligent systems assisting people — in hospitals, at home, and wherever support is needed — under human control. Human Care here includes help, independence, and everyday assistance, not medical treatment alone.",
     scenes: [
       {
         id: "hospital-care",
@@ -38,27 +38,27 @@ export const physicalWorldHomeEn: PhysicalWorldHomeContent = {
       {
         id: "emergency",
         label: "Emergency",
-        line: "A vision of faster, clearer support when every minute matters.",
+        line: "A long-term concept vision of faster, clearer support when every minute matters.",
       },
       {
         id: "surgical",
         label: "Surgical support",
-        line: "Assistance in the OR — tools beside skilled human hands.",
+        line: "A concept of assistance in the OR — tools beside skilled human hands.",
       },
       {
         id: "rural-remote",
         label: "Rural & remote",
-        line: "Care that can reach people farther from the clinic.",
+        line: "A concept of care that could reach people farther from the clinic.",
       },
       {
         id: "mental-health",
         label: "Mental health",
-        line: "Quiet support that respects dignity and human guidance.",
+        line: "A concept of quiet support that respects dignity and human guidance.",
       },
       {
         id: "disaster-relief",
         label: "Disaster relief",
-        line: "Systems that can help people coordinate when the ground shifts.",
+        line: "A concept of systems that could help people coordinate when the ground shifts.",
       },
     ],
     railLabel: "Care scenes",
@@ -88,7 +88,7 @@ export const physicalWorldHomeEn: PhysicalWorldHomeContent = {
     layers: {
       heading: "The SAVEN Human Assistance Layer",
       intro:
-        "SAVEN’s value is not limited to building mechanical robots. The architecture is designed as a human-assistance intelligence layer that can work across compatible robotic systems.",
+        "SAVEN’s value is not limited to building mechanical robots. The architecture includes a human-assistance intelligence layer that can work across compatible robotic systems. This layer explains how SAVEN assists; it does not replace the Human Data Model.",
       items: [
         {
           title: "Perception",
@@ -163,7 +163,7 @@ export const physicalWorldHomeEn: PhysicalWorldHomeContent = {
     biomathBridge: {
       eyebrow: "Who we are",
       title: "BioMath Core → SAVEN",
-      body: "Robotic assistance becomes more useful when technology can understand the person — not only the task. SAVEN may connect with BioMath Core capabilities to explore more personalized interaction using authorized information about individual routines, movement, preferences, and relevant human context. Personal information is used only through appropriate permissions and applicable privacy controls.",
+      body: "Robotic assistance becomes more useful when technology can understand the person — not only the task. The Human Data Model remains the broader structured representation of Human Data. BioMath Core may provide specialized analysis and reports that SAVEN can use for more personalized interaction — under permissions and privacy controls. BioMath Core does not replace the Human Data Model.",
       scopeLine: "Model coverage: 20 categories · 200+ services — not an Operational catalog.",
       href: "/foundation/biomath-core/",
       cta: "Explore BioMath Core",
@@ -231,7 +231,7 @@ export const physicalWorldHomeEn: PhysicalWorldHomeContent = {
         {
           id: "investors",
           label: "Investors",
-          description: "Long-horizon, mission-aligned capital — honest status.",
+          description: "Long-horizon capital posture — honest Architecture status.",
           links: [{ label: "Investors", href: "/investors/" }],
         },
       ],
@@ -277,7 +277,7 @@ export const physicalWorldHomeEn: PhysicalWorldHomeContent = {
         label: "Investors",
         href: "/investors/",
         status: "Architecture",
-        note: "Structural posture for long-horizon, mission-aligned capital.",
+        note: "Structural posture for long-horizon capital.",
       },
     ],
   },
@@ -285,7 +285,7 @@ export const physicalWorldHomeEn: PhysicalWorldHomeContent = {
     heading: "SAVEN",
     pillars: "Support · Action · Verification · Environment · Network",
     tagline: "One Intelligence. Many Bodies. Real-World Action.",
-    alt: "SAVEN logo and pillars: Support, Action, Verification, Environment, and Network. Tagline: One Intelligence. Many Bodies. Real-World Action.",
+    alt: "SAVEN logo and pillars: Support, Action, Verification, Environment, and Network. Tagline: One Intelligence. Many Bodies. Real-World Action. Bodies means robotic and physical embodiments.",
     exploreLabel: "Explore SAVEN",
     exploreHint:
       "Hover or focus a pillar to see what it means — then go deeper on the site.",

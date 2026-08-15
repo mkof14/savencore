@@ -88,7 +88,7 @@ export const investorsPageContentEn: InvestorsPageContent = {
     title: "Why SAVEN",
     lede: "Robotics is moving closer to people. The challenge is no longer only making robots capable of movement — it is making physical assistance useful, adaptable, understandable, and appropriate for real human environments.",
     support:
-      "This page describes investment posture, the foundation sequence, and what we are building under clear Architecture framing. It does not publish rounds, valuations, revenue, or promised returns.",
+      "This page describes investment posture, the foundation sequence, and what we are building under Architecture framing. It does not publish rounds, valuations, revenue, or promised returns.",
     primaryCta: {
       label: "Investor Inquiries",
       href: "/investors/contact/",
@@ -102,24 +102,24 @@ export const investorsPageContentEn: InvestorsPageContent = {
     heading: "Investment thesis",
     paragraphs: [
       "Intelligent systems built to support human life. AI and robotics are tools — not the purpose. Human support is primary.",
-      "The opportunity is structural: a continuous path from human understanding and BioMath Core clarity, through SAVEN orchestration, to physical assistance — with trust and human oversight as requirements, not afterthoughts.",
-      "We seek mission-aligned partners who understand long-horizon systems building: patient capital, clear governance, and honesty about scope and non-claims.",
+      "The work is structural: a continuous path from human understanding and BioMath Core clarity, through SAVEN orchestration, to physical assistance — with trust and human oversight as requirements, not afterthoughts.",
+      "We seek partners who understand long-horizon systems work: patient capital, clear governance, and honesty about scope.",
     ],
     points: [
       {
         id: "physical-world",
-        title: "Large human need",
-        text: "Mobility, aging, rehabilitation, labor constraints, and independent living create persistent demand for physical assistance.",
+        title: "Persistent need for physical assistance",
+        text: "Mobility, aging, rehabilitation, labor constraints, and independent living create lasting demand for physical assistance.",
       },
       {
         id: "human-care",
-        title: "Intelligence opportunity",
-        text: "SAVEN focuses on the human-assistance intelligence and integration layer that can potentially operate across compatible robotic systems.",
+        title: "Human-assistance intelligence layer",
+        text: "SAVEN focuses on the human-assistance intelligence and integration layer designed to work across compatible robotic systems.",
       },
       {
         id: "disciplined",
-        title: "Platform potential",
-        text: "A reusable assistance layer can potentially support multiple robotic systems and application categories — healthcare, rehabilitation, senior living, home assistance, work environments, and consumer applications.",
+        title: "Reusable assistance across systems",
+        text: "A reusable assistance layer is intended to support multiple robotic systems and application categories — with human-care contexts first, and other domains as extensions.",
       },
       {
         id: "hardware",
@@ -129,7 +129,7 @@ export const investorsPageContentEn: InvestorsPageContent = {
       {
         id: "robotics-advancing",
         title: "Robotics is advancing",
-        text: "Robotic hardware, sensing, AI, and control systems are improving rapidly. Human assistance still requires technology beyond mechanical movement.",
+        text: "Robotic hardware, sensing, AI, and control systems are improving. Human assistance still requires technology beyond mechanical movement.",
       },
     ],
   },
@@ -146,17 +146,17 @@ export const investorsPageContentEn: InvestorsPageContent = {
       {
         id: "biomath-core",
         title: "BioMath Core",
-        text: "Where health data becomes daily clarity — modeling and interpretation as Architecture.",
+        text: "Specialized analysis and reports that may use or contribute to Human Data — Architecture scope, not a replacement for the Human Data Model.",
       },
       {
         id: "saven",
         title: "SAVEN",
-        text: "Orchestration from understanding toward next-level actions under human control.",
+        text: "Orchestration from understanding toward assistance through connected systems under human control.",
       },
       {
         id: "saven-core",
         title: "SAVEN Core",
-        text: "The company and public engineering showcase for intelligent systems in the physical world.",
+        text: "The public brand and engineering showcase for intelligent systems in the physical world.",
       },
     ],
   },
@@ -190,7 +190,7 @@ export const investorsPageContentEn: InvestorsPageContent = {
         id: "biomath",
         title: "BioMath Core",
         status: "Architecture",
-        text: "Human-data clarity bridge: reports and conclusions that can inform SAVEN next-level actions — not diagnosis, prescription, or Operational e-commerce.",
+        text: "Reports and conclusions that may inform SAVEN assistance architecture — not diagnosis, prescription, or Operational e-commerce.",
         href: "/foundation/biomath-core/",
       },
       {
@@ -232,12 +232,12 @@ export const investorsPageContentEn: InvestorsPageContent = {
   engage: {
     heading: "How we engage",
     support:
-      "Conversations are welcome from mission-aligned capital and partners. How we work together is discussed privately when appropriate — this site is not an offer to sell securities, and it is not a data room or investor portal.",
+      "Conversations are welcome from long-horizon capital and partners. How we work together is discussed privately when appropriate — this site is not an offer to sell securities, and it is not a data room or investor portal.",
     audiences: [
       {
         id: "institutional",
         title: "Institutional & long-horizon funds",
-        text: "Partners who support durable systems where lasting human needs meet disciplined engineering — with clear scope and non-claims as a baseline.",
+        text: "Partners who support durable systems where lasting human needs meet disciplined engineering — with clear scope as a baseline.",
       },
       {
         id: "family",
@@ -257,9 +257,9 @@ export const investorsPageContentEn: InvestorsPageContent = {
     ],
   },
   whyNow: {
-    heading: "Why now",
+    heading: "Timing context",
     support:
-      "A category thesis — not a market-size claim, valuation story, or timing guarantee.",
+      "Category context — not a market-size claim, valuation story, or timing guarantee.",
     items: [
       {
         id: "need",
@@ -312,6 +312,8 @@ export const investorsPageContentEn: InvestorsPageContent = {
       { label: "Roadmap Direction", href: "/roadmap/" },
       { label: "Trust", href: "/trust/" },
       { label: "About", href: "/foundation/" },
+      { label: "Business", href: "/business/" },
+      { label: "Partners", href: "/partners/" },
       { label: "FAQ", href: "/faq/" },
     ],
   },

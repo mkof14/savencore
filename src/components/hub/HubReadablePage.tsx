@@ -36,11 +36,14 @@ export function HubReadablePage({ locale, content }: HubReadablePageProps) {
     content.scenes && content.scenes.length >= 4,
   );
 
+  const partnerFormula =
+    content.diagram?.kind === "partner-formula" ? " hub-page--partner-formula" : "";
+
   return (
     <article
       className={`hub-page hub-page--${theme}${
         content.visual?.mastheadCollage?.length ? " hub-page--collage" : ""
-      }`}
+      }${partnerFormula}`}
       aria-labelledby={titleId}
     >
       <header className="hub-page__masthead">

@@ -47,9 +47,24 @@ export function getPhysicalWorldHomeContent(
     merged.conceptLabel = physicalWorldHomeEn.conceptLabel;
   }
   if (enClarity && localClarity) {
+    const biomathBridge =
+      enClarity.biomathBridge && localClarity.biomathBridge
+        ? {
+            ...localClarity.biomathBridge,
+            ...enClarity.biomathBridge,
+            eyebrow: localClarity.biomathBridge.eyebrow,
+            title: localClarity.biomathBridge.title,
+            cta: localClarity.biomathBridge.cta,
+            logoAlt: localClarity.biomathBridge.logoAlt,
+            href: localClarity.biomathBridge.href,
+            scopeLine: localClarity.biomathBridge.scopeLine,
+            body: enClarity.biomathBridge.body,
+          }
+        : (localClarity.biomathBridge ?? enClarity.biomathBridge);
     merged.clarity = {
       ...enClarity,
       ...localClarity,
+      ...(biomathBridge ? { biomathBridge } : {}),
       ...(localClarity.purpose || enClarity.purpose
         ? { purpose: localClarity.purpose ?? enClarity.purpose }
         : {}),

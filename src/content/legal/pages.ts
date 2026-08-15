@@ -31,7 +31,7 @@ export const LEGAL_PAGES: readonly LegalPageContent[] = [
       {
         title: "Who we are",
         paragraphs: [
-          "SAVEN Core is the public brand for this informational website. Formal legal entity name, registered address, and controller identity will be stated here when confirmed by the owner.",
+          "SAVEN Core is the public brand for this informational website. Formal legal entity name, registered address, and controller identity are not stated on this site until they are published here.",
           "Until then, treat “SAVEN Core” as the public brand name for this website only. Copyright © 2026 SAVEN Core. All rights reserved.",
         ],
       },
@@ -39,7 +39,7 @@ export const LEGAL_PAGES: readonly LegalPageContent[] = [
         title: "Scope of this policy",
         paragraphs: [
           "This policy covers information collected through the public website and related public channels we operate (for example Contact when used, and Sign In when enabled).",
-          "Website data practices are separate from future SAVEN product data practices. This policy does not claim that the website currently collects biometric, health, movement, video, audio, robotics, or BioMath Core data.",
+          "Website data practices are separate from future SAVEN product data practices. Future product privacy will be described separately when those products exist.",
           "It does not cover unpublished products, clinical systems, investor portals beyond what this site publishes, or third-party sites we link to.",
         ],
       },
@@ -60,14 +60,14 @@ export const LEGAL_PAGES: readonly LegalPageContent[] = [
       {
         title: "Legal bases",
         paragraphs: [
-          "Where a privacy law requires a legal basis, we rely on bases appropriate to the activity — for example operating the site you request, responding to your communications, and legitimate interests in securing and improving an informational website — without inventing jurisdiction-specific filings here.",
+          "Where a privacy law requires a legal basis, we rely on bases appropriate to the activity — for example operating the site you request, responding to your communications, and legitimate interests in securing and improving an informational website.",
         ],
       },
       {
         title: "Sharing and processors",
         paragraphs: [
           "We do not sell personal information.",
-          "Hosting, email delivery, authentication, or media storage providers may process data only to provide those services when configured. We list processors here only when actually used; we do not invent vendor names.",
+          "Hosting, email delivery, authentication, or media storage providers may process data only to provide those services when configured. Named processors appear here only when actually used on this website.",
         ],
       },
       {
@@ -86,7 +86,7 @@ export const LEGAL_PAGES: readonly LegalPageContent[] = [
       {
         title: "International transfers",
         paragraphs: [
-          "Our hosting and service providers may process data in more than one country. Where transfer safeguards are required by law, we will describe them when infrastructure and counsel confirm the details.",
+          "Our hosting and service providers may process data in more than one country. Where transfer safeguards are required by law, this policy will be updated to describe them.",
         ],
       },
       {
@@ -133,7 +133,7 @@ export const LEGAL_PAGES: readonly LegalPageContent[] = [
       {
         title: "Nature of the website",
         paragraphs: [
-          "The website provides informational material about intelligent systems, research directions, development programs, and potential applications. Principal systems are described through architecture and scope. The site does not offer operational products for purchase, medical services, or investment solicitations by default.",
+          "The website provides informational material about intelligent systems, research directions, development programs, and potential applications. Principal systems are described through architecture and scope. The site does not currently offer operational products for purchase, medical services, or investment solicitations.",
         ],
       },
       {
@@ -194,7 +194,7 @@ export const LEGAL_PAGES: readonly LegalPageContent[] = [
       {
         title: "Governing law / venue",
         paragraphs: [
-          "Governing law and venue will be stated when the formal legal entity and counsel confirm them. Until then, mandatory consumer protections in your place of residence still apply where required by law.",
+          "Governing law and venue are not stated on this site until a formal legal entity and applicable jurisdiction are published here. Mandatory consumer protections in your place of residence still apply where required by law.",
         ],
       },
       {
@@ -634,7 +634,7 @@ export const LEGAL_PAGES: readonly LegalPageContent[] = [
       {
         title: "Ownership",
         paragraphs: [
-          "Unless otherwise noted, website text, design, and brand materials are owned by SAVEN Core or used under permission. Exact legal owner wording will match the confirmed entity name when published.",
+          "Unless otherwise noted, website text, design, and brand materials are owned by SAVEN Core or used under permission. Exact legal owner wording will match the published entity name when available.",
         ],
       },
       {
@@ -672,7 +672,7 @@ export const LEGAL_PAGES: readonly LegalPageContent[] = [
       {
         title: "Trademark list",
         paragraphs: [
-          "SAVEN Core and related logo lockups identify the public brand of this website. Additional marks will be listed only when confirmed.",
+          "SAVEN Core and related logo lockups identify the public brand of this website. Additional marks will be listed only when published on this page.",
         ],
       },
       {
@@ -850,7 +850,7 @@ export const LEGAL_PAGES: readonly LegalPageContent[] = [
       {
         title: "Entity and contact",
         paragraphs: [
-          "Public contact for legal and policy questions: info@savencore.com. Formal legal entity name and address will appear here after owner confirmation. “Inc.” is not added unless the legal name is confirmed.",
+          "Public contact for legal and policy questions: info@savencore.com. Formal legal entity name and address are not published on this site until they appear here. “Inc.” is not used in the public copyright line unless a confirmed legal name requires it.",
         ],
       },
       {

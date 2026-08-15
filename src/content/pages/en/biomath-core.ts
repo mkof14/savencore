@@ -286,11 +286,11 @@ export const biomathCorePageContent: BioMathCorePageContent = {
   layerStack: {
     heading: "Four-layer stack",
     support:
-      "From philosophy to physical bodies — one governed path. BioMath Core is the brain and context engine.",
+      "From philosophy to connected physical systems — one governed architecture path. BioMath Core provides specialized analysis and reports; the Human Data Model remains the broader structured representation of Human Data.",
     visualLabel:
-      "Four-layer stack — BioMath Life, BioMath Core, SAVEN execution, Body Layer with critical dependency",
+      "Four-layer stack — BioMath Life, BioMath Core, SAVEN orchestration, Body Layer with critical dependency",
     caption:
-      "Illustrative architecture panel: four governed layers from philosophy to physical bodies.",
+      "Illustrative architecture panel: four governed layers from philosophy to connected robotic and physical systems.",
     layers: [
       {
         id: "biomath-life",
@@ -302,33 +302,36 @@ export const biomathCorePageContent: BioMathCorePageContent = {
         id: "biomath-core",
         name: "BioMath Core",
         role: "Brain · Context Engine",
-        detail: "Organizes authorized human context into living model intelligence.",
+        detail:
+          "Specialized analysis, reports, and health-related modeling that may use or contribute to Human Data through the Human Data Model — it does not replace that model.",
       },
       {
         id: "saven",
         name: "SAVEN",
-        role: "Execution Layer",
-        detail: "Turns conclusions into governed actions, control, and verification.",
+        role: "Orchestration Layer",
+        detail:
+          "Designed to interpret relevant information and coordinate assistance with connected robotic or device systems under human control, system limits, and safety requirements.",
       },
       {
         id: "body",
         name: "Body Layer",
         role: "Robots · Devices · Humans",
-        detail: "Where assistance meets the physical world under human control.",
+        detail:
+          "Connected robotic and physical systems — the embodiments where assistance meets the physical world under human control.",
       },
     ],
     calloutEyebrow: "Critical dependency",
     callout:
-      "Understanding is useless without execution. BioMath Core thinks — but cannot act alone.",
+      "Analysis alone does not create physical assistance. Physical action depends on the connected robotic or device system, human control, and defined limits.",
   },
   dualRoles: {
-    heading: "Context and execution — dual roles",
+    heading: "Context and orchestration — dual roles",
     support:
-      "Two interlocking capabilities. Neither replaces the other; both are required for continuous care architecture.",
+      "Two interlocking capabilities in the care-related architecture. Neither replaces the other; both are required for continuous care design. This does not redefine every SAVEN application as healthcare.",
     visualLabel:
-      "BioMath Core context engine and SAVEN execution layer as interlocking dual roles",
+      "BioMath Core context engine and SAVEN orchestration layer as interlocking dual roles",
     caption:
-      "Illustrative architecture panel: context and execution must interlock for continuous care.",
+      "Illustrative architecture panel: context and orchestration must interlock for continuous care design.",
     biomath: {
       name: "BioMath Core",
       title: "Context Engine",
@@ -336,11 +339,11 @@ export const biomathCorePageContent: BioMathCorePageContent = {
     },
     saven: {
       name: "SAVEN",
-      title: "Execution Layer",
-      verbs: ["Executes", "Controls", "Verifies"],
+      title: "Orchestration Layer",
+      verbs: ["Coordinates", "Integrates", "Verifies"],
     },
     banner:
-      "SAVEN maintains continuity where traditional systems break down.",
+      "SAVEN is designed to keep continuity across understanding, coordination, and connected systems under human control.",
   },
   engine: {
     heading: "Engine — three simulation phases",
@@ -371,7 +374,7 @@ export const biomathCorePageContent: BioMathCorePageContent = {
       {
         id: "output",
         label: "Output",
-        body: "A governed digital simulation of the person — structured understanding ready for next-level SAVEN actions under human control.",
+        body: "Structured understanding that may inform SAVEN assistance architecture under human control, permissions, and system limits — not automatic commands to robots.",
       },
     ],
   },
@@ -516,11 +519,11 @@ export const biomathCorePageContent: BioMathCorePageContent = {
   formula: {
     heading: "Master Infrastructure Formula",
     support:
-      "Architecture equation for continuous care — model coverage plus execution plus bodies.",
+      "Care-related architecture equation — BioMath Core analysis, SAVEN orchestration, and connected physical embodiments. Human Care applications are a primary direction; they do not redefine every SAVEN application as healthcare.",
     visualLabel:
       "Master Infrastructure Formula — BioMath Core + SAVEN + Bodies = System of Continuous Care",
     caption:
-      "Illustrative architecture panel: the master infrastructure equation for continuous care.",
+      "Illustrative architecture panel: continuous-care design across BioMath Core, SAVEN, and connected physical systems.",
     parts: [
       {
         id: "biomath",
@@ -530,17 +533,17 @@ export const biomathCorePageContent: BioMathCorePageContent = {
       {
         id: "saven",
         label: "SAVEN",
-        detail: "Execution",
+        detail: "Orchestration",
       },
       {
         id: "bodies",
         label: "Bodies",
-        detail: "Wearables · Robots · Humans",
+        detail: "Wearables · Robots · Devices · Humans",
       },
     ],
     equals: "System of Continuous Care",
     equalsDetail:
-      "Intended architecture for ongoing assistance under human control — not an Operational product claim.",
+      "Intended care-related architecture for ongoing assistance under human control — not an Operational product claim, and not a description of every SAVEN application domain.",
   },
   environments: {
     heading: "Environments",
@@ -591,7 +594,7 @@ export const biomathCorePageContent: BioMathCorePageContent = {
       {
         id: "saven",
         label: "SAVEN",
-        detail: "Execution · Control · Verify",
+        detail: "Orchestration · Integration · Verify",
       },
       {
         id: "saven-core",
@@ -602,8 +605,8 @@ export const biomathCorePageContent: BioMathCorePageContent = {
   },
   reportsCallout: {
     eyebrow: "BioMath Core → SAVEN",
-    title: "Reports shape next-level actions",
-    body: "Information for SAVEN’s next-level actions and commands is formed from BioMath Core reports and conclusions — under human control. Reports inform assistance and command architecture; they do not diagnose conditions, prescribe, or sell medicines.",
+    title: "Reports inform SAVEN assistance",
+    body: "BioMath Core reports and conclusions may provide relevant context for SAVEN assistance architecture — under human control, permissions, and system limits. Physical action depends on the connected robotic or device system. Reports do not diagnose conditions, prescribe, or sell medicines.",
     scopeLine: `Model coverage: ${BIOMATH_CORE_CATEGORY_COUNT} categories · ${BIOMATH_CORE_SERVICES_LABEL} services — not an Operational catalog.`,
   },
   whatIsNot: {

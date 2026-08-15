@@ -27,7 +27,7 @@ export const purposePageContent: EditorialPageContent = {
       title: "Purpose",
       paragraphs: [
         "Why SAVEN exists: people sometimes need physical assistance. SAVEN develops intelligent technologies that help robotic systems assist people with mobility, physical tasks, rehabilitation support, and everyday activities.",
-        "BioMath Core reports and conclusions form the information that shapes SAVEN’s next-level actions and commands — under human control, with AI as a tool. That intelligence foundation covers 20 categories and 200+ services as model scope.",
+        "BioMath Core reports and conclusions may provide relevant context for SAVEN assistance architecture — under human control, with AI as a tool. BioMath Core covers 20 categories and 200+ services as model scope; it does not replace the Human Data Model. Physical action depends on connected robotic or device systems.",
         "Robotics, aerial systems, infrastructure and other technical extensions remain subordinate to that purpose. They must not replace or obscure the human reason for the work.",
       ],
     },
@@ -35,7 +35,7 @@ export const purposePageContent: EditorialPageContent = {
       id: "mission",
       title: "Mission",
       paragraphs: [
-        "The mission is to build a coherent path from human understanding to physical assistance: interpret context carefully, connect authorized data to engineering systems, and keep people responsible for consequential decisions.",
+        "The mission is to build a coherent path from human understanding to physical assistance: interpret context carefully, connect authorized data to engineering systems, and keep people responsible for consequential decisions. Human Care here means support, assistance, and independence — broader than medical treatment alone.",
         "Mission describes direction. It is not used as a navigation label. Purpose remains the principal public label for this section of the site.",
       ],
     },

@@ -105,14 +105,6 @@ export const faqPageEn: FaqPageContent = {
             "Different environments and tasks require different hardware. SAVEN is designed around the intelligence and human-assistance layer so that the technology can evolve alongside multiple robotic platforms.",
           ],
         },
-        {
-          id: "about-entity",
-          question: "Is the legal entity name fully confirmed?",
-          answer: [
-            "The public brand on this website is SAVEN Core. Formal legal entity name, registered address, and controller identity will be stated on Legal pages when confirmed by the owner.",
-          ],
-          links: [{ label: "Legal Notices", href: "/legal/legal-notices/" }],
-        },
       ],
     },
     {

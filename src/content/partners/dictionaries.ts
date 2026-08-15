@@ -7,10 +7,10 @@ export const partnersDictionaries: Record<Exclude<ContentLocale, "en">, Dict> = 
     Partners: "Партнёрам",
     "Build With SAVEN": "Строить вместе с SAVEN",
     Architecture: "Архитектура",
-    "SAVEN is not limited to manufacturing a single robot. The opportunity is a compatible robotics platform plus SAVEN human-assistance intelligence plus a defined application — a potential integrated solution.":
-      "SAVEN не ограничен производством одного робота. Возможность — совместимая робототехническая платформа плюс интеллект человеческой помощи SAVEN плюс определённое применение: потенциально интегрированное решение.",
-    "Long-horizon engineering atmosphere for partnership conversation":
-      "Инженерная атмосфера долгосрочного горизонта для разговора о партнёрстве",
+    "SAVEN is not limited to manufacturing a single robot. The model is a compatible robotics platform plus SAVEN human-assistance intelligence plus a defined application — an intended integrated solution under Architecture framing.":
+      "SAVEN не ограничен производством одного робота. Модель — совместимая робототехническая платформа плюс интеллект человеческой помощи SAVEN плюс определённое применение — предполагаемое интегрированное решение в рамке Architecture.",
+    "Quiet platform craft atmosphere for partnership conversation with SAVEN":
+      "Спокойная атмосфера платформенной инженерии для разговора о партнёрстве с SAVEN",
     "What we offer": "Что мы предлагаем",
     "Human-assistance intelligence, interaction, personalization, and integration for compatible robotic systems.":
       "Интеллект человеческой помощи, взаимодействие, персонализация и интеграция для совместимых робототехнических систем.",
@@ -18,8 +18,8 @@ export const partnersDictionaries: Record<Exclude<ContentLocale, "en">, Dict> = 
     "Hardware is advancing. Useful assistance still requires technology beyond mechanical movement.":
       "Аппаратная база развивается. Полезная помощь по-прежнему требует технологий сверх механического движения.",
     "How to begin": "С чего начать",
-    "Discuss a partnership or write to SAVEN. Existing partnerships are not claimed here.":
-      "Обсудите партнёрство или напишите в SAVEN. Существующие партнёрства здесь не заявляются.",
+    "Discuss a partnership or write to SAVEN at info@savencore.com.":
+      "Обсудите партнёрство или напишите в SAVEN на info@savencore.com.",
     "The partnership model": "Модель партнёрства",
     "Your robotics platform": "Ваша робототехническая платформа",
     "Compatible hardware you already build.": "Совместимое оборудование, которое вы уже создаёте.",
@@ -65,16 +65,17 @@ export const partnersDictionaries: Record<Exclude<ContentLocale, "en">, Dict> = 
     Technology: "Технологии",
     "SAVEN Robotics Lab": "SAVEN Robotics Lab",
     Investors: "Инвесторам",
+    Business: "Бизнес",
     "Responsible Development": "Ответственная разработка",
   },
   es: {
     Partners: "Socios",
     "Build With SAVEN": "Construir con SAVEN",
     Architecture: "Arquitectura",
-    "SAVEN is not limited to manufacturing a single robot. The opportunity is a compatible robotics platform plus SAVEN human-assistance intelligence plus a defined application — a potential integrated solution.":
-      "SAVEN no se limita a fabricar un solo robot. La oportunidad es una plataforma robótica compatible más la inteligencia de asistencia humana SAVEN más una aplicación definida: una posible solución integrada.",
-    "Long-horizon engineering atmosphere for partnership conversation":
-      "Atmósfera de ingeniería de largo horizonte para conversar sobre colaboración",
+    "SAVEN is not limited to manufacturing a single robot. The model is a compatible robotics platform plus SAVEN human-assistance intelligence plus a defined application — an intended integrated solution under Architecture framing.":
+      "SAVEN no se limita a fabricar un solo robot. El modelo es una plataforma robótica compatible más la inteligencia de asistencia humana SAVEN más una aplicación definida: una solución integrada prevista bajo el marco Architecture.",
+    "Quiet platform craft atmosphere for partnership conversation with SAVEN":
+      "Atmósfera serena de oficio de plataforma para conversar sobre colaboración con SAVEN",
     "What we offer": "Qué ofrecemos",
     "Human-assistance intelligence, interaction, personalization, and integration for compatible robotic systems.":
       "Inteligencia de asistencia humana, interacción, personalización e integración para sistemas robóticos compatibles.",
@@ -82,8 +83,8 @@ export const partnersDictionaries: Record<Exclude<ContentLocale, "en">, Dict> = 
     "Hardware is advancing. Useful assistance still requires technology beyond mechanical movement.":
       "El hardware avanza. La asistencia útil sigue requiriendo tecnología más allá del movimiento mecánico.",
     "How to begin": "Cómo empezar",
-    "Discuss a partnership or write to SAVEN. Existing partnerships are not claimed here.":
-      "Hable de una colaboración o escriba a SAVEN. Aquí no se afirman asociaciones existentes.",
+    "Discuss a partnership or write to SAVEN at info@savencore.com.":
+      "Hable de una colaboración o escriba a SAVEN en info@savencore.com.",
     "The partnership model": "El modelo de colaboración",
     "Your robotics platform": "Su plataforma robótica",
     "Compatible hardware you already build.": "Hardware compatible que usted ya fabrica.",
@@ -129,16 +130,17 @@ export const partnersDictionaries: Record<Exclude<ContentLocale, "en">, Dict> = 
     Technology: "Tecnología",
     "SAVEN Robotics Lab": "SAVEN Robotics Lab",
     Investors: "Inversores",
+    Business: "Negocios",
     "Responsible Development": "Desarrollo responsable",
   },
   de: {
     Partners: "Partner",
     "Build With SAVEN": "Mit SAVEN aufbauen",
     Architecture: "Architektur",
-    "SAVEN is not limited to manufacturing a single robot. The opportunity is a compatible robotics platform plus SAVEN human-assistance intelligence plus a defined application — a potential integrated solution.":
-      "SAVEN ist nicht auf die Fertigung eines einzelnen Roboters beschränkt. Die Chance ist eine kompatible Roboterplattform plus SAVEN-Intelligenz für menschliche Unterstützung plus eine definierte Anwendung — eine mögliche integrierte Lösung.",
-    "Long-horizon engineering atmosphere for partnership conversation":
-      "Ingenieuratmosphäre mit langem Horizont für das Partnerschaftsgespräch",
+    "SAVEN is not limited to manufacturing a single robot. The model is a compatible robotics platform plus SAVEN human-assistance intelligence plus a defined application — an intended integrated solution under Architecture framing.":
+      "SAVEN ist nicht auf die Fertigung eines einzelnen Roboters beschränkt. Das Modell ist eine kompatible Roboterplattform plus SAVEN-Intelligenz für menschliche Unterstützung plus eine definierte Anwendung — eine vorgesehene integrierte Lösung im Architecture-Rahmen.",
+    "Quiet platform craft atmosphere for partnership conversation with SAVEN":
+      "Ruhige Atmosphäre handwerklicher Plattformarbeit für das Partnerschaftsgespräch mit SAVEN",
     "What we offer": "Was wir anbieten",
     "Human-assistance intelligence, interaction, personalization, and integration for compatible robotic systems.":
       "Intelligenz für menschliche Unterstützung, Interaktion, Personalisierung und Integration für kompatible Robotersysteme.",
@@ -146,8 +148,8 @@ export const partnersDictionaries: Record<Exclude<ContentLocale, "en">, Dict> = 
     "Hardware is advancing. Useful assistance still requires technology beyond mechanical movement.":
       "Hardware schreitet voran. Nützliche Unterstützung braucht weiterhin Technologie jenseits mechanischer Bewegung.",
     "How to begin": "Wie Sie beginnen",
-    "Discuss a partnership or write to SAVEN. Existing partnerships are not claimed here.":
-      "Sprechen Sie über eine Partnerschaft oder schreiben Sie SAVEN. Bestehende Partnerschaften werden hier nicht behauptet.",
+    "Discuss a partnership or write to SAVEN at info@savencore.com.":
+      "Sprechen Sie über eine Partnerschaft oder schreiben Sie SAVEN unter info@savencore.com.",
     "The partnership model": "Das Partnerschaftsmodell",
     "Your robotics platform": "Ihre Roboterplattform",
     "Compatible hardware you already build.": "Kompatible Hardware, die Sie bereits bauen.",
@@ -193,16 +195,17 @@ export const partnersDictionaries: Record<Exclude<ContentLocale, "en">, Dict> = 
     Technology: "Technologie",
     "SAVEN Robotics Lab": "SAVEN Robotics Lab",
     Investors: "Investoren",
+    Business: "Business",
     "Responsible Development": "Verantwortungsvolle Entwicklung",
   },
   fr: {
     Partners: "Partenaires",
     "Build With SAVEN": "Construire avec SAVEN",
     Architecture: "Architecture",
-    "SAVEN is not limited to manufacturing a single robot. The opportunity is a compatible robotics platform plus SAVEN human-assistance intelligence plus a defined application — a potential integrated solution.":
-      "SAVEN ne se limite pas à fabriquer un seul robot. L’opportunité est une plateforme robotique compatible plus l’intelligence d’assistance humaine SAVEN plus une application définie — une possible solution intégrée.",
-    "Long-horizon engineering atmosphere for partnership conversation":
-      "Atmosphère d’ingénierie de long horizon pour une conversation de partenariat",
+    "SAVEN is not limited to manufacturing a single robot. The model is a compatible robotics platform plus SAVEN human-assistance intelligence plus a defined application — an intended integrated solution under Architecture framing.":
+      "SAVEN ne se limite pas à fabriquer un seul robot. Le modèle est une plateforme robotique compatible plus l’intelligence d’assistance humaine SAVEN plus une application définie — une solution intégrée prévue dans le cadre Architecture.",
+    "Quiet platform craft atmosphere for partnership conversation with SAVEN":
+      "Atmosphère calme d’artisanat de plateforme pour une conversation de partenariat avec SAVEN",
     "What we offer": "Ce que nous proposons",
     "Human-assistance intelligence, interaction, personalization, and integration for compatible robotic systems.":
       "Intelligence d’assistance humaine, interaction, personnalisation et intégration pour des systèmes robotiques compatibles.",
@@ -210,8 +213,8 @@ export const partnersDictionaries: Record<Exclude<ContentLocale, "en">, Dict> = 
     "Hardware is advancing. Useful assistance still requires technology beyond mechanical movement.":
       "Le matériel progresse. Une assistance utile exige encore une technologie au-delà du mouvement mécanique.",
     "How to begin": "Par où commencer",
-    "Discuss a partnership or write to SAVEN. Existing partnerships are not claimed here.":
-      "Discutez d’un partenariat ou écrivez à SAVEN. Aucun partenariat existant n’est revendiqué ici.",
+    "Discuss a partnership or write to SAVEN at info@savencore.com.":
+      "Discutez d’un partenariat ou écrivez à SAVEN à info@savencore.com.",
     "The partnership model": "Le modèle de partenariat",
     "Your robotics platform": "Votre plateforme robotique",
     "Compatible hardware you already build.": "Le matériel compatible que vous construisez déjà.",
@@ -257,16 +260,17 @@ export const partnersDictionaries: Record<Exclude<ContentLocale, "en">, Dict> = 
     Technology: "Technologie",
     "SAVEN Robotics Lab": "SAVEN Robotics Lab",
     Investors: "Investisseurs",
+    Business: "Business",
     "Responsible Development": "Développement responsable",
   },
   ja: {
     Partners: "パートナー",
     "Build With SAVEN": "SAVENと構築する",
     Architecture: "アーキテクチャ",
-    "SAVEN is not limited to manufacturing a single robot. The opportunity is a compatible robotics platform plus SAVEN human-assistance intelligence plus a defined application — a potential integrated solution.":
-      "SAVENは一台のロボットを製造することに限定されません。機会は、互換性のあるロボットプラットフォームにSAVENの人支援インテリジェンスと定義された応用を加えた、統合ソリューションの可能性です。",
-    "Long-horizon engineering atmosphere for partnership conversation":
-      "パートナーシップの対話のための長期的なエンジニアリングの雰囲気",
+    "SAVEN is not limited to manufacturing a single robot. The model is a compatible robotics platform plus SAVEN human-assistance intelligence plus a defined application — an intended integrated solution under Architecture framing.":
+      "SAVENは一台のロボットを製造することに限定されません。モデルは、互換性のあるロボットプラットフォームにSAVENの人支援インテリジェンスと定義された応用を加えた、Architectureの枠組みにおける意図された統合ソリューションです。",
+    "Quiet platform craft atmosphere for partnership conversation with SAVEN":
+      "SAVENとのパートナーシップの対話のための、静かで丁寧なプラットフォームづくりの雰囲気",
     "What we offer": "提供するもの",
     "Human-assistance intelligence, interaction, personalization, and integration for compatible robotic systems.":
       "互換性のあるロボットシステム向けの人支援インテリジェンス、相互作用、パーソナライゼーション、統合。",
@@ -274,8 +278,8 @@ export const partnersDictionaries: Record<Exclude<ContentLocale, "en">, Dict> = 
     "Hardware is advancing. Useful assistance still requires technology beyond mechanical movement.":
       "ハードウェアは進歩しています。有用な支援には、機械的な動きを超える技術がなお必要です。",
     "How to begin": "始め方",
-    "Discuss a partnership or write to SAVEN. Existing partnerships are not claimed here.":
-      "パートナーシップを話し合うか、SAVENに書いてください。既存の提携はここでは主張しません。",
+    "Discuss a partnership or write to SAVEN at info@savencore.com.":
+      "パートナーシップを話し合うか、info@savencore.com までSAVENにご連絡ください。",
     "The partnership model": "パートナーシップのモデル",
     "Your robotics platform": "貴社のロボットプラットフォーム",
     "Compatible hardware you already build.": "すでに構築している互換ハードウェア。",
@@ -321,16 +325,17 @@ export const partnersDictionaries: Record<Exclude<ContentLocale, "en">, Dict> = 
     Technology: "技術",
     "SAVEN Robotics Lab": "SAVEN Robotics Lab",
     Investors: "投資家",
+    Business: "ビジネス",
     "Responsible Development": "責任ある開発",
   },
   "zh-cn": {
     Partners: "合作伙伴",
     "Build With SAVEN": "与 SAVEN 共建",
     Architecture: "架构",
-    "SAVEN is not limited to manufacturing a single robot. The opportunity is a compatible robotics platform plus SAVEN human-assistance intelligence plus a defined application — a potential integrated solution.":
-      "SAVEN 不限于制造单一机器人。机会是兼容的机器人平台，加上 SAVEN 人体协助智能，再加上明确的应用——潜在的集成方案。",
-    "Long-horizon engineering atmosphere for partnership conversation":
-      "面向长期工程氛围的合作对话",
+    "SAVEN is not limited to manufacturing a single robot. The model is a compatible robotics platform plus SAVEN human-assistance intelligence plus a defined application — an intended integrated solution under Architecture framing.":
+      "SAVEN 不限于制造单一机器人。模式是兼容的机器人平台，加上 SAVEN 人体协助智能，再加上明确的应用——在 Architecture 框架下的预期集成方案。",
+    "Quiet platform craft atmosphere for partnership conversation with SAVEN":
+      "面向与 SAVEN 合作对话的安静平台工艺氛围",
     "What we offer": "我们提供什么",
     "Human-assistance intelligence, interaction, personalization, and integration for compatible robotic systems.":
       "面向兼容机器人系统的人体协助智能、交互、个性化与集成。",
@@ -338,8 +343,8 @@ export const partnersDictionaries: Record<Exclude<ContentLocale, "en">, Dict> = 
     "Hardware is advancing. Useful assistance still requires technology beyond mechanical movement.":
       "硬件正在进步。有用的协助仍然需要超越机械运动的技术。",
     "How to begin": "如何开始",
-    "Discuss a partnership or write to SAVEN. Existing partnerships are not claimed here.":
-      "讨论合作或写信给 SAVEN。此处不声称已有合作关系。",
+    "Discuss a partnership or write to SAVEN at info@savencore.com.":
+      "讨论合作，或写信至 SAVEN：info@savencore.com。",
     "The partnership model": "合作模式",
     "Your robotics platform": "您的机器人平台",
     "Compatible hardware you already build.": "您已经在制造的兼容硬件。",
@@ -385,16 +390,17 @@ export const partnersDictionaries: Record<Exclude<ContentLocale, "en">, Dict> = 
     Technology: "技术",
     "SAVEN Robotics Lab": "SAVEN Robotics Lab",
     Investors: "投资者",
+    Business: "商业",
     "Responsible Development": "负责任的开发",
   },
   ar: {
     Partners: "الشركاء",
     "Build With SAVEN": "ابنِ مع SAVEN",
     Architecture: "الهندسة",
-    "SAVEN is not limited to manufacturing a single robot. The opportunity is a compatible robotics platform plus SAVEN human-assistance intelligence plus a defined application — a potential integrated solution.":
-      "لا تقتصر SAVEN على تصنيع روبوت واحد. الفرصة هي منصة روبوتية متوافقة مع ذكاء المساعدة الإنسانية من SAVEN وتطبيق محدد — حل متكامل محتمل.",
-    "Long-horizon engineering atmosphere for partnership conversation":
-      "أجواء هندسية بعيدة الأفق لمحادثة الشراكة",
+    "SAVEN is not limited to manufacturing a single robot. The model is a compatible robotics platform plus SAVEN human-assistance intelligence plus a defined application — an intended integrated solution under Architecture framing.":
+      "لا تقتصر SAVEN على تصنيع روبوت واحد. النموذج هو منصة روبوتية متوافقة مع ذكاء المساعدة الإنسانية من SAVEN وتطبيق محدد — حل متكامل مقصود ضمن إطار Architecture.",
+    "Quiet platform craft atmosphere for partnership conversation with SAVEN":
+      "أجواء هادئة لحرفة المنصة لمحادثة الشراكة مع SAVEN",
     "What we offer": "ما نقدمه",
     "Human-assistance intelligence, interaction, personalization, and integration for compatible robotic systems.":
       "ذكاء المساعدة الإنسانية والتفاعل والتخصيص والتكامل للأنظمة الروبوتية المتوافقة.",
@@ -402,8 +408,8 @@ export const partnersDictionaries: Record<Exclude<ContentLocale, "en">, Dict> = 
     "Hardware is advancing. Useful assistance still requires technology beyond mechanical movement.":
       "العتاد يتقدم. المساعدة المفيدة ما زالت تتطلب تقنية تتجاوز الحركة الميكانيكية.",
     "How to begin": "كيف تبدأ",
-    "Discuss a partnership or write to SAVEN. Existing partnerships are not claimed here.":
-      "ناقش شراكة أو اكتب إلى SAVEN. لا تُدّعى هنا شراكات قائمة.",
+    "Discuss a partnership or write to SAVEN at info@savencore.com.":
+      "ناقش شراكة أو اكتب إلى SAVEN على info@savencore.com.",
     "The partnership model": "نموذج الشراكة",
     "Your robotics platform": "منصتكم الروبوتية",
     "Compatible hardware you already build.": "عتاد متوافق تصنعونه أصلًا.",
@@ -449,16 +455,17 @@ export const partnersDictionaries: Record<Exclude<ContentLocale, "en">, Dict> = 
     Technology: "التقنية",
     "SAVEN Robotics Lab": "SAVEN Robotics Lab",
     Investors: "المستثمرون",
+    Business: "الأعمال",
     "Responsible Development": "تطوير مسؤول",
   },
   he: {
     Partners: "שותפים",
     "Build With SAVEN": "לבנות עם SAVEN",
     Architecture: "ארכיטקטורה",
-    "SAVEN is not limited to manufacturing a single robot. The opportunity is a compatible robotics platform plus SAVEN human-assistance intelligence plus a defined application — a potential integrated solution.":
-      "SAVEN אינה מוגבלת לייצור רובוט אחד. ההזדמנות היא פלטפורמת רובוטיקה תואמת ועוד אינטליגנציית הסיוע האנושי של SAVEN ועוד יישום מוגדר — פתרון משולב אפשרי.",
-    "Long-horizon engineering atmosphere for partnership conversation":
-      "אווירת הנדסה לטווח ארוך לשיחת שותפות",
+    "SAVEN is not limited to manufacturing a single robot. The model is a compatible robotics platform plus SAVEN human-assistance intelligence plus a defined application — an intended integrated solution under Architecture framing.":
+      "SAVEN אינה מוגבלת לייצור רובוט אחד. המודל הוא פלטפורמת רובוטיקה תואמת ועוד אינטליגנציית הסיוע האנושי של SAVEN ועוד יישום מוגדר — פתרון משולב מכוון במסגרת Architecture.",
+    "Quiet platform craft atmosphere for partnership conversation with SAVEN":
+      "אווירת מלאכת פלטפורמה שקטה לשיחת שותפות עם SAVEN",
     "What we offer": "מה אנו מציעים",
     "Human-assistance intelligence, interaction, personalization, and integration for compatible robotic systems.":
       "אינטליגנציית סיוע אנושי, אינטראקציה, התאמה אישית ואינטגרציה למערכות רובוטיות תואמות.",
@@ -466,8 +473,8 @@ export const partnersDictionaries: Record<Exclude<ContentLocale, "en">, Dict> = 
     "Hardware is advancing. Useful assistance still requires technology beyond mechanical movement.":
       "החומרה מתקדמת. סיוע שימושי עדיין דורש טכנולוגיה מעבר לתנועה מכנית.",
     "How to begin": "איך להתחיל",
-    "Discuss a partnership or write to SAVEN. Existing partnerships are not claimed here.":
-      "דברו על שותפות או כתבו ל-SAVEN. שותפויות קיימות אינן נטענות כאן.",
+    "Discuss a partnership or write to SAVEN at info@savencore.com.":
+      "דברו על שותפות או כתבו ל-SAVEN ב-info@savencore.com.",
     "The partnership model": "מודל השותפות",
     "Your robotics platform": "פלטפורמת הרובוטיקה שלכם",
     "Compatible hardware you already build.": "חומרה תואמת שאתם כבר בונים.",
@@ -513,16 +520,17 @@ export const partnersDictionaries: Record<Exclude<ContentLocale, "en">, Dict> = 
     Technology: "טכנולוגיה",
     "SAVEN Robotics Lab": "SAVEN Robotics Lab",
     Investors: "משקיעים",
+    Business: "עסקים",
     "Responsible Development": "פיתוח אחראי",
   },
   uk: {
     Partners: "Партнерам",
     "Build With SAVEN": "Будувати з SAVEN",
     Architecture: "Архітектура",
-    "SAVEN is not limited to manufacturing a single robot. The opportunity is a compatible robotics platform plus SAVEN human-assistance intelligence plus a defined application — a potential integrated solution.":
-      "SAVEN не обмежений виробництвом одного робота. Можливість — сумісна робототехнічна платформа плюс інтелект людської допомоги SAVEN плюс визначене застосування: потенційно інтегроване рішення.",
-    "Long-horizon engineering atmosphere for partnership conversation":
-      "Інженерна атмосфера довгого горизонту для розмови про партнерство",
+    "SAVEN is not limited to manufacturing a single robot. The model is a compatible robotics platform plus SAVEN human-assistance intelligence plus a defined application — an intended integrated solution under Architecture framing.":
+      "SAVEN не обмежений виробництвом одного робота. Модель — сумісна робототехнічна платформа плюс інтелект людської допомоги SAVEN плюс визначене застосування — передбачене інтегроване рішення в рамці Architecture.",
+    "Quiet platform craft atmosphere for partnership conversation with SAVEN":
+      "Спокійна атмосфера платформної інженерії для розмови про партнерство з SAVEN",
     "What we offer": "Що ми пропонуємо",
     "Human-assistance intelligence, interaction, personalization, and integration for compatible robotic systems.":
       "Інтелект людської допомоги, взаємодія, персоналізація та інтеграція для сумісних робототехнічних систем.",
@@ -530,8 +538,8 @@ export const partnersDictionaries: Record<Exclude<ContentLocale, "en">, Dict> = 
     "Hardware is advancing. Useful assistance still requires technology beyond mechanical movement.":
       "Апаратна база розвивається. Корисна допомога й надалі потребує технологій понад механічний рух.",
     "How to begin": "З чого почати",
-    "Discuss a partnership or write to SAVEN. Existing partnerships are not claimed here.":
-      "Обговоріть партнерство або напишіть до SAVEN. Існуючі партнерства тут не заявляються.",
+    "Discuss a partnership or write to SAVEN at info@savencore.com.":
+      "Обговоріть партнерство або напишіть до SAVEN на info@savencore.com.",
     "The partnership model": "Модель партнерства",
     "Your robotics platform": "Ваша робототехнічна платформа",
     "Compatible hardware you already build.": "Сумісне обладнання, яке ви вже створюєте.",
@@ -577,6 +585,7 @@ export const partnersDictionaries: Record<Exclude<ContentLocale, "en">, Dict> = 
     Technology: "Технології",
     "SAVEN Robotics Lab": "SAVEN Robotics Lab",
     Investors: "Інвесторам",
+    Business: "Бізнес",
     "Responsible Development": "Відповідальна розробка",
   },
 };

@@ -22,6 +22,7 @@ export const uiEn = {
     labs: "Labs",
     investors: "Investors",
     partners: "Partners",
+    business: "Business",
     signIn: "Sign In/Up",
   },
 
@@ -77,6 +78,7 @@ export const uiEn = {
     "footer-company-investors-contact": "Investor Contact",
     "footer-company-media": "Media",
     "footer-company-partners": "Partners",
+    "footer-company-business": "Business",
     "footer-company-contact": "Contact",
     "footer-company-roadmap": "Roadmap",
     "footer-resources-faq": "FAQ",

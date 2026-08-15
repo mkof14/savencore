@@ -85,7 +85,7 @@ export const HOME_LOCALE_EXTRAS: Record<
     layers: {
       heading: "La capa SAVEN de asistencia humana",
       intro:
-        "El valor de SAVEN no se limita a construir robots mecánicos. La arquitectura se diseña como una capa de inteligencia de asistencia humana que puede trabajar en sistemas robóticos compatibles.",
+        "El valor de SAVEN no se limita a construir robots mecánicos. La arquitectura incluye una capa de inteligencia de asistencia humana que puede trabajar en sistemas robóticos compatibles. Esta capa explica cómo SAVEN asiste; no sustituye el Modelo de datos humanos.",
       items: [
         {
           title: "Percepción",
@@ -193,7 +193,7 @@ export const HOME_LOCALE_EXTRAS: Record<
     layers: {
       heading: "Die SAVEN-Schicht für menschliche Unterstützung",
       intro:
-        "Der Wert von SAVEN beschränkt sich nicht auf den Bau mechanischer Roboter. Die Architektur wird als Intelligenzschicht für menschliche Unterstützung entworfen, die über kompatible Robotersysteme arbeiten kann.",
+        "Der Wert von SAVEN beschränkt sich nicht auf den Bau mechanischer Roboter. Die Architektur umfasst eine Intelligenzschicht für menschliche Unterstützung, die über kompatible Robotersysteme arbeiten kann. Diese Schicht erklärt, wie SAVEN unterstützt; sie ersetzt das Human Data Model nicht.",
       items: [
         {
           title: "Wahrnehmung",
@@ -301,7 +301,7 @@ export const HOME_LOCALE_EXTRAS: Record<
     layers: {
       heading: "La couche SAVEN d’assistance humaine",
       intro:
-        "La valeur de SAVEN ne se limite pas à construire des robots mécaniques. L’architecture est conçue comme une couche d’intelligence d’assistance humaine pouvant fonctionner sur des systèmes robotiques compatibles.",
+        "La valeur de SAVEN ne se limite pas à construire des robots mécaniques. L’architecture comprend une couche d’intelligence d’assistance humaine pouvant fonctionner sur des systèmes robotiques compatibles. Cette couche explique comment SAVEN assiste ; elle ne remplace pas le Human Data Model.",
       items: [
         {
           title: "Perception",
@@ -409,7 +409,7 @@ export const HOME_LOCALE_EXTRAS: Record<
     layers: {
       heading: "SAVENの人支援レイヤー",
       intro:
-        "SAVENの価値は機械ロボットを作ることだけではありません。このアーキテクチャは、互換性のあるロボットシステムで機能しうる人支援インテリジェンス層として設計されています。",
+        "SAVENの価値は機械ロボットを作ることだけではありません。このアーキテクチャには、互換性のあるロボットシステムで機能しうる人支援インテリジェンス層が含まれます。この層はSAVENがどう支援するかを説明するものであり、Human Data Modelを置き換えません。",
       items: [
         {
           title: "知覚",
@@ -517,7 +517,7 @@ export const HOME_LOCALE_EXTRAS: Record<
     layers: {
       heading: "SAVEN 人体协助层",
       intro:
-        "SAVEN 的价值不限于制造机械机器人。该架构被设计为可在兼容机器人系统上工作的人体协助智能层。",
+        "SAVEN 的价值不限于制造机械机器人。该架构包含可在兼容机器人系统上工作的人体协助智能层。该层说明 SAVEN 如何协助；它不取代 Human Data Model。",
       items: [
         {
           title: "感知",
@@ -624,7 +624,7 @@ export const HOME_LOCALE_EXTRAS: Record<
     layers: {
       heading: "طبقة SAVEN للمساعدة الإنسانية",
       intro:
-        "لا تقتصر قيمة SAVEN على بناء روبوتات ميكانيكية. تُصمم العمارة كطبقة ذكاء للمساعدة الإنسانية يمكن أن تعمل عبر أنظمة روبوتية متوافقة.",
+        "لا تقتصر قيمة SAVEN على بناء روبوتات ميكانيكية. تتضمن العمارة طبقة ذكاء للمساعدة الإنسانية يمكن أن تعمل عبر أنظمة روبوتية متوافقة. توضّح هذه الطبقة كيف تساعد SAVEN؛ وهي لا تحل محل Human Data Model.",
       items: [
         {
           title: "الإدراك",
@@ -731,7 +731,7 @@ export const HOME_LOCALE_EXTRAS: Record<
     layers: {
       heading: "שכבת הסיוע האנושי של SAVEN",
       intro:
-        "הערך של SAVEN אינו מוגבל לבניית רובוטים מכניים. הארכיטקטורה מתוכננת כשכבת אינטליגנציה לסיוע אנושי שיכולה לפעול במערכות רובוטיות תואמות.",
+        "הערך של SAVEN אינו מוגבל לבניית רובוטים מכניים. הארכיטקטורה כוללת שכבת אינטליגנציה לסיוע אנושי שיכולה לפעול במערכות רובוטיות תואמות. שכבה זו מסבירה כיצד SAVEN מסייעת; היא אינה מחליפה את Human Data Model.",
       items: [
         {
           title: "תפיסה",
@@ -838,7 +838,7 @@ export const HOME_LOCALE_EXTRAS: Record<
     layers: {
       heading: "Шар людської допомоги SAVEN",
       intro:
-        "Цінність SAVEN не обмежується створенням механічних роботів. Архітектура розробляється як шар інтелекту людської допомоги, здатний працювати на сумісних робототехнічних системах.",
+        "Цінність SAVEN не обмежується створенням механічних роботів. Архітектура включає шар інтелекту людської допомоги, здатний працювати на сумісних робототехнічних системах. Цей шар пояснює, як SAVEN допомагає; він не замінює Human Data Model.",
       items: [
         {
           title: "Сприйняття",
@@ -946,7 +946,7 @@ export const HOME_LOCALE_EXTRAS: Record<
     layers: {
       heading: "Слой человеческой помощи SAVEN",
       intro:
-        "Ценность SAVEN не ограничивается созданием механических роботов. Архитектура разрабатывается как слой интеллекта человеческой помощи, способный работать на совместимых робототехнических системах.",
+        "Ценность SAVEN не ограничивается созданием механических роботов. Архитектура включает слой интеллекта человеческой помощи, способный работать на совместимых робототехнических системах. Этот слой объясняет, как SAVEN помогает; он не заменяет Human Data Model.",
       items: [
         {
           title: "Восприятие",

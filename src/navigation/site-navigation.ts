@@ -181,9 +181,10 @@ export const trustMenuEntries: readonly NavLinkItem[] = [
 ] as const;
 
 /**
- * Primary header navigation — important Layer-1 hubs only (D-0153 / D-0194 / D-0247).
+ * Primary header navigation — important Layer-1 hubs only (D-0153 / D-0194 / D-0247 / D-0283).
  * Flat hub links; full leaf lists stay in the footer.
  * Home is first-class; Trust stays footer-only; Research hub removed (D-0247).
+ * Partners is footer-only under Company (D-0283).
  * Purpose remains in footer Company → Mission.
  */
 export const primaryNavigation: readonly PrimaryNavItem[] = [
@@ -193,7 +194,6 @@ export const primaryNavigation: readonly PrimaryNavItem[] = [
   { id: "applications", label: "Applications", href: "/applications/" },
   { id: "technology", label: "Technology", href: "/technology/" },
   { id: "investors", label: "Investors", href: "/investors/" },
-  { id: "partners", label: "Partners", href: "/partners/" },
 ] as const;
 
 /** Utility chrome links (Sign In/Up). */
@@ -355,8 +355,9 @@ export const footerNavigation: readonly FooterGroup[] = [
         "Investor Contact",
         "/investors/contact/",
       ),
-      published("footer-company-media", "Media", "/media/"),
       published("footer-company-partners", "Partners", "/partners/"),
+      published("footer-company-business", "Business", "/business/"),
+      published("footer-company-media", "Media", "/media/"),
       published("footer-company-contact", "Contact", "/contact/"),
       published("footer-company-roadmap", "Roadmap", "/roadmap/"),
     ],
@@ -431,6 +432,14 @@ function assertFooterCoversPublishedRoutes(): void {
       legalHubCoversLeaves &&
       route.startsWith("/legal/") &&
       route !== "/legal/"
+    ) {
+      continue;
+    }
+    // Business section leaves covered by Company → Business hub (D-0288).
+    if (
+      footerHrefs.has("/business/") &&
+      route.startsWith("/business/") &&
+      route !== "/business/"
     ) {
       continue;
     }

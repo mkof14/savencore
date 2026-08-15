@@ -28,6 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       route === "/purpose/" ||
       route === "/investors/" ||
       route === "/partners/" ||
+      route === "/business/" ||
       route === "/foundation/" ||
       route === "/foundation/biomath-core/" ||
       route === "/contact/" ||

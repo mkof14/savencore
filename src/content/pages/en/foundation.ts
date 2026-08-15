@@ -67,7 +67,7 @@ const foundationLayerDetails: Readonly<
       {
         id: "relationship",
         title: "Relationship",
-        text: "Receives orientation from BioMath Life and provides the Human Data Model interface used by SAVEN and SAVEN Core. Information for SAVEN’s next-level actions and commands is formed from BioMath Core reports and conclusions — under human control; AI remains a tool.",
+        text: "Receives orientation from BioMath Life. BioMath Core may use or contribute to Human Data through the Human Data Model; it does not replace that model. Reports and conclusions may inform SAVEN assistance architecture under human control; AI remains a tool.",
       },
       {
         id: "scope",
@@ -77,7 +77,7 @@ const foundationLayerDetails: Readonly<
       {
         id: "outputs",
         title: "Outputs",
-        text: "Structured human-context representations, reports, and conclusions that inform SAVEN next-level actions and commands under human control. Reports inform assistance architecture — they do not diagnose conditions, prescribe, or sell medicines.",
+        text: "Structured reports and conclusions that may inform SAVEN assistance architecture under human control, permissions, and system limits. Physical action depends on connected robotic or device systems. Reports do not diagnose conditions, prescribe, or sell medicines.",
       },
       {
         id: "dependencies",
@@ -87,37 +87,37 @@ const foundationLayerDetails: Readonly<
     ],
   },
   saven: {
-    detail: "Execution layer",
+    detail: "Orchestration layer",
     fields: [
       {
         id: "purpose",
         title: "Purpose",
-        text: "Connect human understanding and intelligence with actions, workflows, devices and operational responses.",
+        text: "Connect human understanding and intelligence with assistance workflows and connected robotic or device systems under human control.",
       },
       {
         id: "role",
         title: "Role",
-        text: "The execution layer. It is the physical and operational extension of the intelligence foundation.",
+        text: "The orchestration layer. It is designed as the bridge from structured understanding toward physical assistance through connected systems.",
       },
       {
         id: "relationship",
         title: "Relationship",
-        text: "Uses BioMath Core outputs and prepares the integration surface that SAVEN Core engineers as systems.",
+        text: "Uses relevant BioMath Core outputs and Human Data Model context where authorized, and prepares the integration surface that SAVEN Core engineers as systems.",
       },
       {
         id: "scope",
         title: "Scope",
-        text: "Interfaces between intelligence and action: robotics pathways, autonomous system controls, sensors and assistance workflows.",
+        text: "Interfaces between intelligence and connected systems: robotics pathways, sensors, controls, and assistance workflows — subject to platform, safety, and application limits.",
       },
       {
         id: "outputs",
         title: "Outputs",
-        text: "Execution models, interface contracts and operational patterns suitable for system-level engineering.",
+        text: "Architecture models, interface contracts, and integration patterns suitable for system-level engineering — not claims of deployed fleets.",
       },
       {
         id: "dependencies",
         title: "Dependencies",
-        text: "Depends on BioMath Core context models and on explicit permissions before consequential action.",
+        text: "Depends on Human Data Model context, relevant BioMath Core outputs where applicable, and explicit permissions before consequential action.",
       },
     ],
   },

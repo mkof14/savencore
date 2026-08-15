@@ -287,9 +287,14 @@ export const DOMAIN_MASTHEAD_BY_HREF: Record<string, DomainMastheadVisual> = {
     mastheadAlt: "Long-horizon engineering campus atmosphere for investor conversation",
   },
   "/partners/": {
-    theme: "investors",
-    mastheadImage: "/domain/company/investors.webp",
-    mastheadAlt: "Long-horizon engineering atmosphere for partnership conversation",
+    theme: "foundation",
+    mastheadImage: "/domain/company/scene-platform-craft.webp",
+    mastheadAlt: "Quiet platform craft atmosphere for partnership conversation with SAVEN",
+  },
+  "/business/": {
+    theme: "foundation",
+    mastheadImage: "/domain/company/scene-long-horizon.webp",
+    mastheadAlt: "Calm horizon atmosphere for SAVEN business logic and economic context",
   },
   "/contact/": {
     theme: "foundation",

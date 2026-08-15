@@ -249,7 +249,7 @@
   font-weight: 650;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--color-accent);
+  color: color-mix(in srgb, #d4a84b 88%, #fff);
 }
 
 .hub-page__status {
@@ -258,7 +258,7 @@
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: color-mix(in srgb, #eef3f7 72%, transparent);
+  color: color-mix(in srgb, #eef3f7 82%, transparent);
 }
 
 .hub-page__title {
@@ -745,6 +745,77 @@ html[data-theme="dark"] .hub-page__path-thumb {
   font-weight: var(--weight-semibold);
   letter-spacing: var(--tracking-heading);
   line-height: 1.25;
+  color: var(--color-text);
+}
+
+/* Partners brochure — clearer story cards + audience list (D-0285) */
+.hub-page--partner-formula .hub-page__story-band--icons {
+  gap: 0.85rem;
+  padding-block: 0;
+}
+
+.hub-page--partner-formula .hub-page__story-band--icons::before {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .hub-page--partner-formula .hub-page__story-band--icons {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1040px) {
+  .hub-page--partner-formula .hub-page__story-band--icons {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.hub-page--partner-formula .hub-page__story-beat {
+  padding: 1.05rem 1.1rem;
+  background: var(--color-surface);
+  border: 1px solid color-mix(in srgb, var(--color-border) 85%, #d4a84b);
+  box-shadow: 0 1px 0 color-mix(in srgb, #d4a84b 14%, transparent);
+}
+
+html[data-theme="light"] .hub-page--partner-formula .hub-page__story-beat {
+  background: #f4f4f5;
+  border-color: #cfcfd4;
+}
+
+html[data-theme="light"] .hub-page--partner-formula .hub-page__story-label {
+  color: #1a1d24;
+}
+
+html[data-theme="light"] .hub-page--partner-formula .hub-page__story-text {
+  color: #3a3f4a;
+}
+
+.hub-page--partner-formula .hub-page__plain-list {
+  border-block-start: 0;
+  gap: 0.65rem;
+}
+
+.hub-page--partner-formula .hub-page__plain-list li {
+  padding: 0.85rem 1rem;
+  border: 1px solid color-mix(in srgb, var(--color-border) 90%, transparent);
+  border-block-end: 1px solid color-mix(in srgb, var(--color-border) 90%, transparent);
+  background: color-mix(in srgb, var(--color-background) 55%, var(--color-surface));
+  color: var(--color-text);
+}
+
+html[data-theme="light"] .hub-page--partner-formula .hub-page__plain-list li {
+  background: #ffffff;
+  border-color: #d4d4d8;
+  color: #1a1d24;
+}
+
+html[data-theme="light"] .hub-page--partner-formula .hub-page__section-title,
+html[data-theme="light"] .hub-page--partner-formula .hub-page__paths-heading {
+  color: #1a1d24;
+}
+
+html[data-theme="light"] .hub-page--partner-formula .hub-page__body p {
+  color: #3a3f4a;
 }
 
 .hub-page__section-text {

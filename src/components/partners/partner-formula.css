@@ -1,20 +1,50 @@
+/* Partnership model — hub diagram grammar (D-0281 / D-0283 / D-0285) */
+
 .partner-formula {
-  margin-block: clamp(1.75rem, 4vw, 2.75rem) 0;
+  --pf-navy: #0c1628;
+  --pf-gold: #d4a84b;
+  --pf-blue: #5b8db8;
+
+  margin-block: 0.85rem clamp(1.75rem, 4vh, 2.75rem);
+  padding: clamp(1.25rem, 3vw, 1.85rem);
+  background: linear-gradient(
+    155deg,
+    var(--color-surface) 0%,
+    color-mix(in srgb, var(--color-surface) 92%, var(--color-background)) 48%,
+    color-mix(in srgb, var(--color-surface) 94%, var(--pf-gold)) 100%
+  );
+  border: 1px solid color-mix(in srgb, var(--color-border) 70%, var(--pf-gold));
+  box-shadow:
+    0 1px 0 color-mix(in srgb, var(--pf-gold) 18%, transparent),
+    0 12px 28px color-mix(in srgb, var(--color-ink-fixed) 6%, transparent);
 }
 
 .partner-formula__heading {
-  margin: 0 0 1rem;
-  font-size: clamp(1.35rem, 2.4vw, 1.75rem);
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
+  margin: 0 0 1.15rem;
+  max-width: 42rem;
+  font-family: var(--font-sans);
+  font-size: clamp(1.35rem, 2.6vw, 1.75rem);
+  font-weight: var(--weight-semibold, 600);
+  letter-spacing: var(--tracking-heading, -0.02em);
+  line-height: 1.22;
+  color: var(--color-text);
+}
+
+.partner-formula__stage {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(1rem, 2.5vw, 1.35rem);
+  background: var(--pf-navy);
+  border: 1px solid color-mix(in srgb, var(--pf-gold) 35%, #2a3a52);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--pf-blue) 12%, transparent);
+  color: #eef3f7;
 }
 
 .partner-formula__row {
   display: flex;
   flex-wrap: wrap;
   align-items: stretch;
-  gap: 0.65rem;
+  gap: 0.75rem;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -24,7 +54,7 @@
   display: flex;
   flex: 1 1 11rem;
   align-items: stretch;
-  gap: 0.65rem;
+  gap: 0.75rem;
   min-width: 0;
 }
 
@@ -37,7 +67,7 @@
   align-items: center;
   font-size: 1.25rem;
   font-weight: 500;
-  color: var(--color-muted);
+  color: color-mix(in srgb, #eef3f7 78%, var(--pf-gold));
   line-height: 1;
 }
 
@@ -47,14 +77,24 @@
   flex-direction: column;
   justify-content: center;
   gap: 0.35rem;
-  min-height: 6.5rem;
-  padding: 0.9rem 1rem;
-  background: color-mix(in srgb, var(--color-field) 78%, var(--color-background));
-  border: 1px solid color-mix(in srgb, var(--color-border) 80%, transparent);
+  min-height: 6.75rem;
+  padding: 1rem 1.05rem;
+  background: color-mix(in srgb, #1a2f4a 78%, #0c1628);
+  border: 1px solid color-mix(in srgb, var(--pf-blue) 28%, #2a3a52);
+}
+
+.partner-formula__step {
+  margin: 0 0 0.15rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, #eef3f7 55%, var(--pf-gold));
 }
 
 .partner-formula__card--result {
-  background: color-mix(in srgb, var(--color-field) 55%, var(--color-background));
+  background: color-mix(in srgb, #24384f 70%, #13233a);
+  border-color: color-mix(in srgb, var(--pf-gold) 42%, #2a3a52);
 }
 
 .partner-formula__label {
@@ -62,18 +102,27 @@
   font-size: 0.95rem;
   font-weight: 600;
   line-height: 1.3;
+  color: #eef3f7;
 }
 
 .partner-formula__note {
   margin: 0;
   font-size: 0.8125rem;
-  line-height: 1.4;
-  color: var(--color-muted);
+  line-height: 1.45;
+  color: color-mix(in srgb, #eef3f7 72%, transparent);
 }
 
-html[data-theme="dark"] .partner-formula__card {
-  background: color-mix(in srgb, #1a2433 82%, #0c121a);
-  border-color: color-mix(in srgb, #6b849c 28%, transparent);
+.partner-formula__card--result .partner-formula__label {
+  color: color-mix(in srgb, #eef3f7 92%, var(--pf-gold));
+}
+
+html[data-theme="light"] .partner-formula {
+  background: #f4f4f5;
+  border-color: color-mix(in srgb, #c9a24a 35%, #cfcfd4);
+}
+
+html[data-theme="light"] .partner-formula__heading {
+  color: #1a1d24;
 }
 
 @media (max-width: 720px) {

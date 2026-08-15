@@ -163,6 +163,11 @@ export function MobileNavigation({ locale }: MobileNavigationProps) {
           </ul>
         </nav>
 
+        <div>
+          <p className="mobile-nav__section-title">{ui.language}</p>
+          <LanguageSelector locale={locale} idPrefix="mobile-language" />
+        </div>
+
         {utilityNavigation.length > 0 ? (
           <nav aria-label="Utility">
             <ul className="mobile-nav__list">
@@ -186,11 +191,6 @@ export function MobileNavigation({ locale }: MobileNavigationProps) {
             </ul>
           </nav>
         ) : null}
-
-        <div>
-          <p className="mobile-nav__section-title">{ui.language}</p>
-          <LanguageSelector locale={locale} idPrefix="mobile-language" />
-        </div>
       </div>
     </>
   );

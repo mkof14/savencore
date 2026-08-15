@@ -71,7 +71,7 @@ export const physicalWorldHomeFr: PhysicalWorldHomeContent = {
     biomathBridge: {
       eyebrow: "Qui nous sommes",
       title: "BioMath Core → SAVEN",
-      body: "BioMath Core est le fondement du Modèle de données humaines — un contexte continu qui rassemble et structure les données humaines autorisées, et forme les rapports et conclusions qui façonnent les actions de niveau supérieur de SAVEN sous contrôle humain.",
+      body: "L'assistance robotique devient plus utile lorsque la technologie peut comprendre la personne — pas seulement la tâche. Le Human Data Model reste la représentation structurée plus large des données humaines. BioMath Core peut fournir des analyses et rapports spécialisés que SAVEN peut utiliser pour une interaction plus personnalisée — sous permissions et contrôles de confidentialité. BioMath Core ne remplace pas le Human Data Model.",
       scopeLine: "Couverture du modèle : 20 catégories · 200+ services — pas un catalogue Operational.",
       href: "/foundation/biomath-core/",
       cta: "Explorer BioMath Core",

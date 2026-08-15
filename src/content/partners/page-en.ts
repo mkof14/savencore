@@ -6,27 +6,30 @@ export const partnersPageEn: HubPageContent = {
   label: "Partners",
   title: "Build With SAVEN",
   status: "Architecture",
-  lede: "SAVEN is not limited to manufacturing a single robot. The opportunity is a compatible robotics platform plus SAVEN human-assistance intelligence plus a defined application — a potential integrated solution.",
+  lede: "SAVEN is not limited to manufacturing a single robot. The model is a compatible robotics platform plus SAVEN human-assistance intelligence plus a defined application — an intended integrated solution under Architecture framing.",
   visual: {
-    theme: "investors",
-    mastheadImage: "/domain/company/investors.webp",
-    mastheadAlt: "Long-horizon engineering atmosphere for partnership conversation",
+    theme: "foundation",
+    mastheadImage: "/domain/company/scene-platform-craft.webp",
+    mastheadAlt: "Quiet platform craft atmosphere for partnership conversation with SAVEN",
   },
   highlights: [
     {
       id: "what",
       title: "What we offer",
       text: "Human-assistance intelligence, interaction, personalization, and integration for compatible robotic systems.",
+      icon: "potential",
     },
     {
       id: "why",
       title: "Why it matters",
       text: "Hardware is advancing. Useful assistance still requires technology beyond mechanical movement.",
+      icon: "care",
     },
     {
       id: "next",
       title: "How to begin",
-      text: "Discuss a partnership or write to SAVEN. Existing partnerships are not claimed here.",
+      text: "Discuss a partnership or write to SAVEN at info@savencore.com.",
+      icon: "horizon",
     },
   ],
   diagram: {
@@ -103,6 +106,7 @@ export const partnersPageEn: HubPageContent = {
     { label: "Technology", href: "/technology/" },
     { label: "SAVEN Robotics Lab", href: "/labs/saven-robotics-lab/" },
     { label: "Investors", href: "/investors/" },
+    { label: "Business", href: "/business/" },
     { label: "Responsible Development", href: "/trust/responsible-development/" },
   ],
 };

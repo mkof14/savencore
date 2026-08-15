@@ -3213,7 +3213,7 @@
 - **Date:** 2026-08-15
 - **Status:** Active
 - **Summary:** Owner noted the footer medical/development notice duplicated Privacy · Terms · Disclaimer · Responsible Development · Contact, which already appear under Trust · Legal.
-- **Decision:** On `placement="footer"`, `MedicalDisclaimerNotice` is text-only: development line + short medical disclaimer. No Privacy / Terms / Disclaimer / Responsible Development / Contact / Medical Disclaimer links in that box — those destinations stay under Trust · Legal (Medical Disclaimer added to the primary legal list). Legal-page placement may keep the strip for on-page orientation.
+- **Decision:** Remove `MedicalDisclaimerNotice` from the site footer entirely (no Privacy / Terms / Disclaimer / Responsible Development / Contact / Medical Disclaimer strip under socials). Those destinations live only under Trust · Legal. Legal pages may still show the notice for on-page orientation. Keep the short medical text available via Trust · Legal → Medical Disclaimer.
 - **In scope:** `MedicalDisclaimerNotice.tsx`, this decision.
 - **Out of scope:** Removing the protective medical short line; changing Trust · Legal column inventory.
 - **Implications:** Footer notice is quieter; Legal destinations are reached via the accordion column (or legal pages), not a second strip.

@@ -17,7 +17,6 @@ import { footerNavigation } from "@/navigation/site-navigation";
 
 import { FooterSocials } from "./FooterSocials";
 import { LanguageSelector } from "./LanguageSelector";
-import { MedicalDisclaimerNotice } from "./MedicalDisclaimerNotice";
 import { ThemeSwitch } from "./ThemeSwitch";
 
 type SiteFooterProps = {
@@ -116,8 +115,6 @@ export function SiteFooter({
         <div className="site-footer__social-row">
           <FooterSocials locale={locale} />
         </div>
-
-        <MedicalDisclaimerNotice locale={locale} placement="footer" />
 
         <div className="site-footer__bar">
           <p className="site-footer__copyright">

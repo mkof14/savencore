@@ -76,14 +76,14 @@ export const uiRu: UiMessages = {
     "footer-company-media": "Медиа",
     "footer-company-roadmap": "Дорожная карта",
     "footer-resources-search": "Поиск", "footer-resources-lab": "Lab",
-    "footer-resources-faq": "FAQ",
+    "footer-resources-faq": "FAQ", "footer-company-sitemap": "Карта сайта",
     "footer-resources-security-issue": "Проблема безопасности",
     "footer-labs-overview": "Обзор",
     "footer-labs-saven-robotics-lab": "SAVEN Robotics Lab",
     "footer-labs-internal-future-lab": "Future Lab",
     "footer-systems-saven-robotics-interface": "Робототехнический интерфейс",
     "systems-saven-robotics-interface": "Робототехнический интерфейс SAVEN",
-   "sign-in": "Вход / Регистрация", "footer-legal-privacy-policy": "Политика конфиденциальности", "footer-legal-terms-of-use": "Условия использования", "footer-legal-disclaimer": "Отказ от ответственности", "footer-company-partners": "Партнёрам", "footer-company-business": "Бизнес", "trust-responsible-development": "Ответственная разработка", "footer-legal-cookie-policy": "Политика cookie", "footer-legal-cookie-preferences": "Настройки cookie", "footer-legal-accessibility-statement": "Заявление о доступности", "footer-legal-security": "Безопасность", "footer-legal-responsible-ai": "Ответственный ИИ", "footer-legal-medical-disclaimer": "Медицинский отказ от ответственности", "footer-legal-research-disclaimer": "Исследовательский отказ от ответственности", "footer-legal-intellectual-property": "Интеллектуальная собственность", "footer-legal-trademark-notice": "Уведомление о товарных знаках", "footer-legal-copyright": "Уведомление об авторских правах", "footer-legal-data-rights": "Права на данные", "footer-legal-regional-privacy-rights": "Региональные права на конфиденциальность", "footer-legal-do-not-sell-or-share": "Не продавать и не передавать", "footer-legal-legal-notices": "Юридические уведомления", "footer-legal-more": "Ещё"},
+   "sign-in": "Вход / Регистрация", "footer-legal-privacy-policy": "Политика конфиденциальности", "footer-legal-terms-of-use": "Условия использования", "footer-legal-disclaimer": "Отказ от ответственности", "footer-company-partners": "Партнёрам", "footer-company-business": "Бизнес", "footer-business-market-context": "Контекст рынка", "footer-business-human-data": "Человеческие данные", "footer-business-saven-physical-systems": "SAVEN и физические системы", "footer-business-where-value-is-created": "Где создаётся ценность", "footer-business-applications": "Бизнес-применения", "footer-business-why-the-timing-matters": "Почему важен момент", "footer-business-what-we-know-today": "Что мы знаем сегодня", "footer-legal-overview": "Правовая информация", "trust-responsible-development": "Ответственная разработка", "footer-legal-cookie-policy": "Политика cookie", "footer-legal-cookie-preferences": "Настройки cookie", "footer-legal-accessibility-statement": "Заявление о доступности", "footer-legal-security": "Безопасность", "footer-legal-responsible-ai": "Ответственный ИИ", "footer-legal-medical-disclaimer": "Медицинский отказ от ответственности", "footer-legal-research-disclaimer": "Исследовательский отказ от ответственности", "footer-legal-intellectual-property": "Интеллектуальная собственность", "footer-legal-trademark-notice": "Уведомление о товарных знаках", "footer-legal-copyright": "Уведомление об авторских правах", "footer-legal-data-rights": "Права на данные", "footer-legal-regional-privacy-rights": "Региональные права на конфиденциальность", "footer-legal-do-not-sell-or-share": "Не продавать и не передавать", "footer-legal-legal-notices": "Юридические уведомления", "footer-trust-more": "Ещё…", "footer-legal-more": "Ещё…"},
   footer: {
     ...uiEn.footer,
     technology: "Технологии",
@@ -98,7 +98,7 @@ export const uiRu: UiMessages = {
     resources: "Ресурсы",
     company: "Компания",
     legal: "Правовая информация",
-    more: "Ещё",
+    more: "Ещё", sectionOpen: "Открыть", sectionClose: "Скрыть",
     contact: "Контакты",
     plannedNote: "",
     comingSoon: "",
@@ -432,6 +432,11 @@ export const uiRu: UiMessages = {
     note: "Новые эксперименты можно добавлять из этого хаба. Страница noindex и не в главном меню. Публичная главная остаётся фотоколлажем.",
   },
 
+    sitemap: {
+    eyebrow: "Навигация",
+    title: "Карта сайта",
+    lede: "Все опубликованные страницы сайта по разделам.",
+  },
   medicalDisclaimer: {
     short:
       "SAVEN Core не ставит медицинские диагнозы, не назначает и не продаёт лекарства и не оказывает экстренную помощь через этот сайт. Мы разрабатываем системы, призванные поддерживать врачей, медицинских работников и людей. Содержание сайта — информационное, а не медицинский совет.",

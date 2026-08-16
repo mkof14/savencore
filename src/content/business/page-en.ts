@@ -1,7 +1,7 @@
 /**
- * Business page — English canonical (D-0284 / D-0286 / D-0287).
- * Seven scannable sections + sticky Business nav. MarketsandMarkets figures
- * describe global digital health only — not SAVEN market size.
+ * Business page — English canonical (D-0284 / D-0286 / D-0287 / D-0291).
+ * Hub + seven short section leaves. MarketsandMarkets figures describe global
+ * digital health only — not SAVEN market size.
  * No TAM/SAM/SOM, revenue forecasts, pricing, or fundraising copy.
  */
 
@@ -55,8 +55,6 @@ export type BusinessPageContent = {
   mobileNavLabel: string;
   backLabel: string;
   hub: {
-    heading: string;
-    lede: string;
     openLabel: string;
   };
   nav: readonly BusinessNavItem[];
@@ -184,8 +182,6 @@ export const businessPageContentEn: BusinessPageContent = {
   mobileNavLabel: "Business Sections",
   backLabel: "Back to Business",
   hub: {
-    heading: "Explore Business",
-    lede: "Seven focused topics. Open any section from the menu — each page stays short and readable.",
     openLabel: "Open",
   },
   nav: [
@@ -194,8 +190,8 @@ export const businessPageContentEn: BusinessPageContent = {
     { id: "saven-physical-systems", label: "SAVEN & Physical Systems" },
     { id: "where-value-is-created", label: "Where Value Is Created" },
     { id: "applications", label: "Applications" },
-    { id: "why-timing-matters", label: "Why the Timing Matters" },
-    { id: "what-we-know", label: "What We Know Today" },
+    { id: "why-the-timing-matters", label: "Why the Timing Matters" },
+    { id: "what-we-know-today", label: "What We Know Today" },
   ],
   hero: {
     title: "Business",
@@ -499,7 +495,7 @@ export const businessPageContentEn: BusinessPageContent = {
     exploreHref: "/applications/",
   },
   timing: {
-    id: "why-timing-matters",
+    id: "why-the-timing-matters",
     heading: "Why the Timing Matters",
     points: [
       {
@@ -537,7 +533,7 @@ export const businessPageContentEn: BusinessPageContent = {
       "SAVEN depends on these capabilities becoming sufficiently useful together. That is increasingly happening now.",
   },
   today: {
-    id: "what-we-know",
+    id: "what-we-know-today",
     heading: "What We Know Today",
     paragraphs: [
       "The available market evidence does not establish SAVEN’s future revenue or market share. It does establish that several technologies, use cases, institutions, and spending categories relevant to SAVEN are already substantial and growing.",
@@ -552,7 +548,7 @@ export const businessPageContentEn: BusinessPageContent = {
     ],
   },
   explore: {
-    heading: "Continue exploring",
+    heading: "Continue Exploring",
     links: [
       { label: "Human Data Model", href: "/technology/human-data-model/" },
       { label: "BioMath Core", href: "/foundation/biomath-core/" },

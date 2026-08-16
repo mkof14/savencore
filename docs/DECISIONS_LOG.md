@@ -2,7 +2,7 @@
 
 **Document status:** Append-only  
 **Authority:** Records owner-approved decisions that govern the project  
-**Last updated:** 2026-08-15 (D-0294 — Footer notice no duplicate Legal links)
+**Last updated:** 2026-08-15 (D-0297 — Footer always-visible columns + More…)
 
 ## Rules
 
@@ -310,6 +310,9 @@
 | D-0292 | 2026-08-15 | Footer — merge Trust & Legal; remove Resources column | Active |
 | D-0293 | 2026-08-15 | Footer — compact exclusive accordion on all breakpoints | Active |
 | D-0294 | 2026-08-15 | Footer notice — drop duplicate Legal/Trust link strip | Active |
+| D-0295 | 2026-08-15 | Footer — full published sitemap (all Legal + Business leaves) | Active |
+| D-0296 | 2026-08-15 | HTML Sitemap page + footer Company link | Active |
+| D-0297 | 2026-08-15 | Footer — restore always-visible columns; long lists use More… | Active |
 
 ---
 
@@ -3217,6 +3220,48 @@
 - **In scope:** `MedicalDisclaimerNotice.tsx`, this decision.
 - **Out of scope:** Removing the protective medical short line; changing Trust · Legal column inventory.
 - **Implications:** Footer notice is quieter; Legal destinations are reached via the accordion column (or legal pages), not a second strip.
+
+### D-0295 — Footer: full published sitemap
+
+- **Date:** 2026-08-15
+- **Status:** Active
+- **Summary:** Owner asked for a complete sitemap in the footer (not a truncated Legal “More” list or Business hub-only coverage).
+- **Decision:**
+  1. List **every** published Legal leaf under Trust · Legal (plus Legal hub), not only the former primary subset + More.
+  2. List all canonical **Business** section leaves under Company (after Business hub).
+  3. Keep accordion UI (D-0293) so the closed footer stays collected; sections may open independently for sitemap browsing.
+  4. Search remains header-only (D-0292). Legacy Business redirect slugs stay out of the visible list but are excepted from the depth assert.
+  5. Footer medical notice box remains omitted (D-0294).
+- **In scope:** `site-navigation` footer groups + assert, SiteFooter, UI navEntries (10 locales), this decision / AGENTS.
+- **Out of scope:** Restoring Resources column; putting Search back in the footer; inventing unpublished pages.
+- **Implications:** Footer is again the honest full published depth map; long Legal/Business lists live behind section expanders.
+
+### D-0296 — HTML Sitemap page + footer Company link
+
+- **Date:** 2026-08-15
+- **Status:** Active
+- **Summary:** Owner opened `/sitemap.xml` and saw raw XML (“code”). They want a normal **Sitemap** link in the footer to a readable page.
+- **Decision:**
+  1. Publish `/[locale]/sitemap/` as a human-readable HTML map of the same groups/links as the footer depth map.
+  2. Add **Sitemap** as an always-visible footer-bar control. First click expands all footer section accordions; second click collapses them. `href` still points to `/sitemap/` for open-in-new-tab. Keep `/sitemap/` in the footer depth map for the coverage assert; the accordion UI omits the duplicate.
+  3. Keep `/sitemap.xml` for crawlers only — do not present it as the visitor sitemap.
+- **In scope:** `SiteMapPage` + CSS, `app/[locale]/sitemap/`, published-routes, footer nav, UI i18n (10 locales), this decision / AGENTS.
+- **Out of scope:** Changing `sitemap.xml` generation; inventing unpublished destinations.
+- **Implications:** Visitors get a normal page link; XML stays for SEO.
+
+### D-0297 — Footer: restore always-visible columns; long lists use More…
+
+- **Date:** 2026-08-15
+- **Status:** Active
+- **Summary:** Owner rejected the accordion Open/Close chrome. Restore always-visible footer section columns; truncate long Trust · Legal lists with **More…** hubs.
+- **Decision:**
+  1. Footer sections are always open (no accordion / Open–Close chips). D-0293 accordion chrome is superseded for presentation.
+  2. Trust · Legal shows primary Trust + primary Legal links, each with **More…** to `/trust/` and `/legal/`.
+  3. Company lists Business hub only (section leaves via hub / HTML Sitemap page).
+  4. Left **Sitemap** remains a link to `/sitemap/` (full HTML map). `/sitemap.xml` stays for crawlers.
+- **In scope:** SiteFooter, footer CSS, site-navigation primary lists + assert, SiteMapPage full map, this decision.
+- **Out of scope:** Restoring Resources column; putting Search in the footer.
+- **Implications:** Footer is scannable again; depth beyond primary lists is one More… click away.
 
 ## Pending Owner Decisions
 

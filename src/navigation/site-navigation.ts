@@ -9,7 +9,7 @@ import {
 } from "./navigation-types";
 import { PUBLISHED_ROUTES } from "./published-routes";
 
-function published(
+export function published(
   id: string,
   label: string,
   href: NavHref,
@@ -25,7 +25,7 @@ function published(
  */
 
 /** Build footer links from a domain nav list. Hub → "Overview"; leaves keep domain labels. */
-function footerLinksFromDomain(
+export function footerLinksFromDomain(
   domainId: string,
   children: readonly NavLinkItem[],
 ): FooterLinkItem[] {
@@ -275,8 +275,19 @@ export const legalNavChildren: readonly NavLinkItem[] = [
 ] as const;
 
 /**
- * Primary Legal column links (D-0181) — overflow lives on `/legal/` via More.
- * Keep count aligned with other footer columns for visual balance.
+ * Primary Trust links in the merged Trust · Legal column (D-0297).
+ * Remaining trust leaves are covered by the `/trust/` hub Overview.
+ */
+export const FOOTER_TRUST_PRIMARY_IDS = [
+  "trust-overview",
+  "trust-privacy",
+  "trust-security",
+  "trust-safety",
+  "trust-human-oversight",
+] as const;
+
+/**
+ * Primary Legal links — overflow on `/legal/` via More… (D-0181 / D-0297).
  */
 export const FOOTER_LEGAL_PRIMARY_IDS = [
   "legal-privacy-policy",
@@ -285,14 +296,12 @@ export const FOOTER_LEGAL_PRIMARY_IDS = [
   "legal-medical-disclaimer",
   "legal-accessibility-statement",
   "legal-security",
-  "legal-responsible-ai",
 ] as const;
 
 /**
- * Footer — public site map + Layer 2 depth (D-0132 / D-0154 / D-0188 / D-0292).
- * Published destinations only, grouped by domain.
- * Trust · Legal share one column; Resources column removed (D-0292).
- * Architecture = Systems domain depth map (pages document architecture; routes stay /systems/*).
+ * Footer — published depth map with always-visible columns (D-0297).
+ * Trust · Legal is the last column; one More… for overflow (D-0298).
+ * Search stays header-only (D-0292). Architecture = Systems routes `/systems/*`.
  */
 export const footerNavigation: readonly FooterGroup[] = [
   {
@@ -336,33 +345,6 @@ export const footerNavigation: readonly FooterGroup[] = [
     links: footerLinksFromDomain("applications", applicationsNavChildren),
   },
   {
-    id: "trustLegal",
-    title: "Trust · Legal",
-    links: [
-      ...footerLinksFromDomain("trust", trustNavChildren).flatMap((link) => {
-        if (link.status !== "published" || link.href !== "/trust/security/") {
-          return [link];
-        }
-        return [
-          link,
-          published(
-            "footer-resources-security-issue",
-            "Security Issue",
-            "/resources/report-a-security-issue/",
-          ),
-        ];
-      }),
-      ...FOOTER_LEGAL_PRIMARY_IDS.map((id) => {
-        const item = legalNavChildren.find((child) => child.id === id);
-        if (!item) {
-          throw new Error(`Unknown primary legal footer id: ${id}`);
-        }
-        return published(`footer-${item.id}`, item.label, item.href);
-      }),
-      published("footer-legal-more", "More", "/legal/"),
-    ],
-  },
-  {
     id: "company",
     title: "Company",
     links: [
@@ -386,6 +368,42 @@ export const footerNavigation: readonly FooterGroup[] = [
       published("footer-company-contact", "Contact", "/contact/"),
       published("footer-company-roadmap", "Roadmap", "/roadmap/"),
       published("footer-resources-faq", "FAQ", "/faq/"),
+      published("footer-company-sitemap", "Sitemap", "/sitemap/"),
+    ],
+  },
+  {
+    id: "trustLegal",
+    title: "Trust · Legal",
+    links: [
+      ...FOOTER_TRUST_PRIMARY_IDS.flatMap((id) => {
+        const item = trustNavChildren.find((child) => child.id === id);
+        if (!item) {
+          throw new Error(`Unknown primary trust footer id: ${id}`);
+        }
+        const link =
+          item.href === "/trust/"
+            ? published("footer-trust-overview", "Overview", item.href)
+            : published(`footer-${item.id}`, item.label, item.href);
+        if (item.href !== "/trust/security/") {
+          return [link];
+        }
+        return [
+          link,
+          published(
+            "footer-resources-security-issue",
+            "Security Issue",
+            "/resources/report-a-security-issue/",
+          ),
+        ];
+      }),
+      ...FOOTER_LEGAL_PRIMARY_IDS.map((id) => {
+        const item = legalNavChildren.find((child) => child.id === id);
+        if (!item) {
+          throw new Error(`Unknown primary legal footer id: ${id}`);
+        }
+        return published(`footer-${item.id}`, item.label, item.href);
+      }),
+      published("footer-legal-more", "More…", "/legal/"),
     ],
   },
 ] as const;
@@ -412,8 +430,8 @@ function assertPrimaryNavigation(): void {
 
 /**
  * Every published route except auth utilities must appear in the footer
- * depth map (Home included — D-0247). Legal leaf pages may be covered by
- * the `/legal/` hub + More (D-0181). Search is header chrome only (D-0292).
+ * depth map (Home included — D-0247). Long columns may use hub More…
+ * coverage for leaves (D-0297). Search is header chrome only (D-0292).
  */
 function assertFooterCoversPublishedRoutes(): void {
   const footerHrefs = new Set(
@@ -421,13 +439,26 @@ function assertFooterCoversPublishedRoutes(): void {
       group.links.filter(isFooterLinkPublished).map((link) => link.href),
     ),
   );
+  const trustHubCoversLeaves = footerHrefs.has("/trust/");
   const legalHubCoversLeaves = footerHrefs.has("/legal/");
+  const businessHubCoversLeaves = footerHrefs.has("/business/");
   for (const route of PUBLISHED_ROUTES) {
     if (route.startsWith("/auth/")) continue;
-    // Header Search — not duplicated in the footer depth map (D-0292).
     if (route === "/search/") continue;
-    // Thin aliases / redirects covered by primary destinations.
     if (route === "/company/about/") continue;
+    if (
+      route === "/business/why-timing-matters/" ||
+      route === "/business/what-we-know/"
+    ) {
+      continue;
+    }
+    if (
+      trustHubCoversLeaves &&
+      route.startsWith("/trust/") &&
+      route !== "/trust/"
+    ) {
+      continue;
+    }
     if (
       legalHubCoversLeaves &&
       route.startsWith("/legal/") &&
@@ -435,9 +466,8 @@ function assertFooterCoversPublishedRoutes(): void {
     ) {
       continue;
     }
-    // Business section leaves covered by Company → Business hub (D-0291).
     if (
-      footerHrefs.has("/business/") &&
+      businessHubCoversLeaves &&
       route.startsWith("/business/") &&
       route !== "/business/"
     ) {

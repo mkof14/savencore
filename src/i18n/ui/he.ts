@@ -76,14 +76,14 @@ export const uiHe: UiMessages = {
     "footer-company-media": "מדיה",
     "footer-company-roadmap": "מפת דרכים",
     "footer-resources-search": "חיפוש", "footer-resources-lab": "Lab",
-    "footer-resources-faq": "שאלות נפוצות",
+    "footer-resources-faq": "שאלות נפוצות", "footer-company-sitemap": "מפת אתר",
     "footer-resources-security-issue": "בעיית אבטחה",
     "footer-labs-overview": "סקירה",
     "footer-labs-saven-robotics-lab": "SAVEN Robotics Lab",
     "footer-labs-internal-future-lab": "מעבדת העתיד",
     "footer-systems-saven-robotics-interface": "ממשק רובוטיקה",
     "systems-saven-robotics-interface": "ממשק הרובוטיקה של SAVEN",
-   "sign-in": "התחברות / הרשמה", "footer-legal-privacy-policy": "מדיניות פרטיות", "footer-legal-terms-of-use": "תנאי שימוש", "footer-legal-disclaimer": "כתב ויתור", "footer-company-partners": "שותפים", "footer-company-business": "עסקים", "trust-responsible-development": "פיתוח אחראי", "footer-legal-cookie-policy": "מדיניות עוגיות", "footer-legal-cookie-preferences": "העדפות עוגיות", "footer-legal-accessibility-statement": "הצהרת נגישות", "footer-legal-security": "אבטחה", "footer-legal-responsible-ai": "בינה מלאכותית אחראית", "footer-legal-medical-disclaimer": "כתב ויתור רפואי", "footer-legal-research-disclaimer": "כתב ויתור מחקרי", "footer-legal-intellectual-property": "קניין רוחני", "footer-legal-trademark-notice": "הודעת סימן מסחרי", "footer-legal-copyright": "הודעת זכויות יוצרים", "footer-legal-data-rights": "זכויות מידע", "footer-legal-regional-privacy-rights": "זכויות פרטיות אזוריות", "footer-legal-do-not-sell-or-share": "אל תמכרו או תשתפו", "footer-legal-legal-notices": "הודעות משפטיות", "footer-legal-more": "עוד"},
+   "sign-in": "התחברות / הרשמה", "footer-legal-privacy-policy": "מדיניות פרטיות", "footer-legal-terms-of-use": "תנאי שימוש", "footer-legal-disclaimer": "כתב ויתור", "footer-company-partners": "שותפים", "footer-company-business": "עסקים", "footer-business-market-context": "הקשר שוק", "footer-business-human-data": "נתונים אנושיים", "footer-business-saven-physical-systems": "SAVEN ומערכות פיזיות", "footer-business-where-value-is-created": "איפה נוצר ערך", "footer-business-applications": "יישומים עסקיים", "footer-business-why-the-timing-matters": "למה העיתוי חשוב", "footer-business-what-we-know-today": "מה אנחנו יודעים היום", "footer-legal-overview": "משפטי", "trust-responsible-development": "פיתוח אחראי", "footer-legal-cookie-policy": "מדיניות עוגיות", "footer-legal-cookie-preferences": "העדפות עוגיות", "footer-legal-accessibility-statement": "הצהרת נגישות", "footer-legal-security": "אבטחה", "footer-legal-responsible-ai": "בינה מלאכותית אחראית", "footer-legal-medical-disclaimer": "כתב ויתור רפואי", "footer-legal-research-disclaimer": "כתב ויתור מחקרי", "footer-legal-intellectual-property": "קניין רוחני", "footer-legal-trademark-notice": "הודעת סימן מסחרי", "footer-legal-copyright": "הודעת זכויות יוצרים", "footer-legal-data-rights": "זכויות מידע", "footer-legal-regional-privacy-rights": "זכויות פרטיות אזוריות", "footer-legal-do-not-sell-or-share": "אל תמכרו או תשתפו", "footer-legal-legal-notices": "הודעות משפטיות", "footer-trust-more": "עוד…", "footer-legal-more": "עוד…"},
   footer: {
     ...uiEn.footer,
     technology: "טכנולוגיה",
@@ -98,7 +98,7 @@ export const uiHe: UiMessages = {
     resources: "משאבים",
     company: "החברה",
     legal: "משפטי",
-    more: "עוד",
+    more: "עוד", sectionOpen: "פתח", sectionClose: "סגור",
     contact: "יצירת קשר",
     plannedNote: "",
     comingSoon: "",
@@ -318,6 +318,11 @@ export const uiHe: UiMessages = {
     note: "אפשר לקשר ניסויים חדשים מהמרכז הזה. העמוד הוא noindex ואינו בתפריט הראשי. דף הבית הציבורי נשאר קולאז' הצילומים.",
   },
 
+    sitemap: {
+    eyebrow: "ניווט",
+    title: "מפת אתר",
+    lede: "כל העמודים שפורסמו באתר זה, מקובצים לפי מדור.",
+  },
   medicalDisclaimer: {
     short:
       "SAVEN Core אינה מאבחנת מצבים רפואיים, אינה רושמת או מוכרת תרופות ואינה מספקת טיפול חירום דרך אתר זה. אנו מפתחים מערכות שנועדו לתמוך ברופאים, בעובדים רפואיים ובאנשים. תוכן האתר הוא מידע — לא ייעוץ רפואי.",

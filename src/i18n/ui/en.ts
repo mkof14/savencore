@@ -79,9 +79,17 @@ export const uiEn = {
     "footer-company-media": "Media",
     "footer-company-partners": "Partners",
     "footer-company-business": "Business",
+    "footer-business-market-context": "Market Context",
+    "footer-business-human-data": "Human Data",
+    "footer-business-saven-physical-systems": "SAVEN & Physical Systems",
+    "footer-business-where-value-is-created": "Where Value Is Created",
+    "footer-business-applications": "Business Applications",
+    "footer-business-why-the-timing-matters": "Why the Timing Matters",
+    "footer-business-what-we-know-today": "What We Know Today",
     "footer-company-contact": "Contact",
     "footer-company-roadmap": "Roadmap",
     "footer-resources-faq": "FAQ",
+    "footer-company-sitemap": "Sitemap",
     "footer-resources-search": "Search",
     "footer-resources-lab": "Lab",
     "footer-resources-security-issue": "Security Issue",
@@ -91,6 +99,7 @@ export const uiEn = {
     "footer-systems-saven-robotics-interface": "Robotics Interface",
     "systems-saven-robotics-interface": "SAVEN Robotics Interface",
     "sign-in": "Sign In/Up",
+    "footer-legal-overview": "Legal",
     "footer-legal-privacy-policy": "Privacy Policy",
     "footer-legal-terms-of-use": "Terms of Use",
     "footer-legal-disclaimer": "Disclaimer",
@@ -108,7 +117,8 @@ export const uiEn = {
     "footer-legal-regional-privacy-rights": "Regional Privacy Rights",
     "footer-legal-do-not-sell-or-share": "Do Not Sell or Share",
     "footer-legal-legal-notices": "Legal Notices",
-    "footer-legal-more": "More",
+    "footer-trust-more": "More…",
+    "footer-legal-more": "More…",
   },
 
   footer: {
@@ -125,6 +135,8 @@ export const uiEn = {
     company: "Company",
     legal: "Legal",
     more: "More",
+    sectionOpen: "Open",
+    sectionClose: "Close",
     contact: "Contact",
     plannedNote: "",
     comingSoon: "",
@@ -434,6 +446,12 @@ export const uiEn = {
     short:
       "Website content is informational — not medical advice. SAVEN does not diagnose conditions, prescribe medicines, or provide emergency care through this website.",
     linkLabel: "Medical Disclaimer",
+  },
+
+  sitemap: {
+    eyebrow: "Navigate",
+    title: "Sitemap",
+    lede: "All published pages on this website, grouped by section.",
   },
 
   home: {

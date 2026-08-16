@@ -7,7 +7,6 @@ import { BusinessSectionNav } from "@/components/business/BusinessSectionNav";
 import type { Locale } from "@/config/locales";
 import type { BusinessPageContent } from "@/content/business/page-en";
 import {
-  BUSINESS_SECTION_IDS,
   businessSectionPath,
   type BusinessSectionId,
 } from "@/content/business/sections";
@@ -17,10 +16,10 @@ import type { PublishedRoute } from "@/navigation/published-routes";
 
 import "./business-page.css";
 
-type BusinessShellProps = {
+type BusinessPageProps = {
   locale: Locale;
   content: BusinessPageContent;
-  /** null = hub overview */
+  /** null = Business hub */
   sectionId: BusinessSectionId | null;
 };
 
@@ -28,16 +27,11 @@ function path(locale: Locale, href: string) {
   return localizePath(locale, href as PublishedRoute);
 }
 
-function sectionIndex(id: BusinessSectionId): string {
-  const i = BUSINESS_SECTION_IDS.indexOf(id);
-  return String(i + 1).padStart(2, "0");
-}
-
 /**
- * Business shell — living hub / section grammar (D-0287–D-0289).
- * Visual atmosphere + approved domain imagery; calm Link navigation.
+ * Business hub + section leaves (D-0291).
+ * Short pages with visual heroes — not one long reading scroll.
  */
-export function BusinessPage({ locale, content, sectionId }: BusinessShellProps) {
+export function BusinessPage({ locale, content, sectionId }: BusinessPageProps) {
   const titleId = "business-page-title";
   const isHub = sectionId === null;
   const activeNav = isHub
@@ -46,38 +40,25 @@ export function BusinessPage({ locale, content, sectionId }: BusinessShellProps)
   const pageTitle = isHub
     ? content.hero.title
     : (activeNav?.label ?? content.hero.title);
-  const visual = sectionId ? BUSINESS_SECTION_VISUALS[sectionId] : null;
-
-  const sectionPos = sectionId
-    ? BUSINESS_SECTION_IDS.indexOf(sectionId)
-    : -1;
-  const prevId =
-    sectionPos > 0 ? BUSINESS_SECTION_IDS[sectionPos - 1] : null;
-  const nextId =
-    sectionPos >= 0 && sectionPos < BUSINESS_SECTION_IDS.length - 1
-      ? BUSINESS_SECTION_IDS[sectionPos + 1]
-      : null;
-  const prevLabel = prevId
-    ? content.nav.find((n) => n.id === prevId)?.label
-    : null;
-  const nextLabel = nextId
-    ? content.nav.find((n) => n.id === nextId)?.label
-    : null;
+  const visual = sectionId
+    ? BUSINESS_SECTION_VISUALS[sectionId]
+    : {
+        image: "/domain/company/scene-long-horizon.webp",
+        accent: "gold" as const,
+      };
 
   return (
     <article
       className={
         isHub
           ? "biz-page"
-          : `biz-page biz-page--section biz-page--accent-${visual?.accent ?? "gold"}`
+          : `biz-page biz-page--section biz-page--accent-${visual.accent}`
       }
       aria-labelledby={titleId}
     >
       <header
         className={
-          isHub
-            ? "biz-page__hero"
-            : "biz-page__hero biz-page__hero--compact"
+          isHub ? "biz-page__hero" : "biz-page__hero biz-page__hero--compact"
         }
       >
         <div className="biz-page__hero-atmosphere" aria-hidden="true" />
@@ -100,11 +81,6 @@ export function BusinessPage({ locale, content, sectionId }: BusinessShellProps)
             <div className="biz-page__hero-meta">
               <p className="biz-page__label">{content.label}</p>
               <p className="biz-page__status">{content.status}</p>
-              {!isHub && sectionId ? (
-                <p className="biz-page__section-mark" aria-hidden="true">
-                  {sectionIndex(sectionId)}
-                </p>
-              ) : null}
             </div>
             <p className="biz-page__brand">
               <BrandName variant="title" className="biz-page__brand-name" />
@@ -123,9 +99,7 @@ export function BusinessPage({ locale, content, sectionId }: BusinessShellProps)
               <span className="biz-page__corner biz-page__corner--bl" aria-hidden="true" />
               <span className="biz-page__corner biz-page__corner--br" aria-hidden="true" />
               <Image
-                src={
-                  visual?.image ?? "/domain/company/scene-long-horizon.webp"
-                }
+                src={visual.image}
                 alt=""
                 width={960}
                 height={720}
@@ -140,136 +114,97 @@ export function BusinessPage({ locale, content, sectionId }: BusinessShellProps)
         </div>
       </header>
 
-      <div className="biz-page__layout">
-        <BusinessSectionNav
-          locale={locale}
-          navLabel={content.navLabel}
-          mobileNavLabel={content.mobileNavLabel}
-          items={content.nav}
-          activeId={sectionId}
-        />
+      <div className="biz-page__shell">
+        <div className="biz-page__layout">
+          <BusinessSectionNav
+            locale={locale}
+            navLabel={content.navLabel}
+            mobileNavLabel={content.mobileNavLabel}
+            items={content.nav}
+            activeId={sectionId}
+          />
 
-        <div className="biz-page__main">
-          {isHub ? (
-            <section className="biz-page__section biz-page__section--hub" aria-labelledby="biz-hub">
-              <div className="biz-page__hub-head">
-                <h2 id="biz-hub" className="biz-page__section-title">
-                  {content.hub.heading}
-                </h2>
-                <p className="biz-page__hub-lede">{content.hub.lede}</p>
-              </div>
-              <ul className="biz-page__hub-grid">
-                {content.nav.map((item, index) => {
-                  const cardVisual = BUSINESS_SECTION_VISUALS[item.id];
-                  return (
-                    <li key={item.id}>
-                      <Link
-                        href={path(locale, businessSectionPath(item.id))}
-                        className={`biz-page__hub-card biz-page__hub-card--${cardVisual.accent}`}
-                      >
-                        <span className="biz-page__hub-card-media" aria-hidden="true">
-                          <Image
-                            src={cardVisual.image}
-                            alt=""
-                            fill
-                            sizes="(max-width: 720px) 100vw, 18rem"
-                            className="biz-page__hub-card-image"
-                            quality={75}
-                          />
-                          <span className="biz-page__hub-card-shade" />
-                          <span className="biz-page__hub-card-index">
-                            {String(index + 1).padStart(2, "0")}
+          <div className="biz-page__main">
+            {isHub ? (
+              <section
+                className="biz-page__section biz-page__section--hub"
+                aria-label={content.navLabel}
+              >
+                <ul className="biz-page__hub-grid">
+                  {content.nav.map((item) => {
+                    const cardVisual = BUSINESS_SECTION_VISUALS[item.id];
+                    return (
+                      <li key={item.id}>
+                        <Link
+                          href={path(locale, businessSectionPath(item.id))}
+                          className={`biz-page__hub-card biz-page__hub-card--${cardVisual.accent}`}
+                        >
+                          <span
+                            className="biz-page__hub-card-media"
+                            aria-hidden="true"
+                          >
+                            <Image
+                              src={cardVisual.image}
+                              alt=""
+                              fill
+                              sizes="(max-width: 720px) 100vw, 18rem"
+                              className="biz-page__hub-card-image"
+                              quality={75}
+                            />
+                            <span className="biz-page__hub-card-shade" />
                           </span>
-                        </span>
-                        <span className="biz-page__hub-card-body">
-                          <span className="biz-page__hub-card-title">
-                            {item.label}
+                          <span className="biz-page__hub-card-body">
+                            <span className="biz-page__hub-card-title">
+                              {item.label}
+                            </span>
+                            <span className="biz-page__hub-card-action">
+                              {content.hub.openLabel}
+                              <span aria-hidden="true"> →</span>
+                            </span>
                           </span>
-                          <span className="biz-page__hub-card-action">
-                            {content.hub.openLabel}
-                            <span aria-hidden="true"> →</span>
-                          </span>
-                        </span>
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            </section>
-          ) : (
-            <>
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </section>
+            ) : (
               <BusinessSectionBody
                 locale={locale}
                 content={content}
                 sectionId={sectionId}
               />
-              <nav className="biz-page__pager" aria-label={content.navLabel}>
-                {prevId && prevLabel ? (
-                  <Link
-                    href={path(locale, businessSectionPath(prevId))}
-                    className="biz-page__pager-link biz-page__pager-link--prev"
-                  >
-                    <span className="biz-page__pager-dir" aria-hidden="true">
-                      ←
-                    </span>
-                    <span className="biz-page__pager-title">{prevLabel}</span>
-                  </Link>
-                ) : (
-                  <Link
-                    href={path(locale, "/business/")}
-                    className="biz-page__pager-link biz-page__pager-link--prev"
-                  >
-                    <span className="biz-page__pager-dir" aria-hidden="true">
-                      ←
-                    </span>
-                    <span className="biz-page__pager-title">{content.backLabel}</span>
-                  </Link>
-                )}
-                {nextId && nextLabel ? (
-                  <Link
-                    href={path(locale, businessSectionPath(nextId))}
-                    className="biz-page__pager-link biz-page__pager-link--next"
-                  >
-                    <span className="biz-page__pager-title">{nextLabel}</span>
-                    <span className="biz-page__pager-dir" aria-hidden="true">
-                      →
-                    </span>
-                  </Link>
-                ) : (
-                  <span className="biz-page__pager-spacer" aria-hidden="true" />
-                )}
-              </nav>
-            </>
-          )}
+            )}
 
-          <aside className="biz-page__sources" aria-labelledby="biz-sources">
-            <h2 id="biz-sources" className="biz-page__sources-title">
-              {content.sources.heading}
-            </h2>
-            <ul className="biz-page__sources-list">
-              {content.sources.items.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </aside>
+            <aside className="biz-page__sources" aria-labelledby="biz-sources">
+              <h2 id="biz-sources" className="biz-page__sources-title">
+                {content.sources.heading}
+              </h2>
+              <ul className="biz-page__sources-list">
+                {content.sources.items.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </aside>
 
-          <nav className="biz-page__explore" aria-labelledby="biz-explore">
-            <h2 id="biz-explore" className="biz-page__explore-heading">
-              {content.explore.heading}
-            </h2>
-            <ul className="biz-page__explore-list">
-              {content.explore.links.map((link) => (
-                <li key={`${link.href}-${link.label}`}>
-                  <Link
-                    href={path(locale, link.href)}
-                    className="biz-page__explore-link"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
+            <nav className="biz-page__explore" aria-labelledby="biz-explore">
+              <h2 id="biz-explore" className="biz-page__explore-heading">
+                {content.explore.heading}
+              </h2>
+              <ul className="biz-page__explore-list">
+                {content.explore.links.map((link) => (
+                  <li key={`${link.href}-${link.label}`}>
+                    <Link
+                      href={path(locale, link.href)}
+                      className="biz-page__explore-link"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </div>
         </div>
       </div>
     </article>

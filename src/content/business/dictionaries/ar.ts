@@ -162,7 +162,7 @@ export const dictionary: Record<string, string> = {
   "The remaining business task is to convert defined SAVEN applications into demonstrated, repeatable use.": "تتمثل مهمة الأعمال المتبقية في تحويل تطبيقات SAVEN المحددة إلى استخدام مُثبت وقابل للتكرار.",
   "That is the point where technical progress begins to become measurable business activity.": "عند تلك النقطة يبدأ التقدم التقني في التحول إلى نشاط أعمال قابل للقياس.",
   "Sources & Market Data": "المصادر وبيانات السوق",
-  "Continue exploring": "تابع الاستكشاف",
+  "Continue Exploring": "تابع الاستكشاف",
   "Technology": "التقنية",
   "Investors": "المستثمرون",
   "Partners": "الشركاء",

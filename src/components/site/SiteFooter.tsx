@@ -26,10 +26,8 @@ type SiteFooterProps = {
 };
 
 /**
- * Compact expandable footer depth map (D-0293 / D-0292):
- * section titles stay visible; links open on demand (exclusive accordion).
- * Install app lives in the Company column; Contact form on `/contact/` only;
- * bottom order: socials → disclaimer → bar.
+ * Always-visible footer columns (D-0297): long Trust · Legal lists use More….
+ * Sitemap stays left of socials as a page link. Install app in Company.
  */
 export function SiteFooter({
   locale,
@@ -44,9 +42,18 @@ export function SiteFooter({
   const groups = footerNavigation
     .map((group) => ({
       ...group,
-      links: group.links.filter(isFooterLinkPublished),
+      links: group.links
+        .filter(isFooterLinkPublished)
+        // Always-visible Sitemap sits beside socials (D-0296).
+        .filter((link) => link.id !== "footer-company-sitemap"),
     }))
     .filter((group) => group.links.length > 0);
+
+  const sitemapLabel = getNavEntryLabel(
+    locale,
+    "footer-company-sitemap",
+    "Sitemap",
+  );
 
   return (
     <footer className="site-footer">
@@ -67,7 +74,7 @@ export function SiteFooter({
           </p>
         </div>
 
-        <div className="site-footer__grid">
+        <div className="site-footer__grid" id="site-footer-map">
           {groups.map((group, columnIndex) => {
             const title = getFooterGroupTitle(locale, group.id, group.title);
             const headingId = `footer-${group.id}`;
@@ -85,11 +92,11 @@ export function SiteFooter({
                 key={group.id}
                 className={`site-footer__column site-footer__column--${columnIndex + 1}`}
               >
-                <details className={groupClass} name="site-footer-nav">
-                  <summary className="site-footer__group-title" id={headingId}>
+                <section className={groupClass} aria-labelledby={headingId}>
+                  <h2 className="site-footer__group-title" id={headingId}>
                     {title}
-                  </summary>
-                  <ul className="site-footer__list" aria-labelledby={headingId}>
+                  </h2>
+                  <ul className="site-footer__list">
                     {group.links.map((link) => (
                       <li key={link.id}>
                         <Link
@@ -106,13 +113,19 @@ export function SiteFooter({
                     ))}
                     {installItem}
                   </ul>
-                </details>
+                </section>
               </div>
             );
           })}
         </div>
 
         <div className="site-footer__social-row">
+          <Link
+            href={localizePath(locale, "/sitemap/")}
+            className="site-footer__text-link site-footer__text-link--sitemap"
+          >
+            {sitemapLabel}
+          </Link>
           <FooterSocials locale={locale} />
         </div>
 

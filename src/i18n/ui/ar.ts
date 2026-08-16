@@ -76,14 +76,14 @@ export const uiAr: UiMessages = {
     "footer-company-media": "الوسائط",
     "footer-company-roadmap": "خارطة الطريق",
     "footer-resources-search": "بحث", "footer-resources-lab": "Lab",
-    "footer-resources-faq": "الأسئلة الشائعة",
+    "footer-resources-faq": "الأسئلة الشائعة", "footer-company-sitemap": "خريطة الموقع",
     "footer-resources-security-issue": "مشكلة أمنية",
     "footer-labs-overview": "نظرة عامة",
     "footer-labs-saven-robotics-lab": "SAVEN Robotics Lab",
     "footer-labs-internal-future-lab": "مختبر المستقبل",
     "footer-systems-saven-robotics-interface": "واجهة الروبوتات",
     "systems-saven-robotics-interface": "واجهة روبوتات SAVEN",
-   "sign-in": "تسجيل الدخول / الاشتراك", "footer-legal-privacy-policy": "سياسة الخصوصية", "footer-legal-terms-of-use": "شروط الاستخدام", "footer-legal-disclaimer": "إخلاء المسؤولية", "footer-company-partners": "الشركاء", "footer-company-business": "الأعمال", "trust-responsible-development": "تطوير مسؤول", "footer-legal-cookie-policy": "سياسة ملفات تعريف الارتباط", "footer-legal-cookie-preferences": "تفضيلات ملفات تعريف الارتباط", "footer-legal-accessibility-statement": "بيان إمكانية الوصول", "footer-legal-security": "الأمان", "footer-legal-responsible-ai": "الذكاء الاصطناعي المسؤول", "footer-legal-medical-disclaimer": "إخلاء مسؤولية طبية", "footer-legal-research-disclaimer": "إخلاء مسؤولية بحثية", "footer-legal-intellectual-property": "الملكية الفكرية", "footer-legal-trademark-notice": "إشعار العلامة التجارية", "footer-legal-copyright": "إشعار حقوق النشر", "footer-legal-data-rights": "حقوق البيانات", "footer-legal-regional-privacy-rights": "حقوق الخصوصية الإقليمية", "footer-legal-do-not-sell-or-share": "عدم البيع أو المشاركة", "footer-legal-legal-notices": "إشعارات قانونية", "footer-legal-more": "المزيد"},
+   "sign-in": "تسجيل الدخول / الاشتراك", "footer-legal-privacy-policy": "سياسة الخصوصية", "footer-legal-terms-of-use": "شروط الاستخدام", "footer-legal-disclaimer": "إخلاء المسؤولية", "footer-company-partners": "الشركاء", "footer-company-business": "الأعمال", "footer-business-market-context": "سياق السوق", "footer-business-human-data": "البيانات البشرية", "footer-business-saven-physical-systems": "SAVEN والأنظمة المادية", "footer-business-where-value-is-created": "أين تُنشأ القيمة", "footer-business-applications": "تطبيقات الأعمال", "footer-business-why-the-timing-matters": "لماذا يهم التوقيت", "footer-business-what-we-know-today": "ما نعرفه اليوم", "footer-legal-overview": "القانونية", "trust-responsible-development": "تطوير مسؤول", "footer-legal-cookie-policy": "سياسة ملفات تعريف الارتباط", "footer-legal-cookie-preferences": "تفضيلات ملفات تعريف الارتباط", "footer-legal-accessibility-statement": "بيان إمكانية الوصول", "footer-legal-security": "الأمان", "footer-legal-responsible-ai": "الذكاء الاصطناعي المسؤول", "footer-legal-medical-disclaimer": "إخلاء مسؤولية طبية", "footer-legal-research-disclaimer": "إخلاء مسؤولية بحثية", "footer-legal-intellectual-property": "الملكية الفكرية", "footer-legal-trademark-notice": "إشعار العلامة التجارية", "footer-legal-copyright": "إشعار حقوق النشر", "footer-legal-data-rights": "حقوق البيانات", "footer-legal-regional-privacy-rights": "حقوق الخصوصية الإقليمية", "footer-legal-do-not-sell-or-share": "عدم البيع أو المشاركة", "footer-legal-legal-notices": "إشعارات قانونية", "footer-trust-more": "المزيد…", "footer-legal-more": "المزيد…"},
   footer: {
     ...uiEn.footer,
     technology: "التقنية",
@@ -98,7 +98,7 @@ export const uiAr: UiMessages = {
     resources: "مصادر",
     company: "الشركة",
     legal: "قانوني",
-    more: "المزيد",
+    more: "المزيد", sectionOpen: "فتح", sectionClose: "إغلاق",
     contact: "اتصل بنا",
     plannedNote: "",
     comingSoon: "",
@@ -320,6 +320,11 @@ export const uiAr: UiMessages = {
     note: "يمكن ربط تجارب جديدة من هذا المركز. هذه الصفحة noindex وليست في القائمة الرئيسية. الصفحة العامة تبقى كولاج الصور.",
   },
 
+    sitemap: {
+    eyebrow: "تنقّل",
+    title: "خريطة الموقع",
+    lede: "جميع الصفحات المنشورة في هذا الموقع، مجمّعة حسب القسم.",
+  },
   medicalDisclaimer: {
     short:
       "لا يقوم SAVEN Core بتشخيص الحالات الطبية أو وصف الأدوية أو بيعها أو تقديم رعاية طارئة عبر هذا الموقع. نطوّر أنظمة تهدف إلى دعم الأطباء والعاملين الطبيين والناس. محتوى الموقع معلوماتي — وليس نصيحة طبية.",

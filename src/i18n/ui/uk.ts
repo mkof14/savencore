@@ -76,14 +76,14 @@ export const uiUk: UiMessages = {
     "footer-company-media": "Медіа",
     "footer-company-roadmap": "Дорожня карта",
     "footer-resources-search": "Пошук", "footer-resources-lab": "Lab",
-    "footer-resources-faq": "FAQ",
+    "footer-resources-faq": "FAQ", "footer-company-sitemap": "Карта сайту",
     "footer-resources-security-issue": "Проблема безпеки",
     "footer-labs-overview": "Огляд",
     "footer-labs-saven-robotics-lab": "SAVEN Robotics Lab",
     "footer-labs-internal-future-lab": "Future Lab",
     "footer-systems-saven-robotics-interface": "Роботичний інтерфейс",
     "systems-saven-robotics-interface": "Роботичний інтерфейс SAVEN",
-   "sign-in": "Увійти / Зареєструватися", "footer-legal-privacy-policy": "Політика конфіденційності", "footer-legal-terms-of-use": "Умови використання", "footer-legal-disclaimer": "Відмова від відповідальності", "footer-company-partners": "Партнерам", "footer-company-business": "Бізнес", "trust-responsible-development": "Відповідальна розробка", "footer-legal-cookie-policy": "Політика файлів cookie", "footer-legal-cookie-preferences": "Налаштування файлів cookie", "footer-legal-accessibility-statement": "Заява про доступність", "footer-legal-security": "Безпека", "footer-legal-responsible-ai": "Відповідальний ШІ", "footer-legal-medical-disclaimer": "Медичне застереження", "footer-legal-research-disclaimer": "Дослідницьке застереження", "footer-legal-intellectual-property": "Інтелектуальна власність", "footer-legal-trademark-notice": "Повідомлення про торговельну марку", "footer-legal-copyright": "Повідомлення про авторське право", "footer-legal-data-rights": "Права на дані", "footer-legal-regional-privacy-rights": "Регіональні права на конфіденційність", "footer-legal-do-not-sell-or-share": "Не продавати й не передавати", "footer-legal-legal-notices": "Юридичні повідомлення", "footer-legal-more": "Ще"},
+   "sign-in": "Увійти / Зареєструватися", "footer-legal-privacy-policy": "Політика конфіденційності", "footer-legal-terms-of-use": "Умови використання", "footer-legal-disclaimer": "Відмова від відповідальності", "footer-company-partners": "Партнерам", "footer-company-business": "Бізнес", "footer-business-market-context": "Контекст ринку", "footer-business-human-data": "Людські дані", "footer-business-saven-physical-systems": "SAVEN і фізичні системи", "footer-business-where-value-is-created": "Де створюється цінність", "footer-business-applications": "Бізнес-застосування", "footer-business-why-the-timing-matters": "Чому важливий момент", "footer-business-what-we-know-today": "Що ми знаємо сьогодні", "footer-legal-overview": "Правова інформація", "trust-responsible-development": "Відповідальна розробка", "footer-legal-cookie-policy": "Політика файлів cookie", "footer-legal-cookie-preferences": "Налаштування файлів cookie", "footer-legal-accessibility-statement": "Заява про доступність", "footer-legal-security": "Безпека", "footer-legal-responsible-ai": "Відповідальний ШІ", "footer-legal-medical-disclaimer": "Медичне застереження", "footer-legal-research-disclaimer": "Дослідницьке застереження", "footer-legal-intellectual-property": "Інтелектуальна власність", "footer-legal-trademark-notice": "Повідомлення про торговельну марку", "footer-legal-copyright": "Повідомлення про авторське право", "footer-legal-data-rights": "Права на дані", "footer-legal-regional-privacy-rights": "Регіональні права на конфіденційність", "footer-legal-do-not-sell-or-share": "Не продавати й не передавати", "footer-legal-legal-notices": "Юридичні повідомлення", "footer-trust-more": "Ще…", "footer-legal-more": "Ще…"},
   footer: {
     ...uiEn.footer,
     technology: "Технології",
@@ -98,7 +98,7 @@ export const uiUk: UiMessages = {
     resources: "Ресурси",
     company: "Компанія",
     legal: "Правова інформація",
-    more: "Ще",
+    more: "Ще", sectionOpen: "Відкрити", sectionClose: "Сховати",
     contact: "Контакти",
     plannedNote: "",
     comingSoon: "",
@@ -327,6 +327,11 @@ export const uiUk: UiMessages = {
     note: "Нові експерименти можна додавати з цього хабу. Сторінка noindex і не в головному меню. Публічна домашня лишається фотоколажем.",
   },
 
+    sitemap: {
+    eyebrow: "Навігація",
+    title: "Карта сайту",
+    lede: "Усі опубліковані сторінки сайту за розділами.",
+  },
   medicalDisclaimer: {
     short:
       "SAVEN Core не ставить медичних діагнозів, не призначає і не продає ліки та не надає екстрену допомогу через цей вебсайт. Ми розробляємо системи, призначені підтримувати лікарів, медичних працівників і людей. Вміст сайту — інформаційний, а не медична порада.",

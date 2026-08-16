@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Props) {
   });
 }
 
-/** Business hub — overview + links into section leaves (D-0288). */
+/** Business hub — visual index into section leaves (D-0291). */
 export default async function Page({ params }: Props) {
   const { locale: localeParam } = await params;
   if (!isLocale(localeParam)) {

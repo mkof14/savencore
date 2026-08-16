@@ -1,15 +1,14 @@
-/* Business page — hub + section leaves (D-0284–D-0289) */
+/* Business page — continuous sections + sticky nav (D-0284–D-0290) */
 
-.biz-page {
-  --biz-hero-ink: #eef3f7;
-  --biz-hero-muted: color-mix(in srgb, #eef3f7 78%, transparent);
-  --biz-navy: #0c1628;
-  --biz-gold: #d4a84b;
-  --biz-blue: #5b8db8;
-  --biz-side-w: 15rem;
+.biz-page__redirect-note {
+  margin: 2rem auto;
+  max-width: 40rem;
+  padding: 1rem 1.25rem;
+  font-size: 0.95rem;
+}
 
-  color: var(--color-text);
-  background: var(--color-background);
+.biz-page__redirect-note a {
+  color: var(--color-accent-text);
 }
 
 /* ——— Hero ——— */
@@ -20,6 +19,7 @@
   color: var(--biz-hero-ink);
   background: #14171d;
   border-block-end: 1px solid color-mix(in srgb, var(--biz-gold) 40%, transparent);
+  scroll-margin-top: 5.5rem;
 }
 
 .biz-page__hero-atmosphere {
@@ -602,43 +602,129 @@ html[data-theme="light"] .biz-page__hub-lede {
 
 /* ——— Layout + nav ——— */
 
-.biz-page__layout {
+.biz-page__shell {
   max-width: 72rem;
   margin-inline: auto;
   padding: clamp(1.5rem, 3vw, 2.25rem) var(--container-padding-x, clamp(1.25rem, 4vw, 2.5rem))
     clamp(3rem, 6vw, 4.5rem);
+}
+
+/*
+ * Grid children (from Fragment + main):
+ * 1) mobile-nav  2) nav-col  3) main
+ * Desktop: mobile hidden → rail | content
+ */
+.biz-page__layout {
   display: grid;
   grid-template-columns: var(--biz-side-w) minmax(0, 1fr);
-  gap: clamp(1.5rem, 3vw, 2.5rem);
+  gap: clamp(1.35rem, 3vw, 2.25rem);
   align-items: start;
 }
 
-@media (max-width: 980px) {
-  .biz-page__layout {
-    grid-template-columns: 1fr;
-  }
+.biz-page__mobile-nav {
+  display: none;
+  grid-column: 1 / -1;
+  margin: 0 0 0.35rem;
+  padding: 0.85rem 1rem;
+  z-index: 5;
+  isolation: isolate;
+  border: 1px solid color-mix(in srgb, var(--biz-gold) 42%, #2a3a52);
+  background: #10151e;
+  box-shadow: 0 10px 24px color-mix(in srgb, #000 28%, transparent);
 }
 
-.biz-page__side-nav {
+.biz-page__nav-col {
+  grid-column: 1;
   position: sticky;
   top: 5.5rem;
   align-self: start;
-  padding: 1rem 0.85rem 1.1rem;
-  border: 1px solid color-mix(in srgb, var(--color-border) 75%, var(--biz-gold));
-  background: linear-gradient(
-    165deg,
-    color-mix(in srgb, var(--color-surface) 88%, var(--biz-navy)) 0%,
-    var(--color-surface) 100%
-  );
+  width: 100%;
+  max-width: var(--biz-side-w);
+  min-width: 0;
+  max-height: calc(100vh - 6.5rem);
+  z-index: 2;
+}
+
+.biz-page__main {
+  grid-column: 2;
+  display: grid;
+  gap: clamp(1.25rem, 2.5vw, 1.75rem);
+  min-width: 0;
+}
+
+.biz-page__side-nav {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  max-height: calc(100vh - 6.5rem);
+  overflow: auto;
+  overflow-x: hidden;
+  padding: 1rem 0.85rem 1.15rem;
+  border: 1px solid color-mix(in srgb, var(--biz-gold) 42%, #2a3a52);
+  background: #10151e;
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--biz-blue) 14%, transparent),
+    0 16px 36px color-mix(in srgb, #000 38%, transparent);
+}
+
+/* Absolute atmosphere needs a positioned ancestor; relative side-nav qualifies. */
+.biz-page__side-nav-atmosphere {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse 80% 55% at 12% 0%,
+      color-mix(in srgb, var(--biz-gold) 18%, transparent),
+      transparent 58%
+    ),
+    radial-gradient(
+      ellipse 70% 50% at 100% 100%,
+      color-mix(in srgb, var(--biz-blue) 16%, transparent),
+      transparent 55%
+    ),
+    linear-gradient(165deg, #121820 0%, #0e141c 55%, #10151e 100%);
+}
+
+.biz-page__side-nav-head,
+.biz-page__side-nav-list {
+  position: relative;
+  z-index: 1;
+}
+
+.biz-page__side-nav-head {
+  margin: 0 0 0.85rem;
+  padding: 0 0.15rem 0.75rem;
+  border-block-end: 1px solid color-mix(in srgb, var(--biz-gold) 28%, #2a3a52);
 }
 
 .biz-page__side-nav-label {
-  margin: 0 0 0.75rem;
-  font-size: 0.7rem;
+  margin: 0 0 0.55rem;
+  font-size: 0.68rem;
   font-weight: 650;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--color-text-secondary);
+  color: color-mix(in srgb, #eef3f7 55%, var(--biz-gold));
+}
+
+.biz-page__side-nav-progress {
+  height: 2px;
+  background: color-mix(in srgb, #eef3f7 12%, transparent);
+  overflow: hidden;
+}
+
+.biz-page__side-nav-progress-fill {
+  display: block;
+  height: 100%;
+  width: 100%;
+  transform-origin: inline-start;
+  background: linear-gradient(
+    90deg,
+    var(--biz-gold),
+    color-mix(in srgb, var(--biz-gold) 55%, var(--biz-blue))
+  );
+  transition: transform 220ms ease;
 }
 
 .biz-page__side-nav-list {
@@ -646,59 +732,76 @@ html[data-theme="light"] .biz-page__hub-lede {
   padding: 0;
   list-style: none;
   display: grid;
-  gap: 0.15rem;
-  border-inline-start: 1px solid color-mix(in srgb, var(--color-border) 85%, transparent);
+  gap: 0.2rem;
 }
 
 .biz-page__side-nav-link {
   display: grid;
-  grid-template-columns: 1.75rem minmax(0, 1fr);
-  align-items: baseline;
-  gap: 0.35rem;
-  padding: 0.45rem 0.75rem;
+  grid-template-columns: 0.7rem minmax(0, 1fr);
+  align-items: start;
+  gap: 0.55rem;
+  padding: 0.5rem 0.55rem;
   font-size: 0.875rem;
   line-height: 1.35;
-  color: var(--color-text-secondary);
+  color: color-mix(in srgb, #eef3f7 68%, transparent);
   text-decoration: none;
-  border-inline-start: 2px solid transparent;
-  margin-inline-start: -1px;
-  transition: color 140ms ease, background-color 140ms ease;
+  border: 1px solid transparent;
+  transition:
+    color 160ms ease,
+    background-color 160ms ease,
+    border-color 160ms ease,
+    transform 160ms ease;
 }
 
-.biz-page__side-nav-index {
-  font-size: 0.68rem;
-  font-weight: 650;
-  letter-spacing: 0.06em;
-  color: color-mix(in srgb, var(--biz-gold) 55%, var(--color-text-secondary));
+.biz-page__side-nav-dot {
+  display: block;
+  width: 0.35rem;
+  height: 0.35rem;
+  margin-block-start: 0.45em;
+  background: color-mix(in srgb, #eef3f7 28%, transparent);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--biz-gold) 18%, transparent);
 }
 
-.biz-page__side-nav-link--active .biz-page__side-nav-index {
-  color: var(--biz-gold);
+.biz-page__side-nav-text {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.biz-page__side-nav-link:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--biz-gold) 75%, transparent);
+  outline-offset: 2px;
 }
 
 .biz-page__side-nav-link:hover,
 .biz-page__side-nav-link:focus-visible {
-  color: var(--color-text);
-  background: color-mix(in srgb, var(--biz-gold) 8%, transparent);
+  color: #eef3f7;
+  background: color-mix(in srgb, var(--biz-gold) 10%, transparent);
+  border-color: color-mix(in srgb, var(--biz-gold) 22%, transparent);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .biz-page__side-nav-link:hover {
+    transform: translateX(2px);
+  }
+
+  [dir="rtl"] .biz-page__side-nav-link:hover {
+    transform: translateX(-2px);
+  }
 }
 
 .biz-page__side-nav-link--active {
-  color: var(--color-text);
+  color: #eef3f7;
   font-weight: 600;
-  border-inline-start-color: var(--biz-gold);
-  background: color-mix(in srgb, var(--biz-gold) 12%, transparent);
+  background: color-mix(in srgb, var(--biz-gold) 14%, #152033);
+  border-color: color-mix(in srgb, var(--biz-gold) 40%, #2a3a52);
+  box-shadow: inset 3px 0 0 var(--biz-gold);
 }
 
-.biz-page__mobile-nav {
-  display: none;
-  margin: 0 0 0.5rem;
-  padding: 0.85rem 1rem;
-  border: 1px solid color-mix(in srgb, var(--color-border) 75%, var(--biz-gold));
-  background: linear-gradient(
-    165deg,
-    color-mix(in srgb, var(--color-surface) 88%, var(--biz-navy)) 0%,
-    var(--color-surface) 100%
-  );
+.biz-page__side-nav-link--active .biz-page__side-nav-dot {
+  background: var(--biz-gold);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--biz-gold) 55%, #fff),
+    0 0 10px color-mix(in srgb, var(--biz-gold) 35%, transparent);
 }
 
 .biz-page__mobile-nav-label {
@@ -708,7 +811,7 @@ html[data-theme="light"] .biz-page__hub-lede {
   font-weight: 650;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--color-text-secondary);
+  color: color-mix(in srgb, #eef3f7 55%, var(--biz-gold));
 }
 
 .biz-page__mobile-nav-select {
@@ -716,29 +819,81 @@ html[data-theme="light"] .biz-page__hub-lede {
   min-height: 2.5rem;
   padding: 0.4rem 0.65rem;
   font: inherit;
-  color: var(--color-text);
-  background: var(--color-background);
-  border: 1px solid color-mix(in srgb, var(--color-border) 90%, transparent);
+  color: #eef3f7;
+  background: #0c121a;
+  border: 1px solid color-mix(in srgb, var(--biz-gold) 28%, #2a3a52);
   border-radius: 0;
 }
 
-@media (max-width: 980px) {
-  .biz-page__side-nav {
+/* Narrow / tablet: rail off — compact selector only. */
+@media (max-width: 1100px) {
+  .biz-page__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .biz-page__nav-col {
     display: none;
+  }
+
+  .biz-page__main {
+    grid-column: 1;
   }
 
   .biz-page__mobile-nav {
     display: block;
     position: sticky;
     top: 4.25rem;
-    z-index: 4;
   }
 }
 
-.biz-page__main {
-  display: grid;
-  gap: clamp(1.25rem, 2.5vw, 1.75rem);
-  min-width: 0;
+html[data-theme="light"] .biz-page__side-nav,
+html[data-theme="light"] .biz-page__mobile-nav {
+  background: #f7f5f0;
+  border-color: color-mix(in srgb, var(--biz-gold) 45%, #cfcfd4);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--biz-navy) 6%, transparent),
+    0 14px 28px color-mix(in srgb, var(--biz-navy) 8%, transparent);
+}
+
+html[data-theme="light"] .biz-page__side-nav-atmosphere {
+  background:
+    radial-gradient(
+      ellipse 80% 55% at 12% 0%,
+      color-mix(in srgb, var(--biz-gold) 22%, transparent),
+      transparent 58%
+    ),
+    radial-gradient(
+      ellipse 70% 50% at 100% 100%,
+      color-mix(in srgb, var(--biz-blue) 12%, transparent),
+      transparent 55%
+    ),
+    linear-gradient(165deg, #faf8f4 0%, #f3f0ea 100%);
+}
+
+html[data-theme="light"] .biz-page__side-nav-label,
+html[data-theme="light"] .biz-page__mobile-nav-label {
+  color: color-mix(in srgb, #1a1d24 55%, var(--biz-gold));
+}
+
+html[data-theme="light"] .biz-page__side-nav-link {
+  color: #3a3f4a;
+}
+
+html[data-theme="light"] .biz-page__side-nav-link:hover,
+html[data-theme="light"] .biz-page__side-nav-link:focus-visible,
+html[data-theme="light"] .biz-page__side-nav-link--active {
+  color: #1a1d24;
+}
+
+html[data-theme="light"] .biz-page__side-nav-link--active {
+  background: color-mix(in srgb, var(--biz-gold) 16%, #fff);
+  border-color: color-mix(in srgb, var(--biz-gold) 48%, #d4d4d8);
+}
+
+html[data-theme="light"] .biz-page__mobile-nav-select {
+  color: #1a1d24;
+  background: #ffffff;
+  border-color: #d4d4d8;
 }
 
 /* ——— Sections ——— */
@@ -755,7 +910,7 @@ html[data-theme="light"] .biz-page__hub-lede {
   );
   border: 1px solid color-mix(in srgb, var(--color-border) 75%, var(--biz-gold));
   color: var(--color-text);
-  scroll-margin-top: 6rem;
+  scroll-margin-top: 6.25rem;
   box-shadow: 0 1px 0 color-mix(in srgb, var(--biz-gold) 14%, transparent);
 }
 
@@ -778,7 +933,7 @@ html[data-theme="light"] .biz-page__hub-lede {
   color: var(--color-text);
 }
 
-/* Leaf pages already title the topic in the hero — keep heading for a11y only. */
+/* Leaf hero already shows the topic title — keep heading for a11y only. */
 .biz-page__section-title--leaf {
   position: absolute;
   width: 1px;
@@ -1456,8 +1611,6 @@ html[data-theme="light"] .biz-page__hub-lede {
 
 html[data-theme="light"] .biz-page__section,
 html[data-theme="light"] .biz-page__explore,
-html[data-theme="light"] .biz-page__mobile-nav,
-html[data-theme="light"] .biz-page__side-nav,
 html[data-theme="light"] .biz-page__subpanel,
 html[data-theme="light"] .biz-page__app-card,
 html[data-theme="light"] .biz-page__flow-relations,
@@ -1486,8 +1639,7 @@ html[data-theme="light"] .biz-page__prose-single,
 html[data-theme="light"] .biz-page__explore-heading,
 html[data-theme="light"] .biz-page__flow-relations-heading,
 html[data-theme="light"] .biz-page__flow-relation-from,
-html[data-theme="light"] .biz-page__flow-relation-to,
-html[data-theme="light"] .biz-page__side-nav-link--active {
+html[data-theme="light"] .biz-page__flow-relation-to {
   color: #1a1d24;
 }
 
@@ -1499,9 +1651,7 @@ html[data-theme="light"] .biz-page__disclaimer,
 html[data-theme="light"] .biz-page__sources-title,
 html[data-theme="light"] .biz-page__sources-list,
 html[data-theme="light"] .biz-page__flow-relation-activity,
-html[data-theme="light"] .biz-page__flow-note,
-html[data-theme="light"] .biz-page__side-nav-label,
-html[data-theme="light"] .biz-page__side-nav-link {
+html[data-theme="light"] .biz-page__flow-note {
   color: #3a3f4a;
 }
 

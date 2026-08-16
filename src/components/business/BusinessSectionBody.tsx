@@ -16,7 +16,7 @@ function path(locale: Locale, href: string) {
   return localizePath(locale, href as PublishedRoute);
 }
 
-/** Single Business section body — one topic per route (D-0288). */
+/** One Business topic block inside the continuous Business page (D-0290). */
 export function BusinessSectionBody({
   locale,
   content,
@@ -33,9 +33,9 @@ export function BusinessSectionBody({
       return <ValueSection content={content} />;
     case "applications":
       return <ApplicationsSection locale={locale} content={content} />;
-    case "why-timing-matters":
+    case "why-the-timing-matters":
       return <TimingSection content={content} />;
-    case "what-we-know":
+    case "what-we-know-today":
       return <TodaySection content={content} />;
     default: {
       const _exhaustive: never = sectionId;
@@ -47,8 +47,8 @@ export function BusinessSectionBody({
 function MarketContextSection({ content }: { content: BusinessPageContent }) {
   const section = content.marketContext;
   return (
-    <section className="biz-page__section" aria-labelledby="biz-section-title">
-      <h2 id="biz-section-title" className="biz-page__section-title biz-page__section-title--leaf">
+    <section id={section.id} className="biz-page__section" aria-labelledby={`${section.id}-title`}>
+      <h2 id={`${section.id}-title`} className="biz-page__section-title biz-page__section-title--leaf">
         {section.heading}
       </h2>
       <div className="biz-page__evidence" role="group" aria-label={section.heading}>
@@ -99,8 +99,8 @@ function MarketContextSection({ content }: { content: BusinessPageContent }) {
 function HumanDataSection({ content }: { content: BusinessPageContent }) {
   const section = content.humanData;
   return (
-    <section className="biz-page__section" aria-labelledby="biz-section-title">
-      <h2 id="biz-section-title" className="biz-page__section-title biz-page__section-title--leaf">
+    <section id={section.id} className="biz-page__section" aria-labelledby={`${section.id}-title`}>
+      <h2 id={`${section.id}-title`} className="biz-page__section-title biz-page__section-title--leaf">
         {section.heading}
       </h2>
       <p className="biz-page__soft-lead">{section.lead}</p>
@@ -144,8 +144,8 @@ function HumanDataSection({ content }: { content: BusinessPageContent }) {
 function SystemsSection({ content }: { content: BusinessPageContent }) {
   const section = content.systems;
   return (
-    <section className="biz-page__section" aria-labelledby="biz-section-title">
-      <h2 id="biz-section-title" className="biz-page__section-title biz-page__section-title--leaf">
+    <section id={section.id} className="biz-page__section" aria-labelledby={`${section.id}-title`}>
+      <h2 id={`${section.id}-title`} className="biz-page__section-title biz-page__section-title--leaf">
         {section.heading}
       </h2>
       <div className="biz-page__prose">
@@ -191,8 +191,8 @@ function SystemsSection({ content }: { content: BusinessPageContent }) {
 function ValueSection({ content }: { content: BusinessPageContent }) {
   const section = content.value;
   return (
-    <section className="biz-page__section" aria-labelledby="biz-section-title">
-      <h2 id="biz-section-title" className="biz-page__section-title biz-page__section-title--leaf">
+    <section id={section.id} className="biz-page__section" aria-labelledby={`${section.id}-title`}>
+      <h2 id={`${section.id}-title`} className="biz-page__section-title biz-page__section-title--leaf">
         {section.heading}
       </h2>
 
@@ -316,8 +316,8 @@ function ApplicationsSection({
 }) {
   const section = content.applications;
   return (
-    <section className="biz-page__section" aria-labelledby="biz-section-title">
-      <h2 id="biz-section-title" className="biz-page__section-title biz-page__section-title--leaf">
+    <section id={section.id} className="biz-page__section" aria-labelledby={`${section.id}-title`}>
+      <h2 id={`${section.id}-title`} className="biz-page__section-title biz-page__section-title--leaf">
         {section.heading}
       </h2>
       <div className="biz-page__app-grid">
@@ -366,8 +366,8 @@ function ApplicationsSection({
 function TimingSection({ content }: { content: BusinessPageContent }) {
   const section = content.timing;
   return (
-    <section className="biz-page__section" aria-labelledby="biz-section-title">
-      <h2 id="biz-section-title" className="biz-page__section-title biz-page__section-title--leaf">
+    <section id={section.id} className="biz-page__section" aria-labelledby={`${section.id}-title`}>
+      <h2 id={`${section.id}-title`} className="biz-page__section-title biz-page__section-title--leaf">
         {section.heading}
       </h2>
       <ul className="biz-page__point-grid">
@@ -388,8 +388,8 @@ function TimingSection({ content }: { content: BusinessPageContent }) {
 function TodaySection({ content }: { content: BusinessPageContent }) {
   const section = content.today;
   return (
-    <section className="biz-page__section" aria-labelledby="biz-section-title">
-      <h2 id="biz-section-title" className="biz-page__section-title biz-page__section-title--leaf">
+    <section id={section.id} className="biz-page__section" aria-labelledby={`${section.id}-title`}>
+      <h2 id={`${section.id}-title`} className="biz-page__section-title biz-page__section-title--leaf">
         {section.heading}
       </h2>
       <div className="biz-page__prose">

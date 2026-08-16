@@ -162,7 +162,7 @@ export const dictionary: Record<string, string> = {
   "The remaining business task is to convert defined SAVEN applications into demonstrated, repeatable use.": "接下来的商业任务，是将已定义的 SAVEN 应用转化为经过证明且可重复的使用。",
   "That is the point where technical progress begins to become measurable business activity.": "技术进展从这一点开始转化为可衡量的商业活动。",
   "Sources & Market Data": "来源与市场数据",
-  "Continue exploring": "继续探索",
+  "Continue Exploring": "继续探索",
   "Technology": "技术",
   "Investors": "投资者",
   "Partners": "合作伙伴",

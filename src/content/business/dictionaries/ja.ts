@@ -162,7 +162,7 @@ export const dictionary: Record<string, string> = {
   "The remaining business task is to convert defined SAVEN applications into demonstrated, repeatable use.": "残るビジネス上の課題は、定義されたSAVENの応用を、実証され反復可能な利用へ変えることです。",
   "That is the point where technical progress begins to become measurable business activity.": "そこから、技術的な進歩が測定可能な事業活動になり始めます。",
   "Sources & Market Data": "出典と市場データ",
-  "Continue exploring": "さらに見る",
+  "Continue Exploring": "さらに見る",
   "Technology": "テクノロジー",
   "Investors": "投資家",
   "Partners": "パートナー",

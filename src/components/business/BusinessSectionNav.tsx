@@ -17,13 +17,13 @@ type BusinessSectionNavProps = {
   navLabel: string;
   mobileNavLabel: string;
   items: readonly BusinessNavItem[];
-  /** Active section id, or null on the Business hub. */
+  /** Active section on a leaf; null on the Business hub. */
   activeId: BusinessSectionId | null;
 };
 
 /**
- * Business side navigation — real sub-routes under /business/ (D-0288).
- * No in-page scroll jumping; Link navigation keeps layout calm.
+ * Business section navigation — real leaf routes (D-0291).
+ * Names only — no report numbering. No in-page scroll-spy.
  */
 export function BusinessSectionNav({
   locale,
@@ -34,38 +34,10 @@ export function BusinessSectionNav({
 }: BusinessSectionNavProps) {
   const selectId = useId();
   const router = useRouter();
+  const hubPath = localizePath(locale, "/business/");
 
   return (
     <>
-      <nav className="biz-page__side-nav" aria-label={navLabel}>
-        <p className="biz-page__side-nav-label">{navLabel}</p>
-        <ul className="biz-page__side-nav-list">
-          {items.map((item, index) => {
-            const href = localizePath(locale, businessSectionPath(item.id));
-            const isActive = activeId === item.id;
-            return (
-              <li key={item.id}>
-                <Link
-                  href={href}
-                  className={
-                    isActive
-                      ? "biz-page__side-nav-link biz-page__side-nav-link--active"
-                      : "biz-page__side-nav-link"
-                  }
-                  aria-current={isActive ? "page" : undefined}
-                  scroll
-                >
-                  <span className="biz-page__side-nav-index" aria-hidden="true">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <span className="biz-page__side-nav-text">{item.label}</span>
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-      </nav>
-
       <div className="biz-page__mobile-nav">
         <label className="biz-page__mobile-nav-label" htmlFor={selectId}>
           {mobileNavLabel}
@@ -75,17 +47,17 @@ export function BusinessSectionNav({
           className="biz-page__mobile-nav-select"
           value={activeId ?? ""}
           onChange={(event) => {
-            const next = event.target.value as BusinessSectionId;
+            const next = event.target.value;
             if (!next) {
-              router.push(localizePath(locale, "/business/"));
+              router.push(hubPath);
               return;
             }
-            router.push(localizePath(locale, businessSectionPath(next)));
+            router.push(
+              localizePath(locale, businessSectionPath(next as BusinessSectionId)),
+            );
           }}
         >
-          <option value="">
-            {navLabel}
-          </option>
+          <option value="">{navLabel}</option>
           {items.map((item) => (
             <option key={item.id} value={item.id}>
               {item.label}
@@ -93,6 +65,51 @@ export function BusinessSectionNav({
           ))}
         </select>
       </div>
+
+      <aside className="biz-page__nav-col">
+        <nav className="biz-page__side-nav" aria-label={navLabel}>
+          <div className="biz-page__side-nav-atmosphere" aria-hidden="true" />
+          <div className="biz-page__side-nav-head">
+            <p className="biz-page__side-nav-label">{navLabel}</p>
+          </div>
+          <ul className="biz-page__side-nav-list">
+            <li>
+              <Link
+                href={hubPath}
+                className={
+                  activeId === null
+                    ? "biz-page__side-nav-link biz-page__side-nav-link--active"
+                    : "biz-page__side-nav-link"
+                }
+                aria-current={activeId === null ? "page" : undefined}
+              >
+                <span className="biz-page__side-nav-dot" aria-hidden="true" />
+                <span className="biz-page__side-nav-text">{navLabel}</span>
+              </Link>
+            </li>
+            {items.map((item) => {
+              const href = localizePath(locale, businessSectionPath(item.id));
+              const isActive = activeId === item.id;
+              return (
+                <li key={item.id}>
+                  <Link
+                    href={href}
+                    className={
+                      isActive
+                        ? "biz-page__side-nav-link biz-page__side-nav-link--active"
+                        : "biz-page__side-nav-link"
+                    }
+                    aria-current={isActive ? "page" : undefined}
+                  >
+                    <span className="biz-page__side-nav-dot" aria-hidden="true" />
+                    <span className="biz-page__side-nav-text">{item.label}</span>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+      </aside>
     </>
   );
 }
